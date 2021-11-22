@@ -1,0 +1,620 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class points &#8212; ENVE v</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class polynom" href="class_a00081.html" />
+    <link rel="prev" title="Class hyperellipse" href="class_a00069.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00081.html" title="Class polynom"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00069.html" title="Class hyperellipse"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ENVE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class points</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-points">
+<span id="exhale-class-a00077"></span><h1>Class points<a class="headerlink" href="#class-points" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_enve_points.hh.html#file-include-enve-points-hh"><span class="std std-ref">File enve_points.hh</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">enve::shape</span></code> (<a class="reference internal" href="class_a00089.html#exhale-class-a00089"><span class="std std-ref">Class shape</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6pointsE">
+<span id="_CPPv3N4enve6pointsE"></span><span id="_CPPv2N4enve6pointsE"></span><span id="enve::points"></span><span class="target" id="a00077"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">enve</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">points</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">enve</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00089.html#_CPPv4N4enve5shapeE" title="enve::shape"><span class="n"><span class="pre">shape</span></span></a><a class="headerlink" href="#_CPPv4N4enve6pointsE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Raw points section shape. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points3ptrE">
+<span id="_CPPv3N4enve6points3ptrE"></span><span id="_CPPv2N4enve6points3ptrE"></span><span id="enve::points::ptr"></span><span class="target" id="a00077_1a89187412b4d48519afff4dd5a95074b8"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4enve6pointsE" title="enve::points"><span class="n"><span class="pre">points</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ptr</span></span></span><a class="headerlink" href="#_CPPv4N4enve6points3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Pointer to points object. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points6vecptrE">
+<span id="_CPPv3N4enve6points6vecptrE"></span><span id="_CPPv2N4enve6points6vecptrE"></span><span id="enve::points::vecptr"></span><span class="target" id="a00077_1aa654b160af5e091e94a6f86e39929484"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4enve6pointsE" title="enve::points"><span class="n"><span class="pre">points</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4enve6points3ptrE" title="enve::points::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vecptr</span></span></span><a class="headerlink" href="#_CPPv4N4enve6points6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pointers to points objects. </p>
+</dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6pointsD0Ev">
+<span id="_CPPv3N4enve6pointsD0Ev"></span><span id="_CPPv2N4enve6pointsD0Ev"></span><span id="enve::points::~points__void"></span><span class="target" id="a00077_1ae0bc2aeab8847a34d7f7edf747391fb7"></span><span class="sig-name descname"><span class="n"><span class="pre">~points</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6pointsD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Polynom class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points6pointsERK6points">
+<span id="_CPPv3N4enve6points6pointsERK6points"></span><span id="_CPPv2N4enve6points6pointsERK6points"></span><span id="enve::points::points__pointsCR"></span><span class="target" id="a00077_1a18c578b27c678c8ce70c1de217736192"></span><span class="sig-name descname"><span class="n"><span class="pre">points</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6points6pointsERK6points" title="enve::points::points"><span class="n"><span class="pre">points</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4enve6points6pointsERK6points" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Polynom copy constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points6pointsERR6points">
+<span id="_CPPv3N4enve6points6pointsERR6points"></span><span id="_CPPv2N4enve6points6pointsERR6points"></span><span id="enve::points::points__pointsRR"></span><span class="target" id="a00077_1a12bd8682a5176a00d2ebcd108c070457"></span><span class="sig-name descname"><span class="n"><span class="pre">points</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6points6pointsERR6points" title="enve::points::points"><span class="n"><span class="pre">points</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4enve6points6pointsERR6points" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Polynom move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points6pointsEv">
+<span id="_CPPv3N4enve6points6pointsEv"></span><span id="_CPPv2N4enve6points6pointsEv"></span><span id="enve::points::points__void"></span><span class="target" id="a00077_1af1b6407c9c930b031c40d8cc9f24d900"></span><span class="sig-name descname"><span class="n"><span class="pre">points</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points6pointsEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Polynom class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points6pointsERK4vecNRK4vecN">
+<span id="_CPPv3N4enve6points6pointsERK4vecNRK4vecN"></span><span id="_CPPv2N4enve6points6pointsERK4vecNRK4vecN"></span><span id="enve::points::points__vecNCR.vecNCR"></span><span class="target" id="a00077_1a7ca9a0cf9dad8024a2986233f13e6b64"></span><span class="sig-name descname"><span class="n"><span class="pre">points</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">vecN</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dataR</span></span>, <span class="n"><span class="pre">vecN</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dataY</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points6pointsERK4vecNRK4vecN" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Polynom class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>dataR</strong> – Vector of radius data (m) </p></li>
+<li><p><strong>dataY</strong> – Vector of y data (m) </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points4copyERK6points">
+<span id="_CPPv3N4enve6points4copyERK6points"></span><span id="_CPPv2N4enve6points4copyERK6points"></span><span id="enve::points::copy__pointsCR"></span><span class="target" id="a00077_1a028b84139da3daf212ca5dabb484d85f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6pointsE" title="enve::points"><span class="n"><span class="pre">points</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">points_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points4copyERK6points" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Copy points object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>points_in</strong> – Polynom object to be copied </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points8isApproxERK6points4real">
+<span id="_CPPv3NK4enve6points8isApproxERK6points4real"></span><span id="_CPPv2NK4enve6points8isApproxERK6points4real"></span><span id="enve::points::isApprox__pointsCR.realC"></span><span class="target" id="a00077_1a68336282aebd2b9df6016de9636a32de"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6pointsE" title="enve::points"><span class="n"><span class="pre">points</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">points_in</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points8isApproxERK6points4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if objects are (almost) equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>points_in</strong> – Input object </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points5dataREv">
+<span id="_CPPv3NK4enve6points5dataREv"></span><span id="_CPPv2NK4enve6points5dataREv"></span><span id="enve::points::dataR__voidC"></span><span class="target" id="a00077_1a1ddf1ec142ac0c78fe17a82abb32b5c2"></span><span class="n"><span class="pre">vecN</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataR</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points5dataREv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get radius vector const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points5dataRE6size_t">
+<span id="_CPPv3NK4enve6points5dataRE6size_t"></span><span id="_CPPv2NK4enve6points5dataRE6size_t"></span><span id="enve::points::dataR__sC"></span><span class="target" id="a00077_1a00937f2325a5f38b330f2aedc29688fd"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataR</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points5dataRE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get radius vector const reference (m) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th index </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points5dataYEv">
+<span id="_CPPv3NK4enve6points5dataYEv"></span><span id="_CPPv2NK4enve6points5dataYEv"></span><span id="enve::points::dataY__voidC"></span><span class="target" id="a00077_1aad4c4dffdf711dc384edfe4eba805597"></span><span class="n"><span class="pre">vecN</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataY</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points5dataYEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get width vector const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points5dataYE6size_t">
+<span id="_CPPv3NK4enve6points5dataYE6size_t"></span><span id="_CPPv2NK4enve6points5dataYE6size_t"></span><span id="enve::points::dataY__sC"></span><span class="target" id="a00077_1ad06636198f638dc1731686b3c881275f"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataY</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points5dataYE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get width vector const reference (m) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th index </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points5dataREv">
+<span id="_CPPv3N4enve6points5dataREv"></span><span id="_CPPv2N4enve6points5dataREv"></span><span id="enve::points::dataR__void"></span><span class="target" id="a00077_1ae07afc97a8490effca4cb5fed516396f"></span><span class="n"><span class="pre">vecN</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataR</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points5dataREv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get radius vector reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points5dataRE6size_t">
+<span id="_CPPv3N4enve6points5dataRE6size_t"></span><span id="_CPPv2N4enve6points5dataRE6size_t"></span><span id="enve::points::dataR__s"></span><span class="target" id="a00077_1a2ab48414bc517115a8baf7c038f2aeba"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataR</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points5dataRE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get radius vector reference (m) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th index </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points5dataYEv">
+<span id="_CPPv3N4enve6points5dataYEv"></span><span id="_CPPv2N4enve6points5dataYEv"></span><span id="enve::points::dataY__void"></span><span class="target" id="a00077_1aa1ed1aba7ddd4940d940670cd8d5354e"></span><span class="n"><span class="pre">vecN</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataY</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points5dataYEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get width vector reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points5dataYE6size_t">
+<span id="_CPPv3N4enve6points5dataYE6size_t"></span><span id="_CPPv2N4enve6points5dataYE6size_t"></span><span id="enve::points::dataY__s"></span><span class="target" id="a00077_1a95062422c6ca6dae5d43b0b67f92e3b1"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">dataY</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points5dataYE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get width vector reference (m) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Input i-th index </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points4sizeEv">
+<span id="_CPPv3NK4enve6points4sizeEv"></span><span id="_CPPv2NK4enve6points4sizeEv"></span><span id="enve::points::size__voidC"></span><span class="target" id="a00077_1a0902ba813747bc221bd58f7f94b02ecd"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points4sizeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get data vector size (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points10lowerBoundE4real">
+<span id="_CPPv3NK4enve6points10lowerBoundE4real"></span><span id="_CPPv2NK4enve6points10lowerBoundE4real"></span><span id="enve::points::lowerBound__realC"></span><span class="target" id="a00077_1af34877c458c34b5090c7bc22b00eb6b9"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lowerBound</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points10lowerBoundE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>y</strong> – Coordinate of y axis </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points10upperBoundE4real">
+<span id="_CPPv3NK4enve6points10upperBoundE4real"></span><span id="_CPPv2NK4enve6points10upperBoundE4real"></span><span id="enve::points::upperBound__realC"></span><span class="target" id="a00077_1ae88997a5bf97baaaf3ae253f9106aab5"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">upperBound</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points10upperBoundE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>y</strong> – Coordinate of y axis </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points13surfaceRadiusE4real">
+<span id="_CPPv3NK4enve6points13surfaceRadiusE4real"></span><span id="_CPPv2NK4enve6points13surfaceRadiusE4real"></span><span id="enve::points::surfaceRadius__realC"></span><span class="target" id="a00077_1a1c8e9c0f5aa2253f82b789115d656d1d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceRadius</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4enve6points13surfaceRadiusE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface of revolution rib radius at y axis coordinate. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>y</strong> – Coordinate of y axis </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points17surfaceDerivativeE4real4real">
+<span id="_CPPv3NK4enve6points17surfaceDerivativeE4real4real"></span><span id="_CPPv2NK4enve6points17surfaceDerivativeE4real4real"></span><span id="enve::points::surfaceDerivative__real.realC"></span><span class="target" id="a00077_1aeae1cd947511843588bed9cc34e05fac"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceDerivative</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_MEDIUM</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4enve6points17surfaceDerivativeE4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface of revolution rib first derivative with respect to y coordinate. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>y</strong> – Coordinate of y axis </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points12surfaceAngleE4real4real">
+<span id="_CPPv3NK4enve6points12surfaceAngleE4real4real"></span><span id="_CPPv2NK4enve6points12surfaceAngleE4real4real"></span><span id="enve::points::surfaceAngle__real.realC"></span><span class="target" id="a00077_1af027403c9808b41fccf66702964de2a1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceAngle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_MEDIUM</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4enve6points12surfaceAngleE4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface of revolution rib angle with respect to y axis (rad) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>y</strong> – Coordinate of y axis </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points5printER10out_stream">
+<span id="_CPPv3NK4enve6points5printER10out_stream"></span><span id="_CPPv2NK4enve6points5printER10out_stream"></span><span id="enve::points::print__out_streamRC"></span><span class="target" id="a00077_1a3880f1ee3cc36d14d327a3c646964cb8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">print</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">out_stream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points5printER10out_stream" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Print surface shape data. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>os</strong> – Output stream type </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points4copyERK5shape">
+<span id="_CPPv3N4enve6points4copyERK5shape"></span><span id="_CPPv2N4enve6points4copyERK5shape"></span><span id="enve::points::copy__shapeCR"></span><span class="target" id="a00089_1a01bf679dac42a6a354f3ec1327402bef"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00089.html#_CPPv4N4enve5shapeE" title="enve::shape"><span class="n"><span class="pre">shape</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points4copyERK5shape" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Copy shape object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>shape_in</strong> – Shape object to be copied </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points8isApproxERK5shape4real">
+<span id="_CPPv3NK4enve6points8isApproxERK5shape4real"></span><span id="_CPPv2NK4enve6points8isApproxERK5shape4real"></span><span id="enve::points::isApprox__shapeCR.realC"></span><span class="target" id="a00089_1aa509c8fa017ef7500110beae8289b514"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00089.html#_CPPv4N4enve5shapeE" title="enve::shape"><span class="n"><span class="pre">shape</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape_in</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points8isApproxERK5shape4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if objects are (almost) equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>shape_in</strong> – Shape object </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points16surfaceMaxRadiusEv">
+<span id="_CPPv3NK4enve6points16surfaceMaxRadiusEv"></span><span id="_CPPv2NK4enve6points16surfaceMaxRadiusEv"></span><span id="enve::points::surfaceMaxRadius__voidC"></span><span class="target" id="a00089_1ac85f00278892b2330e9325209a16e478"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceMaxRadius</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points16surfaceMaxRadiusEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum radius const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points16surfaceMaxRadiusEv">
+<span id="_CPPv3N4enve6points16surfaceMaxRadiusEv"></span><span id="_CPPv2N4enve6points16surfaceMaxRadiusEv"></span><span id="enve::points::surfaceMaxRadius__void"></span><span class="target" id="a00089_1a3a2d0b37330222933ceb591d1c80c82e"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceMaxRadius</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points16surfaceMaxRadiusEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum radius on reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points15surfaceMaxWidthEv">
+<span id="_CPPv3NK4enve6points15surfaceMaxWidthEv"></span><span id="_CPPv2NK4enve6points15surfaceMaxWidthEv"></span><span id="enve::points::surfaceMaxWidth__voidC"></span><span class="target" id="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceMaxWidth</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points15surfaceMaxWidthEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum width on y axis (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points22surfaceWidthLowerBoundEv">
+<span id="_CPPv3NK4enve6points22surfaceWidthLowerBoundEv"></span><span id="_CPPv2NK4enve6points22surfaceWidthLowerBoundEv"></span><span id="enve::points::surfaceWidthLowerBound__voidC"></span><span class="target" id="a00089_1a2d34c12f16852f76da529c00abc9d4a6"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidthLowerBound</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points22surfaceWidthLowerBoundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface minimum width const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points22surfaceWidthLowerBoundEv">
+<span id="_CPPv3N4enve6points22surfaceWidthLowerBoundEv"></span><span id="_CPPv2N4enve6points22surfaceWidthLowerBoundEv"></span><span id="enve::points::surfaceWidthLowerBound__void"></span><span class="target" id="a00089_1abcbef9ab73ba72c1ab7723f7026371b7"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidthLowerBound</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points22surfaceWidthLowerBoundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface minimum width on reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points22surfaceWidthUpperBoundEv">
+<span id="_CPPv3NK4enve6points22surfaceWidthUpperBoundEv"></span><span id="_CPPv2NK4enve6points22surfaceWidthUpperBoundEv"></span><span id="enve::points::surfaceWidthUpperBound__voidC"></span><span class="target" id="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidthUpperBound</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points22surfaceWidthUpperBoundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum width const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6points22surfaceWidthUpperBoundEv">
+<span id="_CPPv3N4enve6points22surfaceWidthUpperBoundEv"></span><span id="_CPPv2N4enve6points22surfaceWidthUpperBoundEv"></span><span id="enve::points::surfaceWidthUpperBound__void"></span><span class="target" id="a00089_1a968a6c23bd4c145ca4fb14be213d374c"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidthUpperBound</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6points22surfaceWidthUpperBoundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum width on reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points12surfaceWidthEv">
+<span id="_CPPv3NK4enve6points12surfaceWidthEv"></span><span id="_CPPv2NK4enve6points12surfaceWidthEv"></span><span id="enve::points::surfaceWidth__voidC"></span><span class="target" id="a00089_1afa694bcea531f52cbc33c4586202e1a8"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidth</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points12surfaceWidthEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface width (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6points15checkWidthBoundE4real">
+<span id="_CPPv3NK4enve6points15checkWidthBoundE4real"></span><span id="_CPPv2NK4enve6points15checkWidthBoundE4real"></span><span id="enve::points::checkWidthBound__realC"></span><span class="target" id="a00089_1a21cf4f513087dd2abb003fec5d92c1d1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">checkWidthBound</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6points15checkWidthBoundE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum width on reference (m) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>y</strong> – Coordinate of y axis </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ENVE library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00081.html" title="Class polynom"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00069.html" title="Class hyperellipse"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ENVE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class points</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

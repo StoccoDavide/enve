@@ -1,0 +1,1559 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File enve_shell.cc &#8212; ENVE v</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ENVE</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Program Listing for File enve_shell.cc</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-enve-shell-cc">
+<span id="program-listing-file-src-enve-shell-cc"></span><h1>Program Listing for File enve_shell.cc<a class="headerlink" href="#program-listing-for-file-enve-shell-cc" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_src_enve_shell.cc.html#file-src-enve-shell-cc"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/enve_shell.cc</span></code>)</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">(***********************************************************************)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* The ENVE project                                                    *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* The ENVE project can not be copied and/or distributed without the   *)</span>
+<span class="cm">(* express permission of Davide Stocco and Enrico Bertolazzi.          *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Davide Stocco                                                    *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: davide.stocco@unitn.it                                   *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Enrico Bertolazzi                                                *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(***********************************************************************)</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#include</span> <span class="cpf">"enve_shell.hh"</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">acme</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="n">enve</span>
+<span class="p">{</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |       _          _ _</span>
+<span class="cm">   |   ___| |__   ___| | |</span>
+<span class="cm">   |  / __| '_ \ / _ \ | |</span>
+<span class="cm">   |  \__ \ | | |  __/ | |</span>
+<span class="cm">   |  |___/_| |_|\___|_|_|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">shell</span><span class="o">::~</span><span class="n">shell</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">shell</span><span class="o">::</span><span class="n">shell</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">r_x</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">m_x</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">r_y</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">m_y</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">l_y</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">m_shape</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">hyperellipse</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r_x</span><span class="p">,</span> <span class="n">m_x</span><span class="p">,</span> <span class="n">r_y</span><span class="p">,</span> <span class="n">m_y</span><span class="p">,</span> <span class="n">l_y</span><span class="p">)),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">=</span> <span class="n">IDENTITY_MAT4</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">shell</span><span class="o">::</span><span class="n">shell</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span>
+    <span class="n">vecN</span>   <span class="n">dataR</span><span class="p">,</span>
+    <span class="n">vecN</span>   <span class="n">dataY</span><span class="p">,</span>
+    <span class="kt">size_t</span> <span class="n">order</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">tolerance</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">m_shape</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">polynom</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dataR</span><span class="p">,</span> <span class="n">dataY</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">=</span> <span class="n">IDENTITY_MAT4</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">shell</span><span class="o">::</span><span class="n">shell</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span>
+    <span class="n">vecN</span>   <span class="n">dataR</span><span class="p">,</span>
+    <span class="n">vecN</span>   <span class="n">dataY</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">m_shape</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">points</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dataR</span><span class="p">,</span> <span class="n">dataY</span><span class="p">)),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">=</span> <span class="n">IDENTITY_MAT4</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">shell</span><span class="o">::</span><span class="n">shell</span><span class="p">(</span>
+    <span class="kt">size_t</span>              <span class="n">size</span><span class="p">,</span>
+    <span class="n">hyperellipse</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">hyperellipse_in</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">m_shape</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">hyperellipse</span><span class="o">&gt;</span><span class="p">(</span><span class="n">hyperellipse_in</span><span class="p">)),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">=</span> <span class="n">IDENTITY_MAT4</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">shell</span><span class="o">::</span><span class="n">shell</span><span class="p">(</span>
+    <span class="kt">size_t</span>         <span class="n">size</span><span class="p">,</span>
+    <span class="n">polynom</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">polynom_in</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">m_shape</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">polynom</span><span class="o">&gt;</span><span class="p">(</span><span class="n">polynom_in</span><span class="p">)),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">=</span> <span class="n">IDENTITY_MAT4</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">reset</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">reset</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">size</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::shell::reset(): shell ribs numer must be greater than 0.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+    <span class="c1">// Resize the contact point, friction and normal vectors</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+
+    <span class="c1">// Locate the disks</span>
+    <span class="n">real</span> <span class="n">ribY</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">shellWidth</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceWidth</span><span class="p">();</span>
+    <span class="n">real</span> <span class="n">shellLower</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceWidthLowerBound</span><span class="p">();</span>
+    <span class="n">real</span> <span class="n">ribWidth</span>   <span class="o">=</span> <span class="n">shellWidth</span> <span class="o">/</span> <span class="n">size</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">ribY</span>            <span class="o">=</span> <span class="n">shellLower</span> <span class="o">+</span> <span class="n">ribWidth</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">ribWidth</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rib</span><span class="p">(</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceRadius</span><span class="p">(</span><span class="n">ribY</span><span class="p">),</span>
+        <span class="n">point</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">ribY</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="n">vec3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="n">ribWidth</span><span class="p">,</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceAngle</span><span class="p">(</span><span class="n">ribY</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="c1">// Update bounding aabb</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">size_t</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |                                   _</span>
+<span class="cm">   |    __ _  ___  ___  _ __ ___   ___| |_ _ __ _   _</span>
+<span class="cm">   |   / _` |/ _ \/ _ \| '_ ` _ \ / _ \ __| '__| | | |</span>
+<span class="cm">   |  | (_| |  __/ (_) | | | | | |  __/ |_| |  | |_| |</span>
+<span class="cm">   |   \__, |\___|\___/|_| |_| |_|\___|\__|_|   \__, |</span>
+<span class="cm">   |   |___/                                    |___/</span>
+<span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">surfaceMaxRadius</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceMaxRadius</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">surfaceMaxWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceMaxWidth</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">surfaceWidthLowerBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceWidthLowerBound</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">surfaceWidthUpperBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceWidthUpperBound</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">surfaceWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceWidth</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">checkWidthBound</span><span class="p">(</span>
+    <span class="n">real</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">checkWidthBound</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">surfaceRadius</span><span class="p">(</span>
+    <span class="n">real</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceRadius</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">surfaceDerivative</span><span class="p">(</span>
+    <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
+    <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceDerivative</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">surfaceAngle</span><span class="p">(</span>
+    <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
+    <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceAngle</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">ribRadius</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">point</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">ribCenter</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">ribWidth</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">width</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |    __</span>
+<span class="cm">   |   / _|_ __ __ _ _ __ ___   ___</span>
+<span class="cm">   |  | |_| '__/ _` | '_ ` _ \ / _ \</span>
+<span class="cm">   |  |  _| | | (_| | | | | | |  __/</span>
+<span class="cm">   |  |_| |_|  \__,_|_| |_| |_|\___|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">translate</span><span class="p">(</span>
+    <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">vector</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translate</span><span class="p">(</span><span class="n">vector</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">vec3</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">translation</span><span class="p">(</span>
+    <span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span>
+    <span class="n">real</span>        <span class="n">angle</span><span class="p">,</span>
+    <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">axis</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">angleaxis</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">axis</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">mat3</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">rotation</span><span class="p">(</span>
+    <span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">rotation</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">mat3</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">linear</span><span class="p">(</span>
+    <span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span>
+    <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span>
+    <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span> <span class="o">=</span> <span class="n">affine_in</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">transformation</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">vec3</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">x</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">().</span><span class="n">col</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">vec3</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">y</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">().</span><span class="n">col</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">vec3</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">z</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">().</span><span class="n">col</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">eulerAngles</span><span class="p">(</span>
+    <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">angles</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">().</span><span class="n">eulerAngles</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |   _</span>
+<span class="cm">   |  | |__   _____  __</span>
+<span class="cm">   |  | '_ \ / _ \ \/ /</span>
+<span class="cm">   |  | |_) | (_) &gt;  &lt;</span>
+<span class="cm">   |  |_.__/ \___/_/\_\</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">bbox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">updateBBox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">real</span>  <span class="n">radius</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceMaxRadius</span><span class="p">();</span>
+    <span class="n">point</span> <span class="nf">origin</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">());</span>
+    <span class="n">point</span> <span class="nf">extrema</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span><span class="o">-&gt;</span><span class="n">min</span><span class="p">()</span> <span class="o">=</span> <span class="n">origin</span> <span class="o">-</span> <span class="n">extrema</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span><span class="o">-&gt;</span><span class="n">max</span><span class="p">()</span> <span class="o">=</span> <span class="n">origin</span> <span class="o">+</span> <span class="n">extrema</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span><span class="o">-&gt;</span><span class="n">updateMaxMin</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |                   _             _</span>
+<span class="cm">   |    ___ ___  _ __ | |_ __ _  ___| |_</span>
+<span class="cm">   |   / __/ _ \| '_ \| __/ _` |/ __| __|</span>
+<span class="cm">   |  | (_| (_) | | | | || (_| | (__| |_</span>
+<span class="cm">   |   \___\___/|_| |_|\__\__,_|\___|\__|</span>
+<span class="cm">   |</span>
+<span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">relativeAngles</span><span class="p">(</span>
+    <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">angles</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">affine</span> <span class="n">point_affine</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRibAffine</span><span class="p">(</span><span class="n">point_affine</span><span class="p">);</span>
+    <span class="n">mat3</span> <span class="nf">rotation</span><span class="p">(</span><span class="n">point_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">().</span><span class="n">transpose</span><span class="p">()</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">());</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">rotation</span><span class="p">.</span><span class="n">eulerAngles</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">relativeAngles</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">vec3</span>  <span class="o">&amp;</span><span class="n">angles</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">affine</span> <span class="n">point_affine</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRibAffine</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">point_affine</span><span class="p">);</span>
+    <span class="n">mat3</span> <span class="nf">rotation</span><span class="p">(</span><span class="n">point_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">().</span><span class="n">transpose</span><span class="p">()</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">());</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">rotation</span><span class="p">.</span><span class="n">eulerAngles</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">angles</span><span class="p">.</span><span class="n">x</span><span class="p">()</span> <span class="o">-=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">angle</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">relativeAngles</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">angles</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">relativeAngles</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">angles</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactDepthRib</span><span class="p">(</span>
+    <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
+    <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="n">depth_old</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="n">time_step</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="n">contact_point</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRib</span><span class="p">(</span><span class="n">contact_point</span><span class="p">);</span>
+    <span class="n">depth</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceMaxRadius</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">()</span> <span class="o">-</span> <span class="n">contact_point</span><span class="p">).</span><span class="n">norm</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">depth_dot</span> <span class="o">=</span> <span class="p">(</span><span class="n">depth</span> <span class="o">-</span> <span class="n">depth_old</span><span class="p">)</span> <span class="o">/</span> <span class="n">time_step</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="n">depth</span>     <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+      <span class="n">depth_dot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactDepthRib</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">depth_old</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">time_step</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">depth</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">()</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">()</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">()</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">]).</span><span class="n">norm</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">depth_dot</span> <span class="o">=</span> <span class="p">(</span><span class="n">depth</span> <span class="o">-</span> <span class="n">depth_old</span><span class="p">)</span> <span class="o">/</span> <span class="n">time_step</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="n">depth</span>     <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+      <span class="n">depth_dot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactDepthRib</span><span class="p">(</span>
+    <span class="n">vecN</span>       <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
+    <span class="n">vecN</span>       <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
+    <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">depth_old</span><span class="p">,</span>
+    <span class="n">real</span>        <span class="n">time_step</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactDepthRib</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">depth</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">depth_dot</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">depth_old</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">time_step</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactDepthMesh</span><span class="p">(</span>
+    <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
+    <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="n">depth_old</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="n">time_step</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="n">contact_point</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointMesh</span><span class="p">(</span><span class="n">contact_point</span><span class="p">);</span>
+    <span class="n">depth</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceMaxRadius</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">()</span> <span class="o">-</span> <span class="n">contact_point</span><span class="p">).</span><span class="n">norm</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">depth_dot</span> <span class="o">=</span> <span class="p">(</span><span class="n">depth</span> <span class="o">-</span> <span class="n">depth_old</span><span class="p">)</span> <span class="o">/</span> <span class="n">time_step</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="n">depth</span>     <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+      <span class="n">depth_dot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactDepthMesh</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">depth_old</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="n">time_step</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">depth</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">()</span> <span class="o">+</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">()</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">()</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">]).</span><span class="n">norm</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">depth_dot</span> <span class="o">=</span> <span class="p">(</span><span class="n">depth</span> <span class="o">-</span> <span class="n">depth_old</span><span class="p">)</span> <span class="o">/</span> <span class="n">time_step</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="n">depth</span>     <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+      <span class="n">depth_dot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactDepthMesh</span><span class="p">(</span>
+    <span class="n">vecN</span>       <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
+    <span class="n">vecN</span>       <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
+    <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">depth_old</span><span class="p">,</span>
+    <span class="n">real</span>        <span class="n">time_step</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactDepthMesh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">depth</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">depth_dot</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">depth_old</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">time_step</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactNormal</span><span class="p">(</span>
+    <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">normal</span>      <span class="o">=</span> <span class="n">ZEROS_VEC3</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">normal</span> <span class="o">+=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">normal</span> <span class="o">/=</span> <span class="n">size</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactNormal</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">vec3</span>  <span class="o">&amp;</span><span class="n">normal</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactNormal</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">normal</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointRib</span><span class="p">(</span>
+    <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span>       <span class="o">=</span> <span class="n">ZEROS_VEC3</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">point</span> <span class="o">+=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">point</span> <span class="o">/=</span> <span class="n">size</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointRib</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointRib</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointMesh</span><span class="p">(</span>
+    <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span>       <span class="o">=</span> <span class="n">ZEROS_VEC3</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">point</span> <span class="o">+=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">point</span> <span class="o">/=</span> <span class="n">size</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointMesh</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointMesh</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactFriction</span><span class="p">(</span>
+    <span class="n">real</span> <span class="o">&amp;</span><span class="n">friction</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">friction</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">.</span><span class="n">mean</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactFriction</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">friction</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">friction</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactFriction</span><span class="p">(</span>
+    <span class="n">vecN</span> <span class="o">&amp;</span><span class="n">friction</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">friction</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointRibAffine</span><span class="p">(</span>
+    <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="n">point</span><span class="p">;</span>
+    <span class="n">vec3</span>  <span class="n">normal</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRib</span><span class="p">(</span><span class="n">point</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="nf">x_vec</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">normal</span><span class="p">)).</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="nf">y_vec</span><span class="p">((</span><span class="n">normal</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">x_vec</span><span class="p">)).</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">point_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">x_vec</span><span class="p">,</span> <span class="n">y_vec</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span>
+      <span class="n">vec4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">).</span><span class="n">transpose</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointRibAffine</span><span class="p">(</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">vec3</span> <span class="nf">x_vec</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">])).</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="nf">y_vec</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cross</span><span class="p">(</span><span class="n">x_vec</span><span class="p">)).</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">point_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">x_vec</span><span class="p">,</span> <span class="n">y_vec</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+      <span class="n">vec4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">).</span><span class="n">transpose</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointRibAffine</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">affine</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRibAffine</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">point_affine</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointMeshAffine</span><span class="p">(</span>
+    <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="n">point</span><span class="p">;</span>
+    <span class="n">vec3</span>  <span class="n">normal</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointMesh</span><span class="p">(</span><span class="n">point</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="nf">x_vec</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="n">normal</span><span class="p">)).</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="nf">y_vec</span><span class="p">((</span><span class="n">normal</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">x_vec</span><span class="p">)).</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">point_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">x_vec</span><span class="p">,</span> <span class="n">y_vec</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span>
+      <span class="n">vec4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">).</span><span class="n">transpose</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointMeshAffine</span><span class="p">(</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">vec3</span> <span class="nf">x_vec</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">])).</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">vec3</span> <span class="nf">y_vec</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cross</span><span class="p">(</span><span class="n">x_vec</span><span class="p">)).</span><span class="n">normalized</span><span class="p">());</span>
+    <span class="n">point_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">x_vec</span><span class="p">,</span> <span class="n">y_vec</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+      <span class="n">vec4</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">).</span><span class="n">transpose</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">contactPointMeshAffine</span><span class="p">(</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">affine</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointMeshAffine</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">point_affine</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">setup</span><span class="p">(</span>
+    <span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
+    <span class="n">affine</span> <span class="k">const</span>       <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
+    <span class="kt">size_t</span>              <span class="n">threshold</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>   <span class="n">method</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">!=</span> <span class="s">"line"</span> <span class="o">&amp;&amp;</span> <span class="n">method</span> <span class="o">!=</span> <span class="s">"triangle"</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::setup(mesh, affine, threshold, method): invalid enveloping method.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Set the new reference frame</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span> <span class="o">=</span> <span class="n">affine_in</span><span class="p">;</span>
+    <span class="c1">// Shell Shadow update</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
+    <span class="c1">// Local intersected triangles vector</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="n">triangles</span><span class="p">;</span>
+    <span class="n">ground</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span><span class="p">,</span> <span class="n">triangles</span><span class="p">);</span>
+    <span class="c1">// Store triangle vec and shell sizes</span>
+    <span class="kt">size_t</span> <span class="n">triangles_size</span> <span class="o">=</span> <span class="n">triangles</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="kt">size_t</span> <span class="n">ribs_size</span>      <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
+
+    <span class="c1">// End setup if there are no intersections</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">triangles_size</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"enve::setup(mesh, affine, threshold, method): WARNING No mesh detected under the shell.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">triangles_size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Perform single triangle intersection all ribs</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ribs_size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopSingleTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="c1">// Update the intersection</span>
+      <span class="c1">// Calculate how many ribs to eliminate</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">triangles_size</span> <span class="o">*</span> <span class="n">ribs_size</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="c1">// Perform intersection on all ribs</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ribs_size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"line"</span><span class="p">)</span>
+            <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+          <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"triangle"</span><span class="p">)</span>
+            <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">triangles_size</span> <span class="o">*</span> <span class="n">ribs_size</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">&lt;</span> <span class="n">threshold</span> <span class="o">&amp;&amp;</span> <span class="n">ribs_size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">ribs_size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="c1">// Perform intersection on half ribs if odd</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ribs_size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"line"</span><span class="p">)</span>
+            <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+          <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"triangle"</span><span class="p">)</span>
+            <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// Calculate missing information through oversampling</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ribs_size</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">oversample</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">triangles_size</span> <span class="o">*</span> <span class="mf">3.0</span> <span class="o">&lt;</span> <span class="n">threshold</span> <span class="o">&amp;&amp;</span> <span class="n">ribs_size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">ribs_size</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="c1">// Perform intersection on central and lateral ribs if odd</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"line"</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="p">(</span><span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"triangle"</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="p">(</span><span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// Calculate missing information through oversampling</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">oversample</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">oversample</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">triangles_size</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">&lt;</span> <span class="n">threshold</span> <span class="o">&amp;&amp;</span> <span class="n">ribs_size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="c1">// Perform intersection only on lateral ribs</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"line"</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"triangle"</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// Calculate missing information through oversampling</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">oversample</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">else</span>
+      <span class="p">{</span>
+        <span class="c1">// EMERGENCY METHOD: Perform intersection only on lateral ribs</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopLine</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="p">(</span><span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+        <span class="c1">// Calculate missing information through oversampling</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">oversample</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">ribs_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">setup</span><span class="p">(</span>
+    <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
+    <span class="n">affine</span> <span class="k">const</span>       <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Set the new reference frame</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span> <span class="o">=</span> <span class="n">affine_in</span><span class="p">;</span>
+    <span class="c1">// Shell Shadow update</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
+    <span class="c1">// Intersect ribs with local plane</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">envelopPlane</span><span class="p">(</span><span class="n">ground</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">print</span><span class="p">(</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">real</span> <span class="n">time_step</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">radius</span>    <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceMaxRadius</span><span class="p">();</span>
+
+    <span class="n">point</span> <span class="n">pointRib</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRib</span><span class="p">(</span><span class="n">pointRib</span><span class="p">);</span>
+    <span class="n">point</span> <span class="n">pointMesh</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointMesh</span><span class="p">(</span><span class="n">pointMesh</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="n">normal</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">normal</span><span class="p">);</span>
+    <span class="n">real</span> <span class="n">depthRib</span>         <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">depthRib_dot</span>     <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">depthRib_old_dot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactDepthRib</span><span class="p">(</span><span class="n">depthRib</span><span class="p">,</span> <span class="n">depthRib_dot</span><span class="p">,</span> <span class="n">depthRib_old_dot</span><span class="p">,</span> <span class="n">time_step</span><span class="p">);</span>
+    <span class="n">real</span> <span class="n">depthMesh</span>         <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">depthMesh_dot</span>     <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">depthMesh_old_dot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactDepthMesh</span><span class="p">(</span><span class="n">depthMesh</span><span class="p">,</span> <span class="n">depthMesh_dot</span><span class="p">,</span> <span class="n">depthMesh_old_dot</span><span class="p">,</span> <span class="n">time_step</span><span class="p">);</span>
+    <span class="n">real</span> <span class="n">friction</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">friction</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="n">relative_angles</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">relativeAngles</span><span class="p">(</span><span class="n">relative_angles</span><span class="p">);</span>
+    <span class="n">affine</span> <span class="n">pointRib_affine</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRibAffine</span><span class="p">(</span><span class="n">pointRib_affine</span><span class="p">);</span>
+    <span class="n">affine</span> <span class="n">pointMesh_affine</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointMeshAffine</span><span class="p">(</span><span class="n">pointMesh_affine</span><span class="p">);</span>
+
+    <span class="kt">size_t</span>                   <span class="n">size</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">pointRib_vec</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRib</span><span class="p">(</span><span class="n">pointRib_vec</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">pointMesh_vec</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointMesh</span><span class="p">(</span><span class="n">pointMesh_vec</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="n">normal_vec</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">normal_vec</span><span class="p">);</span>
+    <span class="n">vecN</span> <span class="nf">depthRib_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="n">vecN</span> <span class="nf">depthRib_dot_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="n">vecN</span> <span class="nf">depthRib_old_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactDepthRib</span><span class="p">(</span><span class="n">depthRib_vec</span><span class="p">,</span> <span class="n">depthRib_dot_vec</span><span class="p">,</span> <span class="n">depthRib_old_vec</span><span class="p">,</span> <span class="n">time_step</span><span class="p">);</span>
+    <span class="n">vecN</span> <span class="nf">depthMesh_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="n">vecN</span> <span class="nf">depthMesh_dot_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="n">vecN</span> <span class="nf">depthMesh_old_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactDepthMesh</span><span class="p">(</span><span class="n">depthMesh_vec</span><span class="p">,</span> <span class="n">depthMesh_dot_vec</span><span class="p">,</span> <span class="n">depthMesh_old_vec</span><span class="p">,</span> <span class="n">time_step</span><span class="p">);</span>
+    <span class="n">vecN</span> <span class="nf">friction_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">friction_vec</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="n">relative_angles_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">relativeAngles</span><span class="p">(</span><span class="n">relative_angles_vec</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">affine</span><span class="o">&gt;</span> <span class="n">pointRib_affine_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointRibAffine</span><span class="p">(</span><span class="n">pointRib_affine_vec</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">affine</span><span class="o">&gt;</span> <span class="n">pointMesh_affine_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">contactPointMeshAffine</span><span class="p">(</span><span class="n">pointMesh_affine_vec</span><span class="p">);</span>
+    <span class="n">vec3</span> <span class="n">euler_angles</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">eulerAngles</span><span class="p">(</span><span class="n">euler_angles</span><span class="p">);</span>
+
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="s">"Rib info"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">relative_angles_vec</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="s">"Rib "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">":"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+         <span class="o">&lt;&lt;</span> <span class="s">"radius = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+         <span class="o">&lt;&lt;</span> <span class="s">"center = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="s">"CONTACT PARAMETERS"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Shell radius"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"R = "</span> <span class="o">&lt;&lt;</span> <span class="n">radius</span> <span class="o">&lt;&lt;</span> <span class="s">" m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Camber angle"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Γ = "</span> <span class="o">&lt;&lt;</span> <span class="n">euler_angles</span><span class="p">.</span><span class="n">y</span><span class="p">()</span> <span class="o">/</span> <span class="n">PI</span> <span class="o">&lt;&lt;</span> <span class="s">"pi rad"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Rotation angle"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"ß = "</span> <span class="o">&lt;&lt;</span> <span class="n">euler_angles</span><span class="p">.</span><span class="n">z</span><span class="p">()</span> <span class="o">/</span> <span class="n">PI</span> <span class="o">&lt;&lt;</span> <span class="s">"pi rad"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Yaw angle"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"α = "</span> <span class="o">&lt;&lt;</span> <span class="n">euler_angles</span><span class="p">.</span><span class="n">x</span><span class="p">()</span> <span class="o">/</span> <span class="n">PI</span> <span class="o">&lt;&lt;</span> <span class="s">"pi rad"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Normal contact point vector of the local track plane (absolute reference frame)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"N = "</span> <span class="o">&lt;&lt;</span> <span class="n">normal</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact point on mesh (absolute reference frame) (on rib plane)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"P = "</span> <span class="o">&lt;&lt;</span> <span class="n">pointRib</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact point on mesh (absolute reference frame) (on mesh surface)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"P = "</span> <span class="o">&lt;&lt;</span> <span class="n">pointMesh</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Shell reference frame"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact point reference frame (on rib plane)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="n">pointRib_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact point reference frame (on mesh surface)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="n">pointMesh_affine</span><span class="p">.</span><span class="n">matrix</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Relative camber angle"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"[Γ ß α]' = "</span> <span class="o">&lt;&lt;</span> <span class="n">relative_angles</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">/</span> <span class="n">PI</span> <span class="o">&lt;&lt;</span> <span class="s">"pi rad"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Relative camber angle vector"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">relative_angles_vec</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="s">"rib "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">": [Γ ß α]' = "</span> <span class="o">&lt;&lt;</span> <span class="n">relative_angles_vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">transpose</span><span class="p">()</span> <span class="o">/</span> <span class="n">PI</span> <span class="o">&lt;&lt;</span> <span class="s">"pi rad"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="s">"Local contact point friction"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"f = "</span> <span class="o">&lt;&lt;</span> <span class="n">friction</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact point friction vector"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"f = "</span> <span class="o">&lt;&lt;</span> <span class="n">friction_vec</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact depth (on average point) (on rib plane)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"d = "</span> <span class="o">&lt;&lt;</span> <span class="n">depthRib</span> <span class="o">&lt;&lt;</span> <span class="s">" m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact depth time derivative on average point (on rib plane)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"d = "</span> <span class="o">&lt;&lt;</span> <span class="n">depthRib_dot</span> <span class="o">&lt;&lt;</span> <span class="s">" m/s"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact depth vector (on rib plane)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"d = "</span> <span class="o">&lt;&lt;</span> <span class="n">depthRib_vec</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact depth time derivative vector (on rib plane)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"d = "</span> <span class="o">&lt;&lt;</span> <span class="n">depthRib_dot_vec</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" m/s"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact depth (on average point) (on mesh surface)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"d = "</span> <span class="o">&lt;&lt;</span> <span class="n">depthMesh</span> <span class="o">&lt;&lt;</span> <span class="s">" m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact depth time derivative on average point (on mesh surface)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"d = "</span> <span class="o">&lt;&lt;</span> <span class="n">depthMesh_dot</span> <span class="o">&lt;&lt;</span> <span class="s">" m/s"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact depth vector (on mesh surface)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"d = "</span> <span class="o">&lt;&lt;</span> <span class="n">depthMesh_vec</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"Local contact depth time derivative vector (on mesh surface)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"d = "</span> <span class="o">&lt;&lt;</span> <span class="n">depthMesh_dot_vec</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" m/s"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">oversample</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">o</span><span class="p">,</span>
+    <span class="kt">size_t</span> <span class="n">a</span><span class="p">,</span>
+    <span class="kt">size_t</span> <span class="n">b</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">real</span> <span class="n">y_o</span>  <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">o</span><span class="p">].</span><span class="n">center</span><span class="p">().</span><span class="n">y</span><span class="p">();</span>
+    <span class="n">real</span> <span class="n">y_a</span>  <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">a</span><span class="p">].</span><span class="n">center</span><span class="p">().</span><span class="n">y</span><span class="p">();</span>
+    <span class="n">real</span> <span class="n">y_b</span>  <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">b</span><span class="p">].</span><span class="n">center</span><span class="p">().</span><span class="n">y</span><span class="p">();</span>
+    <span class="n">real</span> <span class="n">y_oa</span> <span class="o">=</span> <span class="n">y_o</span> <span class="o">-</span> <span class="n">y_a</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">y_ba</span> <span class="o">=</span> <span class="n">y_b</span> <span class="o">-</span> <span class="n">y_a</span><span class="p">;</span>
+    <span class="c1">// Oversample contact points on ribs plane</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_oa</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">a</span><span class="p">])</span> <span class="o">/</span> <span class="n">y_ba</span><span class="p">;</span>
+    <span class="c1">// Oversample contact points on mesh surface</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_oa</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">a</span><span class="p">])</span> <span class="o">/</span> <span class="n">y_ba</span><span class="p">;</span>
+    <span class="c1">// Oversample contact normal</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_oa</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">a</span><span class="p">])</span> <span class="o">/</span> <span class="n">y_ba</span><span class="p">;</span>
+    <span class="c1">// Oversample contact friction coefficient</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_oa</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">a</span><span class="p">])</span> <span class="o">/</span> <span class="n">y_ba</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">samplingSingleTriangle</span><span class="p">(</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">,</span>
+    <span class="n">point</span> <span class="k">const</span>                  <span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span>
+    <span class="n">vec3</span> <span class="k">const</span>                   <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
+    <span class="n">point</span>                        <span class="o">&amp;</span><span class="n">point_out</span><span class="p">,</span>
+    <span class="n">vec3</span>                         <span class="o">&amp;</span><span class="n">normal</span><span class="p">,</span>
+    <span class="n">real</span>                         <span class="o">&amp;</span><span class="n">friction</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"enve::sampling_single_triangle(): triangles vector size is not equal to 1."</span><span class="p">);</span>
+    <span class="c1">// Create the sampling line</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">intersection</span><span class="p">(</span><span class="n">line</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">direction</span><span class="p">),</span> <span class="o">*</span><span class="n">triangles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">point_out</span><span class="p">,</span> <span class="n">EPSILON_LOW</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="n">normal</span>   <span class="o">=</span> <span class="n">triangles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">normal</span><span class="p">();</span>
+      <span class="n">friction</span> <span class="o">=</span> <span class="n">triangles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">friction</span><span class="p">();</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="c1">// Flying over the mesh</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">samplingPoint</span><span class="p">(</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">,</span>
+    <span class="n">point</span> <span class="k">const</span>                  <span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span>
+    <span class="n">vec3</span> <span class="k">const</span>                   <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
+    <span class="n">point</span>                        <span class="o">&amp;</span><span class="n">point_out</span><span class="p">,</span>
+    <span class="n">vec3</span>                         <span class="o">&amp;</span><span class="n">normal_out</span><span class="p">,</span>
+    <span class="n">real</span>                         <span class="o">&amp;</span><span class="n">friction_out</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span>              <span class="n">point_tmp</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">point_vec</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span>  <span class="n">normal_vec</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span>  <span class="n">friction_vec</span><span class="p">;</span>
+    <span class="kt">bool</span>               <span class="n">int_bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">line</span>               <span class="nf">line_tmp</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">direction</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">triangles</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">intersection</span><span class="p">(</span><span class="n">line_tmp</span><span class="p">,</span> <span class="o">*</span><span class="n">triangles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">point_tmp</span><span class="p">,</span> <span class="n">EPSILON_LOW</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="n">point_vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">point_tmp</span><span class="p">);</span>
+        <span class="n">normal_vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">triangles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">normal</span><span class="p">());</span>
+        <span class="n">friction_vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">triangles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">friction</span><span class="p">());</span>
+        <span class="n">int_bool</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// Select the highest intersection point</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">point_vec</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">int_bool</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span>    <span class="o">=</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="n">normal_out</span>   <span class="o">=</span> <span class="n">normal_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="n">friction_out</span> <span class="o">=</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">point_vec</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">int_bool</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span>    <span class="o">=</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="n">normal_out</span>   <span class="o">=</span> <span class="n">normal_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="n">friction_out</span> <span class="o">=</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">point_vec</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">point_vec</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">z</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">point_out</span><span class="p">.</span><span class="n">z</span><span class="p">())</span>
+        <span class="p">{</span>
+          <span class="n">point_out</span>    <span class="o">=</span> <span class="n">point_vec</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+          <span class="n">normal_out</span>   <span class="o">=</span> <span class="n">normal_vec</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+          <span class="n">friction_out</span> <span class="o">=</span> <span class="n">friction_vec</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">int_bool</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Flying over the mesh</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Out of mesh</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::shell::samplingPoint(): not handled condition."</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">samplingCross</span><span class="p">(</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">,</span>
+    <span class="n">point</span> <span class="k">const</span>                  <span class="o">&amp;</span><span class="n">line_origin</span><span class="p">,</span>
+    <span class="n">vec3</span> <span class="k">const</span>                   <span class="o">&amp;</span><span class="n">line_direction</span><span class="p">,</span>
+    <span class="n">real</span>                          <span class="n">delta_x</span><span class="p">,</span>
+    <span class="n">real</span>                          <span class="n">delta_y</span><span class="p">,</span>
+    <span class="n">point</span>                        <span class="o">&amp;</span><span class="n">point_out</span><span class="p">,</span>
+    <span class="n">vec3</span>                         <span class="o">&amp;</span><span class="n">normal_out</span><span class="p">,</span>
+    <span class="n">real</span>                         <span class="o">&amp;</span><span class="n">friction_out</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="c1">// Store shell pose and z axis direction</span>
+    <span class="n">point</span> <span class="nf">frame_origin</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">());</span>
+    <span class="n">mat3</span>  <span class="nf">frame_rotation</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">());</span>
+    <span class="n">vec3</span>  <span class="nf">delta_x_vec</span><span class="p">(</span><span class="n">delta_x</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="n">vec3</span>  <span class="nf">delta_y_vec</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">delta_y</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="c1">// Find intersection in the four positions</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">point_vec</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+    <span class="n">vec3</span>               <span class="n">normal_tmp</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span>  <span class="n">friction_vec</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">samplingPoint</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">frame_origin</span> <span class="o">+</span> <span class="n">frame_rotation</span> <span class="o">*</span> <span class="p">(</span><span class="n">line_origin</span> <span class="o">+</span> <span class="n">delta_x_vec</span><span class="p">),</span> <span class="n">line_direction</span><span class="p">,</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">normal_tmp</span><span class="p">,</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">samplingPoint</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">frame_origin</span> <span class="o">+</span> <span class="n">frame_rotation</span> <span class="o">*</span> <span class="p">(</span><span class="n">line_origin</span> <span class="o">-</span> <span class="n">delta_x_vec</span><span class="p">),</span> <span class="n">line_direction</span><span class="p">,</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">normal_tmp</span><span class="p">,</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">samplingPoint</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">frame_origin</span> <span class="o">+</span> <span class="n">frame_rotation</span> <span class="o">*</span> <span class="p">(</span><span class="n">line_origin</span> <span class="o">+</span> <span class="n">delta_y_vec</span><span class="p">),</span> <span class="n">line_direction</span><span class="p">,</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">normal_tmp</span><span class="p">,</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">samplingPoint</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">frame_origin</span> <span class="o">+</span> <span class="n">frame_rotation</span> <span class="o">*</span> <span class="p">(</span><span class="n">line_origin</span> <span class="o">-</span> <span class="n">delta_y_vec</span><span class="p">),</span> <span class="n">line_direction</span><span class="p">,</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">normal_tmp</span><span class="p">,</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+    <span class="p">{</span>
+      <span class="c1">// Calculate local contact point on the rib</span>
+      <span class="n">point_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">point_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">;</span>
+      <span class="c1">// Calculate normal of the local track plane</span>
+      <span class="n">normal_out</span> <span class="o">=</span> <span class="p">((</span><span class="n">point_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="n">cross</span><span class="p">(</span><span class="n">point_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">point_vec</span><span class="p">[</span><span class="mi">3</span><span class="p">])).</span><span class="n">normalized</span><span class="p">();</span>
+      <span class="c1">// Calculate the contact point friction as average of points</span>
+      <span class="n">friction_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">friction_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">friction_vec</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="n">point_out</span>    <span class="o">=</span> <span class="n">frame_origin</span> <span class="o">+</span> <span class="n">frame_rotation</span> <span class="o">*</span> <span class="n">vec3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceMaxRadius</span><span class="p">());</span>
+      <span class="n">normal_out</span>   <span class="o">=</span> <span class="n">frame_origin</span> <span class="o">+</span> <span class="n">frame_rotation</span> <span class="o">*</span> <span class="n">vec3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+      <span class="n">friction_out</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">envelopSingleTriangle</span><span class="p">(</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">,</span>
+    <span class="kt">size_t</span>                        <span class="n">i</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">bool</span> <span class="n">bool1</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">samplingSingleTriangle</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span>
+                                              <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">(),</span> <span class="c1">// Line origin</span>
+                                              <span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">z</span><span class="p">(),</span>               <span class="c1">// Line direction</span>
+                                              <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                              <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                              <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+    <span class="kt">bool</span> <span class="n">bool2</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">projectContactPointOnMesh</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+    <span class="k">return</span> <span class="n">bool1</span> <span class="o">&amp;&amp;</span> <span class="n">bool2</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">envelopLine</span><span class="p">(</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">,</span>
+    <span class="kt">size_t</span>                        <span class="n">i</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">bool</span> <span class="n">bool1</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">samplingCross</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span>
+                                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">(),</span>       <span class="c1">// Line origin</span>
+                                     <span class="o">-</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">z</span><span class="p">(),</span>                     <span class="c1">// Line direction</span>
+                                     <span class="mf">0.3</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">(),</span> <span class="c1">// Delta x</span>
+                                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">width</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1">// Delta y</span>
+                                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+    <span class="kt">bool</span> <span class="n">bool2</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">projectContactPointOnMesh</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+    <span class="k">return</span> <span class="n">bool1</span> <span class="o">&amp;&amp;</span> <span class="n">bool2</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">envelopTriangle</span><span class="p">(</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">,</span>
+    <span class="kt">size_t</span>                        <span class="n">i</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="nf">origin</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">());</span>
+    <span class="n">mat3</span>  <span class="nf">rotation</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">());</span>
+    <span class="c1">// Find intersections</span>
+    <span class="n">segment</span> <span class="n">segment_tmp</span><span class="p">;</span>
+    <span class="n">real</span>    <span class="n">segment_tmp_area</span><span class="p">;</span>
+    <span class="n">vec3</span>    <span class="n">segment_tmp_normal</span><span class="p">;</span>
+    <span class="n">point</span>   <span class="n">pointRib_tmp</span>       <span class="o">=</span> <span class="n">point</span><span class="o">::</span><span class="n">Constant</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+    <span class="n">point</span>   <span class="n">pointMesh_tmp</span>      <span class="o">=</span> <span class="n">point</span><span class="o">::</span><span class="n">Constant</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+    <span class="n">vec3</span>    <span class="n">normal_tmp</span>         <span class="o">=</span> <span class="n">ZEROS_VEC3</span><span class="p">;</span>
+    <span class="n">real</span>    <span class="n">friction_tmp</span>       <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="n">real</span>    <span class="n">segment_area_total</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="kt">bool</span>    <span class="n">int_bool</span>           <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">rib</span>     <span class="nf">rib_ground</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">(),</span> <span class="n">origin</span> <span class="o">+</span> <span class="n">rotation</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">normal</span><span class="p">());</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">triangles</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="n">triangles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rib_ground</span><span class="p">,</span> <span class="n">segment_tmp</span><span class="p">,</span> <span class="n">EPSILON_LOW</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="n">int_bool</span> <span class="o">=</span> <span class="n">rib_ground</span><span class="p">.</span><span class="n">envelopRadial</span><span class="p">(</span><span class="n">segment_tmp</span><span class="p">,</span> <span class="n">segment_tmp_area</span><span class="p">,</span> <span class="n">segment_tmp_normal</span><span class="p">);</span>
+        <span class="n">segment_area_total</span> <span class="o">+=</span> <span class="n">segment_tmp_area</span><span class="p">;</span>
+        <span class="n">pointRib_tmp</span> <span class="o">+=</span> <span class="n">segment_tmp_area</span> <span class="o">*</span> <span class="n">segment_tmp</span><span class="p">.</span><span class="n">centroid</span><span class="p">();</span>
+        <span class="n">normal_tmp</span> <span class="o">+=</span> <span class="n">segment_tmp_area</span> <span class="o">*</span> <span class="n">triangles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">normal</span><span class="p">();</span> <span class="c1">//segment_tmp_normal; //</span>
+        <span class="n">friction_tmp</span> <span class="o">+=</span> <span class="n">segment_tmp_area</span> <span class="o">*</span> <span class="n">triangles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">friction</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">int_bool</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pointRib_tmp</span> <span class="o">/</span> <span class="n">segment_area_total</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>   <span class="o">=</span> <span class="n">normal_tmp</span> <span class="o">/</span> <span class="n">segment_area_total</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">friction_tmp</span> <span class="o">/</span> <span class="n">segment_area_total</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">projectContactPointOnMesh</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="o">=</span> <span class="n">origin</span> <span class="o">+</span> <span class="n">rotation</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">()</span> <span class="o">-</span> <span class="n">point</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">()));</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>    <span class="o">=</span> <span class="n">rotation</span> <span class="o">*</span> <span class="n">UNITZ_VEC3</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">envelopPlane</span><span class="p">(</span>
+    <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
+    <span class="kt">size_t</span>              <span class="n">i</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="nf">origin</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">());</span>
+    <span class="n">mat3</span>  <span class="nf">rotation</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">linear</span><span class="p">());</span>
+    <span class="c1">// Find intersections</span>
+    <span class="n">segment</span> <span class="n">segment_tmp</span><span class="p">;</span>
+    <span class="n">disk</span>    <span class="nf">rib_ground</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">(),</span> <span class="n">origin</span> <span class="o">+</span> <span class="n">rotation</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">normal</span><span class="p">());</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">intersection</span><span class="p">(</span><span class="n">ground</span><span class="p">,</span> <span class="n">rib_ground</span><span class="p">,</span> <span class="n">segment_tmp</span><span class="p">,</span> <span class="n">EPSILON_LOW</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">segment_tmp</span><span class="p">.</span><span class="n">centroid</span><span class="p">();</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>   <span class="o">=</span> <span class="n">ground</span><span class="p">.</span><span class="n">normal</span><span class="p">();</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ground</span><span class="p">.</span><span class="n">friction</span><span class="p">();</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">projectContactPointOnFlat</span><span class="p">(</span><span class="n">ground</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="o">=</span> <span class="n">origin</span> <span class="o">+</span> <span class="n">rotation</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">()</span> <span class="o">-</span> <span class="n">point</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">()));</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>    <span class="o">=</span> <span class="n">rotation</span> <span class="o">*</span> <span class="n">UNITZ_VEC3</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointMesh</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_pointRib</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">projectContactPointOnFlat</span><span class="p">(</span>
+    <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
+    <span class="n">point</span> <span class="k">const</span>        <span class="o">&amp;</span><span class="n">point_rib</span><span class="p">,</span>
+    <span class="n">vec3</span> <span class="k">const</span>         <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
+    <span class="kt">size_t</span>              <span class="n">i</span><span class="p">,</span>
+    <span class="n">point</span>              <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="n">shell_origin</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">();</span>
+    <span class="n">point</span> <span class="n">line_origin</span>  <span class="o">=</span> <span class="n">shell_origin</span> <span class="o">-</span> <span class="p">(</span><span class="n">shell_origin</span> <span class="o">-</span> <span class="n">point_rib</span><span class="p">).</span><span class="n">normalized</span><span class="p">()</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nf">intersection</span><span class="p">(</span><span class="n">line</span><span class="p">(</span><span class="n">line_origin</span><span class="p">,</span> <span class="n">direction</span><span class="p">),</span> <span class="n">ground</span><span class="p">,</span> <span class="n">point_out</span><span class="p">,</span> <span class="n">EPSILON_LOW</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">projectContactPointOnMesh</span><span class="p">(</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">,</span>
+    <span class="n">point</span> <span class="k">const</span>                  <span class="o">&amp;</span><span class="n">point_rib</span><span class="p">,</span>
+    <span class="n">vec3</span> <span class="k">const</span>                   <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
+    <span class="kt">size_t</span>                        <span class="n">i</span><span class="p">,</span>
+    <span class="n">point</span>                        <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">point</span> <span class="n">shell_origin</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_affine</span><span class="p">.</span><span class="n">translation</span><span class="p">();</span>
+    <span class="n">point</span> <span class="n">line_origin</span>  <span class="o">=</span> <span class="n">shell_origin</span> <span class="o">-</span> <span class="p">(</span><span class="n">shell_origin</span> <span class="o">-</span> <span class="n">point_rib</span><span class="p">).</span><span class="n">normalized</span><span class="p">()</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">radius</span><span class="p">();</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">samplingPoint</span><span class="p">(</span><span class="n">triangles</span><span class="p">,</span> <span class="n">line_origin</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">point_out</span><span class="p">,</span> <span class="n">THROWAWAY_NORMAL</span><span class="p">,</span> <span class="n">THROWAWAY_FRICTION</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+<span class="p">}</span> <span class="c1">// namespace enve</span>
+</pre></div>
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ENVE library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ENVE</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Program Listing for File enve_shell.cc</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

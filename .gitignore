@@ -30,3 +30,27 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio Code
+.vscode/*
+
+# Matlab
+*.asv
+
+# Folders
+build/*
+bin/*
+lib/*
+lib3rd/*
+sfun/simulator/test/slprj/*
+sfun/virtualTestBench/test/slprj/*
+
+# Project
+docs_build/sphinx/_build
+docs_build/sphinx/api
+docs_build/xml
+docs_build/xml-cpp/*
+docs_build/xml-cpp
+docs_build/sphinx/api-cpp
+docs_build/sphinx/api-matlab
+license.txt

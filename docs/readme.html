@@ -1,0 +1,354 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The ENVE library &#8212; ENVE v</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C++ API" href="api-cpp/root.html" />
+    <link rel="prev" title="ENVE" href="index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="api-cpp/root.html" title="C++ API"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="ENVE"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">ENVE</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">The ENVE library</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-enve-library">
+<h1>The ENVE library<a class="headerlink" href="#the-enve-library" title="Permalink to this headline">¶</a>
+</h1>
+<p>A library for tire and road geometrical description, handling and real-time contact evaluation</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a>
+</h2>
+<ol class="arabic">
+<li>
+<p>Load .rdf file.</p>
+<blockquote>
+<div>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">enve</span><span class="o">::</span><span class="n">rdf</span><span class="o">::</span><span class="n">mesh</span> <span class="n">road</span><span class="p">(</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="s">"./file.rdf"</span> <span class="c1">// Path to the *.rdf file</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</blockquote>
+</li>
+<li>
+<p>Initialize the tire shell model.</p>
+<blockquote>
+<div>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">roadrunner</span><span class="o">::</span><span class="n">shell</span> <span class="n">tire_shell</span><span class="p">(</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">radius_x</span><span class="p">,</span>   <span class="c1">// [m]</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">degree_x</span><span class="p">,</span>   <span class="c1">// [-]</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">radius_y</span><span class="p">,</span>   <span class="c1">// [m]</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">degree_y</span><span class="p">,</span>   <span class="c1">// [-]</span>
+  <span class="n">acme</span><span class="o">::</span><span class="kt">int</span>  <span class="n">ribs_number</span> <span class="c1">// [-]</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">`radius_x</span> <span class="pre">=</span> <span class="pre">tire_etrto.unloadedRadius()`</span></code>.</p>
+</div>
+</blockquote>
+</li>
+<li>
+<p>Contact evaluation with rdf mesh.</p>
+<blockquote>
+<div>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">out</span> <span class="o">=</span> <span class="n">tire_shell</span><span class="p">.</span><span class="n">setup</span><span class="p">(</span>
+  <span class="n">enve</span><span class="o">::</span><span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="n">road</span><span class="p">,</span>     <span class="c1">// Rdf mesh</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">affine</span>       <span class="n">affine</span><span class="p">,</span>   <span class="c1">// 4x4 total transformation matrix</span>
+  <span class="n">acme</span><span class="o">::</span><span class="kt">int</span>          <span class="n">threshold</span> <span class="c1">// Triangle evaluation number threshold</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Otherwise perform contact evaluation with local plane.
+Initialize plane object:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">acme</span><span class="o">::</span><span class="n">plane</span> <span class="n">local_plane</span><span class="p">(</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">vec3</span> <span class="n">plane_point</span><span class="p">,</span> <span class="c1">// Local plane point</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">vec3</span> <span class="n">plane_normal</span> <span class="c1">// Local plane normal</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Perform intersection:</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">out</span> <span class="o">=</span> <span class="n">tire_shell</span><span class="p">.</span><span class="n">setup</span><span class="p">(</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">plane</span>  <span class="n">local_plane</span><span class="p">,</span> <span class="c1">// Local plane object</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">real</span>   <span class="n">friction</span><span class="p">,</span>    <span class="c1">// Local plane friction coefficient</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">affine</span> <span class="n">affine</span>       <span class="c1">// 4x4 total transformation matrix</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</blockquote>
+</li>
+</ol>
+<ol class="arabic" start="5">
+<li>
+<dl>
+<dt>Data extraction:</dt>
+<dd>
+<p>Variables initialization (real numbers):</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">acme</span><span class="o">::</span><span class="n">vec3</span> <span class="n">contact_point</span><span class="p">;</span>     <span class="c1">// [m]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vec3</span> <span class="n">contact_normal</span><span class="p">;</span>    <span class="c1">// [-]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">contact_friction</span><span class="p">;</span>  <span class="c1">// [-]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">contact_depth</span><span class="p">;</span>     <span class="c1">// [m]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">contact_depth_dot</span><span class="p">;</span> <span class="c1">// [m/s]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">contact_depth_old</span><span class="p">;</span> <span class="c1">// [m] to be initialized</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">time_step</span><span class="p">;</span>         <span class="c1">// [s] to be initialized</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">relative_camber</span><span class="p">;</span>   <span class="c1">// [rad]</span>
+</pre></div>
+</div>
+<p>Data extraction (real numbers):</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">tire_shell</span><span class="p">.</span><span class="n">contactPoint</span><span class="p">(</span><span class="n">contact_point</span><span class="p">);</span>
+<span class="n">tire_shell</span><span class="p">.</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">contact_normal</span><span class="p">);</span>
+<span class="n">tire_shell</span><span class="p">.</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">contact_friction</span><span class="p">);</span>
+<span class="n">tire_shell</span><span class="p">.</span><span class="n">contactDepth</span><span class="p">(</span><span class="n">contact_depth</span><span class="p">,</span>
+                         <span class="n">contact_depth_dot</span><span class="p">,</span>
+                         <span class="n">contact_depth_old</span><span class="p">,</span>
+                         <span class="n">time_step</span><span class="p">);</span>
+<span class="n">tire_shell</span><span class="p">.</span><span class="n">relativeCamber</span><span class="p">(</span><span class="n">relative_camber</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Variable initialization (vectors):</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">acme</span><span class="o">::</span><span class="kt">int</span>  <span class="n">size</span> <span class="o">=</span> <span class="n">tire_shell</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vec3</span> <span class="n">contact_point_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>     <span class="c1">// [m]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vec3</span> <span class="n">contact_normal_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>    <span class="c1">// [-]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span> <span class="n">contact_friction_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>  <span class="c1">// [-]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span> <span class="n">contact_depth_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>     <span class="c1">// [m]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span> <span class="n">contact_depth_dot_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span> <span class="c1">// [m/s]</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">contact_depth_old_vec</span><span class="p">;</span>       <span class="c1">// [m] to be initialized</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span> <span class="n">time_step</span><span class="p">;</span>                   <span class="c1">// [s] to be initialized</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span> <span class="n">relative_camber_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>   <span class="c1">// [rad]</span>
+</pre></div>
+</div>
+<p>Data extraction (vectors):</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="n">tire_shell</span><span class="p">.</span><span class="n">contactPoint</span><span class="p">(</span><span class="n">contact_point_vec</span><span class="p">);</span>
+<span class="n">tire_shell</span><span class="p">.</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">contact_normal_vec</span><span class="p">);</span>
+<span class="n">tire_shell</span><span class="p">.</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">contact_friction_vec</span><span class="p">);</span>
+<span class="n">tire_shell</span><span class="p">.</span><span class="n">contactDepth</span><span class="p">(</span><span class="n">contact_depth_vec</span><span class="p">,</span>
+                         <span class="n">contact_depth_dot_vec</span><span class="p">,</span>
+                         <span class="n">contact_depth_old_vec</span><span class="p">,</span>
+                         <span class="n">time_step</span><span class="p">);</span>
+<span class="n">tire_shell</span><span class="p">.</span><span class="n">relativeCamber</span><span class="p">(</span><span class="n">relative_camber_vec</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>For more advanced function buid and read the Doxygen documentation.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="online-documentation">
+<h2>Online documentation<a class="headerlink" href="#online-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<p>Available at: <a class="reference external" href="https://stoccodavide.github.io/enve">https://stoccodavide.github.io/enve</a></p>
+</div>
+<div class="section" id="maintenance-and-compatibility">
+<h2>Maintenance and compatibility<a class="headerlink" href="#maintenance-and-compatibility" title="Permalink to this headline">¶</a>
+</h2>
+<p>Library is being tested on Linux and MacOS, it will be soon tested also on Windows.
+If you have questions regarding the library or you want to report a bug,
+please open an <a class="reference external" href="https://github.com/StoccoDavide/enve/issues/new">issue</a>
+at GitHub. If your request would contain confidential information, please send
+us an email.</p>
+</div>
+<div class="section" id="about-the-authors">
+<h2>About the authors<a class="headerlink" href="#about-the-authors" title="Permalink to this headline">¶</a>
+</h2>
+<div class="line-block">
+<div class="line"><strong>Davide Stocco</strong></div>
+<div class="line">Department of Industrial Engineering</div>
+<div class="line">University of Trento</div>
+<div class="line"><script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:qnivqr\056fgbppb%40havga\056vg\">qnivqr<fcna>\056<\057fcna>fgbppb<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Enrico Bertolazzi</strong></div>
+<div class="line">Department of Industrial Engineering</div>
+<div class="line">University of Trento</div>
+<div class="line"><script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a>
+</h2>
+<ol class="arabic simple">
+<li><p><em>D. Stocco</em>,
+<strong>Real-Time Computation of Tire/Road Contact using Tailored Algorithms</strong>,
+2020, Master Thesis (<em>in Italian</em>),
+<a class="reference external" href="https://github.com/StoccoDavide/MasterThesis/blob/master/thesis.pdf">PDF</a>.</p></li>
+</ol>
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The ENVE library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#online-documentation">Online documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maintenance-and-compatibility">Maintenance and compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#about-the-authors">About the authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-cpp/root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="api-cpp/root.html" title="C++ API"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="ENVE"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">ENVE</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">The ENVE library</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

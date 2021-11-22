@@ -1,0 +1,59 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                     #
+# The ENVE project                                                    #
+#                                                                     #
+# Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       #
+#                                                                     #
+# The ENVE project can not be copied and/or distributed without the   #
+# express permission of Davide Stocco and Enrico Bertolazzi.          #
+#                                                                     #
+#    Davide Stocco                                                    #
+#    Department of Industrial Engineering                             #
+#    University of Trento                                             #
+#    e-mail: davide.stocco@unitn.it                                   #
+#                                                                     #
+#    Enrico Bertolazzi                                                #
+#    Department of Industrial Engineering                             #
+#    University of Trento                                             #
+#    e-mail: enrico.bertolazzi@unitn.it                               #
+#                                                                     #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# cmake -G "Unix Makefiles" -B ./build -DCMAKE_BUILD_TYPE=Release
+
+set( CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS true )
+set( CMAKE_VERBOSE_MAKEFILE            true )
+set( BUILD_EXECUTABLE                  true )
+set( BUILD_SHARED                      true )
+set(default_build_type                 "Release")
+
+# /Gd Uses the __cdecl calling convention (x86 only).
+# /Gr Uses the __fastcall calling convention (x86 only).
+# /Gv Uses the __vectorcall calling convention. (x86 and x64 only)
+# /Gz Uses the __stdcall calling convention (x86 only).
+
+set( CXX_WARN   "-Wall -Wno-float-equal -Wno-padded")
+set( CLANG_WARN "-Wall -Wno-float-equal -Wno-padded")
+set( VS_WARN    "")
+
+if( CMAKE_CXX_COMPILER_ID MATCHES "GNU" )
+  set( CMAKE_CXX_FLAGS         "-std=c++11 " )
+  set( CMAKE_CXX_FLAGS_RELEASE "-fPIC -fopenmp -O3 -g -floop-interchange -floop-block -funroll-loops  ${CXX_WARN}" )
+  set( CMAKE_CXX_FLAGS_DEBUG   "-fPIC -fopenmp -O0 -ggdb -DDEBUG  ${CXX_WARN}" )
+elseif( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
+  set( CMAKE_CXX_FLAGS         "-std=c++11 -stdlib=libc++ " )
+  set( CMAKE_CXX_FLAGS_RELEASE "-fPIC -O3 -g -finline-functions -finline-hint-functions -funroll-loops -fcolor-diagnostics  ${CLANG_WARN}" )
+  set( CMAKE_CXX_FLAGS_DEBUG   "-fPIC -O0 -gfull -fcolor-diagnostics -DDEBUG  ${CLANG_WARN}" )
+elseif( CMAKE_CXX_COMPILER_ID MATCHES "MSVC" )
+  set( CMAKE_CXX_FLAGS         "" )
+  set( CMAKE_CXX_FLAGS_RELEASE "/nologo /GS /W3 /WX- /EHsc /bigobj /D_WINDOWS /D_SCL_SECURE_NO_WARNINGS /DHAVE_STRING_H /DNO_GETTIMEOFDAY /DYAML_DECLARE_STATIC /DPCRE_STATIC /O2 /MD  ${VS_WARN}" )
+  set( CMAKE_CXX_FLAGS_DEBUG   "/nologo /GS /W3 /WX- /EHsc /bigobj /D_WINDOWS /D_SCL_SECURE_NO_WARNINGS /DHAVE_STRING_H /DNO_GETTIMEOFDAY /DYAML_DECLARE_STATIC /DPCRE_STATIC /Od /Ob0 /MDd /RTC1 /guard:cf /Zi /D_DEBUG /DMECHATRONIX_DEBUG  ${VS_WARN}" )
+else()
+  message( FATAL_ERROR "Unsupported compiler ${CMAKE_CXX_COMPILER_ID}" )
+endif()
+
+message( STATUS "Compiler used: ${CMAKE_CXX_COMPILER_ID}" )
+
+set( CMAKE_C_FLAGS         ${CMAKE_CXX_FLAGS} )
+set( CMAKE_C_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE} )
+set( CMAKE_C_FLAGS_DEBUG   ${CMAKE_CXX_FLAGS_DEBUG} )

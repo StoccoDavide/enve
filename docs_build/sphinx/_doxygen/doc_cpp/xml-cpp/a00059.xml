@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="a00059" kind="namespace" language="C++">
+    <compoundname>enve</compoundname>
+    <innerclass refid="a00069" prot="public">enve::hyperellipse</innerclass>
+    <innerclass refid="a00077" prot="public">enve::points</innerclass>
+    <innerclass refid="a00081" prot="public">enve::polynom</innerclass>
+    <innerclass refid="a00085" prot="public">enve::rib</innerclass>
+    <innerclass refid="a00089" prot="public">enve::shape</innerclass>
+    <innerclass refid="a00093" prot="public">enve::shell</innerclass>
+    <innerclass refid="a00097" prot="public">enve::triangleground</innerclass>
+    <innernamespace refid="a00060">enve::ground</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="a00059_1a96d656038b385740771fa4d0ad669af5" prot="public" static="yes" mutable="no">
+        <type>point</type>
+        <definition>point enve::THROWAWAY_POINT</definition>
+        <argsstring></argsstring>
+        <name>THROWAWAY_POINT</name>
+        <initializer>= point(NAN_POINT)</initializer>
+        <briefdescription>
+<para>Throwaway static non-const point object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_shell.hh" line="61" column="16" bodyfile="include/enve_shell.hh" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="a00059_1a422a6f48a2906020d54cdde02c71f0fc" prot="public" static="yes" mutable="no">
+        <type>vec3</type>
+        <definition>vec3 enve::THROWAWAY_NORMAL</definition>
+        <argsstring></argsstring>
+        <name>THROWAWAY_NORMAL</name>
+        <initializer>= vec3(NAN_VEC3)</initializer>
+        <briefdescription>
+<para>Throwaway static non-const vec3 object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_shell.hh" line="62" column="16" bodyfile="include/enve_shell.hh" bodystart="62" bodyend="-1"/>
+        <referencedby refid="a00093_1ad7570a667f28e75b254b00200dd1ae34" compoundref="a00032" startline="1396" endline="1407">enve::shell::projectContactPointOnMesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="a00059_1a1b7c092af37ab40b750666f1801b597a" prot="public" static="yes" mutable="no">
+        <type>real</type>
+        <definition>real enve::THROWAWAY_FRICTION</definition>
+        <argsstring></argsstring>
+        <name>THROWAWAY_FRICTION</name>
+        <initializer>= real(QUIET_NAN)</initializer>
+        <briefdescription>
+<para>Throwaway static non-const real object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_shell.hh" line="63" column="16" bodyfile="include/enve_shell.hh" bodystart="63" bodyend="-1"/>
+        <referencedby refid="a00093_1ad7570a667f28e75b254b00200dd1ae34" compoundref="a00032" startline="1396" endline="1407">enve::shell::projectContactPointOnMesh</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Namepaces containing all objects classes and routines. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>file: <ref refid="a00041" kindref="compound">enve_hyperellipse.cc</ref></para>
+<para>file: <ref refid="a00053" kindref="compound">enve_mesh.cc</ref></para>
+<para>file: <ref refid="a00050" kindref="compound">enve_polynom.cc</ref></para>
+<para>file: <ref refid="a00044" kindref="compound">enve_triangleground.cc</ref> </para>
+    </detaileddescription>
+    <location file="include/enve.hh" line="60" column="1"/>
+  </compounddef>
+</doxygen>

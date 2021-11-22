@@ -1,0 +1,21 @@
+clc;
+clear all;
+close all;
+
+% Create points
+
+p1 = acme_point([0 0 3]')
+p2 = acme_point([3 0 0]')
+p3 = acme_point([0 3 0]')
+
+p4 = acme_point([1 2  1]')
+p5 = acme_point([1 2 -1]')
+
+% Create triangleroad
+
+t1 = enve_triangleroad(p1.get(), p2.get(), p3.get(), 1.0)
+
+% Plot output
+
+out = figure;
+t1.plot(out, [0.863 0.863 0.863])

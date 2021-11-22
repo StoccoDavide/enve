@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="a00065" kind="class" language="C++" prot="public">
+    <compoundname>enve::ground::flat</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">plane</basecompoundref>
+    <includes refid="a00011" local="no">enve_flat.hh</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="a00065_1a159c72538bd75b2f02a2744efb9bf442" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="a00065" kindref="compound">flat</ref> const  &gt;</type>
+        <definition>typedef std::shared_ptr&lt;flat const&gt; enve::ground::flat::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+<para>Shared pointer to flat object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="59" column="31" bodyfile="include/enve_flat.hh" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="a00065_1ab9e0ffcbf413e6ac215b2789baa27a0e" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="a00065_1a159c72538bd75b2f02a2744efb9bf442" kindref="member">flat::ptr</ref> &gt;</type>
+        <definition>typedef std::vector&lt;flat::ptr&gt; enve::ground::flat::vecptr</definition>
+        <argsstring></argsstring>
+        <name>vecptr</name>
+        <briefdescription>
+<para>Vector of shared pointers to flat objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="60" column="32" bodyfile="include/enve_flat.hh" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00065_1a6dcb07abaaffbc53a23a8a36e36df4a2" prot="private" static="no" mutable="no">
+        <type>real</type>
+        <definition>real enve::ground::flat::m_friction</definition>
+        <argsstring></argsstring>
+        <name>m_friction</name>
+        <initializer>= QUIET_NAN</initializer>
+        <briefdescription>
+<para>Face friction coefficient scaling factor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="63" column="12" bodyfile="include/enve_flat.hh" bodystart="63" bodyend="-1"/>
+        <referencedby refid="a00065_1af26cbffc1ad6fd269acc832cf8226ccf" compoundref="a00056" startline="104" endline="110">copy</referencedby>
+        <referencedby refid="a00065_1ab696dc901373db2dcc49028eea16bb69" compoundref="a00056" startline="127" endline="131">friction</referencedby>
+        <referencedby refid="a00065_1adc60c85f9402159fb9409c9145a40965" compoundref="a00056" startline="115" endline="122">isApprox</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="a00065_1a60478551b305fec4965412043387f3e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(flat const &amp;)=delete</argsstring>
+        <name>flat</name>
+        <param>
+          <type><ref refid="a00065" kindref="compound">flat</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>Deleted copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="65" column="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00065_1a96da72a7116b7eee5ee06c3205e327c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::~flat</definition>
+        <argsstring>(void)</argsstring>
+        <name>~flat</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Flat class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="69" column="7" bodyfile="src/enve_flat.cc" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1a4f727a921ba073396a3af587afe33706" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(void)</argsstring>
+        <name>flat</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Flat class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="72" column="7" bodyfile="src/enve_flat.cc" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1ad1ab2fdca3aab1cdd7bc152d7ca7714d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(real origin_x, real origin_y, real origin_z, real normal_x, real normal_y, real normal_z, real friction)</argsstring>
+        <name>flat</name>
+        <param>
+          <type>real</type>
+          <declname>origin_x</declname>
+          <briefdescription><para>Input x value of ground plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>origin_y</declname>
+          <briefdescription><para>Input y value of ground plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>origin_z</declname>
+          <briefdescription><para>Input z value of ground plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>normal_x</declname>
+          <briefdescription><para>Input x value of ground plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>normal_y</declname>
+          <briefdescription><para>Input y value of ground plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>normal_z</declname>
+          <briefdescription><para>Input z value of ground plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>friction</declname>
+          <briefdescription><para>Friction coefficient scaling factor </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Flat class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="75" column="7" bodyfile="src/enve_flat.cc" bodystart="61" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1aff61b12a4d7daaa6a81d85074ff3fd90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(point const &amp;origin, vec3 const &amp;normal, real friction)</argsstring>
+        <name>flat</name>
+        <param>
+          <type>point const &amp;</type>
+          <declname>origin</declname>
+          <briefdescription><para>Input plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>vec3 const &amp;</type>
+          <declname>normal</declname>
+          <briefdescription><para>Input plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>friction</declname>
+          <briefdescription><para>Friction coefficient scaling factor </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Flat class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="86" column="7" bodyfile="src/enve_flat.cc" bodystart="78" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1a3b71551fd97ddf109887297f70929ab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(plane const &amp;plane_in, real friction)</argsstring>
+        <name>flat</name>
+        <param>
+          <type>plane const &amp;</type>
+          <declname>plane_in</declname>
+          <briefdescription><para>Input flat object </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>friction</declname>
+          <briefdescription><para>Friction coefficient scaling factor </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Flat class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="93" column="7" bodyfile="src/enve_flat.cc" bodystart="91" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1af26cbffc1ad6fd269acc832cf8226ccf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void enve::ground::flat::copy</definition>
+        <argsstring>(flat const &amp;flat_in)</argsstring>
+        <name>copy</name>
+        <param>
+          <type><ref refid="a00065" kindref="compound">flat</ref> const &amp;</type>
+          <declname>flat_in</declname>
+          <briefdescription><para>Flat object to be copied </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Copy flat object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="100" column="7" bodyfile="src/enve_flat.cc" bodystart="104" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1adc60c85f9402159fb9409c9145a40965" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool enve::ground::flat::isApprox</definition>
+        <argsstring>(flat const &amp;flat_in, real tolerance=EPSILON_LOW) const</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type><ref refid="a00065" kindref="compound">flat</ref> const &amp;</type>
+          <declname>flat_in</declname>
+          <briefdescription><para>Input flat object </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>tolerance</declname>
+          <defval>EPSILON_LOW</defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if objects are (almost) equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="106" column="7" bodyfile="src/enve_flat.cc" bodystart="115" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1ab696dc901373db2dcc49028eea16bb69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>real const &amp;</type>
+        <definition>real const  &amp; enve::ground::flat::friction</definition>
+        <argsstring>(void) const</argsstring>
+        <name>friction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get friction coefficent scaling factor const reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="113" column="7" bodyfile="src/enve_flat.cc" bodystart="127" bodyend="131"/>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">enve::shell::envelopPlane</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1a0f78e2cb0f14de2fe9010275dd3a9789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>real &amp;</type>
+        <definition>real &amp; enve::ground::flat::friction</definition>
+        <argsstring>(void)</argsstring>
+        <name>friction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Set friction coefficent scaling factor reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="117" column="7" bodyfile="src/enve_flat.cc" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1abef0bcad25ee073aaa889a58760a4cbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>plane const &amp;</type>
+        <definition>plane const  &amp; enve::ground::flat::layingPlane</definition>
+        <argsstring>(void) const</argsstring>
+        <name>layingPlane</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get laying plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="121" column="7" bodyfile="src/enve_flat.cc" bodystart="144" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="a00065_1aa107e521521875bdf184d482d9c00825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>plane &amp;</type>
+        <definition>plane &amp; enve::ground::flat::layingPlane</definition>
+        <argsstring>(void)</argsstring>
+        <name>layingPlane</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Set laying plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="125" column="7" bodyfile="src/enve_flat.cc" bodystart="153" bodyend="156"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Triangular flat class. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>enve::ground::flat</label>
+        <link refid="a00065"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>plane</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>enve::ground::flat</label>
+        <link refid="a00065"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>plane</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/enve_flat.hh" line="56" column="5" bodyfile="include/enve_flat.hh" bodystart="57" bodyend="126"/>
+    <listofallmembers>
+      <member refid="a00065_1af26cbffc1ad6fd269acc832cf8226ccf" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>copy</name></member>
+      <member refid="a00065_1a60478551b305fec4965412043387f3e4" prot="private" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00065_1a4f727a921ba073396a3af587afe33706" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00065_1ad1ab2fdca3aab1cdd7bc152d7ca7714d" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00065_1aff61b12a4d7daaa6a81d85074ff3fd90" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00065_1a3b71551fd97ddf109887297f70929ab1" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00065_1ab696dc901373db2dcc49028eea16bb69" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>friction</name></member>
+      <member refid="a00065_1a0f78e2cb0f14de2fe9010275dd3a9789" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>friction</name></member>
+      <member refid="a00065_1adc60c85f9402159fb9409c9145a40965" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>isApprox</name></member>
+      <member refid="a00065_1abef0bcad25ee073aaa889a58760a4cbc" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>layingPlane</name></member>
+      <member refid="a00065_1aa107e521521875bdf184d482d9c00825" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>layingPlane</name></member>
+      <member refid="a00065_1a6dcb07abaaffbc53a23a8a36e36df4a2" prot="private" virt="non-virtual"><scope>enve::ground::flat</scope><name>m_friction</name></member>
+      <member refid="a00065_1a159c72538bd75b2f02a2744efb9bf442" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>ptr</name></member>
+      <member refid="a00065_1ab9e0ffcbf413e6ac215b2789baa27a0e" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>vecptr</name></member>
+      <member refid="a00065_1a96da72a7116b7eee5ee06c3205e327c1" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>~flat</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

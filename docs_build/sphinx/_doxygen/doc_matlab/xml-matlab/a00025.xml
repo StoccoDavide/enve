@@ -1,0 +1,1398 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="a00025" kind="class" language="C++" prot="public">
+    <compoundname>enve_shell</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00025_1a17d558effe52873f181ef4c7b6603bd3" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property enve_shell::objectHandle</definition>
+        <argsstring></argsstring>
+        <name>objectHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Class container for ENVE shell object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="30" column="10" bodyfile="enve_shell.m" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00025_1ae4ec76596975e605869e110efa93c79c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::enve_shell</definition>
+        <argsstring>(in varargin)</argsstring>
+        <name>enve_shell</name>
+        <param>
+          <type>in</type>
+          <declname>varargin</declname>
+        </param>
+        <briefdescription>
+<para>Create a new C++ pointer to ENVE shell object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="38" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a188318866defc5a6d002800565c88b68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::reset</definition>
+        <argsstring>(in this, in n)</argsstring>
+        <name>reset</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Create C++ pointer to ENVE shell object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset shell shape with N ribs </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="53" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1af97e2d7af31d0924d113504fc6154062" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::size</definition>
+        <argsstring>(in this)</argsstring>
+        <name>size</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell ribs number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="61" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a3c3620b53469e67de8fc1ddad8710ca0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceMaxRadius</definition>
+        <argsstring>(in this)</argsstring>
+        <name>surfaceMaxRadius</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface maximum radius (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="69" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ae7e16bd52ba5d9e5420cabaa40cc1704" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceMaxWidth</definition>
+        <argsstring>(in this)</argsstring>
+        <name>surfaceMaxWidth</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface maximum width on y axis (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="77" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a78f8bbe81e94244dc8570394e6ee4b7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceWidthLowerBound</definition>
+        <argsstring>(in this)</argsstring>
+        <name>surfaceWidthLowerBound</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface minimum width (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="85" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a353b73e9dd9cd092a4bb41a472302249" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceWidthUpperBound</definition>
+        <argsstring>(in this)</argsstring>
+        <name>surfaceWidthUpperBound</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface maximum width (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="93" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a23d20650cd78e8f45166b5a7110206ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceWidth</definition>
+        <argsstring>(in this)</argsstring>
+        <name>surfaceWidth</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface width (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="101" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a0bffc26c900af6d386beeb33fb6966ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceWidthBound</definition>
+        <argsstring>(in this, in y)</argsstring>
+        <name>surfaceWidthBound</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface maximum width on reference (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="109" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a29a33822cd91218f0ce4de99d0cdff20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceRadius</definition>
+        <argsstring>(in this, in y)</argsstring>
+        <name>surfaceRadius</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface of revolution rib radius at y axis coordinate (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="117" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1aec570e16bc39867f75480ebbd82961f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceDerivative</definition>
+        <argsstring>(in this, in y)</argsstring>
+        <name>surfaceDerivative</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface of revolution rib first derivative with respect to y coordinate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="125" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1adab417b641317c4abc2ba2a794a2d4b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::surfaceAngle</definition>
+        <argsstring>(in this, in y)</argsstring>
+        <name>surfaceAngle</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Get shell surface of revolution rib angle with respect to y axis (rad) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="133" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a313f611cc616e968b2ca38a3f1f8548d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::ribRadius</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>ribRadius</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get i-th rib radius (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="141" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1acc459cb2394d434a2368f110f1df9acb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::ribCenter</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>ribCenter</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get i-th rib center as an ACME point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="149" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a5fe827499a047c00c02823ad5ad53ed5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::ribWidth</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>ribWidth</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get i-th rib width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="158" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1afff8ae06e5804e1e699a5bb61df9b511" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::translation</definition>
+        <argsstring>(in this)</argsstring>
+        <name>translation</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell translation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="166" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a49001007e735cd9be29a31acbf9fc014" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::translate</definition>
+        <argsstring>(in this, in vector)</argsstring>
+        <name>translate</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+<para>Translate shell. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="174" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a53e01c5934e8537ba90831abe321dffd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::rotation</definition>
+        <argsstring>(in this)</argsstring>
+        <name>rotation</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell rotation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="182" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a634f660a34ac5fa02664178f3a5c180e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::rotate</definition>
+        <argsstring>(in this, in angle, in axis)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>angle</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+<para>Rotate shell by angle and axis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="190" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ab977d97807a9bb7a2592393224c22c85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::transformation</definition>
+        <argsstring>(in this)</argsstring>
+        <name>transformation</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell transformation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="198" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a7919322a33542dd47f97e9d51d773867" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::transform</definition>
+        <argsstring>(in this, in matrix)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+<para>Transform shell by axis and vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="206" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1abb149c6ab200f0ed5357f6ba2ac08827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::x</definition>
+        <argsstring>(in this)</argsstring>
+        <name>x</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell X axis and vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="214" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1adbfbbfc64441e0587ef4df4b3d3cb730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::y</definition>
+        <argsstring>(in this)</argsstring>
+        <name>y</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell Y axis and vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="222" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a0cb686f335c5b7b97bf0b1d6147dfd0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::z</definition>
+        <argsstring>(in this)</argsstring>
+        <name>z</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell Z axis and vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="230" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ade6f32e5537a6fe93d9f8a9fc62afc64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::eulerAngles</definition>
+        <argsstring>(in this)</argsstring>
+        <name>eulerAngles</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell euler angles (rad) (rotation sequence ZXY) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="238" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a8e049285212d180275e00865ce46823d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::relativeAnglesAvg</definition>
+        <argsstring>(in this)</argsstring>
+        <name>relativeAnglesAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell relative angles (rad) (rotation sequence ZXY) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="246" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a13ce044de59e9af1573f829543c3e68f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::relativeAngles</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>relativeAngles</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get shell relative angles for the i-th rib (rad) (rotation sequence ZXY) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="254" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ab42efd931efaaed2e416e032bda37ba8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactDepthRibAvg</definition>
+        <argsstring>(in this, in depth_old, in time_step)</argsstring>
+        <name>contactDepthRibAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>depth_old</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>time_step</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact depth (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="262" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a9c974b140294152bac87720e9b8a306a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactDepthRib</definition>
+        <argsstring>(in this, in i, in depth_old, in time_step)</argsstring>
+        <name>contactDepthRib</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>depth_old</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>time_step</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact depth for the i-th rib (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="270" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1aef77d20c3b1f72270b87cc6fa6ca92d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactDepthMeshAvg</definition>
+        <argsstring>(in this, in depth_old, in time_step)</argsstring>
+        <name>contactDepthMeshAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>depth_old</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>time_step</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact depth (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="278" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a0edf71ef177ea28ac3ea7257c42186e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactDepthMesh</definition>
+        <argsstring>(in this, in i, in depth_old, in time_step)</argsstring>
+        <name>contactDepthMesh</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>depth_old</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>time_step</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact depth for the i-th rib (m) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="286" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a5059c1630d0dbbc93bf2f091f6927257" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactNormalAvg</definition>
+        <argsstring>(in this)</argsstring>
+        <name>contactNormalAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact normal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="294" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a38746ef323f7bad89a462c70eff1a87a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactNormal</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>contactNormal</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact normal for the i-th rib. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="302" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1afceb9ec19e825f7552fbec08d617a9ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactPointRibAvg</definition>
+        <argsstring>(in this)</argsstring>
+        <name>contactPointRibAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact point as an ACME point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="310" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ab4f84ee92bb8d0ee9809d4c1d9cf88e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactPointRib</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>contactPointRib</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact point for the i-th rib as an ACME point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="319" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a2d1e779b57347df7393995fba568da7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactPointMeshAvg</definition>
+        <argsstring>(in this)</argsstring>
+        <name>contactPointMeshAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact point as an ACME point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="328" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a309f6f2444b0f48e594baa928cf6da69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactPointMesh</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>contactPointMesh</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact point for the i-th rib as an ACME point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="337" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a77b0813485463ee72b3266d778fab58a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactFrictionAvg</definition>
+        <argsstring>(in this)</argsstring>
+        <name>contactFrictionAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact friction [-]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="346" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a2ca3f6430b3fa3050217bed6a7d85e3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactFriction</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>contactFriction</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact friction for the i-th rib [-]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="354" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a6012fdbbd4850734013ae0aa438f6268" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactPointRibAffineAvg</definition>
+        <argsstring>(in this)</argsstring>
+        <name>contactPointRibAffineAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact point affine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="362" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1af581e83a47c06c479f395ca817ee4d02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactPointRibAffine</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>contactPointRibAffine</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact point affine for the i-th rib. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="370" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a69ff4c7cbc084f4b44dba4b6d80562c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactPointMeshAffineAvg</definition>
+        <argsstring>(in this)</argsstring>
+        <name>contactPointMeshAffineAvg</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact point affine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="378" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a24fb439d20a98225eeb013b12e5829f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::contactPointMeshAffine</definition>
+        <argsstring>(in this, in i)</argsstring>
+        <name>contactPointMeshAffine</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get shell contact point affine for the i-th rib. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="386" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a3f3f67107fd44d65f0c15607789e604d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::setupMesh</definition>
+        <argsstring>(in this, in mesh, in transform, in threshold, in method)</argsstring>
+        <name>setupMesh</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>mesh</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>transform</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>threshold</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+<para>Intersect shell with mesh. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="394" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1afa0c9694b14f4b5cbbddf87511672c93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::setupFlat</definition>
+        <argsstring>(in this, in flat, in transform)</argsstring>
+        <name>setupFlat</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>flat</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>transform</declname>
+        </param>
+        <briefdescription>
+<para>Intersect shell with flat terrain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="402" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ab5f15015afdb914a686e64633437ab85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::disp</definition>
+        <argsstring>(in this)</argsstring>
+        <name>disp</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Display object data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="410" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1aaefb38aedfd9057d176f922e946f7d42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::profile</definition>
+        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <name>profile</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot ENVE shape object profile. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="418" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a621eac86df948df8398f9a8bb3c4c2ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::shapeTplot</definition>
+        <argsstring>(in this, in T, in figure_name, in color)</argsstring>
+        <name>shapeTplot</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>T</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot non-discretized shell shape with 4x4 affine transformation T. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="441" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a77d494f0dacab4d6a8745400cf98232f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::shellShape</definition>
+        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <name>shellShape</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot &quot;statically&quot; non-discretized shell shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="474" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a562f88ee9f8508179a24dee8ac9a43aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::plotShape</definition>
+        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <name>plotShape</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot &quot;dinamically&quot; non-discretized shell shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="490" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1aad425007363a37b5e7dc8cb89cfc3b50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::TireXTplot</definition>
+        <argsstring>(in this, in T, in figure_name, in color)</argsstring>
+        <name>TireXTplot</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>T</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot discretized shell shape with 4x4 affine transformation T. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="508" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ae580a7ea93234d814cb198c3f96d37ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::shellTireX</definition>
+        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <name>shellTireX</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot &quot;statically&quot; non-discretized shell TireX shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="540" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ab774ce3a02b8de2fde0232fbad1b4d49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::plotTireX</definition>
+        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <name>plotTireX</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot &quot;dinamically&quot; non-discretized shell TireX shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="556" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a9825bf6f010b6396d17ac257e08792ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::ribsTplot</definition>
+        <argsstring>(in this, in T, in figure_name, in color)</argsstring>
+        <name>ribsTplot</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>T</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot discretized shell shape as ribs with 4x4 affine transformation T. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="574" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a968774a42f9a1dc4a2aae8f079598877" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::shellRibs</definition>
+        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <name>shellRibs</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot &quot;statically&quot; non-discretized shell ribs shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="593" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a162c3b00624e54ecbe44b246889dcb7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::plotRibs</definition>
+        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <name>plotRibs</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Plot &quot;dinamically&quot; non-discretized shell ribs shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="609" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1ad8e1703a72877ca57d19ecbc44ef9681" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::plotSetup</definition>
+        <argsstring>(in this, in figure_name, in map_name)</argsstring>
+        <name>plotSetup</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>figure_name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>map_name</declname>
+        </param>
+        <briefdescription>
+<para>Plot results of setup function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="627" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00025_1a516328ef71caef51f662ff81a050a92e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::type</definition>
+        <argsstring>(in this)</argsstring>
+        <name>type</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get object type as string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="651" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>enve_shell</label>
+        <link refid="a00025"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>handle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>enve_shell</label>
+        <link refid="a00025"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>handle</label>
+      </node>
+    </collaborationgraph>
+    <location file="enve_shell.m" line="22" column="1" bodyfile="enve_shell.m" bodystart="23" bodyend="656"/>
+    <listofallmembers>
+      <member refid="a00025_1a0edf71ef177ea28ac3ea7257c42186e2" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactDepthMesh</name></member>
+      <member refid="a00025_1aef77d20c3b1f72270b87cc6fa6ca92d3" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactDepthMeshAvg</name></member>
+      <member refid="a00025_1a9c974b140294152bac87720e9b8a306a" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactDepthRib</name></member>
+      <member refid="a00025_1ab42efd931efaaed2e416e032bda37ba8" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactDepthRibAvg</name></member>
+      <member refid="a00025_1a2ca3f6430b3fa3050217bed6a7d85e3d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactFriction</name></member>
+      <member refid="a00025_1a77b0813485463ee72b3266d778fab58a" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactFrictionAvg</name></member>
+      <member refid="a00025_1a38746ef323f7bad89a462c70eff1a87a" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactNormal</name></member>
+      <member refid="a00025_1a5059c1630d0dbbc93bf2f091f6927257" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactNormalAvg</name></member>
+      <member refid="a00025_1a309f6f2444b0f48e594baa928cf6da69" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointMesh</name></member>
+      <member refid="a00025_1a24fb439d20a98225eeb013b12e5829f5" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointMeshAffine</name></member>
+      <member refid="a00025_1a69ff4c7cbc084f4b44dba4b6d80562c8" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointMeshAffineAvg</name></member>
+      <member refid="a00025_1a2d1e779b57347df7393995fba568da7f" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointMeshAvg</name></member>
+      <member refid="a00025_1ab4f84ee92bb8d0ee9809d4c1d9cf88e4" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointRib</name></member>
+      <member refid="a00025_1af581e83a47c06c479f395ca817ee4d02" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointRibAffine</name></member>
+      <member refid="a00025_1a6012fdbbd4850734013ae0aa438f6268" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointRibAffineAvg</name></member>
+      <member refid="a00025_1afceb9ec19e825f7552fbec08d617a9ae" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointRibAvg</name></member>
+      <member refid="a00025_1ab5f15015afdb914a686e64633437ab85" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>disp</name></member>
+      <member refid="a00025_1ae4ec76596975e605869e110efa93c79c" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>enve_shell</name></member>
+      <member refid="a00025_1ade6f32e5537a6fe93d9f8a9fc62afc64" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>eulerAngles</name></member>
+      <member refid="a00025_1a17d558effe52873f181ef4c7b6603bd3" prot="private" virt="non-virtual"><scope>enve_shell</scope><name>objectHandle</name></member>
+      <member refid="a00025_1a162c3b00624e54ecbe44b246889dcb7b" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotRibs</name></member>
+      <member refid="a00025_1ad8e1703a72877ca57d19ecbc44ef9681" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotSetup</name></member>
+      <member refid="a00025_1a562f88ee9f8508179a24dee8ac9a43aa" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotShape</name></member>
+      <member refid="a00025_1ab774ce3a02b8de2fde0232fbad1b4d49" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotTireX</name></member>
+      <member refid="a00025_1aaefb38aedfd9057d176f922e946f7d42" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>profile</name></member>
+      <member refid="a00025_1a13ce044de59e9af1573f829543c3e68f" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>relativeAngles</name></member>
+      <member refid="a00025_1a8e049285212d180275e00865ce46823d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>relativeAnglesAvg</name></member>
+      <member refid="a00025_1a188318866defc5a6d002800565c88b68" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>reset</name></member>
+      <member refid="a00025_1acc459cb2394d434a2368f110f1df9acb" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>ribCenter</name></member>
+      <member refid="a00025_1a313f611cc616e968b2ca38a3f1f8548d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>ribRadius</name></member>
+      <member refid="a00025_1a9825bf6f010b6396d17ac257e08792ff" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>ribsTplot</name></member>
+      <member refid="a00025_1a5fe827499a047c00c02823ad5ad53ed5" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>ribWidth</name></member>
+      <member refid="a00025_1a634f660a34ac5fa02664178f3a5c180e" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>rotate</name></member>
+      <member refid="a00025_1a53e01c5934e8537ba90831abe321dffd" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>rotation</name></member>
+      <member refid="a00025_1afa0c9694b14f4b5cbbddf87511672c93" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>setupFlat</name></member>
+      <member refid="a00025_1a3f3f67107fd44d65f0c15607789e604d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>setupMesh</name></member>
+      <member refid="a00025_1a621eac86df948df8398f9a8bb3c4c2ac" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shapeTplot</name></member>
+      <member refid="a00025_1a968774a42f9a1dc4a2aae8f079598877" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellRibs</name></member>
+      <member refid="a00025_1a77d494f0dacab4d6a8745400cf98232f" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellShape</name></member>
+      <member refid="a00025_1ae580a7ea93234d814cb198c3f96d37ca" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellTireX</name></member>
+      <member refid="a00025_1af97e2d7af31d0924d113504fc6154062" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>size</name></member>
+      <member refid="a00025_1adab417b641317c4abc2ba2a794a2d4b5" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceAngle</name></member>
+      <member refid="a00025_1aec570e16bc39867f75480ebbd82961f7" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceDerivative</name></member>
+      <member refid="a00025_1a3c3620b53469e67de8fc1ddad8710ca0" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceMaxRadius</name></member>
+      <member refid="a00025_1ae7e16bd52ba5d9e5420cabaa40cc1704" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceMaxWidth</name></member>
+      <member refid="a00025_1a29a33822cd91218f0ce4de99d0cdff20" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceRadius</name></member>
+      <member refid="a00025_1a23d20650cd78e8f45166b5a7110206ba" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceWidth</name></member>
+      <member refid="a00025_1a0bffc26c900af6d386beeb33fb6966ac" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceWidthBound</name></member>
+      <member refid="a00025_1a78f8bbe81e94244dc8570394e6ee4b7f" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceWidthLowerBound</name></member>
+      <member refid="a00025_1a353b73e9dd9cd092a4bb41a472302249" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceWidthUpperBound</name></member>
+      <member refid="a00025_1aad425007363a37b5e7dc8cb89cfc3b50" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>TireXTplot</name></member>
+      <member refid="a00025_1a7919322a33542dd47f97e9d51d773867" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>transform</name></member>
+      <member refid="a00025_1ab977d97807a9bb7a2592393224c22c85" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>transformation</name></member>
+      <member refid="a00025_1a49001007e735cd9be29a31acbf9fc014" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>translate</name></member>
+      <member refid="a00025_1afff8ae06e5804e1e699a5bb61df9b511" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>translation</name></member>
+      <member refid="a00025_1a516328ef71caef51f662ff81a050a92e" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>type</name></member>
+      <member refid="a00025_1abb149c6ab200f0ed5357f6ba2ac08827" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>x</name></member>
+      <member refid="a00025_1adbfbbfc64441e0587ef4df4b3d3cb730" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>y</name></member>
+      <member refid="a00025_1a0cb686f335c5b7b97bf0b1d6147dfd0f" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

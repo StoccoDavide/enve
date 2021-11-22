@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="a00056">enve_flat.cc</innerfile>
+    <innerfile refid="a00041">enve_hyperellipse.cc</innerfile>
+    <innerfile refid="a00053">enve_mesh.cc</innerfile>
+    <innerfile refid="a00038">enve_points.cc</innerfile>
+    <innerfile refid="a00050">enve_polynom.cc</innerfile>
+    <innerfile refid="a00035">enve_rib.cc</innerfile>
+    <innerfile refid="a00047">enve_shape.cc</innerfile>
+    <innerfile refid="a00032">enve_shell.cc</innerfile>
+    <innerfile refid="a00044">enve_triangleground.cc</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

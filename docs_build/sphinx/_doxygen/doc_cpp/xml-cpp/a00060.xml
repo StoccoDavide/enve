@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="a00060" kind="namespace" language="C++">
+    <compoundname>enve::ground</compoundname>
+    <innerclass refid="a00065" prot="public">enve::ground::flat</innerclass>
+    <innerclass refid="a00073" prot="public">enve::ground::mesh</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/enve_flat.hh" line="43" column="3"/>
+  </compounddef>
+</doxygen>

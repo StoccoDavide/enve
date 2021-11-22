@@ -1,0 +1,589 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class hyperellipse &#8212; ENVE v</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class points" href="class_a00077.html" />
+    <link rel="prev" title="Class mesh" href="class_a00073.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00077.html" title="Class points"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00073.html" title="Class mesh"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ENVE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class hyperellipse</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-hyperellipse">
+<span id="exhale-class-a00069"></span><h1>Class hyperellipse<a class="headerlink" href="#class-hyperellipse" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_enve_hyperellipse.hh.html#file-include-enve-hyperellipse-hh"><span class="std std-ref">File enve_hyperellipse.hh</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">enve::shape</span></code> (<a class="reference internal" href="class_a00089.html#exhale-class-a00089"><span class="std std-ref">Class shape</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipseE">
+<span id="_CPPv3N4enve12hyperellipseE"></span><span id="_CPPv2N4enve12hyperellipseE"></span><span id="enve::hyperellipse"></span><span class="target" id="a00069"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">enve</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">hyperellipse</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">enve</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00089.html#_CPPv4N4enve5shapeE" title="enve::shape"><span class="n"><span class="pre">shape</span></span></a><a class="headerlink" href="#_CPPv4N4enve12hyperellipseE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Symmetric section hyperellipse. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse3ptrE">
+<span id="_CPPv3N4enve12hyperellipse3ptrE"></span><span id="_CPPv2N4enve12hyperellipse3ptrE"></span><span id="enve::hyperellipse::ptr"></span><span class="target" id="a00069_1a6de9b900763ae91ca47c1db3020435ca"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4enve12hyperellipseE" title="enve::hyperellipse"><span class="n"><span class="pre">hyperellipse</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ptr</span></span></span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Pointer to hyperellipse object. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse6vecptrE">
+<span id="_CPPv3N4enve12hyperellipse6vecptrE"></span><span id="_CPPv2N4enve12hyperellipse6vecptrE"></span><span id="enve::hyperellipse::vecptr"></span><span class="target" id="a00069_1ae8c2aca8c68dfbcb50f5f4045f0d39cf"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4enve12hyperellipseE" title="enve::hyperellipse"><span class="n"><span class="pre">hyperellipse</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4enve12hyperellipse3ptrE" title="enve::hyperellipse::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vecptr</span></span></span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pointers to hyperellipse objects. </p>
+</dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipseD0Ev">
+<span id="_CPPv3N4enve12hyperellipseD0Ev"></span><span id="_CPPv2N4enve12hyperellipseD0Ev"></span><span id="enve::hyperellipse::~hyperellipse__void"></span><span class="target" id="a00069_1a69ba03d6ef8d68d19a8bfa168b6330bd"></span><span class="sig-name descname"><span class="n"><span class="pre">~hyperellipse</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipseD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Hyperellipse class destructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse12hyperellipseERK12hyperellipse">
+<span id="_CPPv3N4enve12hyperellipse12hyperellipseERK12hyperellipse"></span><span id="_CPPv2N4enve12hyperellipse12hyperellipseERK12hyperellipse"></span><span id="enve::hyperellipse::hyperellipse__hyperellipseCR"></span><span class="target" id="a00069_1a34a3b1fd5bd0f3f0bb792d3f24c6a273"></span><span class="sig-name descname"><span class="n"><span class="pre">hyperellipse</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve12hyperellipse12hyperellipseERK12hyperellipse" title="enve::hyperellipse::hyperellipse"><span class="n"><span class="pre">hyperellipse</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse12hyperellipseERK12hyperellipse" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Hyperellipse copy constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse12hyperellipseERR12hyperellipse">
+<span id="_CPPv3N4enve12hyperellipse12hyperellipseERR12hyperellipse"></span><span id="_CPPv2N4enve12hyperellipse12hyperellipseERR12hyperellipse"></span><span id="enve::hyperellipse::hyperellipse__hyperellipseRR"></span><span class="target" id="a00069_1a2af85db3d2711e09633c581fc77e59da"></span><span class="sig-name descname"><span class="n"><span class="pre">hyperellipse</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve12hyperellipse12hyperellipseERR12hyperellipse" title="enve::hyperellipse::hyperellipse"><span class="n"><span class="pre">hyperellipse</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse12hyperellipseERR12hyperellipse" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Hyperellipse move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse12hyperellipseEv">
+<span id="_CPPv3N4enve12hyperellipse12hyperellipseEv"></span><span id="_CPPv2N4enve12hyperellipse12hyperellipseEv"></span><span id="enve::hyperellipse::hyperellipse__void"></span><span class="target" id="a00069_1a5acfd72416000e5b6bc5f8bd64a04f3d"></span><span class="sig-name descname"><span class="n"><span class="pre">hyperellipse</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse12hyperellipseEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Hyperellipse class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse12hyperellipseE4real4real4real4real4real">
+<span id="_CPPv3N4enve12hyperellipse12hyperellipseE4real4real4real4real4real"></span><span id="_CPPv2N4enve12hyperellipse12hyperellipseE4real4real4real4real4real"></span><span id="enve::hyperellipse::hyperellipse__real.real.real.real.real"></span><span class="target" id="a00069_1a8f377d3d288fe6b34937c13d78a4a917"></span><span class="sig-name descname"><span class="n"><span class="pre">hyperellipse</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">r_x</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m_x</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">r_y</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m_y</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">l_y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse12hyperellipseE4real4real4real4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Hyperellipse class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>r_x</strong> – Surface radius on x axis (m) </p></li>
+<li><p><strong>m_x</strong> – Surface curve degree for x axis </p></li>
+<li><p><strong>r_y</strong> – Surface radius on y axis (m) </p></li>
+<li><p><strong>m_y</strong> – Surface curve degree for y axis </p></li>
+<li><p><strong>l_y</strong> – Surface half width on y axis (m) </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse4copyERK12hyperellipse">
+<span id="_CPPv3N4enve12hyperellipse4copyERK12hyperellipse"></span><span id="_CPPv2N4enve12hyperellipse4copyERK12hyperellipse"></span><span id="enve::hyperellipse::copy__hyperellipseCR"></span><span class="target" id="a00069_1ab541910296cb5b34e16e314fa129df3d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve12hyperellipseE" title="enve::hyperellipse"><span class="n"><span class="pre">hyperellipse</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">hyperellipse_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse4copyERK12hyperellipse" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Copy hyperellipse object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>hyperellipse_in</strong> – Hyperellipse object to be copied </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse8isApproxERK12hyperellipse4real">
+<span id="_CPPv3NK4enve12hyperellipse8isApproxERK12hyperellipse4real"></span><span id="_CPPv2NK4enve12hyperellipse8isApproxERK12hyperellipse4real"></span><span id="enve::hyperellipse::isApprox__hyperellipseCR.realC"></span><span class="target" id="a00069_1a468ee3cb68db630cbf8bda8047f73da3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve12hyperellipseE" title="enve::hyperellipse"><span class="n"><span class="pre">hyperellipse</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">hyperellipse_in</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse8isApproxERK12hyperellipse4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if objects are (almost) equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>hyperellipse_in</strong> – Input object </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse2RxEv">
+<span id="_CPPv3NK4enve12hyperellipse2RxEv"></span><span id="_CPPv2NK4enve12hyperellipse2RxEv"></span><span id="enve::hyperellipse::Rx__voidC"></span><span class="target" id="a00069_1a4c55f5514e29b95382479a687e2d151a"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Rx</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse2RxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse radius on x axis const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse2MxEv">
+<span id="_CPPv3NK4enve12hyperellipse2MxEv"></span><span id="_CPPv2NK4enve12hyperellipse2MxEv"></span><span id="enve::hyperellipse::Mx__voidC"></span><span class="target" id="a00069_1adc15e2a6fe7bf5c960e37d1371955537"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Mx</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse2MxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse curve degree for x axis const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse2RyEv">
+<span id="_CPPv3NK4enve12hyperellipse2RyEv"></span><span id="_CPPv2NK4enve12hyperellipse2RyEv"></span><span id="enve::hyperellipse::Ry__voidC"></span><span class="target" id="a00069_1a7fbd8ddcfebf40e3965819e94f2db702"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Ry</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse2RyEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse radius on y axis const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse2MyEv">
+<span id="_CPPv3NK4enve12hyperellipse2MyEv"></span><span id="_CPPv2NK4enve12hyperellipse2MyEv"></span><span id="enve::hyperellipse::My__voidC"></span><span class="target" id="a00069_1a04f9653f98d85da2c05a8bd01acaf1c8"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">My</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse2MyEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse curve degree for y axis const reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse2LyEv">
+<span id="_CPPv3NK4enve12hyperellipse2LyEv"></span><span id="_CPPv2NK4enve12hyperellipse2LyEv"></span><span id="enve::hyperellipse::Ly__voidC"></span><span class="target" id="a00069_1af1250101b66e6356b049e0611cc657b8"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Ly</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse2LyEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse half width on y axis const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse2RxEv">
+<span id="_CPPv3N4enve12hyperellipse2RxEv"></span><span id="_CPPv2N4enve12hyperellipse2RxEv"></span><span id="enve::hyperellipse::Rx__void"></span><span class="target" id="a00069_1a727b5759af5fe1dea7160a40b4ff459c"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Rx</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse2RxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse radius on x axis reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse2MxEv">
+<span id="_CPPv3N4enve12hyperellipse2MxEv"></span><span id="_CPPv2N4enve12hyperellipse2MxEv"></span><span id="enve::hyperellipse::Mx__void"></span><span class="target" id="a00069_1aab3a48031bb9a894840737e0b7583746"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Mx</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse2MxEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse curve degree for x axis reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse2RyEv">
+<span id="_CPPv3N4enve12hyperellipse2RyEv"></span><span id="_CPPv2N4enve12hyperellipse2RyEv"></span><span id="enve::hyperellipse::Ry__void"></span><span class="target" id="a00069_1a8c76117af6b986d3c04f2f0a2b742149"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Ry</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse2RyEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse radius on y axis reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse2MyEv">
+<span id="_CPPv3N4enve12hyperellipse2MyEv"></span><span id="_CPPv2N4enve12hyperellipse2MyEv"></span><span id="enve::hyperellipse::My__void"></span><span class="target" id="a00069_1a7153c8295d14f778c20a35dd6120bffa"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">My</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse2MyEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse curve degree for y axis reference. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse2LyEv">
+<span id="_CPPv3N4enve12hyperellipse2LyEv"></span><span id="_CPPv2N4enve12hyperellipse2LyEv"></span><span id="enve::hyperellipse::Ly__void"></span><span class="target" id="a00069_1a2bcba294c6bbd8bcf902de6820cc3362"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Ly</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse2LyEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get hyperellipse surface half width on y axis reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse12updateBoundsEv">
+<span id="_CPPv3N4enve12hyperellipse12updateBoundsEv"></span><span id="_CPPv2N4enve12hyperellipse12updateBoundsEv"></span><span id="enve::hyperellipse::updateBounds__void"></span><span class="target" id="a00069_1aa04e522a0f22486086184c7da6b7435d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">updateBounds</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse12updateBoundsEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Update shell shape bounds. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse13surfaceRadiusE4real">
+<span id="_CPPv3NK4enve12hyperellipse13surfaceRadiusE4real"></span><span id="_CPPv2NK4enve12hyperellipse13surfaceRadiusE4real"></span><span id="enve::hyperellipse::surfaceRadius__realC"></span><span class="target" id="a00069_1ac179ee99fb621153a921271df6748fe3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceRadius</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse13surfaceRadiusE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface of revolution rib radius at y axis coordinate. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>y</strong> – Coordinate of y axis </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse17surfaceDerivativeE4real4real">
+<span id="_CPPv3NK4enve12hyperellipse17surfaceDerivativeE4real4real"></span><span id="_CPPv2NK4enve12hyperellipse17surfaceDerivativeE4real4real"></span><span id="enve::hyperellipse::surfaceDerivative__real.realC"></span><span class="target" id="a00069_1ad377d4618e67f96ceaa4a16047e86898"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceDerivative</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_MEDIUM</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse17surfaceDerivativeE4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface of revolution rib first derivative with respect to y coordinate. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>y</strong> – Coordinate of y axis </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse12surfaceAngleE4real4real">
+<span id="_CPPv3NK4enve12hyperellipse12surfaceAngleE4real4real"></span><span id="_CPPv2NK4enve12hyperellipse12surfaceAngleE4real4real"></span><span id="enve::hyperellipse::surfaceAngle__real.realC"></span><span class="target" id="a00069_1a8978db526eef828312e4ced3d2e0f6bb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceAngle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_MEDIUM</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse12surfaceAngleE4real4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface of revolution rib angle with respect to y axis (rad) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>y</strong> – Coordinate of y axis </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse5printER10out_stream">
+<span id="_CPPv3NK4enve12hyperellipse5printER10out_stream"></span><span id="_CPPv2NK4enve12hyperellipse5printER10out_stream"></span><span id="enve::hyperellipse::print__out_streamRC"></span><span class="target" id="a00069_1ad33ac9c2a57ea33209d9e5a67ab89faa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">print</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">out_stream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse5printER10out_stream" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Print hyperellipse data. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>os</strong> – Output stream type </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse4copyERK5shape">
+<span id="_CPPv3N4enve12hyperellipse4copyERK5shape"></span><span id="_CPPv2N4enve12hyperellipse4copyERK5shape"></span><span id="enve::hyperellipse::copy__shapeCR"></span><span class="target" id="a00089_1a01bf679dac42a6a354f3ec1327402bef"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00089.html#_CPPv4N4enve5shapeE" title="enve::shape"><span class="n"><span class="pre">shape</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse4copyERK5shape" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Copy shape object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>shape_in</strong> – Shape object to be copied </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse8isApproxERK5shape4real">
+<span id="_CPPv3NK4enve12hyperellipse8isApproxERK5shape4real"></span><span id="_CPPv2NK4enve12hyperellipse8isApproxERK5shape4real"></span><span id="enve::hyperellipse::isApprox__shapeCR.realC"></span><span class="target" id="a00089_1aa509c8fa017ef7500110beae8289b514"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isApprox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00089.html#_CPPv4N4enve5shapeE" title="enve::shape"><span class="n"><span class="pre">shape</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape_in</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse8isApproxERK5shape4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Check if objects are (almost) equal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>shape_in</strong> – Shape object </p></li>
+<li><p><strong>tolerance</strong> – Tolerance </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse16surfaceMaxRadiusEv">
+<span id="_CPPv3NK4enve12hyperellipse16surfaceMaxRadiusEv"></span><span id="_CPPv2NK4enve12hyperellipse16surfaceMaxRadiusEv"></span><span id="enve::hyperellipse::surfaceMaxRadius__voidC"></span><span class="target" id="a00089_1ac85f00278892b2330e9325209a16e478"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceMaxRadius</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse16surfaceMaxRadiusEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum radius const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse16surfaceMaxRadiusEv">
+<span id="_CPPv3N4enve12hyperellipse16surfaceMaxRadiusEv"></span><span id="_CPPv2N4enve12hyperellipse16surfaceMaxRadiusEv"></span><span id="enve::hyperellipse::surfaceMaxRadius__void"></span><span class="target" id="a00089_1a3a2d0b37330222933ceb591d1c80c82e"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceMaxRadius</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse16surfaceMaxRadiusEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum radius on reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse15surfaceMaxWidthEv">
+<span id="_CPPv3NK4enve12hyperellipse15surfaceMaxWidthEv"></span><span id="_CPPv2NK4enve12hyperellipse15surfaceMaxWidthEv"></span><span id="enve::hyperellipse::surfaceMaxWidth__voidC"></span><span class="target" id="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceMaxWidth</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse15surfaceMaxWidthEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum width on y axis (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse22surfaceWidthLowerBoundEv">
+<span id="_CPPv3NK4enve12hyperellipse22surfaceWidthLowerBoundEv"></span><span id="_CPPv2NK4enve12hyperellipse22surfaceWidthLowerBoundEv"></span><span id="enve::hyperellipse::surfaceWidthLowerBound__voidC"></span><span class="target" id="a00089_1a2d34c12f16852f76da529c00abc9d4a6"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidthLowerBound</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse22surfaceWidthLowerBoundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface minimum width const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse22surfaceWidthLowerBoundEv">
+<span id="_CPPv3N4enve12hyperellipse22surfaceWidthLowerBoundEv"></span><span id="_CPPv2N4enve12hyperellipse22surfaceWidthLowerBoundEv"></span><span id="enve::hyperellipse::surfaceWidthLowerBound__void"></span><span class="target" id="a00089_1abcbef9ab73ba72c1ab7723f7026371b7"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidthLowerBound</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse22surfaceWidthLowerBoundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface minimum width on reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse22surfaceWidthUpperBoundEv">
+<span id="_CPPv3NK4enve12hyperellipse22surfaceWidthUpperBoundEv"></span><span id="_CPPv2NK4enve12hyperellipse22surfaceWidthUpperBoundEv"></span><span id="enve::hyperellipse::surfaceWidthUpperBound__voidC"></span><span class="target" id="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidthUpperBound</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse22surfaceWidthUpperBoundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum width const reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve12hyperellipse22surfaceWidthUpperBoundEv">
+<span id="_CPPv3N4enve12hyperellipse22surfaceWidthUpperBoundEv"></span><span id="_CPPv2N4enve12hyperellipse22surfaceWidthUpperBoundEv"></span><span id="enve::hyperellipse::surfaceWidthUpperBound__void"></span><span class="target" id="a00089_1a968a6c23bd4c145ca4fb14be213d374c"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidthUpperBound</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve12hyperellipse22surfaceWidthUpperBoundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum width on reference (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse12surfaceWidthEv">
+<span id="_CPPv3NK4enve12hyperellipse12surfaceWidthEv"></span><span id="_CPPv2NK4enve12hyperellipse12surfaceWidthEv"></span><span id="enve::hyperellipse::surfaceWidth__voidC"></span><span class="target" id="a00089_1afa694bcea531f52cbc33c4586202e1a8"></span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">surfaceWidth</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse12surfaceWidthEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface width (m) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve12hyperellipse15checkWidthBoundE4real">
+<span id="_CPPv3NK4enve12hyperellipse15checkWidthBoundE4real"></span><span id="_CPPv2NK4enve12hyperellipse15checkWidthBoundE4real"></span><span id="enve::hyperellipse::checkWidthBound__realC"></span><span class="target" id="a00089_1a21cf4f513087dd2abb003fec5d92c1d1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">checkWidthBound</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve12hyperellipse15checkWidthBoundE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get surface maximum width on reference (m) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>y</strong> – Coordinate of y axis </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ENVE library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00077.html" title="Class points"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00073.html" title="Class mesh"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ENVE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >C++ API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class hyperellipse</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

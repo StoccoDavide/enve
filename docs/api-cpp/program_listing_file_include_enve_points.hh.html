@@ -1,0 +1,307 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File enve_points.hh &#8212; ENVE v</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ENVE</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Program Listing for File enve_points.hh</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-enve-points-hh">
+<span id="program-listing-file-include-enve-points-hh"></span><h1>Program Listing for File enve_points.hh<a class="headerlink" href="#program-listing-for-file-enve-points-hh" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_include_enve_points.hh.html#file-include-enve-points-hh"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">include/enve_points.hh</span></code>)</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">(***********************************************************************)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* The ENVE project                                                    *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(* The ENVE project can not be copied and/or distributed without the   *)</span>
+<span class="cm">(* express permission of Davide Stocco and Enrico Bertolazzi.          *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Davide Stocco                                                    *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: davide.stocco@unitn.it                                   *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(*    Enrico Bertolazzi                                                *)</span>
+<span class="cm">(*    Department of Industrial Engineering                             *)</span>
+<span class="cm">(*    University of Trento                                             *)</span>
+<span class="cm">(*    e-mail: enrico.bertolazzi@unitn.it                               *)</span>
+<span class="cm">(*                                                                     *)</span>
+<span class="cm">(***********************************************************************)</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#pragma once</span>
+
+<span class="cp">#ifndef INCLUDE_ENVE_POINTS</span>
+<span class="cp">#define INCLUDE_ENVE_POINTS</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;acme.hh&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;acme_math.hh&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;acme_utils.hh&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">"enve_shape.hh"</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">acme</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="n">enve</span>
+<span class="p">{</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |               _       _</span>
+<span class="cm">   |   _ __   ___ (_)_ __ | |_ ___</span>
+<span class="cm">   |  | '_ \ / _ \| | '_ \| __/ __|</span>
+<span class="cm">   |  | |_) | (_) | | | | | |_\__ \</span>
+<span class="cm">   |  | .__/ \___/|_|_| |_|\__|___/</span>
+<span class="cm">   |  |_|</span>
+<span class="cm">  \*/</span>
+
+  <span class="k">class</span> <span class="nc">points</span> <span class="o">:</span> <span class="k">public</span> <span class="n">shape</span>
+  <span class="p">{</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">points</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">points</span><span class="o">::</span><span class="n">ptr</span><span class="o">&gt;</span>      <span class="n">vecptr</span><span class="p">;</span>
+
+  <span class="k">private</span><span class="o">:</span>
+    <span class="n">vecN</span> <span class="n">m_dataR</span><span class="p">;</span>
+    <span class="n">vecN</span> <span class="n">m_dataY</span><span class="p">;</span>
+
+  <span class="k">public</span><span class="o">:</span>
+    <span class="o">~</span><span class="n">points</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">points</span><span class="p">(</span><span class="n">points</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">points</span><span class="p">(</span><span class="n">points</span> <span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">points</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">points</span><span class="p">(</span>
+      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataR</span><span class="p">,</span>
+      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataY</span>
+    <span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="nf">copy</span><span class="p">(</span>
+      <span class="n">points</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">points_in</span>
+    <span class="p">);</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">isApprox</span><span class="p">(</span>
+      <span class="n">points</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">points_in</span><span class="p">,</span>
+      <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON_LOW</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">dataR</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">dataR</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">dataY</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">dataY</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">vecN</span> <span class="o">&amp;</span>
+    <span class="nf">dataR</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">real</span> <span class="o">&amp;</span>
+    <span class="nf">dataR</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">);</span>
+
+    <span class="n">vecN</span> <span class="o">&amp;</span>
+    <span class="nf">dataY</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">real</span> <span class="o">&amp;</span>
+    <span class="nf">dataY</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">);</span>
+
+    <span class="kt">size_t</span>
+    <span class="nf">size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">size_t</span>
+    <span class="nf">lowerBound</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">y</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">size_t</span>
+    <span class="nf">upperBound</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">y</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span>
+    <span class="nf">surfaceRadius</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">y</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+
+    <span class="n">real</span>
+    <span class="nf">surfaceDerivative</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON_MEDIUM</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+
+    <span class="n">real</span>
+    <span class="nf">surfaceAngle</span><span class="p">(</span>
+      <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON_MEDIUM</span>
+    <span class="p">)</span> <span class="k">const</span> <span class="k">override</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">print</span><span class="p">(</span>
+      <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+  <span class="p">};</span> <span class="c1">// class points</span>
+
+<span class="p">}</span> <span class="c1">// namespace enve</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">The ENVE library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ENVE</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Program Listing for File enve_points.hh</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Davide Stocco.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
