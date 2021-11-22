@@ -107,18 +107,18 @@ namespace enve
 
     //! Shell class constructor
     shell(
-      size_t size,                      //!< Input ribs number
-      vecN   dataR,                     //!< Vector of radius data (m)
-      vecN   dataY,                     //!< Vector of y data (m)
-      size_t order,                     //!< Polynom order
-      real   tolerance = EPSILON_MEDIUM //!< Tolerance
+      size_t      size,                      //!< Input ribs number
+      vecN const &dataR,                     //!< Vector of radius data (m)
+      vecN const &dataY,                     //!< Vector of y data (m)
+      size_t      order,                     //!< Polynom order
+      real        tolerance = EPSILON_MEDIUM //!< Tolerance
     );
 
     //! Shell class constructor
     shell(
-      size_t size,  //!< Input ribs number
-      vecN   dataR, //!< Vector of radius data (m)
-      vecN   dataY  //!< Vector of y data (m)
+      size_t      size,  //!< Input ribs number
+      vecN const &dataR, //!< Vector of radius data (m)
+      vecN const &dataY  //!< Vector of y data (m)
     );
 
     //! Shell class constructor

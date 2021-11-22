@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="57" column="29" bodyfile="include/enve_polynom.hh" bodystart="57" bodyend="-1"/>
+        <location file="include/enve_polynom.hh" line="61" column="29" bodyfile="include/enve_polynom.hh" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="a00081_1a4078b519b94f86d051aa7d4bd737d163" prot="public" static="no">
         <type>std::vector&lt; <ref refid="a00081_1a776a2cb3bbf79305d3bda68023bebba8" kindref="member">polynom::ptr</ref> &gt;</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="58" column="30" bodyfile="include/enve_polynom.hh" bodystart="58" bodyend="-1"/>
+        <location file="include/enve_polynom.hh" line="62" column="30" bodyfile="include/enve_polynom.hh" bodystart="62" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -47,13 +47,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="61" column="10" bodyfile="include/enve_polynom.hh" bodystart="61" bodyend="-1"/>
-        <referencedby refid="a00081_1a922eaa302e86ba235161fbad3186293f" compoundref="a00050" startline="81" endline="86">copy</referencedby>
-        <referencedby refid="a00081_1a26b1cddc339c7e00ca0f1492722d38df" compoundref="a00050" startline="160" endline="185">fit</referencedby>
-        <referencedby refid="a00081_1a2f8207c750bc8f09c136eeb878090889" compoundref="a00050" startline="91" endline="101">isApprox</referencedby>
-        <referencedby refid="a00081_1a7fee7942fdfc90caa85bce08663e9489" compoundref="a00050" startline="146" endline="155">print</referencedby>
-        <referencedby refid="a00081_1a34738229882daa930770c4863443b490" compoundref="a00050" startline="120" endline="130">surfaceDerivative</referencedby>
-        <referencedby refid="a00081_1a84656dbac8235f5dd9c4663c2db51d98" compoundref="a00050" startline="106" endline="115">surfaceRadius</referencedby>
+        <location file="include/enve_polynom.hh" line="65" column="10" bodyfile="include/enve_polynom.hh" bodystart="65" bodyend="-1"/>
+        <referencedby refid="a00081_1a922eaa302e86ba235161fbad3186293f" compoundref="a00050" startline="85" endline="90">copy</referencedby>
+        <referencedby refid="a00081_1a26b1cddc339c7e00ca0f1492722d38df" compoundref="a00050" startline="164" endline="189">fit</referencedby>
+        <referencedby refid="a00081_1a2f8207c750bc8f09c136eeb878090889" compoundref="a00050" startline="95" endline="105">isApprox</referencedby>
+        <referencedby refid="a00081_1a7fee7942fdfc90caa85bce08663e9489" compoundref="a00050" startline="150" endline="159">print</referencedby>
+        <referencedby refid="a00081_1a34738229882daa930770c4863443b490" compoundref="a00050" startline="124" endline="134">surfaceDerivative</referencedby>
+        <referencedby refid="a00081_1a84656dbac8235f5dd9c4663c2db51d98" compoundref="a00050" startline="110" endline="119">surfaceRadius</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00089_1a60dd88c2bd58b71d534cc92d6d5f56f9" prot="private" static="no" mutable="no">
         <type>real</type>
@@ -68,12 +68,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="59" column="10" bodyfile="include/enve_shape.hh" bodystart="59" bodyend="-1"/>
-        <referencedby refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00047" startline="91" endline="97">enve::shape::copy</referencedby>
-        <referencedby refid="a00089_1aa509c8fa017ef7500110beae8289b514" compoundref="a00047" startline="102" endline="110">enve::shape::isApprox</referencedby>
-        <referencedby refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00047" startline="203" endline="211">enve::shape::print</referencedby>
-        <referencedby refid="a00089_1a451509b55546ad54f4d816786554f79e" compoundref="a00047" startline="70" endline="86">enve::shape::shape</referencedby>
-        <referencedby refid="a00089_1ac85f00278892b2330e9325209a16e478" compoundref="a00047" startline="115" endline="119">enve::shape::surfaceMaxRadius</referencedby>
+        <location file="include/enve_shape.hh" line="63" column="10" bodyfile="include/enve_shape.hh" bodystart="63" bodyend="-1"/>
+        <referencedby refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00047" startline="95" endline="101">enve::shape::copy</referencedby>
+        <referencedby refid="a00089_1aa509c8fa017ef7500110beae8289b514" compoundref="a00047" startline="106" endline="114">enve::shape::isApprox</referencedby>
+        <referencedby refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00047" startline="207" endline="215">enve::shape::print</referencedby>
+        <referencedby refid="a00089_1a451509b55546ad54f4d816786554f79e" compoundref="a00047" startline="74" endline="90">enve::shape::shape</referencedby>
+        <referencedby refid="a00089_1ac85f00278892b2330e9325209a16e478" compoundref="a00047" startline="119" endline="123">enve::shape::surfaceMaxRadius</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00089_1aa637dc06ac5012754a88ff504b55127e" prot="private" static="no" mutable="no">
         <type>real</type>
@@ -88,15 +88,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="60" column="10" bodyfile="include/enve_shape.hh" bodystart="60" bodyend="-1"/>
-        <referencedby refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" compoundref="a00047" startline="185" endline="198">enve::shape::checkWidthBound</referencedby>
-        <referencedby refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00047" startline="91" endline="97">enve::shape::copy</referencedby>
-        <referencedby refid="a00089_1aa509c8fa017ef7500110beae8289b514" compoundref="a00047" startline="102" endline="110">enve::shape::isApprox</referencedby>
-        <referencedby refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00047" startline="203" endline="211">enve::shape::print</referencedby>
-        <referencedby refid="a00089_1a451509b55546ad54f4d816786554f79e" compoundref="a00047" startline="70" endline="86">enve::shape::shape</referencedby>
-        <referencedby refid="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b" compoundref="a00047" startline="132" endline="136">enve::shape::surfaceMaxWidth</referencedby>
-        <referencedby refid="a00089_1afa694bcea531f52cbc33c4586202e1a8" compoundref="a00047" startline="175" endline="180">enve::shape::surfaceWidth</referencedby>
-        <referencedby refid="a00089_1a2d34c12f16852f76da529c00abc9d4a6" compoundref="a00047" startline="141" endline="145">enve::shape::surfaceWidthLowerBound</referencedby>
+        <location file="include/enve_shape.hh" line="64" column="10" bodyfile="include/enve_shape.hh" bodystart="64" bodyend="-1"/>
+        <referencedby refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" compoundref="a00047" startline="189" endline="202">enve::shape::checkWidthBound</referencedby>
+        <referencedby refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00047" startline="95" endline="101">enve::shape::copy</referencedby>
+        <referencedby refid="a00089_1aa509c8fa017ef7500110beae8289b514" compoundref="a00047" startline="106" endline="114">enve::shape::isApprox</referencedby>
+        <referencedby refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00047" startline="207" endline="215">enve::shape::print</referencedby>
+        <referencedby refid="a00089_1a451509b55546ad54f4d816786554f79e" compoundref="a00047" startline="74" endline="90">enve::shape::shape</referencedby>
+        <referencedby refid="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b" compoundref="a00047" startline="136" endline="140">enve::shape::surfaceMaxWidth</referencedby>
+        <referencedby refid="a00089_1afa694bcea531f52cbc33c4586202e1a8" compoundref="a00047" startline="179" endline="184">enve::shape::surfaceWidth</referencedby>
+        <referencedby refid="a00089_1a2d34c12f16852f76da529c00abc9d4a6" compoundref="a00047" startline="145" endline="149">enve::shape::surfaceWidthLowerBound</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00089_1a6bf4c2c1ef6049a4a5748cc1e64497b6" prot="private" static="no" mutable="no">
         <type>real</type>
@@ -111,15 +111,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="61" column="10" bodyfile="include/enve_shape.hh" bodystart="61" bodyend="-1"/>
-        <referencedby refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" compoundref="a00047" startline="185" endline="198">enve::shape::checkWidthBound</referencedby>
-        <referencedby refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00047" startline="91" endline="97">enve::shape::copy</referencedby>
-        <referencedby refid="a00089_1aa509c8fa017ef7500110beae8289b514" compoundref="a00047" startline="102" endline="110">enve::shape::isApprox</referencedby>
-        <referencedby refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00047" startline="203" endline="211">enve::shape::print</referencedby>
-        <referencedby refid="a00089_1a451509b55546ad54f4d816786554f79e" compoundref="a00047" startline="70" endline="86">enve::shape::shape</referencedby>
-        <referencedby refid="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b" compoundref="a00047" startline="132" endline="136">enve::shape::surfaceMaxWidth</referencedby>
-        <referencedby refid="a00089_1afa694bcea531f52cbc33c4586202e1a8" compoundref="a00047" startline="175" endline="180">enve::shape::surfaceWidth</referencedby>
-        <referencedby refid="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0" compoundref="a00047" startline="158" endline="162">enve::shape::surfaceWidthUpperBound</referencedby>
+        <location file="include/enve_shape.hh" line="65" column="10" bodyfile="include/enve_shape.hh" bodystart="65" bodyend="-1"/>
+        <referencedby refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" compoundref="a00047" startline="189" endline="202">enve::shape::checkWidthBound</referencedby>
+        <referencedby refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00047" startline="95" endline="101">enve::shape::copy</referencedby>
+        <referencedby refid="a00089_1aa509c8fa017ef7500110beae8289b514" compoundref="a00047" startline="106" endline="114">enve::shape::isApprox</referencedby>
+        <referencedby refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00047" startline="207" endline="215">enve::shape::print</referencedby>
+        <referencedby refid="a00089_1a451509b55546ad54f4d816786554f79e" compoundref="a00047" startline="74" endline="90">enve::shape::shape</referencedby>
+        <referencedby refid="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b" compoundref="a00047" startline="136" endline="140">enve::shape::surfaceMaxWidth</referencedby>
+        <referencedby refid="a00089_1afa694bcea531f52cbc33c4586202e1a8" compoundref="a00047" startline="179" endline="184">enve::shape::surfaceWidth</referencedby>
+        <referencedby refid="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0" compoundref="a00047" startline="162" endline="166">enve::shape::surfaceWidthUpperBound</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="65" column="5" bodyfile="src/enve_polynom.cc" bodystart="44" bodyend="46"/>
+        <location file="include/enve_polynom.hh" line="69" column="5" bodyfile="src/enve_polynom.cc" bodystart="48" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1a90ca7852ab4f882feeb47ced5093e1ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="68" column="5"/>
+        <location file="include/enve_polynom.hh" line="72" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1aa0b8e640473937de3c34aca49a022c62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="71" column="5"/>
+        <location file="include/enve_polynom.hh" line="75" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1adbec97c758bb7cbc7bd619afdaaa26af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -189,7 +189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="74" column="5" bodyfile="src/enve_polynom.cc" bodystart="50" bodyend="52"/>
+        <location file="include/enve_polynom.hh" line="78" column="5" bodyfile="src/enve_polynom.cc" bodystart="54" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1a7a3869be304764047aa004c9ab04e287" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -227,7 +227,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="77" column="5" bodyfile="src/enve_polynom.cc" bodystart="56" bodyend="64"/>
+        <location file="include/enve_polynom.hh" line="81" column="5" bodyfile="src/enve_polynom.cc" bodystart="60" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1ab74e32b5826c77d7bd7d5ac351419852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -266,7 +266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="85" column="5" bodyfile="src/enve_polynom.cc" bodystart="68" bodyend="76"/>
+        <location file="include/enve_polynom.hh" line="89" column="5" bodyfile="src/enve_polynom.cc" bodystart="72" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1a922eaa302e86ba235161fbad3186293f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -286,7 +286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="94" column="5" bodyfile="src/enve_polynom.cc" bodystart="81" bodyend="86"/>
+        <location file="include/enve_polynom.hh" line="98" column="5" bodyfile="src/enve_polynom.cc" bodystart="85" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1a2f8207c750bc8f09c136eeb878090889" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -313,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="100" column="5" bodyfile="src/enve_polynom.cc" bodystart="91" bodyend="101"/>
+        <location file="include/enve_polynom.hh" line="104" column="5" bodyfile="src/enve_polynom.cc" bodystart="95" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1a84656dbac8235f5dd9c4663c2db51d98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>real</type>
@@ -334,7 +334,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="107" column="5" bodyfile="src/enve_polynom.cc" bodystart="106" bodyend="115"/>
+        <location file="include/enve_polynom.hh" line="111" column="5" bodyfile="src/enve_polynom.cc" bodystart="110" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1a34738229882daa930770c4863443b490" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>real</type>
@@ -362,8 +362,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="113" column="5" bodyfile="src/enve_polynom.cc" bodystart="120" bodyend="130"/>
-        <referencedby refid="a00081_1a2a80ac227415844e8835f2d1fb6a66e8" compoundref="a00050" startline="135" endline="141">surfaceAngle</referencedby>
+        <location file="include/enve_polynom.hh" line="117" column="5" bodyfile="src/enve_polynom.cc" bodystart="124" bodyend="134"/>
+        <referencedby refid="a00081_1a2a80ac227415844e8835f2d1fb6a66e8" compoundref="a00050" startline="139" endline="145">surfaceAngle</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00081_1a2a80ac227415844e8835f2d1fb6a66e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>real</type>
@@ -391,7 +391,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="120" column="5" bodyfile="src/enve_polynom.cc" bodystart="135" bodyend="141"/>
+        <location file="include/enve_polynom.hh" line="124" column="5" bodyfile="src/enve_polynom.cc" bodystart="139" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1a7fee7942fdfc90caa85bce08663e9489" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -411,7 +411,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="127" column="5" bodyfile="src/enve_polynom.cc" bodystart="146" bodyend="155"/>
+        <location file="include/enve_polynom.hh" line="131" column="5" bodyfile="src/enve_polynom.cc" bodystart="150" bodyend="159"/>
       </memberdef>
       <memberdef kind="function" id="a00081_1a26b1cddc339c7e00ca0f1492722d38df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -449,8 +449,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_polynom.hh" line="132" column="5" bodyfile="src/enve_polynom.cc" bodystart="160" bodyend="185"/>
-        <referencedby refid="a00081_1ab74e32b5826c77d7bd7d5ac351419852" compoundref="a00050" startline="68" endline="76">polynom</referencedby>
+        <location file="include/enve_polynom.hh" line="136" column="5" bodyfile="src/enve_polynom.cc" bodystart="164" bodyend="189"/>
+        <referencedby refid="a00081_1ab74e32b5826c77d7bd7d5ac351419852" compoundref="a00050" startline="72" endline="80">polynom</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00089_1a01bf679dac42a6a354f3ec1327402bef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -470,10 +470,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="85" column="5" bodyfile="src/enve_shape.cc" bodystart="91" bodyend="97"/>
-        <referencedby refid="a00069_1ab541910296cb5b34e16e314fa129df3d" compoundref="a00041" startline="75" endline="84">enve::hyperellipse::copy</referencedby>
-        <referencedby refid="a00077_1a028b84139da3daf212ca5dabb484d85f" compoundref="a00038" startline="61" endline="67">enve::points::copy</referencedby>
-        <referencedby refid="a00081_1a922eaa302e86ba235161fbad3186293f" compoundref="a00050" startline="81" endline="86">copy</referencedby>
+        <location file="include/enve_shape.hh" line="89" column="5" bodyfile="src/enve_shape.cc" bodystart="95" bodyend="101"/>
+        <referencedby refid="a00069_1ab541910296cb5b34e16e314fa129df3d" compoundref="a00041" startline="79" endline="88">enve::hyperellipse::copy</referencedby>
+        <referencedby refid="a00077_1a028b84139da3daf212ca5dabb484d85f" compoundref="a00038" startline="65" endline="71">enve::points::copy</referencedby>
+        <referencedby refid="a00081_1a922eaa302e86ba235161fbad3186293f" compoundref="a00050" startline="85" endline="90">copy</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00089_1aa509c8fa017ef7500110beae8289b514" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -500,10 +500,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="91" column="5" bodyfile="src/enve_shape.cc" bodystart="102" bodyend="110"/>
-        <referencedby refid="a00069_1a468ee3cb68db630cbf8bda8047f73da3" compoundref="a00041" startline="89" endline="100">enve::hyperellipse::isApprox</referencedby>
-        <referencedby refid="a00077_1a68336282aebd2b9df6016de9636a32de" compoundref="a00038" startline="72" endline="83">enve::points::isApprox</referencedby>
-        <referencedby refid="a00081_1a2f8207c750bc8f09c136eeb878090889" compoundref="a00050" startline="91" endline="101">isApprox</referencedby>
+        <location file="include/enve_shape.hh" line="95" column="5" bodyfile="src/enve_shape.cc" bodystart="106" bodyend="114"/>
+        <referencedby refid="a00069_1a468ee3cb68db630cbf8bda8047f73da3" compoundref="a00041" startline="93" endline="104">enve::hyperellipse::isApprox</referencedby>
+        <referencedby refid="a00077_1a68336282aebd2b9df6016de9636a32de" compoundref="a00038" startline="76" endline="87">enve::points::isApprox</referencedby>
+        <referencedby refid="a00081_1a2f8207c750bc8f09c136eeb878090889" compoundref="a00050" startline="95" endline="105">isApprox</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00089_1ac85f00278892b2330e9325209a16e478" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
@@ -520,8 +520,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="98" column="5" bodyfile="src/enve_shape.cc" bodystart="115" bodyend="119"/>
-        <referencedby refid="a00069_1aa04e522a0f22486086184c7da6b7435d" compoundref="a00041" startline="190" endline="195">enve::hyperellipse::updateBounds</referencedby>
+        <location file="include/enve_shape.hh" line="102" column="5" bodyfile="src/enve_shape.cc" bodystart="119" bodyend="123"/>
+        <referencedby refid="a00069_1aa04e522a0f22486086184c7da6b7435d" compoundref="a00041" startline="194" endline="199">enve::hyperellipse::updateBounds</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00089_1a3a2d0b37330222933ceb591d1c80c82e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
@@ -538,7 +538,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="102" column="5" bodyfile="src/enve_shape.cc" bodystart="124" bodyend="127"/>
+        <location file="include/enve_shape.hh" line="106" column="5" bodyfile="src/enve_shape.cc" bodystart="128" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -555,7 +555,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="106" column="5" bodyfile="src/enve_shape.cc" bodystart="132" bodyend="136"/>
+        <location file="include/enve_shape.hh" line="110" column="5" bodyfile="src/enve_shape.cc" bodystart="136" bodyend="140"/>
       </memberdef>
       <memberdef kind="function" id="a00089_1a2d34c12f16852f76da529c00abc9d4a6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
@@ -572,8 +572,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="110" column="5" bodyfile="src/enve_shape.cc" bodystart="141" bodyend="145"/>
-        <referencedby refid="a00069_1aa04e522a0f22486086184c7da6b7435d" compoundref="a00041" startline="190" endline="195">enve::hyperellipse::updateBounds</referencedby>
+        <location file="include/enve_shape.hh" line="114" column="5" bodyfile="src/enve_shape.cc" bodystart="145" bodyend="149"/>
+        <referencedby refid="a00069_1aa04e522a0f22486086184c7da6b7435d" compoundref="a00041" startline="194" endline="199">enve::hyperellipse::updateBounds</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00089_1abcbef9ab73ba72c1ab7723f7026371b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
@@ -590,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="114" column="5" bodyfile="src/enve_shape.cc" bodystart="150" bodyend="153"/>
+        <location file="include/enve_shape.hh" line="118" column="5" bodyfile="src/enve_shape.cc" bodystart="154" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
@@ -607,8 +607,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="118" column="5" bodyfile="src/enve_shape.cc" bodystart="158" bodyend="162"/>
-        <referencedby refid="a00069_1aa04e522a0f22486086184c7da6b7435d" compoundref="a00041" startline="190" endline="195">enve::hyperellipse::updateBounds</referencedby>
+        <location file="include/enve_shape.hh" line="122" column="5" bodyfile="src/enve_shape.cc" bodystart="162" bodyend="166"/>
+        <referencedby refid="a00069_1aa04e522a0f22486086184c7da6b7435d" compoundref="a00041" startline="194" endline="199">enve::hyperellipse::updateBounds</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00089_1a968a6c23bd4c145ca4fb14be213d374c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
@@ -625,7 +625,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="122" column="5" bodyfile="src/enve_shape.cc" bodystart="167" bodyend="170"/>
+        <location file="include/enve_shape.hh" line="126" column="5" bodyfile="src/enve_shape.cc" bodystart="171" bodyend="174"/>
       </memberdef>
       <memberdef kind="function" id="a00089_1afa694bcea531f52cbc33c4586202e1a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -642,7 +642,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="126" column="5" bodyfile="src/enve_shape.cc" bodystart="175" bodyend="180"/>
+        <location file="include/enve_shape.hh" line="130" column="5" bodyfile="src/enve_shape.cc" bodystart="179" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -662,15 +662,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="130" column="5" bodyfile="src/enve_shape.cc" bodystart="185" bodyend="198"/>
-        <referencedby refid="a00077_1af34877c458c34b5090c7bc22b00eb6b9" compoundref="a00038" startline="169" endline="180">enve::points::lowerBound</referencedby>
-        <referencedby refid="a00069_1ad377d4618e67f96ceaa4a16047e86898" compoundref="a00041" startline="213" endline="231">enve::hyperellipse::surfaceDerivative</referencedby>
-        <referencedby refid="a00077_1aeae1cd947511843588bed9cc34e05fac" compoundref="a00038" startline="213" endline="222">enve::points::surfaceDerivative</referencedby>
-        <referencedby refid="a00081_1a34738229882daa930770c4863443b490" compoundref="a00050" startline="120" endline="130">surfaceDerivative</referencedby>
-        <referencedby refid="a00069_1ac179ee99fb621153a921271df6748fe3" compoundref="a00041" startline="200" endline="208">enve::hyperellipse::surfaceRadius</referencedby>
-        <referencedby refid="a00077_1a1c8e9c0f5aa2253f82b789115d656d1d" compoundref="a00038" startline="201" endline="208">enve::points::surfaceRadius</referencedby>
-        <referencedby refid="a00081_1a84656dbac8235f5dd9c4663c2db51d98" compoundref="a00050" startline="106" endline="115">surfaceRadius</referencedby>
-        <referencedby refid="a00077_1ae88997a5bf97baaaf3ae253f9106aab5" compoundref="a00038" startline="185" endline="196">enve::points::upperBound</referencedby>
+        <location file="include/enve_shape.hh" line="134" column="5" bodyfile="src/enve_shape.cc" bodystart="189" bodyend="202"/>
+        <referencedby refid="a00077_1af34877c458c34b5090c7bc22b00eb6b9" compoundref="a00038" startline="173" endline="184">enve::points::lowerBound</referencedby>
+        <referencedby refid="a00069_1ad377d4618e67f96ceaa4a16047e86898" compoundref="a00041" startline="217" endline="235">enve::hyperellipse::surfaceDerivative</referencedby>
+        <referencedby refid="a00077_1aeae1cd947511843588bed9cc34e05fac" compoundref="a00038" startline="217" endline="226">enve::points::surfaceDerivative</referencedby>
+        <referencedby refid="a00081_1a34738229882daa930770c4863443b490" compoundref="a00050" startline="124" endline="134">surfaceDerivative</referencedby>
+        <referencedby refid="a00069_1ac179ee99fb621153a921271df6748fe3" compoundref="a00041" startline="204" endline="212">enve::hyperellipse::surfaceRadius</referencedby>
+        <referencedby refid="a00077_1a1c8e9c0f5aa2253f82b789115d656d1d" compoundref="a00038" startline="205" endline="212">enve::points::surfaceRadius</referencedby>
+        <referencedby refid="a00081_1a84656dbac8235f5dd9c4663c2db51d98" compoundref="a00050" startline="110" endline="119">surfaceRadius</referencedby>
+        <referencedby refid="a00077_1ae88997a5bf97baaaf3ae253f9106aab5" compoundref="a00038" startline="189" endline="200">enve::points::upperBound</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -702,7 +702,7 @@
         <link refid="a00089"/>
       </node>
     </collaborationgraph>
-    <location file="include/enve_polynom.hh" line="54" column="3" bodyfile="include/enve_polynom.hh" bodystart="55" bodyend="139"/>
+    <location file="include/enve_polynom.hh" line="58" column="3" bodyfile="include/enve_polynom.hh" bodystart="59" bodyend="143"/>
     <listofallmembers>
       <member refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" prot="public" virt="non-virtual"><scope>enve::polynom</scope><name>checkWidthBound</name></member>
       <member refid="a00081_1a922eaa302e86ba235161fbad3186293f" prot="public" virt="non-virtual"><scope>enve::polynom</scope><name>copy</name></member>

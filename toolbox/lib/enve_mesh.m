@@ -23,7 +23,6 @@
 %                                                                     %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-
 classdef enve_mesh < handle
   %>
   %> Class container for ENVE mesh object

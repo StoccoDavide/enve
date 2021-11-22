@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="59" column="29" bodyfile="include/enve_triangleground.hh" bodystart="59" bodyend="-1"/>
+        <location file="include/enve_triangleground.hh" line="63" column="29" bodyfile="include/enve_triangleground.hh" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="a00097_1a1f4cea2747925d4b294879cdf2f50711" prot="public" static="no">
         <type>std::vector&lt; <ref refid="a00097_1a3e14a04aa4f4e4db9097e821f546ce61" kindref="member">triangleground::ptr</ref> &gt;</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="60" column="30" bodyfile="include/enve_triangleground.hh" bodystart="60" bodyend="-1"/>
+        <location file="include/enve_triangleground.hh" line="64" column="30" bodyfile="include/enve_triangleground.hh" bodystart="64" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -47,10 +47,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="63" column="10" bodyfile="include/enve_triangleground.hh" bodystart="63" bodyend="-1"/>
-        <referencedby refid="a00097_1a421c9036dbcb4b801e9cd38045d1ac61" compoundref="a00044" startline="110" endline="117">copy</referencedby>
-        <referencedby refid="a00097_1a0355bf9eb73a9eceb5c26316bb195450" compoundref="a00044" startline="136" endline="139">friction</referencedby>
-        <referencedby refid="a00097_1a48b7f38136b64e4af9ba1961fa8ea214" compoundref="a00044" startline="122" endline="131">isApprox</referencedby>
+        <location file="include/enve_triangleground.hh" line="67" column="10" bodyfile="include/enve_triangleground.hh" bodystart="67" bodyend="-1"/>
+        <referencedby refid="a00097_1a421c9036dbcb4b801e9cd38045d1ac61" compoundref="a00044" startline="114" endline="121">copy</referencedby>
+        <referencedby refid="a00097_1a0355bf9eb73a9eceb5c26316bb195450" compoundref="a00044" startline="140" endline="143">friction</referencedby>
+        <referencedby refid="a00097_1a48b7f38136b64e4af9ba1961fa8ea214" compoundref="a00044" startline="126" endline="135">isApprox</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00097_1af2c5a4e0f6d455292d960da514f32eec" prot="private" static="no" mutable="no">
         <type>vec3</type>
@@ -64,10 +64,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="64" column="10" bodyfile="include/enve_triangleground.hh" bodystart="64" bodyend="-1"/>
-        <referencedby refid="a00097_1a421c9036dbcb4b801e9cd38045d1ac61" compoundref="a00044" startline="110" endline="117">copy</referencedby>
-        <referencedby refid="a00097_1acfb42f59e8569d9037dd5df03e9eb456" compoundref="a00044" startline="162" endline="166">normal</referencedby>
-        <referencedby refid="a00097_1a518c0f69871ecb8bbe6403595594e609" compoundref="a00044" startline="171" endline="176">updateNormal</referencedby>
+        <location file="include/enve_triangleground.hh" line="68" column="10" bodyfile="include/enve_triangleground.hh" bodystart="68" bodyend="-1"/>
+        <referencedby refid="a00097_1a421c9036dbcb4b801e9cd38045d1ac61" compoundref="a00044" startline="114" endline="121">copy</referencedby>
+        <referencedby refid="a00097_1acfb42f59e8569d9037dd5df03e9eb456" compoundref="a00044" startline="166" endline="170">normal</referencedby>
+        <referencedby refid="a00097_1a518c0f69871ecb8bbe6403595594e609" compoundref="a00044" startline="175" endline="180">updateNormal</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00097_1a8f92c7338841df34a838f03d967480cb" prot="private" static="no" mutable="no">
         <type>aabb</type>
@@ -81,10 +81,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="65" column="10" bodyfile="include/enve_triangleground.hh" bodystart="65" bodyend="-1"/>
-        <referencedby refid="a00097_1a66ea972ef13e8faa90cf90285b07870d" compoundref="a00044" startline="153" endline="157">bbox</referencedby>
-        <referencedby refid="a00097_1a421c9036dbcb4b801e9cd38045d1ac61" compoundref="a00044" startline="110" endline="117">copy</referencedby>
-        <referencedby refid="a00097_1a0a903dcb0793d1445dfaee4777b166a9" compoundref="a00044" startline="60" endline="79">triangleground</referencedby>
+        <location file="include/enve_triangleground.hh" line="69" column="10" bodyfile="include/enve_triangleground.hh" bodystart="69" bodyend="-1"/>
+        <referencedby refid="a00097_1a66ea972ef13e8faa90cf90285b07870d" compoundref="a00044" startline="157" endline="161">bbox</referencedby>
+        <referencedby refid="a00097_1a421c9036dbcb4b801e9cd38045d1ac61" compoundref="a00044" startline="114" endline="121">copy</referencedby>
+        <referencedby refid="a00097_1a0a903dcb0793d1445dfaee4777b166a9" compoundref="a00044" startline="64" endline="83">triangleground</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="69" column="5" bodyfile="src/enve_triangleground.cc" bodystart="44" bodyend="46"/>
+        <location file="include/enve_triangleground.hh" line="73" column="5" bodyfile="src/enve_triangleground.cc" bodystart="48" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1aa958ca7bba11b5354e06ca1b126c422e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="72" column="5"/>
+        <location file="include/enve_triangleground.hh" line="76" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a5780c978c4945f1aaa915a65720648b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="75" column="5"/>
+        <location file="include/enve_triangleground.hh" line="79" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a4d07f73f05d1210ca05dce0d509ca9fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="78" column="5" bodyfile="src/enve_triangleground.cc" bodystart="50" bodyend="56"/>
+        <location file="include/enve_triangleground.hh" line="82" column="5" bodyfile="src/enve_triangleground.cc" bodystart="54" bodyend="60"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a0a903dcb0793d1445dfaee4777b166a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -228,7 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="81" column="5" bodyfile="src/enve_triangleground.cc" bodystart="60" bodyend="79"/>
+        <location file="include/enve_triangleground.hh" line="85" column="5" bodyfile="src/enve_triangleground.cc" bodystart="64" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1ac8937e6c458ba731195fb86bf47250cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -266,7 +266,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="95" column="5" bodyfile="src/enve_triangleground.cc" bodystart="83" bodyend="93"/>
+        <location file="include/enve_triangleground.hh" line="99" column="5" bodyfile="src/enve_triangleground.cc" bodystart="87" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a7e6a923ca3ecd56784ff6dbfe46b0624" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -293,7 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="103" column="5" bodyfile="src/enve_triangleground.cc" bodystart="97" bodyend="105"/>
+        <location file="include/enve_triangleground.hh" line="107" column="5" bodyfile="src/enve_triangleground.cc" bodystart="101" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a421c9036dbcb4b801e9cd38045d1ac61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -313,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="110" column="5" bodyfile="src/enve_triangleground.cc" bodystart="110" bodyend="117"/>
+        <location file="include/enve_triangleground.hh" line="114" column="5" bodyfile="src/enve_triangleground.cc" bodystart="114" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a48b7f38136b64e4af9ba1961fa8ea214" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -340,7 +340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="116" column="5" bodyfile="src/enve_triangleground.cc" bodystart="122" bodyend="131"/>
+        <location file="include/enve_triangleground.hh" line="120" column="5" bodyfile="src/enve_triangleground.cc" bodystart="126" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a653640fc3a7f3f01e2c71c10f19ac9af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>triangle &amp;</type>
@@ -360,7 +360,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="123" column="5"/>
+        <location file="include/enve_triangleground.hh" line="127" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a0355bf9eb73a9eceb5c26316bb195450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
@@ -377,8 +377,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="129" column="5" bodyfile="src/enve_triangleground.cc" bodystart="136" bodyend="139"/>
-        <referencedby refid="a00073_1a21c9d0e4ed514dd076b2f7245be71a4d" compoundref="a00053" startline="144" endline="177">enve::ground::mesh::print</referencedby>
+        <location file="include/enve_triangleground.hh" line="133" column="5" bodyfile="src/enve_triangleground.cc" bodystart="140" bodyend="143"/>
+        <referencedby refid="a00073_1a21c9d0e4ed514dd076b2f7245be71a4d" compoundref="a00053" startline="148" endline="181">enve::ground::mesh::print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00097_1a26ce64776ae666ab0ec05bf6e7cd4164" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
@@ -395,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="133" column="5" bodyfile="src/enve_triangleground.cc" bodystart="144" bodyend="148"/>
+        <location file="include/enve_triangleground.hh" line="137" column="5" bodyfile="src/enve_triangleground.cc" bodystart="148" bodyend="152"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a66ea972ef13e8faa90cf90285b07870d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>aabb const &amp;</type>
@@ -412,7 +412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="137" column="5" bodyfile="src/enve_triangleground.cc" bodystart="153" bodyend="157"/>
+        <location file="include/enve_triangleground.hh" line="141" column="5" bodyfile="src/enve_triangleground.cc" bodystart="157" bodyend="161"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1acfb42f59e8569d9037dd5df03e9eb456" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>vec3 const &amp;</type>
@@ -429,8 +429,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="141" column="5" bodyfile="src/enve_triangleground.cc" bodystart="162" bodyend="166"/>
-        <referencedby refid="a00073_1a21c9d0e4ed514dd076b2f7245be71a4d" compoundref="a00053" startline="144" endline="177">enve::ground::mesh::print</referencedby>
+        <location file="include/enve_triangleground.hh" line="145" column="5" bodyfile="src/enve_triangleground.cc" bodystart="166" bodyend="170"/>
+        <referencedby refid="a00073_1a21c9d0e4ed514dd076b2f7245be71a4d" compoundref="a00053" startline="148" endline="181">enve::ground::mesh::print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00097_1a518c0f69871ecb8bbe6403595594e609" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -447,8 +447,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="145" column="5" bodyfile="src/enve_triangleground.cc" bodystart="171" bodyend="176"/>
-        <referencedby refid="a00097_1a0a903dcb0793d1445dfaee4777b166a9" compoundref="a00044" startline="60" endline="79">triangleground</referencedby>
+        <location file="include/enve_triangleground.hh" line="149" column="5" bodyfile="src/enve_triangleground.cc" bodystart="175" bodyend="180"/>
+        <referencedby refid="a00097_1a0a903dcb0793d1445dfaee4777b166a9" compoundref="a00044" startline="64" endline="83">triangleground</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00097_1aca9199ed0180a4fa171860ae125b1cde" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>point const &amp;</type>
@@ -468,7 +468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="149" column="5" bodyfile="src/enve_triangleground.cc" bodystart="181" bodyend="186"/>
+        <location file="include/enve_triangleground.hh" line="153" column="5" bodyfile="src/enve_triangleground.cc" bodystart="185" bodyend="190"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1ac72a0b906deb096694697de281c49671" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>point const &amp;</type>
@@ -488,9 +488,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="155" column="5" bodyfile="src/enve_triangleground.cc" bodystart="191" bodyend="196"/>
-        <referencedby refid="a00097_1a48b7f38136b64e4af9ba1961fa8ea214" compoundref="a00044" startline="122" endline="131">isApprox</referencedby>
-        <referencedby refid="a00097_1a518c0f69871ecb8bbe6403595594e609" compoundref="a00044" startline="171" endline="176">updateNormal</referencedby>
+        <location file="include/enve_triangleground.hh" line="159" column="5" bodyfile="src/enve_triangleground.cc" bodystart="195" bodyend="200"/>
+        <referencedby refid="a00097_1a48b7f38136b64e4af9ba1961fa8ea214" compoundref="a00044" startline="126" endline="135">isApprox</referencedby>
+        <referencedby refid="a00097_1a518c0f69871ecb8bbe6403595594e609" compoundref="a00044" startline="175" endline="180">updateNormal</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -512,7 +512,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="162" column="5" bodyfile="src/enve_triangleground.cc" bodystart="201" bodyend="205"/>
+        <location file="include/enve_triangleground.hh" line="166" column="5" bodyfile="src/enve_triangleground.cc" bodystart="205" bodyend="209"/>
       </memberdef>
       <memberdef kind="function" id="a00097_1a05a1f6f217348562e7f6e825ff77f5fd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>point &amp;</type>
@@ -532,7 +532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_triangleground.hh" line="168" column="5" bodyfile="src/enve_triangleground.cc" bodystart="210" bodyend="214"/>
+        <location file="include/enve_triangleground.hh" line="172" column="5" bodyfile="src/enve_triangleground.cc" bodystart="214" bodyend="218"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -562,7 +562,7 @@
         <label>triangle</label>
       </node>
     </collaborationgraph>
-    <location file="include/enve_triangleground.hh" line="56" column="3" bodyfile="include/enve_triangleground.hh" bodystart="57" bodyend="172"/>
+    <location file="include/enve_triangleground.hh" line="60" column="3" bodyfile="include/enve_triangleground.hh" bodystart="61" bodyend="176"/>
     <listofallmembers>
       <member refid="a00097_1a66ea972ef13e8faa90cf90285b07870d" prot="public" virt="non-virtual"><scope>enve::triangleground</scope><name>bbox</name></member>
       <member refid="a00097_1a421c9036dbcb4b801e9cd38045d1ac61" prot="public" virt="non-virtual"><scope>enve::triangleground</scope><name>copy</name></member>

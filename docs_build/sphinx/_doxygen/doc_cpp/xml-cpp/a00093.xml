@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="69" column="29" bodyfile="include/enve_shell.hh" bodystart="69" bodyend="-1"/>
+        <location file="include/enve_shell.hh" line="73" column="29" bodyfile="include/enve_shell.hh" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="a00093_1a14b3fa61d852ebaabd3603818d74ca6a" prot="public" static="no">
         <type>std::vector&lt; <ref refid="a00093_1af27992d971057759d268f102975d62fb" kindref="member">shell::ptr</ref> &gt;</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="70" column="30" bodyfile="include/enve_shell.hh" bodystart="70" bodyend="-1"/>
+        <location file="include/enve_shell.hh" line="74" column="30" bodyfile="include/enve_shell.hh" bodystart="74" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -46,22 +46,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="73" column="21" bodyfile="include/enve_shell.hh" bodystart="73" bodyend="-1"/>
-        <referencedby refid="a00093_1a968cb22f2dddc6ed28d29fe61bfb9f25" compoundref="a00032" startline="226" endline="231">checkWidthBound</referencedby>
-        <referencedby refid="a00093_1a63165bc2945d92b1f78883bd0a6758da" compoundref="a00032" startline="568" endline="587">contactDepthMesh</referencedby>
-        <referencedby refid="a00093_1ab52643e3a7adcc8f95bf597eda311d6a" compoundref="a00032" startline="505" endline="524">contactDepthRib</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
-        <referencedby refid="a00093_1a2cada05513ee0744000587966909ab7c" compoundref="a00032" startline="1219" endline="1256">samplingCross</referencedby>
-        <referencedby refid="a00093_1a4bbb973b459c409e07100b9f526d31f2" compoundref="a00032" startline="257" endline="263">surfaceAngle</referencedby>
-        <referencedby refid="a00093_1a9ff4b3d279cf3bca199d71b6829bb10f" compoundref="a00032" startline="246" endline="252">surfaceDerivative</referencedby>
-        <referencedby refid="a00093_1ae545ab83f69df117efd3aefc98905b58" compoundref="a00032" startline="181" endline="185">surfaceMaxRadius</referencedby>
-        <referencedby refid="a00093_1a041572d89d883b768eb195b61775e99d" compoundref="a00032" startline="190" endline="194">surfaceMaxWidth</referencedby>
-        <referencedby refid="a00093_1afdf0e745ae4a5dbbc3daca2af53cd2d1" compoundref="a00032" startline="236" endline="241">surfaceRadius</referencedby>
-        <referencedby refid="a00093_1a72cfa8296a664a3d3b538f7c97f187a4" compoundref="a00032" startline="217" endline="221">surfaceWidth</referencedby>
-        <referencedby refid="a00093_1ad2581acf1804fe415a4253914d33b9d7" compoundref="a00032" startline="199" endline="203">surfaceWidthLowerBound</referencedby>
-        <referencedby refid="a00093_1ad46823bc50ac456ee220fab3bf62504a" compoundref="a00032" startline="208" endline="212">surfaceWidthUpperBound</referencedby>
-        <referencedby refid="a00093_1a2752d2f553b89f2b722c14f98380b025" compoundref="a00032" startline="442" endline="450">updateBBox</referencedby>
+        <location file="include/enve_shell.hh" line="77" column="21" bodyfile="include/enve_shell.hh" bodystart="77" bodyend="-1"/>
+        <referencedby refid="a00093_1a968cb22f2dddc6ed28d29fe61bfb9f25" compoundref="a00032" startline="230" endline="235">checkWidthBound</referencedby>
+        <referencedby refid="a00093_1a63165bc2945d92b1f78883bd0a6758da" compoundref="a00032" startline="572" endline="591">contactDepthMesh</referencedby>
+        <referencedby refid="a00093_1ab52643e3a7adcc8f95bf597eda311d6a" compoundref="a00032" startline="509" endline="528">contactDepthRib</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
+        <referencedby refid="a00093_1a2cada05513ee0744000587966909ab7c" compoundref="a00032" startline="1223" endline="1260">samplingCross</referencedby>
+        <referencedby refid="a00093_1a4bbb973b459c409e07100b9f526d31f2" compoundref="a00032" startline="261" endline="267">surfaceAngle</referencedby>
+        <referencedby refid="a00093_1a9ff4b3d279cf3bca199d71b6829bb10f" compoundref="a00032" startline="250" endline="256">surfaceDerivative</referencedby>
+        <referencedby refid="a00093_1ae545ab83f69df117efd3aefc98905b58" compoundref="a00032" startline="185" endline="189">surfaceMaxRadius</referencedby>
+        <referencedby refid="a00093_1a041572d89d883b768eb195b61775e99d" compoundref="a00032" startline="194" endline="198">surfaceMaxWidth</referencedby>
+        <referencedby refid="a00093_1afdf0e745ae4a5dbbc3daca2af53cd2d1" compoundref="a00032" startline="240" endline="245">surfaceRadius</referencedby>
+        <referencedby refid="a00093_1a72cfa8296a664a3d3b538f7c97f187a4" compoundref="a00032" startline="221" endline="225">surfaceWidth</referencedby>
+        <referencedby refid="a00093_1ad2581acf1804fe415a4253914d33b9d7" compoundref="a00032" startline="203" endline="207">surfaceWidthLowerBound</referencedby>
+        <referencedby refid="a00093_1ad46823bc50ac456ee220fab3bf62504a" compoundref="a00032" startline="212" endline="216">surfaceWidthUpperBound</referencedby>
+        <referencedby refid="a00093_1a2752d2f553b89f2b722c14f98380b025" compoundref="a00032" startline="446" endline="454">updateBBox</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00093_1ac12fbcd8d579d4e0e6cb3744f27b3691" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="a00085" kindref="compound">rib</ref> &gt;</type>
@@ -75,23 +75,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="74" column="23" bodyfile="include/enve_shell.hh" bodystart="74" bodyend="-1"/>
-        <referencedby refid="a00093_1a32942c1f12b74509287a05e8aac89d30" compoundref="a00032" startline="592" endline="610">contactDepthMesh</referencedby>
-        <referencedby refid="a00093_1a34cda3c55d1681e2445b8527e0531e15" compoundref="a00032" startline="529" endline="547">contactDepthRib</referencedby>
-        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1280" endline="1296">envelopLine</referencedby>
-        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">envelopPlane</referencedby>
-        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1261" endline="1275">envelopSingleTriangle</referencedby>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">envelopTriangle</referencedby>
-        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1100" endline="1118">oversample</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
-        <referencedby refid="a00093_1a44604a738554f234df1d0af3ec157f96" compoundref="a00032" startline="1380" endline="1391">projectContactPointOnFlat</referencedby>
-        <referencedby refid="a00093_1ad7570a667f28e75b254b00200dd1ae34" compoundref="a00032" startline="1396" endline="1407">projectContactPointOnMesh</referencedby>
-        <referencedby refid="a00093_1ae48557597d39b647eac55a03704bdfc3" compoundref="a00032" startline="479" endline="489">relativeAngles</referencedby>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
-        <referencedby refid="a00093_1ad8a3d3f336041aae315b43022a7dbc3c" compoundref="a00032" startline="278" endline="283">ribCenter</referencedby>
-        <referencedby refid="a00093_1aadb3a2be11b94f1273596ed709fc9e23" compoundref="a00032" startline="268" endline="273">ribRadius</referencedby>
-        <referencedby refid="a00093_1a43a508efabf7462e0fd13262a39a47b4" compoundref="a00032" startline="288" endline="293">ribWidth</referencedby>
-        <referencedby refid="a00093_1aaeafa8ac9f588ebdf3f2b8722dde9290" compoundref="a00032" startline="161" endline="165">size</referencedby>
+        <location file="include/enve_shell.hh" line="78" column="23" bodyfile="include/enve_shell.hh" bodystart="78" bodyend="-1"/>
+        <referencedby refid="a00093_1a32942c1f12b74509287a05e8aac89d30" compoundref="a00032" startline="596" endline="614">contactDepthMesh</referencedby>
+        <referencedby refid="a00093_1a34cda3c55d1681e2445b8527e0531e15" compoundref="a00032" startline="533" endline="551">contactDepthRib</referencedby>
+        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1284" endline="1300">envelopLine</referencedby>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1354" endline="1379">envelopPlane</referencedby>
+        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1265" endline="1279">envelopSingleTriangle</referencedby>
+        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1305" endline="1349">envelopTriangle</referencedby>
+        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1104" endline="1122">oversample</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
+        <referencedby refid="a00093_1a44604a738554f234df1d0af3ec157f96" compoundref="a00032" startline="1384" endline="1395">projectContactPointOnFlat</referencedby>
+        <referencedby refid="a00093_1ad7570a667f28e75b254b00200dd1ae34" compoundref="a00032" startline="1400" endline="1411">projectContactPointOnMesh</referencedby>
+        <referencedby refid="a00093_1ae48557597d39b647eac55a03704bdfc3" compoundref="a00032" startline="483" endline="493">relativeAngles</referencedby>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
+        <referencedby refid="a00093_1ad8a3d3f336041aae315b43022a7dbc3c" compoundref="a00032" startline="282" endline="287">ribCenter</referencedby>
+        <referencedby refid="a00093_1aadb3a2be11b94f1273596ed709fc9e23" compoundref="a00032" startline="272" endline="277">ribRadius</referencedby>
+        <referencedby refid="a00093_1a43a508efabf7462e0fd13262a39a47b4" compoundref="a00032" startline="292" endline="297">ribWidth</referencedby>
+        <referencedby refid="a00093_1aaeafa8ac9f588ebdf3f2b8722dde9290" compoundref="a00032" startline="165" endline="169">size</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00093_1a0fc8caf160157febbc5fa0ee0b4ea0ad" prot="private" static="no" mutable="no">
         <type>affine</type>
@@ -105,29 +105,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="75" column="28" bodyfile="include/enve_shell.hh" bodystart="75" bodyend="-1"/>
-        <referencedby refid="a00093_1a63165bc2945d92b1f78883bd0a6758da" compoundref="a00032" startline="568" endline="587">contactDepthMesh</referencedby>
-        <referencedby refid="a00093_1ab52643e3a7adcc8f95bf597eda311d6a" compoundref="a00032" startline="505" endline="524">contactDepthRib</referencedby>
-        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">envelopPlane</referencedby>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">envelopTriangle</referencedby>
-        <referencedby refid="a00093_1a3758f1248a4e9a9487682560d75ae823" compoundref="a00032" startline="412" endline="417">eulerAngles</referencedby>
-        <referencedby refid="a00093_1ad49487850eb0510d7b068f91501ca836" compoundref="a00032" startline="348" endline="353">linear</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
-        <referencedby refid="a00093_1a44604a738554f234df1d0af3ec157f96" compoundref="a00032" startline="1380" endline="1391">projectContactPointOnFlat</referencedby>
-        <referencedby refid="a00093_1ad7570a667f28e75b254b00200dd1ae34" compoundref="a00032" startline="1396" endline="1407">projectContactPointOnMesh</referencedby>
-        <referencedby refid="a00093_1a25ad9b63a2daea89ab6b17e949028d8d" compoundref="a00032" startline="328" endline="333">rotate</referencedby>
-        <referencedby refid="a00093_1acd3e5c07070586785043b991f4ebcd3b" compoundref="a00032" startline="338" endline="343">rotation</referencedby>
-        <referencedby refid="a00093_1a2cada05513ee0744000587966909ab7c" compoundref="a00032" startline="1219" endline="1256">samplingCross</referencedby>
-        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="851" endline="964">setup</referencedby>
-        <referencedby refid="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" compoundref="a00032" startline="52" endline="65">shell</referencedby>
-        <referencedby refid="a00093_1a3e084b8c0d6e3ec682383545a61787af" compoundref="a00032" startline="358" endline="362">transform</referencedby>
-        <referencedby refid="a00093_1ab8206d37a830c82ad372d3276556630a" compoundref="a00032" startline="376" endline="380">transformation</referencedby>
-        <referencedby refid="a00093_1a812b5a7947d74eff88e5b9cfe24c9ef0" compoundref="a00032" startline="309" endline="313">translate</referencedby>
-        <referencedby refid="a00093_1a3d0282a1133a19e3e1ae06f91b35b194" compoundref="a00032" startline="318" endline="323">translation</referencedby>
-        <referencedby refid="a00093_1a2752d2f553b89f2b722c14f98380b025" compoundref="a00032" startline="442" endline="450">updateBBox</referencedby>
-        <referencedby refid="a00093_1ad7868ccdd90b807c75684cb51c256d03" compoundref="a00032" startline="385" endline="389">x</referencedby>
-        <referencedby refid="a00093_1a1de4c83db18282e37892c7adb0224232" compoundref="a00032" startline="394" endline="398">y</referencedby>
-        <referencedby refid="a00093_1a79039f854236a5ae427da3f0868f988a" compoundref="a00032" startline="403" endline="407">z</referencedby>
+        <location file="include/enve_shell.hh" line="79" column="28" bodyfile="include/enve_shell.hh" bodystart="79" bodyend="-1"/>
+        <referencedby refid="a00093_1a63165bc2945d92b1f78883bd0a6758da" compoundref="a00032" startline="572" endline="591">contactDepthMesh</referencedby>
+        <referencedby refid="a00093_1ab52643e3a7adcc8f95bf597eda311d6a" compoundref="a00032" startline="509" endline="528">contactDepthRib</referencedby>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1354" endline="1379">envelopPlane</referencedby>
+        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1305" endline="1349">envelopTriangle</referencedby>
+        <referencedby refid="a00093_1a3758f1248a4e9a9487682560d75ae823" compoundref="a00032" startline="416" endline="421">eulerAngles</referencedby>
+        <referencedby refid="a00093_1ad49487850eb0510d7b068f91501ca836" compoundref="a00032" startline="352" endline="357">linear</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
+        <referencedby refid="a00093_1a44604a738554f234df1d0af3ec157f96" compoundref="a00032" startline="1384" endline="1395">projectContactPointOnFlat</referencedby>
+        <referencedby refid="a00093_1ad7570a667f28e75b254b00200dd1ae34" compoundref="a00032" startline="1400" endline="1411">projectContactPointOnMesh</referencedby>
+        <referencedby refid="a00093_1a25ad9b63a2daea89ab6b17e949028d8d" compoundref="a00032" startline="332" endline="337">rotate</referencedby>
+        <referencedby refid="a00093_1acd3e5c07070586785043b991f4ebcd3b" compoundref="a00032" startline="342" endline="347">rotation</referencedby>
+        <referencedby refid="a00093_1a2cada05513ee0744000587966909ab7c" compoundref="a00032" startline="1223" endline="1260">samplingCross</referencedby>
+        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="855" endline="968">setup</referencedby>
+        <referencedby refid="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" compoundref="a00032" startline="56" endline="69">shell</referencedby>
+        <referencedby refid="a00093_1a3e084b8c0d6e3ec682383545a61787af" compoundref="a00032" startline="362" endline="366">transform</referencedby>
+        <referencedby refid="a00093_1ab8206d37a830c82ad372d3276556630a" compoundref="a00032" startline="380" endline="384">transformation</referencedby>
+        <referencedby refid="a00093_1a812b5a7947d74eff88e5b9cfe24c9ef0" compoundref="a00032" startline="313" endline="317">translate</referencedby>
+        <referencedby refid="a00093_1a3d0282a1133a19e3e1ae06f91b35b194" compoundref="a00032" startline="322" endline="327">translation</referencedby>
+        <referencedby refid="a00093_1a2752d2f553b89f2b722c14f98380b025" compoundref="a00032" startline="446" endline="454">updateBBox</referencedby>
+        <referencedby refid="a00093_1ad7868ccdd90b807c75684cb51c256d03" compoundref="a00032" startline="389" endline="393">x</referencedby>
+        <referencedby refid="a00093_1a1de4c83db18282e37892c7adb0224232" compoundref="a00032" startline="398" endline="402">y</referencedby>
+        <referencedby refid="a00093_1a79039f854236a5ae427da3f0868f988a" compoundref="a00032" startline="407" endline="411">z</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00093_1a9d247a88263b13e385d787d5c9bdfe1b" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; aabb &gt;</type>
@@ -141,10 +141,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="76" column="22" bodyfile="include/enve_shell.hh" bodystart="76" bodyend="-1"/>
-        <referencedby refid="a00093_1aa143ec0906a3edd9768da2aa67a8465d" compoundref="a00032" startline="433" endline="437">bbox</referencedby>
-        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="851" endline="964">setup</referencedby>
-        <referencedby refid="a00093_1a2752d2f553b89f2b722c14f98380b025" compoundref="a00032" startline="442" endline="450">updateBBox</referencedby>
+        <location file="include/enve_shell.hh" line="80" column="22" bodyfile="include/enve_shell.hh" bodystart="80" bodyend="-1"/>
+        <referencedby refid="a00093_1aa143ec0906a3edd9768da2aa67a8465d" compoundref="a00032" startline="437" endline="441">bbox</referencedby>
+        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="855" endline="968">setup</referencedby>
+        <referencedby refid="a00093_1a2752d2f553b89f2b722c14f98380b025" compoundref="a00032" startline="446" endline="454">updateBBox</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00093_1a9283c0c139904f54a0a5b2bdd72c7f48" prot="private" static="no" mutable="no">
         <type>std::vector&lt; point &gt;</type>
@@ -158,16 +158,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="78" column="17" bodyfile="include/enve_shell.hh" bodystart="78" bodyend="-1"/>
-        <referencedby refid="a00093_1a34cda3c55d1681e2445b8527e0531e15" compoundref="a00032" startline="529" endline="547">contactDepthRib</referencedby>
-        <referencedby refid="a00093_1a5434b33affdff6789869e2fcd4920592" compoundref="a00032" startline="666" endline="675">contactPointRib</referencedby>
-        <referencedby refid="a00093_1ab43e572d17b998381e15eaf20ef3b359" compoundref="a00032" startline="784" endline="793">contactPointRibAffine</referencedby>
-        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1280" endline="1296">envelopLine</referencedby>
-        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">envelopPlane</referencedby>
-        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1261" endline="1275">envelopSingleTriangle</referencedby>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">envelopTriangle</referencedby>
-        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1100" endline="1118">oversample</referencedby>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
+        <location file="include/enve_shell.hh" line="82" column="17" bodyfile="include/enve_shell.hh" bodystart="82" bodyend="-1"/>
+        <referencedby refid="a00093_1a34cda3c55d1681e2445b8527e0531e15" compoundref="a00032" startline="533" endline="551">contactDepthRib</referencedby>
+        <referencedby refid="a00093_1a5434b33affdff6789869e2fcd4920592" compoundref="a00032" startline="670" endline="679">contactPointRib</referencedby>
+        <referencedby refid="a00093_1ab43e572d17b998381e15eaf20ef3b359" compoundref="a00032" startline="788" endline="797">contactPointRibAffine</referencedby>
+        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1284" endline="1300">envelopLine</referencedby>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1354" endline="1379">envelopPlane</referencedby>
+        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1265" endline="1279">envelopSingleTriangle</referencedby>
+        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1305" endline="1349">envelopTriangle</referencedby>
+        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1104" endline="1122">oversample</referencedby>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00093_1ab4bde5e6f17b17e27cfc93b529780521" prot="private" static="no" mutable="no">
         <type>std::vector&lt; point &gt;</type>
@@ -181,16 +181,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="79" column="17" bodyfile="include/enve_shell.hh" bodystart="79" bodyend="-1"/>
-        <referencedby refid="a00093_1a32942c1f12b74509287a05e8aac89d30" compoundref="a00032" startline="592" endline="610">contactDepthMesh</referencedby>
-        <referencedby refid="a00093_1ac44ece18e8208d97b20979b06d4bea66" compoundref="a00032" startline="701" endline="710">contactPointMesh</referencedby>
-        <referencedby refid="a00093_1a99272fa9ddd27a9c5ac800a53e991b24" compoundref="a00032" startline="826" endline="835">contactPointMeshAffine</referencedby>
-        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1280" endline="1296">envelopLine</referencedby>
-        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">envelopPlane</referencedby>
-        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1261" endline="1275">envelopSingleTriangle</referencedby>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">envelopTriangle</referencedby>
-        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1100" endline="1118">oversample</referencedby>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
+        <location file="include/enve_shell.hh" line="83" column="17" bodyfile="include/enve_shell.hh" bodystart="83" bodyend="-1"/>
+        <referencedby refid="a00093_1a32942c1f12b74509287a05e8aac89d30" compoundref="a00032" startline="596" endline="614">contactDepthMesh</referencedby>
+        <referencedby refid="a00093_1ac44ece18e8208d97b20979b06d4bea66" compoundref="a00032" startline="705" endline="714">contactPointMesh</referencedby>
+        <referencedby refid="a00093_1a99272fa9ddd27a9c5ac800a53e991b24" compoundref="a00032" startline="830" endline="839">contactPointMeshAffine</referencedby>
+        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1284" endline="1300">envelopLine</referencedby>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1354" endline="1379">envelopPlane</referencedby>
+        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1265" endline="1279">envelopSingleTriangle</referencedby>
+        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1305" endline="1349">envelopTriangle</referencedby>
+        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1104" endline="1122">oversample</referencedby>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00093_1a2e436fcd9a55ce4f6b9a491eb04d2062" prot="private" static="no" mutable="no">
         <type>std::vector&lt; vec3 &gt;</type>
@@ -204,16 +204,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="80" column="18" bodyfile="include/enve_shell.hh" bodystart="80" bodyend="-1"/>
-        <referencedby refid="a00093_1ae5e77948a3b67e4d1456dd80fd6cff15" compoundref="a00032" startline="631" endline="640">contactNormal</referencedby>
-        <referencedby refid="a00093_1a99272fa9ddd27a9c5ac800a53e991b24" compoundref="a00032" startline="826" endline="835">contactPointMeshAffine</referencedby>
-        <referencedby refid="a00093_1ab43e572d17b998381e15eaf20ef3b359" compoundref="a00032" startline="784" endline="793">contactPointRibAffine</referencedby>
-        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1280" endline="1296">envelopLine</referencedby>
-        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">envelopPlane</referencedby>
-        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1261" endline="1275">envelopSingleTriangle</referencedby>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">envelopTriangle</referencedby>
-        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1100" endline="1118">oversample</referencedby>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
+        <location file="include/enve_shell.hh" line="84" column="18" bodyfile="include/enve_shell.hh" bodystart="84" bodyend="-1"/>
+        <referencedby refid="a00093_1ae5e77948a3b67e4d1456dd80fd6cff15" compoundref="a00032" startline="635" endline="644">contactNormal</referencedby>
+        <referencedby refid="a00093_1a99272fa9ddd27a9c5ac800a53e991b24" compoundref="a00032" startline="830" endline="839">contactPointMeshAffine</referencedby>
+        <referencedby refid="a00093_1ab43e572d17b998381e15eaf20ef3b359" compoundref="a00032" startline="788" endline="797">contactPointRibAffine</referencedby>
+        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1284" endline="1300">envelopLine</referencedby>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1354" endline="1379">envelopPlane</referencedby>
+        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1265" endline="1279">envelopSingleTriangle</referencedby>
+        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1305" endline="1349">envelopTriangle</referencedby>
+        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1104" endline="1122">oversample</referencedby>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00093_1a1bf84b5ec1fc8dcb5b8eafe65b2cfed3" prot="private" static="no" mutable="no">
         <type>vecN</type>
@@ -227,14 +227,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="81" column="24" bodyfile="include/enve_shell.hh" bodystart="81" bodyend="-1"/>
-        <referencedby refid="a00093_1ac4a93448b8ca9cc276c82c33870f1f2c" compoundref="a00032" startline="736" endline="741">contactFriction</referencedby>
-        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1280" endline="1296">envelopLine</referencedby>
-        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">envelopPlane</referencedby>
-        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1261" endline="1275">envelopSingleTriangle</referencedby>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">envelopTriangle</referencedby>
-        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1100" endline="1118">oversample</referencedby>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
+        <location file="include/enve_shell.hh" line="85" column="24" bodyfile="include/enve_shell.hh" bodystart="85" bodyend="-1"/>
+        <referencedby refid="a00093_1ac4a93448b8ca9cc276c82c33870f1f2c" compoundref="a00032" startline="740" endline="745">contactFriction</referencedby>
+        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1284" endline="1300">envelopLine</referencedby>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1354" endline="1379">envelopPlane</referencedby>
+        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1265" endline="1279">envelopSingleTriangle</referencedby>
+        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1305" endline="1349">envelopTriangle</referencedby>
+        <referencedby refid="a00093_1abb6dc0591e20ced467d8327a84a3387d" compoundref="a00032" startline="1104" endline="1122">oversample</referencedby>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00093_1ae737a63859493a25041d6d06429f9771" prot="private" static="no" mutable="no">
         <type>vecN</type>
@@ -248,7 +248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="82" column="24" bodyfile="include/enve_shell.hh" bodystart="82" bodyend="-1"/>
+        <location file="include/enve_shell.hh" line="86" column="24" bodyfile="include/enve_shell.hh" bodystart="86" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="86" column="5" bodyfile="src/enve_shell.cc" bodystart="46" bodyend="48"/>
+        <location file="include/enve_shell.hh" line="90" column="5" bodyfile="src/enve_shell.cc" bodystart="50" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a7840e1d408713ab4eb4b91e5c3912e07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -284,7 +284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="89" column="5"/>
+        <location file="include/enve_shell.hh" line="93" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1afda23b623e717fdd16126eb5de7685e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="92" column="5"/>
+        <location file="include/enve_shell.hh" line="96" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -351,12 +351,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="95" column="5" bodyfile="src/enve_shell.cc" bodystart="52" bodyend="65"/>
+        <location file="include/enve_shell.hh" line="99" column="5" bodyfile="src/enve_shell.cc" bodystart="56" bodyend="69"/>
       </memberdef>
-      <memberdef kind="function" id="a00093_1acc88936959261b5250765ccd6da8bbb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00093_1a8d1fa93178d93b20d6175bf7cadde7b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::shell::shell</definition>
-        <argsstring>(size_t size, vecN dataR, vecN dataY, size_t order, real tolerance=EPSILON_MEDIUM)</argsstring>
+        <argsstring>(size_t size, vecN const &amp;dataR, vecN const &amp;dataY, size_t order, real tolerance=EPSILON_MEDIUM)</argsstring>
         <name>shell</name>
         <param>
           <type>size_t</type>
@@ -365,13 +365,13 @@
 </briefdescription>
         </param>
         <param>
-          <type>vecN</type>
+          <type>vecN const &amp;</type>
           <declname>dataR</declname>
           <briefdescription><para>Vector of radius data (m) </para>
 </briefdescription>
         </param>
         <param>
-          <type>vecN</type>
+          <type>vecN const &amp;</type>
           <declname>dataY</declname>
           <briefdescription><para>Vector of y data (m) </para>
 </briefdescription>
@@ -396,12 +396,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="105" column="5" bodyfile="src/enve_shell.cc" bodystart="69" bodyend="81"/>
+        <location file="include/enve_shell.hh" line="109" column="5" bodyfile="src/enve_shell.cc" bodystart="73" bodyend="85"/>
       </memberdef>
-      <memberdef kind="function" id="a00093_1a6a1e0a44f51b3e7ba30d0df7159c630f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00093_1a4e815a579f36a8918efc59ebff99c23b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::shell::shell</definition>
-        <argsstring>(size_t size, vecN dataR, vecN dataY)</argsstring>
+        <argsstring>(size_t size, vecN const &amp;dataR, vecN const &amp;dataY)</argsstring>
         <name>shell</name>
         <param>
           <type>size_t</type>
@@ -410,13 +410,13 @@
 </briefdescription>
         </param>
         <param>
-          <type>vecN</type>
+          <type>vecN const &amp;</type>
           <declname>dataR</declname>
           <briefdescription><para>Vector of radius data (m) </para>
 </briefdescription>
         </param>
         <param>
-          <type>vecN</type>
+          <type>vecN const &amp;</type>
           <declname>dataY</declname>
           <briefdescription><para>Vector of y data (m) </para>
 </briefdescription>
@@ -428,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="114" column="5" bodyfile="src/enve_shell.cc" bodystart="85" bodyend="95"/>
+        <location file="include/enve_shell.hh" line="118" column="5" bodyfile="src/enve_shell.cc" bodystart="89" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a58821a0d61cb1df8da61962c03ff462b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -454,7 +454,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="121" column="5" bodyfile="src/enve_shell.cc" bodystart="99" bodyend="108"/>
+        <location file="include/enve_shell.hh" line="125" column="5" bodyfile="src/enve_shell.cc" bodystart="103" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ae5be566871a0e79aad7f487dfc893ab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -480,7 +480,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="127" column="5" bodyfile="src/enve_shell.cc" bodystart="112" bodyend="121"/>
+        <location file="include/enve_shell.hh" line="131" column="5" bodyfile="src/enve_shell.cc" bodystart="116" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -500,8 +500,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="134" column="5" bodyfile="src/enve_shell.cc" bodystart="126" bodyend="156"/>
-        <referencedby refid="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" compoundref="a00032" startline="52" endline="65">shell</referencedby>
+        <location file="include/enve_shell.hh" line="138" column="5" bodyfile="src/enve_shell.cc" bodystart="130" bodyend="160"/>
+        <referencedby refid="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" compoundref="a00032" startline="56" endline="69">shell</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1aaeafa8ac9f588ebdf3f2b8722dde9290" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -518,18 +518,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="140" column="5" bodyfile="src/enve_shell.cc" bodystart="161" bodyend="165"/>
-        <referencedby refid="a00093_1a34d335f73846fe7613dff3ec6952fc68" compoundref="a00032" startline="615" endline="626">contactDepthMesh</referencedby>
-        <referencedby refid="a00093_1a5a1d4ddc014a9f25e32c4c55795d5c0c" compoundref="a00032" startline="552" endline="563">contactDepthRib</referencedby>
-        <referencedby refid="a00093_1ae5e77948a3b67e4d1456dd80fd6cff15" compoundref="a00032" startline="631" endline="640">contactNormal</referencedby>
-        <referencedby refid="a00093_1ac44ece18e8208d97b20979b06d4bea66" compoundref="a00032" startline="701" endline="710">contactPointMesh</referencedby>
-        <referencedby refid="a00093_1add2c531fcbc8c6fdf8797e4c2982898c" compoundref="a00032" startline="840" endline="846">contactPointMeshAffine</referencedby>
-        <referencedby refid="a00093_1a5434b33affdff6789869e2fcd4920592" compoundref="a00032" startline="666" endline="675">contactPointRib</referencedby>
-        <referencedby refid="a00093_1a7b337063c51e32f1455e339b53f11b87" compoundref="a00032" startline="798" endline="804">contactPointRibAffine</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
-        <referencedby refid="a00093_1a23d2a9c7d4bc4b10558e05941582df2d" compoundref="a00032" startline="494" endline="500">relativeAngles</referencedby>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
-        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="851" endline="964">setup</referencedby>
+        <location file="include/enve_shell.hh" line="144" column="5" bodyfile="src/enve_shell.cc" bodystart="165" bodyend="169"/>
+        <referencedby refid="a00093_1a34d335f73846fe7613dff3ec6952fc68" compoundref="a00032" startline="619" endline="630">contactDepthMesh</referencedby>
+        <referencedby refid="a00093_1a5a1d4ddc014a9f25e32c4c55795d5c0c" compoundref="a00032" startline="556" endline="567">contactDepthRib</referencedby>
+        <referencedby refid="a00093_1ae5e77948a3b67e4d1456dd80fd6cff15" compoundref="a00032" startline="635" endline="644">contactNormal</referencedby>
+        <referencedby refid="a00093_1ac44ece18e8208d97b20979b06d4bea66" compoundref="a00032" startline="705" endline="714">contactPointMesh</referencedby>
+        <referencedby refid="a00093_1add2c531fcbc8c6fdf8797e4c2982898c" compoundref="a00032" startline="844" endline="850">contactPointMeshAffine</referencedby>
+        <referencedby refid="a00093_1a5434b33affdff6789869e2fcd4920592" compoundref="a00032" startline="670" endline="679">contactPointRib</referencedby>
+        <referencedby refid="a00093_1a7b337063c51e32f1455e339b53f11b87" compoundref="a00032" startline="802" endline="808">contactPointRibAffine</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
+        <referencedby refid="a00093_1a23d2a9c7d4bc4b10558e05941582df2d" compoundref="a00032" startline="498" endline="504">relativeAngles</referencedby>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
+        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="855" endline="968">setup</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1ae545ab83f69df117efd3aefc98905b58" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -546,7 +546,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="153" column="5" bodyfile="src/enve_shell.cc" bodystart="181" bodyend="185"/>
+        <location file="include/enve_shell.hh" line="157" column="5" bodyfile="src/enve_shell.cc" bodystart="185" bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a041572d89d883b768eb195b61775e99d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -563,7 +563,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="157" column="5" bodyfile="src/enve_shell.cc" bodystart="190" bodyend="194"/>
+        <location file="include/enve_shell.hh" line="161" column="5" bodyfile="src/enve_shell.cc" bodystart="194" bodyend="198"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ad2581acf1804fe415a4253914d33b9d7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -580,7 +580,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="161" column="5" bodyfile="src/enve_shell.cc" bodystart="199" bodyend="203"/>
+        <location file="include/enve_shell.hh" line="165" column="5" bodyfile="src/enve_shell.cc" bodystart="203" bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ad46823bc50ac456ee220fab3bf62504a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -597,7 +597,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="165" column="5" bodyfile="src/enve_shell.cc" bodystart="208" bodyend="212"/>
+        <location file="include/enve_shell.hh" line="169" column="5" bodyfile="src/enve_shell.cc" bodystart="212" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a72cfa8296a664a3d3b538f7c97f187a4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -614,7 +614,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="169" column="5" bodyfile="src/enve_shell.cc" bodystart="217" bodyend="221"/>
+        <location file="include/enve_shell.hh" line="173" column="5" bodyfile="src/enve_shell.cc" bodystart="221" bodyend="225"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a968cb22f2dddc6ed28d29fe61bfb9f25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -634,7 +634,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="173" column="5" bodyfile="src/enve_shell.cc" bodystart="226" bodyend="231"/>
+        <location file="include/enve_shell.hh" line="177" column="5" bodyfile="src/enve_shell.cc" bodystart="230" bodyend="235"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1afdf0e745ae4a5dbbc3daca2af53cd2d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -654,7 +654,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="179" column="5" bodyfile="src/enve_shell.cc" bodystart="236" bodyend="241"/>
+        <location file="include/enve_shell.hh" line="183" column="5" bodyfile="src/enve_shell.cc" bodystart="240" bodyend="245"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a9ff4b3d279cf3bca199d71b6829bb10f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -681,7 +681,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="185" column="5" bodyfile="src/enve_shell.cc" bodystart="246" bodyend="252"/>
+        <location file="include/enve_shell.hh" line="189" column="5" bodyfile="src/enve_shell.cc" bodystart="250" bodyend="256"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a4bbb973b459c409e07100b9f526d31f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -708,7 +708,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="192" column="5" bodyfile="src/enve_shell.cc" bodystart="257" bodyend="263"/>
+        <location file="include/enve_shell.hh" line="196" column="5" bodyfile="src/enve_shell.cc" bodystart="261" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1aadb3a2be11b94f1273596ed709fc9e23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -728,7 +728,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="199" column="5" bodyfile="src/enve_shell.cc" bodystart="268" bodyend="273"/>
+        <location file="include/enve_shell.hh" line="203" column="5" bodyfile="src/enve_shell.cc" bodystart="272" bodyend="277"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ad8a3d3f336041aae315b43022a7dbc3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>point</type>
@@ -748,7 +748,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="205" column="5" bodyfile="src/enve_shell.cc" bodystart="278" bodyend="283"/>
+        <location file="include/enve_shell.hh" line="209" column="5" bodyfile="src/enve_shell.cc" bodystart="282" bodyend="287"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a43a508efabf7462e0fd13262a39a47b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
@@ -768,8 +768,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="211" column="5" bodyfile="src/enve_shell.cc" bodystart="288" bodyend="293"/>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
+        <location file="include/enve_shell.hh" line="215" column="5" bodyfile="src/enve_shell.cc" bodystart="292" bodyend="297"/>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a812b5a7947d74eff88e5b9cfe24c9ef0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -789,7 +789,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="226" column="5" bodyfile="src/enve_shell.cc" bodystart="309" bodyend="313"/>
+        <location file="include/enve_shell.hh" line="230" column="5" bodyfile="src/enve_shell.cc" bodystart="313" bodyend="317"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a3d0282a1133a19e3e1ae06f91b35b194" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>vec3</type>
@@ -806,7 +806,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="232" column="5" bodyfile="src/enve_shell.cc" bodystart="318" bodyend="323"/>
+        <location file="include/enve_shell.hh" line="236" column="5" bodyfile="src/enve_shell.cc" bodystart="322" bodyend="327"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a25ad9b63a2daea89ab6b17e949028d8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -832,7 +832,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="236" column="5" bodyfile="src/enve_shell.cc" bodystart="328" bodyend="333"/>
+        <location file="include/enve_shell.hh" line="240" column="5" bodyfile="src/enve_shell.cc" bodystart="332" bodyend="337"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a5ac7dbea127c06ee266b08053d775387" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -858,7 +858,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="243" column="5"/>
+        <location file="include/enve_shell.hh" line="247" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1acd3e5c07070586785043b991f4ebcd3b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>mat3</type>
@@ -875,10 +875,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="250" column="5" bodyfile="src/enve_shell.cc" bodystart="338" bodyend="343"/>
-        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">envelopPlane</referencedby>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">envelopTriangle</referencedby>
-        <referencedby refid="a00093_1a34d0cda62f4f3f5ad7057222eed05fcf" compoundref="a00032" startline="466" endline="474">relativeAngles</referencedby>
+        <location file="include/enve_shell.hh" line="254" column="5" bodyfile="src/enve_shell.cc" bodystart="342" bodyend="347"/>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1354" endline="1379">envelopPlane</referencedby>
+        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1305" endline="1349">envelopTriangle</referencedby>
+        <referencedby refid="a00093_1a34d0cda62f4f3f5ad7057222eed05fcf" compoundref="a00032" startline="470" endline="478">relativeAngles</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1ad49487850eb0510d7b068f91501ca836" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>mat3</type>
@@ -895,7 +895,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="254" column="5" bodyfile="src/enve_shell.cc" bodystart="348" bodyend="353"/>
+        <location file="include/enve_shell.hh" line="258" column="5" bodyfile="src/enve_shell.cc" bodystart="352" bodyend="357"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ab32cfff7bf657d5b613cb83048bbdd38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -916,7 +916,7 @@ Warning: Rotation matrix must be orthonormal! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="259" column="5" bodyfile="src/enve_shell.cc" bodystart="367" bodyend="371"/>
+        <location file="include/enve_shell.hh" line="263" column="5" bodyfile="src/enve_shell.cc" bodystart="371" bodyend="375"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a3e084b8c0d6e3ec682383545a61787af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -937,7 +937,7 @@ Warning: Rotation matrix must be orthonormal! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="266" column="5" bodyfile="src/enve_shell.cc" bodystart="358" bodyend="362"/>
+        <location file="include/enve_shell.hh" line="270" column="5" bodyfile="src/enve_shell.cc" bodystart="362" bodyend="366"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ab8206d37a830c82ad372d3276556630a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>affine const &amp;</type>
@@ -954,7 +954,7 @@ Warning: Rotation matrix must be orthonormal! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="272" column="5" bodyfile="src/enve_shell.cc" bodystart="376" bodyend="380"/>
+        <location file="include/enve_shell.hh" line="276" column="5" bodyfile="src/enve_shell.cc" bodystart="380" bodyend="384"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ad7868ccdd90b807c75684cb51c256d03" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>vec3</type>
@@ -971,7 +971,7 @@ Warning: Rotation matrix must be orthonormal! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="276" column="5" bodyfile="src/enve_shell.cc" bodystart="385" bodyend="389"/>
+        <location file="include/enve_shell.hh" line="280" column="5" bodyfile="src/enve_shell.cc" bodystart="389" bodyend="393"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a1de4c83db18282e37892c7adb0224232" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>vec3</type>
@@ -988,9 +988,9 @@ Warning: Rotation matrix must be orthonormal! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="280" column="5" bodyfile="src/enve_shell.cc" bodystart="394" bodyend="398"/>
-        <referencedby refid="a00093_1a2e38dcc1707ca2aab5a6f215da1d8dc0" compoundref="a00032" startline="809" endline="821">contactPointMeshAffine</referencedby>
-        <referencedby refid="a00093_1ae83fb0823051949ea804a9734eaf3e6b" compoundref="a00032" startline="767" endline="779">contactPointRibAffine</referencedby>
+        <location file="include/enve_shell.hh" line="284" column="5" bodyfile="src/enve_shell.cc" bodystart="398" bodyend="402"/>
+        <referencedby refid="a00093_1a2e38dcc1707ca2aab5a6f215da1d8dc0" compoundref="a00032" startline="813" endline="825">contactPointMeshAffine</referencedby>
+        <referencedby refid="a00093_1ae83fb0823051949ea804a9734eaf3e6b" compoundref="a00032" startline="771" endline="783">contactPointRibAffine</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a79039f854236a5ae427da3f0868f988a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>vec3</type>
@@ -1007,10 +1007,10 @@ Warning: Rotation matrix must be orthonormal! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="284" column="5" bodyfile="src/enve_shell.cc" bodystart="403" bodyend="407"/>
-        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1280" endline="1296">envelopLine</referencedby>
-        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1261" endline="1275">envelopSingleTriangle</referencedby>
-        <referencedby refid="a00093_1ad0f63426dd56d48ee30c8262d034ee81" compoundref="a00032" startline="1150" endline="1214">samplingPoint</referencedby>
+        <location file="include/enve_shell.hh" line="288" column="5" bodyfile="src/enve_shell.cc" bodystart="407" bodyend="411"/>
+        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1284" endline="1300">envelopLine</referencedby>
+        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1265" endline="1279">envelopSingleTriangle</referencedby>
+        <referencedby refid="a00093_1ad0f63426dd56d48ee30c8262d034ee81" compoundref="a00032" startline="1154" endline="1218">samplingPoint</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a3758f1248a4e9a9487682560d75ae823" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1031,8 +1031,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="289" column="5" bodyfile="src/enve_shell.cc" bodystart="412" bodyend="417"/>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
+        <location file="include/enve_shell.hh" line="293" column="5" bodyfile="src/enve_shell.cc" bodystart="416" bodyend="421"/>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1aa143ec0906a3edd9768da2aa67a8465d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; aabb &gt;</type>
@@ -1049,7 +1049,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="304" column="5" bodyfile="src/enve_shell.cc" bodystart="433" bodyend="437"/>
+        <location file="include/enve_shell.hh" line="308" column="5" bodyfile="src/enve_shell.cc" bodystart="437" bodyend="441"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a2752d2f553b89f2b722c14f98380b025" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1066,10 +1066,10 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="308" column="5" bodyfile="src/enve_shell.cc" bodystart="442" bodyend="450"/>
-        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="126" endline="156">reset</referencedby>
-        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="851" endline="964">setup</referencedby>
-        <referencedby refid="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" compoundref="a00032" startline="52" endline="65">shell</referencedby>
+        <location file="include/enve_shell.hh" line="312" column="5" bodyfile="src/enve_shell.cc" bodystart="446" bodyend="454"/>
+        <referencedby refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" compoundref="a00032" startline="130" endline="160">reset</referencedby>
+        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="855" endline="968">setup</referencedby>
+        <referencedby refid="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" compoundref="a00032" startline="56" endline="69">shell</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a34d0cda62f4f3f5ad7057222eed05fcf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1090,9 +1090,9 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="322" column="5" bodyfile="src/enve_shell.cc" bodystart="466" bodyend="474"/>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
-        <referencedby refid="a00093_1a23d2a9c7d4bc4b10558e05941582df2d" compoundref="a00032" startline="494" endline="500">relativeAngles</referencedby>
+        <location file="include/enve_shell.hh" line="326" column="5" bodyfile="src/enve_shell.cc" bodystart="470" bodyend="478"/>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
+        <referencedby refid="a00093_1a23d2a9c7d4bc4b10558e05941582df2d" compoundref="a00032" startline="498" endline="504">relativeAngles</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1ae48557597d39b647eac55a03704bdfc3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1119,7 +1119,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="329" column="5" bodyfile="src/enve_shell.cc" bodystart="479" bodyend="489"/>
+        <location file="include/enve_shell.hh" line="333" column="5" bodyfile="src/enve_shell.cc" bodystart="483" bodyend="493"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a23d2a9c7d4bc4b10558e05941582df2d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1140,7 +1140,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="337" column="5" bodyfile="src/enve_shell.cc" bodystart="494" bodyend="500"/>
+        <location file="include/enve_shell.hh" line="341" column="5" bodyfile="src/enve_shell.cc" bodystart="498" bodyend="504"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ab52643e3a7adcc8f95bf597eda311d6a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1178,9 +1178,9 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="343" column="5" bodyfile="src/enve_shell.cc" bodystart="505" bodyend="524"/>
-        <referencedby refid="a00093_1a5a1d4ddc014a9f25e32c4c55795d5c0c" compoundref="a00032" startline="552" endline="563">contactDepthRib</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
+        <location file="include/enve_shell.hh" line="347" column="5" bodyfile="src/enve_shell.cc" bodystart="509" bodyend="528"/>
+        <referencedby refid="a00093_1a5a1d4ddc014a9f25e32c4c55795d5c0c" compoundref="a00032" startline="556" endline="567">contactDepthRib</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a34cda3c55d1681e2445b8527e0531e15" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1224,7 +1224,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="352" column="5" bodyfile="src/enve_shell.cc" bodystart="529" bodyend="547"/>
+        <location file="include/enve_shell.hh" line="356" column="5" bodyfile="src/enve_shell.cc" bodystart="533" bodyend="551"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a5a1d4ddc014a9f25e32c4c55795d5c0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1262,7 +1262,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="362" column="5" bodyfile="src/enve_shell.cc" bodystart="552" bodyend="563"/>
+        <location file="include/enve_shell.hh" line="366" column="5" bodyfile="src/enve_shell.cc" bodystart="556" bodyend="567"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a63165bc2945d92b1f78883bd0a6758da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1300,9 +1300,9 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="371" column="5" bodyfile="src/enve_shell.cc" bodystart="568" bodyend="587"/>
-        <referencedby refid="a00093_1a34d335f73846fe7613dff3ec6952fc68" compoundref="a00032" startline="615" endline="626">contactDepthMesh</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
+        <location file="include/enve_shell.hh" line="375" column="5" bodyfile="src/enve_shell.cc" bodystart="572" bodyend="591"/>
+        <referencedby refid="a00093_1a34d335f73846fe7613dff3ec6952fc68" compoundref="a00032" startline="619" endline="630">contactDepthMesh</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a32942c1f12b74509287a05e8aac89d30" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1346,7 +1346,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="380" column="5" bodyfile="src/enve_shell.cc" bodystart="592" bodyend="610"/>
+        <location file="include/enve_shell.hh" line="384" column="5" bodyfile="src/enve_shell.cc" bodystart="596" bodyend="614"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a34d335f73846fe7613dff3ec6952fc68" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1384,7 +1384,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="390" column="5" bodyfile="src/enve_shell.cc" bodystart="615" bodyend="626"/>
+        <location file="include/enve_shell.hh" line="394" column="5" bodyfile="src/enve_shell.cc" bodystart="619" bodyend="630"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ae5e77948a3b67e4d1456dd80fd6cff15" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1404,10 +1404,10 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="399" column="5" bodyfile="src/enve_shell.cc" bodystart="631" bodyend="640"/>
-        <referencedby refid="a00093_1a2e38dcc1707ca2aab5a6f215da1d8dc0" compoundref="a00032" startline="809" endline="821">contactPointMeshAffine</referencedby>
-        <referencedby refid="a00093_1ae83fb0823051949ea804a9734eaf3e6b" compoundref="a00032" startline="767" endline="779">contactPointRibAffine</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
+        <location file="include/enve_shell.hh" line="403" column="5" bodyfile="src/enve_shell.cc" bodystart="635" bodyend="644"/>
+        <referencedby refid="a00093_1a2e38dcc1707ca2aab5a6f215da1d8dc0" compoundref="a00032" startline="813" endline="825">contactPointMeshAffine</referencedby>
+        <referencedby refid="a00093_1ae83fb0823051949ea804a9734eaf3e6b" compoundref="a00032" startline="771" endline="783">contactPointRibAffine</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a3dc741308478849ef36b6b9622a48b62" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1433,7 +1433,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="405" column="5" bodyfile="src/enve_shell.cc" bodystart="645" bodyend="651"/>
+        <location file="include/enve_shell.hh" line="409" column="5" bodyfile="src/enve_shell.cc" bodystart="649" bodyend="655"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a58b2d3b655d5959a02ddad029a7efe04" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1453,7 +1453,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="412" column="5" bodyfile="src/enve_shell.cc" bodystart="656" bodyend="661"/>
+        <location file="include/enve_shell.hh" line="416" column="5" bodyfile="src/enve_shell.cc" bodystart="660" bodyend="665"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a5434b33affdff6789869e2fcd4920592" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1473,10 +1473,10 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="418" column="5" bodyfile="src/enve_shell.cc" bodystart="666" bodyend="675"/>
-        <referencedby refid="a00093_1ab52643e3a7adcc8f95bf597eda311d6a" compoundref="a00032" startline="505" endline="524">contactDepthRib</referencedby>
-        <referencedby refid="a00093_1ae83fb0823051949ea804a9734eaf3e6b" compoundref="a00032" startline="767" endline="779">contactPointRibAffine</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
+        <location file="include/enve_shell.hh" line="422" column="5" bodyfile="src/enve_shell.cc" bodystart="670" bodyend="679"/>
+        <referencedby refid="a00093_1ab52643e3a7adcc8f95bf597eda311d6a" compoundref="a00032" startline="509" endline="528">contactDepthRib</referencedby>
+        <referencedby refid="a00093_1ae83fb0823051949ea804a9734eaf3e6b" compoundref="a00032" startline="771" endline="783">contactPointRibAffine</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1af1f59e6a2d84f7bdfcd221af4016d21f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1502,7 +1502,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="424" column="5" bodyfile="src/enve_shell.cc" bodystart="680" bodyend="686"/>
+        <location file="include/enve_shell.hh" line="428" column="5" bodyfile="src/enve_shell.cc" bodystart="684" bodyend="690"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1afb3c617e1c9a11200fa0c0108260d4f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1522,7 +1522,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="431" column="5" bodyfile="src/enve_shell.cc" bodystart="691" bodyend="696"/>
+        <location file="include/enve_shell.hh" line="435" column="5" bodyfile="src/enve_shell.cc" bodystart="695" bodyend="700"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ac44ece18e8208d97b20979b06d4bea66" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1542,10 +1542,10 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="437" column="5" bodyfile="src/enve_shell.cc" bodystart="701" bodyend="710"/>
-        <referencedby refid="a00093_1a63165bc2945d92b1f78883bd0a6758da" compoundref="a00032" startline="568" endline="587">contactDepthMesh</referencedby>
-        <referencedby refid="a00093_1a2e38dcc1707ca2aab5a6f215da1d8dc0" compoundref="a00032" startline="809" endline="821">contactPointMeshAffine</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
+        <location file="include/enve_shell.hh" line="441" column="5" bodyfile="src/enve_shell.cc" bodystart="705" bodyend="714"/>
+        <referencedby refid="a00093_1a63165bc2945d92b1f78883bd0a6758da" compoundref="a00032" startline="572" endline="591">contactDepthMesh</referencedby>
+        <referencedby refid="a00093_1a2e38dcc1707ca2aab5a6f215da1d8dc0" compoundref="a00032" startline="813" endline="825">contactPointMeshAffine</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a83158705cc572a485e12b73f3bf2eb72" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1571,7 +1571,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="443" column="5" bodyfile="src/enve_shell.cc" bodystart="715" bodyend="721"/>
+        <location file="include/enve_shell.hh" line="447" column="5" bodyfile="src/enve_shell.cc" bodystart="719" bodyend="725"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1adf2db1cc963197db12b2d637d05cf263" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1591,7 +1591,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="450" column="5" bodyfile="src/enve_shell.cc" bodystart="726" bodyend="731"/>
+        <location file="include/enve_shell.hh" line="454" column="5" bodyfile="src/enve_shell.cc" bodystart="730" bodyend="735"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ac4a93448b8ca9cc276c82c33870f1f2c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1611,8 +1611,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="456" column="5" bodyfile="src/enve_shell.cc" bodystart="736" bodyend="741"/>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
+        <location file="include/enve_shell.hh" line="460" column="5" bodyfile="src/enve_shell.cc" bodystart="740" bodyend="745"/>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a1b1657dc9797369757849522b24b77ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1638,7 +1638,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="462" column="5" bodyfile="src/enve_shell.cc" bodystart="746" bodyend="752"/>
+        <location file="include/enve_shell.hh" line="466" column="5" bodyfile="src/enve_shell.cc" bodystart="750" bodyend="756"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ae1b1570b28c915ff559add95aebff315" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1658,7 +1658,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="469" column="5" bodyfile="src/enve_shell.cc" bodystart="757" bodyend="762"/>
+        <location file="include/enve_shell.hh" line="473" column="5" bodyfile="src/enve_shell.cc" bodystart="761" bodyend="766"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1ae83fb0823051949ea804a9734eaf3e6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1678,10 +1678,10 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="475" column="5" bodyfile="src/enve_shell.cc" bodystart="767" bodyend="779"/>
-        <referencedby refid="a00093_1a7b337063c51e32f1455e339b53f11b87" compoundref="a00032" startline="798" endline="804">contactPointRibAffine</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
-        <referencedby refid="a00093_1a34d0cda62f4f3f5ad7057222eed05fcf" compoundref="a00032" startline="466" endline="474">relativeAngles</referencedby>
+        <location file="include/enve_shell.hh" line="479" column="5" bodyfile="src/enve_shell.cc" bodystart="771" bodyend="783"/>
+        <referencedby refid="a00093_1a7b337063c51e32f1455e339b53f11b87" compoundref="a00032" startline="802" endline="808">contactPointRibAffine</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
+        <referencedby refid="a00093_1a34d0cda62f4f3f5ad7057222eed05fcf" compoundref="a00032" startline="470" endline="478">relativeAngles</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1ab43e572d17b998381e15eaf20ef3b359" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1707,7 +1707,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="481" column="5" bodyfile="src/enve_shell.cc" bodystart="784" bodyend="793"/>
+        <location file="include/enve_shell.hh" line="485" column="5" bodyfile="src/enve_shell.cc" bodystart="788" bodyend="797"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a7b337063c51e32f1455e339b53f11b87" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1727,7 +1727,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="488" column="5" bodyfile="src/enve_shell.cc" bodystart="798" bodyend="804"/>
+        <location file="include/enve_shell.hh" line="492" column="5" bodyfile="src/enve_shell.cc" bodystart="802" bodyend="808"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a2e38dcc1707ca2aab5a6f215da1d8dc0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1747,9 +1747,9 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="494" column="5" bodyfile="src/enve_shell.cc" bodystart="809" bodyend="821"/>
-        <referencedby refid="a00093_1add2c531fcbc8c6fdf8797e4c2982898c" compoundref="a00032" startline="840" endline="846">contactPointMeshAffine</referencedby>
-        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="986" endline="1095">print</referencedby>
+        <location file="include/enve_shell.hh" line="498" column="5" bodyfile="src/enve_shell.cc" bodystart="813" bodyend="825"/>
+        <referencedby refid="a00093_1add2c531fcbc8c6fdf8797e4c2982898c" compoundref="a00032" startline="844" endline="850">contactPointMeshAffine</referencedby>
+        <referencedby refid="a00093_1a1a425eec93c459c7542b22b1c28c5417" compoundref="a00032" startline="990" endline="1099">print</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a99272fa9ddd27a9c5ac800a53e991b24" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1775,7 +1775,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="500" column="5" bodyfile="src/enve_shell.cc" bodystart="826" bodyend="835"/>
+        <location file="include/enve_shell.hh" line="504" column="5" bodyfile="src/enve_shell.cc" bodystart="830" bodyend="839"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1add2c531fcbc8c6fdf8797e4c2982898c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1795,7 +1795,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="507" column="5" bodyfile="src/enve_shell.cc" bodystart="840" bodyend="846"/>
+        <location file="include/enve_shell.hh" line="511" column="5" bodyfile="src/enve_shell.cc" bodystart="844" bodyend="850"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1833,7 +1833,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="513" column="5" bodyfile="src/enve_shell.cc" bodystart="851" bodyend="964"/>
+        <location file="include/enve_shell.hh" line="517" column="5" bodyfile="src/enve_shell.cc" bodystart="855" bodyend="968"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a5489eaf53c88ef1a622a91ffdde1e76f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1859,7 +1859,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="522" column="5" bodyfile="src/enve_shell.cc" bodystart="969" bodyend="981"/>
+        <location file="include/enve_shell.hh" line="526" column="5" bodyfile="src/enve_shell.cc" bodystart="973" bodyend="985"/>
       </memberdef>
       <memberdef kind="function" id="a00093_1a1a425eec93c459c7542b22b1c28c5417" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1879,7 +1879,7 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="529" column="5" bodyfile="src/enve_shell.cc" bodystart="986" bodyend="1095"/>
+        <location file="include/enve_shell.hh" line="533" column="5" bodyfile="src/enve_shell.cc" bodystart="990" bodyend="1099"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -1913,8 +1913,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="536" column="5" bodyfile="src/enve_shell.cc" bodystart="1100" bodyend="1118"/>
-        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="851" endline="964">setup</referencedby>
+        <location file="include/enve_shell.hh" line="540" column="5" bodyfile="src/enve_shell.cc" bodystart="1104" bodyend="1122"/>
+        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="855" endline="968">setup</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a3dd0ca32a087f60762b2e50c415eb36d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1964,8 +1964,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="544" column="5" bodyfile="src/enve_shell.cc" bodystart="1123" bodyend="1145"/>
-        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1261" endline="1275">envelopSingleTriangle</referencedby>
+        <location file="include/enve_shell.hh" line="548" column="5" bodyfile="src/enve_shell.cc" bodystart="1127" bodyend="1149"/>
+        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1265" endline="1279">envelopSingleTriangle</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1ad0f63426dd56d48ee30c8262d034ee81" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2015,9 +2015,9 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="555" column="5" bodyfile="src/enve_shell.cc" bodystart="1150" bodyend="1214"/>
-        <referencedby refid="a00093_1ad7570a667f28e75b254b00200dd1ae34" compoundref="a00032" startline="1396" endline="1407">projectContactPointOnMesh</referencedby>
-        <referencedby refid="a00093_1a2cada05513ee0744000587966909ab7c" compoundref="a00032" startline="1219" endline="1256">samplingCross</referencedby>
+        <location file="include/enve_shell.hh" line="559" column="5" bodyfile="src/enve_shell.cc" bodystart="1154" bodyend="1218"/>
+        <referencedby refid="a00093_1ad7570a667f28e75b254b00200dd1ae34" compoundref="a00032" startline="1400" endline="1411">projectContactPointOnMesh</referencedby>
+        <referencedby refid="a00093_1a2cada05513ee0744000587966909ab7c" compoundref="a00032" startline="1223" endline="1260">samplingCross</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a2cada05513ee0744000587966909ab7c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2079,8 +2079,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="566" column="5" bodyfile="src/enve_shell.cc" bodystart="1219" bodyend="1256"/>
-        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1280" endline="1296">envelopLine</referencedby>
+        <location file="include/enve_shell.hh" line="570" column="5" bodyfile="src/enve_shell.cc" bodystart="1223" bodyend="1260"/>
+        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1284" endline="1300">envelopLine</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1aae97f79ce2d00111b8153145f3128d38" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2106,8 +2106,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="579" column="5" bodyfile="src/enve_shell.cc" bodystart="1261" bodyend="1275"/>
-        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="851" endline="964">setup</referencedby>
+        <location file="include/enve_shell.hh" line="583" column="5" bodyfile="src/enve_shell.cc" bodystart="1265" bodyend="1279"/>
+        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="855" endline="968">setup</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a95b37a8baf0bf781347170296f5484bd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2133,8 +2133,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="586" column="5" bodyfile="src/enve_shell.cc" bodystart="1280" bodyend="1296"/>
-        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="851" endline="964">setup</referencedby>
+        <location file="include/enve_shell.hh" line="590" column="5" bodyfile="src/enve_shell.cc" bodystart="1284" bodyend="1300"/>
+        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="855" endline="968">setup</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2160,8 +2160,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="593" column="5" bodyfile="src/enve_shell.cc" bodystart="1301" bodyend="1345"/>
-        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="851" endline="964">setup</referencedby>
+        <location file="include/enve_shell.hh" line="597" column="5" bodyfile="src/enve_shell.cc" bodystart="1305" bodyend="1349"/>
+        <referencedby refid="a00093_1a27bbf4a9cd544259a4c53ef86a980c86" compoundref="a00032" startline="855" endline="968">setup</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a24e056a64b05e0072b08bd242f57af84" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2187,8 +2187,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="600" column="5" bodyfile="src/enve_shell.cc" bodystart="1350" bodyend="1375"/>
-        <referencedby refid="a00093_1a5489eaf53c88ef1a622a91ffdde1e76f" compoundref="a00032" startline="969" endline="981">setup</referencedby>
+        <location file="include/enve_shell.hh" line="604" column="5" bodyfile="src/enve_shell.cc" bodystart="1354" bodyend="1379"/>
+        <referencedby refid="a00093_1a5489eaf53c88ef1a622a91ffdde1e76f" compoundref="a00032" startline="973" endline="985">setup</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1a44604a738554f234df1d0af3ec157f96" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2221,8 +2221,8 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="607" column="5" bodyfile="src/enve_shell.cc" bodystart="1380" bodyend="1391"/>
-        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1350" endline="1375">envelopPlane</referencedby>
+        <location file="include/enve_shell.hh" line="611" column="5" bodyfile="src/enve_shell.cc" bodystart="1384" bodyend="1395"/>
+        <referencedby refid="a00093_1a24e056a64b05e0072b08bd242f57af84" compoundref="a00032" startline="1354" endline="1379">envelopPlane</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00093_1ad7570a667f28e75b254b00200dd1ae34" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -2255,10 +2255,10 @@ WARNING: Rotation sequence ZXY! </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shell.hh" line="616" column="5" bodyfile="src/enve_shell.cc" bodystart="1396" bodyend="1407"/>
-        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1280" endline="1296">envelopLine</referencedby>
-        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1261" endline="1275">envelopSingleTriangle</referencedby>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">envelopTriangle</referencedby>
+        <location file="include/enve_shell.hh" line="620" column="5" bodyfile="src/enve_shell.cc" bodystart="1400" bodyend="1411"/>
+        <referencedby refid="a00093_1a95b37a8baf0bf781347170296f5484bd" compoundref="a00032" startline="1284" endline="1300">envelopLine</referencedby>
+        <referencedby refid="a00093_1aae97f79ce2d00111b8153145f3128d38" compoundref="a00032" startline="1265" endline="1279">envelopSingleTriangle</referencedby>
+        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1305" endline="1349">envelopTriangle</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -2266,7 +2266,7 @@ WARNING: Rotation sequence ZXY! </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/enve_shell.hh" line="66" column="3" bodyfile="include/enve_shell.hh" bodystart="67" bodyend="624"/>
+    <location file="include/enve_shell.hh" line="70" column="3" bodyfile="include/enve_shell.hh" bodystart="71" bodyend="628"/>
     <listofallmembers>
       <member refid="a00093_1aa143ec0906a3edd9768da2aa67a8465d" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>bbox</name></member>
       <member refid="a00093_1a968cb22f2dddc6ed28d29fe61bfb9f25" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>checkWidthBound</name></member>
@@ -2332,8 +2332,8 @@ WARNING: Rotation sequence ZXY! </para>
       <member refid="a00093_1a7840e1d408713ab4eb4b91e5c3912e07" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
       <member refid="a00093_1afda23b623e717fdd16126eb5de7685e0" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
       <member refid="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
-      <member refid="a00093_1acc88936959261b5250765ccd6da8bbb4" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
-      <member refid="a00093_1a6a1e0a44f51b3e7ba30d0df7159c630f" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
+      <member refid="a00093_1a8d1fa93178d93b20d6175bf7cadde7b8" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
+      <member refid="a00093_1a4e815a579f36a8918efc59ebff99c23b" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
       <member refid="a00093_1a58821a0d61cb1df8da61962c03ff462b" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
       <member refid="a00093_1ae5be566871a0e79aad7f487dfc893ab8" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>shell</name></member>
       <member refid="a00093_1aaeafa8ac9f588ebdf3f2b8722dde9290" prot="public" virt="non-virtual"><scope>enve::shell</scope><name>size</name></member>

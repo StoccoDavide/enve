@@ -71,11 +71,11 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   shell::shell(
-    size_t size,
-    vecN   dataR,
-    vecN   dataY,
-    size_t order,
-    real   tolerance)
+    size_t      size,
+    vecN const &dataR,
+    vecN const &dataY,
+    size_t      order,
+    real        tolerance)
     : m_shape(std::make_shared<polynom>(dataR, dataY, order, tolerance)),
       m_bbox(std::make_shared<aabb>())
   {
@@ -87,9 +87,9 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   shell::shell(
-    size_t size,
-    vecN   dataR,
-    vecN   dataY)
+    size_t      size,
+    vecN const &dataR,
+    vecN const &dataY)
     : m_shape(std::make_shared<points>(dataR, dataY)),
       m_bbox(std::make_shared<aabb>())
   {

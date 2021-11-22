@@ -114,7 +114,7 @@ primary_domain = 'cpp'
 # Tell sphinx what the pygments highlight language should be.
 highlight_language = 'cpp'
 
-html_theme = 'cloud'
+html_theme = 'alabaster'
 html_logo  = 'logo.png'
 
 email_automode       = True

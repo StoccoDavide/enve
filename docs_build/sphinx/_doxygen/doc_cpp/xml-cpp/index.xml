@@ -191,7 +191,6 @@
     <member refid="a00085_1a64c18ecdbd65aef499aa5d03353cb745" kind="function"><name>width</name></member>
     <member refid="a00085_1a1d751f7fdfed182a58cf4f65db85e9d1" kind="function"><name>angle</name></member>
     <member refid="a00085_1aefecf30015022cd81b3fec1b109c1d3e" kind="function"><name>isApprox</name></member>
-    <member refid="a00085_1ac5a66a14f8c8efa354219f0be1c3f9df" kind="function"><name>envelopRadial</name></member>
   </compound>
   <compound refid="a00089" kind="class"><name>enve::shape</name>
     <member refid="a00089_1a3ce2310bdfbf3557035dc8133d0b0f88" kind="typedef"><name>ptr</name></member>
@@ -235,8 +234,8 @@
     <member refid="a00093_1a7840e1d408713ab4eb4b91e5c3912e07" kind="function"><name>shell</name></member>
     <member refid="a00093_1afda23b623e717fdd16126eb5de7685e0" kind="function"><name>shell</name></member>
     <member refid="a00093_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" kind="function"><name>shell</name></member>
-    <member refid="a00093_1acc88936959261b5250765ccd6da8bbb4" kind="function"><name>shell</name></member>
-    <member refid="a00093_1a6a1e0a44f51b3e7ba30d0df7159c630f" kind="function"><name>shell</name></member>
+    <member refid="a00093_1a8d1fa93178d93b20d6175bf7cadde7b8" kind="function"><name>shell</name></member>
+    <member refid="a00093_1a4e815a579f36a8918efc59ebff99c23b" kind="function"><name>shell</name></member>
     <member refid="a00093_1a58821a0d61cb1df8da61962c03ff462b" kind="function"><name>shell</name></member>
     <member refid="a00093_1ae5be566871a0e79aad7f487dfc893ab8" kind="function"><name>shell</name></member>
     <member refid="a00093_1af92ceac6e9c110d0a040a85d2c532f7a" kind="function"><name>reset</name></member>

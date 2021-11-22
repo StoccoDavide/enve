@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="57" column="29" bodyfile="include/enve_rib.hh" bodystart="57" bodyend="-1"/>
+        <location file="include/enve_rib.hh" line="61" column="29" bodyfile="include/enve_rib.hh" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="a00085_1a51fe2388da331c3079f45f1655e86c6e" prot="public" static="no">
         <type>std::vector&lt; <ref refid="a00085_1aaa9b09748c9ba3b5474eebaa2e847e4c" kindref="member">rib::ptr</ref> &gt;</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="58" column="30" bodyfile="include/enve_rib.hh" bodystart="58" bodyend="-1"/>
+        <location file="include/enve_rib.hh" line="62" column="30" bodyfile="include/enve_rib.hh" bodystart="62" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -47,11 +47,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="61" column="10" bodyfile="include/enve_rib.hh" bodystart="61" bodyend="-1"/>
-        <referencedby refid="a00085_1a517c9a544cb726f5c510e466e332a44b" compoundref="a00035" startline="165" endline="172">copy</referencedby>
-        <referencedby refid="a00085_1aefecf30015022cd81b3fec1b109c1d3e" compoundref="a00035" startline="209" endline="218">isApprox</referencedby>
-        <referencedby refid="a00085_1a2d8ac0496517c3b9febd64ec962368bf" compoundref="a00035" startline="146" endline="160">operator=</referencedby>
-        <referencedby refid="a00085_1ad858355272ad73057208b4052ddef9f2" compoundref="a00035" startline="177" endline="180">width</referencedby>
+        <location file="include/enve_rib.hh" line="65" column="10" bodyfile="include/enve_rib.hh" bodystart="65" bodyend="-1"/>
+        <referencedby refid="a00085_1a517c9a544cb726f5c510e466e332a44b" compoundref="a00035" startline="169" endline="176">copy</referencedby>
+        <referencedby refid="a00085_1aefecf30015022cd81b3fec1b109c1d3e" compoundref="a00035" startline="213" endline="222">isApprox</referencedby>
+        <referencedby refid="a00085_1a2d8ac0496517c3b9febd64ec962368bf" compoundref="a00035" startline="150" endline="164">operator=</referencedby>
+        <referencedby refid="a00085_1ad858355272ad73057208b4052ddef9f2" compoundref="a00035" startline="181" endline="184">width</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00085_1a21be5d0b7ed69dfe64f6aa1f1a3e6703" prot="private" static="no" mutable="no">
         <type>real</type>
@@ -65,11 +65,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="62" column="10" bodyfile="include/enve_rib.hh" bodystart="62" bodyend="-1"/>
-        <referencedby refid="a00085_1aed5c4d8fd8ef8bf886fd0f6104a04856" compoundref="a00035" startline="185" endline="188">angle</referencedby>
-        <referencedby refid="a00085_1a517c9a544cb726f5c510e466e332a44b" compoundref="a00035" startline="165" endline="172">copy</referencedby>
-        <referencedby refid="a00085_1aefecf30015022cd81b3fec1b109c1d3e" compoundref="a00035" startline="209" endline="218">isApprox</referencedby>
-        <referencedby refid="a00085_1a2d8ac0496517c3b9febd64ec962368bf" compoundref="a00035" startline="146" endline="160">operator=</referencedby>
+        <location file="include/enve_rib.hh" line="66" column="10" bodyfile="include/enve_rib.hh" bodystart="66" bodyend="-1"/>
+        <referencedby refid="a00085_1aed5c4d8fd8ef8bf886fd0f6104a04856" compoundref="a00035" startline="189" endline="192">angle</referencedby>
+        <referencedby refid="a00085_1a517c9a544cb726f5c510e466e332a44b" compoundref="a00035" startline="169" endline="176">copy</referencedby>
+        <referencedby refid="a00085_1aefecf30015022cd81b3fec1b109c1d3e" compoundref="a00035" startline="213" endline="222">isApprox</referencedby>
+        <referencedby refid="a00085_1a2d8ac0496517c3b9febd64ec962368bf" compoundref="a00035" startline="150" endline="164">operator=</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="66" column="5" bodyfile="src/enve_rib.cc" bodystart="46" bodyend="48"/>
+        <location file="include/enve_rib.hh" line="70" column="5" bodyfile="src/enve_rib.cc" bodystart="50" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a1fcb2181e9529078fd9a602be72ecbf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="69" column="5"/>
+        <location file="include/enve_rib.hh" line="73" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a99e24d063ed6fa8bb4ec40bef6b1fff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -122,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="72" column="5"/>
+        <location file="include/enve_rib.hh" line="76" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a9b3bdb39690f8a07228dcfecd1d4948f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="75" column="5" bodyfile="src/enve_rib.cc" bodystart="52" bodyend="57"/>
+        <location file="include/enve_rib.hh" line="79" column="5" bodyfile="src/enve_rib.cc" bodystart="56" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1acb5c230e80aedd3d6c20ac00075b9d44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="78" column="5" bodyfile="src/enve_rib.cc" bodystart="61" bodyend="70"/>
+        <location file="include/enve_rib.hh" line="82" column="5" bodyfile="src/enve_rib.cc" bodystart="65" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a709ecc6a1c0f7f3f3af0a08b0a83cac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -203,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="85" column="5" bodyfile="src/enve_rib.cc" bodystart="74" bodyend="81"/>
+        <location file="include/enve_rib.hh" line="89" column="5" bodyfile="src/enve_rib.cc" bodystart="78" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a3eabe1238dd592e07cb8db78bd8b41b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -247,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="90" column="5" bodyfile="src/enve_rib.cc" bodystart="85" bodyend="95"/>
+        <location file="include/enve_rib.hh" line="94" column="5" bodyfile="src/enve_rib.cc" bodystart="89" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1ad3236099c3f1ccef9d18dcb227b6f11e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -279,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="99" column="5" bodyfile="src/enve_rib.cc" bodystart="99" bodyend="107"/>
+        <location file="include/enve_rib.hh" line="103" column="5" bodyfile="src/enve_rib.cc" bodystart="103" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1ae838df721115c71e1355c92081eca8a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -347,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="106" column="5" bodyfile="src/enve_rib.cc" bodystart="111" bodyend="125"/>
+        <location file="include/enve_rib.hh" line="110" column="5" bodyfile="src/enve_rib.cc" bodystart="115" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1ae0cfc81388fe110c9e9776bdd448eb3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -403,7 +403,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="118" column="5" bodyfile="src/enve_rib.cc" bodystart="129" bodyend="141"/>
+        <location file="include/enve_rib.hh" line="122" column="5" bodyfile="src/enve_rib.cc" bodystart="133" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a2d8ac0496517c3b9febd64ec962368bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="a00085" kindref="compound">rib</ref> &amp;</type>
@@ -423,7 +423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="129" column="5" bodyfile="src/enve_rib.cc" bodystart="146" bodyend="160"/>
+        <location file="include/enve_rib.hh" line="133" column="5" bodyfile="src/enve_rib.cc" bodystart="150" bodyend="164"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a517c9a544cb726f5c510e466e332a44b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -443,7 +443,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="135" column="5" bodyfile="src/enve_rib.cc" bodystart="165" bodyend="172"/>
+        <location file="include/enve_rib.hh" line="139" column="5" bodyfile="src/enve_rib.cc" bodystart="169" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1ad858355272ad73057208b4052ddef9f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
@@ -460,7 +460,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="141" column="5" bodyfile="src/enve_rib.cc" bodystart="177" bodyend="180"/>
+        <location file="include/enve_rib.hh" line="145" column="5" bodyfile="src/enve_rib.cc" bodystart="181" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1aed5c4d8fd8ef8bf886fd0f6104a04856" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
@@ -477,7 +477,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="145" column="5" bodyfile="src/enve_rib.cc" bodystart="185" bodyend="188"/>
+        <location file="include/enve_rib.hh" line="149" column="5" bodyfile="src/enve_rib.cc" bodystart="189" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a64c18ecdbd65aef499aa5d03353cb745" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
@@ -494,7 +494,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="149" column="5" bodyfile="src/enve_rib.cc" bodystart="193" bodyend="196"/>
+        <location file="include/enve_rib.hh" line="153" column="5" bodyfile="src/enve_rib.cc" bodystart="197" bodyend="200"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1a1d751f7fdfed182a58cf4f65db85e9d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
@@ -511,7 +511,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="153" column="5" bodyfile="src/enve_rib.cc" bodystart="201" bodyend="204"/>
+        <location file="include/enve_rib.hh" line="157" column="5" bodyfile="src/enve_rib.cc" bodystart="205" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="a00085_1aefecf30015022cd81b3fec1b109c1d3e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -538,47 +538,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="157" column="5" bodyfile="src/enve_rib.cc" bodystart="209" bodyend="218"/>
-      </memberdef>
-      <memberdef kind="function" id="a00085_1ac5a66a14f8c8efa354219f0be1c3f9df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool enve::rib::envelopRadial</definition>
-        <argsstring>(segment const &amp;segment_in, real &amp;radial_area, vec3 &amp;radial_normal, real tolerance=EPSILON_LOW) const</argsstring>
-        <name>envelopRadial</name>
-        <param>
-          <type>segment const &amp;</type>
-          <declname>segment_in</declname>
-          <briefdescription><para>Input segment </para>
-</briefdescription>
-        </param>
-        <param>
-          <type>real &amp;</type>
-          <declname>radial_area</declname>
-          <briefdescription><para>Input segment </para>
-</briefdescription>
-        </param>
-        <param>
-          <type>vec3 &amp;</type>
-          <declname>radial_normal</declname>
-          <briefdescription><para>Input segment </para>
-</briefdescription>
-        </param>
-        <param>
-          <type>real</type>
-          <declname>tolerance</declname>
-          <defval>EPSILON_LOW</defval>
-          <briefdescription><para>tolarance </para>
-</briefdescription>
-        </param>
-        <briefdescription>
-<para>Check if objects are (almost) equal. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/enve_rib.hh" line="164" column="5" bodyfile="src/enve_rib.cc" bodystart="223" bodyend="266"/>
-        <referencedby refid="a00093_1a1cd14845c1c2903eadb41d5a86a2627f" compoundref="a00032" startline="1301" endline="1345">enve::shell::envelopTriangle</referencedby>
+        <location file="include/enve_rib.hh" line="161" column="5" bodyfile="src/enve_rib.cc" bodystart="213" bodyend="222"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -608,12 +568,11 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/enve_rib.hh" line="54" column="3" bodyfile="include/enve_rib.hh" bodystart="55" bodyend="171"/>
+    <location file="include/enve_rib.hh" line="58" column="3" bodyfile="include/enve_rib.hh" bodystart="59" bodyend="166"/>
     <listofallmembers>
       <member refid="a00085_1aed5c4d8fd8ef8bf886fd0f6104a04856" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>angle</name></member>
       <member refid="a00085_1a1d751f7fdfed182a58cf4f65db85e9d1" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>angle</name></member>
       <member refid="a00085_1a517c9a544cb726f5c510e466e332a44b" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>copy</name></member>
-      <member refid="a00085_1ac5a66a14f8c8efa354219f0be1c3f9df" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelopRadial</name></member>
       <member refid="a00085_1aefecf30015022cd81b3fec1b109c1d3e" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>isApprox</name></member>
       <member refid="a00085_1a21be5d0b7ed69dfe64f6aa1f1a3e6703" prot="private" virt="non-virtual"><scope>enve::rib</scope><name>m_angle</name></member>
       <member refid="a00085_1a3ea19f42a9f1d36df36216bb8829b910" prot="private" virt="non-virtual"><scope>enve::rib</scope><name>m_width</name></member>

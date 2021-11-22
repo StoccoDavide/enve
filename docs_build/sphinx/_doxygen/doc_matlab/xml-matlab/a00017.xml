@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="30" column="10" bodyfile="enve_flat.m" bodystart="30" bodyend="-1"/>
+        <location file="enve_flat.m" line="34" column="10" bodyfile="enve_flat.m" bodystart="34" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="38" column="15"/>
+        <location file="enve_flat.m" line="42" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1ac37c7c907acb150f5abb935ed4b9f8b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="53" column="15"/>
+        <location file="enve_flat.m" line="57" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1aba1970be64a56163658eb22675aa4d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="62" column="15"/>
+        <location file="enve_flat.m" line="66" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1ae33edce192b988b2f44149105d2736ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="70" column="15"/>
+        <location file="enve_flat.m" line="74" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1ae2a355f70660312abe0a068203dc3edf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -117,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="78" column="15"/>
+        <location file="enve_flat.m" line="82" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1a41a0869418494e1faebf4eddf7dc1caf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -135,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="86" column="15"/>
+        <location file="enve_flat.m" line="90" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1a9c9a4c2b61bb453b548bdf3bbef12df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="95" column="15"/>
+        <location file="enve_flat.m" line="99" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1a92b8f76e73dba8ed1bd8b8696b8be7c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="103" column="15"/>
+        <location file="enve_flat.m" line="107" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1ad89fbfdaefd4d3d930dceec2c6ff623b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -197,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="111" column="15"/>
+        <location file="enve_flat.m" line="115" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1aea6fc7203416453b98391009c7851ca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -215,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="119" column="15"/>
+        <location file="enve_flat.m" line="123" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1ac04d3cc2d53321319d54f80f4f63d659" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -237,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="127" column="15"/>
+        <location file="enve_flat.m" line="131" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1a3668959a6008566ce53029c43f2a1fc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -259,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="139" column="15"/>
+        <location file="enve_flat.m" line="143" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1a4d926e71f85c109470bc8a68117859e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -281,7 +281,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="151" column="15"/>
+        <location file="enve_flat.m" line="155" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1ab5d09e8f8a4e480a5e007e6c7a3a3813" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -299,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="159" column="15"/>
+        <location file="enve_flat.m" line="163" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1a17eb7031f2cb146a2388b21514313749" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -325,7 +325,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="169" column="15"/>
+        <location file="enve_flat.m" line="173" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00017_1ad7a91b448678867eafe73b6417b980ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_flat.m" line="180" column="15"/>
+        <location file="enve_flat.m" line="184" column="15"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -372,7 +372,7 @@
         <label>handle</label>
       </node>
     </collaborationgraph>
-    <location file="enve_flat.m" line="22" column="1" bodyfile="enve_flat.m" bodystart="23" bodyend="185"/>
+    <location file="enve_flat.m" line="26" column="1" bodyfile="enve_flat.m" bodystart="27" bodyend="189"/>
     <listofallmembers>
       <member refid="a00017_1a3668959a6008566ce53029c43f2a1fc3" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>copy</name></member>
       <member refid="a00017_1a4d926e71f85c109470bc8a68117859e1" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>copyByHandle</name></member>

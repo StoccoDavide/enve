@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="31" column="9" bodyfile="include/enve_shape.hh" bodystart="31" bodyend="-1"/>
+        <location file="include/enve_shape.hh" line="35" column="9" bodyfile="include/enve_shape.hh" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -149,142 +149,146 @@
 <codeline lineno="5"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
 <codeline lineno="6"><highlight class="comment">(*<sp/>Copyright<sp/>(c)<sp/>2020-2021,<sp/>Davide<sp/>Stocco<sp/>and<sp/>Enrico<sp/>Bertolazzi.<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
 <codeline lineno="7"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="8"><highlight class="comment">(*<sp/>The<sp/>ENVE<sp/>project<sp/>can<sp/>not<sp/>be<sp/>copied<sp/>and/or<sp/>distributed<sp/>without<sp/>the<sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="9"><highlight class="comment">(*<sp/>express<sp/>permission<sp/>of<sp/>Davide<sp/>Stocco<sp/>and<sp/>Enrico<sp/>Bertolazzi.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="10"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="11"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Davide<sp/>Stocco<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="12"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="13"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="14"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>davide.stocco@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="15"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="16"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Enrico<sp/>Bertolazzi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="17"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="18"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="19"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>enrico.bertolazzi@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="20"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="21"><highlight class="comment">(***********************************************************************)</highlight></codeline>
-<codeline lineno="22"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="comment">(*<sp/>The<sp/>ENVE<sp/>project<sp/>and<sp/>its<sp/>components<sp/>are<sp/>supplied<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>*)</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">(*<sp/>the<sp/>open<sp/>source<sp/>BSD<sp/>2-Clause<sp/>License.<sp/>The<sp/>contents<sp/>of<sp/>the<sp/>ENVE<sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">(*<sp/>project<sp/>and<sp/>its<sp/>components<sp/>may<sp/>not<sp/>be<sp/>copied<sp/>or<sp/>disclosed<sp/>except<sp/>in<sp/>*)</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">(*<sp/>accordance<sp/>with<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>BSD<sp/>2-Clause<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">(*<sp/>URL:<sp/>https://opensource.org/licenses/BSD-2-Clause<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Davide<sp/>Stocco<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>davide.stocco@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Enrico<sp/>Bertolazzi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>enrico.bertolazzi@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="24"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">(***********************************************************************)</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INCLUDE_ENVE_SHAPE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="a00017_1ac1737af928424643ca13b119b609a4b3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INCLUDE_ENVE_SHAPE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme_math.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00026" kindref="compound">enve.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">acme;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INCLUDE_ENVE_SHAPE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="a00017_1ac1737af928424643ca13b119b609a4b3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INCLUDE_ENVE_SHAPE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme_math.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="a00059" kindref="compound">enve</ref></highlight></codeline>
-<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
-<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>_</highlight></codeline>
-<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>___|<sp/>|__<sp/><sp/><sp/>__<sp/>_<sp/>_<sp/>__<sp/><sp/><sp/>___</highlight></codeline>
-<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>/<sp/>__|<sp/>&apos;_<sp/>\<sp/>/<sp/>_`<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\</highlight></codeline>
-<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>\__<sp/>\<sp/>|<sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|_)<sp/>|<sp/><sp/>__/</highlight></codeline>
-<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|___/_|<sp/>|_|\__,_|<sp/>.__/<sp/>\___|</highlight></codeline>
-<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|_|</highlight></codeline>
-<codeline lineno="50"><highlight class="comment"><sp/><sp/>\*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53" refid="a00089" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="a00089" kindref="compound">shape</ref></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="56" refid="a00089_1a3ce2310bdfbf3557035dc8133d0b0f88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;shape<sp/>const&gt;<sp/><ref refid="a00089_1a3ce2310bdfbf3557035dc8133d0b0f88" kindref="member">ptr</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="57" refid="a00089_1a49d70ac4952e445499b69eb28f182eb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;shape::ptr&gt;<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00089_1a49d70ac4952e445499b69eb28f182eb8" kindref="member">vecptr</ref>;<sp/></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="59" refid="a00089_1a60dd88c2bd58b71d534cc92d6d5f56f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00089_1a60dd88c2bd58b71d534cc92d6d5f56f9" kindref="member">m_maxR</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
-<codeline lineno="60" refid="a00089_1aa637dc06ac5012754a88ff504b55127e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00089_1aa637dc06ac5012754a88ff504b55127e" kindref="member">m_minY</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
-<codeline lineno="61" refid="a00089_1a6bf4c2c1ef6049a4a5748cc1e64497b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00089_1a6bf4c2c1ef6049a4a5748cc1e64497b6" kindref="member">m_maxY</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="65" refid="a00089_1acecd8531fa8ba0ffbc75d6234140c6a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="a00089_1acecd8531fa8ba0ffbc75d6234140c6a1" kindref="member">~shape</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00026" kindref="compound">enve.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">acme;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="a00059" kindref="compound">enve</ref></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>_</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>___|<sp/>|__<sp/><sp/><sp/>__<sp/>_<sp/>_<sp/>__<sp/><sp/><sp/>___</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>/<sp/>__|<sp/>&apos;_<sp/>\<sp/>/<sp/>_`<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>\__<sp/>\<sp/>|<sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|_)<sp/>|<sp/><sp/>__/</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|___/_|<sp/>|_|\__,_|<sp/>.__/<sp/>\___|</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|_|</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/>\*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="a00089" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="a00089" kindref="compound">shape</ref></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="60" refid="a00089_1a3ce2310bdfbf3557035dc8133d0b0f88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;shape<sp/>const&gt;<sp/><ref refid="a00089_1a3ce2310bdfbf3557035dc8133d0b0f88" kindref="member">ptr</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61" refid="a00089_1a49d70ac4952e445499b69eb28f182eb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;shape::ptr&gt;<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00089_1a49d70ac4952e445499b69eb28f182eb8" kindref="member">vecptr</ref>;<sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="63" refid="a00089_1a60dd88c2bd58b71d534cc92d6d5f56f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00089_1a60dd88c2bd58b71d534cc92d6d5f56f9" kindref="member">m_maxR</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
+<codeline lineno="64" refid="a00089_1aa637dc06ac5012754a88ff504b55127e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00089_1aa637dc06ac5012754a88ff504b55127e" kindref="member">m_minY</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
+<codeline lineno="65" refid="a00089_1a6bf4c2c1ef6049a4a5748cc1e64497b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00089_1a6bf4c2c1ef6049a4a5748cc1e64497b6" kindref="member">m_maxY</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape</ref>(</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>maxR,<sp/></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>minY,<sp/></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>maxY<sp/><sp/></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape</ref>(</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vecN<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;dataR,<sp/></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vecN<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;dataY<sp/><sp/></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" kindref="member">copy</ref>(</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00089" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;shape_in<sp/></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa509c8fa017ef7500110beae8289b514" kindref="member">isApprox</ref>(</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00089" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;shape_in,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tolerance<sp/>=<sp/>EPSILON_LOW<sp/></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ac85f00278892b2330e9325209a16e478" kindref="member">surfaceMaxRadius</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="69" refid="a00089_1acecd8531fa8ba0ffbc75d6234140c6a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="a00089_1acecd8531fa8ba0ffbc75d6234140c6a1" kindref="member">~shape</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape</ref>(</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>maxR,<sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>minY,<sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>maxY<sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape</ref>(</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vecN<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;dataR,<sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vecN<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;dataY<sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" kindref="member">copy</ref>(</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00089" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;shape_in<sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa509c8fa017ef7500110beae8289b514" kindref="member">isApprox</ref>(</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00089" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;shape_in,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tolerance<sp/>=<sp/>EPSILON_LOW<sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ac85f00278892b2330e9325209a16e478" kindref="member">surfaceMaxRadius</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ac85f00278892b2330e9325209a16e478" kindref="member">surfaceMaxRadius</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>real</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b" kindref="member">surfaceMaxWidth</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1ac85f00278892b2330e9325209a16e478" kindref="member">surfaceMaxRadius</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a2d34c12f16852f76da529c00abc9d4a6" kindref="member">surfaceWidthLowerBound</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>real</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a84f2e4ba9b2d14b40c28c13808f52b0b" kindref="member">surfaceMaxWidth</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a2d34c12f16852f76da529c00abc9d4a6" kindref="member">surfaceWidthLowerBound</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a2d34c12f16852f76da529c00abc9d4a6" kindref="member">surfaceWidthLowerBound</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0" kindref="member">surfaceWidthUpperBound</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a2d34c12f16852f76da529c00abc9d4a6" kindref="member">surfaceWidthLowerBound</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0" kindref="member">surfaceWidthUpperBound</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0" kindref="member">surfaceWidthUpperBound</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>real</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1afa694bcea531f52cbc33c4586202e1a8" kindref="member">surfaceWidth</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa55f0ba9ddef8f1dca8e7ee13726c5e0" kindref="member">surfaceWidthUpperBound</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" kindref="member">checkWidthBound</ref>(</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y<sp/></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>real</highlight></codeline>
-<codeline lineno="136" refid="a00089_1aa66cc1f3a1f9fea9185f274015900da3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa66cc1f3a1f9fea9185f274015900da3" kindref="member">surfaceRadius</ref>(</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y<sp/></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>real</highlight></codeline>
-<codeline lineno="142" refid="a00089_1aa6e1551c4b716b5fd41e91c83ca2abd3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa6e1551c4b716b5fd41e91c83ca2abd3" kindref="member">surfaceDerivative</ref>(</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>tolerance<sp/>=<sp/>EPSILON_MEDIUM<sp/></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>real</highlight></codeline>
-<codeline lineno="149" refid="a00089_1a42c8dc5ce2976b3e078f696b042c9f32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a42c8dc5ce2976b3e078f696b042c9f32" kindref="member">surfaceAngle</ref>(</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>tolerance<sp/>=<sp/>EPSILON_MEDIUM<sp/></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" kindref="member">print</ref>(</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out_stream<sp/>&amp;os<sp/></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/>};<sp/></highlight><highlight class="comment">//<sp/>class<sp/>shape</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>enve</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>real</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1afa694bcea531f52cbc33c4586202e1a8" kindref="member">surfaceWidth</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" kindref="member">checkWidthBound</ref>(</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y<sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>real</highlight></codeline>
+<codeline lineno="140" refid="a00089_1aa66cc1f3a1f9fea9185f274015900da3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa66cc1f3a1f9fea9185f274015900da3" kindref="member">surfaceRadius</ref>(</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y<sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>real</highlight></codeline>
+<codeline lineno="146" refid="a00089_1aa6e1551c4b716b5fd41e91c83ca2abd3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1aa6e1551c4b716b5fd41e91c83ca2abd3" kindref="member">surfaceDerivative</ref>(</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>tolerance<sp/>=<sp/>EPSILON_MEDIUM<sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>real</highlight></codeline>
+<codeline lineno="153" refid="a00089_1a42c8dc5ce2976b3e078f696b042c9f32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a42c8dc5ce2976b3e078f696b042c9f32" kindref="member">surfaceAngle</ref>(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>tolerance<sp/>=<sp/>EPSILON_MEDIUM<sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" kindref="member">print</ref>(</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out_stream<sp/>&amp;os<sp/></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>};<sp/></highlight><highlight class="comment">//<sp/>class<sp/>shape</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="168"></codeline>
+<codeline lineno="166"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>enve</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"></codeline>
     </programlisting>
     <location file="include/enve_shape.hh"/>
   </compounddef>
