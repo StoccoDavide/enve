@@ -321,15 +321,15 @@ do_copy(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 typedef void (*DO_CMD)(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[]);
 
 static map<string, DO_CMD> cmd_to_fun = {
-  {"new", do_new},
-  {"delete", do_delete},
-  {"normal", do_normal},
-  {"getVertex1", do_getVertex1},
-  {"getVertex2", do_getVertex2},
-  {"getVertex3", do_getVertex3},
+  {"new",         do_new},
+  {"delete",      do_delete},
+  {"normal",      do_normal},
+  {"getVertex1",  do_getVertex1},
+  {"getVertex2",  do_getVertex2},
+  {"getVertex3",  do_getVertex3},
   {"getFriction", do_getFriction},
   {"setFriction", do_setFriction},
-  {"copy", do_copy}};
+  {"copy",        do_copy}};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

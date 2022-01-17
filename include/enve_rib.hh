@@ -39,6 +39,9 @@
 #include <acme_utils.hh>
 
 #include "enve.hh"
+#include "enve_triangleground.hh"
+#include "enve_mesh.hh"
+#include "enve_flat.hh"
 
 using namespace acme;
 
@@ -100,13 +103,6 @@ namespace enve
     );
 
     //! Rib class constructor
-    rib(
-      real         radius, //!< Input rib radius
-      point const &center, //!< Input rib center
-      vec3 const  &normal  //!< Input rib normal to the laying plane
-    );
-
-    //! Rib class constructor
     rib(real radius,   //!< Input rib radius
         real center_x, //!< Input rib center x value
         real center_y, //!< Input rib center y value
@@ -161,6 +157,109 @@ namespace enve
     isApprox(
       rib const &rib_in,                 //!< Input object
       real       tolerance = EPSILON_LOW //!< Tolerance
+    ) const;
+
+    //! Evaluate rib contact with flat ground
+    bool
+    envelop(
+      triangleground::vecptr const &localGround,     //!< Local triangles candidate list
+      affine                 const &affine_in,       //!< Input 4x4 affine transformation affine_in
+      std::string            const  method,          //!< Enveloping model (choose from: "geometric" or "sampling")
+      point                        &contactPoint,    //!< Contact point
+      vec3                         &contactNormal,   //!< Contact normal
+      real                         &contactFriction, //!< Contact friction
+      real                         &contactDepth,    //!< Contact depth
+      real                         &contactArea,     //!< Contact area
+      real                         &contactVolume    //!< Contact volume
+    ) const;
+
+    //! Evaluate rib contact with flat ground
+    bool
+    envelop(
+      ground::flat const &localGround,     //!< Local flat ground object
+      affine       const &affine_in,       //!< Input 4x4 affine transformation affine_in
+      std::string  const  method,          //!< Enveloping model (choose from: "geometric" or "sampling")
+      point              &contactPoint,    //!< Contact point
+      vec3               &contactNormal,   //!< Contact normal
+      real               &contactFriction, //!< Contact friction
+      real               &contactDepth,    //!< Contact depth
+      real               &contactArea,     //!< Contact area
+      real               &contactVolume    //!< Contact volume
+    ) const;
+
+    //! Evaluate rib contact with flat ground (geometric enveloping model)
+    bool
+    envelopGeometric(
+      triangleground::vecptr const &localGround,     //!< Local triangles candidate list
+      affine                 const &affine_in,       //!< Input 4x4 affine transformation
+      point                        &contactPoint,    //!< Contact point
+      vec3                         &contactNormal,   //!< Contact normal
+      real                         &contactFriction, //!< Contact friction
+      real                         &contactDepth,    //!< Contact depth
+      real                         &contactArea,     //!< Contact area
+      real                         &contactVolume    //!< Contact volume
+    ) const;
+
+    //! Evaluate rib contact with flat ground (geometric enveloping model)
+    bool
+    envelopGeometric(
+      ground::flat const &localGround,     //!< Local flat ground object
+      affine       const &affine_in,       //!< Input 4x4 affine transformation
+      point              &contactPoint,    //!< Contact point
+      vec3               &contactNormal,   //!< Contact normal
+      real               &contactFriction, //!< Contact friction
+      real               &contactDepth,    //!< Contact depth
+      real               &contactArea,     //!< Contact area
+      real               &contactVolume    //!< Contact volume
+    ) const;
+
+    //! Evaluate rib contact with flat ground (sampling enveloping model)
+    bool
+    envelopSampling(
+      triangleground::vecptr const &localGround,     //!< Local triangles candidate list
+      affine                 const &affine_in,       //!< Input 4x4 affine transformation
+      point                        &contactPoint,    //!< Contact point
+      vec3                         &contactNormal,   //!< Contact normal
+      real                         &contactFriction, //!< Contact friction
+      real                         &contactDepth,    //!< Contact depth
+      real                         &contactArea,     //!< Contact area
+      real                         &contactVolume    //!< Contact volume
+    ) const;
+
+    //! Evaluate rib contact with flat ground (sampling enveloping model)
+    bool
+    envelopSampling(
+      ground::flat const &localGround,     //!< Local flat ground object
+      affine       const &affine_in,       //!< Input 4x4 affine transformation
+      point              &contactPoint,    //!< Contact point
+      vec3               &contactNormal,   //!< Contact normal
+      real               &contactFriction, //!< Contact friction
+      real               &contactDepth,    //!< Contact depth
+      real               &contactArea,     //!< Contact area
+      real               &contactVolume    //!< Contact volume
+    ) const;
+
+  private:
+    //! Evaluate contact through line intersection envelop model
+    bool
+    samplingLine(
+      triangleground::vecptr const &localGround,    //!< Local triangles candidate list
+      point const                  &origin,         //!< Sampling line origin
+      vec3 const                   &direction,      //!< Sampling line direction
+      point                        &contactPoint,   //!< Contact point
+      vec3                         &contactNormal,  //!< Contact normal
+      real                         &contactFriction //!< Contact friction
+    ) const;
+
+    //! Evaluate contact through line intersection envelop model
+    bool
+    samplingLine(
+      ground::flat const &localGround,    //!< Local flat ground object
+      point        const &origin,         //!< Sampling line origin
+      vec3         const &direction,      //!< Sampling line direction
+      point              &contactPoint,   //!< Contact point
+      vec3               &contactNormal,  //!< Contact normal
+      real               &contactFriction //!< Contact friction
     ) const;
 
   }; // class rib

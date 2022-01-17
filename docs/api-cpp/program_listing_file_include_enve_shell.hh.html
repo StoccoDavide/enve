@@ -76,6 +76,8 @@
 <span class="cp">#ifndef INCLUDE_ENVE_SHELL</span>
 <span class="cp">#define INCLUDE_ENVE_SHELL</span>
 
+<span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
+
 <span class="cp">#include</span> <span class="cpf">&lt;acme.hh&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;acme_aabb.hh&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;acme_point.hh&gt;</span><span class="cp"></span>
@@ -84,11 +86,9 @@
 
 <span class="cp">#include</span> <span class="cpf">"enve.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"enve_flat.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"enve_hyperellipse.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"enve_mesh.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"enve_points.hh"</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">"enve_polynom.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"enve_rib.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"enve_shape.hh"</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">acme</span><span class="p">;</span>
 
@@ -104,10 +104,6 @@
 <span class="cm">   |</span>
 <span class="cm">  \*/</span>
 
-  <span class="k">static</span> <span class="n">point</span> <span class="n">THROWAWAY_POINT</span>    <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">NAN_POINT</span><span class="p">);</span>
-  <span class="k">static</span> <span class="n">vec3</span>  <span class="n">THROWAWAY_NORMAL</span>   <span class="o">=</span> <span class="n">vec3</span><span class="p">(</span><span class="n">NAN_VEC3</span><span class="p">);</span>
-  <span class="k">static</span> <span class="n">real</span>  <span class="n">THROWAWAY_FRICTION</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">QUIET_NAN</span><span class="p">);</span>
-
   <span class="k">class</span> <span class="nc">shell</span>
   <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
@@ -118,13 +114,14 @@
     <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">shape</span><span class="o">&gt;</span> <span class="n">m_shape</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">rib</span><span class="o">&gt;</span>       <span class="n">m_ribs</span><span class="p">;</span>
     <span class="n">affine</span>                 <span class="n">m_affine</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span>  <span class="n">m_bbox</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span>  <span class="n">m_aabb</span><span class="p">;</span>
 
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">m_pointRib</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">m_pointMesh</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">m_point</span><span class="p">;</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span>  <span class="n">m_normal</span><span class="p">;</span>
-    <span class="n">vecN</span>               <span class="n">m_friction</span><span class="p">;</span>
-    <span class="n">vecN</span>               <span class="n">m_depth</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span>  <span class="n">m_friction</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span>  <span class="n">m_depth</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span>  <span class="n">m_area</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span>  <span class="n">m_volume</span><span class="p">;</span>
 
   <span class="k">public</span><span class="o">:</span>
     <span class="o">~</span><span class="n">shell</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
@@ -143,31 +140,12 @@
     <span class="p">);</span>
 
     <span class="n">shell</span><span class="p">(</span>
-      <span class="kt">size_t</span>      <span class="n">size</span><span class="p">,</span>
-      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataR</span><span class="p">,</span>
-      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataY</span><span class="p">,</span>
-      <span class="kt">size_t</span>      <span class="n">order</span><span class="p">,</span>
-      <span class="n">real</span>        <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON_MEDIUM</span>
-    <span class="p">);</span>
-
-    <span class="n">shell</span><span class="p">(</span>
-      <span class="kt">size_t</span>      <span class="n">size</span><span class="p">,</span>
-      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataR</span><span class="p">,</span>
-      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataY</span>
-    <span class="p">);</span>
-
-    <span class="n">shell</span><span class="p">(</span>
-      <span class="kt">size_t</span>              <span class="n">size</span><span class="p">,</span>
-      <span class="n">hyperellipse</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">hyperellipse_in</span>
-    <span class="p">);</span>
-
-    <span class="n">shell</span><span class="p">(</span>
-      <span class="kt">size_t</span>         <span class="n">size</span><span class="p">,</span>
-      <span class="n">polynom</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">polynom_in</span>
+      <span class="kt">size_t</span>       <span class="n">size</span><span class="p">,</span>
+      <span class="n">shape</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">shape_in</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
-    <span class="nf">reset</span><span class="p">(</span>
+    <span class="nf">resize</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">size</span>
     <span class="p">);</span>
 
@@ -175,12 +153,12 @@
     <span class="nf">size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="cm">/*\</span>
-<span class="cm">     |                                   _</span>
-<span class="cm">     |    __ _  ___  ___  _ __ ___   ___| |_ _ __ _   _</span>
-<span class="cm">     |   / _` |/ _ \/ _ \| '_ ` _ \ / _ \ __| '__| | | |</span>
-<span class="cm">     |  | (_| |  __/ (_) | | | | | |  __/ |_| |  | |_| |</span>
-<span class="cm">     |   \__, |\___|\___/|_| |_| |_|\___|\__|_|   \__, |</span>
-<span class="cm">     |   |___/                                    |___/</span>
+<span class="cm">     |       _</span>
+<span class="cm">     |   ___| |__   __ _ _ __   ___</span>
+<span class="cm">     |  / __| '_ \ / _` | '_ \ / _ \</span>
+<span class="cm">     |  \__ \ | | | (_| | |_) |  __/</span>
+<span class="cm">     |  |___/_| |_|\__,_| .__/ \___|</span>
+<span class="cm">     |                  |_|</span>
 <span class="cm">    \*/</span>
 
     <span class="n">real</span>
@@ -188,12 +166,6 @@
 
     <span class="n">real</span>
     <span class="nf">surfaceMaxWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">real</span>
-    <span class="nf">surfaceWidthLowerBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">real</span>
-    <span class="nf">surfaceWidthUpperBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">real</span>
     <span class="nf">surfaceWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
@@ -235,12 +207,17 @@
       <span class="kt">size_t</span> <span class="n">i</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
+    <span class="n">real</span>
+    <span class="nf">ribAngle</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
     <span class="cm">/*\</span>
-<span class="cm">     |    __</span>
-<span class="cm">     |   / _|_ __ __ _ _ __ ___   ___</span>
-<span class="cm">     |  | |_| '__/ _` | '_ ` _ \ / _ \</span>
-<span class="cm">     |  |  _| | | (_| | | | | | |  __/</span>
-<span class="cm">     |  |_| |_|  \__,_|_| |_| |_|\___|</span>
+<span class="cm">     |         __  __ _</span>
+<span class="cm">     |   __ _ / _|/ _(_)_ __   ___</span>
+<span class="cm">     |  / _` | |_| |_| | '_ \ / _ \</span>
+<span class="cm">     | | (_| |  _|  _| | | | |  __/</span>
+<span class="cm">     |  \__,_|_| |_| |_|_| |_|\___|</span>
 <span class="cm">     |</span>
 <span class="cm">    \*/</span>
 
@@ -272,12 +249,12 @@
 
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
-      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix_in</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in_in</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
-      <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">matrix_in</span>
+      <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in_in</span>
     <span class="p">);</span>
 
     <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span>
@@ -298,19 +275,42 @@
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="cm">/*\</span>
-<span class="cm">     |   _</span>
-<span class="cm">     |  | |__   _____  __</span>
-<span class="cm">     |  | '_ \ / _ \ \/ /</span>
-<span class="cm">     |  | |_) | (_) &gt;  &lt;</span>
-<span class="cm">     |  |_.__/ \___/_/\_\</span>
+<span class="cm">     |               _     _</span>
+<span class="cm">     |    __ _  __ _| |__ | |__</span>
+<span class="cm">     |   / _` |/ _` | '_ \| '_ \</span>
+<span class="cm">     |  | (_| | (_| | |_) | |_) |</span>
+<span class="cm">     |   \__,_|\__,_|_.__/|_.__/</span>
 <span class="cm">     |</span>
 <span class="cm">    \*/</span>
 
     <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span>
-    <span class="n">bbox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">AABB</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">updateBBox</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+    <span class="nf">updateAABB</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="cm">/*\</span>
+<span class="cm">     |            _</span>
+<span class="cm">     |   ___  ___| |_ _   _ _ __</span>
+<span class="cm">     |  / __|/ _ \ __| | | | '_ \</span>
+<span class="cm">     |  \__ \  __/ |_| |_| | |_) |</span>
+<span class="cm">     |  |___/\___|\__|\__,_| .__/</span>
+<span class="cm">     |                     |_|</span>
+<span class="cm">    \*/</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">setup</span><span class="p">(</span>
+      <span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
+      <span class="n">affine</span>       <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span>
+    <span class="p">);</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">setup</span><span class="p">(</span>
+      <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
+      <span class="n">affine</span>       <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span>
+    <span class="p">);</span>
 
     <span class="cm">/*\</span>
 <span class="cm">     |                   _             _</span>
@@ -322,69 +322,19 @@
 <span class="cm">    \*/</span>
 
     <span class="kt">void</span>
-    <span class="nf">relativeAngles</span><span class="p">(</span>
-      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">angles</span>
+    <span class="nf">contactPoint</span><span class="p">(</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">relativeAngles</span><span class="p">(</span>
+    <span class="nf">contactPoint</span><span class="p">(</span>
       <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">vec3</span>  <span class="o">&amp;</span><span class="n">angles</span>
+      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">relativeAngles</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">angles</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactDepthRib</span><span class="p">(</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="n">depth_old</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="n">time_step</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactDepthRib</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
-      <span class="n">real</span>   <span class="n">depth_old</span><span class="p">,</span>
-      <span class="n">real</span>   <span class="n">time_step</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactDepthRib</span><span class="p">(</span>
-      <span class="n">vecN</span>       <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
-      <span class="n">vecN</span>       <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
-      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">depth_old</span><span class="p">,</span>
-      <span class="n">real</span>        <span class="n">time_step</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactDepthMesh</span><span class="p">(</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
-      <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="n">depth_old</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="n">time_step</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactDepthMesh</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
-      <span class="n">real</span>   <span class="n">depth_old</span><span class="p">,</span>
-      <span class="n">real</span>   <span class="n">time_step</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactDepthMesh</span><span class="p">(</span>
-      <span class="n">vecN</span>       <span class="o">&amp;</span><span class="n">depth</span><span class="p">,</span>
-      <span class="n">vecN</span>       <span class="o">&amp;</span><span class="n">depth_dot</span><span class="p">,</span>
-      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">depth_old</span><span class="p">,</span>
-      <span class="n">real</span>        <span class="n">time_step</span>
+    <span class="nf">contactPoint</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -404,38 +354,6 @@
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">contactPointRib</span><span class="p">(</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactPointRib</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactPointRib</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactPointMesh</span><span class="p">(</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactPointMesh</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
-    <span class="nf">contactPointMesh</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">void</span>
     <span class="nf">contactFriction</span><span class="p">(</span>
       <span class="n">real</span> <span class="o">&amp;</span><span class="n">friction</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
@@ -448,142 +366,93 @@
 
     <span class="kt">void</span>
     <span class="nf">contactFriction</span><span class="p">(</span>
-      <span class="n">vecN</span> <span class="o">&amp;</span><span class="n">friction</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">friction</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">contactPointRibAffine</span><span class="p">(</span>
+    <span class="nf">contactDepth</span><span class="p">(</span>
+      <span class="n">real</span> <span class="o">&amp;</span><span class="n">depth</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactDepth</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactDepth</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">depth</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactArea</span><span class="p">(</span>
+      <span class="n">real</span> <span class="o">&amp;</span><span class="n">area</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactArea</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">area</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactArea</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">area</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactVolume</span><span class="p">(</span>
+      <span class="n">real</span> <span class="o">&amp;</span><span class="n">volume</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactVolume</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">volume</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactVolume</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">volume</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">void</span>
+    <span class="nf">contactPointAffine</span><span class="p">(</span>
       <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">contactPointRibAffine</span><span class="p">(</span>
+    <span class="nf">contactPointAffine</span><span class="p">(</span>
       <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
       <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">contactPointRibAffine</span><span class="p">(</span>
+    <span class="nf">contactPointAffine</span><span class="p">(</span>
       <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">affine</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point_affine</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">contactPointMeshAffine</span><span class="p">(</span>
-      <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span>
+    <span class="nf">relativeAngles</span><span class="p">(</span>
+      <span class="n">vec3</span> <span class="o">&amp;</span><span class="n">angles</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">contactPointMeshAffine</span><span class="p">(</span>
-      <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
-      <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span>
+    <span class="nf">relativeAngles</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
+      <span class="n">vec3</span>  <span class="o">&amp;</span><span class="n">angles</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
-    <span class="nf">contactPointMeshAffine</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">affine</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point_affine</span>
+    <span class="nf">relativeAngles</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">angles</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">setup</span><span class="p">(</span>
-      <span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
-      <span class="n">affine</span> <span class="k">const</span>       <span class="o">&amp;</span><span class="n">matrix</span><span class="p">,</span>
-      <span class="kt">size_t</span>              <span class="n">threshold</span><span class="p">,</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>   <span class="n">method</span>
-    <span class="p">);</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">setup</span><span class="p">(</span>
-      <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
-      <span class="n">affine</span> <span class="k">const</span>       <span class="o">&amp;</span><span class="n">matrix</span>
-    <span class="p">);</span>
 
     <span class="kt">void</span>
     <span class="nf">print</span><span class="p">(</span>
       <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-  <span class="k">private</span><span class="o">:</span>
-    <span class="kt">void</span>
-    <span class="n">oversample</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">o</span><span class="p">,</span>
-      <span class="kt">size_t</span> <span class="n">a</span><span class="p">,</span>
-      <span class="kt">size_t</span> <span class="n">b</span>
-    <span class="p">);</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">samplingSingleTriangle</span><span class="p">(</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles_vec</span><span class="p">,</span>
-      <span class="n">point</span> <span class="k">const</span>                  <span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span>                   <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
-      <span class="n">point</span>                        <span class="o">&amp;</span><span class="n">point</span><span class="p">,</span>
-      <span class="n">vec3</span>                         <span class="o">&amp;</span><span class="n">normal</span><span class="p">,</span>
-      <span class="n">real</span>                         <span class="o">&amp;</span><span class="n">friction</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">samplingPoint</span><span class="p">(</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles_vec</span><span class="p">,</span>
-      <span class="n">point</span> <span class="k">const</span>                  <span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span>                   <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
-      <span class="n">point</span>                        <span class="o">&amp;</span><span class="n">point</span><span class="p">,</span>
-      <span class="n">vec3</span>                         <span class="o">&amp;</span><span class="n">normal</span><span class="p">,</span>
-      <span class="n">real</span>                         <span class="o">&amp;</span><span class="n">friction</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">samplingCross</span><span class="p">(</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles_vec</span><span class="p">,</span>
-      <span class="n">point</span> <span class="k">const</span>                  <span class="o">&amp;</span><span class="n">origin</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span>                   <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
-      <span class="n">real</span>                          <span class="n">delta_x</span><span class="p">,</span>
-      <span class="n">real</span>                          <span class="n">delta_y</span><span class="p">,</span>
-      <span class="n">point</span>                        <span class="o">&amp;</span><span class="n">point</span><span class="p">,</span>
-      <span class="n">vec3</span>                         <span class="o">&amp;</span><span class="n">normal</span><span class="p">,</span>
-      <span class="n">real</span>                         <span class="o">&amp;</span><span class="n">friction</span>
-    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">envelopSingleTriangle</span><span class="p">(</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles_vec</span><span class="p">,</span>
-      <span class="kt">size_t</span>                        <span class="n">i</span>
-    <span class="p">);</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">envelopLine</span><span class="p">(</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles_vec</span><span class="p">,</span>
-      <span class="kt">size_t</span>                        <span class="n">i</span>
-    <span class="p">);</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">envelopTriangle</span><span class="p">(</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles_vec</span><span class="p">,</span>
-      <span class="kt">size_t</span>                        <span class="n">i</span>
-    <span class="p">);</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">envelopPlane</span><span class="p">(</span>
-      <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
-      <span class="kt">size_t</span>              <span class="n">i</span>
-    <span class="p">);</span>
-
-  <span class="k">private</span><span class="o">:</span>
-    <span class="kt">bool</span>
-    <span class="n">projectContactPointOnFlat</span><span class="p">(</span>
-      <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
-      <span class="n">point</span> <span class="k">const</span>        <span class="o">&amp;</span><span class="n">point_rib</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span>         <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
-      <span class="kt">size_t</span>              <span class="n">i</span><span class="p">,</span>
-      <span class="n">point</span>              <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
-      <span class="k">const</span><span class="p">;</span>
-
-    <span class="kt">bool</span>
-    <span class="nf">projectContactPointOnMesh</span><span class="p">(</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">,</span>
-      <span class="n">point</span> <span class="k">const</span>                  <span class="o">&amp;</span><span class="n">point_rib</span><span class="p">,</span>
-      <span class="n">vec3</span> <span class="k">const</span>                   <span class="o">&amp;</span><span class="n">direction</span><span class="p">,</span>
-      <span class="kt">size_t</span>                        <span class="n">i</span><span class="p">,</span>
-      <span class="n">point</span>                        <span class="o">&amp;</span><span class="n">point_out</span><span class="p">)</span>
-      <span class="k">const</span><span class="p">;</span>
 
   <span class="p">};</span> <span class="c1">// class shell</span>
 

@@ -74,6 +74,8 @@ using ``rake`` you have the library and headers in the following tree
 
 where OSTYPE can be ``linux``, ``osx``, ``mingw_x64``, ``win_x64``
 
+Index
+-----
 
 .. toctree::
    :maxdepth: 2

@@ -67,25 +67,26 @@ def.HostLibFiles = { lib_name };
 %% Functions interface
 
 def.StartFcnSpec = [ 'void sfun_init(', ...
-                     'double p1[1], ',   ... % Front shell radius on x axis (m) 
-                     'double p2[1], ',   ... % Front shell curve degree for x axis 
-                     'double p3[1], ',   ... % Front shell radius on y axis (m) 
-                     'double p4[1], ',   ... % Front shell curve degree for y axis 
-                     'double p5[1], ',   ... % Front surface half width on y axis (m) 
-                     'double p6[1], ',   ... % Rear shell radius on x axis (m) 
-                     'double p7[1], ',   ... % Rear shell curve degree for x axis 
-                     'double p8[1], ',   ... % Rear shell radius on y axis (m) 
-                     'double p9[1], ',   ... % Rear shell curve degree for y axis 
-                     'double p10[1], ',  ... % Rear surface half width on y axis (m) 
-                     'double p11[1], ',  ... % Ribs number 
-                     'double p12[1])',  ... % Threshold number for setup
+                     'double p1[1], ',  ... % Ribs number
+                     'double p2[1], ',  ... % Front shell curve degree for x axis
+                     'double p3[1], ',  ... % Front shell radius on y axis (m)
+                     'double p4[1], ',  ... % Front shell curve degree for y axis
+                     'double p5[1], ',  ... % Front surface half width on y axis (m)
+                     'double p6[1], ',  ... % Rear shell radius on x axis (m)
+                     'double p7[1], ',  ... % Rear shell curve degree for x axis
+                     'double p8[1], ',  ... % Rear shell radius on y axis (m)
+                     'double p9[1], ',  ... % Rear shell curve degree for y axis
+                     'double p10[1], ', ... % Rear surface half width on y axis (m)
+                     'double p11[1], ', ... % Front shell radius on x axis (m)
+                     'double p12[1], ', ... % Flat ground surface height (m)
+                     'double p13[1])',  ... % Flat ground surface friction scaling coefficient (-)
                    ];
 
 def.OutputFcnSpec = [ 'void sfun_out(', ...
                       'shellsRF      u1[1], ',  ... % Input bus containing the wheel hub reference frames of the four shells (tires)
-                      'groundContact y1[1], ',  ... % Output bus containing the contact point reference frames of the four shells (tires) 
-                      'double        p13[1], ', ... % flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
-                      'double        p14[1])',  ... % Simulation time step (s)
+                      'groundContact y1[1], ',  ... % Output bus containing the contact point reference frames of the four shells (tires)
+                      'double        p14[1], ', ... % method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+                      'double        p15[1]) ', ... % flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
                     ];
                 
 def.TerminateFcnSpec = 'void sfun_end()';

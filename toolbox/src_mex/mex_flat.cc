@@ -358,19 +358,19 @@ do_copy(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 typedef void (*DO_CMD)(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[]);
 
 static map<string, DO_CMD> cmd_to_fun = {
-  {"new", do_new},
-  {"delete", do_delete},
-  {"getOrigin", do_getOrigin},
-  {"setOrigin", do_setOrigin},
-  {"getNormal", do_getNormal},
-  {"setNormal", do_setNormal},
-  {"getPlane", do_getPlane},
-  {"setPlane", do_setPlane},
-  {"setFriction", do_setFriction},
-  {"getFriction", do_getFriction},
+  {"new",           do_new},
+  {"delete",        do_delete},
+  {"getOrigin",     do_getOrigin},
+  {"setOrigin",     do_setOrigin},
+  {"getNormal",     do_getNormal},
+  {"setNormal",     do_setNormal},
+  {"getPlane",      do_getPlane},
+  {"setPlane",      do_setPlane},
+  {"setFriction",   do_setFriction},
+  {"getFriction",   do_getFriction},
   {"isDegenerated", do_isDegenerated},
-  {"isApprox", do_isApprox},
-  {"copy", do_copy}};
+  {"isApprox",      do_isApprox},
+  {"copy",          do_copy}};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

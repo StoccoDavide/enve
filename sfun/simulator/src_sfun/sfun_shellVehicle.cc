@@ -44,16 +44,19 @@ shellVehicle::shellVehicle(void)
 
 void
 shellVehicle::init(
+  const double *size,
   const double *r_x,
   const double *m_x,
   const double *r_y,
   const double *m_y,
   const double *l_y,
-  const double *size,
-  const double *threshold)
+  const double *flatHeight,
+  const double *flatFriction
+)
 {
-  this->m_threshold = *threshold;
-  this->m_enveShell = new enve::shell(*size, *r_x, *m_x, *r_y, *m_y, *l_y);
+  this->m_enveShell             = new enve::shell(*size, *r_x, *m_x, *r_y, *m_y, *l_y);
+  this->m_groundFlat.origin()   = acme::vec3(0.0, 0.0, *flatHeight);
+  this->m_groundFlat.friction() = *flatFriction;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -61,13 +64,13 @@ shellVehicle::init(
 bool
 shellVehicle::out(
   enve::ground::mesh *ground,
-  const double (&RFw)[16],
-  double (&RFpc)[16],
-  double       &rho,
-  double       &rho_dot,
-  double       &friction,
-  const double *flat_enable,
-  const double *time_step)
+  const double      (&RFw)[16],
+  const double       *method,
+  double            (&RFpc)[16],
+  double             &rho,
+  double             &friction,
+  const double       *flat_enable
+)
 {
   // Copy input reference frame
   acme::affine RFw_in;
@@ -81,35 +84,40 @@ shellVehicle::out(
     }
   }
 
+  // Extract enveloping method
+  std::string method_in;
+  if (*method == 1)
+    method_in = "geometric";
+  else if (*method == 2)
+    method_in = "sampling";
+  else
+    method_in = "none";
+
+
   // ENVE computation plane
   bool in_mesh;
   if (*flat_enable != 0)
   {
-    this->m_enveShell->setup(this->m_groundFlat, RFw_in);
+    this->m_enveShell->setup(this->m_groundFlat, RFw_in, method_in);
     in_mesh = true;
   }
   else
   {
     // Update and check if there are elements under the tire shadow
-    in_mesh = this->m_enveShell->setup(*ground, RFw_in, this->m_threshold, "triangle");
+    in_mesh = this->m_enveShell->setup(*ground, RFw_in, method_in);
 
     if (!in_mesh)
     {
       // If no elements are detected under the tire shadows 'in_mesh' is equal to zero and a setup with a virtual plane is called
-      this->m_enveShell->setup(this->m_groundFlat, RFw_in);
+      this->m_enveShell->setup(this->m_groundFlat, RFw_in, method_in);
     }
   }
 
   // Update function outputs
   acme::affine RFpc_out;
-  this->m_enveShell->contactPointRibAffine(RFpc_out);
-  this->m_enveShell->contactDepthRib(rho, rho_dot, this->m_rho_old, *time_step);
+  this->m_enveShell->contactPointAffine(RFpc_out);
+  this->m_enveShell->contactDepth(rho);
   this->m_enveShell->contactFriction(friction);
-
-  // Update of internal class memebers
-  this->m_groundFlat.normal()   = RFpc_out.linear().col(2);
-  this->m_groundFlat.origin()   = RFpc_out.translation();
-  this->m_groundFlat.friction() = friction;
 
   // Output RF contact points
   j = 0;

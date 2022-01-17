@@ -152,7 +152,7 @@ namespace enve
       bool
       load(
         std::string const &path,    //!< Path to the file
-        real               friction //!< Friction scaling coefficient
+        real               friction //!< Friction coefficient scaling factor
       );
 
       //! Intersect the mesh AABB tree with an external AABB tree

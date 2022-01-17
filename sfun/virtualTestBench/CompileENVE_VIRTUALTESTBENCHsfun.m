@@ -72,17 +72,16 @@ def.StartFcnSpec = [ 'void sfun_init(', ...
                      'double p3[1], ',  ... % Shell radius on y axis (m) 
                      'double p4[1], ',  ... % Shell curve degree for y axis 
                      'double p5[1], ',  ... % Surface half width on y axis (m) 
-                     'double p6[1], ',  ... % Ribs number 
-                     'double p7[1])',   ... % Threshold number for setup
+                     'double p6[1]) ',  ... % Ribs number
                    ];
 
 def.OutputFcnSpec = [ 'void sfun_out(', ...
                       'shellRF       u1[1], ', ... % Input bus containing the shell reference frame
                       'groundContact y1[1], ', ... % Output bus containing the contact point reference frame
-                      'double        p8[1], ', ... % flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
-                      'double        p9[1])',  ... % Simulation time step (s)
+                      'double        p7[1], ', ... % method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+                      'double        p8[1]) ', ... % flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
                     ];
-                
+
 def.TerminateFcnSpec = 'void sfun_end()';
 
 %% Create MEX

@@ -54,18 +54,17 @@ main()
               << std::endl;
 
     // Load .rdf File
-    ground::mesh road("./files_rdf/Eight.rdf");
+    ground::mesh road("./../files_rdf/Eight.rdf");
 
     // Tire Parameters
     integer     tire_size = 10;
-    integer     threshold = 10000000;
-    std::string method    = "triangle";
+    std::string method    = "geometric";
 
     // Initialize the tire shell
     shell tire_shell(tire_size, // ribs number
-                     0.32,      // r_x
+                     0.35,      // r_x
                      3.1,       // m_x
-                     0.3,       // r_y
+                     4.0,       // r_y
                      3.1,       // m_y
                      0.6        // l_y
     );
@@ -80,11 +79,11 @@ main()
     real speed     = 10;   // m/s
 
     // Set starting and arrival positions
-    // point start(1.7, -140.0, 0.3);   // 12.7 triangles (7.9% of duty cycle - 20 ribs)
-    // point arrival(0.4, +140.0, 0.3); // 12.7 triangles
-    point start(5.0, -140.0, 0.3);   // 3.4 triangles (2.2% of duty cycle- 20 ribs)
-    point arrival(5.0, +140.0, 0.3); // 3.4 triangles
-    // point start(2.0, -140.0, 0.26);   // 4.9 triangles (2.8% of duty cycle- 20 ribs)
+    point start(1.7, -140.0, 0.3);   // 12.7 triangles (7.9% of duty cycle - 20 ribs)
+    point arrival(0.4, +140.0, 0.3); // 12.7 triangles
+    // point start(5.0, -140.0, 0.3);   // 3.4 triangles (2.2% of duty cycle - 20 ribs)
+    // point arrival(5.0, +140.0, 0.3); // 3.4 triangles
+    // point start(2.0, -140.0, 0.26);   // 4.9 triangles (2.8% of duty cycle - 20 ribs)
     // point arrival(2.0, +140.0, 0.26); // 4.9 triangles
 
     // Compute parameters
@@ -104,9 +103,6 @@ main()
     vec3  contact_normal;
     real  friction;
     real  depth;
-    real  depth_dot;
-    real  depth_old = 0.0;
-    real  time_step = 0.001;
     vec3  relative_angles;
 
     // Perform timing
@@ -115,12 +111,12 @@ main()
       // Start chronometer
       tictoc.tic();
       // Set an orientation and calculate parameters
-      tire_shell.setup(road, pose, threshold, method);
+      tire_shell.setup(road, pose, method);
       // Data extraction (for real numbers)
-      tire_shell.contactPointRib(contact_point);
+      tire_shell.contactPoint(contact_point);
       tire_shell.contactNormal(contact_normal);
       tire_shell.contactFriction(friction);
-      tire_shell.contactDepthRib(depth, depth_dot, depth_old, time_step);
+      tire_shell.contactDepth(depth);
       tire_shell.relativeAngles(relative_angles);
 
       // Stop chronometer
@@ -129,7 +125,7 @@ main()
       time_vec[i] = tictoc.elapsed_ms();
 
       // Update common variables
-      road.intersection(tire_shell.bbox(), triangles_list);
+      road.intersection(tire_shell.AABB(), triangles_list);
       triangles_list_size += triangles_list.size();
       pose.translate(step);
     }

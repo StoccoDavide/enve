@@ -44,43 +44,35 @@
   "%                                                                     %\n" \
   "% CONSTRUCTORS:                                                       %\n" \
   "%   OUT = mex_shell( 'new',                                           %\n" \
-  "%                    Sh, : Shell shape object                         %\n" \
-  "%                    N   : Number of ribs                             %\n" \
-  "%                  );                                                 %\n" \
-  "%                                                                     %\n" \
-  "%   OUT = mex_shell( 'new',                                           %\n" \
   "%                    N,  : Number of ribs                             %\n" \
-  "%                    Rx, : Shell radius on x axis [m]                 %\n" \
+  "%                    Rx, : Shell radius on x axis (m)                 %\n" \
   "%                    Mx, : Shell curve degree for x axis              %\n" \
-  "%                    Ry, : Shell radius on y axis [m]                 %\n" \
+  "%                    Ry, : Shell radius on y axis (m)                 %\n" \
   "%                    My, : Shell curve degree for y axis              %\n" \
-  "%                    Ly  : Shell surface half width on y axis [m]     %\n" \
-  "%                  );                                                 %\n" \
-  "%                                                                     %\n" \
-  "%   OUT = mex_shell( 'new',                                           %\n" \
-  "%                    N, : Number of ribs                              %\n" \
-  "%                    R, : Shell radius vector data [m]                %\n" \
-  "%                    Y, : Shell y axis vector data [m]                %\n" \
-  "%                    O  : Fitting polynomial order                    %\n" \
+  "%                    Ly  : Shell surface half width on y axis (m)     %\n" \
   "%                  );                                                 %\n" \
   "%                                                                     %\n" \
   "% DESTRUCTOR:                                                         %\n" \
   "%   mex_shell( 'delete', OBJ );                                       %\n" \
   "%                                                                     %\n" \
   "% USAGE:                                                              %\n" \
+  "%         mex_shell( 'resize', OBJ, N );                              %\n" \
+  "%   OUT = mex_shell( 'size', OBJ );                                   %\n" \
+  "%                                                                     %\n" \
   "%   OUT = mex_shell( 'surfaceMaxRadius', OBJ );                       %\n" \
-  "%   OUT = mex_shell( 'surfaceRadius', OBJ , Y);                       %\n" \
   "%   OUT = mex_shell( 'surfaceMaxWidth', OBJ );                        %\n" \
   "%   OUT = mex_shell( 'surfaceWidth', OBJ );                           %\n" \
+  "%   OUT = mex_shell( 'checkWidthBound', OBJ, Y );                     %\n" \
+  "%   OUT = mex_shell( 'surfaceRadius', OBJ , Y );                      %\n" \
   "%   OUT = mex_shell( 'surfaceDerivative', OBJ, Y );                   %\n" \
   "%   OUT = mex_shell( 'surfaceAngle', OBJ, Y );                        %\n" \
-  "%         mex_shell( 'reset', OBJ, N );                               %\n" \
-  "%   OUT = mex_shell( 'size', OBJ );                                   %\n" \
   "%   OUT = mex_shell( 'ribRadius', OBJ, I );                           %\n" \
   "%   OUT = mex_shell( 'ribCenter', OBJ, I );                           %\n" \
-  "%   OUT = mex_shell( 'ribWidth', OBJ );                               %\n" \
-  "%   OUT = mex_shell( 'translation', OBJ );                            %\n" \
+  "%   OUT = mex_shell( 'ribWidth', OBJ, I );                            %\n" \
+  "%   OUT = mex_shell( 'ribAngle', OBJ, I );                            %\n" \
+  "%                                                                     %\n" \
   "%         mex_shell( 'translate', OBJ, VECTOR );                      %\n" \
+  "%   OUT = mex_shell( 'translation', OBJ );                            %\n" \
   "%         mex_shell( 'rotate', OBJ, ANGLE, AXIS );                    %\n" \
   "%   OUT = mex_shell( 'rotation', OBJ );                               %\n" \
   "%         mex_shell( 'transform', OBJ, MATRIX );                      %\n" \
@@ -89,19 +81,26 @@
   "%   OUT = mex_shell( 'y', OBJ );                                      %\n" \
   "%   OUT = mex_shell( 'z', OBJ );                                      %\n" \
   "%   OUT = mex_shell( 'eulerAngles', OBJ );                            %\n" \
-  "%   OUT = mex_shell( 'relativeAnglesAvg', OBJ );                      %\n" \
-  "%   OUT = mex_shell( 'relativeAngles', OBJ, I );                      %\n" \
-  "%   OUT = mex_shell( 'contactDepthAvg', OBJ, DEPTH_OLD,TIME_STEP );   %\n" \
-  "%   OUT = mex_shell( 'contactDepth', OBJ, I, DEPTH_OLD, TIME_STEP );  %\n" \
-  "%   OUT = mex_shell( 'contactNormalAvg', OBJ );                       %\n" \
-  "%   OUT = mex_shell( 'contactNormal', OBJ, I );                       %\n" \
+  "%                                                                     %\n" \
+  "%   OUT = mex_shell( 'setupFlat', OBJ, GROUND, AFFINE, METHOD );      %\n" \
+  "%   OUT = mex_shell( 'setupMesh', OBJ, GROUND, AFFINE, METHOD );      %\n" \
+  "%                                                                     %\n" \
   "%   OUT = mex_shell( 'contactPointAvg', OBJ );                        %\n" \
-  "%   OUT = mex_shell( 'contactPoint', OBJ, I );                        %\n" \
+  "%   OUT = mex_shell( 'contactPointRib', OBJ, I );                     %\n" \
+  "%   OUT = mex_shell( 'contactNormalAvg', OBJ );                       %\n" \
+  "%   OUT = mex_shell( 'contactNormalRib', OBJ, I );                    %\n" \
+  "%   OUT = mex_shell( 'contactDepthAvg', OBJ );                        %\n" \
+  "%   OUT = mex_shell( 'contactDepthRib', OBJ, I );                     %\n" \
   "%   OUT = mex_shell( 'contactFrictionAvg', OBJ );                     %\n" \
-  "%   OUT = mex_shell( 'contactFriction', OBJ, I );                     %\n" \
+  "%   OUT = mex_shell( 'contactFrictionRib', OBJ, I );                  %\n" \
+  "%   OUT = mex_shell( 'contactAreaAvg', OBJ );                         %\n" \
+  "%   OUT = mex_shell( 'contactAreaRib', OBJ, I );                      %\n" \
+  "%   OUT = mex_shell( 'contactVolumeAvg', OBJ );                       %\n" \
+  "%   OUT = mex_shell( 'contactVolumeRib', OBJ, I );                    %\n" \
+  "%   OUT = mex_shell( 'relativeAnglesAvg', OBJ );                      %\n" \
+  "%   OUT = mex_shell( 'relativeAnglesRib', OBJ, I );                   %\n" \
   "%   OUT = mex_shell( 'contactPointAffineAvg', OBJ );                  %\n" \
-  "%   OUT = mex_shell( 'contactPointAffine', OBJ, I );                  %\n" \
-  "%   OUT = mex_shell( 'setup', OBJ, ARGS );                            %\n" \
+  "%   OUT = mex_shell( 'contactPointAffineRib', OBJ, I );               %\n" \
   "%                                                                     %\n" \
   "%=====================================================================%\n" \
   "%                                                                     %\n" \
@@ -149,7 +148,7 @@ static void
 do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 4 || nrhs == 5 || nrhs == 7, CMD "expected 4, 5 or 7 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nrhs == 7, CMD "expected 7 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   MEX_ASSERT(
@@ -160,7 +159,7 @@ do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 
   if (nrhs == 7)
   {
-    int       size = getInt(arg_in_1, CMD "Error in reading N input value");
+    int       size = getInt(arg_in_1, CMD "Error in reading ribs number input value");
     real_type r_x  = getScalarValue(arg_in_2, CMD "Error in reading Rx input value");
     real_type m_x  = getScalarValue(arg_in_3, CMD "Error in reading Mx input value");
     real_type r_y  = getScalarValue(arg_in_4, CMD "Error in reading Ry input value");
@@ -168,60 +167,6 @@ do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
     real_type l_y  = getScalarValue(arg_in_6, CMD "Error in reading Ly input value");
     ptr            = new enve::shell(size, r_x, m_x, r_y, m_y, l_y);
   }
-  else if (nrhs == 4)
-  {
-    int size = getInt(arg_in_1, CMD "Error in reading N input value");
-
-    real_type const *matrixR_ptr;
-    mwSize           rowsR, colsR;
-    matrixR_ptr = getMatrixPointer(arg_in_2, rowsR, colsR, CMD "Error in first input matrix");
-    MEX_ASSERT(rowsR > 0 || colsR == 1, CMD "expected rows > 0 and cols = 1 found, rows = " << rowsR << ", cols = " << colsR << '\n');
-
-    acme::vecN dataR(rowsR);
-    for (int i = 0; i < rowsR; ++i)
-      for (int j = 0; j < colsR; ++j)
-        dataR(i) = matrixR_ptr[i + j * colsR];
-
-    real_type const *matrixY_ptr;
-    mwSize           rowsY, colsY;
-    matrixY_ptr = getMatrixPointer(arg_in_3, rowsY, colsY, CMD "Error in second input matrix");
-    MEX_ASSERT(rowsY > 0 || colsR == 1, CMD "expected rows > 0 and cols = 1 found, rows = " << rowsY << ", cols = " << colsY << '\n');
-
-    acme::vecN dataY(rowsY);
-    for (int i = 0; i < rowsY; ++i)
-      for (int j = 0; j < colsY; ++j)
-        dataY(i) = matrixY_ptr[i + j * colsY];
-
-    ptr = new enve::shell(size, dataR, dataY);
-  }
-  else if (nrhs == 5)
-  {
-    int size = getInt(arg_in_1, CMD "Error in reading N input value");
-
-    real_type const *matrixR_ptr;
-    mwSize           rowsR, colsR;
-    matrixR_ptr = getMatrixPointer(arg_in_2, rowsR, colsR, CMD "Error in first input matrix");
-    MEX_ASSERT(rowsR > 0 || colsR == 1, CMD "expected rows > 0 and cols = 1 found, rows = " << rowsR << ", cols = " << colsR << '\n');
-
-    acme::vecN dataR(rowsR);
-    for (int i = 0; i < rowsR; ++i)
-      for (int j = 0; j < colsR; ++j)
-        dataR(i) = matrixR_ptr[i + j * colsR];
-
-    real_type const *matrixY_ptr;
-    mwSize           rowsY, colsY;
-    matrixY_ptr = getMatrixPointer(arg_in_3, rowsY, colsY, CMD "Error in second input matrix");
-    MEX_ASSERT(rowsY > 0 || colsR == 1, CMD "expected rows > 0 and cols = 1 found, rows = " << rowsY << ", cols = " << colsY << '\n');
-
-    acme::vecN dataY(rowsY);
-    for (int i = 0; i < rowsY; ++i)
-      for (int j = 0; j < colsY; ++j)
-        dataY(i) = matrixY_ptr[i + j * colsY];
-
-    int order = getInt(arg_in_4, CMD "Error in reading O input value");
-    ptr       = new enve::shell(size, dataR, dataY, order);
-  }
-
   DATA_NEW(arg_out_0, ptr);
 #undef CMD
 }
@@ -242,15 +187,15 @@ do_delete(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_reset(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_resize(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'reset', OBJ, N ): "
+#define CMD "mex_shell( 'resize', OBJ, N ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
 
   enve::shell *self = DATA_GET(arg_in_1);
   int          size = getInt(arg_in_2, CMD "Error in reading input value");
-  self->reset(size);
+  self->resize(size);
 #undef CMD
 }
 
@@ -293,34 +238,6 @@ do_surfaceMaxWidth(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 
   enve::shell *self = DATA_GET(arg_in_1);
   setScalarValue(arg_out_0, self->surfaceMaxWidth());
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_surfaceWidthLowerBound(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'surfaceWidthLowerBound', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->surfaceWidthLowerBound());
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_surfaceWidthUpperBound(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'surfaceWidthUpperBound', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->surfaceWidthUpperBound());
 #undef CMD
 }
 
@@ -440,7 +357,22 @@ do_ribWidth(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 
   enve::shell *self = DATA_GET(arg_in_1);
   int          i    = getInt(arg_in_2, CMD "Error in reading input value");
-  setScalarValue(arg_out_0, self->ribWidth(i));
+  setScalarValue(arg_out_0, self->ribWidth(i - 1));
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_ribAngle(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_shell( 'ribAngle', OBJ, I ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  enve::shell *self = DATA_GET(arg_in_1);
+  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  setScalarValue(arg_out_0, self->ribAngle(i - 1));
 #undef CMD
 }
 
@@ -515,15 +447,15 @@ do_rotation(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 3);
   acme::mat3   outmat(self->rotation());
-  output[0] = outmat(0, 0);
-  output[1] = outmat(0, 1);
-  output[2] = outmat(0, 2);
-  output[3] = outmat(1, 0);
-  output[4] = outmat(1, 1);
-  output[5] = outmat(1, 2);
-  output[6] = outmat(2, 0);
-  output[7] = outmat(2, 1);
-  output[8] = outmat(2, 2);
+  output[0] = outmat(0,0);
+  output[1] = outmat(0,1);
+  output[2] = outmat(0,2);
+  output[3] = outmat(1,0);
+  output[4] = outmat(1,1);
+  output[5] = outmat(1,2);
+  output[6] = outmat(2,0);
+  output[7] = outmat(2,1);
+  output[8] = outmat(2,2);
 #undef CMD
 }
 
@@ -542,10 +474,10 @@ do_transform(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
   MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
   acme::affine matrix;
-  matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8], matrix_ptr[12],
-    matrix_ptr[1], matrix_ptr[5], matrix_ptr[9], matrix_ptr[13],
-    matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
-    matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
+  matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
+                     matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
+                     matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
+                     matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
   self->transform(matrix);
 #undef CMD
 }
@@ -562,22 +494,22 @@ do_transformation(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 4, 4);
   acme::mat4   outmat(self->transformation().matrix());
-  output[0]  = outmat(0, 0);
-  output[1]  = outmat(1, 0);
-  output[2]  = outmat(2, 0);
-  output[3]  = outmat(3, 0);
-  output[4]  = outmat(0, 1);
-  output[5]  = outmat(1, 1);
-  output[6]  = outmat(2, 1);
-  output[7]  = outmat(3, 1);
-  output[8]  = outmat(0, 2);
-  output[9]  = outmat(1, 2);
-  output[10] = outmat(2, 2);
-  output[11] = outmat(3, 2);
-  output[12] = outmat(0, 3);
-  output[13] = outmat(1, 3);
-  output[14] = outmat(2, 3);
-  output[15] = outmat(3, 3);
+  output[0]  = outmat(0,0);
+  output[1]  = outmat(1,0);
+  output[2]  = outmat(2,0);
+  output[3]  = outmat(3,0);
+  output[4]  = outmat(0,1);
+  output[5]  = outmat(1,1);
+  output[6]  = outmat(2,1);
+  output[7]  = outmat(3,1);
+  output[8]  = outmat(0,2);
+  output[9]  = outmat(1,2);
+  output[10] = outmat(2,2);
+  output[11] = outmat(3,2);
+  output[12] = outmat(0,3);
+  output[13] = outmat(1,3);
+  output[14] = outmat(2,3);
+  output[15] = outmat(3,3);
 #undef CMD
 }
 
@@ -657,117 +589,85 @@ do_eulerAngles(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_relativeAnglesAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_setupFlat(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'relativeAnglesAvg', OBJ ): "
+#define CMD "mex_shell( 'setupFlat', OBJ, GROUND, AFFINE, METHOD ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  enve::shell        *self   = DATA_GET(arg_in_1);
+  enve::ground::flat *ground = convertMat2Ptr<enve::ground::flat>(arg_in_2);
+  real_type const    *matrix_ptr;
+  mwSize              rows, cols;
+  matrix_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "Error in reading affine transformation matrix");
+  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
+  acme::affine matrix;
+  matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
+                     matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
+                     matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
+                     matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
+  string method = mxArrayToString(arg_in_4);
+  bool   out    = self->setup(*ground, matrix, method);
+  setScalarBool(arg_out_0, out);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_setupMesh(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_shell( 'setupMesh', OBJ, GROUND, AFFINE, METHOD  ): "
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  enve::shell        *self   = DATA_GET(arg_in_1);
+  enve::ground::mesh *ground = convertMat2Ptr<enve::ground::mesh>(arg_in_2);
+  real_type const    *matrix_ptr;
+  mwSize              rows, cols;
+  matrix_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "Error in reading affine transformation matrix");
+  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
+  acme::affine matrix;
+  matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
+                     matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
+                     matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
+                     matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
+  string method = mxArrayToString(arg_in_4);
+  bool   out    = self->setup(*ground, matrix, method);
+  setScalarBool(arg_out_0, out);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_contactPointAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_shell( 'contactPointAvg', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  enve::shell *self   = DATA_GET(arg_in_1);
-  real_type   *output = createMatrixValue(arg_out_0, 3, 1);
-  acme::vec3   outvec;
-  self->relativeAngles(outvec);
-  output[0] = outvec.x();
-  output[1] = outvec.y();
-  output[2] = outvec.z();
+  enve::shell *self = DATA_GET(arg_in_1);
+  acme::point *out  = new acme::point();
+  self->contactPoint(*out);
+  arg_out_0 = convertPtr2Mat<acme::point>(out);
 #undef CMD
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_relativeAngles(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_contactPointRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'relativeAngles', OBJ, I ): "
+#define CMD "mex_shell( 'contactPointRib', OBJ, I ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  enve::shell *self   = DATA_GET(arg_in_1);
-  int          i      = getInt(arg_in_2, CMD "Error in reading input value");
-  real_type   *output = createMatrixValue(arg_out_0, 3, 1);
-  acme::vec3   outvec;
-  self->relativeAngles(i - 1, outvec);
-  output[0] = outvec.x();
-  output[1] = outvec.y();
-  output[2] = outvec.z();
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_contactDepthRibAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'contactDepthRibAvg', OBJ, DEPTH_OLD, TIME_STEP ): "
-  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self      = DATA_GET(arg_in_1);
-  real_type    depth_old = getScalarValue(arg_in_2, CMD "Error in reading second input value");
-  real_type    time_step = getScalarValue(arg_in_3, CMD "Error in reading third input value");
-  real_type    depth, depth_dot;
-  self->contactDepthRib(depth, depth_dot, depth_old, time_step);
-  setScalarValue(arg_out_0, depth);
-  setScalarValue(arg_out_1, depth_dot);
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_contactDepthRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'contactDepthRib',  OBJ, I, DEPTH_DOT, DEPTH_OLD, TIME_STEP ): "
-  MEX_ASSERT(nrhs == 5, CMD "expected 5 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self      = DATA_GET(arg_in_1);
-  int          i         = getInt(arg_in_2, CMD "Error in reading input value");
-  real_type    depth_old = getScalarValue(arg_in_3, CMD "Error in reading second input value");
-  real_type    time_step = getScalarValue(arg_in_4, CMD "Error in reading third input value");
-  real_type    depth, depth_dot;
-  self->contactDepthRib(i - 1, depth, depth_dot, depth_old, time_step);
-  setScalarValue(arg_out_0, depth);
-  setScalarValue(arg_out_1, depth_dot);
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_contactDepthMeshAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'contactDepthMeshAvg', OBJ, DEPTH_OLD, TIME_STEP ): "
-  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self      = DATA_GET(arg_in_1);
-  real_type    depth_old = getScalarValue(arg_in_2, CMD "Error in reading second input value");
-  real_type    time_step = getScalarValue(arg_in_3, CMD "Error in reading third input value");
-  real_type    depth, depth_dot;
-  self->contactDepthMesh(depth, depth_dot, depth_old, time_step);
-  setScalarValue(arg_out_0, depth);
-  setScalarValue(arg_out_1, depth_dot);
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_contactDepthMesh(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'contactDepthMesh',  OBJ, I, DEPTH_DOT, DEPTH_OLD, TIME_STEP ): "
-  MEX_ASSERT(nrhs == 5, CMD "expected 5 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 2, CMD "expected 2 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self      = DATA_GET(arg_in_1);
-  int          i         = getInt(arg_in_2, CMD "Error in reading input value");
-  real_type    depth_old = getScalarValue(arg_in_3, CMD "Error in reading second input value");
-  real_type    time_step = getScalarValue(arg_in_4, CMD "Error in reading third input value");
-  real_type    depth, depth_dot;
-  self->contactDepthMesh(i - 1, depth, depth_dot, depth_old, time_step);
-  setScalarValue(arg_out_0, depth);
-  setScalarValue(arg_out_1, depth_dot);
+  enve::shell *self = DATA_GET(arg_in_1);
+  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  acme::point *out  = new acme::point();
+  self->contactPoint(i - 1, *out);
+  arg_out_0 = convertPtr2Mat<acme::point>(out);
 #undef CMD
 }
 
@@ -793,16 +693,16 @@ do_contactNormalAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_contactNormal(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_contactNormalRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'contactNormal', OBJ, I ): "
+#define CMD "mex_shell( 'contactNormalRib', OBJ, I ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   enve::shell *self   = DATA_GET(arg_in_1);
   int          i      = getInt(arg_in_2, CMD "Error in reading input value");
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
-  acme::vec3   outvec;
+  vec3         outvec;
   self->contactNormal(i - 1, outvec);
   output[0] = outvec.x();
   output[1] = outvec.y();
@@ -813,66 +713,33 @@ do_contactNormal(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_contactPointRibAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_contactDepthAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'contactPointRibAvg', OBJ ): "
+#define CMD "mex_shell( 'contactDepthAvg', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  enve::shell *self = DATA_GET(arg_in_1);
-  acme::point *out  = new acme::point();
-  self->contactPointRib(*out);
-  arg_out_0 = convertPtr2Mat<acme::point>(out);
+  enve::shell *self  = DATA_GET(arg_in_1);
+  real_type    depth;
+  self->contactDepth(depth);
+  setScalarValue(arg_out_0, depth);
 #undef CMD
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_contactPointRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_contactDepthRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'contactPointRib', OBJ, I ): "
+#define CMD "mex_shell( 'contactDepthRib',  OBJ, I ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
-  acme::point *out  = new acme::point();
-  self->contactPointRib(i - 1, *out);
-  arg_out_0 = convertPtr2Mat<acme::point>(out);
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_contactPointMeshAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'contactPointMeshAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self = DATA_GET(arg_in_1);
-  acme::point *out  = new acme::point();
-  self->contactPointMesh(*out);
-  arg_out_0 = convertPtr2Mat<acme::point>(out);
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_contactPointMesh(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'contactPointMesh', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
-  acme::point *out  = new acme::point();
-  self->contactPointMesh(i - 1, *out);
-  arg_out_0 = convertPtr2Mat<acme::point>(out);
+  enve::shell *self  = DATA_GET(arg_in_1);
+  int          i     = getInt(arg_in_2, CMD "Error in reading input value");
+  real_type    depth;
+  self->contactDepth(i - 1, depth);
+  setScalarValue(arg_out_0, depth);
 #undef CMD
 }
 
@@ -895,9 +762,9 @@ do_contactFrictionAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[]
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_contactFriction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_contactFrictionRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'contactFriction',  OBJ, I ): "
+#define CMD "mex_shell( 'contactFrictionRib',  OBJ, I ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -912,41 +779,107 @@ do_contactFriction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_contactPointRibAffineAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_contactAreaAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'contactPointRibAffineAvg', OBJ ): "
+#define CMD "mex_shell( 'contactAreaAvg', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
-  enve::shell *self   = DATA_GET(arg_in_1);
-  real_type   *output = createMatrixValue(arg_out_0, 4, 4);
-  acme::affine outmat;
-  self->contactPointRibAffine(outmat);
-  output[0]  = outmat(0, 0);
-  output[1]  = outmat(1, 0);
-  output[2]  = outmat(2, 0);
-  output[3]  = outmat(3, 0);
-  output[4]  = outmat(0, 1);
-  output[5]  = outmat(1, 1);
-  output[6]  = outmat(2, 1);
-  output[7]  = outmat(3, 1);
-  output[8]  = outmat(0, 2);
-  output[9]  = outmat(1, 2);
-  output[10] = outmat(2, 2);
-  output[11] = outmat(3, 2);
-  output[12] = outmat(0, 3);
-  output[13] = outmat(1, 3);
-  output[14] = outmat(2, 3);
-  output[15] = outmat(3, 3);
+  enve::shell *self = DATA_GET(arg_in_1);
+  real_type    area;
+  self->contactArea(area);
+  setScalarValue(arg_out_0, area);
 #undef CMD
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_contactPointRibAffine(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_contactAreaRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'contactPointRibAffine', OBJ, I ): "
+#define CMD "mex_shell( 'contactAreaRib',  OBJ, I ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  enve::shell *self = DATA_GET(arg_in_1);
+  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  real_type    area;
+  self->contactArea(i - 1, area);
+  setScalarValue(arg_out_0, area);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_contactVolumeAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_shell( 'contactVolumeAvg', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  enve::shell *self = DATA_GET(arg_in_1);
+  real_type    volume;
+  self->contactVolume(volume);
+  setScalarValue(arg_out_0, volume);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_contactVolumeRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_shell( 'contactVolumeRib',  OBJ, I ): "
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  enve::shell *self = DATA_GET(arg_in_1);
+  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  real_type    volume;
+  self->contactVolume(i - 1, volume);
+  setScalarValue(arg_out_0, volume);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_contactPointAffineAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_shell( 'contactPointAffineAvg', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  enve::shell *self   = DATA_GET(arg_in_1);
+  real_type   *output = createMatrixValue(arg_out_0, 4, 4);
+  acme::affine outmat;
+  self->contactPointAffine(outmat);
+  output[0]  = outmat(0,0);
+  output[1]  = outmat(1,0);
+  output[2]  = outmat(2,0);
+  output[3]  = outmat(3,0);
+  output[4]  = outmat(0,1);
+  output[5]  = outmat(1,1);
+  output[6]  = outmat(2,1);
+  output[7]  = outmat(3,1);
+  output[8]  = outmat(0,2);
+  output[9]  = outmat(1,2);
+  output[10] = outmat(2,2);
+  output[11] = outmat(3,2);
+  output[12] = outmat(0,3);
+  output[13] = outmat(1,3);
+  output[14] = outmat(2,3);
+  output[15] = outmat(3,3);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_contactPointAffineRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_shell( 'contactPointAffineRib', OBJ, I ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
@@ -954,135 +887,62 @@ do_contactPointRibAffine(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prh
   int          i      = getInt(arg_in_2, CMD "Error in reading input value");
   real_type   *output = createMatrixValue(arg_out_0, 4, 4);
   acme::affine outmat;
-  self->contactPointRibAffine(i - 1, outmat);
-  output[0]  = outmat(0, 0);
-  output[1]  = outmat(1, 0);
-  output[2]  = outmat(2, 0);
-  output[3]  = outmat(3, 0);
-  output[4]  = outmat(0, 1);
-  output[5]  = outmat(1, 1);
-  output[6]  = outmat(2, 1);
-  output[7]  = outmat(3, 1);
-  output[8]  = outmat(0, 2);
-  output[9]  = outmat(1, 2);
-  output[10] = outmat(2, 2);
-  output[11] = outmat(3, 2);
-  output[12] = outmat(0, 3);
-  output[13] = outmat(1, 3);
-  output[14] = outmat(2, 3);
-  output[15] = outmat(3, 3);
+  self->contactPointAffine(i - 1, outmat);
+  output[0]  = outmat(0,0);
+  output[1]  = outmat(1,0);
+  output[2]  = outmat(2,0);
+  output[3]  = outmat(3,0);
+  output[4]  = outmat(0,1);
+  output[5]  = outmat(1,1);
+  output[6]  = outmat(2,1);
+  output[7]  = outmat(3,1);
+  output[8]  = outmat(0,2);
+  output[9]  = outmat(1,2);
+  output[10] = outmat(2,2);
+  output[11] = outmat(3,2);
+  output[12] = outmat(0,3);
+  output[13] = outmat(1,3);
+  output[14] = outmat(2,3);
+  output[15] = outmat(3,3);
 #undef CMD
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_contactPointMeshAffineAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_relativeAnglesAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'contactPointMeshAffineAvg', OBJ ): "
+#define CMD "mex_shell( 'relativeAnglesAvg', OBJ ): "
   MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   enve::shell *self   = DATA_GET(arg_in_1);
-  real_type   *output = createMatrixValue(arg_out_0, 4, 4);
-  acme::affine outmat;
-  self->contactPointMeshAffine(outmat);
-  output[0]  = outmat(0, 0);
-  output[1]  = outmat(1, 0);
-  output[2]  = outmat(2, 0);
-  output[3]  = outmat(3, 0);
-  output[4]  = outmat(0, 1);
-  output[5]  = outmat(1, 1);
-  output[6]  = outmat(2, 1);
-  output[7]  = outmat(3, 1);
-  output[8]  = outmat(0, 2);
-  output[9]  = outmat(1, 2);
-  output[10] = outmat(2, 2);
-  output[11] = outmat(3, 2);
-  output[12] = outmat(0, 3);
-  output[13] = outmat(1, 3);
-  output[14] = outmat(2, 3);
-  output[15] = outmat(3, 3);
+  real_type   *output = createMatrixValue(arg_out_0, 3, 1);
+  acme::vec3   outvec;
+  self->relativeAngles(outvec);
+  output[0] = outvec.x();
+  output[1] = outvec.y();
+  output[2] = outvec.z();
 #undef CMD
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static void
-do_contactPointMeshAffine(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+do_relativeAnglesRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
-#define CMD "mex_shell( 'contactPointMeshAffine', OBJ, I ): "
+#define CMD "mex_shell( 'relativeAnglesRib', OBJ, I ): "
   MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   enve::shell *self   = DATA_GET(arg_in_1);
   int          i      = getInt(arg_in_2, CMD "Error in reading input value");
-  real_type   *output = createMatrixValue(arg_out_0, 4, 4);
-  acme::affine outmat;
-  self->contactPointMeshAffine(i - 1, outmat);
-  output[0]  = outmat(0, 0);
-  output[1]  = outmat(1, 0);
-  output[2]  = outmat(2, 0);
-  output[3]  = outmat(3, 0);
-  output[4]  = outmat(0, 1);
-  output[5]  = outmat(1, 1);
-  output[6]  = outmat(2, 1);
-  output[7]  = outmat(3, 1);
-  output[8]  = outmat(0, 2);
-  output[9]  = outmat(1, 2);
-  output[10] = outmat(2, 2);
-  output[11] = outmat(3, 2);
-  output[12] = outmat(0, 3);
-  output[13] = outmat(1, 3);
-  output[14] = outmat(2, 3);
-  output[15] = outmat(3, 3);
-#undef CMD
-}
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-static void
-do_setup(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
-{
-#define CMD "mex_shell( 'setup', OBJ, ARGS ): "
-  MEX_ASSERT(nrhs == 4 || nrhs == 6, CMD "expected 4 or 6 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
-
-  enve::shell *self     = DATA_GET(arg_in_1);
-  bool         out_bool = false;
-
-  if (nrhs == 4)
-  {
-    enve::ground::flat *ground_plane = convertMat2Ptr<enve::ground::flat>(arg_in_2);
-    real_type const    *matrix_ptr;
-    mwSize              rows, cols;
-    matrix_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "Error in reading affine transformation matrix");
-    MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
-    acme::affine matrix;
-    matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8], matrix_ptr[12],
-      matrix_ptr[1], matrix_ptr[5], matrix_ptr[9], matrix_ptr[13],
-      matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
-      matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
-    out_bool = self->setup(*ground_plane, matrix);
-  }
-  else if (nrhs == 6)
-  {
-    enve::ground::mesh *ground_mesh = convertMat2Ptr<enve::ground::mesh>(arg_in_2);
-    real_type const    *matrix_ptr;
-    mwSize              rows, cols;
-    matrix_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "Error in reading affine transformation matrix");
-    MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
-    acme::affine matrix;
-    matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8], matrix_ptr[12],
-      matrix_ptr[1], matrix_ptr[5], matrix_ptr[9], matrix_ptr[13],
-      matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
-      matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
-    int    threshold = getInt(arg_in_4, CMD "Error in reading input value");
-    string method    = mxArrayToString(arg_in_5);
-    out_bool         = self->setup(*ground_mesh, matrix, threshold, method);
-  }
-
-  setScalarBool(arg_out_0, out_bool);
+  real_type   *output = createMatrixValue(arg_out_0, 3, 1);
+  acme::vec3   outvec;
+  self->relativeAngles(i - 1, outvec);
+  output[0] = outvec.x();
+  output[1] = outvec.y();
+  output[2] = outvec.z();
 #undef CMD
 }
 
@@ -1091,51 +951,53 @@ do_setup(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 typedef void (*DO_CMD)(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[]);
 
 static map<string, DO_CMD> cmd_to_fun = {
-  {"new", do_new},
+  {"new",    do_new},
   {"delete", do_delete},
-  {"reset", do_reset},
-  {"size", do_size},
-  {"surfaceMaxRadius", do_surfaceMaxRadius},
-  {"surfaceMaxWidth", do_surfaceMaxWidth},
-  {"surfaceWidthLowerBound", do_surfaceWidthLowerBound},
-  {"surfaceWidthUpperBound", do_surfaceWidthUpperBound},
-  {"surfaceWidth", do_surfaceWidth},
-  {"checkWidthBound", do_checkWidthBound},
-  {"surfaceRadius", do_surfaceRadius},
+  {"resize", do_resize},
+  {"size",   do_size},
+  // Shape
+  {"surfaceMaxRadius",  do_surfaceMaxRadius},
+  {"surfaceMaxWidth",   do_surfaceMaxWidth},
+  {"surfaceWidth",      do_surfaceWidth},
+  {"checkWidthBound",   do_checkWidthBound},
+  {"surfaceRadius",     do_surfaceRadius},
   {"surfaceDerivative", do_surfaceDerivative},
-  {"surfaceAngle", do_surfaceAngle},
-  {"ribRadius", do_ribRadius},
-  {"ribCenter", do_ribCenter},
-  {"ribWidth", do_ribWidth},
-  {"translate", do_translate},
-  {"translation", do_translation},
-  {"rotate", do_rotate},
-  {"rotation", do_rotation},
-  {"transform", do_transform},
+  {"surfaceAngle",      do_surfaceAngle},
+  {"ribRadius",         do_ribRadius},
+  {"ribCenter",         do_ribCenter},
+  {"ribWidth",          do_ribWidth},
+  {"ribAngle",          do_ribAngle},
+  // Affine
+  {"translate",      do_translate},
+  {"translation",    do_translation},
+  {"rotate",         do_rotate},
+  {"rotation",       do_rotation},
+  {"transform",      do_transform},
   {"transformation", do_transformation},
-  {"x", do_x},
-  {"y", do_y},
-  {"z", do_z},
-  {"eulerAngles", do_eulerAngles},
-  {"relativeAnglesAvg", do_relativeAnglesAvg},
-  {"relativeAngles", do_relativeAngles},
-  {"contactDepthRibAvg", do_contactDepthRibAvg},
-  {"contactDepthRib", do_contactDepthRib},
-  {"contactDepthMeshAvg", do_contactDepthMeshAvg},
-  {"contactDepthMesh", do_contactDepthMesh},
-  {"contactNormalAvg", do_contactNormalAvg},
-  {"contactNormal", do_contactNormal},
-  {"contactPointRibAvg", do_contactPointRibAvg},
-  {"contactPointRib", do_contactPointRib},
-  {"contactPointMeshAvg", do_contactPointMeshAvg},
-  {"contactPointMesh", do_contactPointMesh},
-  {"contactFrictionAvg", do_contactFrictionAvg},
-  {"contactFriction", do_contactFriction},
-  {"contactPointRibAffineAvg", do_contactPointRibAffineAvg},
-  {"contactPointRibAffine", do_contactPointRibAffine},
-  {"contactPointMeshAffineAvg", do_contactPointMeshAffineAvg},
-  {"contactPointMeshAffine", do_contactPointMeshAffine},
-  {"setup", do_setup}};
+  {"x",              do_x},
+  {"y",              do_y},
+  {"z",              do_z},
+  {"eulerAngles",    do_eulerAngles},
+  // Setup
+  {"setupFlat", do_setupFlat},
+  {"setupMesh", do_setupMesh},
+  // Contact
+  {"contactPointAvg",       do_contactPointAvg},
+  {"contactPointRib",       do_contactPointRib},
+  {"contactNormalAvg",      do_contactNormalAvg},
+  {"contactNormalRib",      do_contactNormalRib},
+  {"contactDepthAvg",       do_contactDepthAvg},
+  {"contactDepthRib",       do_contactDepthRib},
+  {"contactFrictionAvg",    do_contactFrictionAvg},
+  {"contactFrictionRib",    do_contactFrictionRib},
+  {"contactAreaAvg",        do_contactAreaAvg},
+  {"contactAreaRib",        do_contactAreaRib},
+  {"contactVolumeAvg",      do_contactVolumeAvg},
+  {"contactVolumeRib",      do_contactVolumeRib},
+  {"contactPointAffineAvg", do_contactPointAffineAvg},
+  {"contactPointAffineRib", do_contactPointAffineRib},
+  {"relativeAnglesAvg",     do_relativeAnglesAvg},
+  {"relativeAnglesRib",     do_relativeAnglesRib}};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

@@ -100,25 +100,29 @@
   <span class="k">public</span><span class="o">:</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">shape</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">shape</span><span class="o">::</span><span class="n">ptr</span><span class="o">&gt;</span>      <span class="n">vecptr</span><span class="p">;</span>
+
   <span class="k">private</span><span class="o">:</span>
-    <span class="n">real</span> <span class="n">m_maxR</span> <span class="o">=</span> <span class="n">QUIET_NAN</span><span class="p">;</span>
-    <span class="n">real</span> <span class="n">m_minY</span> <span class="o">=</span> <span class="n">QUIET_NAN</span><span class="p">;</span>
-    <span class="n">real</span> <span class="n">m_maxY</span> <span class="o">=</span> <span class="n">QUIET_NAN</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">m_r_x</span> <span class="o">=</span> <span class="n">QUIET_NAN</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">m_m_x</span> <span class="o">=</span> <span class="n">QUIET_NAN</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">m_r_y</span> <span class="o">=</span> <span class="n">QUIET_NAN</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">m_m_y</span> <span class="o">=</span> <span class="n">QUIET_NAN</span><span class="p">;</span>
+    <span class="n">real</span> <span class="n">m_l_y</span> <span class="o">=</span> <span class="n">QUIET_NAN</span><span class="p">;</span>
 
   <span class="k">public</span><span class="o">:</span>
-    <span class="k">virtual</span> <span class="o">~</span><span class="n">shape</span><span class="p">(</span><span class="kt">void</span><span class="p">){};</span>
+    <span class="o">~</span><span class="n">shape</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">shape</span><span class="p">(</span><span class="n">shape</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+    <span class="n">shape</span><span class="p">(</span><span class="n">shape</span> <span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
 
     <span class="n">shape</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
     <span class="n">shape</span><span class="p">(</span>
-      <span class="n">real</span> <span class="n">maxR</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">minY</span><span class="p">,</span>
-      <span class="n">real</span> <span class="n">maxY</span>
-    <span class="p">);</span>
-
-    <span class="n">shape</span><span class="p">(</span>
-      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataR</span><span class="p">,</span>
-      <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataY</span>
+      <span class="n">real</span> <span class="n">r_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">m_x</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">r_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">m_y</span><span class="p">,</span>
+      <span class="n">real</span> <span class="n">l_y</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
@@ -133,50 +137,65 @@
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">Rx</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">Mx</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">Ry</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">My</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">Ly</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span> <span class="o">&amp;</span>
+    <span class="nf">Rx</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">real</span> <span class="o">&amp;</span>
+    <span class="nf">Mx</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">real</span> <span class="o">&amp;</span>
+    <span class="nf">Ry</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">real</span> <span class="o">&amp;</span>
+    <span class="nf">My</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">real</span> <span class="o">&amp;</span>
+    <span class="nf">Ly</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">surfaceMaxRadius</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="n">real</span> <span class="o">&amp;</span>
-    <span class="nf">surfaceMaxRadius</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-    <span class="n">real</span>
-    <span class="nf">surfaceMaxWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
     <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
-    <span class="n">surfaceWidthLowerBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">real</span> <span class="o">&amp;</span>
-    <span class="nf">surfaceWidthLowerBound</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
-    <span class="n">surfaceWidthUpperBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-    <span class="n">real</span> <span class="o">&amp;</span>
-    <span class="nf">surfaceWidthUpperBound</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-    <span class="n">real</span>
-    <span class="nf">surfaceWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">surfaceMaxWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">bool</span>
     <span class="nf">checkWidthBound</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">y</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="n">real</span>
-    <span class="n">surfaceRadius</span><span class="p">(</span>
+    <span class="n">real</span>
+    <span class="nf">surfaceRadius</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">y</span>
-    <span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="n">real</span>
-    <span class="n">surfaceDerivative</span><span class="p">(</span>
+    <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">surfaceWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">real</span>
+    <span class="nf">surfaceDerivative</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON_MEDIUM</span>
-    <span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-    <span class="k">virtual</span> <span class="n">real</span>
-    <span class="n">surfaceAngle</span><span class="p">(</span>
+    <span class="n">real</span>
+    <span class="nf">surfaceAngle</span><span class="p">(</span>
       <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
       <span class="n">real</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON_MEDIUM</span>
-    <span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
     <span class="nf">print</span><span class="p">(</span>

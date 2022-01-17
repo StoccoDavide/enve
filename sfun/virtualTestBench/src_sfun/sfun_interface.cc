@@ -48,8 +48,8 @@ extern "C"
     const double *r_y,
     const double *m_y,
     const double *l_y,
-    const double *size,
-    const double *threshold)
+    const double *size
+  )
   {
     char *envar_path_rdf = getenv("ENVE_RDF_PATH");
     if (envar_path_rdf == NULL)
@@ -63,7 +63,7 @@ extern "C"
     enve::ground::mesh *ground = new enve::ground::mesh(rdf_path);
 
     shellVehicle *shell = new shellVehicle();
-    shell->init(r_x, m_x, r_y, m_y, l_y, size, threshold);
+    shell->init(r_x, m_x, r_y, m_y, l_y, size);
 
     ground_ptr = reinterpret_cast<void *>(ground);
     shell_ptr  = reinterpret_cast<void *>(shell);
@@ -73,13 +73,14 @@ extern "C"
   sfun_out(
     const shellRF *input,
     groundContact *output,
-    const double  *flat_enable,
-    const double  *time_step)
+    const double  *method,
+    const double  *flat_enable
+  )
   {
     enve::ground::mesh *ground = reinterpret_cast<enve::ground::mesh *>(ground_ptr);
     shellVehicle       *shell  = reinterpret_cast<shellVehicle *>(shell_ptr);
 
-    output->in_mesh = shell->out(ground, input->RFw, output->RFpc_ground, output->rho, output->rho_dot, output->friction, flat_enable, time_step);
+    output->in_mesh = shell->out(ground, input->RFw, method, output->RFpc_ground, output->rho, output->friction, flat_enable);
   }
 
   void

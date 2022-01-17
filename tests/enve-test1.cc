@@ -56,20 +56,18 @@ main()
               << std::endl;
 
     // Load .rdf File
-    ground::mesh road("./files_rdf/Eight.rdf");
-    // ground::mesh road("./files_obj/Gap_100mm_low_res.obj", 1.0);
-    // ground::mesh road("./files_obj/Step0deg.obj", 1.0);
+    ground::mesh road("./../files_rdf/LakeTown.rdf");
 
     // Print OutMesh.txt file
     road.print("bin/OutMesh.txt");
 
     // Initialize the tire shell
-    shell tire_shell(10,     // ribs number
-                     0.3120, // r_x
-                     3.0,    // m_x
-                     0.3,    // r_y
-                     3.0,    // m_y
-                     0.08    // l_y
+    shell tire_shell(4,     // ribs number
+                     0.3130, // r_x
+                     4.0,    // m_x
+                     4.0,    // r_y
+                     4.0,    // m_y
+                     0.1    // l_y
     );
 
     // Orient the tire in the space
@@ -85,15 +83,13 @@ main()
     tictoc.tic();
 
     // Set an orientation and calculate parameters
-    size_t threshold = 1000;
-    bool   out       = tire_shell.setup(road, pose, threshold, "triangle");
+    tire_shell.setup(road, pose, "geometric");
 
     // Stop chronometer
     tictoc.toc();
 
     // Display current tire data on command line
-    if (out)
-      tire_shell.print(std::cout);
+    tire_shell.print(std::cout);
 
     // Output performance data
     std::cout << "Execution time = " << tictoc.elapsed_ms() * 1000 << " us" << std::endl

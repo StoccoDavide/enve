@@ -34,50 +34,54 @@
   <compound refid="a00025" kind="class"><name>enve_shell</name>
     <member refid="a00025_1a17d558effe52873f181ef4c7b6603bd3" kind="variable"><name>objectHandle</name></member>
     <member refid="a00025_1ae4ec76596975e605869e110efa93c79c" kind="function"><name>enve_shell</name></member>
-    <member refid="a00025_1a188318866defc5a6d002800565c88b68" kind="function"><name>reset</name></member>
+    <member refid="a00025_1a6841fda716c431a2ab33f1efba7d993d" kind="function"><name>resize</name></member>
     <member refid="a00025_1af97e2d7af31d0924d113504fc6154062" kind="function"><name>size</name></member>
     <member refid="a00025_1a3c3620b53469e67de8fc1ddad8710ca0" kind="function"><name>surfaceMaxRadius</name></member>
     <member refid="a00025_1ae7e16bd52ba5d9e5420cabaa40cc1704" kind="function"><name>surfaceMaxWidth</name></member>
-    <member refid="a00025_1a78f8bbe81e94244dc8570394e6ee4b7f" kind="function"><name>surfaceWidthLowerBound</name></member>
-    <member refid="a00025_1a353b73e9dd9cd092a4bb41a472302249" kind="function"><name>surfaceWidthUpperBound</name></member>
-    <member refid="a00025_1a23d20650cd78e8f45166b5a7110206ba" kind="function"><name>surfaceWidth</name></member>
     <member refid="a00025_1a0bffc26c900af6d386beeb33fb6966ac" kind="function"><name>surfaceWidthBound</name></member>
+    <member refid="a00025_1a23d20650cd78e8f45166b5a7110206ba" kind="function"><name>surfaceWidth</name></member>
     <member refid="a00025_1a29a33822cd91218f0ce4de99d0cdff20" kind="function"><name>surfaceRadius</name></member>
     <member refid="a00025_1aec570e16bc39867f75480ebbd82961f7" kind="function"><name>surfaceDerivative</name></member>
     <member refid="a00025_1adab417b641317c4abc2ba2a794a2d4b5" kind="function"><name>surfaceAngle</name></member>
     <member refid="a00025_1a313f611cc616e968b2ca38a3f1f8548d" kind="function"><name>ribRadius</name></member>
     <member refid="a00025_1acc459cb2394d434a2368f110f1df9acb" kind="function"><name>ribCenter</name></member>
     <member refid="a00025_1a5fe827499a047c00c02823ad5ad53ed5" kind="function"><name>ribWidth</name></member>
-    <member refid="a00025_1afff8ae06e5804e1e699a5bb61df9b511" kind="function"><name>translation</name></member>
     <member refid="a00025_1a49001007e735cd9be29a31acbf9fc014" kind="function"><name>translate</name></member>
-    <member refid="a00025_1a53e01c5934e8537ba90831abe321dffd" kind="function"><name>rotation</name></member>
+    <member refid="a00025_1afff8ae06e5804e1e699a5bb61df9b511" kind="function"><name>translation</name></member>
     <member refid="a00025_1a634f660a34ac5fa02664178f3a5c180e" kind="function"><name>rotate</name></member>
-    <member refid="a00025_1ab977d97807a9bb7a2592393224c22c85" kind="function"><name>transformation</name></member>
+    <member refid="a00025_1a53e01c5934e8537ba90831abe321dffd" kind="function"><name>rotation</name></member>
     <member refid="a00025_1a7919322a33542dd47f97e9d51d773867" kind="function"><name>transform</name></member>
+    <member refid="a00025_1ab977d97807a9bb7a2592393224c22c85" kind="function"><name>transformation</name></member>
     <member refid="a00025_1abb149c6ab200f0ed5357f6ba2ac08827" kind="function"><name>x</name></member>
     <member refid="a00025_1adbfbbfc64441e0587ef4df4b3d3cb730" kind="function"><name>y</name></member>
     <member refid="a00025_1a0cb686f335c5b7b97bf0b1d6147dfd0f" kind="function"><name>z</name></member>
     <member refid="a00025_1ade6f32e5537a6fe93d9f8a9fc62afc64" kind="function"><name>eulerAngles</name></member>
-    <member refid="a00025_1a8e049285212d180275e00865ce46823d" kind="function"><name>relativeAnglesAvg</name></member>
-    <member refid="a00025_1a13ce044de59e9af1573f829543c3e68f" kind="function"><name>relativeAngles</name></member>
-    <member refid="a00025_1ab42efd931efaaed2e416e032bda37ba8" kind="function"><name>contactDepthRibAvg</name></member>
-    <member refid="a00025_1a9c974b140294152bac87720e9b8a306a" kind="function"><name>contactDepthRib</name></member>
-    <member refid="a00025_1aef77d20c3b1f72270b87cc6fa6ca92d3" kind="function"><name>contactDepthMeshAvg</name></member>
-    <member refid="a00025_1a0edf71ef177ea28ac3ea7257c42186e2" kind="function"><name>contactDepthMesh</name></member>
-    <member refid="a00025_1a5059c1630d0dbbc93bf2f091f6927257" kind="function"><name>contactNormalAvg</name></member>
-    <member refid="a00025_1a38746ef323f7bad89a462c70eff1a87a" kind="function"><name>contactNormal</name></member>
-    <member refid="a00025_1afceb9ec19e825f7552fbec08d617a9ae" kind="function"><name>contactPointRibAvg</name></member>
-    <member refid="a00025_1ab4f84ee92bb8d0ee9809d4c1d9cf88e4" kind="function"><name>contactPointRib</name></member>
-    <member refid="a00025_1a2d1e779b57347df7393995fba568da7f" kind="function"><name>contactPointMeshAvg</name></member>
-    <member refid="a00025_1a309f6f2444b0f48e594baa928cf6da69" kind="function"><name>contactPointMesh</name></member>
-    <member refid="a00025_1a77b0813485463ee72b3266d778fab58a" kind="function"><name>contactFrictionAvg</name></member>
-    <member refid="a00025_1a2ca3f6430b3fa3050217bed6a7d85e3d" kind="function"><name>contactFriction</name></member>
-    <member refid="a00025_1a6012fdbbd4850734013ae0aa438f6268" kind="function"><name>contactPointRibAffineAvg</name></member>
-    <member refid="a00025_1af581e83a47c06c479f395ca817ee4d02" kind="function"><name>contactPointRibAffine</name></member>
-    <member refid="a00025_1a69ff4c7cbc084f4b44dba4b6d80562c8" kind="function"><name>contactPointMeshAffineAvg</name></member>
-    <member refid="a00025_1a24fb439d20a98225eeb013b12e5829f5" kind="function"><name>contactPointMeshAffine</name></member>
-    <member refid="a00025_1a3f3f67107fd44d65f0c15607789e604d" kind="function"><name>setupMesh</name></member>
     <member refid="a00025_1afa0c9694b14f4b5cbbddf87511672c93" kind="function"><name>setupFlat</name></member>
+    <member refid="a00025_1a3f3f67107fd44d65f0c15607789e604d" kind="function"><name>setupMesh</name></member>
+    <member refid="a00025_1a436ee4b45d6af5a53c461a32ce67aa36" kind="function"><name>contactPointAvg</name></member>
+    <member refid="a00025_1ab4f84ee92bb8d0ee9809d4c1d9cf88e4" kind="function"><name>contactPointRib</name></member>
+    <member refid="a00025_1adbaedea5345da8fc80936d86848029ae" kind="function"><name>contactPointVec</name></member>
+    <member refid="a00025_1a5059c1630d0dbbc93bf2f091f6927257" kind="function"><name>contactNormalAvg</name></member>
+    <member refid="a00025_1a4ad295524632fa37fc72a4452c4374cd" kind="function"><name>contactNormalRib</name></member>
+    <member refid="a00025_1a1257cab9ea9cb0474c04d994a1b84655" kind="function"><name>contactNormalVec</name></member>
+    <member refid="a00025_1a2d612de9fa521e065321ec875f5d84e8" kind="function"><name>contactDepthAvg</name></member>
+    <member refid="a00025_1a23bf79fa4731992bd361f78c680b762d" kind="function"><name>contactDepthRib</name></member>
+    <member refid="a00025_1a2d612de9fa521e065321ec875f5d84e8" kind="function"><name>contactDepthAvg</name></member>
+    <member refid="a00025_1a77b0813485463ee72b3266d778fab58a" kind="function"><name>contactFrictionAvg</name></member>
+    <member refid="a00025_1ad6828fd508de5c3ca6044247155e92a9" kind="function"><name>contactFrictionRib</name></member>
+    <member refid="a00025_1a51ee4b04ef3d3f44084d9e2c78ecaf2a" kind="function"><name>contactFrictionVec</name></member>
+    <member refid="a00025_1a51454dad6785de69f163fb86d08b3df0" kind="function"><name>contactAreaAvg</name></member>
+    <member refid="a00025_1afb657f3e596c5e6a23e00340b5d87e0b" kind="function"><name>contactAreaRib</name></member>
+    <member refid="a00025_1a067603398e4efc71856dcc69e2465b95" kind="function"><name>contactAreaVec</name></member>
+    <member refid="a00025_1a9e19e86f7f18c2e2553c3a1ac71801fc" kind="function"><name>contactVolumeAvg</name></member>
+    <member refid="a00025_1af35c6f5768cc225953602f2858071f3b" kind="function"><name>contactVolumeRib</name></member>
+    <member refid="a00025_1a70609cb4aedad67e4938cd21e8aa334d" kind="function"><name>contactVolumeVec</name></member>
+    <member refid="a00025_1a8e049285212d180275e00865ce46823d" kind="function"><name>relativeAnglesAvg</name></member>
+    <member refid="a00025_1a07e0d12b253fe3fa3a0c48a20f50dbc5" kind="function"><name>relativeAnglesRib</name></member>
+    <member refid="a00025_1a798fa34383260dd6381a8476d3af03e2" kind="function"><name>relativeAnglesVec</name></member>
+    <member refid="a00025_1a74d7672e220d722115517801684ef83c" kind="function"><name>contactPointAffineAvg</name></member>
+    <member refid="a00025_1a3d882b5715fd5219509b583d20ad98bb" kind="function"><name>contactPointAffineRib</name></member>
+    <member refid="a00025_1aef497d53a33a5fc7636fbb2136c9c1ba" kind="function"><name>contactPointAffineVec</name></member>
     <member refid="a00025_1ab5f15015afdb914a686e64633437ab85" kind="function"><name>disp</name></member>
     <member refid="a00025_1aaefb38aedfd9057d176f922e946f7d42" kind="function"><name>profile</name></member>
     <member refid="a00025_1a621eac86df948df8398f9a8bb3c4c2ac" kind="function"><name>shapeTplot</name></member>

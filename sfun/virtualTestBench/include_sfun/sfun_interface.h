@@ -56,22 +56,21 @@ extern "C"
   // Function initializes a ENVE shell object
   void
   sfun_init(
-    const double *r_x,      // Shell radius on x axis (m)
-    const double *m_x,      // Shell curve degree for x axis
-    const double *r_y,      // Shell radius on y axis (m)
-    const double *m_y,      // Shell curve degree for y axis
-    const double *l_y,      // Surface half width on y axis (m)
-    const double *size,     // Ribs number
-    const double *threshold // Threshold number for setup
+    const double *r_x, // Shell radius on x axis (m)
+    const double *m_x, // Shell curve degree for x axis
+    const double *r_y, // Shell radius on y axis (m)
+    const double *m_y, // Shell curve degree for y axis
+    const double *l_y, // Surface half width on y axis (m)
+    const double *size // Ribs number
   );
 
   // Library entry point for step update: update ENVE computation for the one shell (tire)
   void
   sfun_out(
-    const shellRF *input,       // Input bus containing the shell reference frame
-    groundContact *output,      // Output bus containing the contact point reference frame
-    const double  *flat_enable, // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
-    const double  *time_step    // Simulation time step (s)
+    const shellRF *input,      // Input bus containing the shell reference frame
+    groundContact *output,     // Output bus containing the contact point reference frame
+    const double  *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    const double  *flat_enable // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
   );
 
   // Library entry point for delete the allocated memory

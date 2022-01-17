@@ -50,12 +50,8 @@
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)</span>
 <span class="cm">(*                                                                     *)</span>
-<span class="cm">(* The ENVE project and its components are supplied under the terms of *)</span>
-<span class="cm">(* the open source BSD 2-Clause License. The contents of the ENVE      *)</span>
-<span class="cm">(* project and its components may not be copied or disclosed except in *)</span>
-<span class="cm">(* accordance with the terms of the BSD 2-Clause License.              *)</span>
-<span class="cm">(*                                                                     *)</span>
-<span class="cm">(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)</span>
+<span class="cm">(* The ENVE project can not be copied and/or distributed without the   *)</span>
+<span class="cm">(* express permission of Davide Stocco and Enrico Bertolazzi.          *)</span>
 <span class="cm">(*                                                                     *)</span>
 <span class="cm">(*    Davide Stocco                                                    *)</span>
 <span class="cm">(*    Department of Industrial Engineering                             *)</span>
@@ -73,8 +69,6 @@
 
 <span class="cp">#include</span> <span class="cpf">"enve_shape.hh"</span><span class="cp"></span>
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">acme</span><span class="p">;</span>
-
 <span class="k">namespace</span> <span class="n">enve</span>
 <span class="p">{</span>
 
@@ -89,6 +83,12 @@
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
+  <span class="n">shape</span><span class="o">::~</span><span class="n">shape</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
   <span class="n">shape</span><span class="o">::</span><span class="n">shape</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
   <span class="p">}</span>
@@ -96,39 +96,17 @@
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="n">shape</span><span class="o">::</span><span class="n">shape</span><span class="p">(</span>
-    <span class="n">real</span> <span class="n">maxR</span><span class="p">,</span>
-    <span class="n">real</span> <span class="n">minY</span><span class="p">,</span>
-    <span class="n">real</span> <span class="n">maxY</span><span class="p">)</span>
-    <span class="o">:</span> <span class="n">m_maxR</span><span class="p">(</span><span class="n">maxR</span><span class="p">),</span>
-      <span class="n">m_minY</span><span class="p">(</span><span class="n">minY</span><span class="p">),</span>
-      <span class="n">m_maxY</span><span class="p">(</span><span class="n">maxY</span><span class="p">)</span>
+    <span class="n">real</span> <span class="n">r_x</span><span class="p">,</span>
+    <span class="n">real</span> <span class="n">m_x</span><span class="p">,</span>
+    <span class="n">real</span> <span class="n">r_y</span><span class="p">,</span>
+    <span class="n">real</span> <span class="n">m_y</span><span class="p">,</span>
+    <span class="n">real</span> <span class="n">l_y</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">m_r_x</span><span class="p">(</span><span class="n">r_x</span><span class="p">),</span>
+      <span class="n">m_m_x</span><span class="p">(</span><span class="n">m_x</span><span class="p">),</span>
+      <span class="n">m_r_y</span><span class="p">(</span><span class="n">r_y</span><span class="p">),</span>
+      <span class="n">m_m_y</span><span class="p">(</span><span class="n">m_y</span><span class="p">),</span>
+      <span class="n">m_l_y</span><span class="p">(</span><span class="n">l_y</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">ENVE_ASSERT</span><span class="p">(</span>
-      <span class="n">maxR</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s">"enve::shape::shape(maxR, minY, maxY): maximum radius must be positive.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="n">ENVE_ASSERT</span><span class="p">(</span>
-      <span class="n">minY</span> <span class="o">&lt;=</span> <span class="n">maxY</span><span class="p">,</span>
-      <span class="s">"enve::shape::shape(maxR, minY, maxY): inconsistent y axis bounds.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">shape</span><span class="o">::</span><span class="n">shape</span><span class="p">(</span>
-    <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataR</span><span class="p">,</span>
-    <span class="n">vecN</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">dataY</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">ENVE_ASSERT</span><span class="p">(</span>
-      <span class="n">dataR</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="n">dataY</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span>
-      <span class="s">"enve::polynom::fit(dataR, dataY, order): R and Y data vectors have different dimensions.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">dataY</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n">ENVE_ASSERT</span><span class="p">(</span>
-        <span class="n">dataR</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s">"enve::shape::shape(dataR, dataY): R data vector components must be positive.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxR</span> <span class="o">=</span> <span class="n">dataR</span><span class="p">.</span><span class="n">maxCoeff</span><span class="p">();</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span> <span class="o">=</span> <span class="n">dataY</span><span class="p">.</span><span class="n">minCoeff</span><span class="p">();</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span> <span class="o">=</span> <span class="n">dataY</span><span class="p">.</span><span class="n">maxCoeff</span><span class="p">();</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -137,9 +115,11 @@
   <span class="n">shape</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span>
     <span class="n">shape</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">shape_in</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxR</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_maxR</span><span class="p">;</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_minY</span><span class="p">;</span>
-    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_maxY</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_r_x</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_m_x</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_y</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_r_y</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_m_y</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_l_y</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -147,12 +127,100 @@
   <span class="kt">bool</span>
   <span class="n">shape</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span>
     <span class="n">shape</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">shape_in</span><span class="p">,</span>
-    <span class="n">real</span>         <span class="n">tolerance</span><span class="p">)</span>
+    <span class="n">real</span>         <span class="n">tolerance</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxR</span><span class="p">,</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_maxR</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span><span class="p">,</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_minY</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-           <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span><span class="p">,</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_maxY</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span><span class="p">,</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_r_x</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span><span class="p">,</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_m_x</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_y</span><span class="p">,</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_r_y</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span><span class="p">,</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_m_y</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">acme</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">,</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_l_y</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">Rx</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">Mx</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">Ry</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_y</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">My</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">Ly</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">Rx</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">Mx</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">Ry</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_y</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">My</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">Ly</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -161,86 +229,87 @@
   <span class="n">shape</span><span class="o">::</span><span class="n">surfaceMaxRadius</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxR</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
-  <span class="n">real</span> <span class="o">&amp;</span>
-  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceMaxRadius</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxR</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
+  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
   <span class="n">shape</span><span class="o">::</span><span class="n">surfaceMaxWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span><span class="p">));</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
-  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceWidthLowerBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-    <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span> <span class="o">&amp;</span>
-  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceWidthLowerBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
-  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceWidthUpperBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-    <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span> <span class="o">&amp;</span>
-  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceWidthUpperBound</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
-
-  <span class="n">real</span>
-  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-    <span class="k">const</span>
-  <span class="p">{</span>
-    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span><span class="p">,</span> <span class="s">"enve::shape::surfaceWidth(): inconsistent bounds</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
   <span class="kt">bool</span>
   <span class="n">shape</span><span class="o">::</span><span class="n">checkWidthBound</span><span class="p">(</span>
-    <span class="n">real</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">real</span> <span class="n">y</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span><span class="p">)</span>
-    <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">)</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">else</span>
       <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceRadius</span><span class="p">(</span>
+    <span class="n">real</span> <span class="n">y</span>
+  <span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">real</span> <span class="n">y_abs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">y_abs</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">,</span> <span class="s">"enve::surfaceRadius(y): y coordinate is out of shape overall volume."</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="n">y_abs</span> <span class="o">/</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_y</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span><span class="p">),</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span><span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span><span class="p">;</span>
+  <span class="p">}</span>
+
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceWidth</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceDerivative</span><span class="p">(</span>
+    <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
+    <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">real</span> <span class="n">y_abs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">checkWidthBound</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="s">"enve::surfaceDerivative(y, tolerance): y coordinate is out of shape overall volume."</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y_abs</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">real</span> <span class="n">sign</span>  <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="n">y_abs</span><span class="p">;</span>
+      <span class="n">real</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">y</span><span class="p">;</span>
+      <span class="n">real</span> <span class="n">y_pre</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="n">y_val</span> <span class="o">/</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_y</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span><span class="p">);</span>
+      <span class="k">return</span> <span class="o">-</span><span class="n">sign</span> <span class="o">*</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">y_pre</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span><span class="p">)</span> <span class="o">/</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span><span class="p">)</span> <span class="o">*</span> <span class="n">y_pre</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span> <span class="o">/</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span> <span class="o">*</span> <span class="n">y_val</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
-      <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::shape::checkWidthBound(y): input y is out of bound.</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
-      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+      <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
     <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span>
+  <span class="n">shape</span><span class="o">::</span><span class="n">surfaceAngle</span><span class="p">(</span>
+    <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
+    <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">atan</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">surfaceDerivative</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">));</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -251,9 +320,12 @@
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="s">"Shell shape parameters:"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
-       <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">maxR = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxR</span> <span class="o">&lt;&lt;</span> <span class="s">" (m)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
-       <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">minY = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_minY</span> <span class="o">&lt;&lt;</span> <span class="s">" (m)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
-       <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">maxY = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_maxY</span> <span class="o">&lt;&lt;</span> <span class="s">" (m)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"R_x = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span> <span class="o">&lt;&lt;</span> <span class="s">" m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"m_x = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"R_y = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_y</span> <span class="o">&lt;&lt;</span> <span class="s">" m"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"m_y = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="s">"L_y = "</span> <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+       <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

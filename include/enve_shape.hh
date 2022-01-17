@@ -59,29 +59,34 @@ namespace enve
   public:
     typedef std::shared_ptr<shape const> ptr;    //!< Pointer to shape object
     typedef std::vector<shape::ptr>      vecptr; //!< Vector of pointers to shape objects
+
   private:
-    real m_maxR = QUIET_NAN; //!< Maximum surface maximum radius (m)
-    real m_minY = QUIET_NAN; //!< Minimum surface bound on y axis (m)
-    real m_maxY = QUIET_NAN; //!< Maximum surface bound on y axis (m)
+    real m_r_x = QUIET_NAN; //!< Section radius on x axis (m)
+    real m_m_x = QUIET_NAN; //!< Section curve degree for x axis
+    real m_r_y = QUIET_NAN; //!< Section radius on y axis (m)
+    real m_m_y = QUIET_NAN; //!< Section curve degree for y axis
+    real m_l_y = QUIET_NAN; //!< Section surface effective half width (m)
 
   public:
     //! Shape class destructor
-    virtual ~shape(void){};
+    ~shape(void);
+
+    //! Shape copy constructor
+    shape(shape const &) = default;
+
+    //! Shape move constructor
+    shape(shape &&) = default;
 
     //! Shape class constructor
     shape(void);
 
     //! Shape class constructor
     shape(
-      real maxR, //!< Maximum surface maximum radius (m)
-      real minY, //!< Minimum surface bound on y axis (m)
-      real maxY  //!< Maximum surface bound on y axis (m)
-    );
-
-    //! Shape class constructor
-    shape(
-      vecN const &dataR, //!< Vector of radius data (m)
-      vecN const &dataY  //!< Vector of y data (m)
+      real r_x, //!< Surface radius on x axis (m)
+      real m_x, //!< Surface curve degree for x axis
+      real r_y, //!< Surface radius on y axis (m)
+      real m_y, //!< Surface curve degree for y axis
+      real l_y  //!< Surface half width on y axis (m)
     );
 
     //! Copy shape object
@@ -93,41 +98,57 @@ namespace enve
     //! Check if objects are (almost) equal
     bool
     isApprox(
-      shape const &shape_in,               //!< Shape object
+      shape const &shape_in,        //!< Input object
       real         tolerance = EPSILON_LOW //!< Tolerance
     ) const;
+
+    //! Get shape radius on x axis const reference (m)
+    real const &
+    Rx(void) const;
+
+    //! Get shape curve degree for x axis const reference
+    real const &
+    Mx(void) const;
+
+    //! Get shape radius on y axis const reference (m)
+    real const &
+    Ry(void) const;
+
+    //! Get shape curve degree for y axis const reference
+    real const &
+    My(void) const;
+
+    //! Get shape half width on y axis const reference (m)
+    real const &
+    Ly(void) const;
+
+    //! Get shape radius on x axis reference (m)
+    real &
+    Rx(void);
+
+    //! Get shape curve degree for x axis reference
+    real &
+    Mx(void);
+
+    //! Get shape radius on y axis reference (m)
+    real &
+    Ry(void);
+
+    //! Get shape curve degree for y axis reference
+    real &
+    My(void);
+
+    //! Get shape surface half width on y axis reference (m)
+    real &
+    Ly(void);
 
     //! Get surface maximum radius const reference (m)
     real const &
     surfaceMaxRadius(void) const;
 
-    //! Get surface maximum radius on reference (m)
-    real &
-    surfaceMaxRadius(void);
-
-    //! Get surface maximum width on y axis (m)
-    real
-    surfaceMaxWidth(void) const;
-
-    //! Get surface minimum width const reference (m)
-    real const &
-    surfaceWidthLowerBound(void) const;
-
-    //! Get surface minimum width on reference (m)
-    real &
-    surfaceWidthLowerBound(void);
-
     //! Get surface maximum width const reference (m)
     real const &
-    surfaceWidthUpperBound(void) const;
-
-    //! Get surface maximum width on reference (m)
-    real &
-    surfaceWidthUpperBound(void);
-
-    //! Get surface width (m)
-    real
-    surfaceWidth(void) const;
+    surfaceMaxWidth(void) const;
 
     //! Get surface maximum width on reference (m)
     bool
@@ -135,27 +156,30 @@ namespace enve
       real y //!< Coordinate of y axis
     ) const;
 
-    //! Get surface of revolution rib radius at y axis coordinate
-    virtual real
+    real
     surfaceRadius(
       real y //!< Coordinate of y axis
-    ) const = 0;
+    ) const;
+
+    //! Get surface width (m)
+    real const &
+    surfaceWidth(void) const;
 
     //! Get surface of revolution rib first derivative with respect to y coordinate
-    virtual real
+    real
     surfaceDerivative(
       real y,                         //!< Coordinate of y axis
       real tolerance = EPSILON_MEDIUM //!< Tolerance
-    ) const = 0;
+    ) const;
 
     //! Get surface of revolution rib angle with respect to y axis (rad)
-    virtual real
+    real
     surfaceAngle(
       real y,                         //!< Coordinate of y axis
       real tolerance = EPSILON_MEDIUM //!< Tolerance
-    ) const = 0;
+    ) const;
 
-    //! Print surface shape data
+    //! Print shape data
     void
     print(
       out_stream &os //!< Output stream type

@@ -57,16 +57,16 @@ main()
 
     // Initialize a quite big triangle
     point vertex[3];
-    vertex[0] = point(0.0, 100.0, 0.0);
-    vertex[1] = point(100.0, 0.0, 0.0);
-    vertex[2] = point(0.0, -100.0, 0.0);
+    vertex[0] = point(0.0,    100.0, 0.0);
+    vertex[1] = point(100.0,    0.0, 0.0);
+    vertex[2] = point(0.0,   -100.0, 0.0);
     triangleground::vecptr triangle_prtVec;
     triangle_prtVec.push_back(
       triangleground::ptr(new triangleground(vertex, 1.0)));
 
-    vertex[0] = point(0.0, 100.0, 0.0);
-    vertex[1] = point(-100.0, 0.0, 0.0);
-    vertex[2] = point(0.0, -100.0, 0.0);
+    vertex[0] = point(0.0,    100.0, 0.0);
+    vertex[1] = point(-100.0,   0.0, 0.0);
+    vertex[2] = point(0.0,    -100.0, 0.0);
     triangle_prtVec.push_back(
       triangleground::ptr(new triangleground(vertex, 0.5)));
 
@@ -74,29 +74,28 @@ main()
     ground::mesh road(triangle_prtVec);
 
     // Initialize the tire shell
-    shell tire_shell(15,  // ribs number
+    shell tire_shell(5,   // ribs number
                      0.3, // r_x
-                     3.0, // m_x
-                     0.3, // r_y
-                     3.0, // m_y
+                     4.0, // m_x
+                     4.0, // r_y
+                     4.0, // m_y
                      0.1  // l_y
     );
 
     // Orient the tire in the space
     real yaw_angle    = 0.0 * PI;
-    real camber_angle = 0.0 * PI;
+    real camber_angle = 0.1 * PI;
     real pitch_angle  = 0.0 * PI;
 
     // Create frame object
     affine pose;
-    pose = translate(0.0, 0.0, 0.2) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(0.0, 0.0, 0.25) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();
 
     // Set an orientation and calculate parameters
-    size_t threshold = 1;
-    bool   out       = tire_shell.setup(road, pose, threshold, "triangle");
+    bool out = tire_shell.setup(road, pose, "geometric");
 
     // Stop chronometer
     tictoc.toc();

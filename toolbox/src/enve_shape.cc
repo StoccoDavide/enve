@@ -5,12 +5,8 @@
 (*                                                                     *)
 (* Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       *)
 (*                                                                     *)
-(* The ENVE project and its components are supplied under the terms of *)
-(* the open source BSD 2-Clause License. The contents of the ENVE      *)
-(* project and its components may not be copied or disclosed except in *)
-(* accordance with the terms of the BSD 2-Clause License.              *)
-(*                                                                     *)
-(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
+(* The ENVE project can not be copied and/or distributed without the   *)
+(* express permission of Davide Stocco and Enrico Bertolazzi.          *)
 (*                                                                     *)
 (*    Davide Stocco                                                    *)
 (*    Department of Industrial Engineering                             *)
@@ -31,8 +27,6 @@
 
 #include "enve_shape.hh"
 
-using namespace acme;
-
 namespace enve
 {
 
@@ -47,6 +41,12 @@ namespace enve
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  shape::~shape(void)
+  {
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   shape::shape(void)
   {
   }
@@ -54,39 +54,17 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   shape::shape(
-    real maxR,
-    real minY,
-    real maxY)
-    : m_maxR(maxR),
-      m_minY(minY),
-      m_maxY(maxY)
+    real r_x,
+    real m_x,
+    real r_y,
+    real m_y,
+    real l_y)
+    : m_r_x(r_x),
+      m_m_x(m_x),
+      m_r_y(r_y),
+      m_m_y(m_y),
+      m_l_y(l_y)
   {
-    ENVE_ASSERT(
-      maxR > 0,
-      "enve::shape::shape(maxR, minY, maxY): maximum radius must be positive.\n");
-    ENVE_ASSERT(
-      minY <= maxY,
-      "enve::shape::shape(maxR, minY, maxY): inconsistent y axis bounds.\n");
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  shape::shape(
-    vecN const &dataR,
-    vecN const &dataY)
-  {
-    ENVE_ASSERT(
-      dataR.size() == dataY.size(),
-      "enve::polynom::fit(dataR, dataY, order): R and Y data vectors have different dimensions.\n");
-    for (size_t i = 0; i < dataY.size(); ++i)
-    {
-      ENVE_ASSERT(
-        dataR(i) > 0,
-        "enve::shape::shape(dataR, dataY): R data vector components must be positive.\n");
-    }
-    this->m_maxR = dataR.maxCoeff();
-    this->m_minY = dataY.minCoeff();
-    this->m_maxY = dataY.maxCoeff();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -95,9 +73,11 @@ namespace enve
   shape::copy(
     shape const &shape_in)
   {
-    this->m_maxR = shape_in.m_maxR;
-    this->m_minY = shape_in.m_minY;
-    this->m_maxY = shape_in.m_maxY;
+    this->m_r_x = shape_in.m_r_x;
+    this->m_m_x = shape_in.m_m_x;
+    this->m_r_y = shape_in.m_r_y;
+    this->m_m_y = shape_in.m_m_y;
+    this->m_l_y = shape_in.m_l_y;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -105,12 +85,100 @@ namespace enve
   bool
   shape::isApprox(
     shape const &shape_in,
-    real         tolerance)
+    real         tolerance 
+  )
     const
   {
-    return acme::isApprox(this->m_maxR, shape_in.m_maxR, tolerance) &&
-           acme::isApprox(this->m_minY, shape_in.m_minY, tolerance) &&
-           acme::isApprox(this->m_maxY, shape_in.m_maxY, tolerance);
+    return acme::isApprox(this->m_r_x, shape_in.m_r_x, tolerance) &&
+           acme::isApprox(this->m_m_x, shape_in.m_m_x, tolerance) &&
+           acme::isApprox(this->m_r_y, shape_in.m_r_y, tolerance) &&
+           acme::isApprox(this->m_m_y, shape_in.m_m_y, tolerance) &&
+           acme::isApprox(this->m_l_y, shape_in.m_l_y, tolerance);
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real const &
+  shape::Rx(void)
+    const
+  {
+    return this->m_r_x;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real const &
+  shape::Mx(void)
+    const
+  {
+    return this->m_m_x;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real const &
+  shape::Ry(void)
+    const
+  {
+    return this->m_r_y;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real const &
+  shape::My(void)
+    const
+  {
+    return this->m_m_y;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real const &
+  shape::Ly(void)
+    const
+  {
+    return this->m_l_y;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real &
+  shape::Rx(void)
+  {
+    return this->m_r_x;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real &
+  shape::Mx(void)
+  {
+    return this->m_m_x;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real &
+  shape::Ry(void)
+  {
+    return this->m_r_y;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real &
+  shape::My(void)
+  {
+    return this->m_m_y;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real &
+  shape::Ly(void)
+  {
+    return this->m_l_y;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -119,86 +187,87 @@ namespace enve
   shape::surfaceMaxRadius(void)
     const
   {
-    return this->m_maxR;
+    return this->m_r_x;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  real &
-  shape::surfaceMaxRadius(void)
-  {
-    return this->m_maxR;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real
+  real const &
   shape::surfaceMaxWidth(void)
     const
   {
-    return std::max(std::abs(this->m_minY), std::abs(this->m_maxY));
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real const &
-  shape::surfaceWidthLowerBound(void)
-    const
-  {
-    return this->m_minY;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real &
-  shape::surfaceWidthLowerBound(void)
-  {
-    return this->m_minY;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real const &
-  shape::surfaceWidthUpperBound(void)
-    const
-  {
-    return this->m_maxY;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real &
-  shape::surfaceWidthUpperBound(void)
-  {
-    return this->m_maxY;
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  real
-  shape::surfaceWidth(void)
-    const
-  {
-    ENVE_ASSERT(this->m_minY <= this->m_maxY, "enve::shape::surfaceWidth(): inconsistent bounds\n");
-    return this->m_maxY - this->m_minY;
+    return this->m_l_y;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   shape::checkWidthBound(
-    real y)
+    real y
+  )
     const
   {
-    if (this->m_minY <= y && y <= this->m_maxY)
-    {
+    if (std::abs(y) > this->m_l_y)
+      return false;
+    else
       return true;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real
+  shape::surfaceRadius(
+    real y
+  )
+    const
+  {
+    real y_abs = std::abs(y);
+    ENVE_ASSERT(y_abs <= this->m_l_y, "enve::surfaceRadius(y): y coordinate is out of shape overall volume.");
+    return std::pow(1.0 - std::pow(y_abs / this->m_r_y, this->m_m_y), 1.0 / this->m_m_x) * this->m_r_x;
+  }
+
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real const &
+  shape::surfaceWidth(void)
+    const
+  {
+    return this->m_l_y;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real
+  shape::surfaceDerivative(
+    real y,
+    real tolerance)
+    const
+  {
+    real y_abs = std::abs(y);
+    ENVE_ASSERT(this->checkWidthBound(y), "enve::surfaceDerivative(y, tolerance): y coordinate is out of shape overall volume.");
+    if (y_abs > tolerance)
+    {
+      real sign  = y / y_abs;
+      real y_val = sign * y;
+      real y_pre = std::pow(y_val / this->m_r_y, this->m_m_y);
+      return -sign * std::pow(1.0 - y_pre, (1.0 - this->m_m_x) / this->m_m_x) * y_pre * this->m_r_x * this->m_m_y / (this->m_m_x * y_val);
     }
     else
     {
-      ENVE_ERROR("enve::shape::checkWidthBound(y): input y is out of bound.\n")
-      return false;
+      return 0.0;
     }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  real
+  shape::surfaceAngle(
+    real y,
+    real tolerance)
+    const
+  {
+    return std::atan(this->surfaceDerivative(y, tolerance));
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -209,9 +278,12 @@ namespace enve
     const
   {
     os << "Shell shape parameters:" << std::endl
-       << "\tmaxR = " << this->m_maxR << " (m)" << std::endl
-       << "\tminY = " << this->m_minY << " (m)" << std::endl
-       << "\tmaxY = " << this->m_maxY << " (m)" << std::endl;
+       << "R_x = " << this->m_r_x << " m" << std::endl
+       << "m_x = " << this->m_m_x << std::endl
+       << "R_y = " << this->m_r_y << " m" << std::endl
+       << "m_y = " << this->m_m_y << std::endl
+       << "L_y = " << this->m_l_y << std::endl
+       << std::endl;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

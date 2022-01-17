@@ -337,7 +337,7 @@ MATLAB
                                i);
         relative_camber = shell.relativeCamber();
 
-where ``ì`` is the i-th rib index.
+where ``i`` is the i-th rib index.
 
 For more advanced functions read the C++/MATLAB API documentation.
 

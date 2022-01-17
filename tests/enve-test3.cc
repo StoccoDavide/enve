@@ -63,7 +63,7 @@ main()
     ground::flat road(plane_point, plane_normal, plane_friction);
 
     // Initialize the tire shell
-    shell tire_shell(15,  // ribs number
+    shell tire_shell(1,  // ribs number
                      0.3, // r_x
                      3.0, // m_x
                      0.3, // r_y
@@ -73,7 +73,7 @@ main()
 
     // Orient the tire in the space
     real yaw_angle    = 0.0 * PI;
-    real camber_angle = 0.0 * PI;
+    real camber_angle = 0.1 * PI;
     real pitch_angle  = 0.0 * PI;
 
     // Create frame object
@@ -84,7 +84,7 @@ main()
     tictoc.tic();
 
     // Set an orientation and calculate parameters
-    bool out = tire_shell.setup(road, pose);
+    bool out = tire_shell.setup(road, pose, "geometric");
 
     // Stop chronometer
     tictoc.toc();

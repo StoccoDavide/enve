@@ -242,12 +242,12 @@ typedef void (*DO_CMD)(int nlhs, mxArray *plhs[],
                        int nrhs, mxArray const *prhs[]);
 
 static map<string, DO_CMD> cmd_to_fun = {
-    {"new", do_new},
-    {"delete", do_delete},
+    {"new",               do_new},
+    {"delete",            do_delete},
     {"getTriangleground", do_getTriangleground},
-    {"size", do_size},
-    {"copy", do_copy},
-    {"load", do_load}};
+    {"size",              do_size},
+    {"copy",              do_copy},
+    {"load",              do_load}};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

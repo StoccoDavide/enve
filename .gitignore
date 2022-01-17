@@ -37,6 +37,10 @@
 # Matlab
 *.asv
 
+# Mesh files
+*.rdf
+*.obj
+
 # Folders
 build/*
 bin/*

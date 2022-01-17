@@ -48,10 +48,8 @@
 class shellVehicle
 {
 private:
-  enve::shell       *m_enveShell;  // Tire object used by TireGround
+  enve::shell       *m_enveShell;  // Shell object
   enve::ground::flat m_groundFlat; // Ground flat object pointer
-  double             m_threshold;  // Threshold number fot triangle-circle evaluations
-  double             m_rho_old;    // rho previous value
 
 public:
   // Default class constructor
@@ -60,27 +58,25 @@ public:
   // Function initializes virtual plane and tire model for one tire
   void
   init(
-    const double *r_x,      // Shell radius on x axis (m)
-    const double *m_x,      // Shell curve degree for x axis
-    const double *r_y,      // Shell radius on y axis (m)
-    const double *m_y,      // Shell curve degree for y axis
-    const double *l_y,      // Surface half width on y axis (m)
-    const double *size,     // Ribs number
-    const double *threshold // Threshold number for setup
+    const double *r_x, // Shell radius on x axis (m)
+    const double *m_x, // Shell curve degree for x axis
+    const double *r_y, // Shell radius on y axis (m)
+    const double *m_y, // Shell curve degree for y axis
+    const double *l_y, // Surface half width on y axis (m)
+    const double *size // Ribs number
   );
 
   // Function outputs the computation of ENVE for one tire, including logic for out-mesh conditions.
   // If there are no triangles under the tire shadow, ENVE will work with a virtual plane created from the last contact point
   bool
   out(
-    enve::ground::mesh *ground, // Ground object
-    const double (&RFw)[16],    // Wheel hub reference frame
-    double (&RFpc)[16],         // Contact point reference frame
-    double       &rho,          // Shell penetration (m)
-    double       &rho_dot,      // Shell penetration velocity (m/s)
-    double       &friction,     // Friction coefficient
-    const double *flat_enable,  // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
-    const double *time_step     // Simulation time step (s)
+    enve::ground::mesh *groundMesh, // Ground object
+    const double      (&RFw)[16],   // Wheel hub reference frame
+    const double       *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    double            (&RFpc)[16],  // Contact point reference frame
+    double             &rho,        // Shell penetration (m)
+    double             &friction,   // Friction coefficient
+    const double       *flat_enable // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
   );
 };
 

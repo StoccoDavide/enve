@@ -78,13 +78,13 @@ main()
 
     // Create frame object
     affine pose;
-    pose = translate(0.0, 0.0, 0.2) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(0.0, 0.0, 0.3) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();
 
     // Set an orientation and calculate parameters
-    bool out = tire_shell.setup(road, pose);
+    bool out = tire_shell.setup(road, pose, "geometric");
 
     // Stop chronometer
     tictoc.toc();
