@@ -44,12 +44,12 @@ shellVehicle::shellVehicle(void)
 
 void
 shellVehicle::init(
+  const double *size,
   const double *r_x,
   const double *m_x,
   const double *r_y,
   const double *m_y,
-  const double *l_y,
-  const double *size
+  const double *l_y
 )
 {
   this->m_enveShell = new enve::shell(*size, *r_x, *m_x, *r_y, *m_y, *l_y);

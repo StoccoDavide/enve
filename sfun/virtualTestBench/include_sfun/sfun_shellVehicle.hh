@@ -58,12 +58,12 @@ public:
   // Function initializes virtual plane and tire model for one tire
   void
   init(
-    const double *r_x, // Shell radius on x axis (m)
-    const double *m_x, // Shell curve degree for x axis
-    const double *r_y, // Shell radius on y axis (m)
-    const double *m_y, // Shell curve degree for y axis
-    const double *l_y, // Surface half width on y axis (m)
-    const double *size // Ribs number
+    const double *size, // Ribs number
+    const double *r_x,  // Shell radius on x axis (m)
+    const double *m_x,  // Shell curve degree for x axis
+    const double *r_y,  // Shell radius on y axis (m)
+    const double *m_y,  // Shell curve degree for y axis
+    const double *l_y,  // Surface half width on y axis (m)
   );
 
   // Function outputs the computation of ENVE for one tire, including logic for out-mesh conditions.

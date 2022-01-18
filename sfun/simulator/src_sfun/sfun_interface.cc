@@ -61,18 +61,23 @@ extern "C"
     const double *flatFriction
   )
   {
-    char *envar_path_rdf = getenv("ENVE_RDF_PATH");
-    if (envar_path_rdf == NULL)
+    char *envar_ground_path = getenv("ENVE_GROUND_PATH");
+    if (envar_ground_path == NULL)
     {
-      std::cout << "Environment variable ENVE_RDF_PATH does not exist!" << std::endl;
+      std::cout << "Environment variable ENVE_GROUND_PATH does not exist!" << std::endl;
       return;
     }
 
-    std::string rdf_path(reinterpret_cast<char const *>(envar_path_rdf));
+    std::string ground_path(reinterpret_cast<char const *>(envar_ground_path));
 
-    std::cout << "RDF path: " << rdf_path << std::endl;
+    std::cout << "ENVE_GROUND_PATH: " << ground_path << std::endl;
 
-    enve::ground::mesh *ground = new enve::ground::mesh(rdf_path);
+    std::string extension = ground_path.substr(ground_path.size() - 4, 4);
+    enve::ground::mesh *ground;
+    if (extension != ".rdf")
+      ground = new enve::ground::mesh(ground_path);
+    else if (extension != ".obj")
+      ground = new enve::ground::mesh(ground_path, 1.0);
 
     shellVehicle *shell_rr = new shellVehicle();
     shellVehicle *shell_rl = new shellVehicle();

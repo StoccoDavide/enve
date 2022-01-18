@@ -56,12 +56,12 @@ extern "C"
   // Function initializes a ENVE shell object
   void
   sfun_init(
-    const double *r_x, // Shell radius on x axis (m)
-    const double *m_x, // Shell curve degree for x axis
-    const double *r_y, // Shell radius on y axis (m)
-    const double *m_y, // Shell curve degree for y axis
-    const double *l_y, // Surface half width on y axis (m)
-    const double *size // Ribs number
+    const double *size, // Ribs number
+    const double *r_x,  // Shell radius on x axis (m)
+    const double *m_x,  // Shell curve degree for x axis
+    const double *r_y,  // Shell radius on y axis (m)
+    const double *m_y,  // Shell curve degree for y axis
+    const double *l_y   // Surface half width on y axis (m)
   );
 
   // Library entry point for step update: update ENVE computation for the one shell (tire)
