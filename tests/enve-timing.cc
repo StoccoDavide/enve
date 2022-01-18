@@ -57,16 +57,15 @@ main()
     ground::mesh road("./../files_rdf/Eight.rdf");
 
     // Tire Parameters
-    integer     tire_size = 10;
-    std::string method    = "geometric";
+    std::string method = "geometric";
 
     // Initialize the tire shell
-    shell tire_shell(tire_size, // ribs number
-                     0.35,      // r_x
-                     3.1,       // m_x
-                     4.0,       // r_y
-                     3.1,       // m_y
-                     0.6        // l_y
+    shell tire_shell(5,    // ribs number
+                     0.35, // r_x
+                     3.1,  // m_x
+                     4.0,  // r_y
+                     3.1,  // m_y
+                     0.6   // l_y
     );
 
     // Orient the tire in the space

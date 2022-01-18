@@ -301,7 +301,7 @@ namespace enve
     real  tolerance = 1e-4;
     for (size_t i = 0; i < localGround.size(); ++i)
     {
-      if (intersection(*localGround[i], ribGround, segment_tmp, EPSILON_LOW))
+      if (acme::intersection(*localGround[i], ribGround, segment_tmp, EPSILON_LOW))
       { 
         int_bool = true;
         segmentLength_tmp   = segment_tmp.length();
@@ -395,11 +395,11 @@ namespace enve
     point ribCenterGround(origin + rotation * center);
     disk ribGround(radius, ribCenterGround, ribNormalGround);
     segment segment_tmp;
-    if (intersection(localGround, ribGround, segment_tmp, EPSILON_LOW))
+    if (acme::intersection(localGround, ribGround, segment_tmp, EPSILON_LOW))
     {
       contactPoint    = segment_tmp.centroid();
       contactNormal   = ((ribCenterGround - contactPoint).normalized() +
-                         ribNormalGround*ribNormalGround.dot(localGround.normal())
+                        ribNormalGround*ribNormalGround.dot(localGround.normal())
                         ).normalized();
       contactFriction = localGround.friction();
       contactDepth    = radius - (contactPoint - ribCenterGround).norm();
@@ -448,14 +448,20 @@ namespace enve
     std::vector<real>  friction_vec(4);
     vec3  ribNormalGround(rotation * this->normal());
     point ribCenterGround(origin + rotation * center);
-    if (this->samplingLine(localGround, origin + rotation * (center + deltaX), -UNITZ_VEC3, point_vec[0], normal_tmp, friction_vec[0]) &&
-        this->samplingLine(localGround, origin + rotation * (center - deltaX), -UNITZ_VEC3, point_vec[1], normal_tmp, friction_vec[1]) &&
-        this->samplingLine(localGround, origin + rotation * (center + deltaY), -UNITZ_VEC3, point_vec[2], normal_tmp, friction_vec[2]) &&
-        this->samplingLine(localGround, origin + rotation * (center - deltaY), -UNITZ_VEC3, point_vec[3], normal_tmp, friction_vec[3]))
+
+    vec3  lineDirection(rotation * (-UNITZ_VEC3));
+    int sampling = true;
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaX), lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaX), lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaY), lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
+    
+    contactPoint = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    
+    if ( sampling && (ribCenterGround - contactPoint).norm() <= radius )
     {
-      contactPoint    = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
-      contactNormal   = ( (ribCenterGround - contactPoint).normalized() +
-                          ribNormalGround*ribNormalGround.dot(((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized())
+      contactNormal   = ((ribCenterGround - contactPoint).normalized() +
+                        ribNormalGround*ribNormalGround.dot(((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized())
                         ).normalized();
       contactFriction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
       contactDepth    = radius - (contactPoint - ribCenterGround).norm();
@@ -504,16 +510,20 @@ namespace enve
     std::vector<real>  friction_vec(4);
     vec3  ribNormalGround(rotation * this->normal());
     point ribCenterGround(origin + rotation * center);
-    if (
-        this->samplingLine(localGround, origin + rotation * (center + deltaX), -UNITZ_VEC3, point_vec[0], normal_tmp, friction_vec[0]) &&
-        this->samplingLine(localGround, origin + rotation * (center - deltaX), -UNITZ_VEC3, point_vec[1], normal_tmp, friction_vec[1]) &&
-        this->samplingLine(localGround, origin + rotation * (center + deltaY), -UNITZ_VEC3, point_vec[2], normal_tmp, friction_vec[2]) &&
-        this->samplingLine(localGround, origin + rotation * (center - deltaY), -UNITZ_VEC3, point_vec[3], normal_tmp, friction_vec[3])
-       )
+
+    vec3  lineDirection(rotation * (-UNITZ_VEC3));
+    bool sampling = true;
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaX), lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaX), lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaY), lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
+    
+    contactPoint = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    
+    if ( sampling && (ribCenterGround - contactPoint).norm() <= radius )
     {
-      contactPoint    = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
-      contactNormal   = ( (ribCenterGround - contactPoint).normalized() +
-                          ribNormalGround*ribNormalGround.dot(((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized())
+      contactNormal   = ((ribCenterGround - contactPoint).normalized() +
+                        ribNormalGround*ribNormalGround.dot(((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized())
                         ).normalized();
       contactFriction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
       contactDepth    = radius - (contactPoint - ribCenterGround).norm();
@@ -554,7 +564,7 @@ namespace enve
     bool               int_bool = false;
     for (size_t i = 0; i < localGround.size(); ++i)
     {
-      if (intersection(line(origin, direction), *localGround[i], point_tmp, EPSILON_LOW))
+      if (acme::intersection(line(origin, direction), *localGround[i], point_tmp, EPSILON_LOW))
       {
         point_vec.push_back(point_tmp);
         normal_vec.push_back(localGround[i]->normal());
@@ -616,7 +626,7 @@ namespace enve
   ) 
     const
   {
-    if (intersection(line(origin, direction), localGround, contactPoint, EPSILON_LOW))
+    if (acme::intersection(line(origin, direction), localGround, contactPoint, EPSILON_LOW))
     {
       contactNormal   = localGround.normal();
       contactFriction = localGround.friction();

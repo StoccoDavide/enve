@@ -62,17 +62,17 @@ main()
     road.print("bin/OutMesh.txt");
 
     // Initialize the tire shell
-    shell tire_shell(4,     // ribs number
+    shell tire_shell(5,      // ribs number
                      0.3130, // r_x
                      4.0,    // m_x
                      4.0,    // r_y
                      4.0,    // m_y
-                     0.1    // l_y
+                     0.1     // l_y
     );
 
     // Orient the tire in the space
     real yaw_angle    = 0.1 * PI;
-    real camber_angle = 0.01 * PI;
+    real camber_angle = 0.1 * PI;
     real pitch_angle  = 0.0 * PI;
 
     // Create frame object

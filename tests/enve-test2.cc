@@ -84,7 +84,7 @@ main()
 
     // Orient the tire in the space
     real yaw_angle    = 0.0 * PI;
-    real camber_angle = 0.1 * PI;
+    real camber_angle = 0.0 * PI;
     real pitch_angle  = 0.0 * PI;
 
     // Create frame object

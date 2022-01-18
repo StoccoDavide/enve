@@ -887,11 +887,8 @@ namespace enve
 
     os << "Ribs info:" << std::endl;
     for (size_t i = 0; i < relative_angles_vec.size(); ++i)
-      os << "Rib " << i << std::endl
-         << "radius = " << this->m_ribs[i].radius() << "m" << std::endl
-         << "center = " << this->m_ribs[i].center();
-    os << std::endl;
-
+      os << "Rib " << i << " - R = " << this->m_ribs[i].radius() << "m" << std::endl
+         << "      - C =" << this->m_ribs[i].center();
     os << "Contact parameters:" << std::endl
        << "Shell maximum radius" << std::endl
        << "R = " << this->m_shape->surfaceMaxRadius() << " m" << std::endl
@@ -901,11 +898,37 @@ namespace enve
        << "ß = " << euler_angles.z() / PI << "pi rad" << std::endl
        << "Yaw angle" << std::endl
        << "α = " << euler_angles.x() / PI << "pi rad" << std::endl
-       << "Normal contact point vector of the local track plane (absolute reference frame)" << std::endl
-       << "N = " << normal.transpose() << std::endl
-       << "Local contact point on mesh (absolute reference frame)" << std::endl
+       << "Contact point (absolute reference frame)" << std::endl
        << "P = " << point.transpose() << std::endl
-       << "Contact reference frame" << std::endl
+       << "Contact point (absolute reference frame)" << std::endl;
+    for (size_t i = 0; i < point_vec.size(); ++i)
+      os << "Rib " << i << " - P = " << point_vec[i].transpose() << " m" << std::endl;
+    os << "Contact normal (absolute reference frame)" << std::endl
+       << "N = " << normal.transpose() << std::endl
+       << "Contact normal vector (absolute reference frame)" << std::endl;
+    for (size_t i = 0; i < normal_vec.size(); ++i)
+      os << "Rib " << i << " - N = " << normal_vec[i].transpose() << std::endl;
+    os << "Contact point friction" << std::endl
+       << "f = " << friction << std::endl
+       << "Contact point friction vector" << std::endl;
+    for (size_t i = 0; i < friction_vec.size(); ++i)
+      os << "Rib " << i << " - f = " << friction_vec[i] << std::endl;
+    os << "Contact depth (on average point)" << std::endl
+       << "d = " << depth << " m" << std::endl
+       << "Contact depth vector" << std::endl;
+    for (size_t i = 0; i < depth_vec.size(); ++i)
+      os << "Rib " << i << " - d = " << depth_vec[i] << " m" << std::endl;
+    os << "Contact area (total)" << std::endl
+       << "A = " << area << " m^2" << std::endl
+       << "Contact area vector" << std::endl;
+    for (size_t i = 0; i < area_vec.size(); ++i)
+      os << "Rib " << i << " - A = " << area_vec[i] << " m^2" << std::endl;
+    os << "Contact volume (total)" << std::endl
+       << "V = " << volume << " m^3" << std::endl
+       << "Contact volume vector" << std::endl;
+    for (size_t i = 0; i < volume_vec.size(); ++i)
+      os << "Rib " << i << " - V = " << volume_vec[i] << " m^3" << std::endl;
+    os << "Contact reference frame" << std::endl
        << this->m_affine.matrix() << std::endl
        << "Local contact point reference frame" << std::endl
        << point_affine.matrix() << std::endl
@@ -913,36 +936,8 @@ namespace enve
        << "[Γ ß α]' = " << relative_angles.transpose() / PI << "pi rad" << std::endl
        << "Ribs relative pose angles" << std::endl;
     for (size_t i = 0; i < relative_angles_vec.size(); ++i)
-      os << "Rib " << i << ", [Γ ß α]' = " << relative_angles_vec[i].transpose() / PI << "pi rad" << std::endl;
-    os << "Contact point friction" << std::endl
-       << "f = " << friction << std::endl
-       << "Contact point friction vector" << std::endl
-       << "f = ";
-    for (size_t i = 0; i < friction_vec.size(); ++i)
-      os << friction_vec[i] << " ";
-    os << std::endl
-       << "Contact depth (on average point)" << std::endl
-       << "d = " << depth << " m" << std::endl
-       << "Contact depth vector" << std::endl
-       << "d = ";
-    for (size_t i = 0; i < depth_vec.size(); ++i)
-      os << depth_vec[i] << " ";
-    os << " m" << std::endl
-       << "Contact area (total)" << std::endl
-       << "A = " << area << " m^2" << std::endl
-       << "Contact area vector" << std::endl
-       << "A = ";
-    for (size_t i = 0; i < area_vec.size(); ++i)
-      os << area_vec[i] << " ";
-    os << " m^2" << std::endl
-       << "Contact volume (total)" << std::endl
-       << "V = " << volume << " m^3" << std::endl
-       << "Contact volume vector" << std::endl
-       << "V = ";
-    for (size_t i = 0; i < volume_vec.size(); ++i)
-      os << volume_vec[i] << " ";
-    os << " m^3" << std::endl
-     << std::endl;
+      os << "Rib " << i << " - [Γ ß α]' = " << relative_angles_vec[i].transpose() / PI << "pi rad" << std::endl;
+    os << std::endl;
     
     os << " ------------     END     ------------" << std::endl
        << std::endl;
