@@ -483,10 +483,10 @@
         </inbodydescription>
         <location file="enve_shell.m" line="226" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1afa0c9694b14f4b5cbbddf87511672c93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1afe2212217c41d334a2867dc65f8d2850" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::setupFlat</definition>
-        <argsstring>(in this, in flat, in transform)</argsstring>
+        <argsstring>(in this, in flat, in transform, in method)</argsstring>
         <name>setupFlat</name>
         <param>
           <type>in</type>
@@ -500,6 +500,10 @@
           <type>in</type>
           <declname>transform</declname>
         </param>
+        <param>
+          <type>in</type>
+          <declname>method</declname>
+        </param>
         <briefdescription>
 <para>Intersect shell with flat terrain. </para>
         </briefdescription>
@@ -509,10 +513,10 @@
         </inbodydescription>
         <location file="enve_shell.m" line="234" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1a3f3f67107fd44d65f0c15607789e604d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1ad31aa048380ec00e3cf663969e3274c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::setupMesh</definition>
-        <argsstring>(in this, in mesh, in transform, in threshold, in method)</argsstring>
+        <argsstring>(in this, in mesh, in transform, in method)</argsstring>
         <name>setupMesh</name>
         <param>
           <type>in</type>
@@ -528,14 +532,10 @@
         </param>
         <param>
           <type>in</type>
-          <declname>threshold</declname>
-        </param>
-        <param>
-          <type>in</type>
           <declname>method</declname>
         </param>
         <briefdescription>
-<para>Intersect shell with mesh. </para>
+<para>Intersect shell with mesh terrain. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -583,18 +583,14 @@
         </inbodydescription>
         <location file="enve_shell.m" line="259" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1adbaedea5345da8fc80936d86848029ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1a9d029ca815000e7e604ae419da862a45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::contactPointVec</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this)</argsstring>
         <name>contactPointVec</name>
         <param>
           <type>in</type>
           <declname>this</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>i</declname>
         </param>
         <briefdescription>
 <para>Get shell contact point an ACME point vector. </para>
@@ -645,18 +641,14 @@
         </inbodydescription>
         <location file="enve_shell.m" line="287" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1a1257cab9ea9cb0474c04d994a1b84655" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1a24d3bf99a488442e1bca635e9278e268" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::contactNormalVec</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this)</argsstring>
         <name>contactNormalVec</name>
         <param>
           <type>in</type>
           <declname>this</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>i</declname>
         </param>
         <briefdescription>
 <para>Get shell contact normal vector. </para>
@@ -707,11 +699,11 @@
         </inbodydescription>
         <location file="enve_shell.m" line="314" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1a2d612de9fa521e065321ec875f5d84e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1af8ff42365811f336551ffc142f16008d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
-        <definition>function enve_shell::contactDepthAvg</definition>
+        <definition>function enve_shell::contactDepthVec</definition>
         <argsstring>(in this)</argsstring>
-        <name>contactDepthAvg</name>
+        <name>contactDepthVec</name>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -765,18 +757,14 @@
         </inbodydescription>
         <location file="enve_shell.m" line="341" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1a51ee4b04ef3d3f44084d9e2c78ecaf2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1a705307712a8de7f7eabf18434e3e3d8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::contactFrictionVec</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this)</argsstring>
         <name>contactFrictionVec</name>
         <param>
           <type>in</type>
           <declname>this</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>i</declname>
         </param>
         <briefdescription>
 <para>Get shell contact friction vector (-) </para>
@@ -827,18 +815,14 @@
         </inbodydescription>
         <location file="enve_shell.m" line="368" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1a067603398e4efc71856dcc69e2465b95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1aebbf8020a875a8ee97ef13d1a30af695" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::contactAreaVec</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this)</argsstring>
         <name>contactAreaVec</name>
         <param>
           <type>in</type>
           <declname>this</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>i</declname>
         </param>
         <briefdescription>
 <para>Get shell contact area vector (m^2) </para>
@@ -889,18 +873,14 @@
         </inbodydescription>
         <location file="enve_shell.m" line="395" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1a70609cb4aedad67e4938cd21e8aa334d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1aa1ddd83b0d2be108c16a2146b33bc1b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::contactVolumeVec</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this)</argsstring>
         <name>contactVolumeVec</name>
         <param>
           <type>in</type>
           <declname>this</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>i</declname>
         </param>
         <briefdescription>
 <para>Get shell contact volume vector (m^3) </para>
@@ -951,18 +931,14 @@
         </inbodydescription>
         <location file="enve_shell.m" line="422" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1a798fa34383260dd6381a8476d3af03e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1a55ff92cf76c4b6985b2569f6d2ff0e01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::relativeAnglesVec</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this)</argsstring>
         <name>relativeAnglesVec</name>
         <param>
           <type>in</type>
           <declname>this</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>i</declname>
         </param>
         <briefdescription>
 <para>Get shell relative angles vector (rad) (rotation sequence ZXY) </para>
@@ -1013,18 +989,14 @@
         </inbodydescription>
         <location file="enve_shell.m" line="449" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1aef497d53a33a5fc7636fbb2136c9c1ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1aa95273d18af30c28cea0367aa6684d70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::contactPointAffineVec</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this)</argsstring>
         <name>contactPointAffineVec</name>
         <param>
           <type>in</type>
           <declname>this</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>i</declname>
         </param>
         <briefdescription>
 <para>Get shell contact point affine vector. </para>
@@ -1400,25 +1372,25 @@
     <listofallmembers>
       <member refid="a00025_1a51454dad6785de69f163fb86d08b3df0" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactAreaAvg</name></member>
       <member refid="a00025_1afb657f3e596c5e6a23e00340b5d87e0b" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactAreaRib</name></member>
-      <member refid="a00025_1a067603398e4efc71856dcc69e2465b95" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactAreaVec</name></member>
-      <member refid="a00025_1a2d612de9fa521e065321ec875f5d84e8" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactDepthAvg</name></member>
+      <member refid="a00025_1aebbf8020a875a8ee97ef13d1a30af695" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactAreaVec</name></member>
       <member refid="a00025_1a2d612de9fa521e065321ec875f5d84e8" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactDepthAvg</name></member>
       <member refid="a00025_1a23bf79fa4731992bd361f78c680b762d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactDepthRib</name></member>
+      <member refid="a00025_1af8ff42365811f336551ffc142f16008d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactDepthVec</name></member>
       <member refid="a00025_1a77b0813485463ee72b3266d778fab58a" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactFrictionAvg</name></member>
       <member refid="a00025_1ad6828fd508de5c3ca6044247155e92a9" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactFrictionRib</name></member>
-      <member refid="a00025_1a51ee4b04ef3d3f44084d9e2c78ecaf2a" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactFrictionVec</name></member>
+      <member refid="a00025_1a705307712a8de7f7eabf18434e3e3d8b" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactFrictionVec</name></member>
       <member refid="a00025_1a5059c1630d0dbbc93bf2f091f6927257" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactNormalAvg</name></member>
       <member refid="a00025_1a4ad295524632fa37fc72a4452c4374cd" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactNormalRib</name></member>
-      <member refid="a00025_1a1257cab9ea9cb0474c04d994a1b84655" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactNormalVec</name></member>
+      <member refid="a00025_1a24d3bf99a488442e1bca635e9278e268" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactNormalVec</name></member>
       <member refid="a00025_1a74d7672e220d722115517801684ef83c" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointAffineAvg</name></member>
       <member refid="a00025_1a3d882b5715fd5219509b583d20ad98bb" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointAffineRib</name></member>
-      <member refid="a00025_1aef497d53a33a5fc7636fbb2136c9c1ba" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointAffineVec</name></member>
+      <member refid="a00025_1aa95273d18af30c28cea0367aa6684d70" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointAffineVec</name></member>
       <member refid="a00025_1a436ee4b45d6af5a53c461a32ce67aa36" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointAvg</name></member>
       <member refid="a00025_1ab4f84ee92bb8d0ee9809d4c1d9cf88e4" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointRib</name></member>
-      <member refid="a00025_1adbaedea5345da8fc80936d86848029ae" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointVec</name></member>
+      <member refid="a00025_1a9d029ca815000e7e604ae419da862a45" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactPointVec</name></member>
       <member refid="a00025_1a9e19e86f7f18c2e2553c3a1ac71801fc" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactVolumeAvg</name></member>
       <member refid="a00025_1af35c6f5768cc225953602f2858071f3b" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactVolumeRib</name></member>
-      <member refid="a00025_1a70609cb4aedad67e4938cd21e8aa334d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactVolumeVec</name></member>
+      <member refid="a00025_1aa1ddd83b0d2be108c16a2146b33bc1b4" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactVolumeVec</name></member>
       <member refid="a00025_1ab5f15015afdb914a686e64633437ab85" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>disp</name></member>
       <member refid="a00025_1ae4ec76596975e605869e110efa93c79c" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>enve_shell</name></member>
       <member refid="a00025_1ade6f32e5537a6fe93d9f8a9fc62afc64" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>eulerAngles</name></member>
@@ -1430,7 +1402,7 @@
       <member refid="a00025_1aaefb38aedfd9057d176f922e946f7d42" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>profile</name></member>
       <member refid="a00025_1a8e049285212d180275e00865ce46823d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>relativeAnglesAvg</name></member>
       <member refid="a00025_1a07e0d12b253fe3fa3a0c48a20f50dbc5" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>relativeAnglesRib</name></member>
-      <member refid="a00025_1a798fa34383260dd6381a8476d3af03e2" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>relativeAnglesVec</name></member>
+      <member refid="a00025_1a55ff92cf76c4b6985b2569f6d2ff0e01" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>relativeAnglesVec</name></member>
       <member refid="a00025_1a6841fda716c431a2ab33f1efba7d993d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>resize</name></member>
       <member refid="a00025_1acc459cb2394d434a2368f110f1df9acb" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>ribCenter</name></member>
       <member refid="a00025_1a313f611cc616e968b2ca38a3f1f8548d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>ribRadius</name></member>
@@ -1438,8 +1410,8 @@
       <member refid="a00025_1a5fe827499a047c00c02823ad5ad53ed5" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>ribWidth</name></member>
       <member refid="a00025_1a634f660a34ac5fa02664178f3a5c180e" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>rotate</name></member>
       <member refid="a00025_1a53e01c5934e8537ba90831abe321dffd" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>rotation</name></member>
-      <member refid="a00025_1afa0c9694b14f4b5cbbddf87511672c93" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>setupFlat</name></member>
-      <member refid="a00025_1a3f3f67107fd44d65f0c15607789e604d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>setupMesh</name></member>
+      <member refid="a00025_1afe2212217c41d334a2867dc65f8d2850" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>setupFlat</name></member>
+      <member refid="a00025_1ad31aa048380ec00e3cf663969e3274c9" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>setupMesh</name></member>
       <member refid="a00025_1a621eac86df948df8398f9a8bb3c4c2ac" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shapeTplot</name></member>
       <member refid="a00025_1a968774a42f9a1dc4a2aae8f079598877" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellRibs</name></member>
       <member refid="a00025_1a77d494f0dacab4d6a8745400cf98232f" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellShape</name></member>

@@ -67,12 +67,12 @@ def.HostLibFiles = { lib_name };
 %% Functions interface
 
 def.StartFcnSpec = [ 'void sfun_init(', ...
-                     'double p1[1]) ',  ... % Ribs number
+                     'double p1[1], ',  ... % Ribs number
                      'double p2[1], ',  ... % Shell radius on x axis (m) 
                      'double p3[1], ',  ... % Shell curve degree for x axis 
                      'double p4[1], ',  ... % Shell radius on y axis (m) 
                      'double p5[1], ',  ... % Shell curve degree for y axis 
-                     'double p6[1], ',  ... % Shell half width on y axis (m) 
+                     'double p6[1]) ',  ... % Shell half width on y axis (m) 
                    ];
 
 def.OutputFcnSpec = [ 'void sfun_out(', ...

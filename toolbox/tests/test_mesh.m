@@ -4,9 +4,9 @@ close all;
 
 %% Create mesh from *.rdf
 
-m1 = enve_mesh('../../files_rdf/Eight.rdf');
+m1 = enve_mesh('../../files_rdf/sample.rdf');
 
-m1.getTriangleroad(1);
+m1.getTriangleground(1);
 
 % % Plot output
 
@@ -15,9 +15,9 @@ m1.plot(out1, [0.863 0.863 0.863])
 
 %% Create mesh from *.obj
 
-m2 = enve_mesh('../../files_obj/Gap_100mm_low_res.obj', 1.0);
+m2 = enve_mesh('../../files_obj/sample.obj', 1.0);
 
-m2.getTriangleroad(1);
+m2.getTriangleground(1);
 
 % % Plot output
 

@@ -202,13 +202,6 @@
       <span class="n">updateBBoxes</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
       <span class="kt">void</span>
-      <span class="nf">generateVertices</span><span class="p">(</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">inodes</span><span class="p">,</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>        <span class="o">&amp;</span><span class="n">icurline</span><span class="p">,</span>
-        <span class="n">point</span>                     <span class="n">overts</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-      <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-      <span class="kt">void</span>
       <span class="nf">split</span><span class="p">(</span>
         <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>        <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span>
         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span>
@@ -225,17 +218,6 @@
         <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">in</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-      <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
-      <span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span>
-      <span class="n">element</span><span class="p">(</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">elements</span><span class="p">,</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>    <span class="o">&amp;</span><span class="n">index</span><span class="p">)</span>
-        <span class="k">const</span>
-      <span class="p">{</span>
-        <span class="n">integer</span> <span class="n">id</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>
-        <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">id</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::element(): element indexes cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="k">return</span> <span class="n">elements</span><span class="p">[</span><span class="n">id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-      <span class="p">}</span>
     <span class="p">};</span>
 
   <span class="p">}</span> <span class="c1">// namespace ground</span>

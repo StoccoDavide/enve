@@ -44,11 +44,9 @@
     <member refid="a00051_1a3ea6a087aca29a26810c4714ea9c7bbd" kind="function"><name>intersection</name></member>
     <member refid="a00051_1a02f9e924e717939b06a1d06f00f073b2" kind="function"><name>intersection</name></member>
     <member refid="a00051_1a5ab2a04622d3b2d28df6b25b18e83f4d" kind="function"><name>updateBBoxes</name></member>
-    <member refid="a00051_1a73a27fad135182337448ae2a9fd94143" kind="function"><name>generateVertices</name></member>
     <member refid="a00051_1a1e754cb9ca2f6fae552ca523ac7ccf36" kind="function"><name>split</name></member>
     <member refid="a00051_1aaf90a36984830084ea73e8b27f11196f" kind="function"><name>tail</name></member>
     <member refid="a00051_1aea68871e91b61586560848ed2428dcd9" kind="function"><name>firstToken</name></member>
-    <member refid="a00051_1a08d0c806c6b281e1aa654a8714491e65" kind="function"><name>element</name></member>
   </compound>
   <compound refid="a00055" kind="class"><name>enve::rib</name>
     <member refid="a00055_1aaa9b09748c9ba3b5474eebaa2e847e4c" kind="typedef"><name>ptr</name></member>
@@ -158,8 +156,8 @@
     <member refid="a00063_1a1de4c83db18282e37892c7adb0224232" kind="function"><name>y</name></member>
     <member refid="a00063_1a79039f854236a5ae427da3f0868f988a" kind="function"><name>z</name></member>
     <member refid="a00063_1a3758f1248a4e9a9487682560d75ae823" kind="function"><name>eulerAngles</name></member>
-    <member refid="a00063_1ac6b5627fee5d8fd2be6290c1d445f030" kind="function"><name>AABB</name></member>
-    <member refid="a00063_1a6e3946d096eff30feca172673a19bb10" kind="function"><name>updateAABB</name></member>
+    <member refid="a00063_1ac9d1d2c263ae78a9b221120262cd9454" kind="function"><name>BBox</name></member>
+    <member refid="a00063_1a2752d2f553b89f2b722c14f98380b025" kind="function"><name>updateBBox</name></member>
     <member refid="a00063_1ad2f17102d34fe2239688b38bede9868b" kind="function"><name>setup</name></member>
     <member refid="a00063_1a6776c577268f032d0d158f74cc431d99" kind="function"><name>setup</name></member>
     <member refid="a00063_1a1117628a990224ce2537e5bcea64ce0f" kind="function"><name>contactPoint</name></member>

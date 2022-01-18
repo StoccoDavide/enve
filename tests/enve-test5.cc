@@ -21,8 +21,8 @@
 (***********************************************************************)
 */
 
-// TEST 3 - CHECK INTERSECTION WITH GENERIC PLANE DESCRIBED BY A NORMAL
-// AND A POINT IN THE THREE-DIMENSIONAL SPACE
+// TEST 1 - LOAD THE DATA FROM THE RDF FILE THEN PRINT IT INTO A TXT FILE.
+// LOAD TIRE DATA AND PERFORM THE INTERSECTION WITH THE CURRENT MESH
 
 #include <chrono>
 #include <fstream>
@@ -52,15 +52,14 @@ main()
     Utils::TicToc tictoc;
 
     std::cout << std::endl
-              << "ENVE TERRAIN SERVER TEST 3 - CHECK INTERSECTION WITH GENERIC PLANE" << std::endl
+              << "ENVE TERRAIN SERVER TEST 5 - CHECK INTERSECTION ON UNKNOWN MESH" << std::endl
               << std::endl;
 
-    // Plane data
-    vec3  plane_normal(0.0, 0.0, 1.0);
-    point plane_point(0.0, 0.0, 0.0);
-    real  plane_friction = 1.0;
+    // Load .rdf File
+    ground::mesh road("./files_rdf/sample.rdf");
 
-    ground::flat road(plane_point, plane_normal, plane_friction);
+    // Print OutMesh.txt file
+    road.print("bin/OutMesh.txt");
 
     // Initialize the tire shell
     shell tire_shell(5,   // ribs number
@@ -73,31 +72,30 @@ main()
 
     // Orient the tire in the space
     real yaw_angle    = 0.0 * PI;
-    real camber_angle = 0.1 * PI;
+    real camber_angle = 0.0 * PI;
     real pitch_angle  = 0.0 * PI;
 
     // Create frame object
     affine pose;
-    pose = translate(0.0, 0.0, 0.26) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(1e4, 1e4, 0.26) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();
 
     // Set an orientation and calculate parameters
-    bool out = tire_shell.setup(road, pose, "geometric");
+    tire_shell.setup(road, pose, "sampling");
 
     // Stop chronometer
     tictoc.toc();
 
     // Display current tire data on command line
-    if (out)
-      tire_shell.print(std::cout);
+    tire_shell.print(std::cout);
 
     // Output performance data
     std::cout << "Execution time = " << tictoc.elapsed_ms() * 1000 << " us" << std::endl
               << std::endl
               << "Check the results..." << std::endl
-              << "enve TERRAIN SERVER TEST 3: Completed" << std::endl
+              << "enve TERRAIN SERVER TEST 5: Completed" << std::endl
               << std::endl;
   }
   catch (std::exception const &exc)
@@ -106,6 +104,6 @@ main()
   }
   catch (...)
   {
-    std::cerr << "enve TERRAIN SERVER TEST 3: Unknown error" << std::endl;
+    std::cerr << "enve TERRAIN SERVER TEST 5: Unknown error" << std::endl;
   }
 }

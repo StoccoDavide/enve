@@ -592,7 +592,7 @@ static void
 do_setupFlat(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'setupFlat', OBJ, GROUND, AFFINE, METHOD ): "
-  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nrhs == 5, CMD "expected 5 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   enve::shell        *self   = DATA_GET(arg_in_1);
@@ -618,7 +618,7 @@ static void
 do_setupMesh(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'setupMesh', OBJ, GROUND, AFFINE, METHOD  ): "
-  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nrhs == 5, CMD "expected 5 inputs, nrhs = " << nrhs << '\n');
   MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
 
   enve::shell        *self   = DATA_GET(arg_in_1);

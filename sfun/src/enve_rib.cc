@@ -295,6 +295,10 @@ namespace enve
     vec3  contactNormal_tmp   = vec3::Constant(0.0);
     real  contactFriction_tmp = 0.0;
 
+    point contactPoint_iter    = point::Constant(0.0);
+    vec3  contactNormal_iter   = vec3::Constant(0.0);
+    real  contactFriction_iter = 0.0;
+
     vec3  ribNormalGround(rotation * this->normal());
     point ribCenterGround(origin + rotation * center);
     disk  ribGround(radius, ribCenterGround, ribNormalGround);
@@ -318,13 +322,11 @@ namespace enve
           FA = 0.0;
         }
         
-
         if (FC < -tolerance) {
           ENVE_ERROR("enve::rib::envelopGeometric(mesh, ...): FC less than 0.\n");
         } else if (FC < 0.0) {
           FC = 0.0;
         }
-        
         
         if (FB < -tolerance) {
           ENVE_ERROR("enve::rib::envelopGeometric(mesh, ...): FB less than 0.\n");
@@ -335,12 +337,16 @@ namespace enve
         segmentArea_tmp   = segmentLength_tmp/6 * (FA + 4*FC + FB);
         segmentAreaTotal += segmentArea_tmp;
 
-        contactPoint_tmp   = segmentArea_tmp * segmentLength_tmp/6 *
-                             (segment_tmp.vertex(0)*FA + 4*segment_tmp.centroid()*FC + segment_tmp.vertex(1)*FB);
-        contactNormal_tmp += segmentArea_tmp * ((ribCenterGround - contactPoint_tmp).normalized() +
-                             ribNormalGround*ribNormalGround.dot(localGround[i]->normal())
-                             ).normalized();
-        contactFriction_tmp += segmentArea_tmp * localGround[i]->friction();
+        contactPoint_iter    = (segment_tmp.vertex(0)*FA + 4*FC*segment_tmp.centroid() + segment_tmp.vertex(1)*FB) / (FA + 4*FC + FB);
+        contactNormal_iter   = ((ribCenterGround - contactPoint_iter).normalized() +
+                                ribNormalGround*ribNormalGround.dot(localGround[i]->normal())
+                                ).normalized();
+        contactFriction_iter = localGround[i]->friction();
+
+        contactPoint_tmp    += segmentArea_tmp * contactPoint_iter;
+        contactNormal_tmp   += segmentArea_tmp * contactNormal_iter;
+        contactFriction_tmp += segmentArea_tmp * contactFriction_iter;
+
       }
     }
     if (int_bool)
@@ -351,7 +357,7 @@ namespace enve
       }
 
       contactPoint    = contactPoint_tmp    / segmentAreaTotal;
-      contactNormal   = contactNormal_tmp   / segmentAreaTotal;
+      contactNormal   = (contactNormal_tmp   / segmentAreaTotal).normalized();
       contactFriction = contactFriction_tmp / segmentAreaTotal;
       contactDepth    = radius - (contactPoint - ribCenterGround).norm();
       contactArea     = segmentLengthTotal*width;
@@ -527,7 +533,7 @@ namespace enve
                         ).normalized();
       contactFriction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
       contactDepth    = radius - (contactPoint - ribCenterGround).norm();
-      contactArea     = 2*std::sqrt(contactDepth*(radius-contactDepth))*width;
+      contactArea     = 2*std::sqrt(contactDepth*(2*radius-contactDepth))*width;
       contactVolume   = (radius*radius*std::acos((radius-contactDepth)/radius) - 
                         (radius-contactDepth)*std::sqrt(contactDepth*(2*radius-contactDepth)))*width;
       return true;
