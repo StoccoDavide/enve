@@ -636,6 +636,33 @@ classdef enve_shell < handle
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get surface object mesh grid
+    function out = meshTireX( this )
+      W = this.surfaceWidth();
+      y = -W:W/50:W;
+      r = zeros(1, length(y));
+      for i = 1:length(y)
+        r(i) = this.surfaceRadius(y(i));
+      end
+      [X,Y,Z] = cylinder(r, 100);
+      X_new = zeros(height(X), length(X));
+      Y_new = zeros(height(X), length(X));
+      Z_new = zeros(height(X), length(X));
+      for i = 1:height(X)
+        for j = 1:length(X)
+          new = eye(4)*[Y(i,j) Z(i,j)*2*W-W X(i,j) 1]';
+          X_new(i,j) = new(1);
+          Y_new(i,j) = new(2);
+          Z_new(i,j) = new(3);
+        end
+      end
+      out.X = X_new;
+      out.Y = Y_new;
+      out.Z = Z_new;
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     %> Get object type as string
     function out = type( this )
       out = 'shell';

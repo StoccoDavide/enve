@@ -374,7 +374,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetArrayLayoutForCodeGen(S, SS_ALL);
 
     /* Set the Simulink version this S-Function has been generated in */
-    ssSetSimulinkVersionGeneratedIn(S, "10.4");
+    ssSetSimulinkVersionGeneratedIn(S, "10.2");
 
     /**
      * All options have the form SS_OPTION_<name> and are documented in
