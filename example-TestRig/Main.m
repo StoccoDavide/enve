@@ -40,6 +40,8 @@ setenv('ENVE_GROUND_PATH', ground_path);
 
 actuation_type = 1; % 1-> fixed; 2-> spring; 3-> controlled_Fz
 
-max_iteration = 100;
-threshold_Fz = 1;
+% Load the maneuver inputs
+
+load('inputs/standstill.mat');
+
 
