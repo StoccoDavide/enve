@@ -570,8 +570,8 @@ classdef enve_shell < handle
       N = this.size();
       for i = 1:N
         disk = acme_disk( this.ribRadius(i), ...
-                              this.ribCenter(i).get(), ...
-                              [0 1 0]' );
+                          this.ribCenter(i).get(), ...
+                          [0 1 0]' );
         disk.transform(T);
         disk.plot( figure_name, color );
       end

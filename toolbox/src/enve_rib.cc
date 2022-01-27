@@ -264,6 +264,33 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
+  rib::envelop(
+    affine const &affine_in,
+    point        &contactPoint,
+    vec3         &contactNormal,
+    real         &contactFriction,
+    real         &contactDepth,
+    real         &contactArea,
+    real         &contactVolume
+  ) 
+    const
+  {
+    point origin(affine_in.translation());
+    mat3  rotation(affine_in.linear());
+
+    contactPoint    = origin + rotation * (this->center() - point(0.0, 0.0, this->radius()));
+    contactNormal   = rotation * UNITZ_VEC3;
+    contactFriction = 0.0;
+    contactDepth    = 0.0;
+    contactArea     = 0.0;
+    contactVolume   = 0.0;
+
+    return false;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
   rib::envelopGeometric(
     triangleground::vecptr const &localGround,
     affine                 const &affine_in,

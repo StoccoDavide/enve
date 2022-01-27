@@ -41,6 +41,9 @@
 *.rdf
 *.obj
 
+# Maple
+*.bak
+
 # Folders
 build/*
 bin/*
