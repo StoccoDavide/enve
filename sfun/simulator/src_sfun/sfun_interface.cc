@@ -74,9 +74,9 @@ extern "C"
 
     std::string extension = ground_path.substr(ground_path.size() - 4, 4);
     enve::ground::mesh *ground;
-    if (extension != ".rdf")
+    if (extension == ".rdf")
       ground = new enve::ground::mesh(ground_path);
-    else if (extension != ".obj")
+    else if (extension == ".obj")
       ground = new enve::ground::mesh(ground_path, 1.0);
 
     shellVehicle *shell_rr = new shellVehicle();

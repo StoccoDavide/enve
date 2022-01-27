@@ -33,7 +33,7 @@ T = [ 0, 1, 0, 1.1e4; ...
       0, 0, 1, 0.28; ...
       0, 0, 0, 1 ];
 
-% obj.transform( T )
+obj.transform( T )
 % obj.translate([0 0 0.26]')
 % obj.rotate(pi/6, [1 0 0]')
 
