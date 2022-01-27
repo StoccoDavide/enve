@@ -159,6 +159,18 @@ namespace enve
       real       tolerance = EPSILON_LOW //!< Tolerance
     ) const;
 
+    //! Evaluate rib contact with no ground
+    bool
+    envelop(
+      affine const &affine_in,       //!< Input 4x4 affine transformation affine_in
+      point        &contactPoint,    //!< Contact point
+      vec3         &contactNormal,   //!< Contact normal
+      real         &contactFriction, //!< Contact friction
+      real         &contactDepth,    //!< Contact depth
+      real         &contactArea,     //!< Contact area
+      real         &contactVolume    //!< Contact volume
+    ) const;
+
     //! Evaluate rib contact with flat ground
     bool
     envelop(

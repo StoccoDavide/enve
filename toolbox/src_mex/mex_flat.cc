@@ -201,11 +201,7 @@ do_setOrigin(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   mwSize              rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real_type x = matrix_ptr[0];
-  real_type y = matrix_ptr[1];
-  real_type z = matrix_ptr[2];
-  self->origin();
-  acme::point(x, y, z);
+  self->origin() = acme::point(matrix_ptr[0], matrix_ptr[1], matrix_ptr[2]);
 #undef CMD
 }
 
@@ -241,10 +237,7 @@ do_setNormal(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   mwSize              rows, cols;
   matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
   MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
-  real_type x    = matrix_ptr[0];
-  real_type y    = matrix_ptr[1];
-  real_type z    = matrix_ptr[2];
-  self->normal() = acme::vec3(x, y, z);
+  self->normal() = acme::vec3(matrix_ptr[0], matrix_ptr[1], matrix_ptr[2]);
 #undef CMD
 }
 

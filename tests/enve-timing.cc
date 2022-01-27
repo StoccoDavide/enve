@@ -124,7 +124,7 @@ main()
       time_vec[i] = tictoc.elapsed_ms();
 
       // Update common variables
-      road.intersection(tire_shell.AABB(), triangles_list);
+      road.intersection(tire_shell.BBox(), triangles_list);
       triangles_list_size += triangles_list.size();
       pose.translate(step);
     }

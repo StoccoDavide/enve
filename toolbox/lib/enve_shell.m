@@ -204,15 +204,15 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Intersect shell with flat terrain
-    function out = setupFlat( this, flat, transform )
-      out = mex_shell( 'setupFlat', this.objectHandle, flat.objectHandle, transform );
+    function out = setupFlat( this, flat, transform, method )
+      out = mex_shell( 'setupFlat', this.objectHandle, flat.objectHandle, transform, method );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Intersect shell with mesh
-    function out = setupMesh( this, mesh, transform, threshold, method )
-      out = mex_shell( 'setupMesh', this.objectHandle, mesh.objectHandle, transform, threshold, method );
+    %> Intersect shell with mesh terrain
+    function out = setupMesh( this, mesh, transform, method )
+      out = mex_shell( 'setupMesh', this.objectHandle, mesh.objectHandle, transform, method );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -234,10 +234,10 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact point an ACME point vector
-    function out = contactPointVec( this, i )
-      out = [];
+    function out = contactPointVec( this )
+      out = cell(1,this.size());
       for i = 1:this.size()
-        out(i) = this.contactPointRib(i);
+        out{i} = this.contactPointRib(i);
       end
     end
     %
@@ -258,32 +258,32 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact normal vector
-    function out = contactNormalVec( this, i )
-      out = [];
+    function out = contactNormalVec( this )
+      out = cell(1,this.size());
       for i = 1:this.size()
-        out(i) = this.contactNormalRib(i);
+        out{i} = this.contactNormalRib(i);
       end
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact depth (m) 
-    function [out1, out2] = contactDepthAvg( this )
-      [out1, out2] = mex_shell( 'contactDepthAvg', this.objectHandle );
+    function out = contactDepthAvg( this )
+      out = mex_shell( 'contactDepthAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact depth for the i-th rib (m) 
-    function [out1, out2] = contactDepthRib( this, i )
-      [out1, out2] = mex_shell( 'contactDepthRib', this.objectHandle, i );
+    function out = contactDepthRib( this, i )
+      out = mex_shell( 'contactDepthRib', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact depth vector (m) 
-    function [out1, out2] = contactDepthAvg( this )
-      out = [];
+    function out = contactDepthVec( this )
+      out = zeros(1, this.size());
       for i = 1:this.size()
         out(i) = this.contactDepthRib(i);
       end
@@ -306,8 +306,8 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact friction vector (-)
-    function out = contactFrictionVec( this, i )
-      out = {};
+    function out = contactFrictionVec( this )
+      out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactFrictionRib(i);
       end
@@ -330,8 +330,8 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact area vector (m^2)
-    function out = contactAreaVec( this, i )
-      out = {};
+    function out = contactAreaVec( this )
+      out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactAreaRib(i);
       end
@@ -354,8 +354,8 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact volume vector (m^3)
-    function out = contactVolumeVec( this, i )
-      out = {};
+    function out = contactVolumeVec( this )
+      out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactVolumeRib(i);
       end
@@ -378,10 +378,10 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell relative angles vector (rad) (rotation sequence ZXY)
-    function out = relativeAnglesVec( this, i )
-      out = {};
+    function out = relativeAnglesVec( this )
+      out = cell(1,this.size());
       for i = 1:this.size()
-        out{i} = this.contactAnglesRib(i);
+        out{i} = this.relativeAnglesRib(i);
       end
     end
     %
@@ -402,8 +402,8 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact point affine vector
-    function out = contactPointAffineVec( this, i )
-      out = {};
+    function out = contactPointAffineVec( this )
+      out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactPointAffineRib(i);
       end
@@ -454,7 +454,7 @@ classdef enve_shell < handle
       Z_new = zeros(height(X), length(X));
       for i = 1:height(X)
         for j = 1:length(X)
-          new = T*[Y(i,j) Z(i,j)*W-W/2 X(i,j) 1]';
+          new = T*[Y(i,j) Z(i,j)*2*W-W X(i,j) 1]';
           X_new(i,j) = new(1);
           Y_new(i,j) = new(2);
           Z_new(i,j) = new(3);
@@ -570,8 +570,8 @@ classdef enve_shell < handle
       N = this.size();
       for i = 1:N
         disk = acme_disk( this.ribRadius(i), ...
-                              this.ribCenter(i).get(), ...
-                              [0 1 0]' );
+                          this.ribCenter(i).get(), ...
+                          [0 1 0]' );
         disk.transform(T);
         disk.plot( figure_name, color );
       end
@@ -620,7 +620,7 @@ classdef enve_shell < handle
       N = this.size();
       color_map = eval( strcat( 'colormap(', map_name, '(double(N)))' ) );
       for i = 1:N
-        T = this.contactPointRibAffine(i);
+        T = this.contactPointAffineRib(i);
         plane = acme_plane( [0 0 0]', [0 0 1]' );
         plane.transform(T);
         plane.plot( figure_name, color_map(i,:) );
@@ -632,6 +632,33 @@ classdef enve_shell < handle
       ylim([C(2)-R C(2)+R]);
       zlim([C(3)-R C(3)+R]);
       hold off;
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    %> Get surface object mesh grid
+    function out = meshTireX( this )
+      W = this.surfaceWidth();
+      y = -W:W/50:W;
+      r = zeros(1, length(y));
+      for i = 1:length(y)
+        r(i) = this.surfaceRadius(y(i));
+      end
+      [X,Y,Z] = cylinder(r, 100);
+      X_new = zeros(height(X), length(X));
+      Y_new = zeros(height(X), length(X));
+      Z_new = zeros(height(X), length(X));
+      for i = 1:height(X)
+        for j = 1:length(X)
+          new = eye(4)*[Y(i,j) Z(i,j)*2*W-W X(i,j) 1]';
+          X_new(i,j) = new(1);
+          Y_new(i,j) = new(2);
+          Z_new(i,j) = new(3);
+        end
+      end
+      out.X = X_new;
+      out.Y = Y_new;
+      out.Z = Z_new;
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

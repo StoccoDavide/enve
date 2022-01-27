@@ -86,9 +86,9 @@ shellVehicle::out(
 
   // Extract enveloping method
   std::string method_in;
-  if (*method == 1)
+  if (*method == 0)
     method_in = "geometric";
-  else if (*method == 2)
+  else if (*method == 1)
     method_in = "sampling";
   else
     method_in = "none";

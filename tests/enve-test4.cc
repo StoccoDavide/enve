@@ -78,7 +78,7 @@ main()
 
     // Create frame object
     affine pose;
-    pose = translate(0.0, 0.0, 0.3) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(0.0, 0.0, 0.6) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();

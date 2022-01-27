@@ -43,27 +43,34 @@ extern "C"
 
   void
   sfun_init(
+    const double *size,
     const double *r_x,
     const double *m_x,
     const double *r_y,
     const double *m_y,
-    const double *l_y,
-    const double *size
+    const double *l_y
   )
   {
-    char *envar_path_rdf = getenv("ENVE_RDF_PATH");
-    if (envar_path_rdf == NULL)
+    char *envar_ground_path = getenv("ENVE_GROUND_PATH");
+    if (envar_ground_path == NULL)
     {
-      std::cout << "Environment variable ENVE_RDF_PATH does not exist!" << std::endl;
+      std::cout << "Environment variable ENVE_GROUND_PATH does not exist!" << std::endl;
       return;
     }
 
-    std::string rdf_path(reinterpret_cast<char const *>(envar_path_rdf));
-    std::cout << "RDF path: " << rdf_path << std::endl;
-    enve::ground::mesh *ground = new enve::ground::mesh(rdf_path);
+    std::string ground_path(reinterpret_cast<char const *>(envar_ground_path));
+    
+    std::cout << "ENVE_GROUND_PATH: " << ground_path << std::endl;
+    
+    std::string extension = ground_path.substr(ground_path.size() - 4, 4);
+    enve::ground::mesh *ground;
+    if (extension == ".rdf")
+      ground = new enve::ground::mesh(ground_path);
+    else if (extension == ".obj")
+      ground = new enve::ground::mesh(ground_path, 1.0);
 
     shellVehicle *shell = new shellVehicle();
-    shell->init(r_x, m_x, r_y, m_y, l_y, size);
+    shell->init(size, r_x, m_x, r_y, m_y, l_y);
 
     ground_ptr = reinterpret_cast<void *>(ground);
     shell_ptr  = reinterpret_cast<void *>(shell);

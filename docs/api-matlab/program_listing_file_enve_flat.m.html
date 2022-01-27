@@ -132,7 +132,10 @@
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Set plane</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setPlane</span><span class="p">(</span> this, other_obj <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">mex_flat</span><span class="p">(</span><span class="w"> </span><span class="s">'setPlane'</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">objectHandle</span><span class="p">,</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">objectHandle</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">this</span><span class="p">.</span><span class="n">setOrigin</span><span class="p">(</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">getOrigin</span><span class="p">().</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">this</span><span class="p">.</span><span class="n">setNormal</span><span class="p">(</span><span class="w"> </span><span class="n">other_obj</span><span class="p">.</span><span class="n">getNormal</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% NOT WORKING ON MEX:</span><span class="w"></span>
+<span class="w">      </span><span class="c">% mex_flat( 'setPlane', this.objectHandle, other_obj.objectHandle );</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">%</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>

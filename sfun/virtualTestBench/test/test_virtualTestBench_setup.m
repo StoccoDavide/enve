@@ -7,17 +7,16 @@ addpath('./..');
 Simulink.importExternalCTypes('./../include_sfun/sfun_types.h');
 
 % Prepare input parameters
-p1 = 0.3;
-p2 = 4;
-p3 = 0.3;
-p4 = 4;
-p5 = 0.1;
-p6 = 5;
-p7 = 1000;
+p1 = 5;
+p2 = 0.3;
+p3 = 4.0;
+p4 = 4.0;
+p5 = 4.0;
+p6 = 0.1;
 
+p7 = 0;
 p8 = 1;
-p9 = 0.001;
 
 % ENVAR for TerrainServer
-rdf_path = [ pwd, '/../../../files_rdf/Eight.rdf' ];
-setenv('ENVE_RDF_PATH', rdf_path);
+ground_path = [ pwd, '/../../../files_rdf/sample.rdf' ];
+setenv('ENVE_GROUND_PATH', ground_path);

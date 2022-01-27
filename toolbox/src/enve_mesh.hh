@@ -181,14 +181,6 @@ namespace enve
       void
       updateBBoxes(void);
 
-      //! Generate vertices
-      void
-      generateVertices(
-        std::vector<point> const &inodes,   //!< Nodes list
-        std::string const        &icurline, //!< Current line
-        point                     overts[3] //!< Vertex
-      ) const;
-
       //! Split a string into a string array at a given token
       void
       split(
@@ -209,17 +201,6 @@ namespace enve
         std::string const &in //!< Input string
       ) const;
 
-      template <typename T>
-      T const &
-      element(
-        std::vector<T> const &elements,
-        std::string const    &index)
-        const
-      {
-        integer id = std::stoi(index);
-        ENVE_ASSERT(id > 0, "enve::element(): element indexes cannot be negative\n");
-        return elements[id - 1];
-      }
     };
 
   } // namespace ground

@@ -278,11 +278,11 @@ namespace enve
 
     //! Get shell bonding aabb as object pointer vector
     std::shared_ptr<aabb>
-    AABB(void) const;
+    BBox(void) const;
 
     //! Update shell bonding aabb
     void
-    updateAABB(void);
+    updateBBox(void);
 
     /*\
      |            _               

@@ -1,0 +1,5 @@
+# Simulink
+*.slxc
+
+# Folders
+/slprj/*

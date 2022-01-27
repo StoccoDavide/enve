@@ -68,16 +68,16 @@ def.HostLibFiles = { lib_name };
 
 def.StartFcnSpec = [ 'void sfun_init(', ...
                      'double p1[1], ',  ... % Ribs number
-                     'double p2[1], ',  ... % Front shell curve degree for x axis
-                     'double p3[1], ',  ... % Front shell radius on y axis (m)
-                     'double p4[1], ',  ... % Front shell curve degree for y axis
-                     'double p5[1], ',  ... % Front surface half width on y axis (m)
-                     'double p6[1], ',  ... % Rear shell radius on x axis (m)
-                     'double p7[1], ',  ... % Rear shell curve degree for x axis
-                     'double p8[1], ',  ... % Rear shell radius on y axis (m)
-                     'double p9[1], ',  ... % Rear shell curve degree for y axis
-                     'double p10[1], ', ... % Rear surface half width on y axis (m)
-                     'double p11[1], ', ... % Front shell radius on x axis (m)
+                     'double p2[1], ',  ... % Front shell radius on x axis (m)
+                     'double p3[1], ',  ... % Front shell curve degree for x axis
+                     'double p4[1], ',  ... % Front shell radius on y axis (m)
+                     'double p5[1], ',  ... % Front shell curve degree for y axis
+                     'double p6[1], ',  ... % Front shell half width on y axis (m)
+                     'double p7[1], ',  ... % Rear shell radius on x axis (m)
+                     'double p8[1], ',  ... % Rear shell curve degree for x axis
+                     'double p9[1], ',  ... % Rear shell radius on y axis (m)
+                     'double p10[1], ', ... % Rear shell curve degree for y axis
+                     'double p11[1], ', ... % Rear shell half width on y axis (m)
                      'double p12[1], ', ... % Flat ground surface height (m)
                      'double p13[1])',  ... % Flat ground surface friction scaling coefficient (-)
                    ];
@@ -96,5 +96,6 @@ def.TerminateFcnSpec = 'void sfun_end()';
 legacy_code('sfcn_cmex_generate', def);
 legacy_code('compile', def, {} );
 legacy_code('sfcn_tlc_generate', def);
+legacy_code('slblock_generate', def, def.SFunctionName);
 
 disp('---------------------------- DONE ----------------------------');

@@ -202,7 +202,8 @@ namespace enve
 
     bool
     mesh::load(
-      std::string const &path)
+      std::string const &path
+    )
     {
       // Check if the file is an ".rdf" file, if not return false
       if (path.substr(path.size() - 4, 4) != ".rdf")
@@ -277,14 +278,25 @@ namespace enve
         if (elements_parse)
         {
           // Generate the triangle vertices from the elements
-          point iverts[3];
-          this->generateVertices(nodes, curline, iverts);
-          // Get the triangle friction from current line
-          std::vector<std::string> curlinevec;
-          this->split(curline, curlinevec, " ");
-          real ifriction = std::stod(curlinevec[4]);
+          std::vector<std::string> spos;
+          std::vector<integer>     ipos(3);
+          real ifriction;
+          this->split(curline, spos, " ");
+          ipos[0]   = std::stoi(spos[0]) - 1;
+          ipos[1]   = std::stoi(spos[1]) - 1;
+          ipos[2]   = std::stoi(spos[2]) - 1;
+          ifriction = std::stod(spos[3]);
+          ENVE_ASSERT(ipos[0] >= 0, "enve::ground::load(path): element 0 index cannot be negative\n");
+          ENVE_ASSERT(ipos[1] >= 0, "enve::ground::load(path): element 1 index cannot be negative\n");
+          ENVE_ASSERT(ipos[2] >= 0, "enve::ground::load(path): element 2 index cannot be negative\n");
+          ENVE_ASSERT(ifriction >= 0, "enve::ground::load(path): element friction cannot be negative\n");
+
           // Create a shared pointer for the last triangle and push it in the pointer vector
-          this->m_triangles.push_back(std::make_shared<triangleground const>(iverts, ifriction));
+          this->m_triangles.push_back(std::make_shared<triangleground const>(nodes[ipos[0]], 
+                                                                             nodes[ipos[1]], 
+                                                                             nodes[ipos[2]], 
+                                                                             ifriction));
+          continue;
         }
       }
 #ifdef ENVE_CONSOLE_OUTPUT
@@ -317,7 +329,8 @@ namespace enve
     bool
     mesh::load(
       std::string const &path,
-      real               friction)
+      real               friction
+    )
     {
       // Check if the file is an ".obj" file, if not return false
       if (path.substr(path.size() - 4, 4) != ".obj")
@@ -367,13 +380,21 @@ namespace enve
         else if (token == "f")
         {
           // Generate the triangle vertices from the elements
-          point iverts[3];
-          this->generateVertices(nodes, curline, iverts);
-          // Get the triangle friction from current line
-          std::vector<std::string> curlinevec;
-          this->split(curline, curlinevec, " ");
+          std::vector<std::string> spos;
+          std::vector<integer>     ipos(3);
+          this->split(this->tail(curline), spos, " ");
+          ipos[0] = std::stoi(spos[0]) - 1;
+          ipos[1] = std::stoi(spos[1]) - 1;
+          ipos[2] = std::stoi(spos[2]) - 1;
+          ENVE_ASSERT(ipos[0] >= 0, "enve::ground::load(path, friction): element 0 index cannot be negative\n");
+          ENVE_ASSERT(ipos[1] >= 0, "enve::ground::load(path, friction): element 1 index cannot be negative\n");
+          ENVE_ASSERT(ipos[2] >= 0, "enve::ground::load(path, friction): element 2 index cannot be negative\n");
+
           // Create a shared pointer for the last triangle and push it in the pointer vector
-          this->m_triangles.push_back(std::make_shared<triangleground const>(iverts, friction));
+          this->m_triangles.push_back(std::make_shared<triangleground const>(nodes[ipos[0]], 
+                                                                             nodes[ipos[1]], 
+                                                                             nodes[ipos[2]], 
+                                                                             friction));
           continue;
         }
         else if (token[0] == '%' || token[0] == '#' || token[0] == '\r')
@@ -467,28 +488,6 @@ namespace enve
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     void
-    mesh::generateVertices(
-      std::vector<point> const &inodes,
-      std::string const        &icurline,
-      point                     overts[3])
-      const
-    {
-      std::vector<std::string> svert;
-      point                    vvert;
-      this->split(icurline, svert, " ");
-
-      size_t control_size = svert.size() - 4;
-      for (size_t i = 1; i < svert.size() - control_size; ++i)
-      {
-        // Calculate and store the vertex
-        vvert         = this->element(inodes, svert[i]);
-        overts[i - 1] = vvert;
-      }
-    }
-
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    void
     mesh::split(
       std::string const        &in,
       std::vector<std::string> &out,
@@ -496,33 +495,33 @@ namespace enve
       const
     {
       out.clear();
-      std::string temp;
+      std::string tmp;
 
       for (size_t i = 0; i < in.size(); ++i)
       {
         std::string test = in.substr(i, token.size());
         if (test == token)
         {
-          if (!temp.empty())
+          if (!tmp.empty())
           {
-            out.push_back(temp);
-            temp.clear();
+            out.push_back(tmp);
+            tmp.clear();
             i += token.size() - 1;
           }
           else
           {
-            out.push_back("");
+            //out.push_back("");
           }
         }
         else if (i + token.size() >= in.size())
         {
-          temp += in.substr(i, token.size());
-          out.push_back(temp);
+          tmp += in.substr(i, token.size());
+          out.push_back(tmp);
           break;
         }
         else
         {
-          temp += in[i];
+          tmp += in[i];
         }
       }
     }

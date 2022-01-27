@@ -87,7 +87,10 @@ classdef enve_flat < handle
     %
     %> Set plane
     function setPlane( this, other_obj )
-      mex_flat( 'setPlane', this.objectHandle, other_obj.objectHandle );
+      this.setOrigin( other_obj.getOrigin().get() )
+      this.setNormal( other_obj.getNormal() )
+      % NOT WORKING ON MEX:
+      % mex_flat( 'setPlane', this.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

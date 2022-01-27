@@ -66,7 +66,7 @@ namespace enve
   {
     this->m_affine.matrix() = IDENTITY_MAT4;
     this->resize(size);
-    this->updateAABB();
+    this->updateBBox();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -80,7 +80,7 @@ namespace enve
   {
     this->m_affine.matrix() = IDENTITY_MAT4;
     this->resize(size);
-    this->updateAABB();
+    this->updateBBox();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -124,7 +124,7 @@ namespace enve
       this->m_ribs[i] = rib(ribR, point(0.0, ribY, 0.0), vec3(0.0, 1.0, 0.0), ribW, ribA);
     }
     // Update bounding aabb
-    this->updateAABB();
+    this->updateBBox();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -404,7 +404,7 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   
   std::shared_ptr<aabb>
-  shell::AABB(void)
+  shell::BBox(void)
     const
   {
     return this->m_aabb;
@@ -413,7 +413,7 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  shell::updateAABB(void)
+  shell::updateBBox(void)
   {
     real  radius = this->m_shape->surfaceMaxRadius();
     point origin(this->m_affine.translation());
@@ -446,7 +446,7 @@ namespace enve
     // Set the new reference frame
     this->m_affine = affine_in;
     // Shell Shadow update
-    this->updateAABB();
+    this->updateBBox();
     // Local intersected triangles vector
     triangleground::vecptr localGround;
     ground.intersection(this->m_aabb, localGround);
@@ -454,17 +454,10 @@ namespace enve
     // End setup if there are no intersections
     if (localGround.size() < 1)
     {
-      std::cout << "enve::setup(mesh, affine, threshold, method): WARNING No mesh detected under the shell.\n";
-      return false;
-    }
-    else
-    {
-      // Perform intersection on all ribs
+      // std::cout << "enve::setup(mesh, affine, threshold, method): WARNING No mesh detected under the shell.\n";
       for (size_t i = 0; i < this->size(); ++i)
       {
-        this->m_ribs[i].envelop(localGround,
-                                affine_in,
-                                method,
+        this->m_ribs[i].envelop(affine_in,
                                 this->m_point[i],
                                 this->m_normal[i],
                                 this->m_friction[i],
@@ -472,7 +465,25 @@ namespace enve
                                 this->m_area[i],
                                 this->m_volume[i]);
       }
-      return true;
+      return false;
+    }
+    else
+    {
+      // Perform intersection on all ribs
+      bool out = true;
+      for (size_t i = 0; i < this->size(); ++i)
+      {
+        out = out && this->m_ribs[i].envelop(localGround,
+                                             affine_in,
+                                             method,
+                                             this->m_point[i],
+                                             this->m_normal[i],
+                                             this->m_friction[i],
+                                             this->m_depth[i],
+                                             this->m_area[i],
+                                             this->m_volume[i]);
+      }
+      return out;
     }
   }
 
@@ -488,7 +499,7 @@ namespace enve
     // Set the new reference frame
     this->m_affine = affine_in;
     // Shell Shadow update
-    this->updateAABB();
+    this->updateBBox();
 
     // Perform intersection on all ribs
     for (size_t i = 0; i < this->size(); ++i)
@@ -928,7 +939,7 @@ namespace enve
        << "Contact volume vector" << std::endl;
     for (size_t i = 0; i < volume_vec.size(); ++i)
       os << "Rib " << i << " - V = " << volume_vec[i] << " m^3" << std::endl;
-    os << "Contact reference frame" << std::endl
+    os << "Shell reference frame" << std::endl
        << this->m_affine.matrix() << std::endl
        << "Local contact point reference frame" << std::endl
        << point_affine.matrix() << std::endl
