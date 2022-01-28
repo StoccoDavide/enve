@@ -4,9 +4,9 @@ The ENVE library
 **What is ENVE?**
 
 The ENVE library is a free software written in C++ (standard C++11) under the BSD 2-clause license.
-Its main purpose is to describe through very simple geometric entities goround surfaces and wheels (modeled
+Its main purpose is to describe through very simple geometric entities ground surfaces and tires (modeled
 as rigid shells), and to analyze the contact between them. More specifically, the surface (which can represent
-a road, a terrain or a railway) is described as a triangular mesh, while the wheel (or tire) is representesd 
+a road or a generic terrain) is described as a triangular mesh, while the tire is representesd 
 through a series of stacked disks (also called ribs). The intersection of the geometric entities that make up
 the road and tire allows us to analyze the shape of the road surface near the contact interface.
 
@@ -19,15 +19,14 @@ ENVE is an abbreviation (more or less fanciful) of ENveloping method for wheeled
 **What does ENVE do?**
 
 ENVE is software specifically developed to locally evaluate the contact between a triangular
-surface and a series of stacked disks (called ribs). It was initially designed to work in the
-automotive field, but since version 1.0 it is also possible to introduce custom wheel profiles.
-This allows to use this software also in the field of the railway simulation. 
+surface and a series of stacked disks (called ribs). It is specifically designed to serve the
+automotive field simulation.
 
 
 **How fast is ENVE?**
 
-ENVE can work with a Real-Time Factor (RTF)>20 (average result calculated on a mesh with 25k+ triangles, tire consisting of 10 ribs, refresh 
-rate of 1kHz and based on 28k samples [3]).
+ENVE can work with a Real-Time Factor (RTF) bigger than 20 (average result calculated on a mesh with 25k+ triangles,
+tire consisting of 10 ribs, refresh rate of 1kHz and based on 28k samples [3]).
 
 
 **Can I use ENVE on MATLAB environment?**
@@ -39,12 +38,14 @@ Yes. ENVE is provided with both a MATLAB MEX wrapper and a SIMULINK S-Function.
 
 Write to one of the authors, we will be happy to answer all your questions!
 
+
 3rd party libraries
 -------------------
 
 We rely on the migthy `Eigen3 <https://eigen.tuxfamily.org>`__ linear algebra
 template library, on the `ACME <https://github.com/StoccoDavide/acme>`__ 3D geometry library
 and on the `Utils <https://github.com/ebertolazzi/Utils>`__ library.
+
 
 Online documentation
 --------------------

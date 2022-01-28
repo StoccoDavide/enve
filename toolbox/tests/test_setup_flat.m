@@ -62,17 +62,17 @@ xlabel('x');
 ylabel('y');
 zlabel('z');
 
-% Test 3D shell tirex
+% Test 3D shell
 
 out3 = figure;
 subplot(1,2,1);
-obj.shellTireX(out3, rubber_color)
+obj.shellEnve(out3, rubber_color)
 xlabel('x');
 ylabel('y');
 zlabel('z');
 
 subplot(1,2,2);
-obj.plotTireX(out3, rubber_color)
+obj.plotEnve(out3, rubber_color)
 xlabel('x');
 ylabel('y');
 zlabel('z');
@@ -107,5 +107,5 @@ obj.contactPointAvg()
 
 out6 = figure;
 flat.plot(out6, road_color)
-obj.plotTireX(out6, rubber_color )
+obj.plotEnve(out6, rubber_color )
 obj.plotSetup(out6, 'hsv')

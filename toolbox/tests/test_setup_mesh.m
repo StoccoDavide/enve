@@ -5,12 +5,12 @@ close all;
 
 % Create shape and shell variables
 
-N  = 10;
-Rx = 0.3;
-Mx = 4.0;
-Ry = 0.2;
-My = 2.0;
-Ly = 0.1;
+N  = 5;
+Rx = 0.3130;
+Mx = 9.0;
+Ry = 0.12;
+My = 6.0;
+Ly = 0.10;
 
 %% Instantiate shape object
 
@@ -28,9 +28,9 @@ obj.resize(8);
 
 obj
 
-T = [ 0, 1, 0, 1.1e4; ...
-      1, 0, 0, 1.1e4; ...
-      0, 0, 1, 0.28; ...
+T = [ 0, 1, 0, 1.0;   ...
+      1, 0, 0, 1.0;   ...
+      0, 0, 1, 0.13; ...
       0, 0, 0, 1 ];
 
 obj.transform( T )
@@ -62,17 +62,17 @@ xlabel('x');
 ylabel('y');
 zlabel('z');
 
-% Test 3D shell tirex
+% Test 3D shell
 
 out3 = figure;
 subplot(1,2,1);
-obj.shellTireX(out3, rubber_color)
+obj.shellEnve(out3, rubber_color)
 xlabel('x');
 ylabel('y');
 zlabel('z');
 
 subplot(1,2,2);
-obj.plotTireX(out3, rubber_color)
+obj.plotEnve(out3, rubber_color)
 xlabel('x');
 ylabel('y');
 zlabel('z');
@@ -99,10 +99,19 @@ mesh2 = enve_mesh('../../files_rdf/sample.rdf');
 mesh.copy(mesh2)
 
 tic
-obj.setupMesh(mesh, T, 'sampling')
+boolean = obj.setupMesh(mesh, T, 'geometric')
+toc
+
+T = [ 0, 1, 0, 1.0;   ...
+      1, 0, 0, 1.0;   ...
+      0, 0, 1, 0.413; ...
+      0, 0, 0, 1 ];
+
+tic
+boolean = obj.setupMesh(mesh, T, 'geometric')
 toc
 
 out5 = figure;
 mesh.plot(out5, road_color)
-obj.plotTireX(out5, rubber_color )
 obj.plotSetup(out5, 'hsv')
+obj.plotEnve(out5, rubber_color )

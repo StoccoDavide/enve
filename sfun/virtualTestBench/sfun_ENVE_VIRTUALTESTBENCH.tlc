@@ -3,8 +3,8 @@
 %% Description:
 %%   Simulink Coder TLC Code Generation file for sfun_ENVE_VIRTUALTESTBENCH
 %% 
-%% Simulink version      : 10.2 (R2020b) 29-Jul-2020
-%% TLC file generated on : 19-Jan-2022 09:16:19
+%% Simulink version      : 10.4 (R2021b) 14-May-2021
+%% TLC file generated on : 28-Jan-2022 11:11:50
 
 /%
      %%%-MATLAB_Construction_Commands_Start
@@ -90,7 +90,7 @@
         #include "sfun_interface.h"
         #include "sfun_shellVehicle.hh"
 
-        %if IsModelReferenceSimTarget()
+        %if IsModelReferenceSimTarget() && !::GenCPP
         extern "C" {
         %endif
         int sfun_ENVE_VIRTUALTESTBENCH_wrapper_allocmem(void** y1BUS, int_T y1BUSWidth, void** u1BUS, int_T u1BUSWidth) {
@@ -108,21 +108,21 @@
             *u1BUS = NULL;
             return 0;
         }
-        %if IsModelReferenceSimTarget()
+        %if IsModelReferenceSimTarget() && !::GenCPP
         }
         %endif
 
-        %if IsModelReferenceSimTarget()
+        %if IsModelReferenceSimTarget() && !::GenCPP
         extern "C" {
         %endif
         void sfun_ENVE_VIRTUALTESTBENCH_wrapper_Start(const real_T* p1, const real_T* p2, const real_T* p3, const real_T* p4, const real_T* p5, const real_T* p6) {
             sfun_init((real_T*)(p1), (real_T*)(p2), (real_T*)(p3), (real_T*)(p4), (real_T*)(p5), (real_T*)(p6));
         }
-        %if IsModelReferenceSimTarget()
+        %if IsModelReferenceSimTarget() && !::GenCPP
         }
         %endif
 
-        %if IsModelReferenceSimTarget()
+        %if IsModelReferenceSimTarget() && !::GenCPP
         extern "C" {
         %endif
         void sfun_ENVE_VIRTUALTESTBENCH_wrapper_Output(const void* u1, void* u1BUS,  void* y1, void* y1BUS, const real_T* p7, const real_T* p8) {
@@ -137,17 +137,17 @@
             %assign dTypeId = LibBlockOutputSignalDataTypeId(0)
             %<SLibAssignUserStructToSLStruct(dTypeId, "(char *)y1", "(*(groundContact *)y1BUS)", 0)>
         }
-        %if IsModelReferenceSimTarget()
+        %if IsModelReferenceSimTarget() && !::GenCPP
         }
         %endif
 
-        %if IsModelReferenceSimTarget()
+        %if IsModelReferenceSimTarget() && !::GenCPP
         extern "C" {
         %endif
         void sfun_ENVE_VIRTUALTESTBENCH_wrapper_Terminate(void) {
             sfun_end();
         }
-        %if IsModelReferenceSimTarget()
+        %if IsModelReferenceSimTarget() && !::GenCPP
         }
         %endif
 

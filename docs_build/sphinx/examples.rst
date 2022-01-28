@@ -11,28 +11,28 @@ C++
 
   .. code-block:: cpp
   
-      enve::ground::mesh meshRDF(
+      enve::ground::mesh mesh_rdf(
         std::string "./sample.rdf" // Path to the *.rdf file
       );
 
   .. code-block:: cpp
   
-      enve::ground::mesh meshOBJ(
-        std::string "./sample.obj",  // Path to the *.obj file
-        real        lambda           // Friction coefficient scaling factor
+      enve::ground::mesh mesh_obj(
+        std::string "./sample.obj", // Path to the *.obj file
+        acme::real  lambda          // Friction coefficient scaling factor
       );
 
 MATLAB
 
   .. code-block:: matlab
   
-      meshRDF = enve_mesh( ...
+      mesh_rdf = enve_mesh( ...
         './sample.rdf' ... % Path to the *.rdf file
       );
 
   .. code-block:: matlab
   
-      meshOBJ = enve_mesh( ...
+      mesh_obj = enve_mesh( ...
         './sample.obj', ... % Path to the *.obj file
         lambda          ... % Friction coefficient scaling factor
       );
@@ -40,7 +40,7 @@ MATLAB
 Build a flat ground
 -------------------
 
-If no mesh can be provided one could also build a flat terrain where to move the wheel.
+If no mesh can be provided one could also build a flat terrain where to move the tire.
 
 C++
 
@@ -96,12 +96,10 @@ MATLAB
       );
     
 
-Build the wheel shell
----------------------
+Build the tire shell
+--------------------
 
-The wheel undeformable shell can be initialized in three different ways.
-
-1. Hyperelliptical section surface of revolution:
+The undeformable shell is decribed as a hyperelliptical section surface of revolution. It can be initialized in these way.
 
   C++
 
@@ -130,69 +128,19 @@ The wheel undeformable shell can be initialized in three different ways.
     );
     
 
-2. Polynomial interpolation of section raw data:
-
-  C++
-
-  .. code-block:: cpp
-
-    enve::shell(
-      size_t     size,  // Ribs number
-      acme::vecN dataR, // Vector of radius data (m)
-      acme::vecN dataY, // Vector of y data (m)
-      size_t     order  // Polynom order
-    );
-
-  MATLAB
-
-  .. code-block:: matlab
-    
-    shell = enve_shell( ...
-      size,  ... % Ribs number
-      dataR, ... % Vector of radius data (m)
-      dataY, ... % Vector of y data (m)
-      order  ... % Polynom order
-    );
-
-
-3. Precise (dense) section description:
-
-  C++
-
-  .. code-block:: cpp
-
-    enve::shell(
-      size_t     size,  // Ribs number
-      acme::vecN dataR, // Vector of radius data (m)
-      acme::vecN dataY  // Vector of y data (m)
-    );
-
-
-  MATLAB
-  
-  .. code-block:: matlab
-
-    shell = enve_shell( ...
-      size,  ... % Ribs number
-      dataR, ... % Vector of radius data (m)
-      dataY  ... % Vector of y data (m)
-    );
-
-
 Evaluate the contact
 --------------------
 
-Once both the ground and the wheel rigid shell are build we can move to the contact evaluation:
+Once both the ground and the shell are build we can move to the contact evaluation:
 
 C++
 
     .. code-block:: cpp
 
         bool out = shell.setup(
-          enve::ground::mesh ground,    // ENVE mesh object (ground)
-          acme::affine       matrix,    // 4x4 affine transformation matrix
-          size_t             threshold, // Evaluations threshold number
-          std::string const  method     // Method name (choose from: "triangle" or "line")
+          enve::ground::mesh ground, // ENVE mesh object (ground)
+          acme::affine       matrix, // 4x4 affine transformation matrix
+          std::string const  method  // Method name (choose from: "geometric" or "sampling")
         );
 
 MATLAB
@@ -202,8 +150,7 @@ MATLAB
         out = shell.setup( ...
           ground,    ... % ENVE mesh object (ground)
           matrix,    ... % 4x4 affine transformation matrix
-          threshold, ... % Evaluations threshold number
-          method     ... % Method name (choose from: "triangle" or "line")
+          method     ... % Method name (choose from: "geometric" or "sampling")
         );
 
 Otherwise one can alse perform the contact evaluation with a flat ground:
@@ -214,7 +161,8 @@ C++
 
         bool out = shell.setup(
           enve::ground::flat ground, // ENVE flat object (ground)
-          acme::affine       affine  // Shell 4x4 total transformation matrix
+          acme::affine       affine, // Shell 4x4 total transformation matrix
+          std::string const  method  // Method name (choose from: "geometric" or "sampling")
         );
 
 MATLAB
@@ -223,63 +171,89 @@ MATLAB
 
         out = shell.setup( ...
           ground, ... % ENVE flat object (ground)
-          affine  ... % Shell 4x4 total transformation matrix
+          affine, ... % Shell 4x4 total transformation matrix
+          method  ... % Method name (choose from: "geometric" or "sampling")
         );
 
 Extract Data
 ------------
 
-Once the contact has been evaluated one can retrive the average contact parameters as: 
+Once the contact has been evaluated one can retrive the (average) contact parameters as: 
 
 C++
 
     .. code-block:: cpp
 
-        // Variables initialization (real numbers):
-        acme::point contact_point_rib;      // (m)
-        acme::point contact_point_mesh;     // (m)
-        acme::real  contact_depth_rib;      // (m)
-        acme::real  contact_depth_rib_dot;  // (m/s)
-        acme::real  contact_depth_rib_old;  // (m)
-        acme::real  contact_depth_mesh;     // (m)
-        acme::real  contact_depth_mesh_dot; // (m/s)
-        acme::real  contact_depth_mesh_old; // (m)
-        acme::vec3  contact_normal;         // (-)
-        acme::real  contact_friction;       // (-)
-        acme::real  relative_camber;        // (rad)
-        acme::real  time_step;              // (s)
+        // Variables initialization
+        acme::point contact_point_avg;    // (m)
+        acme::real  contact_depth_avg;    // (m)
+        acme::vec3  contact_normal_avg;   // (-)
+        acme::real  contact_friction_avg; // (-)
+        acme::real  contact_area_avg;     // (m^2)
+        acme::real  contact_volume_avg;   // (m^3)
+        acme::vec3  relative_angles_avg;  // (rad)
 
-        // Data extraction (real numbers):
-        shell.contactPointRib(contact_point_rib);
-        shell.contactNormal(contact_normal);
-        shell.contactFriction(contact_friction);
-        shell.contactDepthRib(contact_depth_rib,
-                              contact_depth_rib_dot,
-                              contact_depth_rib_old,
-                              time_step);
-        shell.contactDepthMesh(contact_depth_mesh,
-                               contact_depth_mesh_dot,
-                               contact_depth_mesh_old,
-                               time_step);
-        shell.relativeCamber(relative_camber);
+        // Data extraction
+        shell.contactPoint(contact_point_avg);
+        shell.contactDepth(contact_depth_avg);
+        shell.contactNormal(contact_normal_avg);
+        shell.contactFriction(contact_friction_avg);
+        shell.contactArea(contact_area_avg);
+        shell.contactVolume(contact_volume_avg);
+        shell.relativeAngles(relative_angles_avg);
 
 MATLAB
 
     .. code-block:: matlab
 
-        % Data extraction (real numbers):
-        shell.contactPointRibAvg(contact_point_rib);
-        shell.contactNormalAvg(contact_normal);
-        shell.contactFrictionAvg(contact_friction);
-        shell.contactDepthRibAvg(contact_depth_rib,     ...
-                                 contact_depth_rib_dot, ...
-                                 contact_depth_rib_old, ...
-                                 time_step);
-        shell.contactDepthMeshAvg(contact_depth_mesh,     ...
-                                  contact_depth_mesh_dot, ...
-                                  contact_depth_mesh_old, ...
-                                  time_step);
-        shell.relativeCamber(relative_camber);
+        % Data extraction
+        contact_point_avg    = shell.contactPointAvg();
+        contact_depth_avg    = shell.contactDepthAvg();
+        contact_normal_avg   = shell.contactNormalAvg();
+        contact_friction_avg = shell.contactFrictionAvg();
+        contact_area_avg     = shell.contactAreaAvg();
+        contact_volume_avg   = shell.contactVolumeAvg();
+        relative_angles_avg  = shell.relativeAnglesAvg();
+
+
+Or one can retrive the contact parameters for a specific rib as: 
+
+C++
+
+    .. code-block:: cpp
+
+        // Variables initialization
+        acme::point contact_point_rib(i);    // (m)
+        acme::real  contact_depth_rib(i);    // (m)
+        acme::vec3  contact_normal_rib(i);   // (-)
+        acme::real  contact_friction_rib(i); // (-)
+        acme::real  contact_area_rib(i);     // (m^2)
+        acme::real  contact_volume_rib(i);   // (m^3)
+        acme::vec3  relative_angles_rib(i);  // (rad)
+
+        // Data extraction
+        shell.contactPointRib(contact_point_rib);
+        shell.contactDepth(contact_depth_rib);
+        shell.contactNormal(contact_normal_rib);
+        shell.contactFriction(contact_friction_rib);
+        shell.contactArea(contact_area_rib);
+        shell.contactVolume(contact_volume_rib);
+        shell.relativeAngles(relative_angles_rib);
+
+MATLAB
+
+    .. code-block:: matlab
+
+        % Data extraction
+        contact_point_rib    = shell.contactPointRib(i);
+        contact_normal_rib   = shell.contactNormalRib(i);
+        contact_friction_rib = shell.contactFrictionRib(i);
+        contact_depth_rib    = shell.contactDepthRib(i);
+        contact_area_rib     = shell.contactAreaRib(i);
+        contact_volume_rib   = shell.contactVolumeRib(i);
+        relative_angles_rib  = shell.relativeAnglesRib(i);
+
+where ``i`` is the i-th rib index.
 
 
 Or one can retrive the contact parameters rib by rib as: 
@@ -288,56 +262,39 @@ C++
 
     .. code-block:: cpp
 
-        // Variables initialization (vectors):
-        acme::size_t              size = tire_shell.size();     // (-)
-        acme::std::vector<point>  contact_point_rib(size);      // (m)
-        acme::std::vector<point>  contact_point_mesh(size);     // (m)
-        acme::vecN                contact_depth_rib(size);      // (m)
-        acme::vecN                contact_depth_rib_dot(size);  // (m/s)
-        acme::vecN                contact_depth_rib_old(size);  // (m)
-        acme::vecN                contact_depth_mesh(size);     // (m)
-        acme::vecN                contact_depth_mesh_dot(size); // (m/s)
-        acme::vecN                contact_depth_mesh_old(size); // (m)
-        acme::std::vector<vec3>   contact_normal(size);         // (-)
-        acme::vecN                contact_friction(size);       // (-)
-        acme::vecN                relative_camber(size);        // (rad)
-        acme::real                time_step;                    // (s)
+        // Variables initialization
+        acme::size_t                    size = tire_shell.size(); // (-)
+        acme::std::vector<acme::point>  contact_point_vec(size);      // (m)
+        acme::std::vector<acme::real>   contact_depth_vec(size);      // (m)
+        acme::std::vector<acme::vec3>   contact_normal_vec(size);     // (-)
+        acme::std::vector<acme::real>   contact_friction_vec(size);   // (-)
+        acme::std::vector<acme::real>   contact_area_vec(size);       // (m^2)
+        acme::std::vector<acme::real>   contact_volume_vec(size);     // (m^3)
+        acme::std::vector<acme::vec3>   relative_angles_vec(size);    // (rad)
 
-        // Data extraction (vectors):
-        shell.contactPointRib(contact_point_rib);
-        shell.contactNormal(contact_normal);
-        shell.contactFriction(contact_friction);
-        shell.contactDepthRib(contact_depth_rib,
-                              contact_depth_rib_dot,
-                              contact_depth_rib_old,
-                              time_step);
-        shell.contactDepthMesh(contact_depth_mesh,
-                               contact_depth_mesh_dot,
-                               contact_depth_mesh_old,
-                               time_step);
-        shell.relativeCamber(relative_camber);
+        // Data extraction
+        shell.contactPointRib(contact_point_vec);
+        shell.contactDepth(contact_depth_vec);
+        shell.contactNormal(contact_normal_vec);
+        shell.contactFriction(contact_friction_vec);
+        shell.contactArea(contact_area_vec);
+        shell.contactVolume(contact_volume_vec);
+        shell.relativeAngles(relative_angles_vec);
 
 MATLAB
 
     .. code-block:: matlab
 
-        % Data extraction (real numbers):
-        contact_point_rib = shell.contactPointRib(i);
-        contact_normal    = shell.contactNormal(i);
-        contact_friction  = shell.contactFriction(i);
-        contact_depth_rib = shell.contactDepthRib( ...
-                              contact_depth_rib_dot, ...
-                              contact_depth_rib_old, ...
-                              time_step,             ...
-                              i);
-        contact_depth_mesh = shell.contactDepthMesh( ...
-                               contact_depth_mesh_dot, ...
-                               contact_depth_mesh_old, ...
-                               time_step,              ...
-                               i);
-        relative_camber = shell.relativeCamber();
+        % Data extraction
+        contact_point_vec    = shell.contactPointVec();
+        contact_normal_vec   = shell.contactNormalVec();
+        contact_friction_vec = shell.contactFrictionVec();
+        contact_depth_vec    = shell.contactDepthVec();
+        contact_area_vec     = shell.contactAreaVec();
+        contact_volume_vec   = shell.contactVolumeVec();
+        relative_angles_vec  = shell.relativeAnglesVec();
 
-where ``i`` is the i-th rib index.
 
-For more advanced functions read the C++/MATLAB API documentation.
+
+For more advanced functions please read the C++/MATLAB API documentation.
 
