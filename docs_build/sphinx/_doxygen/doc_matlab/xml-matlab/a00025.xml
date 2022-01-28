@@ -1323,6 +1323,24 @@
         </inbodydescription>
         <location file="enve_shell.m" line="681" column="15"/>
       </memberdef>
+      <memberdef kind="function" id="a00025_1acb4799a74b709294706bd086f07943c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_shell::meshTireX</definition>
+        <argsstring>(in this)</argsstring>
+        <name>meshTireX</name>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <briefdescription>
+<para>Get surface object mesh grid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_shell.m" line="705" column="15"/>
+      </memberdef>
       <memberdef kind="function" id="a00025_1a516328ef71caef51f662ff81a050a92e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_shell::type</definition>
@@ -1339,7 +1357,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="705" column="15"/>
+        <location file="enve_shell.m" line="733" column="15"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1368,7 +1386,7 @@
         <label>handle</label>
       </node>
     </collaborationgraph>
-    <location file="enve_shell.m" line="26" column="1" bodyfile="enve_shell.m" bodystart="27" bodyend="710"/>
+    <location file="enve_shell.m" line="26" column="1" bodyfile="enve_shell.m" bodystart="27" bodyend="738"/>
     <listofallmembers>
       <member refid="a00025_1a51454dad6785de69f163fb86d08b3df0" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactAreaAvg</name></member>
       <member refid="a00025_1afb657f3e596c5e6a23e00340b5d87e0b" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactAreaRib</name></member>
@@ -1394,6 +1412,7 @@
       <member refid="a00025_1ab5f15015afdb914a686e64633437ab85" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>disp</name></member>
       <member refid="a00025_1ae4ec76596975e605869e110efa93c79c" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>enve_shell</name></member>
       <member refid="a00025_1ade6f32e5537a6fe93d9f8a9fc62afc64" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>eulerAngles</name></member>
+      <member refid="a00025_1acb4799a74b709294706bd086f07943c0" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>meshTireX</name></member>
       <member refid="a00025_1a17d558effe52873f181ef4c7b6603bd3" prot="private" virt="non-virtual"><scope>enve_shell</scope><name>objectHandle</name></member>
       <member refid="a00025_1a162c3b00624e54ecbe44b246889dcb7b" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotRibs</name></member>
       <member refid="a00025_1ad8e1703a72877ca57d19ecbc44ef9681" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotSetup</name></member>

@@ -69,6 +69,7 @@
     <member refid="a00055_1a64c18ecdbd65aef499aa5d03353cb745" kind="function"><name>width</name></member>
     <member refid="a00055_1a1d751f7fdfed182a58cf4f65db85e9d1" kind="function"><name>angle</name></member>
     <member refid="a00055_1aefecf30015022cd81b3fec1b109c1d3e" kind="function"><name>isApprox</name></member>
+    <member refid="a00055_1a7a3089dccc6b810b1c85d9e138ef386d" kind="function"><name>envelop</name></member>
     <member refid="a00055_1af16111667f9849ec042456b68d985b46" kind="function"><name>envelop</name></member>
     <member refid="a00055_1a288a8819deb5303f0fb50f6863987940" kind="function"><name>envelop</name></member>
     <member refid="a00055_1a77b3731cd7c4a6b80d820983f8c127e7" kind="function"><name>envelopGeometric</name></member>

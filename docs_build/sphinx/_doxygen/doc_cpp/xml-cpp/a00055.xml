@@ -429,8 +429,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/enve_rib.hh" line="141" column="5" bodyfile="src/enve_rib.cc" bodystart="171" bodyend="175"/>
-        <referencedby refid="a00055_1a77b3731cd7c4a6b80d820983f8c127e7" compoundref="a00026" startline="267" endline="377">envelopGeometric</referencedby>
-        <referencedby refid="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" compoundref="a00026" startline="432" endline="489">envelopSampling</referencedby>
+        <referencedby refid="a00055_1a77b3731cd7c4a6b80d820983f8c127e7" compoundref="a00026" startline="294" endline="404">envelopGeometric</referencedby>
+        <referencedby refid="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" compoundref="a00026" startline="459" endline="516">envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00055_1aed5c4d8fd8ef8bf886fd0f6104a04856" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
@@ -510,6 +510,62 @@
         </inbodydescription>
         <location file="include/enve_rib.hh" line="157" column="5" bodyfile="src/enve_rib.cc" bodystart="205" bodyend="214"/>
       </memberdef>
+      <memberdef kind="function" id="a00055_1a7a3089dccc6b810b1c85d9e138ef386d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool enve::rib::envelop</definition>
+        <argsstring>(affine const &amp;affine_in, point &amp;contactPoint, vec3 &amp;contactNormal, real &amp;contactFriction, real &amp;contactDepth, real &amp;contactArea, real &amp;contactVolume) const</argsstring>
+        <name>envelop</name>
+        <param>
+          <type>affine const &amp;</type>
+          <declname>affine_in</declname>
+          <briefdescription><para>Input 4x4 affine transformation affine_in </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>point &amp;</type>
+          <declname>contactPoint</declname>
+          <briefdescription><para>Contact point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>vec3 &amp;</type>
+          <declname>contactNormal</declname>
+          <briefdescription><para>Contact normal </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real &amp;</type>
+          <declname>contactFriction</declname>
+          <briefdescription><para>Contact friction </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real &amp;</type>
+          <declname>contactDepth</declname>
+          <briefdescription><para>Contact depth </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real &amp;</type>
+          <declname>contactArea</declname>
+          <briefdescription><para>Contact area </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real &amp;</type>
+          <declname>contactVolume</declname>
+          <briefdescription><para>Contact volume </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Evaluate rib contact with no ground. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_rib.hh" line="164" column="5" bodyfile="src/enve_rib.cc" bodystart="267" bodyend="289"/>
+      </memberdef>
       <memberdef kind="function" id="a00055_1af16111667f9849ec042456b68d985b46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::envelop</definition>
@@ -576,7 +632,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="164" column="5" bodyfile="src/enve_rib.cc" bodystart="219" bodyend="238"/>
+        <location file="include/enve_rib.hh" line="176" column="5" bodyfile="src/enve_rib.cc" bodystart="219" bodyend="238"/>
       </memberdef>
       <memberdef kind="function" id="a00055_1a288a8819deb5303f0fb50f6863987940" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -644,7 +700,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="178" column="5" bodyfile="src/enve_rib.cc" bodystart="243" bodyend="262"/>
+        <location file="include/enve_rib.hh" line="190" column="5" bodyfile="src/enve_rib.cc" bodystart="243" bodyend="262"/>
       </memberdef>
       <memberdef kind="function" id="a00055_1a77b3731cd7c4a6b80d820983f8c127e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -706,7 +762,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="192" column="5" bodyfile="src/enve_rib.cc" bodystart="267" bodyend="377"/>
+        <location file="include/enve_rib.hh" line="204" column="5" bodyfile="src/enve_rib.cc" bodystart="294" bodyend="404"/>
         <referencedby refid="a00055_1af16111667f9849ec042456b68d985b46" compoundref="a00026" startline="219" endline="238">envelop</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00055_1a451da7c72dbe89b38dd2d0e4bbbe5db9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
@@ -769,7 +825,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="205" column="5" bodyfile="src/enve_rib.cc" bodystart="382" bodyend="427"/>
+        <location file="include/enve_rib.hh" line="217" column="5" bodyfile="src/enve_rib.cc" bodystart="409" bodyend="454"/>
       </memberdef>
       <memberdef kind="function" id="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -831,7 +887,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="218" column="5" bodyfile="src/enve_rib.cc" bodystart="432" bodyend="489"/>
+        <location file="include/enve_rib.hh" line="230" column="5" bodyfile="src/enve_rib.cc" bodystart="459" bodyend="516"/>
         <referencedby refid="a00055_1af16111667f9849ec042456b68d985b46" compoundref="a00026" startline="219" endline="238">envelop</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00055_1a8242799f879447ad9dbf012f5a630781" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
@@ -894,7 +950,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="231" column="5" bodyfile="src/enve_rib.cc" bodystart="494" bodyend="551"/>
+        <location file="include/enve_rib.hh" line="243" column="5" bodyfile="src/enve_rib.cc" bodystart="521" bodyend="578"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -946,8 +1002,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="245" column="5" bodyfile="src/enve_rib.cc" bodystart="556" bodyend="620"/>
-        <referencedby refid="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" compoundref="a00026" startline="432" endline="489">envelopSampling</referencedby>
+        <location file="include/enve_rib.hh" line="257" column="5" bodyfile="src/enve_rib.cc" bodystart="583" bodyend="647"/>
+        <referencedby refid="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" compoundref="a00026" startline="459" endline="516">envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00055_1ad3141e45ab81272c1bfa2de2a2b04e12" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -997,7 +1053,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="256" column="5" bodyfile="src/enve_rib.cc" bodystart="625" bodyend="645"/>
+        <location file="include/enve_rib.hh" line="268" column="5" bodyfile="src/enve_rib.cc" bodystart="652" bodyend="672"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1027,11 +1083,12 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/enve_rib.hh" line="61" column="3" bodyfile="include/enve_rib.hh" bodystart="62" bodyend="265"/>
+    <location file="include/enve_rib.hh" line="61" column="3" bodyfile="include/enve_rib.hh" bodystart="62" bodyend="277"/>
     <listofallmembers>
       <member refid="a00055_1aed5c4d8fd8ef8bf886fd0f6104a04856" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>angle</name></member>
       <member refid="a00055_1a1d751f7fdfed182a58cf4f65db85e9d1" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>angle</name></member>
       <member refid="a00055_1a517c9a544cb726f5c510e466e332a44b" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>copy</name></member>
+      <member refid="a00055_1a7a3089dccc6b810b1c85d9e138ef386d" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelop</name></member>
       <member refid="a00055_1af16111667f9849ec042456b68d985b46" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelop</name></member>
       <member refid="a00055_1a288a8819deb5303f0fb50f6863987940" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelop</name></member>
       <member refid="a00055_1a77b3731cd7c4a6b80d820983f8c127e7" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelopGeometric</name></member>

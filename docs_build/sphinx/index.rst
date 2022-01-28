@@ -46,7 +46,7 @@ or ``rake``
 
 .. code:: sh
 
-   rake build       # on Mac/Linux/Windows
+   rake build       # on MacOS/Linux/Windows
    rake build_osx   # on Mac
    rake build_linux # on Linux
    rake build_win   # on Windows
