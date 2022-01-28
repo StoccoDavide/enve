@@ -511,7 +511,7 @@
 <codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="503"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Plot<sp/>discretized<sp/>shell<sp/>shape<sp/>with<sp/>4x4<sp/>affine<sp/>transformation<sp/>T</highlight></codeline>
-<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>TireXTplot(<sp/>this,<sp/>T,<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>enveTplot(<sp/>this,<sp/>T,<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
 <codeline lineno="505"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>figure_name;</highlight></codeline>
 <codeline lineno="506"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>on;</highlight></codeline>
 <codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>N<sp/>=<sp/>this.size();</highlight></codeline>
@@ -541,11 +541,11 @@
 <codeline lineno="531"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="532"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="533"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
-<codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Plot<sp/>&quot;statically&quot;<sp/>non-discretized<sp/>shell<sp/>TireX<sp/>shape</highlight></codeline>
-<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>shellTireX(<sp/>this,<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
+<codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Plot<sp/>&quot;statically&quot;<sp/>non-discretized<sp/>shell<sp/>shape</highlight></codeline>
+<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>shellEnve(<sp/>this,<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
 <codeline lineno="536"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>figure_name;</highlight></codeline>
 <codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>on;</highlight></codeline>
-<codeline lineno="538"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this.TireXTplot(<sp/>eye(4),<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
+<codeline lineno="538"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this.enveTplot(<sp/>eye(4),<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
 <codeline lineno="539"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>R<sp/>=<sp/>1.1*this.surfaceMaxRadius();</highlight></codeline>
 <codeline lineno="540"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xlim([-R<sp/>R]);</highlight></codeline>
 <codeline lineno="541"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ylim([-R<sp/>R]);</highlight></codeline>
@@ -556,12 +556,12 @@
 <codeline lineno="546"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="547"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="548"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
-<codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Plot<sp/>&quot;dinamically&quot;<sp/>non-discretized<sp/>shell<sp/>TireX<sp/>shape</highlight></codeline>
-<codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>plotTireX(<sp/>this,<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
+<codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Plot<sp/>&quot;dinamically&quot;<sp/>non-discretized<sp/>shell<sp/>shape</highlight></codeline>
+<codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>plotEnve(<sp/>this,<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
 <codeline lineno="551"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>figure_name;</highlight></codeline>
 <codeline lineno="552"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>on;</highlight></codeline>
 <codeline lineno="553"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>T<sp/>=<sp/>this.transformation();</highlight></codeline>
-<codeline lineno="554"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this.TireXTplot(<sp/>T,<sp/>figure_name,<sp/>color<sp/>);</highlight></codeline>
+<codeline lineno="554"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this.enveTplot(<sp/>T,<sp/>figure_name,<sp/>color<sp/>);</highlight></codeline>
 <codeline lineno="555"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>R<sp/>=<sp/>2.0*this.surfaceMaxRadius();</highlight></codeline>
 <codeline lineno="556"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>C<sp/>=<sp/>T(1:3,4);</highlight></codeline>
 <codeline lineno="557"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>axis<sp/>equal;</highlight></codeline>
@@ -569,7 +569,7 @@
 <codeline lineno="559"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ylim([C(2)-R<sp/>C(2)+R]);</highlight></codeline>
 <codeline lineno="560"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>zlim([C(3)-R<sp/>C(3)+R]);</highlight></codeline>
 <codeline lineno="561"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>off;</highlight></codeline>
-<codeline lineno="562" refid="a00025_1aad425007363a37b5e7dc8cb89cfc3b50" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="562" refid="a00025_1ae9d1b84ac761cfe298ea41ffd278473a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="563"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="564"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="565"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
@@ -601,7 +601,7 @@
 <codeline lineno="591"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ylim([-R<sp/>R]);</highlight></codeline>
 <codeline lineno="592"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>zlim([-R<sp/>R]);</highlight></codeline>
 <codeline lineno="593"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>axis<sp/>equal;</highlight></codeline>
-<codeline lineno="594" refid="a00025_1ae580a7ea93234d814cb198c3f96d37ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>off;</highlight></codeline>
+<codeline lineno="594" refid="a00025_1aff1e50b0430157ae40ac2fbfb97ca27f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>off;</highlight></codeline>
 <codeline lineno="595"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="596"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="597"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
@@ -617,7 +617,7 @@
 <codeline lineno="607"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xlim([C(1)-R<sp/>C(1)+R]);</highlight></codeline>
 <codeline lineno="608"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ylim([C(2)-R<sp/>C(2)+R]);</highlight></codeline>
 <codeline lineno="609"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>zlim([C(3)-R<sp/>C(3)+R]);</highlight></codeline>
-<codeline lineno="610" refid="a00025_1ab774ce3a02b8de2fde0232fbad1b4d49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>axis<sp/>equal;</highlight></codeline>
+<codeline lineno="610" refid="a00025_1a8ab781d01979c19036c35628cf15b438" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>axis<sp/>equal;</highlight></codeline>
 <codeline lineno="611"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>off;</highlight></codeline>
 <codeline lineno="612"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="613"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
@@ -647,7 +647,7 @@
 <codeline lineno="637"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="638"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="639"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>surface<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>mesh<sp/>grid</highlight></codeline>
-<codeline lineno="640"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>meshTireX(<sp/>this<sp/>)</highlight></codeline>
+<codeline lineno="640"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>meshShell(<sp/>this<sp/>)</highlight></codeline>
 <codeline lineno="641"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>W<sp/>=<sp/>this.surfaceWidth();</highlight></codeline>
 <codeline lineno="642"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>y<sp/>=<sp/>-W:W/50:W;</highlight></codeline>
 <codeline lineno="643"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>zeros(1,<sp/>length(y));</highlight></codeline>

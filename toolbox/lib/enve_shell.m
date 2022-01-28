@@ -501,7 +501,7 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot discretized shell shape with 4x4 affine transformation T
-    function TireXTplot( this, T, figure_name, color )
+    function enveTplot( this, T, figure_name, color )
       figure_name;
       hold on;
       N = this.size();
@@ -531,11 +531,11 @@ classdef enve_shell < handle
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Plot "statically" non-discretized shell TireX shape
-    function shellTireX( this, figure_name, color )
+    %> Plot "statically" non-discretized shell shape
+    function shellEnve( this, figure_name, color )
       figure_name;
       hold on;
-      this.TireXTplot( eye(4), figure_name, color )
+      this.enveTplot( eye(4), figure_name, color )
       R = 1.1*this.surfaceMaxRadius();
       xlim([-R R]);
       ylim([-R R]);
@@ -546,12 +546,12 @@ classdef enve_shell < handle
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Plot "dinamically" non-discretized shell TireX shape
-    function plotTireX( this, figure_name, color )
+    %> Plot "dinamically" non-discretized shell shape
+    function plotEnve( this, figure_name, color )
       figure_name;
       hold on;
       T = this.transformation();
-      this.TireXTplot( T, figure_name, color );
+      this.enveTplot( T, figure_name, color );
       R = 2.0*this.surfaceMaxRadius();
       C = T(1:3,4);
       axis equal;
@@ -637,7 +637,7 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get surface object mesh grid
-    function out = meshTireX( this )
+    function out = meshShell( this )
       W = this.surfaceWidth();
       y = -W:W/50:W;
       r = zeros(1, length(y));

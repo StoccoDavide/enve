@@ -52,15 +52,15 @@ file. An example could be one of the following:</p>
 <blockquote>
 <div>
 <div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span><span class="n">enve</span><span class="o">::</span><span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="n">meshRDF</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><span class="n">enve</span><span class="o">::</span><span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="n">mesh_rdf</span><span class="p">(</span>
   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="s">"./sample.rdf"</span> <span class="c1">// Path to the *.rdf file</span>
 <span class="p">);</span>
 </pre></div>
 </div>
 <div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span><span class="n">enve</span><span class="o">::</span><span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="n">meshOBJ</span><span class="p">(</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="s">"./sample.obj"</span><span class="p">,</span>  <span class="c1">// Path to the *.obj file</span>
-  <span class="n">real</span>        <span class="n">lambda</span>           <span class="c1">// Friction coefficient scaling factor</span>
+<div class="highlight"><pre><span></span><span class="n">enve</span><span class="o">::</span><span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="n">mesh_obj</span><span class="p">(</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="s">"./sample.obj"</span><span class="p">,</span> <span class="c1">// Path to the *.obj file</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">lambda</span>          <span class="c1">// Friction coefficient scaling factor</span>
 <span class="p">);</span>
 </pre></div>
 </div>
@@ -70,13 +70,13 @@ file. An example could be one of the following:</p>
 <blockquote>
 <div>
 <div class="highlight-matlab notranslate">
-<div class="highlight"><pre><span></span><span class="n">meshRDF</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">enve_mesh</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="n">mesh_rdf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">enve_mesh</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
 <span class="w">  </span><span class="s">'./sample.rdf'</span><span class="w"> </span><span class="k">...</span><span class="c"> % Path to the *.rdf file</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="highlight-matlab notranslate">
-<div class="highlight"><pre><span></span><span class="n">meshOBJ</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">enve_mesh</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="n">mesh_obj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">enve_mesh</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
 <span class="w">  </span><span class="s">'./sample.obj'</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="c"> % Path to the *.obj file</span><span class="w"></span>
 <span class="w">  </span><span class="n">lambda</span><span class="w">          </span><span class="k">...</span><span class="c"> % Friction coefficient scaling factor</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
@@ -88,7 +88,7 @@ file. An example could be one of the following:</p>
 <div class="section" id="build-a-flat-ground">
 <h2>Build a flat ground<a class="headerlink" href="#build-a-flat-ground" title="Permalink to this headline">¶</a>
 </h2>
-<p>If no mesh can be provided one could also build a flat terrain where to move the wheel.</p>
+<p>If no mesh can be provided one could also build a flat terrain where to move the tire.</p>
 <p>C++</p>
 <blockquote>
 <div>
@@ -148,13 +148,10 @@ file. An example could be one of the following:</p>
 </div>
 </blockquote>
 </div>
-<div class="section" id="build-the-wheel-shell">
-<h2>Build the wheel shell<a class="headerlink" href="#build-the-wheel-shell" title="Permalink to this headline">¶</a>
+<div class="section" id="build-the-tire-shell">
+<h2>Build the tire shell<a class="headerlink" href="#build-the-tire-shell" title="Permalink to this headline">¶</a>
 </h2>
-<p>The wheel undeformable shell can be initialized in three different ways.</p>
-<ol class="arabic simple">
-<li><p>Hyperelliptical section surface of revolution:</p></li>
-</ol>
+<p>The undeformable shell is decribed as a hyperelliptical section surface of revolution. It can be initialized in these way.</p>
 <blockquote>
 <div>
 <p>C++</p>
@@ -184,72 +181,19 @@ file. An example could be one of the following:</p>
 </div>
 </div>
 </blockquote>
-<ol class="arabic simple" start="2">
-<li><p>Polynomial interpolation of section raw data:</p></li>
-</ol>
-<blockquote>
-<div>
-<p>C++</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span><span class="n">enve</span><span class="o">::</span><span class="n">shell</span><span class="p">(</span>
-  <span class="kt">size_t</span>     <span class="n">size</span><span class="p">,</span>  <span class="c1">// Ribs number</span>
-  <span class="n">acme</span><span class="o">::</span><span class="n">vecN</span> <span class="n">dataR</span><span class="p">,</span> <span class="c1">// Vector of radius data (m)</span>
-  <span class="n">acme</span><span class="o">::</span><span class="n">vecN</span> <span class="n">dataY</span><span class="p">,</span> <span class="c1">// Vector of y data (m)</span>
-  <span class="kt">size_t</span>     <span class="n">order</span>  <span class="c1">// Polynom order</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<p>MATLAB</p>
-<div class="highlight-matlab notranslate">
-<div class="highlight"><pre><span></span><span class="n">shell</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">enve_shell</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">  </span><span class="nb">size</span><span class="p">,</span><span class="w">  </span><span class="k">...</span><span class="c"> % Ribs number</span><span class="w"></span>
-<span class="w">  </span><span class="n">dataR</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="c"> % Vector of radius data (m)</span><span class="w"></span>
-<span class="w">  </span><span class="n">dataY</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="c"> % Vector of y data (m)</span><span class="w"></span>
-<span class="w">  </span><span class="n">order</span><span class="w">  </span><span class="k">...</span><span class="c"> % Polynom order</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</blockquote>
-<ol class="arabic simple" start="3">
-<li><p>Precise (dense) section description:</p></li>
-</ol>
-<blockquote>
-<div>
-<p>C++</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span><span class="n">enve</span><span class="o">::</span><span class="n">shell</span><span class="p">(</span>
-  <span class="kt">size_t</span>     <span class="n">size</span><span class="p">,</span>  <span class="c1">// Ribs number</span>
-  <span class="n">acme</span><span class="o">::</span><span class="n">vecN</span> <span class="n">dataR</span><span class="p">,</span> <span class="c1">// Vector of radius data (m)</span>
-  <span class="n">acme</span><span class="o">::</span><span class="n">vecN</span> <span class="n">dataY</span>  <span class="c1">// Vector of y data (m)</span>
-<span class="p">);</span>
-</pre></div>
-</div>
-<p>MATLAB</p>
-<div class="highlight-matlab notranslate">
-<div class="highlight"><pre><span></span><span class="n">shell</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">enve_shell</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">  </span><span class="nb">size</span><span class="p">,</span><span class="w">  </span><span class="k">...</span><span class="c"> % Ribs number</span><span class="w"></span>
-<span class="w">  </span><span class="n">dataR</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="c"> % Vector of radius data (m)</span><span class="w"></span>
-<span class="w">  </span><span class="n">dataY</span><span class="w">  </span><span class="k">...</span><span class="c"> % Vector of y data (m)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</blockquote>
 </div>
 <div class="section" id="evaluate-the-contact">
 <h2>Evaluate the contact<a class="headerlink" href="#evaluate-the-contact" title="Permalink to this headline">¶</a>
 </h2>
-<p>Once both the ground and the wheel rigid shell are build we can move to the contact evaluation:</p>
+<p>Once both the ground and the shell are build we can move to the contact evaluation:</p>
 <p>C++</p>
 <blockquote>
 <div>
 <div class="highlight-cpp notranslate">
 <div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">out</span> <span class="o">=</span> <span class="n">shell</span><span class="p">.</span><span class="n">setup</span><span class="p">(</span>
-  <span class="n">enve</span><span class="o">::</span><span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="n">ground</span><span class="p">,</span>    <span class="c1">// ENVE mesh object (ground)</span>
-  <span class="n">acme</span><span class="o">::</span><span class="n">affine</span>       <span class="n">matrix</span><span class="p">,</span>    <span class="c1">// 4x4 affine transformation matrix</span>
-  <span class="kt">size_t</span>             <span class="n">threshold</span><span class="p">,</span> <span class="c1">// Evaluations threshold number</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>  <span class="n">method</span>     <span class="c1">// Method name (choose from: "triangle" or "line")</span>
+  <span class="n">enve</span><span class="o">::</span><span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="n">ground</span><span class="p">,</span> <span class="c1">// ENVE mesh object (ground)</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">affine</span>       <span class="n">matrix</span><span class="p">,</span> <span class="c1">// 4x4 affine transformation matrix</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>  <span class="n">method</span>  <span class="c1">// Method name (choose from: "geometric" or "sampling")</span>
 <span class="p">);</span>
 </pre></div>
 </div>
@@ -262,8 +206,7 @@ file. An example could be one of the following:</p>
 <div class="highlight"><pre><span></span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">setup</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
 <span class="w">  </span><span class="n">ground</span><span class="p">,</span><span class="w">    </span><span class="k">...</span><span class="c"> % ENVE mesh object (ground)</span><span class="w"></span>
 <span class="w">  </span><span class="n">matrix</span><span class="p">,</span><span class="w">    </span><span class="k">...</span><span class="c"> % 4x4 affine transformation matrix</span><span class="w"></span>
-<span class="w">  </span><span class="n">threshold</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="c"> % Evaluations threshold number</span><span class="w"></span>
-<span class="w">  </span><span class="n">method</span><span class="w">     </span><span class="k">...</span><span class="c"> % Method name (choose from: "triangle" or "line")</span><span class="w"></span>
+<span class="w">  </span><span class="n">method</span><span class="w">     </span><span class="k">...</span><span class="c"> % Method name (choose from: "geometric" or "sampling")</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
@@ -276,7 +219,8 @@ file. An example could be one of the following:</p>
 <div class="highlight-cpp notranslate">
 <div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">out</span> <span class="o">=</span> <span class="n">shell</span><span class="p">.</span><span class="n">setup</span><span class="p">(</span>
   <span class="n">enve</span><span class="o">::</span><span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="n">ground</span><span class="p">,</span> <span class="c1">// ENVE flat object (ground)</span>
-  <span class="n">acme</span><span class="o">::</span><span class="n">affine</span>       <span class="n">affine</span>  <span class="c1">// Shell 4x4 total transformation matrix</span>
+  <span class="n">acme</span><span class="o">::</span><span class="n">affine</span>       <span class="n">affine</span><span class="p">,</span> <span class="c1">// Shell 4x4 total transformation matrix</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>  <span class="n">method</span>  <span class="c1">// Method name (choose from: "geometric" or "sampling")</span>
 <span class="p">);</span>
 </pre></div>
 </div>
@@ -288,7 +232,8 @@ file. An example could be one of the following:</p>
 <div class="highlight-matlab notranslate">
 <div class="highlight"><pre><span></span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">setup</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
 <span class="w">  </span><span class="n">ground</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="c"> % ENVE flat object (ground)</span><span class="w"></span>
-<span class="w">  </span><span class="n">affine</span><span class="w">  </span><span class="k">...</span><span class="c"> % Shell 4x4 total transformation matrix</span><span class="w"></span>
+<span class="w">  </span><span class="n">affine</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="c"> % Shell 4x4 total transformation matrix</span><span class="w"></span>
+<span class="w">  </span><span class="n">method</span><span class="w">  </span><span class="k">...</span><span class="c"> % Method name (choose from: "geometric" or "sampling")</span><span class="w"></span>
 <span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
@@ -298,38 +243,28 @@ file. An example could be one of the following:</p>
 <div class="section" id="extract-data">
 <h2>Extract Data<a class="headerlink" href="#extract-data" title="Permalink to this headline">¶</a>
 </h2>
-<p>Once the contact has been evaluated one can retrive the average contact parameters as:</p>
+<p>Once the contact has been evaluated one can retrive the (average) contact parameters as:</p>
 <p>C++</p>
 <blockquote>
 <div>
 <div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span><span class="c1">// Variables initialization (real numbers):</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">point</span> <span class="n">contact_point_rib</span><span class="p">;</span>      <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">point</span> <span class="n">contact_point_mesh</span><span class="p">;</span>     <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_depth_rib</span><span class="p">;</span>      <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_depth_rib_dot</span><span class="p">;</span>  <span class="c1">// (m/s)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_depth_rib_old</span><span class="p">;</span>  <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_depth_mesh</span><span class="p">;</span>     <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_depth_mesh_dot</span><span class="p">;</span> <span class="c1">// (m/s)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_depth_mesh_old</span><span class="p">;</span> <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vec3</span>  <span class="n">contact_normal</span><span class="p">;</span>         <span class="c1">// (-)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_friction</span><span class="p">;</span>       <span class="c1">// (-)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">relative_camber</span><span class="p">;</span>        <span class="c1">// (rad)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">time_step</span><span class="p">;</span>              <span class="c1">// (s)</span>
+<div class="highlight"><pre><span></span><span class="c1">// Variables initialization</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">point</span> <span class="n">contact_point_avg</span><span class="p">;</span>    <span class="c1">// (m)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_depth_avg</span><span class="p">;</span>    <span class="c1">// (m)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vec3</span>  <span class="n">contact_normal_avg</span><span class="p">;</span>   <span class="c1">// (-)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_friction_avg</span><span class="p">;</span> <span class="c1">// (-)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_area_avg</span><span class="p">;</span>     <span class="c1">// (m^2)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_volume_avg</span><span class="p">;</span>   <span class="c1">// (m^3)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vec3</span>  <span class="n">relative_angles_avg</span><span class="p">;</span>  <span class="c1">// (rad)</span>
 
-<span class="c1">// Data extraction (real numbers):</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactPointRib</span><span class="p">(</span><span class="n">contact_point_rib</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">contact_normal</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">contact_friction</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactDepthRib</span><span class="p">(</span><span class="n">contact_depth_rib</span><span class="p">,</span>
-                      <span class="n">contact_depth_rib_dot</span><span class="p">,</span>
-                      <span class="n">contact_depth_rib_old</span><span class="p">,</span>
-                      <span class="n">time_step</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactDepthMesh</span><span class="p">(</span><span class="n">contact_depth_mesh</span><span class="p">,</span>
-                       <span class="n">contact_depth_mesh_dot</span><span class="p">,</span>
-                       <span class="n">contact_depth_mesh_old</span><span class="p">,</span>
-                       <span class="n">time_step</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">relativeCamber</span><span class="p">(</span><span class="n">relative_camber</span><span class="p">);</span>
+<span class="c1">// Data extraction</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactPoint</span><span class="p">(</span><span class="n">contact_point_avg</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactDepth</span><span class="p">(</span><span class="n">contact_depth_avg</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">contact_normal_avg</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">contact_friction_avg</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactArea</span><span class="p">(</span><span class="n">contact_area_avg</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactVolume</span><span class="p">(</span><span class="n">contact_volume_avg</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">relativeAngles</span><span class="p">(</span><span class="n">relative_angles_avg</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -338,56 +273,40 @@ file. An example could be one of the following:</p>
 <blockquote>
 <div>
 <div class="highlight-matlab notranslate">
-<div class="highlight"><pre><span></span><span class="c">% Data extraction (real numbers):</span><span class="w"></span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactPointRibAvg</span><span class="p">(</span><span class="n">contact_point_rib</span><span class="p">);</span><span class="w"></span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactNormalAvg</span><span class="p">(</span><span class="n">contact_normal</span><span class="p">);</span><span class="w"></span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactFrictionAvg</span><span class="p">(</span><span class="n">contact_friction</span><span class="p">);</span><span class="w"></span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactDepthRibAvg</span><span class="p">(</span><span class="n">contact_depth_rib</span><span class="p">,</span><span class="w">     </span><span class="k">...</span><span class="w"></span>
-<span class="w">                         </span><span class="n">contact_depth_rib_dot</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                         </span><span class="n">contact_depth_rib_old</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                         </span><span class="n">time_step</span><span class="p">);</span><span class="w"></span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactDepthMeshAvg</span><span class="p">(</span><span class="n">contact_depth_mesh</span><span class="p">,</span><span class="w">     </span><span class="k">...</span><span class="w"></span>
-<span class="w">                          </span><span class="n">contact_depth_mesh_dot</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                          </span><span class="n">contact_depth_mesh_old</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                          </span><span class="n">time_step</span><span class="p">);</span><span class="w"></span>
-<span class="n">shell</span><span class="p">.</span><span class="n">relativeCamber</span><span class="p">(</span><span class="n">relative_camber</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="c">% Data extraction</span><span class="w"></span>
+<span class="n">contact_point_avg</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactPointAvg</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_depth_avg</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactDepthAvg</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_normal_avg</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactNormalAvg</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_friction_avg</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactFrictionAvg</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_area_avg</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactAreaAvg</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_volume_avg</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactVolumeAvg</span><span class="p">();</span><span class="w"></span>
+<span class="n">relative_angles_avg</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">relativeAnglesAvg</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </blockquote>
-<p>Or one can retrive the contact parameters rib by rib as:</p>
+<p>Or one can retrive the contact parameters for a specific rib as:</p>
 <p>C++</p>
 <blockquote>
 <div>
 <div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span><span class="c1">// Variables initialization (vectors):</span>
-<span class="n">acme</span><span class="o">::</span><span class="kt">size_t</span>              <span class="n">size</span> <span class="o">=</span> <span class="n">tire_shell</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>     <span class="c1">// (-)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span>  <span class="n">contact_point_rib</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>      <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span>  <span class="n">contact_point_mesh</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>     <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span>                <span class="n">contact_depth_rib</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>      <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span>                <span class="n">contact_depth_rib_dot</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>  <span class="c1">// (m/s)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span>                <span class="n">contact_depth_rib_old</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>  <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span>                <span class="n">contact_depth_mesh</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>     <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span>                <span class="n">contact_depth_mesh_dot</span><span class="p">(</span><span class="n">size</span><span class="p">);</span> <span class="c1">// (m/s)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span>                <span class="n">contact_depth_mesh_old</span><span class="p">(</span><span class="n">size</span><span class="p">);</span> <span class="c1">// (m)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vec3</span><span class="o">&gt;</span>   <span class="n">contact_normal</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>         <span class="c1">// (-)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span>                <span class="n">contact_friction</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>       <span class="c1">// (-)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">vecN</span>                <span class="n">relative_camber</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>        <span class="c1">// (rad)</span>
-<span class="n">acme</span><span class="o">::</span><span class="n">real</span>                <span class="n">time_step</span><span class="p">;</span>                    <span class="c1">// (s)</span>
+<div class="highlight"><pre><span></span><span class="c1">// Variables initialization</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">point</span> <span class="n">contact_point_rib</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>    <span class="c1">// (m)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_depth_rib</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>    <span class="c1">// (m)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vec3</span>  <span class="n">contact_normal_rib</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>   <span class="c1">// (-)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_friction_rib</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="c1">// (-)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_area_rib</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>     <span class="c1">// (m^2)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">real</span>  <span class="n">contact_volume_rib</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>   <span class="c1">// (m^3)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">vec3</span>  <span class="n">relative_angles_rib</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>  <span class="c1">// (rad)</span>
 
-<span class="c1">// Data extraction (vectors):</span>
+<span class="c1">// Data extraction</span>
 <span class="n">shell</span><span class="p">.</span><span class="n">contactPointRib</span><span class="p">(</span><span class="n">contact_point_rib</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">contact_normal</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">contact_friction</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactDepthRib</span><span class="p">(</span><span class="n">contact_depth_rib</span><span class="p">,</span>
-                      <span class="n">contact_depth_rib_dot</span><span class="p">,</span>
-                      <span class="n">contact_depth_rib_old</span><span class="p">,</span>
-                      <span class="n">time_step</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">contactDepthMesh</span><span class="p">(</span><span class="n">contact_depth_mesh</span><span class="p">,</span>
-                       <span class="n">contact_depth_mesh_dot</span><span class="p">,</span>
-                       <span class="n">contact_depth_mesh_old</span><span class="p">,</span>
-                       <span class="n">time_step</span><span class="p">);</span>
-<span class="n">shell</span><span class="p">.</span><span class="n">relativeCamber</span><span class="p">(</span><span class="n">relative_camber</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactDepth</span><span class="p">(</span><span class="n">contact_depth_rib</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">contact_normal_rib</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">contact_friction_rib</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactArea</span><span class="p">(</span><span class="n">contact_area_rib</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactVolume</span><span class="p">(</span><span class="n">contact_volume_rib</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">relativeAngles</span><span class="p">(</span><span class="n">relative_angles_rib</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -396,27 +315,63 @@ file. An example could be one of the following:</p>
 <blockquote>
 <div>
 <div class="highlight-matlab notranslate">
-<div class="highlight"><pre><span></span><span class="c">% Data extraction (real numbers):</span><span class="w"></span>
-<span class="n">contact_point_rib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactPointRib</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
-<span class="n">contact_normal</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactNormal</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
-<span class="n">contact_friction</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactFriction</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
-<span class="n">contact_depth_rib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactDepthRib</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                      </span><span class="n">contact_depth_rib_dot</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                      </span><span class="n">contact_depth_rib_old</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                      </span><span class="n">time_step</span><span class="p">,</span><span class="w">             </span><span class="k">...</span><span class="w"></span>
-<span class="w">                      </span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
-<span class="n">contact_depth_mesh</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactDepthMesh</span><span class="p">(</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                       </span><span class="n">contact_depth_mesh_dot</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                       </span><span class="n">contact_depth_mesh_old</span><span class="p">,</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
-<span class="w">                       </span><span class="n">time_step</span><span class="p">,</span><span class="w">              </span><span class="k">...</span><span class="w"></span>
-<span class="w">                       </span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
-<span class="n">relative_camber</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">relativeCamber</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="c">% Data extraction</span><span class="w"></span>
+<span class="n">contact_point_rib</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactPointRib</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">contact_normal_rib</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactNormalRib</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">contact_friction_rib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactFrictionRib</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">contact_depth_rib</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactDepthRib</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">contact_area_rib</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactAreaRib</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">contact_volume_rib</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactVolumeRib</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
+<span class="n">relative_angles_rib</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">relativeAnglesRib</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </blockquote>
 <p>where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the i-th rib index.</p>
-<p>For more advanced functions read the C++/MATLAB API documentation.</p>
+<p>Or one can retrive the contact parameters rib by rib as:</p>
+<p>C++</p>
+<blockquote>
+<div>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="c1">// Variables initialization</span>
+<span class="n">acme</span><span class="o">::</span><span class="kt">size_t</span>                    <span class="n">size</span> <span class="o">=</span> <span class="n">tire_shell</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">// (-)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">point</span><span class="o">&gt;</span>  <span class="n">contact_point_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>      <span class="c1">// (m)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">real</span><span class="o">&gt;</span>   <span class="n">contact_depth_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>      <span class="c1">// (m)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">vec3</span><span class="o">&gt;</span>   <span class="n">contact_normal_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>     <span class="c1">// (-)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">real</span><span class="o">&gt;</span>   <span class="n">contact_friction_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>   <span class="c1">// (-)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">real</span><span class="o">&gt;</span>   <span class="n">contact_area_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>       <span class="c1">// (m^2)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">real</span><span class="o">&gt;</span>   <span class="n">contact_volume_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>     <span class="c1">// (m^3)</span>
+<span class="n">acme</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">acme</span><span class="o">::</span><span class="n">vec3</span><span class="o">&gt;</span>   <span class="n">relative_angles_vec</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>    <span class="c1">// (rad)</span>
+
+<span class="c1">// Data extraction</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactPointRib</span><span class="p">(</span><span class="n">contact_point_vec</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactDepth</span><span class="p">(</span><span class="n">contact_depth_vec</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactNormal</span><span class="p">(</span><span class="n">contact_normal_vec</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactFriction</span><span class="p">(</span><span class="n">contact_friction_vec</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactArea</span><span class="p">(</span><span class="n">contact_area_vec</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">contactVolume</span><span class="p">(</span><span class="n">contact_volume_vec</span><span class="p">);</span>
+<span class="n">shell</span><span class="p">.</span><span class="n">relativeAngles</span><span class="p">(</span><span class="n">relative_angles_vec</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>MATLAB</p>
+<blockquote>
+<div>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Data extraction</span><span class="w"></span>
+<span class="n">contact_point_vec</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactPointVec</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_normal_vec</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactNormalVec</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_friction_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactFrictionVec</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_depth_vec</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactDepthVec</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_area_vec</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactAreaVec</span><span class="p">();</span><span class="w"></span>
+<span class="n">contact_volume_vec</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">contactVolumeVec</span><span class="p">();</span><span class="w"></span>
+<span class="n">relative_angles_vec</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">shell</span><span class="p">.</span><span class="n">relativeAnglesVec</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>For more advanced functions please read the C++/MATLAB API documentation.</p>
 </div>
 </div>
 
@@ -447,7 +402,7 @@ file. An example could be one of the following:</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to use ENVE</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#load-the-mesh">Load the mesh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-a-flat-ground">Build a flat ground</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#build-the-wheel-shell">Build the wheel shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-the-tire-shell">Build the tire shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#evaluate-the-contact">Evaluate the contact</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extract-data">Extract Data</a></li>
 </ul>

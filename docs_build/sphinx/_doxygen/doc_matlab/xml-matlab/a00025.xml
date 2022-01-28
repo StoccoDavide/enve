@@ -1133,11 +1133,11 @@
         </inbodydescription>
         <location file="enve_shell.m" line="544" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1aad425007363a37b5e7dc8cb89cfc3b50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1ae9d1b84ac761cfe298ea41ffd278473a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
-        <definition>function enve_shell::TireXTplot</definition>
+        <definition>function enve_shell::enveTplot</definition>
         <argsstring>(in this, in T, in figure_name, in color)</argsstring>
-        <name>TireXTplot</name>
+        <name>enveTplot</name>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1163,11 +1163,11 @@
         </inbodydescription>
         <location file="enve_shell.m" line="562" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1ae580a7ea93234d814cb198c3f96d37ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1aff1e50b0430157ae40ac2fbfb97ca27f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
-        <definition>function enve_shell::shellTireX</definition>
+        <definition>function enve_shell::shellEnve</definition>
         <argsstring>(in this, in figure_name, in color)</argsstring>
-        <name>shellTireX</name>
+        <name>shellEnve</name>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1181,7 +1181,7 @@
           <declname>color</declname>
         </param>
         <briefdescription>
-<para>Plot &quot;statically&quot; non-discretized shell TireX shape. </para>
+<para>Plot &quot;statically&quot; non-discretized shell shape. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -1189,11 +1189,11 @@
         </inbodydescription>
         <location file="enve_shell.m" line="594" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1ab774ce3a02b8de2fde0232fbad1b4d49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1a8ab781d01979c19036c35628cf15b438" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
-        <definition>function enve_shell::plotTireX</definition>
+        <definition>function enve_shell::plotEnve</definition>
         <argsstring>(in this, in figure_name, in color)</argsstring>
-        <name>plotTireX</name>
+        <name>plotEnve</name>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1207,7 +1207,7 @@
           <declname>color</declname>
         </param>
         <briefdescription>
-<para>Plot &quot;dinamically&quot; non-discretized shell TireX shape. </para>
+<para>Plot &quot;dinamically&quot; non-discretized shell shape. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -1323,11 +1323,11 @@
         </inbodydescription>
         <location file="enve_shell.m" line="681" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00025_1acb4799a74b709294706bd086f07943c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00025_1a9f04cada7ea8afb61fa61e1b67e79e90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
-        <definition>function enve_shell::meshTireX</definition>
+        <definition>function enve_shell::meshShell</definition>
         <argsstring>(in this)</argsstring>
-        <name>meshTireX</name>
+        <name>meshShell</name>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1411,13 +1411,14 @@
       <member refid="a00025_1aa1ddd83b0d2be108c16a2146b33bc1b4" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactVolumeVec</name></member>
       <member refid="a00025_1ab5f15015afdb914a686e64633437ab85" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>disp</name></member>
       <member refid="a00025_1ae4ec76596975e605869e110efa93c79c" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>enve_shell</name></member>
+      <member refid="a00025_1ae9d1b84ac761cfe298ea41ffd278473a" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>enveTplot</name></member>
       <member refid="a00025_1ade6f32e5537a6fe93d9f8a9fc62afc64" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>eulerAngles</name></member>
-      <member refid="a00025_1acb4799a74b709294706bd086f07943c0" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>meshTireX</name></member>
+      <member refid="a00025_1a9f04cada7ea8afb61fa61e1b67e79e90" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>meshShell</name></member>
       <member refid="a00025_1a17d558effe52873f181ef4c7b6603bd3" prot="private" virt="non-virtual"><scope>enve_shell</scope><name>objectHandle</name></member>
+      <member refid="a00025_1a8ab781d01979c19036c35628cf15b438" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotEnve</name></member>
       <member refid="a00025_1a162c3b00624e54ecbe44b246889dcb7b" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotRibs</name></member>
       <member refid="a00025_1ad8e1703a72877ca57d19ecbc44ef9681" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotSetup</name></member>
       <member refid="a00025_1a562f88ee9f8508179a24dee8ac9a43aa" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotShape</name></member>
-      <member refid="a00025_1ab774ce3a02b8de2fde0232fbad1b4d49" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>plotTireX</name></member>
       <member refid="a00025_1aaefb38aedfd9057d176f922e946f7d42" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>profile</name></member>
       <member refid="a00025_1a8e049285212d180275e00865ce46823d" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>relativeAnglesAvg</name></member>
       <member refid="a00025_1a07e0d12b253fe3fa3a0c48a20f50dbc5" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>relativeAnglesRib</name></member>
@@ -1432,9 +1433,9 @@
       <member refid="a00025_1afe2212217c41d334a2867dc65f8d2850" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>setupFlat</name></member>
       <member refid="a00025_1ad31aa048380ec00e3cf663969e3274c9" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>setupMesh</name></member>
       <member refid="a00025_1a621eac86df948df8398f9a8bb3c4c2ac" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shapeTplot</name></member>
+      <member refid="a00025_1aff1e50b0430157ae40ac2fbfb97ca27f" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellEnve</name></member>
       <member refid="a00025_1a968774a42f9a1dc4a2aae8f079598877" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellRibs</name></member>
       <member refid="a00025_1a77d494f0dacab4d6a8745400cf98232f" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellShape</name></member>
-      <member refid="a00025_1ae580a7ea93234d814cb198c3f96d37ca" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>shellTireX</name></member>
       <member refid="a00025_1af97e2d7af31d0924d113504fc6154062" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>size</name></member>
       <member refid="a00025_1adab417b641317c4abc2ba2a794a2d4b5" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceAngle</name></member>
       <member refid="a00025_1aec570e16bc39867f75480ebbd82961f7" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceDerivative</name></member>
@@ -1443,7 +1444,6 @@
       <member refid="a00025_1a29a33822cd91218f0ce4de99d0cdff20" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceRadius</name></member>
       <member refid="a00025_1a23d20650cd78e8f45166b5a7110206ba" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceWidth</name></member>
       <member refid="a00025_1a0bffc26c900af6d386beeb33fb6966ac" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>surfaceWidthBound</name></member>
-      <member refid="a00025_1aad425007363a37b5e7dc8cb89cfc3b50" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>TireXTplot</name></member>
       <member refid="a00025_1a7919322a33542dd47f97e9d51d773867" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>transform</name></member>
       <member refid="a00025_1ab977d97807a9bb7a2592393224c22c85" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>transformation</name></member>
       <member refid="a00025_1a49001007e735cd9be29a31acbf9fc014" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>translate</name></member>

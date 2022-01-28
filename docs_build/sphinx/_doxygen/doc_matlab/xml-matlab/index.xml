@@ -87,14 +87,14 @@
     <member refid="a00025_1a621eac86df948df8398f9a8bb3c4c2ac" kind="function"><name>shapeTplot</name></member>
     <member refid="a00025_1a77d494f0dacab4d6a8745400cf98232f" kind="function"><name>shellShape</name></member>
     <member refid="a00025_1a562f88ee9f8508179a24dee8ac9a43aa" kind="function"><name>plotShape</name></member>
-    <member refid="a00025_1aad425007363a37b5e7dc8cb89cfc3b50" kind="function"><name>TireXTplot</name></member>
-    <member refid="a00025_1ae580a7ea93234d814cb198c3f96d37ca" kind="function"><name>shellTireX</name></member>
-    <member refid="a00025_1ab774ce3a02b8de2fde0232fbad1b4d49" kind="function"><name>plotTireX</name></member>
+    <member refid="a00025_1ae9d1b84ac761cfe298ea41ffd278473a" kind="function"><name>enveTplot</name></member>
+    <member refid="a00025_1aff1e50b0430157ae40ac2fbfb97ca27f" kind="function"><name>shellEnve</name></member>
+    <member refid="a00025_1a8ab781d01979c19036c35628cf15b438" kind="function"><name>plotEnve</name></member>
     <member refid="a00025_1a9825bf6f010b6396d17ac257e08792ff" kind="function"><name>ribsTplot</name></member>
     <member refid="a00025_1a968774a42f9a1dc4a2aae8f079598877" kind="function"><name>shellRibs</name></member>
     <member refid="a00025_1a162c3b00624e54ecbe44b246889dcb7b" kind="function"><name>plotRibs</name></member>
     <member refid="a00025_1ad8e1703a72877ca57d19ecbc44ef9681" kind="function"><name>plotSetup</name></member>
-    <member refid="a00025_1acb4799a74b709294706bd086f07943c0" kind="function"><name>meshTireX</name></member>
+    <member refid="a00025_1a9f04cada7ea8afb61fa61e1b67e79e90" kind="function"><name>meshShell</name></member>
     <member refid="a00025_1a516328ef71caef51f662ff81a050a92e" kind="function"><name>type</name></member>
   </compound>
   <compound refid="a00029" kind="class"><name>enve_triangleground</name>

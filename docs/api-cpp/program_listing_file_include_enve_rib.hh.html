@@ -186,6 +186,17 @@
 
     <span class="kt">bool</span>
     <span class="nf">envelop</span><span class="p">(</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
+      <span class="n">point</span>        <span class="o">&amp;</span><span class="n">contactPoint</span><span class="p">,</span>
+      <span class="n">vec3</span>         <span class="o">&amp;</span><span class="n">contactNormal</span><span class="p">,</span>
+      <span class="n">real</span>         <span class="o">&amp;</span><span class="n">contactFriction</span><span class="p">,</span>
+      <span class="n">real</span>         <span class="o">&amp;</span><span class="n">contactDepth</span><span class="p">,</span>
+      <span class="n">real</span>         <span class="o">&amp;</span><span class="n">contactArea</span><span class="p">,</span>
+      <span class="n">real</span>         <span class="o">&amp;</span><span class="n">contactVolume</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">envelop</span><span class="p">(</span>
       <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">localGround</span><span class="p">,</span>
       <span class="n">affine</span>                 <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
       <span class="n">std</span><span class="o">::</span><span class="n">string</span>            <span class="k">const</span>  <span class="n">method</span><span class="p">,</span>

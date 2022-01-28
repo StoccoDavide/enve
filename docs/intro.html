@@ -45,21 +45,20 @@
 </h1>
 <p><strong>What is ENVE?</strong></p>
 <p>The ENVE library is a free software written in C++ (standard C++11) under the BSD 2-clause license.
-Its main purpose is to describe through very simple geometric entities goround surfaces and wheels (modeled
+Its main purpose is to describe through very simple geometric entities ground surfaces and tires (modeled
 as rigid shells), and to analyze the contact between them. More specifically, the surface (which can represent
-a road, a terrain or a railway) is described as a triangular mesh, while the wheel (or tire) is representesd
+a road or a generic terrain) is described as a triangular mesh, while the tire is representesd
 through a series of stacked disks (also called ribs). The intersection of the geometric entities that make up
 the road and tire allows us to analyze the shape of the road surface near the contact interface.</p>
 <p><strong>What does ENVE mean?</strong></p>
 <p>ENVE is an abbreviation (more or less fanciful) of ENveloping method for wheeled VEhicles.</p>
 <p><strong>What does ENVE do?</strong></p>
 <p>ENVE is software specifically developed to locally evaluate the contact between a triangular
-surface and a series of stacked disks (called ribs). It was initially designed to work in the
-automotive field, but since version 1.0 it is also possible to introduce custom wheel profiles.
-This allows to use this software also in the field of the railway simulation.</p>
+surface and a series of stacked disks (called ribs). It is specifically designed to serve the
+automotive field simulation.</p>
 <p><strong>How fast is ENVE?</strong></p>
-<p>ENVE can work with a Real-Time Factor (RTF)&gt;20 (average result calculated on a mesh with 25k+ triangles, tire consisting of 10 ribs, refresh
-rate of 1kHz and based on 28k samples [3]).</p>
+<p>ENVE can work with a Real-Time Factor (RTF) bigger than 20 (average result calculated on a mesh with 25k+ triangles,
+tire consisting of 10 ribs, refresh rate of 1kHz and based on 28k samples [3]).</p>
 <p><strong>Can I use ENVE on MATLAB environment?</strong></p>
 <p>Yes. ENVE is provided with both a MATLAB MEX wrapper and a SIMULINK S-Function.</p>
 <p><strong>Need more information?</strong></p>

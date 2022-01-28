@@ -58,10 +58,7 @@ using ``rake`` you have the library and headers in the following tree
    `-- lib
        |-- include
        |   |-- enve_flat.hh
-       |   |-- enve_hyperellipse.hh
        |   |-- enve_mesh.hh
-       |   |-- enve_points.hh
-       |   |-- enve_polynom.hh
        |   |-- enve_rib.hh
        |   |-- enve_shape.hh
        |   |-- enve_shell.hh
