@@ -429,8 +429,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/enve_rib.hh" line="141" column="5" bodyfile="src/enve_rib.cc" bodystart="171" bodyend="175"/>
-        <referencedby refid="a00055_1a77b3731cd7c4a6b80d820983f8c127e7" compoundref="a00026" startline="294" endline="404">envelopGeometric</referencedby>
-        <referencedby refid="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" compoundref="a00026" startline="459" endline="516">envelopSampling</referencedby>
+        <referencedby refid="a00055_1a77b3731cd7c4a6b80d820983f8c127e7" compoundref="a00026" startline="294" endline="393">envelopGeometric</referencedby>
+        <referencedby refid="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" compoundref="a00026" startline="448" endline="504">envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00055_1aed5c4d8fd8ef8bf886fd0f6104a04856" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
@@ -762,7 +762,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="204" column="5" bodyfile="src/enve_rib.cc" bodystart="294" bodyend="404"/>
+        <location file="include/enve_rib.hh" line="204" column="5" bodyfile="src/enve_rib.cc" bodystart="294" bodyend="393"/>
         <referencedby refid="a00055_1af16111667f9849ec042456b68d985b46" compoundref="a00026" startline="219" endline="238">envelop</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00055_1a451da7c72dbe89b38dd2d0e4bbbe5db9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
@@ -825,7 +825,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="217" column="5" bodyfile="src/enve_rib.cc" bodystart="409" bodyend="454"/>
+        <location file="include/enve_rib.hh" line="217" column="5" bodyfile="src/enve_rib.cc" bodystart="398" bodyend="443"/>
       </memberdef>
       <memberdef kind="function" id="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -887,7 +887,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="230" column="5" bodyfile="src/enve_rib.cc" bodystart="459" bodyend="516"/>
+        <location file="include/enve_rib.hh" line="230" column="5" bodyfile="src/enve_rib.cc" bodystart="448" bodyend="504"/>
         <referencedby refid="a00055_1af16111667f9849ec042456b68d985b46" compoundref="a00026" startline="219" endline="238">envelop</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00055_1a8242799f879447ad9dbf012f5a630781" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
@@ -950,7 +950,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="243" column="5" bodyfile="src/enve_rib.cc" bodystart="521" bodyend="578"/>
+        <location file="include/enve_rib.hh" line="243" column="5" bodyfile="src/enve_rib.cc" bodystart="509" bodyend="566"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -1002,8 +1002,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="257" column="5" bodyfile="src/enve_rib.cc" bodystart="583" bodyend="647"/>
-        <referencedby refid="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" compoundref="a00026" startline="459" endline="516">envelopSampling</referencedby>
+        <location file="include/enve_rib.hh" line="257" column="5" bodyfile="src/enve_rib.cc" bodystart="571" bodyend="635"/>
+        <referencedby refid="a00055_1a5f936affe9258ab39fba8dbdbe3971fe" compoundref="a00026" startline="448" endline="504">envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00055_1ad3141e45ab81272c1bfa2de2a2b04e12" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1053,7 +1053,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="268" column="5" bodyfile="src/enve_rib.cc" bodystart="652" bodyend="672"/>
+        <location file="include/enve_rib.hh" line="268" column="5" bodyfile="src/enve_rib.cc" bodystart="640" bodyend="660"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

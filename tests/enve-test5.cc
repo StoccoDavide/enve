@@ -62,12 +62,12 @@ main()
     road.print("bin/OutMesh.txt");
 
     // Initialize the tire shell
-    shell tire_shell(5,   // ribs number
-                     0.3, // r_x
-                     4.0, // m_x
-                     4.0, // r_y
-                     4.0, // m_y
-                     0.1  // l_y
+    shell tire_shell(5,      // ribs number
+                     0.3130, // r_x
+                     9.0,    // m_x
+                     0.12,   // r_y
+                     6.0,    // m_y
+                     0.1     // l_y
     );
 
     // Orient the tire in the space
@@ -77,13 +77,13 @@ main()
 
     // Create frame object
     affine pose;
-    pose = translate(1e4, 1e4, 0.26) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(1.0, 1.0, 0.3) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();
 
     // Set an orientation and calculate parameters
-    tire_shell.setup(road, pose, "sampling");
+    tire_shell.setup(road, pose, "geometric");
 
     // Stop chronometer
     tictoc.toc();
