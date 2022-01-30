@@ -65,7 +65,7 @@ main()
     shell tire_shell(5,      // ribs number
                      0.3130, // r_x
                      9.0,    // m_x
-                     0.1,    // r_y
+                     0.12,   // r_y
                      6.0,    // m_y
                      0.1     // l_y
     );
@@ -77,7 +77,7 @@ main()
 
     // Create frame object
     affine pose;
-    pose = translate(0.0, 0.0, 0.41) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(0.0, 0.0, 0.3) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();

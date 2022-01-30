@@ -357,8 +357,9 @@ namespace enve
     real    FA, FC, FB;
     real    segmentLength_tmp;
     real    segmentArea_tmp;
-    real    segmentLengthTotal = 0.0;
+    real    segmentVolume_tmp;
     real    segmentAreaTotal   = 0.0;
+    real    segmentVolumeTotal = 0.0;
 
     point contactPoint_tmp    = point::Constant(0.0);
     vec3  contactNormal_tmp   = vec3::Constant(0.0);
@@ -371,66 +372,54 @@ namespace enve
     vec3  ribNormalGround(rotation * this-&gt;normal());
     point ribCenterGround(origin + rotation * center);
     disk  ribGround(radius, ribCenterGround, ribNormalGround);
-    real  tolerance = 1e-4;
+
     for (size_t i = 0; i &lt; localGround.size(); ++i)
     {
       if (acme::intersection(*localGround[i], ribGround, segment_tmp, EPSILON_LOW))
       {
-        int_bool = true;
-        segmentLength_tmp   = segment_tmp.length();
-        segmentLengthTotal += segmentLength_tmp;
+        segmentLength_tmp = segment_tmp.length();
+        if (segmentLength_tmp &lt; EPSILON_HIGH)
+          break;
 
         // Simpson's rule
-        FA = radius - (segment_tmp.vertex(0) - ribCenterGround).norm();
-        FC = radius - (segment_tmp.centroid() - ribCenterGround).norm();
-        FB = radius - (segment_tmp.vertex(1) - ribCenterGround).norm();
+        FA = std::max(0.0, radius - (segment_tmp.vertex(0) - ribCenterGround).norm());
+        FC = std::max(0.0, radius - (segment_tmp.centroid() - ribCenterGround).norm());
+        FB = std::max(0.0, radius - (segment_tmp.vertex(1) - ribCenterGround).norm());
 
-        if (FA &lt; -tolerance) {
-          ENVE_ERROR("enve::rib::envelopGeometric(mesh, ...): FA less than 0.\n");
-        } else if (FA &lt; 0.0) {
-          FA = 0.0;
-        }
+        int_bool = true;
 
-        if (FC &lt; -tolerance) {
-          ENVE_ERROR("enve::rib::envelopGeometric(mesh, ...): FC less than 0.\n");
-        } else if (FC &lt; 0.0) {
-          FC = 0.0;
-        }
-
-        if (FB &lt; -tolerance) {
-          ENVE_ERROR("enve::rib::envelopGeometric(mesh, ...): FB less than 0.\n");
-        } else if (FB &lt; 0.0) {
-          FB = 0.0;
-        }
-
-        segmentArea_tmp   = segmentLength_tmp/6 * (FA + 4*FC + FB);
+        segmentArea_tmp   = segmentLength_tmp * width;
         segmentAreaTotal += segmentArea_tmp;
 
-        contactPoint_iter    = (segment_tmp.vertex(0)*FA + 4*FC*segment_tmp.centroid() + segment_tmp.vertex(1)*FB) / (FA + 4*FC + FB);
+        segmentVolume_tmp   = segmentLength_tmp/6 * (FA + 4*FC + FB) * width;
+        segmentVolumeTotal += segmentVolume_tmp;
+
+        contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4*FC + segment_tmp.vertex(1)*FB) / (FA + 4*FC + FB);
         contactNormal_iter   = ((ribCenterGround - contactPoint_iter).normalized() +
                                 ribNormalGround*ribNormalGround.dot(localGround[i]-&gt;normal())
                                 ).normalized();
         contactFriction_iter = localGround[i]-&gt;friction();
 
-        contactPoint_tmp    += segmentArea_tmp * contactPoint_iter;
-        contactNormal_tmp   += segmentArea_tmp * contactNormal_iter;
-        contactFriction_tmp += segmentArea_tmp * contactFriction_iter;
+        contactPoint_tmp    += segmentVolume_tmp * contactPoint_iter;
+        contactNormal_tmp   += segmentVolume_tmp * contactNormal_iter;
+        contactFriction_tmp += segmentVolume_tmp * contactFriction_iter;
 
       }
     }
     if (int_bool)
     {
-      if (segmentAreaTotal &lt; EPSILON_HIGH){
-        segmentLengthTotal += EPSILON_HIGH;
+      if (segmentAreaTotal &lt; EPSILON_HIGH)
         segmentAreaTotal   += EPSILON_HIGH;
-      }
 
-      contactPoint    = contactPoint_tmp    / segmentAreaTotal;
-      contactNormal   = (contactNormal_tmp   / segmentAreaTotal).normalized();
-      contactFriction = contactFriction_tmp / segmentAreaTotal;
+      if (segmentVolumeTotal &lt; EPSILON_HIGH)
+        segmentVolumeTotal += EPSILON_HIGH;
+
+      contactPoint    = contactPoint_tmp    / segmentVolumeTotal;
+      contactNormal   = (contactNormal_tmp  / segmentVolumeTotal).normalized();
+      contactFriction = contactFriction_tmp / segmentVolumeTotal;
       contactDepth    = radius - (contactPoint - ribCenterGround).norm();
-      contactArea     = segmentLengthTotal*width;
-      contactVolume   = segmentAreaTotal*width;
+      contactArea     = segmentAreaTotal;
+      contactVolume   = segmentVolumeTotal;
       return true;
     }
     else
@@ -532,7 +521,6 @@ namespace enve
     sampling = sampling &amp;&amp; this-&gt;samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
     contactPoint = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
-
     if ( sampling &amp;&amp; (ribCenterGround - contactPoint).norm() &lt;= radius )
     {
       contactNormal   = ((ribCenterGround - contactPoint).normalized() +

@@ -112,12 +112,13 @@ namespace enve
     // Locate the disks
     real shellWidth = this->m_shape->surfaceWidth();
     real ribW = 2*shellWidth / size;
-    real ribY, ribR, ribA;
+    real ribR, ribA;
+    real ribY = -shellWidth - ribW / 2.0;
     for (size_t i = 0; i < size; ++i)
     {
-      ribY = -shellWidth + ribW / 2.0 + i * ribW;
-      ribR = this->m_shape->surfaceRadius(ribY);
-      ribA = this->m_shape->surfaceAngle(ribY);
+      ribY += ribW;
+      ribR  = this->m_shape->surfaceRadius(ribY);
+      ribA  = this->m_shape->surfaceAngle(ribY);
       ENVE_ASSERT(ribR > 0, "enve::shell::resize(size): Negative rib radius.\n" );
       ENVE_ASSERT(ribR == ribR, "enve::shell::resize(size): NaN rib radius.\n" );
       ENVE_ASSERT(ribA == ribA, "enve::shell::resize(size): NaN rib angle.\n" );
@@ -470,18 +471,20 @@ namespace enve
     else
     {
       // Perform intersection on all ribs
-      bool out = true;
+      bool out     = false;
+      bool out_tmp = false;
       for (size_t i = 0; i < this->size(); ++i)
       {
-        out = out && this->m_ribs[i].envelop(localGround,
-                                             affine_in,
-                                             method,
-                                             this->m_point[i],
-                                             this->m_normal[i],
-                                             this->m_friction[i],
-                                             this->m_depth[i],
-                                             this->m_area[i],
-                                             this->m_volume[i]);
+        out_tmp = this->m_ribs[i].envelop(localGround,
+                                          affine_in,
+                                          method,
+                                          this->m_point[i],
+                                          this->m_normal[i],
+                                          this->m_friction[i],
+                                          this->m_depth[i],
+                                          this->m_area[i],
+                                          this->m_volume[i]);
+        out = out || out_tmp;
       }
       return out;
     }
@@ -580,10 +583,12 @@ namespace enve
       for (size_t i = 0; i < this->size(); ++i)
         normal += this->m_normal[i];
       normal /= this->size();
+      normal.normalize();
     } else {
       for (size_t i = 0; i < this->size(); ++i)
         normal += this->m_normal[i]*this->m_volume[i];
       normal /= volume_sum;
+      normal.normalize();
     }
   }
 
@@ -898,8 +903,10 @@ namespace enve
 
     os << "Ribs info:" << std::endl;
     for (size_t i = 0; i < relative_angles_vec.size(); ++i)
-      os << "Rib " << i << " - R = " << this->m_ribs[i].radius() << "m" << std::endl
-         << "      - C =" << this->m_ribs[i].center();
+      os << "Rib " << i << " : C = " << this->m_ribs[i].center()
+                   << "        R = " << this->m_ribs[i].radius() << " m" << std::endl
+                   << "        A = " << this->m_ribs[i].angle() << " rad" << std::endl;
+                   
     os << "Contact parameters:" << std::endl
        << "Shell maximum radius" << std::endl
        << "R = " << this->m_shape->surfaceMaxRadius() << " m" << std::endl

@@ -30,7 +30,7 @@ obj
 
 T = [ 0, 1, 0, 1.0;   ...
       1, 0, 0, 1.0;   ...
-      0, 0, 1, 0.13; ...
+      0, 0, 1, 0.3130-0.006; ...
       0, 0, 0, 1 ];
 
 obj.transform( T )
@@ -95,20 +95,9 @@ zlabel('z');
 % Test setup
 
 mesh = enve_mesh('../../files_rdf/sample.rdf');
-mesh2 = enve_mesh('../../files_rdf/sample.rdf');
-mesh.copy(mesh2)
 
 tic
-boolean = obj.setupMesh(mesh, T, 'geometric')
-toc
-
-T = [ 0, 1, 0, 1.0;   ...
-      1, 0, 0, 1.0;   ...
-      0, 0, 1, 0.413; ...
-      0, 0, 0, 1 ];
-
-tic
-boolean = obj.setupMesh(mesh, T, 'geometric')
+boolean = obj.setupMesh(mesh, T, 'sampling');
 toc
 
 out5 = figure;
