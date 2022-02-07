@@ -47,6 +47,7 @@
 #include "enve_mesh.hh"
 #include "enve_rib.hh"
 #include "enve_shape.hh"
+#include "enve_output.hh"
 
 using namespace acme;
 
@@ -70,17 +71,11 @@ namespace enve
     typedef std::vector<shell::ptr>      vecptr; //!< Vector of pointers to shell objects
 
   private:
-    std::shared_ptr<shape> m_shape;  //!< Shell shape
-    std::vector<rib>       m_ribs;   //!< Shell ribs vector
     affine                 m_affine; //!< Shell reference frame (ISO)
+    std::vector<rib>       m_ribs;   //!< Shell ribs vector
+    std::shared_ptr<shape> m_shape;  //!< Shell shape
     std::shared_ptr<aabb>  m_aabb;   //!< Shell bounding aabb (must be transformed in the mesh reference frame before intersection!)
-
-    std::vector<point> m_point;    //!< Contact points vector
-    std::vector<vec3>  m_normal;   //!< Contact normal unit vectors
-    std::vector<real>  m_friction; //!< Contact friction
-    std::vector<real>  m_depth;    //!< Contact depth 
-    std::vector<real>  m_area;     //!< Contact area
-    std::vector<real>  m_volume;   //!< Contact volume
+    std::vector<output>    m_out;    //!< Contact parameters output vector
 
   public:
     //! Shell class destructor

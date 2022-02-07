@@ -54,14 +54,14 @@ main()
               << std::endl;
 
     // Load .rdf File
-    ground::mesh road("./../files_rdf/Eight.rdf");
+    ground::mesh road("./files_rdf/Eight.rdf");
 
     // Tire Parameters
     std::string method = "geometric";
 
     // Initialize the tire shell
-    shell tire_shell(5,    // ribs number
-                     0.35, // r_x
+    shell tire_shell(20,   // ribs number
+                     0.31, // r_x
                      3.1,  // m_x
                      4.0,  // r_y
                      3.1,  // m_y
@@ -78,12 +78,12 @@ main()
     real speed     = 10;   // m/s
 
     // Set starting and arrival positions
-    point start(1.7, -140.0, 0.3);   // 12.7 triangles (7.9% of duty cycle - 20 ribs)
-    point arrival(0.4, +140.0, 0.3); // 12.7 triangles
-    // point start(5.0, -140.0, 0.3);   // 3.4 triangles (2.2% of duty cycle - 20 ribs)
-    // point arrival(5.0, +140.0, 0.3); // 3.4 triangles
-    // point start(2.0, -140.0, 0.26);   // 4.9 triangles (2.8% of duty cycle - 20 ribs)
-    // point arrival(2.0, +140.0, 0.26); // 4.9 triangles
+    //point start(1.7, -140.0, 0.3);   // 12.19 triangles (10.0% of duty cycle - 20 ribs)
+    //point arrival(0.4, +140.0, 0.3); // 12.19 triangles
+    //point start(5.0, -140.0, 0.3);   // 3.27 triangles (2.9% of duty cycle - 20 ribs)
+    //point arrival(5.0, +140.0, 0.3); // 3.27 triangles
+    point start(2.0, -140.0, 0.26);   // 3.89 triangles (3.3% of duty cycle - 20 ribs)
+    point arrival(2.0, +140.0, 0.26); // 3.89 triangles
 
     // Compute parameters
     real                   step_size = (arrival - start).norm() / speed * frequency;
@@ -141,8 +141,8 @@ main()
     real std_dev = std::sqrt(variance);
 
     // Output performance data
-    std::cout << "enve TERRAIN SERVER PERFORMANCE DATA" << std::endl
-              << "Evnveloping model: " << method << std::endl
+    std::cout << "ENVE TERRAIN SERVER PERFORMANCE DATA" << std::endl
+              << "Enveloping model: " << method << std::endl
               << "Total time    = " << time_vec.sum() << " ms" << std::endl
               << "Avg step time = " << mean << " ms" << std::endl
               << "Variance      = " << variance << " ms" << std::endl
@@ -153,7 +153,7 @@ main()
 
     // This constructs a duration object using milliseconds
     std::cout << std::endl
-              << "enve TIMING TEST: Completed" << std::endl
+              << "ENVE TIMING TEST: Completed" << std::endl
               << std::endl;
   }
   catch (std::exception const &exc)
@@ -162,6 +162,6 @@ main()
   }
   catch (...)
   {
-    std::cerr << "enve TIMING TEST: Unknown error" << std::endl;
+    std::cerr << "ENVE TIMING TEST: Unknown error" << std::endl;
   }
 }

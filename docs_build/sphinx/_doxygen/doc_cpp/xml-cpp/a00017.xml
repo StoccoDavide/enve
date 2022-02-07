@@ -1,17 +1,41 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
   <compounddef id="a00017" kind="file" language="C++">
-    <compoundname>enve_shape.hh</compoundname>
+    <compoundname>enve_triangleground.hh</compoundname>
     <includes local="no">acme.hh</includes>
-    <includes local="no">acme_math.hh</includes>
-    <includes refid="a00020" local="yes">enve.hh</includes>
-    <includedby refid="a00005" local="yes">include/enve_shell.hh</includedby>
-    <includedby refid="a00032" local="yes">src/enve_shape.cc</includedby>
+    <includes local="no">acme_aabb.hh</includes>
+    <includes local="no">acme_intersection.hh</includes>
+    <includes local="no">acme_segment.hh</includes>
+    <includes local="no">acme_triangle.hh</includes>
+    <includes refid="a00023" local="yes">enve.hh</includes>
+    <includedby refid="a00011" local="yes">include/enve_mesh.hh</includedby>
+    <includedby refid="a00002" local="yes">include/enve_rib.hh</includedby>
+    <includedby refid="a00032" local="yes">src/enve_triangleground.cc</includedby>
     <incdepgraph>
-      <node id="4">
+      <node id="7">
         <label>enve.hh</label>
-        <link refid="a00020"/>
+        <link refid="a00023"/>
         <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/enve_triangleground.hh</label>
+        <link refid="a00017"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
@@ -19,80 +43,103 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>include/enve_shape.hh</label>
-        <link refid="a00017"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
       </node>
       <node id="2">
         <label>acme.hh</label>
       </node>
       <node id="3">
-        <label>acme_math.hh</label>
+        <label>acme_aabb.hh</label>
+      </node>
+      <node id="4">
+        <label>acme_intersection.hh</label>
       </node>
       <node id="5">
-        <label>fstream</label>
+        <label>acme_segment.hh</label>
       </node>
       <node id="6">
-        <label>iostream</label>
-      </node>
-      <node id="7">
-        <label>sstream</label>
+        <label>acme_triangle.hh</label>
       </node>
       <node id="8">
-        <label>string</label>
+        <label>fstream</label>
       </node>
       <node id="9">
+        <label>iostream</label>
+      </node>
+      <node id="10">
+        <label>sstream</label>
+      </node>
+      <node id="11">
+        <label>string</label>
+      </node>
+      <node id="12">
         <label>vector</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1">
-        <label>include/enve_shape.hh</label>
-        <link refid="a00017"/>
-        <childnode refid="2" relation="include">
+      <node id="2">
+        <label>include/enve_mesh.hh</label>
+        <link refid="a00011"/>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
-      <node id="2">
-        <label>include/enve_shell.hh</label>
-        <link refid="a00005"/>
-        <childnode refid="3" relation="include">
+      <node id="3">
+        <label>include/enve_rib.hh</label>
+        <link refid="a00002"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="4">
-        <label>src/enve_shape.cc</label>
+        <label>include/enve_shell.hh</label>
+        <link refid="a00008"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/enve_triangleground.hh</label>
+        <link refid="a00017"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>src/enve_mesh.cc</label>
+        <link refid="a00038"/>
+      </node>
+      <node id="6">
+        <label>src/enve_rib.cc</label>
+        <link refid="a00029"/>
+      </node>
+      <node id="5">
+        <label>src/enve_shell.cc</label>
+        <link refid="a00026"/>
+      </node>
+      <node id="8">
+        <label>src/enve_triangleground.cc</label>
         <link refid="a00032"/>
       </node>
-      <node id="3">
-        <label>src/enve_shell.cc</label>
-        <link refid="a00023"/>
-      </node>
     </invincdepgraph>
-    <innerclass refid="a00059" prot="public">enve::shape</innerclass>
-    <innernamespace refid="a00041">enve</innernamespace>
+    <innerclass refid="a00074" prot="public">enve::triangleground</innerclass>
+    <innernamespace refid="a00044">enve</innernamespace>
       <sectiondef kind="define">
-      <memberdef kind="define" id="a00017_1ac1737af928424643ca13b119b609a4b3" prot="public" static="no">
-        <name>INCLUDE_ENVE_SHAPE</name>
+      <memberdef kind="define" id="a00017_1a1b082fb2682100918fcb9989677f4910" prot="public" static="no">
+        <name>INCLUDE_ENVE_TRIANGLEGROUND</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>file: <ref refid="a00017" kindref="compound">enve_shape.hh</ref> </para>
+<para>file: <ref refid="a00017" kindref="compound">enve_triangleground.hh</ref> </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="35" column="9" bodyfile="include/enve_shape.hh" bodystart="35" bodyend="-1"/>
+        <location file="include/enve_triangleground.hh" line="35" column="9" bodyfile="include/enve_triangleground.hh" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -130,143 +177,136 @@
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INCLUDE_ENVE_SHAPE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="a00017_1ac1737af928424643ca13b119b609a4b3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INCLUDE_ENVE_SHAPE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>INCLUDE_ENVE_TRIANGLEGROUND</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="a00017_1a1b082fb2682100918fcb9989677f4910" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INCLUDE_ENVE_TRIANGLEGROUND</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme_math.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00020" kindref="compound">enve.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">acme;</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="a00041" kindref="compound">enve</ref></highlight></codeline>
-<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme_aabb.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme_intersection.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme_segment.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;acme_triangle.hh&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00023" kindref="compound">enve.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">acme;</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
-<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>_</highlight></codeline>
-<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>___|<sp/>|__<sp/><sp/><sp/>__<sp/>_<sp/>_<sp/>__<sp/><sp/><sp/>___</highlight></codeline>
-<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>/<sp/>__|<sp/>&apos;_<sp/>\<sp/>/<sp/>_`<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\</highlight></codeline>
-<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>\__<sp/>\<sp/>|<sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|_)<sp/>|<sp/><sp/>__/</highlight></codeline>
-<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|___/_|<sp/>|_|\__,_|<sp/>.__/<sp/>\___|</highlight></codeline>
-<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|_|</highlight></codeline>
-<codeline lineno="54"><highlight class="comment"><sp/><sp/>\*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57" refid="a00059" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="a00059" kindref="compound">shape</ref></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="60" refid="a00059_1a3ce2310bdfbf3557035dc8133d0b0f88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;shape<sp/>const&gt;<sp/><ref refid="a00059_1a3ce2310bdfbf3557035dc8133d0b0f88" kindref="member">ptr</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="61" refid="a00059_1a49d70ac4952e445499b69eb28f182eb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;shape::ptr&gt;<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00059_1a49d70ac4952e445499b69eb28f182eb8" kindref="member">vecptr</ref>;<sp/></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="64" refid="a00059_1aa6007032a4fa8b98b434bcd6ccebd872" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00059_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
-<codeline lineno="65" refid="a00059_1a5a66e7271b073cb0553cffd10baca4b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00059_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
-<codeline lineno="66" refid="a00059_1a6226a6f978092fd507c9e422b01c8347" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00059_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
-<codeline lineno="67" refid="a00059_1a51b0e2e889ad496958b093d711664fac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00059_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
-<codeline lineno="68" refid="a00059_1a6a7daaee277c701a23a9624a3a5d3049" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00059_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref><sp/>=<sp/>QUIET_NAN;<sp/></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a734bbb48f26f4de73d5e1aeeda011e8a" kindref="member">~shape</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75" refid="a00059_1a04b2620eb53b31cf26087c208fd21027" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a04b2620eb53b31cf26087c208fd21027" kindref="member">shape</ref>(<ref refid="a00059" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78" refid="a00059_1a6cb567b938b38b63281a46ea669bcf21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a6cb567b938b38b63281a46ea669bcf21" kindref="member">shape</ref>(<ref refid="a00059" kindref="compound">shape</ref><sp/>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape</ref>(</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>r_x,<sp/></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>m_x,<sp/></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>r_y,<sp/></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>m_y,<sp/></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>l_y<sp/><sp/></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a01bf679dac42a6a354f3ec1327402bef" kindref="member">copy</ref>(</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00059" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;shape_in<sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="a00044" kindref="compound">enve</ref></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>|_<sp/>_<sp/>__(_)<sp/>__<sp/>_<sp/>_<sp/>__<sp/><sp/><sp/>__<sp/>_|<sp/>|<sp/>___<sp/>_<sp/>__<sp/>___<sp/><sp/><sp/>__<sp/>_<sp/><sp/>__|<sp/>|</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>__|<sp/>&apos;__|<sp/>|/<sp/>_`<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_`<sp/>|<sp/>|/<sp/>_<sp/>\<sp/>&apos;__/<sp/>_<sp/>\<sp/>/<sp/>_`<sp/>|/<sp/>_`<sp/>|</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>|_|<sp/>|<sp/><sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|<sp/><sp/>__/<sp/>|<sp/>|<sp/>(_)<sp/>|<sp/>(_|<sp/>|<sp/>(_|<sp/>|</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>\__|_|<sp/><sp/>|_|\__,_|_|<sp/>|_|\__,<sp/>|_|\___|_|<sp/><sp/>\___/<sp/>\__,_|\__,_|</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|___/</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/>\*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="a00074" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="a00074" kindref="compound">triangleground</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>triangle</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="63" refid="a00074_1a3e14a04aa4f4e4db9097e821f546ce61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;triangleground<sp/>const&gt;<sp/><ref refid="a00074_1a3e14a04aa4f4e4db9097e821f546ce61" kindref="member">ptr</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64" refid="a00074_1a1f4cea2747925d4b294879cdf2f50711" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;triangleground::ptr&gt;<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00074_1a1f4cea2747925d4b294879cdf2f50711" kindref="member">vecptr</ref>;<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="67" refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" kindref="member">m_friction</ref>;<sp/></highlight></codeline>
+<codeline lineno="68" refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>vec3<sp/><ref refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" kindref="member">m_normal</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69" refid="a00074_1a8f92c7338841df34a838f03d967480cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>aabb<sp/><ref refid="a00074_1a8f92c7338841df34a838f03d967480cb" kindref="member">m_bbox</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1af4cdb8cd92b66cf8a8c018e9f1f7e10a" kindref="member">~triangleground</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="a00074_1aa958ca7bba11b5354e06ca1b126c422e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1aa958ca7bba11b5354e06ca1b126c422e" kindref="member">triangleground</ref>(<ref refid="a00074" kindref="compound">triangleground</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="a00074_1a5780c978c4945f1aaa915a65720648b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a5780c978c4945f1aaa915a65720648b7" kindref="member">triangleground</ref>(<ref refid="a00074" kindref="compound">triangleground</ref><sp/>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kindref="member">triangleground</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kindref="member">triangleground</ref>(</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex0_x,<sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex0_y,<sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex0_z,<sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex1_x,<sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex1_y,<sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex1_z,<sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex2_x,<sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex2_y,<sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>vertex2_z,<sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/><ref refid="a00074_1a0355bf9eb73a9eceb5c26316bb195450" kindref="member">friction</ref><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1aa509c8fa017ef7500110beae8289b514" kindref="member">isApprox</ref>(</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00059" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;shape_in,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tolerance<sp/>=<sp/>EPSILON_LOW<sp/></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a362ae4ce951c9a6da83819f58b909c8b" kindref="member">Rx</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1aef07a6a7d0f3ebccf234c058c974b50f" kindref="member">Mx</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a36675badf724540b2f6c6d9b801fd87b" kindref="member">Ry</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1af0c1033e8c7fae43c00418326105e308" kindref="member">My</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1abd9de85ef82adb854424b612ea793513" kindref="member">Ly</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kindref="member">triangleground</ref>(</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>point<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;point0,<sp/><sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>point<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;point1,<sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>point<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;point2,<sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00074_1a0355bf9eb73a9eceb5c26316bb195450" kindref="member">friction</ref><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kindref="member">triangleground</ref>(</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>point<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>[3],<sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00074_1a0355bf9eb73a9eceb5c26316bb195450" kindref="member">friction</ref><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a421c9036dbcb4b801e9cd38045d1ac61" kindref="member">copy</ref>(</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00074" kindref="compound">triangleground</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;triangleground_in<sp/></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a48b7f38136b64e4af9ba1961fa8ea214" kindref="member">isApprox</ref>(</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00074" kindref="compound">triangleground</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;triangleground_in,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tolerance<sp/>=<sp/>EPSILON_LOW<sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a362ae4ce951c9a6da83819f58b909c8b" kindref="member">Rx</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1aef07a6a7d0f3ebccf234c058c974b50f" kindref="member">Mx</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a36675badf724540b2f6c6d9b801fd87b" kindref="member">Ry</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1af0c1033e8c7fae43c00418326105e308" kindref="member">My</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1abd9de85ef82adb854424b612ea793513" kindref="member">Ly</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1ac85f00278892b2330e9325209a16e478" kindref="member">surfaceMaxRadius</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1aa36696b6e44d0c255295143221e8ee16" kindref="member">surfaceMaxWidth</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a21cf4f513087dd2abb003fec5d92c1d1" kindref="member">checkWidthBound</ref>(</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y<sp/></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>real</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a22b1c3e3beca259ec3cc430647d27a20" kindref="member">surfaceRadius</ref>(</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y<sp/></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a6487c0ca3481b588ea377fcaa839e800" kindref="member">surfaceWidth</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>real</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1ab5954b74fc6995de02be1986765b179d" kindref="member">surfaceDerivative</ref>(</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>tolerance<sp/>=<sp/>EPSILON_MEDIUM<sp/></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>real</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a6e4acd6863557e72a63a921322d2c504" kindref="member">surfaceAngle</ref>(</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>tolerance<sp/>=<sp/>EPSILON_MEDIUM<sp/></highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>triangle<sp/>&amp;</highlight></codeline>
+<codeline lineno="127" refid="a00074_1a653640fc3a7f3f01e2c71c10f19ac9af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a653640fc3a7f3f01e2c71c10f19ac9af" kindref="member">operator=</ref>(</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>triangle<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;triangle_in<sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>&amp;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a0355bf9eb73a9eceb5c26316bb195450" kindref="member">friction</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a0355bf9eb73a9eceb5c26316bb195450" kindref="member">friction</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>aabb<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a66ea972ef13e8faa90cf90285b07870d" kindref="member">bbox</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>vec3<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1acfb42f59e8569d9037dd5df03e9eb456" kindref="member">normal</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1a518c0f69871ecb8bbe6403595594e609" kindref="member">updateNormal</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1aca9199ed0180a4fa171860ae125b1cde" kindref="member">operator[]</ref>(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>(</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/>&amp;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1aca9199ed0180a4fa171860ae125b1cde" kindref="member">operator[]</ref>(</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/>&amp;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>(</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>};<sp/></highlight><highlight class="comment">//<sp/>class<sp/>triangleground</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>enve</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="181"><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00059_1a25fb65951d112f9f4595b07c8c8b3630" kindref="member">print</ref>(</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out_stream<sp/>&amp;os<sp/></highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/>};<sp/></highlight><highlight class="comment">//<sp/>class<sp/>shape</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight></codeline>
-<codeline lineno="190"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>enve</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="191"><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="196"></codeline>
+<codeline lineno="184"></codeline>
     </programlisting>
-    <location file="include/enve_shape.hh"/>
+    <location file="include/enve_triangleground.hh"/>
   </compounddef>
 </doxygen>

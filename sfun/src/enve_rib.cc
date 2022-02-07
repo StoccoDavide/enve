@@ -220,19 +220,14 @@ namespace enve
     triangleground::vecptr const &localGround,
     affine                 const &affine_in,
     std::string            const  method,
-    point                        &contactPoint,
-    vec3                         &contactNormal,
-    real                         &contactFriction,
-    real                         &contactDepth,
-    real                         &contactArea,
-    real                         &contactVolume
+    output                       &out
   ) 
     const
   {
     if (method == "geometric")
-      return this->envelopGeometric(localGround, affine_in, contactPoint, contactNormal, contactFriction, contactDepth, contactArea, contactVolume);
+      return this->envelopGeometric(localGround, affine_in, out);
     else if (method == "sampling")
-      return this->envelopSampling(localGround, affine_in, contactPoint, contactNormal, contactFriction, contactDepth, contactArea, contactVolume);
+      return this->envelopSampling(localGround, affine_in, out);
     else
       ENVE_ERROR("enve::rib::envelop(mesh, ...): invalid enveloping method.\n");
   }
@@ -244,19 +239,14 @@ namespace enve
     ground::flat const &localGround,
     affine       const &affine_in,
     std::string  const  method,
-    point              &contactPoint,
-    vec3               &contactNormal,
-    real               &contactFriction,
-    real               &contactDepth,
-    real               &contactArea,
-    real               &contactVolume
+    output             &out
   ) 
     const
   {
     if (method == "geometric")
-      return this->envelopGeometric(localGround, affine_in, contactPoint, contactNormal, contactFriction, contactDepth, contactArea, contactVolume);
+      return this->envelopGeometric(localGround, affine_in, out);
     else if (method == "sampling")
-      return this->envelopSampling(localGround, affine_in, contactPoint, contactNormal, contactFriction, contactDepth, contactArea, contactVolume);
+      return this->envelopSampling(localGround, affine_in, out);
     else
       ENVE_ERROR("enve::rib::envelop(mesh, ...): invalid enveloping method.\n");
   }
@@ -266,24 +256,19 @@ namespace enve
   bool
   rib::envelop(
     affine const &affine_in,
-    point        &contactPoint,
-    vec3         &contactNormal,
-    real         &contactFriction,
-    real         &contactDepth,
-    real         &contactArea,
-    real         &contactVolume
+    output       &out
   ) 
     const
   {
     point origin(affine_in.translation());
     mat3  rotation(affine_in.linear());
 
-    contactPoint    = origin + rotation * (this->center() - point(0.0, 0.0, this->radius()));
-    contactNormal   = rotation * UNITZ_VEC3;
-    contactFriction = 0.0;
-    contactDepth    = 0.0;
-    contactArea     = 0.0;
-    contactVolume   = 0.0;
+    out.point    = origin + rotation * (this->center() - point(0.0, 0.0, this->radius()));
+    out.normal   = rotation * UNITZ_VEC3;
+    out.friction = 0.0;
+    out.depth    = 0.0;
+    out.area     = 0.0;
+    out.volume   = 0.0;
 
     return false;
   }
@@ -294,12 +279,7 @@ namespace enve
   rib::envelopGeometric(
     triangleground::vecptr const &localGround,
     affine                 const &affine_in,
-    point                        &contactPoint,
-    vec3                         &contactNormal,
-    real                         &contactFriction,
-    real                         &contactDepth,
-    real                         &contactArea,
-    real                         &contactVolume
+    output                       &out
   ) 
     const
   {
@@ -372,22 +352,22 @@ namespace enve
       if (segmentVolumeTotal < EPSILON_HIGH)
         segmentVolumeTotal += EPSILON_HIGH;
 
-      contactPoint    = contactPoint_tmp    / segmentVolumeTotal;
-      contactNormal   = (contactNormal_tmp  / segmentVolumeTotal).normalized();
-      contactFriction = contactFriction_tmp / segmentVolumeTotal;
-      contactDepth    = radius - (contactPoint - ribCenterGround).norm();
-      contactArea     = segmentAreaTotal;
-      contactVolume   = segmentVolumeTotal;
+      out.point    = contactPoint_tmp    / segmentVolumeTotal;
+      out.normal   = (contactNormal_tmp  / segmentVolumeTotal).normalized();
+      out.friction = contactFriction_tmp / segmentVolumeTotal;
+      out.depth    = radius - (out.point - ribCenterGround).norm();
+      out.area     = segmentAreaTotal;
+      out.volume   = segmentVolumeTotal;
       return true;
     }
     else
     {
-      contactPoint    = origin + rotation * (center - point(0.0, 0.0, radius));
-      contactNormal   = rotation * UNITZ_VEC3;
-      contactFriction = 0.0;
-      contactDepth    = 0.0;
-      contactArea     = 0.0;
-      contactVolume   = 0.0;
+      out.point    = origin + rotation * (center - point(0.0, 0.0, radius));
+      out.normal   = rotation * UNITZ_VEC3;
+      out.friction = 0.0;
+      out.depth    = 0.0;
+      out.area     = 0.0;
+      out.volume   = 0.0;
       return false;
     }
   }
@@ -398,12 +378,7 @@ namespace enve
   rib::envelopGeometric(
     ground::flat const &localGround,
     affine       const &affine_in,
-    point              &contactPoint,
-    vec3               &contactNormal,
-    real               &contactFriction,
-    real               &contactDepth,
-    real               &contactArea,
-    real               &contactVolume
+    output             &out
   ) 
     const
   {
@@ -419,25 +394,25 @@ namespace enve
     segment segment_tmp;
     if (acme::intersection(localGround, ribGround, segment_tmp, EPSILON_LOW))
     {
-      contactPoint    = segment_tmp.centroid();
-      contactNormal   = ((ribCenterGround - contactPoint).normalized() +
+      out.point    = segment_tmp.centroid();
+      out.normal   = ((ribCenterGround - out.point).normalized() +
                         ribNormalGround*ribNormalGround.dot(localGround.normal())
                         ).normalized();
-      contactFriction = localGround.friction();
-      contactDepth    = radius - (contactPoint - ribCenterGround).norm();
-      contactArea     = 2*std::sqrt(contactDepth*(2*radius-contactDepth))*width;
-      contactVolume   = (radius*radius*std::acos((radius-contactDepth)/radius) - 
-                        (radius-contactDepth)*std::sqrt(contactDepth*(2*radius-contactDepth)))*width;
+      out.friction = localGround.friction();
+      out.depth    = radius - (out.point - ribCenterGround).norm();
+      out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;
+      out.volume   = (radius*radius*std::acos((radius-out.depth)/radius) - 
+                        (radius-out.depth)*std::sqrt(out.depth*(2*radius-out.depth)))*width;
       return true;
     }
     else
     {
-      contactPoint    = origin + rotation * (center - point(0.0, 0.0, radius));
-      contactNormal   = rotation * UNITZ_VEC3;
-      contactFriction = 0.0;
-      contactDepth    = 0.0;
-      contactArea     = 0.0;
-      contactVolume   = 0.0;
+      out.point    = origin + rotation * (center - point(0.0, 0.0, radius));
+      out.normal   = rotation * UNITZ_VEC3;
+      out.friction = 0.0;
+      out.depth    = 0.0;
+      out.area     = 0.0;
+      out.volume   = 0.0;
       return false;
     }
   }
@@ -448,12 +423,7 @@ namespace enve
   rib::envelopSampling(
     triangleground::vecptr const &localGround,
     affine                 const &affine_in,
-    point                        &contactPoint,
-    vec3                         &contactNormal,
-    real                         &contactFriction,
-    real                         &contactDepth,
-    real                         &contactArea,
-    real                         &contactVolume
+    output                       &out
   ) 
     const
   {
@@ -478,27 +448,27 @@ namespace enve
     sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaY), lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
     sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
     
-    contactPoint = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
-    if ( sampling && (ribCenterGround - contactPoint).norm() <= radius )
+    out.point = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    if ( sampling && (ribCenterGround - out.point).norm() <= radius )
     {
-      contactNormal   = ((ribCenterGround - contactPoint).normalized() +
+      out.normal   = ((ribCenterGround - out.point).normalized() +
                         ribNormalGround*ribNormalGround.dot(((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized())
                         ).normalized();
-      contactFriction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
-      contactDepth    = radius - (contactPoint - ribCenterGround).norm();
-      contactArea     = 2*std::sqrt(contactDepth*(2*radius-contactDepth))*width;
-      contactVolume   = (radius*radius*std::acos((radius-contactDepth)/radius) - 
-                        (radius-contactDepth)*std::sqrt(contactDepth*(2*radius-contactDepth)))*width;
+      out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
+      out.depth    = radius - (out.point - ribCenterGround).norm();
+      out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;
+      out.volume   = (radius*radius*std::acos((radius-out.depth)/radius) - 
+                        (radius-out.depth)*std::sqrt(out.depth*(2*radius-out.depth)))*width;
       return true;
     }
     else
     {
-      contactPoint    = origin + rotation * (center - point(0.0, 0.0, radius));
-      contactNormal   = rotation * UNITZ_VEC3;
-      contactFriction = 0.0;
-      contactDepth    = 0.0;
-      contactArea     = 0.0;
-      contactVolume   = 0.0;
+      out.point    = origin + rotation * (center - point(0.0, 0.0, radius));
+      out.normal   = rotation * UNITZ_VEC3;
+      out.friction = 0.0;
+      out.depth    = 0.0;
+      out.area     = 0.0;
+      out.volume   = 0.0;
       return false;
     }
   }
@@ -509,12 +479,7 @@ namespace enve
   rib::envelopSampling(
     ground::flat const &localGround,
     affine       const &affine_in,
-    point              &contactPoint,
-    vec3               &contactNormal,
-    real               &contactFriction,
-    real               &contactDepth,
-    real               &contactArea,
-    real               &contactVolume
+    output             &out
   ) 
     const
   {
@@ -539,28 +504,28 @@ namespace enve
     sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaY), lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
     sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
     
-    contactPoint = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    out.point = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     
-    if ( sampling && (ribCenterGround - contactPoint).norm() <= radius )
+    if ( sampling && (ribCenterGround - out.point).norm() <= radius )
     {
-      contactNormal   = ((ribCenterGround - contactPoint).normalized() +
+      out.normal   = ((ribCenterGround - out.point).normalized() +
                         ribNormalGround*ribNormalGround.dot(((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized())
                         ).normalized();
-      contactFriction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
-      contactDepth    = radius - (contactPoint - ribCenterGround).norm();
-      contactArea     = 2*std::sqrt(contactDepth*(2*radius-contactDepth))*width;
-      contactVolume   = (radius*radius*std::acos((radius-contactDepth)/radius) - 
-                        (radius-contactDepth)*std::sqrt(contactDepth*(2*radius-contactDepth)))*width;
+      out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
+      out.depth    = radius - (out.point - ribCenterGround).norm();
+      out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;
+      out.volume   = (radius*radius*std::acos((radius-out.depth)/radius) - 
+                        (radius-out.depth)*std::sqrt(out.depth*(2*radius-out.depth)))*width;
       return true;
     }
     else
     {
-      contactPoint    = origin + rotation * (center - point(0.0, 0.0, radius));
-      contactNormal   = rotation * UNITZ_VEC3;
-      contactFriction = 0.0;
-      contactDepth    = 0.0;
-      contactArea     = 0.0;
-      contactVolume   = 0.0;
+      out.point    = origin + rotation * (center - point(0.0, 0.0, radius));
+      out.normal   = rotation * UNITZ_VEC3;
+      out.friction = 0.0;
+      out.depth    = 0.0;
+      out.area     = 0.0;
+      out.volume   = 0.0;
       return false;
     }
   }
