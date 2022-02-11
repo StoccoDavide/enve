@@ -500,7 +500,7 @@ namespace enve
   )
     const
   {
-    point          = ZEROS_VEC3;
+    point           = ZEROS_VEC3;
     size_t size     = this->size(); 
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
