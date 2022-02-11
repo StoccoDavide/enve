@@ -93,8 +93,8 @@ extern "C"
   void
   sfun_end()
   {
-    sfun_destroy_ground(ground_ptr);
-    sfun_destroy_shell(shell_ptr);
+    // sfun_destroy_ground(ground_ptr);
+    // sfun_destroy_shell(shell_ptr);
   }
 
   void

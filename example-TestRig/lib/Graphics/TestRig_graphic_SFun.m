@@ -11,10 +11,10 @@ end
 function setup(block)
 
 % 4 input port, 0 output ports
-block.NumInputPorts  = 4;
+block.NumInputPorts  = 9;
 block.NumOutputPorts = 0;
 
-block.NumDialogPrms = 11;
+block.NumDialogPrms = 20;
 
 % Setup functional port properties
 block.SetPreCompInpPortInfoToDynamic;
@@ -24,6 +24,11 @@ block.InputPort(1).Dimensions = [4 4];
 block.InputPort(2).Dimensions = [4 4];
 block.InputPort(3).Dimensions = [4 4];
 block.InputPort(4).Dimensions = [4 4];
+block.InputPort(5).Dimensions = [4 4];
+block.InputPort(6).Dimensions = [4 4];
+block.InputPort(7).Dimensions = 1;
+block.InputPort(8).Dimensions = 3;
+block.InputPort(9).Dimensions = 3;
 
 % Register block methods
 block.RegBlockMethod('Start',   @Start);
@@ -68,24 +73,58 @@ if isempty(figHandles) || isempty(vis) || ~isa(vis,'TestRig_graphic') || ~vis.is
     rig_low_stl_scale = block.DialogPrm(7).Data;
     wheel_stl         = block.DialogPrm(8).Data;
     wheel_stl_scale   = block.DialogPrm(9).Data;
-    en_trace_wheel    = block.DialogPrm(10).Data;
-    en_realdim_scale  = block.DialogPrm(11).Data;
+    en_realdim_scale  = block.DialogPrm(10).Data;
+    en_trace_wheel    = block.DialogPrm(11).Data;
+    en_trace_cp       = block.DialogPrm(12).Data;
+    en_RF_wheel       = block.DialogPrm(13).Data;
+    en_RF_cp          = block.DialogPrm(14).Data;
+    en_RF_wheelHub    = block.DialogPrm(15).Data;
+    en_normal         = block.DialogPrm(16).Data;
+    en_forces         = block.DialogPrm(17).Data;
+    en_moments        = block.DialogPrm(18).Data;
     
     % tire variables
     R_tire = tire_data.UNLOADED_RADIUS;
     B_tire = tire_data.RIM_WIDTH;
     
     % initialize RFs
-    RF_up_rig  = block.InputPort(1).Data;
-    RF_low_rig = block.InputPort(2).Data;
-    RF_wheel   = block.InputPort(3).Data;
-    RF_cam     = block.InputPort(4).Data;
+    RF_up_rig   = block.InputPort(1).Data;
+    RF_low_rig  = block.InputPort(2).Data;
+    RF_wheel    = block.InputPort(3).Data;
+    RF_cam      = block.InputPort(4).Data;
+    RF_cp       = block.InputPort(5).Data;
+    RF_wheelHub = block.InputPort(6).Data;
+    rho         = block.InputPort(7).Data;
+    STI_forces  = block.InputPort(8).Data;
+    STI_moments = block.InputPort(9).Data;
     
-    if en_realdim_scale
-        vis = TestRig_graphic(rig_up_stl,rig_up_stl_scale,rig_low_stl,rig_low_stl_scale,wheel_stl,wheel_stl_scale,en_trace_wheel, RF_up_rig, RF_low_rig, RF_wheel, RF_cam, R_tire, B_tire);   % initialize Testrig graphics
-    else
-        vis = TestRig_graphic(rig_up_stl,rig_up_stl_scale,rig_low_stl,rig_low_stl_scale,wheel_stl,wheel_stl_scale,en_trace_wheel, RF_up_rig, RF_low_rig, RF_wheel, RF_cam);   % initialize Testrig graphics
-    end
+    vis = TestRig_graphic(rig_up_stl,                                   ...
+                          rig_up_stl_scale,                             ...
+                          rig_low_stl,                                  ...
+                          rig_low_stl_scale,                            ...
+                          wheel_stl,                                    ...
+                          wheel_stl_scale,                              ...
+                          RF_up_rig,                                    ...
+                          RF_low_rig,                                   ...
+                          RF_wheel,                                     ...
+                          RF_cam,                                       ...
+                          RF_cp,                                        ...
+                          RF_wheelHub,                                  ...
+                          R_tire,                                       ...
+                          B_tire,                                       ...
+                          rho,                                          ...
+                          STI_forces,                                   ...
+                          STI_moments,                                  ...
+                          en_realdim_scale,                             ...
+                          en_trace_wheel,                               ...
+                          en_trace_cp,                                  ...
+                          en_RF_wheel,                                  ...
+                          en_RF_cp,                                     ...
+                          en_RF_wheelHub,                               ...
+                          en_normal,                                    ...
+                          en_forces,                                    ...
+                          en_moments                                    ...
+                          );   % initialize Testrig graphics
     
     % load road
     [~, ~, fExt] = fileparts(road_file);
@@ -110,6 +149,24 @@ ud.vis = vis;
 % Save it in UserData
 set_param(block.BlockHandle,'UserData',ud);
 
+save_gif          = block.DialogPrm(19).Data;
+gif_folder        = block.DialogPrm(20).Data;
+
+if save_gif
+    gif_file = [gif_folder,'/','Animation.gif'];
+    if ~isfolder(gif_folder)
+        mkdir(gif_folder);
+    end
+    if isfile(gif_file)
+        delete(gif_file)
+    end
+    frame = getframe(gcf);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+    % Initialize the GIF File
+    imwrite(imind,cm,gif_file,'gif', 'Loopcount',inf);
+end
+
 end
 
 % Called when the simulation time changes.
@@ -117,10 +174,26 @@ function Output(block)
 
 ud = get_param(block.BlockHandle,'UserData');
 vis = ud.vis;
-RF_up_rig  = block.InputPort(1).Data;
-RF_low_rig = block.InputPort(2).Data;
-RF_wheel   = block.InputPort(3).Data;
-RF_cam     = block.InputPort(4).Data;
-vis.step(RF_up_rig, RF_low_rig, RF_wheel, RF_cam);
+RF_up_rig   = block.InputPort(1).Data;
+RF_low_rig  = block.InputPort(2).Data;
+RF_wheel    = block.InputPort(3).Data;
+RF_cam      = block.InputPort(4).Data;
+RF_cp       = block.InputPort(5).Data;
+RF_wheelHub = block.InputPort(6).Data;
+rho         = block.InputPort(7).Data;
+STI_forces  = block.InputPort(8).Data;
+STI_moments = block.InputPort(9).Data;
+vis.step(RF_up_rig, RF_low_rig, RF_wheel, RF_cam, RF_cp, RF_wheelHub, rho, STI_forces, STI_moments);
+
+save_gif          = block.DialogPrm(19).Data;
+gif_folder        = block.DialogPrm(20).Data;
+if save_gif
+    gif_file = [gif_folder,'/','Animation.gif'];
+    frame = getframe(gcf);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+    % Write to the GIF File
+    imwrite(imind,cm,gif_file,'WriteMode','append','DelayTime',block.SampleTimes(1));
+end
 
 end
