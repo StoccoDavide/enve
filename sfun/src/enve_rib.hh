@@ -42,6 +42,7 @@
 #include "enve_triangleground.hh"
 #include "enve_mesh.hh"
 #include "enve_flat.hh"
+#include "enve_output.hh"
 
 using namespace acme;
 
@@ -162,93 +163,58 @@ namespace enve
     //! Evaluate rib contact with no ground
     bool
     envelop(
-      affine const &affine_in,       //!< Input 4x4 affine transformation affine_in
-      point        &contactPoint,    //!< Contact point
-      vec3         &contactNormal,   //!< Contact normal
-      real         &contactFriction, //!< Contact friction
-      real         &contactDepth,    //!< Contact depth
-      real         &contactArea,     //!< Contact area
-      real         &contactVolume    //!< Contact volume
+      affine const &affine_in, //!< Input 4x4 affine transformation affine_in
+      output       &out        //!< Rib contact parameters output
     ) const;
 
     //! Evaluate rib contact with flat ground
     bool
     envelop(
-      triangleground::vecptr const &localGround,     //!< Local triangles candidate list
-      affine                 const &affine_in,       //!< Input 4x4 affine transformation affine_in
-      std::string            const  method,          //!< Enveloping model (choose from: "geometric" or "sampling")
-      point                        &contactPoint,    //!< Contact point
-      vec3                         &contactNormal,   //!< Contact normal
-      real                         &contactFriction, //!< Contact friction
-      real                         &contactDepth,    //!< Contact depth
-      real                         &contactArea,     //!< Contact area
-      real                         &contactVolume    //!< Contact volume
+      triangleground::vecptr const &localGround, //!< Local triangles candidate list
+      affine                 const &affine_in,   //!< Input 4x4 affine transformation affine_in
+      std::string            const  method,      //!< Enveloping model (choose from: "geometric" or "sampling")
+      output                       &out          //!< Rib contact parameters output
     ) const;
 
     //! Evaluate rib contact with flat ground
     bool
     envelop(
-      ground::flat const &localGround,     //!< Local flat ground object
-      affine       const &affine_in,       //!< Input 4x4 affine transformation affine_in
-      std::string  const  method,          //!< Enveloping model (choose from: "geometric" or "sampling")
-      point              &contactPoint,    //!< Contact point
-      vec3               &contactNormal,   //!< Contact normal
-      real               &contactFriction, //!< Contact friction
-      real               &contactDepth,    //!< Contact depth
-      real               &contactArea,     //!< Contact area
-      real               &contactVolume    //!< Contact volume
+      ground::flat const &localGround, //!< Local flat ground object
+      affine       const &affine_in,   //!< Input 4x4 affine transformation affine_in
+      std::string  const  method,      //!< Enveloping model (choose from: "geometric" or "sampling")
+      output             &out          //!< Rib contact parameters output
     ) const;
 
     //! Evaluate rib contact with flat ground (geometric enveloping model)
     bool
     envelopGeometric(
-      triangleground::vecptr const &localGround,     //!< Local triangles candidate list
-      affine                 const &affine_in,       //!< Input 4x4 affine transformation
-      point                        &contactPoint,    //!< Contact point
-      vec3                         &contactNormal,   //!< Contact normal
-      real                         &contactFriction, //!< Contact friction
-      real                         &contactDepth,    //!< Contact depth
-      real                         &contactArea,     //!< Contact area
-      real                         &contactVolume    //!< Contact volume
+      triangleground::vecptr const &localGround, //!< Local triangles candidate list
+      affine                 const &affine_in,   //!< Input 4x4 affine transformation
+      output                       &out          //!< Rib contact parameters output
     ) const;
 
     //! Evaluate rib contact with flat ground (geometric enveloping model)
     bool
     envelopGeometric(
-      ground::flat const &localGround,     //!< Local flat ground object
-      affine       const &affine_in,       //!< Input 4x4 affine transformation
-      point              &contactPoint,    //!< Contact point
-      vec3               &contactNormal,   //!< Contact normal
-      real               &contactFriction, //!< Contact friction
-      real               &contactDepth,    //!< Contact depth
-      real               &contactArea,     //!< Contact area
-      real               &contactVolume    //!< Contact volume
+      ground::flat const &localGround, //!< Local flat ground object
+      affine       const &affine_in,   //!< Input 4x4 affine transformation
+      output             &out          //!< Rib contact parameters output
     ) const;
 
     //! Evaluate rib contact with flat ground (sampling enveloping model)
     bool
     envelopSampling(
-      triangleground::vecptr const &localGround,     //!< Local triangles candidate list
-      affine                 const &affine_in,       //!< Input 4x4 affine transformation
-      point                        &contactPoint,    //!< Contact point
-      vec3                         &contactNormal,   //!< Contact normal
-      real                         &contactFriction, //!< Contact friction
-      real                         &contactDepth,    //!< Contact depth
-      real                         &contactArea,     //!< Contact area
-      real                         &contactVolume    //!< Contact volume
+      triangleground::vecptr const &localGround, //!< Local triangles candidate list
+      affine                 const &affine_in,   //!< Input 4x4 affine transformation
+      output                       &out          //!< Rib contact parameters output
     ) const;
 
     //! Evaluate rib contact with flat ground (sampling enveloping model)
     bool
     envelopSampling(
-      ground::flat const &localGround,     //!< Local flat ground object
-      affine       const &affine_in,       //!< Input 4x4 affine transformation
-      point              &contactPoint,    //!< Contact point
-      vec3               &contactNormal,   //!< Contact normal
-      real               &contactFriction, //!< Contact friction
-      real               &contactDepth,    //!< Contact depth
-      real               &contactArea,     //!< Contact area
-      real               &contactVolume    //!< Contact volume
+      ground::flat const &localGround, //!< Local flat ground object
+      affine       const &affine_in,   //!< Input 4x4 affine transformation
+      output             &out          //!< Rib contact parameters output
     ) const;
 
   private:

@@ -94,20 +94,10 @@ namespace enve
 
     // Resize the contact point, friction and normal vectors
     this->m_ribs.clear();
-    this->m_point.clear();
-    this->m_normal.clear();
-    this->m_friction.clear();
-    this->m_depth.clear();
-    this->m_area.clear();
-    this->m_volume.clear();
+    this->m_out.clear();
 
     this->m_ribs.resize(size);
-    this->m_point.resize(size);
-    this->m_normal.resize(size);
-    this->m_friction.resize(size);
-    this->m_depth.resize(size);
-    this->m_area.resize(size);
-    this->m_volume.resize(size);
+    this->m_out.resize(size);
 
     // Locate the disks
     real shellWidth = this->m_shape->surfaceWidth();
@@ -457,35 +447,16 @@ namespace enve
     {
       // std::cout << "enve::setup(mesh, affine, threshold, method): WARNING No mesh detected under the shell.\n";
       for (size_t i = 0; i < this->size(); ++i)
-      {
-        this->m_ribs[i].envelop(affine_in,
-                                this->m_point[i],
-                                this->m_normal[i],
-                                this->m_friction[i],
-                                this->m_depth[i],
-                                this->m_area[i],
-                                this->m_volume[i]);
-      }
+        this->m_ribs[i].envelop(affine_in, this->m_out[i]);
       return false;
     }
     else
     {
       // Perform intersection on all ribs
-      bool out     = false;
-      bool out_tmp = false;
+      bool out = false;
+        // Find if at least one rib intersect the ground surface
       for (size_t i = 0; i < this->size(); ++i)
-      {
-        out_tmp = this->m_ribs[i].envelop(localGround,
-                                          affine_in,
-                                          method,
-                                          this->m_point[i],
-                                          this->m_normal[i],
-                                          this->m_friction[i],
-                                          this->m_depth[i],
-                                          this->m_area[i],
-                                          this->m_volume[i]);
-        out = out || out_tmp;
-      }
+        out = this->m_ribs[i].envelop(localGround, affine_in, method, this->m_out[i]) || out;
       return out;
     }
   }
@@ -506,17 +477,7 @@ namespace enve
 
     // Perform intersection on all ribs
     for (size_t i = 0; i < this->size(); ++i)
-    {
-      this->m_ribs[i].envelop(ground,
-                              affine_in,
-                              method,
-                              this->m_point[i],
-                              this->m_normal[i],
-                              this->m_friction[i],
-                              this->m_depth[i],
-                              this->m_area[i],
-                              this->m_volume[i]);
-    }
+      this->m_ribs[i].envelop(ground, affine_in, method, this->m_out[i]);
     return true;
   }
 
@@ -539,10 +500,19 @@ namespace enve
   )
     const
   {
-    point = ZEROS_VEC3;
-    for (size_t i = 0; i < this->size(); ++i)
-      point += this->m_point[i];
-    point /= this->size();
+    point          = ZEROS_VEC3;
+    size_t size     = this->size(); 
+    real volume_sum = 0.0;
+    this->contactVolume(volume_sum);
+    if (volume_sum < EPSILON_HIGH) {
+      for (size_t i = 0; i < size; ++i)
+        point += this->m_out[i].point;
+      point /= size;
+    } else {
+      for (size_t i = 0; i < size; ++i)
+        point += this->m_out[i].point*this->m_out[i].volume;
+      point /= volume_sum;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -554,7 +524,7 @@ namespace enve
   )
     const
   {
-    point = this->m_point[i];
+    point = this->m_out[i].point;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -565,7 +535,10 @@ namespace enve
   )
     const
   {
-    point = this->m_point;
+    size_t size = this->size(); 
+    point.resize(size);
+    for (size_t i = 0; i < size; ++i)
+      point[i] = this->m_out[i].point;  
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -576,17 +549,18 @@ namespace enve
   )
     const
   {
-    normal = ZEROS_VEC3;
+    normal          = ZEROS_VEC3;
+    size_t size     = this->size(); 
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
     if (volume_sum < EPSILON_HIGH) {
-      for (size_t i = 0; i < this->size(); ++i)
-        normal += this->m_normal[i];
-      normal /= this->size();
+      for (size_t i = 0; i < size; ++i)
+        normal += this->m_out[i].normal;
+      normal /= size;
       normal.normalize();
     } else {
-      for (size_t i = 0; i < this->size(); ++i)
-        normal += this->m_normal[i]*this->m_volume[i];
+      for (size_t i = 0; i < size; ++i)
+        normal += this->m_out[i].normal*this->m_out[i].volume;
       normal /= volume_sum;
       normal.normalize();
     }
@@ -601,7 +575,7 @@ namespace enve
   )
     const
   {
-    normal = this->m_normal[i];
+    normal = this->m_out[i].normal;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -612,7 +586,10 @@ namespace enve
   )
     const
   {
-    normal = this->m_normal;
+    size_t size = this->size(); 
+    normal.resize(size);
+    for (size_t i = 0; i < size; ++i)
+      normal[i] = this->m_out[i].normal;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -623,16 +600,17 @@ namespace enve
   )
     const
   {
-    friction = 0.0;
+    friction        = 0.0;
+    size_t size     = this->size(); 
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
     if (volume_sum < EPSILON_HIGH) {
-      friction = std::accumulate(this->m_friction.begin(),
-                                 this->m_friction.end(), 
-                                 real(0.0)) / this->m_friction.size();
+      for (size_t i = 0; i < size; ++i)
+        friction += this->m_out[i].friction;
+      friction /= size;
     } else {
-      for (size_t i = 0; i < this->size(); ++i)
-        friction += this->m_friction[i]*this->m_volume[i];
+      for (size_t i = 0; i < size; ++i)
+        friction += this->m_out[i].friction*this->m_out[i].volume;
       friction /= volume_sum;
     }
   }
@@ -645,7 +623,7 @@ namespace enve
     real  &friction)
     const
   {
-    friction = this->m_friction[i];
+    friction = this->m_out[i].friction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -655,7 +633,10 @@ namespace enve
     std::vector<real> &friction)
     const
   {
-    friction = this->m_friction;
+    size_t size = this->size(); 
+    friction.resize(size);
+    for (size_t i = 0; i < size; ++i)
+      friction[i] = this->m_out[i].friction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -666,14 +647,15 @@ namespace enve
   )
     const
   {
-    depth = 0.0;
+    depth           = 0.0;
+    size_t size     = this->size(); 
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
     if (volume_sum < EPSILON_HIGH) {
-      depth = volume_sum / this->size();
+      depth = volume_sum / size;
     } else {
-      for (size_t i = 0; i < this->size(); ++i)
-        depth += this->m_depth[i]*this->m_volume[i];
+      for (size_t i = 0; i < size; ++i)
+        depth += this->m_out[i].depth*this->m_out[i].volume;
       depth /= volume_sum;
     }
   }
@@ -687,7 +669,7 @@ namespace enve
   )
     const
   {
-    depth = this->m_depth[i];
+    depth = this->m_out[i].depth;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -698,7 +680,10 @@ namespace enve
   )
     const
   {
-    depth = this->m_depth;
+    size_t size = this->size(); 
+    depth.resize(size);
+    for (size_t i = 0; i < size; ++i)
+      depth[i] = this->m_out[i].depth;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -709,9 +694,9 @@ namespace enve
   )
     const
   {
-    area = std::accumulate(this->m_area.begin(),
-                           this->m_area.end(),
-                           real(0.0));
+    area = 0.0;
+    for (size_t i = 0; i < this->size(); ++i)
+        area += this->m_out[i].friction;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -722,7 +707,7 @@ namespace enve
     real  &area)
     const
   {
-    area = this->m_area[i];
+    area = this->m_out[i].area;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -732,7 +717,10 @@ namespace enve
     std::vector<real> &area)
     const
   {
-    area = this->m_area;
+    size_t size = this->size(); 
+    area.resize(size);
+    for (size_t i = 0; i < size; ++i)
+      area[i] = this->m_out[i].area;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -743,9 +731,9 @@ namespace enve
   )
     const
   {
-    volume = std::accumulate(this->m_volume.begin(),
-                             this->m_volume.end(),
-                             real(0.0));
+    volume = 0.0;
+    for (size_t i = 0; i < this->size(); ++i)
+        volume += this->m_out[i].volume;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -756,7 +744,7 @@ namespace enve
     real  &volume)
     const
   {
-    volume = this->m_volume[i];
+    volume = this->m_out[i].volume;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -766,7 +754,10 @@ namespace enve
     std::vector<real> &volume)
     const
   {
-    volume = this->m_volume;
+    size_t size = this->size(); 
+    volume.resize(size);
+    for (size_t i = 0; i < size; ++i)
+      volume[i] = this->m_out[i].volume;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -794,9 +785,9 @@ namespace enve
     affine &point_affine)
     const
   {
-    vec3 x_vec((this->y().cross(this->m_normal[i])).normalized());
-    vec3 y_vec((this->m_normal[i].cross(x_vec)).normalized());
-    point_affine.matrix() << x_vec, y_vec, this->m_normal[i], this->m_point[i],
+    vec3 x_vec((this->y().cross(this->m_out[i].normal)).normalized());
+    vec3 y_vec((this->m_out[i].normal.cross(x_vec)).normalized());
+    point_affine.matrix() << x_vec, y_vec, this->m_out[i].normal, this->m_out[i].point,
       vec4(0.0, 0.0, 0.0, 1.0).transpose();
   }
 

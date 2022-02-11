@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class mesh &#8212; ENVE v1.0
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class rib" href="class_a00062.html" />
+    <link rel="prev" title="Class flat" href="class_a00050.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="class-mesh">
+<span id="exhale-class-a00054"></span><h1>Class mesh<a class="headerlink" href="#class-mesh" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_enve_mesh.hh.html#file-include-enve-mesh-hh"><span class="std std-ref">File enve_mesh.hh</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4meshE">
+<span id="_CPPv3N4enve6ground4meshE"></span><span id="_CPPv2N4enve6ground4meshE"></span><span id="enve::ground::mesh"></span><span class="target" id="a00054"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">enve</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ground</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><a class="headerlink" href="#_CPPv4N4enve6ground4meshE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Triangular mesh class. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh3ptrE">
+<span id="_CPPv3N4enve6ground4mesh3ptrE"></span><span id="_CPPv2N4enve6ground4mesh3ptrE"></span><span id="enve::ground::mesh::ptr"></span><span class="target" id="a00054_1ab4e5368963810591e646ef48e9de351e"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ptr</span></span></span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh3ptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Pointer to mesh object. </p>
+</dd>
+</dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh6vecptrE">
+<span id="_CPPv3N4enve6ground4mesh6vecptrE"></span><span id="_CPPv2N4enve6ground4mesh6vecptrE"></span><span id="enve::ground::mesh::vecptr"></span><span class="target" id="a00054_1a38058148fed4fe8ce3a0d477b3776ce9"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4enve6ground4mesh3ptrE" title="enve::ground::mesh::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vecptr</span></span></span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Vector of pointers to mesh objects. </p>
+</dd>
+</dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4meshD0Ev">
+<span id="_CPPv3N4enve6ground4meshD0Ev"></span><span id="_CPPv2N4enve6ground4meshD0Ev"></span><span id="enve::ground::mesh::~mesh__void"></span><span class="target" id="a00054_1a03f45d115d115e6391426eacf3a85625"></span><span class="sig-name descname"><span class="n"><span class="pre">~mesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4meshD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Mesh class destructor. </p>
+<p>Mesh copy constructor </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERK4mesh">
+<span id="_CPPv3N4enve6ground4mesh4meshERK4mesh"></span><span id="_CPPv2N4enve6ground4mesh4meshERK4mesh"></span><span id="enve::ground::mesh::mesh__meshCR"></span><span class="target" id="a00054_1ad2400d16afd81a390481c38751f84599"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4mesh4meshERK4mesh" title="enve::ground::mesh::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERK4mesh" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Mesh move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERRK4mesh">
+<span id="_CPPv3N4enve6ground4mesh4meshERRK4mesh"></span><span id="_CPPv2N4enve6ground4mesh4meshERRK4mesh"></span><span id="enve::ground::mesh::mesh__meshCRR"></span><span class="target" id="a00054_1abca52061423e0722324997d154d18bd0"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4mesh4meshERRK4mesh" title="enve::ground::mesh::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERRK4mesh" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshEv">
+<span id="_CPPv3N4enve6ground4mesh4meshEv"></span><span id="_CPPv2N4enve6ground4mesh4meshEv"></span><span id="enve::ground::mesh::mesh__void"></span><span class="target" id="a00054_1aabc8dfb47aaa2c8994e67c096c47b4e9"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Mesh class constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERKN14triangleground6vecptrE">
+<span id="_CPPv3N4enve6ground4mesh4meshERKN14triangleground6vecptrE"></span><span id="_CPPv2N4enve6ground4mesh4meshERKN14triangleground6vecptrE"></span><span id="enve::ground::mesh::mesh__triangleground::vecptrCR"></span><span class="target" id="a00054_1a0549956287b5fb8e228b6eabb5b33c2e"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14trianglegroundE" title="enve::triangleground"><span class="n"><span class="pre">triangleground</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14triangleground6vecptrE" title="enve::triangleground::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">triangles</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERKN14triangleground6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Mesh class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>triangles</strong> – Ground triangles pointer vector list </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERKNSt6stringE">
+<span id="_CPPv3N4enve6ground4mesh4meshERKNSt6stringE"></span><span id="_CPPv2N4enve6ground4mesh4meshERKNSt6stringE"></span><span id="enve::ground::mesh::mesh__ssCR"></span><span class="target" id="a00054_1a6d98aea4d8fa88866d8c86805be092d5"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERKNSt6stringE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Mesh class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>path</strong> – Path to the RDF file </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERKNSt6stringE4real">
+<span id="_CPPv3N4enve6ground4mesh4meshERKNSt6stringE4real"></span><span id="_CPPv2N4enve6ground4mesh4meshERKNSt6stringE4real"></span><span id="enve::ground::mesh::mesh__ssCR.real"></span><span class="target" id="a00054_1a772bfe280e2d1c66a446820bc91f892b"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">friction</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERKNSt6stringE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Mesh class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>path</strong> – Path to the OBJ file </p></li>
+<li><p><strong>friction</strong> – Friction scaling coefficient </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4copyERK4mesh">
+<span id="_CPPv3N4enve6ground4mesh4copyERK4mesh"></span><span id="_CPPv2N4enve6ground4mesh4copyERK4mesh"></span><span id="enve::ground::mesh::copy__meshCR"></span><span class="target" id="a00054_1aea5c6e6e730d7b464bee433b81ed1f42"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mesh_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4copyERK4mesh" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Copy mesh object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>mesh_in</strong> – Mesh object to be copied </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh5clearEv">
+<span id="_CPPv3N4enve6ground4mesh5clearEv"></span><span id="_CPPv2N4enve6ground4mesh5clearEv"></span><span id="enve::ground::mesh::clear__void"></span><span class="target" id="a00054_1a127dbfd0bb99404e0f3e0d4023276d18"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clear</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh5clearEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Clear all mesh object data. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh20vecptrTrianglegroundEv">
+<span id="_CPPv3NK4enve6ground4mesh20vecptrTrianglegroundEv"></span><span id="_CPPv2NK4enve6ground4mesh20vecptrTrianglegroundEv"></span><span id="enve::ground::mesh::vecptrTriangleground__voidC"></span><span class="target" id="a00054_1a55d3ec4a6bcabb19c38cedc1ba17cc28"></span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14trianglegroundE" title="enve::triangleground"><span class="n"><span class="pre">triangleground</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14triangleground6vecptrE" title="enve::triangleground::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">vecptrTriangleground</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh20vecptrTrianglegroundEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get all triangleground pointers inside the mesh as a vector. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh17ptrTrianglegroundE6size_t">
+<span id="_CPPv3NK4enve6ground4mesh17ptrTrianglegroundE6size_t"></span><span id="_CPPv2NK4enve6ground4mesh17ptrTrianglegroundE6size_t"></span><span id="enve::ground::mesh::ptrTriangleground__sC"></span><span class="target" id="a00054_1a64db833f07e0e1f7b663f478c6f80ced"></span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14trianglegroundE" title="enve::triangleground"><span class="n"><span class="pre">triangleground</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14triangleground3ptrE" title="enve::triangleground::ptr"><span class="n"><span class="pre">ptr</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ptrTriangleground</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh17ptrTrianglegroundE6size_t" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get i-th triangleground pointer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>i</strong> – Triangle index </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh11ptrAABBtreeEv">
+<span id="_CPPv3NK4enve6ground4mesh11ptrAABBtreeEv"></span><span id="_CPPv2NK4enve6ground4mesh11ptrAABBtreeEv"></span><span id="enve::ground::mesh::ptrAABBtree__voidC"></span><span class="target" id="a00054_1af2a5ef6c56086ff3046d2b2a17d35333"></span><span class="n"><span class="pre">AABBtree</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ptr</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ptrAABBtree</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh11ptrAABBtreeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get AABBtree object. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh5printERKNSt6stringE">
+<span id="_CPPv3NK4enve6ground4mesh5printERKNSt6stringE"></span><span id="_CPPv2NK4enve6ground4mesh5printERKNSt6stringE"></span><span id="enve::ground::mesh::print__ssCRC"></span><span class="target" id="a00054_1a21c9d0e4ed514dd076b2f7245be71a4d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">print</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh5printERKNSt6stringE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Print data in file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>path</strong> – File name in which print data </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh6bboxesEv">
+<span id="_CPPv3NK4enve6ground4mesh6bboxesEv"></span><span id="_CPPv2NK4enve6ground4mesh6bboxesEv"></span><span id="enve::ground::mesh::bboxes__voidC"></span><span class="target" id="a00054_1ab1e51f4f5d1564992740027f8f7e4976"></span><span class="n"><span class="pre">aabb</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vecptr</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">bboxes</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh6bboxesEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the mesh bounding boxes pointers vector. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh4sizeEv">
+<span id="_CPPv3NK4enve6ground4mesh4sizeEv"></span><span id="_CPPv2NK4enve6ground4mesh4sizeEv"></span><span id="enve::ground::mesh::size__voidC"></span><span class="target" id="a00054_1a54e0bd8792817f5069a32ea3962d06e6"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh4sizeEv" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Return number of triangles in the mesh. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4loadERKNSt6stringE">
+<span id="_CPPv3N4enve6ground4mesh4loadERKNSt6stringE"></span><span id="_CPPv2N4enve6ground4mesh4loadERKNSt6stringE"></span><span id="enve::ground::mesh::load__ssCR"></span><span class="target" id="a00054_1a071c33f02a87be53717ed2a251fc4db7"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4loadERKNSt6stringE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Load ground data as a *.rdf file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<p><strong>path</strong> – Path to the file </p>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4loadERKNSt6stringE4real">
+<span id="_CPPv3N4enve6ground4mesh4loadERKNSt6stringE4real"></span><span id="_CPPv2N4enve6ground4mesh4loadERKNSt6stringE4real"></span><span id="enve::ground::mesh::load__ssCR.real"></span><span class="target" id="a00054_1ac7ef87e939cbd132d796c0134c25c163"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">load</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">path</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">friction</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4loadERKNSt6stringE4real" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Load ground data as a *.obj file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>path</strong> – Path to the file </p></li>
+<li><p><strong>friction</strong> – Friction coefficient scaling factor </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh12intersectionEKN8AABBtree3ptrERN14triangleground6vecptrE">
+<span id="_CPPv3NK4enve6ground4mesh12intersectionEKN8AABBtree3ptrERN14triangleground6vecptrE"></span><span id="_CPPv2NK4enve6ground4mesh12intersectionEKN8AABBtree3ptrERN14triangleground6vecptrE"></span><span id="enve::ground::mesh::intersection__AABBtree::ptrC.triangleground::vecptrRC"></span><span class="target" id="a00054_1a3b0e80f70a590775bf1efd1140e102c5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersection</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4NK4enve6ground4mesh12intersectionEKN8AABBtree3ptrERN14triangleground6vecptrE" title="enve::ground::mesh::intersection::AABBtree"><span class="n"><span class="pre">AABBtree</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ptr</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">AABBtree</span></span>, <a class="reference internal" href="class_a00074.html#_CPPv4N4enve14trianglegroundE" title="enve::triangleground"><span class="n"><span class="pre">triangleground</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14triangleground6vecptrE" title="enve::triangleground::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">triangles</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh12intersectionEKN8AABBtree3ptrERN14triangleground6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Intersect the mesh AABB tree with an external AABB tree. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>AABBtree</strong> – External AABBtree object pointer </p></li>
+<li><p><strong>triangles</strong> – Intersected triangleground vector list </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh12intersectionERKN4aabb6vecptrERN14triangleground6vecptrE">
+<span id="_CPPv3NK4enve6ground4mesh12intersectionERKN4aabb6vecptrERN14triangleground6vecptrE"></span><span id="_CPPv2NK4enve6ground4mesh12intersectionERKN4aabb6vecptrERN14triangleground6vecptrE"></span><span id="enve::ground::mesh::intersection__aabb::vecptrCR.triangleground::vecptrRC"></span><span class="target" id="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersection</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">aabb</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vecptr</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">boxes</span></span>, <a class="reference internal" href="class_a00074.html#_CPPv4N4enve14trianglegroundE" title="enve::triangleground"><span class="n"><span class="pre">triangleground</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14triangleground6vecptrE" title="enve::triangleground::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">triangles</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh12intersectionERKN4aabb6vecptrERN14triangleground6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Update the mesh AABBtree with an external aabb object pointer vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>boxes</strong> – External aabb object pointer vector </p></li>
+<li><p><strong>triangles</strong> – Intersected triangleground vector list </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4enve6ground4mesh12intersectionEKN4aabb3ptrERN14triangleground6vecptrE">
+<span id="_CPPv3NK4enve6ground4mesh12intersectionEKN4aabb3ptrERN14triangleground6vecptrE"></span><span id="_CPPv2NK4enve6ground4mesh12intersectionEKN4aabb3ptrERN14triangleground6vecptrE"></span><span id="enve::ground::mesh::intersection__aabb::ptrC.triangleground::vecptrRC"></span><span class="target" id="a00054_1a02f9e924e717939b06a1d06f00f073b2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">intersection</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">aabb</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ptr</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">box</span></span>, <a class="reference internal" href="class_a00074.html#_CPPv4N4enve14trianglegroundE" title="enve::triangleground"><span class="n"><span class="pre">triangleground</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="class_a00074.html#_CPPv4N4enve14triangleground6vecptrE" title="enve::triangleground::vecptr"><span class="n"><span class="pre">vecptr</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">triangles</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve6ground4mesh12intersectionEKN4aabb3ptrERN14triangleground6vecptrE" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Update the mesh AABBtree with an external aabb object pointer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd">
+<ul class="simple">
+<li><p><strong>box</strong> – External aabb object pointer </p></li>
+<li><p><strong>triangles</strong> – Intersected triangleground vector list </p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">The ENVE library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">How to use ENVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

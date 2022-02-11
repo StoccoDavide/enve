@@ -1,277 +1,389 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
-  <compounddef id="a00050" kind="file" language="C++">
-    <compoundname>enve_polynom.cc</compoundname>
-    <includes refid="a00020" local="yes">enve_polynom.hh</includes>
-    <incdepgraph>
-      <node id="7">
-        <label>enve.hh</label>
-        <link refid="a00026"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>enve_polynom.hh</label>
-        <link refid="a00020"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>enve_shape.hh</label>
-        <link refid="a00017"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>src/enve_polynom.cc</label>
-        <link refid="a00050"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>acme.hh</label>
-      </node>
-      <node id="4">
-        <label>acme_math.hh</label>
-      </node>
-      <node id="5">
-        <label>acme_utils.hh</label>
-      </node>
-      <node id="8">
-        <label>fstream</label>
-      </node>
-      <node id="9">
-        <label>iostream</label>
-      </node>
-      <node id="10">
-        <label>sstream</label>
-      </node>
-      <node id="11">
-        <label>string</label>
-      </node>
-      <node id="12">
-        <label>vector</label>
-      </node>
-    </incdepgraph>
-    <innernamespace refid="a00059">enve</innernamespace>
+  <compounddef id="a00050" kind="class" language="C++" prot="public">
+    <compoundname>enve::ground::flat</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">plane</basecompoundref>
+    <includes refid="a00014" local="no">enve_flat.hh</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="a00050_1a159c72538bd75b2f02a2744efb9bf442" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="a00050" kindref="compound">flat</ref> const  &gt;</type>
+        <definition>typedef std::shared_ptr&lt;flat const&gt; enve::ground::flat::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+<para>Shared pointer to flat object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="63" column="31" bodyfile="include/enve_flat.hh" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="a00050_1ab9e0ffcbf413e6ac215b2789baa27a0e" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="a00050_1a159c72538bd75b2f02a2744efb9bf442" kindref="member">flat::ptr</ref> &gt;</type>
+        <definition>typedef std::vector&lt;flat::ptr&gt; enve::ground::flat::vecptr</definition>
+        <argsstring></argsstring>
+        <name>vecptr</name>
+        <briefdescription>
+<para>Vector of shared pointers to flat objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="64" column="32" bodyfile="include/enve_flat.hh" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="a00050_1a6dcb07abaaffbc53a23a8a36e36df4a2" prot="private" static="no" mutable="no">
+        <type>real</type>
+        <definition>real enve::ground::flat::m_friction</definition>
+        <argsstring></argsstring>
+        <name>m_friction</name>
+        <initializer>= QUIET_NAN</initializer>
+        <briefdescription>
+<para>Face friction coefficient scaling factor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="67" column="12" bodyfile="include/enve_flat.hh" bodystart="67" bodyend="-1"/>
+        <referencedby refid="a00050_1af26cbffc1ad6fd269acc832cf8226ccf" compoundref="a00041" startline="108" endline="114">copy</referencedby>
+        <referencedby refid="a00050_1ab696dc901373db2dcc49028eea16bb69" compoundref="a00041" startline="131" endline="135">friction</referencedby>
+        <referencedby refid="a00050_1adc60c85f9402159fb9409c9145a40965" compoundref="a00041" startline="119" endline="126">isApprox</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="a00050_1a60478551b305fec4965412043387f3e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(flat const &amp;)=delete</argsstring>
+        <name>flat</name>
+        <param>
+          <type><ref refid="a00050" kindref="compound">flat</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+<para>Deleted copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="69" column="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="a00050_1a96da72a7116b7eee5ee06c3205e327c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::~flat</definition>
+        <argsstring>(void)</argsstring>
+        <name>~flat</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Flat class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="73" column="7" bodyfile="src/enve_flat.cc" bodystart="53" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1a4f727a921ba073396a3af587afe33706" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(void)</argsstring>
+        <name>flat</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Flat class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="76" column="7" bodyfile="src/enve_flat.cc" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1ad1ab2fdca3aab1cdd7bc152d7ca7714d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(real origin_x, real origin_y, real origin_z, real normal_x, real normal_y, real normal_z, real friction)</argsstring>
+        <name>flat</name>
+        <param>
+          <type>real</type>
+          <declname>origin_x</declname>
+          <briefdescription><para>Input x value of ground plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>origin_y</declname>
+          <briefdescription><para>Input y value of ground plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>origin_z</declname>
+          <briefdescription><para>Input z value of ground plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>normal_x</declname>
+          <briefdescription><para>Input x value of ground plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>normal_y</declname>
+          <briefdescription><para>Input y value of ground plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>normal_z</declname>
+          <briefdescription><para>Input z value of ground plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>friction</declname>
+          <briefdescription><para>Friction coefficient scaling factor </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Flat class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="79" column="7" bodyfile="src/enve_flat.cc" bodystart="65" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1aff61b12a4d7daaa6a81d85074ff3fd90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(point const &amp;origin, vec3 const &amp;normal, real friction)</argsstring>
+        <name>flat</name>
+        <param>
+          <type>point const &amp;</type>
+          <declname>origin</declname>
+          <briefdescription><para>Input plane origin point </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>vec3 const &amp;</type>
+          <declname>normal</declname>
+          <briefdescription><para>Input plane normal vector </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>friction</declname>
+          <briefdescription><para>Friction coefficient scaling factor </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Flat class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="90" column="7" bodyfile="src/enve_flat.cc" bodystart="82" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1a3b71551fd97ddf109887297f70929ab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::flat::flat</definition>
+        <argsstring>(plane const &amp;plane_in, real friction)</argsstring>
+        <name>flat</name>
+        <param>
+          <type>plane const &amp;</type>
+          <declname>plane_in</declname>
+          <briefdescription><para>Input flat object </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>friction</declname>
+          <briefdescription><para>Friction coefficient scaling factor </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Flat class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="97" column="7" bodyfile="src/enve_flat.cc" bodystart="95" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1af26cbffc1ad6fd269acc832cf8226ccf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void enve::ground::flat::copy</definition>
+        <argsstring>(flat const &amp;flat_in)</argsstring>
+        <name>copy</name>
+        <param>
+          <type><ref refid="a00050" kindref="compound">flat</ref> const &amp;</type>
+          <declname>flat_in</declname>
+          <briefdescription><para>Flat object to be copied </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Copy flat object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="104" column="7" bodyfile="src/enve_flat.cc" bodystart="108" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1adc60c85f9402159fb9409c9145a40965" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool enve::ground::flat::isApprox</definition>
+        <argsstring>(flat const &amp;flat_in, real tolerance=EPSILON_LOW) const</argsstring>
+        <name>isApprox</name>
+        <param>
+          <type><ref refid="a00050" kindref="compound">flat</ref> const &amp;</type>
+          <declname>flat_in</declname>
+          <briefdescription><para>Input flat object </para>
+</briefdescription>
+        </param>
+        <param>
+          <type>real</type>
+          <declname>tolerance</declname>
+          <defval>EPSILON_LOW</defval>
+          <briefdescription><para>Tolerance </para>
+</briefdescription>
+        </param>
+        <briefdescription>
+<para>Check if objects are (almost) equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="110" column="7" bodyfile="src/enve_flat.cc" bodystart="119" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1ab696dc901373db2dcc49028eea16bb69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>real const &amp;</type>
+        <definition>real const  &amp; enve::ground::flat::friction</definition>
+        <argsstring>(void) const</argsstring>
+        <name>friction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get friction coefficent scaling factor const reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="117" column="7" bodyfile="src/enve_flat.cc" bodystart="131" bodyend="135"/>
+        <referencedby refid="a00062_1aab9a96fab4f1267b9433ec1f56b2ede8" compoundref="a00029" startline="378" endline="418">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1ad3141e45ab81272c1bfa2de2a2b04e12" compoundref="a00029" startline="605" endline="625">enve::rib::samplingLine</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1a0f78e2cb0f14de2fe9010275dd3a9789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>real &amp;</type>
+        <definition>real &amp; enve::ground::flat::friction</definition>
+        <argsstring>(void)</argsstring>
+        <name>friction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Set friction coefficent scaling factor reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="121" column="7" bodyfile="src/enve_flat.cc" bodystart="140" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1abef0bcad25ee073aaa889a58760a4cbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>plane const &amp;</type>
+        <definition>plane const  &amp; enve::ground::flat::layingPlane</definition>
+        <argsstring>(void) const</argsstring>
+        <name>layingPlane</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get laying plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="125" column="7" bodyfile="src/enve_flat.cc" bodystart="148" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="a00050_1aa107e521521875bdf184d482d9c00825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>plane &amp;</type>
+        <definition>plane &amp; enve::ground::flat::layingPlane</definition>
+        <argsstring>(void)</argsstring>
+        <name>layingPlane</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Set laying plane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/enve_flat.hh" line="129" column="7" bodyfile="src/enve_flat.cc" bodystart="157" bodyend="160"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
+<para>Triangular flat class. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <programlisting>
-<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="2"><highlight class="comment">(***********************************************************************)</highlight></codeline>
-<codeline lineno="3"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="4"><highlight class="comment">(*<sp/>The<sp/>ENVE<sp/>project<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="5"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="6"><highlight class="comment">(*<sp/>Copyright<sp/>(c)<sp/>2020-2021,<sp/>Davide<sp/>Stocco<sp/>and<sp/>Enrico<sp/>Bertolazzi.<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="7"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="8"><highlight class="comment">(*<sp/>The<sp/>ENVE<sp/>project<sp/>and<sp/>its<sp/>components<sp/>are<sp/>supplied<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>*)</highlight></codeline>
-<codeline lineno="9"><highlight class="comment">(*<sp/>the<sp/>open<sp/>source<sp/>BSD<sp/>2-Clause<sp/>License.<sp/>The<sp/>contents<sp/>of<sp/>the<sp/>ENVE<sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="10"><highlight class="comment">(*<sp/>project<sp/>and<sp/>its<sp/>components<sp/>may<sp/>not<sp/>be<sp/>copied<sp/>or<sp/>disclosed<sp/>except<sp/>in<sp/>*)</highlight></codeline>
-<codeline lineno="11"><highlight class="comment">(*<sp/>accordance<sp/>with<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>BSD<sp/>2-Clause<sp/>License.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="12"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="13"><highlight class="comment">(*<sp/>URL:<sp/>https://opensource.org/licenses/BSD-2-Clause<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="14"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="15"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Davide<sp/>Stocco<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="16"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="17"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="18"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>davide.stocco@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="19"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="20"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Enrico<sp/>Bertolazzi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="21"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="22"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="23"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>enrico.bertolazzi@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="24"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="25"><highlight class="comment">(***********************************************************************)</highlight></codeline>
-<codeline lineno="26"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00020" kindref="compound">enve_polynom.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="a00059" kindref="compound">enve</ref></highlight></codeline>
-<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
-<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_</highlight></codeline>
-<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>_<sp/>__<sp/><sp/><sp/>___<sp/>|<sp/>|_<sp/><sp/><sp/>_<sp/>_<sp/>__<sp/><sp/><sp/>___<sp/><sp/>_<sp/>__<sp/>___</highlight></codeline>
-<codeline lineno="40"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\|<sp/>&apos;_<sp/>`<sp/>_<sp/>\</highlight></codeline>
-<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>|_)<sp/>|<sp/>(_)<sp/>|<sp/>|<sp/>|_|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>(_)<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|</highlight></codeline>
-<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>.__/<sp/>\___/|_|\__,<sp/>|_|<sp/>|_|\___/|_|<sp/>|_|<sp/>|_|</highlight></codeline>
-<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|_|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|___/</highlight></codeline>
-<codeline lineno="44"><highlight class="comment"><sp/><sp/>\*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48" refid="a00081_1a81e127b0bbbf9947cd501dbf23d85644" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1a81e127b0bbbf9947cd501dbf23d85644" kindref="member">polynom::~polynom</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54" refid="a00081_1adbec97c758bb7cbc7bd619afdaaa26af" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1adbec97c758bb7cbc7bd619afdaaa26af" kindref="member">polynom::polynom</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60" refid="a00081_1a7a3869be304764047aa004c9ab04e287" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1adbec97c758bb7cbc7bd619afdaaa26af" kindref="member">polynom::polynom</ref>(</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>vecN<sp/>coeffs,</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>maxR,</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>minY,</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>maxY)</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="a00089" kindref="compound">shape</ref>(maxR,<sp/>minY,<sp/>maxY),</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_coeffs(coeffs)</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72" refid="a00081_1ab74e32b5826c77d7bd7d5ac351419852" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1adbec97c758bb7cbc7bd619afdaaa26af" kindref="member">polynom::polynom</ref>(</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>vecN<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;dataR,</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>vecN<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;dataY,</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>order,</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tolerance)</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="a00089" kindref="compound">shape</ref>(dataR,<sp/>dataY)</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00081_1a26b1cddc339c7e00ca0f1492722d38df" kindref="member">fit</ref>(dataR,<sp/>dataY,<sp/>order,<sp/>tolerance);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85" refid="a00081_1a922eaa302e86ba235161fbad3186293f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1a922eaa302e86ba235161fbad3186293f" kindref="member">polynom::copy</ref>(</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00081" kindref="compound">polynom</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;polynom_in)</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00089_1a01bf679dac42a6a354f3ec1327402bef" kindref="member">shape::copy</ref>(polynom_in);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref><sp/>=<sp/>polynom_in.<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95" refid="a00081_1a2f8207c750bc8f09c136eeb878090889" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1a2f8207c750bc8f09c136eeb878090889" kindref="member">polynom::isApprox</ref>(</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00081" kindref="compound">polynom</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;polynom_in,</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tolerance)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="98"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="99"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!this-&gt;<ref refid="a00089_1aa509c8fa017ef7500110beae8289b514" kindref="member">shape::isApprox</ref>(polynom_in))</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>.size()<sp/>!=<sp/>polynom_in.<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>.size())</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>.isApprox(polynom_in.<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>,<sp/>tolerance);</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>real</highlight></codeline>
-<codeline lineno="110" refid="a00081_1a84656dbac8235f5dd9c4663c2db51d98" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1a84656dbac8235f5dd9c4663c2db51d98" kindref="member">polynom::surfaceRadius</ref>(</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="112"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="113"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" kindref="member">checkWidthBound</ref>(y);</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y_val<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>.size();<sp/>++i)</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>y_val<sp/>+=<sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>[i]<sp/>*<sp/>std::pow(y,<sp/>i);</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y_val;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/>real</highlight></codeline>
-<codeline lineno="124" refid="a00081_1a34738229882daa930770c4863443b490" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1a34738229882daa930770c4863443b490" kindref="member">polynom::surfaceDerivative</ref>(</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y,</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>tolerance)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="127"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="128"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00089_1a21cf4f513087dd2abb003fec5d92c1d1" kindref="member">checkWidthBound</ref>(y);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y_der<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>.size();<sp/>++i)</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>y_der<sp/>+=<sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>(i)<sp/>*<sp/>std::pow(y,<sp/>i<sp/>-<sp/>1);</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y_der;</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/>real</highlight></codeline>
-<codeline lineno="139" refid="a00081_1a2a80ac227415844e8835f2d1fb6a66e8" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1a2a80ac227415844e8835f2d1fb6a66e8" kindref="member">polynom::surfaceAngle</ref>(</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y,</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>tolerance)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="142"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="143"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::atan(this-&gt;<ref refid="a00081_1a34738229882daa930770c4863443b490" kindref="member">surfaceDerivative</ref>(y,<sp/>tolerance));</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="150" refid="a00081_1a7fee7942fdfc90caa85bce08663e9489" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1a7fee7942fdfc90caa85bce08663e9489" kindref="member">polynom::print</ref>(</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>out_stream<sp/>&amp;os)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="152"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="153"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00089_1a25fb65951d112f9f4595b07c8c8b3630" kindref="member">shape::print</ref>(os);</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Shell<sp/>polynom<sp/>parameters:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>.size();<sp/>++i)</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\tcoeff(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref>(i)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="164" refid="a00081_1a26b1cddc339c7e00ca0f1492722d38df" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00081_1a26b1cddc339c7e00ca0f1492722d38df" kindref="member">polynom::fit</ref>(</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>vecN<sp/><sp/><sp/>dataR,</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>vecN<sp/><sp/><sp/>dataY,</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>order,</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/>tolerance)</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00026_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>dataR.size()<sp/>==<sp/>dataY.size(),</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;enve::polynom::fit(dataR,<sp/>dataY,<sp/>order):<sp/>R<sp/>and<sp/>Y<sp/>data<sp/>vectors<sp/>have<sp/>different<sp/>dimensions.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00026_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>order<sp/>&gt;=<sp/>1<sp/>&amp;&amp;<sp/>order<sp/>&lt;=<sp/>dataR.size()<sp/>-<sp/>1,</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;enve::polynom::fit(dataR,<sp/>dataY,<sp/>order):<sp/>invalid<sp/>polynom<sp/>order.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>matN<sp/>A(dataY.size(),<sp/>order<sp/>+<sp/>1);</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>dataY.size();<sp/>++i)</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00026_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dataR(i)<sp/>&gt;<sp/>0,</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;enve::polynom::fit(dataR,<sp/>dataY,<sp/>order):<sp/>R<sp/>data<sp/>vector<sp/>components<sp/>must<sp/>be<sp/>positive.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>order<sp/>+<sp/>1;<sp/>++j)</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>A(i,<sp/>j)<sp/>=<sp/>std::pow(dataY(i),<sp/>j);</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00081_1a265dbad61acec6f5c65c65d17fc66d34" kindref="member">m_coeffs</ref><sp/>=<sp/>A.householderQr().solve(dataR);</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"></highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"></highlight></codeline>
-<codeline lineno="193"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>enve</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"></codeline>
-    </programlisting>
-    <location file="src/enve_polynom.cc"/>
+    <inheritancegraph>
+      <node id="1">
+        <label>enve::ground::flat</label>
+        <link refid="a00050"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>plane</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>enve::ground::flat</label>
+        <link refid="a00050"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>plane</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/enve_flat.hh" line="60" column="5" bodyfile="include/enve_flat.hh" bodystart="61" bodyend="130"/>
+    <listofallmembers>
+      <member refid="a00050_1af26cbffc1ad6fd269acc832cf8226ccf" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>copy</name></member>
+      <member refid="a00050_1a60478551b305fec4965412043387f3e4" prot="private" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00050_1a4f727a921ba073396a3af587afe33706" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00050_1ad1ab2fdca3aab1cdd7bc152d7ca7714d" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00050_1aff61b12a4d7daaa6a81d85074ff3fd90" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00050_1a3b71551fd97ddf109887297f70929ab1" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>
+      <member refid="a00050_1ab696dc901373db2dcc49028eea16bb69" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>friction</name></member>
+      <member refid="a00050_1a0f78e2cb0f14de2fe9010275dd3a9789" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>friction</name></member>
+      <member refid="a00050_1adc60c85f9402159fb9409c9145a40965" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>isApprox</name></member>
+      <member refid="a00050_1abef0bcad25ee073aaa889a58760a4cbc" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>layingPlane</name></member>
+      <member refid="a00050_1aa107e521521875bdf184d482d9c00825" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>layingPlane</name></member>
+      <member refid="a00050_1a6dcb07abaaffbc53a23a8a36e36df4a2" prot="private" virt="non-virtual"><scope>enve::ground::flat</scope><name>m_friction</name></member>
+      <member refid="a00050_1a159c72538bd75b2f02a2744efb9bf442" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>ptr</name></member>
+      <member refid="a00050_1ab9e0ffcbf413e6ac215b2789baa27a0e" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>vecptr</name></member>
+      <member refid="a00050_1a96da72a7116b7eee5ee06c3205e327c1" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>~flat</name></member>
+    </listofallmembers>
   </compounddef>
 </doxygen>

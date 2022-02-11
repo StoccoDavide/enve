@@ -56,7 +56,7 @@ main()
               << std::endl;
 
     // Load .rdf File
-    ground::mesh road("./../files_rdf/sample.rdf");
+    ground::mesh road("./files_rdf/sample.rdf");
 
     // Print OutMesh.txt file
     road.print("bin/OutMesh.txt");
