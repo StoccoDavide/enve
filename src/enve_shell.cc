@@ -500,10 +500,19 @@ namespace enve
   )
     const
   {
-    point = ZEROS_VEC3;
-    for (size_t i = 0; i < this->size(); ++i)
-      point += this->m_out[i].point;
-    point /= this->size();
+    point          = ZEROS_VEC3;
+    size_t size     = this->size(); 
+    real volume_sum = 0.0;
+    this->contactVolume(volume_sum);
+    if (volume_sum < EPSILON_HIGH) {
+      for (size_t i = 0; i < size; ++i)
+        point += this->m_out[i].point;
+      point /= size;
+    } else {
+      for (size_t i = 0; i < size; ++i)
+        point += this->m_out[i].point*this->m_out[i].volume;
+      point /= volume_sum;
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
