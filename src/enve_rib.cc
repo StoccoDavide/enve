@@ -461,16 +461,12 @@ namespace enve
     sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
     sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
-    point contact_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
-    vec3  contact_normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    plane contact_plane(contact_point, contact_normal);
-    
-    segment tmp_segment;
+    out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+    out.depth  = radius - (out.point - ribCenterGround).norm();
 
-    if ( sampling && contact_plane.distance(ribCenterGround) < std::abs(radius*(affine_in.linear().col(2)).dot(contact_normal)) )
+    if ( sampling && out.depth > 0.0 )
     {
-      out.point    = contact_point;
-      out.normal   = contact_normal;
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
       out.depth    = radius - (out.point - ribCenterGround).norm();
       out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;
@@ -534,18 +530,13 @@ namespace enve
     sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
     sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
-    point contact_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
-    vec3  contact_normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    plane contact_plane(contact_point, contact_normal);
+    out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+    out.depth  = radius - (out.point - ribCenterGround).norm();
 
-    segment tmp_segment;
-
-    if ( sampling && contact_plane.distance(ribCenterGround) < std::abs(radius*(affine_in.linear().col(2)).dot(contact_normal)) )
+    if ( sampling && out.depth > 0.0 )
     {
-      out.point    = contact_point;
-      out.normal   = contact_normal;
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
-      out.depth    = radius - (out.point - ribCenterGround).norm();
       out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;
       out.volume   = (radius*radius*std::acos((radius-out.depth)/radius) - 
                      (radius-out.depth)*std::sqrt(out.depth*(2*radius-out.depth)))*width;
