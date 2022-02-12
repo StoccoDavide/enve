@@ -46,43 +46,43 @@
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Create<sp/>C++<sp/>pointer<sp/>to<sp/>ENVE<sp/>triangleground<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>instance</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(<sp/>this<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mex_triangleground(<sp/></highlight><highlight class="stringliteral">&apos;delete&apos;</highlight><highlight class="normal">,<sp/>this.objectHandle<sp/>);</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>friction<sp/>coefficent<sp/>scaling<sp/>factor</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>out<sp/>=<sp/>normal(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>out<sp/>=<sp/>normal(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>=<sp/>mex_triangleground(<sp/>&apos;normal&apos;,<sp/>this.objectHandle<sp/>);</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
-<codeline lineno="50" refid="a00029_1a617723e4150ee3bfccbdfb27c4b16615" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="50" refid="a00029_1af80d972dbea8e624fcef1dc5d72f8482" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>friction<sp/>coefficent<sp/>scaling<sp/>factor</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>getFriction(<sp/>this<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>getFriction(<sp/>this,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>=<sp/>mex_triangleground(<sp/>&apos;getFriction&apos;,<sp/>this.objectHandle<sp/>);</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
-<codeline lineno="58" refid="a00029_1a3f558d7848130711e73d2712dce36c04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="58" refid="a00029_1ad2d2103782d6807c5c3cb0bd3c444d7b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Set<sp/>friction<sp/>coefficent<sp/>scaling<sp/>factor</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setFriction(<sp/>this,<sp/>friction<sp/>)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setFriction(<sp/>this,<sp/>friction,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mex_triangleground(<sp/>&apos;setFriction&apos;,<sp/>this.objectHandle,<sp/>friction<sp/>);</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
-<codeline lineno="66" refid="a00029_1a7fc784f12d982245d523a05468971765" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>triangle<sp/>vertex<sp/>1<sp/>as<sp/>ACME<sp/>point<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>getVertex1(<sp/>this<sp/>)</highlight></codeline>
+<codeline lineno="66" refid="a00029_1a86a094f047fb3bc2e7f307bb0bd1e7c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>triangle<sp/>vertex<sp/>1<sp/>as<sp/>ACME<sp/>point<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>getVertex1(<sp/>this,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>=<sp/>acme_point();</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out.copyByHandle(<sp/>mex_triangleground(<sp/>&apos;getVertex1&apos;,<sp/>this.objectHandle<sp/>)<sp/>);</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
-<codeline lineno="74" refid="a00029_1a683eb0dddb8f9e2b2f3e2c42d995c9dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>triangle<sp/>vertex<sp/>2<sp/>as<sp/>ACME<sp/>point<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>getVertex2(<sp/>this<sp/>)</highlight></codeline>
+<codeline lineno="74" refid="a00029_1a51e60df2c15caba52fa29c5f7e995ae6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>triangle<sp/>vertex<sp/>2<sp/>as<sp/>ACME<sp/>point<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>getVertex2(<sp/>this,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>=<sp/>acme_point();</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out.copyByHandle(<sp/>mex_triangleground(<sp/>&apos;getVertex2&apos;,<sp/>this.objectHandle<sp/>)<sp/>);</highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
@@ -90,7 +90,7 @@
 <codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/>triangle<sp/>vertex<sp/>3<sp/>as<sp/>ACME<sp/>point<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="83" refid="a00029_1af09697baf2b40181ddaf5f769fffe25c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>getVertex3(<sp/>this<sp/>)</highlight></codeline>
+<codeline lineno="83" refid="a00029_1a877b126b496ff10fffe8f87627256dac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>getVertex3(<sp/>this,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>=<sp/>acme_point();</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out.copyByHandle(<sp/>mex_triangleground(<sp/>&apos;getVertex3&apos;,<sp/>this.objectHandle<sp/>)<sp/>);</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
@@ -98,61 +98,61 @@
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Set<sp/>triangle<sp/>vertex<sp/>1<sp/>with<sp/>an<sp/>ACME<sp/>point<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setVertex1(<sp/>this,<sp/>other_obj<sp/>)</highlight></codeline>
-<codeline lineno="92" refid="a00029_1a34bfb00c6031375ff005e78a049f8c36" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mex_triangleground(<sp/>&apos;setVertex1&apos;,<sp/>this.objectHandle,<sp/>other_obj.objectHandle<sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setVertex1(<sp/>this,<sp/>other_obj,<sp/>~<sp/>)</highlight></codeline>
+<codeline lineno="92" refid="a00029_1a8ba141d7c6d24ca07183cff8f666c2bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mex_triangleground(<sp/>&apos;setVertex1&apos;,<sp/>this.objectHandle,<sp/>other_obj.objectHandle<sp/>);</highlight></codeline>
 <codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Set<sp/>triangle<sp/>vertex<sp/>2<sp/>with<sp/>an<sp/>ACME<sp/>point<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setVertex2(<sp/>this,<sp/>other_obj<sp/>)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setVertex2(<sp/>this,<sp/>other_obj,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mex_triangleground(<sp/>&apos;setVertex2&apos;,<sp/>this.objectHandle,<sp/>other_obj.objectHandle<sp/>);</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
-<codeline lineno="101" refid="a00029_1ac4060c0ff1ee5dbb0bd99a59bbbcefa7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="101" refid="a00029_1a2bf237e556a5df9948487f4513c15837" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Set<sp/>triangle<sp/>vertex<sp/>3<sp/>with<sp/>an<sp/>ACME<sp/>point<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setVertex3(<sp/>this,<sp/>other_obj<sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setVertex3(<sp/>this,<sp/>other_obj,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mex_triangleground(<sp/>&apos;setVertex3&apos;,<sp/>this.objectHandle,<sp/>other_obj.objectHandle<sp/>);</highlight></codeline>
 <codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
-<codeline lineno="109" refid="a00029_1ad5071899f15a49fe9b5cfe353cd69446" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="109" refid="a00029_1a1c68cdd53deaa2b69ed428c699e3086e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Copy<sp/>triangleground<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>from<sp/>another<sp/>triangleground</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>copy(<sp/>this,<sp/>other_obj<sp/>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>copy(<sp/>this,<sp/>other_obj,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(other_obj.type()<sp/>==<sp/>&quot;triangleground&quot;)</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mex_triangleground(<sp/>&apos;copy&apos;,<sp/>this.objectHandle,<sp/>other_obj.objectHandle<sp/>);</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>error(&apos;mex_triangleground::copy():<sp/>other_obj<sp/>must<sp/>be<sp/>an<sp/>ENVE<sp/>triangleground<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>type.&apos;);</highlight></codeline>
-<codeline lineno="117" refid="a00029_1a413960dc3f19751238c84f96199bc03d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="117" refid="a00029_1a8bebceb15d8e99f360d1e6c3d9f0fe32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Copy<sp/>triangleground<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>from<sp/>another<sp/>triangleground<sp/>shape</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>copyByHandle(<sp/>this,<sp/>handle<sp/>)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>copyByHandle(<sp/>this,<sp/>handle,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mex_triangleground(<sp/>&apos;copy&apos;,<sp/>this.objectHandle,<sp/>handle<sp/>);</highlight></codeline>
-<codeline lineno="125" refid="a00029_1aad417b74e1ce2bba0bdd395b2b03fe6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="125" refid="a00029_1aec339d78bbc35f22bcd20feb757c529b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Display<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>data</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>disp(<sp/>this<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>disp(<sp/>this,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>disp(<sp/>[[this.getFriction();<sp/>NaN;<sp/>NaN],<sp/>this.getVertex1().get(),<sp/>this.getVertex2().get(),<sp/><sp/>this.getVertex3().get()]<sp/>);</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Set<sp/>friction<sp/>coefficent<sp/>scaling<sp/>factor</highlight></codeline>
-<codeline lineno="137" refid="a00029_1aaafaf0d97e0278599fd8539419d8d626" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>toTriangle(<sp/>this<sp/>)</highlight></codeline>
+<codeline lineno="137" refid="a00029_1aaa5ce2b8742590c18f30f8a43c89e500" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>toTriangle(<sp/>this,<sp/>~<sp/>)</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>=<sp/>acme_triangle(<sp/>this.getVertex1().get(),<sp/>this.getVertex2().get(),<sp/>this.getVertex3().get()<sp/>);</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Plot<sp/>triangle<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>plot(<sp/>this,<sp/>figure_name,<sp/>color<sp/>)</highlight></codeline>
-<codeline lineno="145" refid="a00029_1adcd7fc06a4e6bb5b4e53679bcd937692" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>figure_name;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>plot(<sp/>this,<sp/>figure_name,<sp/>color,<sp/>~<sp/>)</highlight></codeline>
+<codeline lineno="145" refid="a00029_1a8d9b94627dec7f03dd15c259f1114d0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>figure_name;</highlight></codeline>
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>on;</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Vertex1<sp/>=<sp/>this.getVertex1().get();</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Vertex2<sp/>=<sp/>this.getVertex2().get();</highlight></codeline>
@@ -160,15 +160,15 @@
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>X<sp/>=<sp/>[Vertex1(1),<sp/>Vertex2(1),<sp/>Vertex3(1)];</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Y<sp/>=<sp/>[Vertex1(2),<sp/>Vertex2(2),<sp/>Vertex3(2)];</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Z<sp/>=<sp/>[Vertex1(3),<sp/>Vertex2(3),<sp/>Vertex3(3)];</highlight></codeline>
-<codeline lineno="153" refid="a00029_1a0b8a25c1d935c1a87da1ae46a62206de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>patch(X,<sp/>Y,<sp/>Z,<sp/>color,<sp/>&apos;FaceAlpha&apos;,<sp/>1.0);</highlight></codeline>
+<codeline lineno="153" refid="a00029_1a26f158ae1459ad715fd522cd6ae8da52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>patch(X,<sp/>Y,<sp/>Z,<sp/>color,<sp/>&apos;FaceAlpha&apos;,<sp/>1.0);</highlight></codeline>
 <codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hold<sp/>off;</highlight></codeline>
 <codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
 <codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
 <codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>%&gt;<sp/>Get<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>type<sp/>as<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>type(<sp/>this<sp/>)</highlight></codeline>
-<codeline lineno="161" refid="a00029_1a240b24d199e1edd56d8d79ac32e2d613" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>=<sp/>&apos;triangleground&apos;;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>out<sp/>=<sp/>type(<sp/>this,<sp/>~<sp/>)</highlight></codeline>
+<codeline lineno="161" refid="a00029_1ab1b8bc55d4ac80478c28044513705a66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>=<sp/>&apos;triangleground&apos;;</highlight></codeline>
 <codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"><sp/><sp/>end</highlight></codeline>
 <codeline lineno="164"><highlight class="normal">end</highlight></codeline>

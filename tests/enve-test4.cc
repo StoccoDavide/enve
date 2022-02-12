@@ -52,7 +52,7 @@ main()
     Utils::TicToc tictoc;
 
     std::cout << std::endl
-              << "ENVE TERRAIN SERVER TEST 3 - CHECK INTERSECTION WITH GENERIC PLANE" << std::endl
+              << "ENVE TERRAIN SERVER TEST 4 - CHECK INTERSECTION WITH GENERIC PLANE" << std::endl
               << std::endl;
 
     // Plane data
@@ -78,7 +78,7 @@ main()
 
     // Create frame object
     affine pose;
-    pose = translate(0.0, 0.0, 0.312) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(0.0, 0.0, 0.312999) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();

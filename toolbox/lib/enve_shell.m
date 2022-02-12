@@ -27,7 +27,7 @@ classdef enve_shell < handle
   %>
   %> Class container for ENVE shell object
   %>
-   properties (SetAccess = protected, Hidden = true)
+   properties (Hidden = true) %(SetAccess = protected, Hidden = true)
      objectHandle; %> Handle to the underlying C++ class instance
    end
   %
@@ -42,84 +42,84 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Create C++ pointer to ENVE shell object instance
-    function delete( this )
+    function delete( this, ~ )
       mex_shell( 'delete', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Resize shell shape with N ribs
-    function resize( this, n )
+    function resize( this, n, ~ )
       mex_shell( 'resize', this.objectHandle, n );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell ribs number
-    function out = size( this )
+    function out = size( this, ~ )
       out = mex_shell( 'size', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell surface maximum radius (m)
-    function out = surfaceMaxRadius( this )
+    function out = surfaceMaxRadius( this, ~ )
       out = mex_shell( 'surfaceMaxRadius', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell surface maximum width on y axis (m)
-    function out = surfaceMaxWidth( this )
+    function out = surfaceMaxWidth( this, ~ )
       out = mex_shell( 'surfaceMaxWidth', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell surface maximum width on reference (m)
-    function out = surfaceWidthBound( this, y )
+    function out = surfaceWidthBound( this, y, ~ )
       out = mex_shell( 'surfaceWidthBound', this.objectHandle, y );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell surface width (m)
-    function out = surfaceWidth( this )
+    function out = surfaceWidth( this, ~ )
       out = mex_shell( 'surfaceWidth', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell surface of revolution rib radius at y axis coordinate (m)
-    function out = surfaceRadius( this, y )
+    function out = surfaceRadius( this, y, ~ )
       out = mex_shell( 'surfaceRadius', this.objectHandle, y );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell surface of revolution rib first derivative with respect to y coordinate
-    function out = surfaceDerivative( this, y )
+    function out = surfaceDerivative( this, y, ~ )
       out = mex_shell( 'surfaceDerivative', this.objectHandle, y );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell surface of revolution rib angle with respect to y axis (rad)
-    function out = surfaceAngle( this, y )
+    function out = surfaceAngle( this, y, ~ )
       out = mex_shell( 'surfaceAngle', this.objectHandle, y );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get i-th rib radius (m)
-    function out = ribRadius( this, i )
+    function out = ribRadius( this, i, ~ )
       out = mex_shell( 'ribRadius', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get i-th rib center as an ACME point
-    function out = ribCenter( this, i )
+    function out = ribCenter( this, i, ~ )
       out = acme_point();
       out.copyByHandle( mex_shell( 'ribCenter', this.objectHandle, i ) );
     end
@@ -127,98 +127,98 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get i-th rib width
-    function out = ribWidth( this, i )
+    function out = ribWidth( this, i, ~ )
       out = mex_shell( 'ribWidth', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Translate shell
-    function translate( this, vector )
+    function translate( this, vector, ~ )
       mex_shell( 'translate', this.objectHandle, vector );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell translation
-    function out = translation( this )
+    function out = translation( this, ~ )
       out = mex_shell( 'translation', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Rotate shell by angle and axis
-    function rotate( this, angle, axis )
+    function rotate( this, angle, axis, ~ )
       mex_shell( 'rotate', this.objectHandle, angle, axis );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell rotation
-    function out = rotation( this )
+    function out = rotation( this, ~ )
       out = mex_shell( 'rotation', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Transform shell by axis and vector
-    function transform( this, matrix )
+    function transform( this, matrix, ~ )
       mex_shell( 'transform', this.objectHandle, matrix );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell transformation
-    function out = transformation( this )
+    function out = transformation( this, ~ )
       out = mex_shell( 'transformation', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell X axis and vector
-    function out = x( this )
+    function out = x( this, ~ )
       out = mex_shell( 'x', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell Y axis and vector
-    function out = y( this )
+    function out = y( this, ~ )
       out = mex_shell( 'y', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell Z axis and vector
-    function out = z( this )
+    function out = z( this, ~ )
       out = mex_shell( 'z', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell euler angles (rad) (rotation sequence ZXY)
-    function out = eulerAngles( this )
+    function out = eulerAngles( this, ~ )
       out = mex_shell( 'eulerAngles', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Intersect shell with flat terrain
-    function out = setupFlat( this, flat, transform, method )
+    function out = setupFlat( this, flat, transform, method, ~ )
       out = mex_shell( 'setupFlat', this.objectHandle, flat.objectHandle, transform, method );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Intersect shell with mesh terrain
-    function out = setupMesh( this, mesh, transform, method )
+    function out = setupMesh( this, mesh, transform, method, ~ )
       out = mex_shell( 'setupMesh', this.objectHandle, mesh.objectHandle, transform, method );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact point as an ACME point
-    function out = contactPointAvg( this )
+    function out = contactPointAvg( this, ~ )
       out = acme_point();
       out.copyByHandle( mex_shell( 'contactPointAvg', this.objectHandle ) );
     end
@@ -226,7 +226,7 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact point for the i-th rib as an ACME point
-    function out = contactPointRib( this, i )
+    function out = contactPointRib( this, i, ~ )
       out = acme_point();
       out.copyByHandle( mex_shell( 'contactPointRib', this.objectHandle, i ) );
     end
@@ -234,7 +234,7 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact point an ACME point vector
-    function out = contactPointVec( this )
+    function out = contactPointVec( this, ~ )
       out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactPointRib(i);
@@ -244,21 +244,21 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact normal 
-    function out = contactNormalAvg( this )
+    function out = contactNormalAvg( this, ~ )
       out = mex_shell( 'contactNormalAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact normal for the i-th rib
-    function out = contactNormalRib( this, i )
+    function out = contactNormalRib( this, i, ~ )
       out = mex_shell( 'contactNormalRib', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact normal vector
-    function out = contactNormalVec( this )
+    function out = contactNormalVec( this, ~ )
       out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactNormalRib(i);
@@ -268,21 +268,21 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact depth (m) 
-    function out = contactDepthAvg( this )
+    function out = contactDepthAvg( this, ~ )
       out = mex_shell( 'contactDepthAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact depth for the i-th rib (m) 
-    function out = contactDepthRib( this, i )
+    function out = contactDepthRib( this, i, ~ )
       out = mex_shell( 'contactDepthRib', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact depth vector (m) 
-    function out = contactDepthVec( this )
+    function out = contactDepthVec( this, ~ )
       out = zeros(1, this.size());
       for i = 1:this.size()
         out(i) = this.contactDepthRib(i);
@@ -292,21 +292,21 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact friction (-)
-    function out = contactFrictionAvg( this )
+    function out = contactFrictionAvg( this, ~ )
       out = mex_shell( 'contactFrictionAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact friction for the i-th rib (-)
-    function out = contactFrictionRib( this, i )
+    function out = contactFrictionRib( this, i, ~ )
       out = mex_shell( 'contactFrictionRib', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact friction vector (-)
-    function out = contactFrictionVec( this )
+    function out = contactFrictionVec( this, ~ )
       out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactFrictionRib(i);
@@ -316,21 +316,21 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact area (m^2)
-    function out = contactAreaAvg( this )
+    function out = contactAreaAvg( this, ~ )
       out = mex_shell( 'contactAreaAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact area for the i-th rib (m^2)
-    function out = contactAreaRib( this, i )
+    function out = contactAreaRib( this, i, ~ )
       out = mex_shell( 'contactAreaRib', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact area vector (m^2)
-    function out = contactAreaVec( this )
+    function out = contactAreaVec( this, ~ )
       out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactAreaRib(i);
@@ -340,21 +340,21 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact volume (m^3)
-    function out = contactVolumeAvg( this )
+    function out = contactVolumeAvg( this, ~ )
       out = mex_shell( 'contactVolumeAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact volume for the i-th rib (m^3)
-    function out = contactVolumeRib( this, i )
+    function out = contactVolumeRib( this, i, ~ )
       out = mex_shell( 'contactVolumeRib', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact volume vector (m^3)
-    function out = contactVolumeVec( this )
+    function out = contactVolumeVec( this, ~ )
       out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactVolumeRib(i);
@@ -364,21 +364,21 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell relative angles (rad) (rotation sequence ZXY)
-    function out = relativeAnglesAvg( this )
+    function out = relativeAnglesAvg( this, ~ )
       out = mex_shell( 'relativeAnglesAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell relative angles for the i-th rib (rad) (rotation sequence ZXY)
-    function out = relativeAnglesRib( this, i )
+    function out = relativeAnglesRib( this, i, ~ )
       out = mex_shell( 'relativeAnglesRib', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell relative angles vector (rad) (rotation sequence ZXY)
-    function out = relativeAnglesVec( this )
+    function out = relativeAnglesVec( this, ~ )
       out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.relativeAnglesRib(i);
@@ -388,21 +388,21 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact point affine
-    function out = contactPointAffineAvg( this )
+    function out = contactPointAffineAvg( this, ~ )
       out = mex_shell( 'contactPointAffineAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact point affine for the i-th rib
-    function out = contactPointAffineRib( this, i )
+    function out = contactPointAffineRib( this, i, ~ )
       out = mex_shell( 'contactPointAffineRib', this.objectHandle, i);
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get shell contact point affine vector
-    function out = contactPointAffineVec( this )
+    function out = contactPointAffineVec( this, ~ )
       out = cell(1,this.size());
       for i = 1:this.size()
         out{i} = this.contactPointAffineRib(i);
@@ -412,14 +412,14 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Display object data
-    function disp( this )
+    function disp( this, ~ )
       disp( this.size() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot ENVE shape object profile
-    function profile( this, figure_name, color )
+    function profile( this, figure_name, color, ~ )
       figure_name;
       hold on;
       W = this.surfaceWidth();
@@ -439,9 +439,23 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot non-discretized shell shape with 4x4 affine transformation T
-    function shapeTplot( this, T, figure_name, color )
+    function shapeTplot( this, T, figure_name, color, scale, ~ )
       figure_name;
       hold on;
+      color_q = [0.0000, 0.4470, 0.7410; ...
+                 0.8500, 0.3250, 0.0980; ...
+                 0.9290, 0.6940, 0.1250; ...
+                 0.4940, 0.1840, 0.5560 ];
+      R = this.surfaceMaxRadius();
+      for i = 1:3 
+        q = quiver3(T(1,4), T(2,4), T(3,4), T(1,i), T(2,i), T(3,i), scale);
+        q.Marker          = '.';
+        q.MarkerSize      = 20;
+        q.MarkerEdgeColor = color_q(4,:);
+        q.MarkerFaceColor = color_q(4,:);
+        q.Color           = color_q(i,:);
+        q.LineWidth       = 1.1;
+      end
       W = this.surfaceWidth();
       y = -W:W/50:W;
       r = zeros(1, length(y));
@@ -469,10 +483,10 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot "statically" non-discretized shell shape
-    function shellShape( this, figure_name, color );
+    function shellShape( this, figure_name, color, scale, ~ )
       figure_name;
       hold on;
-      this.shapeTplot( eye(4), figure_name, color )
+      this.shapeTplot( eye(4), figure_name, color, scale )
       R = 1.1*this.surfaceMaxRadius();
       xlim([-R R]);
       ylim([-R R]);
@@ -484,11 +498,11 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot "dinamically" non-discretized shell shape
-    function plotShape( this, figure_name, color )
+    function plotShape( this, figure_name, color, scale, ~ )
       figure_name;
       hold on;
       T = this.transformation();
-      this.shapeTplot( T, figure_name, color );
+      this.shapeTplot( T, figure_name, color, scale );
       R = 2.0*this.surfaceMaxRadius();
       C = T(1:3,4);
       axis equal;
@@ -501,9 +515,23 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot discretized shell shape with 4x4 affine transformation T
-    function enveTplot( this, T, figure_name, color )
+    function enveTplot( this, T, figure_name, color, scale, ~ )
       figure_name;
       hold on;
+      color_q = [0.0000, 0.4470, 0.7410; ...
+                 0.8500, 0.3250, 0.0980; ...
+                 0.9290, 0.6940, 0.1250; ...
+                 0.4940, 0.1840, 0.5560 ];
+      R = this.surfaceMaxRadius();
+      for i = 1:3 
+        q = quiver3(T(1,4), T(2,4), T(3,4), T(1,i), T(2,i), T(3,i), scale);
+        q.Marker          = '.';
+        q.MarkerSize      = 20;
+        q.MarkerEdgeColor = color_q(4,:);
+        q.MarkerFaceColor = color_q(4,:);
+        q.Color           = color_q(i,:);
+        q.LineWidth       = 1.1;
+      end
       N = this.size();
       w = this.ribWidth(1);
       for k = 1:N
@@ -532,26 +560,26 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot "statically" non-discretized shell shape
-    function shellEnve( this, figure_name, color )
+    function shellEnve( this, figure_name, color, scale, ~ )
       figure_name;
       hold on;
-      this.enveTplot( eye(4), figure_name, color )
+      this.enveTplot( eye(4), figure_name, color, scale )
       R = 1.1*this.surfaceMaxRadius();
+      axis equal;
       xlim([-R R]);
       ylim([-R R]);
       zlim([-R R]);
-      axis equal;
       hold off;
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot "dinamically" non-discretized shell shape
-    function plotEnve( this, figure_name, color )
+    function plotEnve( this, figure_name, color, scale, ~ )
       figure_name;
       hold on;
       T = this.transformation();
-      this.enveTplot( T, figure_name, color );
+      this.enveTplot( T, figure_name, color, scale );
       R = 2.0*this.surfaceMaxRadius();
       C = T(1:3,4);
       axis equal;
@@ -564,9 +592,23 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot discretized shell shape as ribs with 4x4 affine transformation T
-    function ribsTplot( this, T, figure_name, color )
+    function ribsTplot( this, T, figure_name, color, scale, ~ )
       figure_name;
       hold on;
+      color_q = [0.0000, 0.4470, 0.7410; ...
+                 0.8500, 0.3250, 0.0980; ...
+                 0.9290, 0.6940, 0.1250; ...
+                 0.4940, 0.1840, 0.5560 ];
+      R = this.surfaceMaxRadius();
+      for i = 1:3 
+        q = quiver3(T(1,4), T(2,4), T(3,4), T(1,i), T(2,i), T(3,i), scale);
+        q.Marker          = '.';
+        q.MarkerSize      = 20;
+        q.MarkerEdgeColor = color_q(4,:);
+        q.MarkerFaceColor = color_q(4,:);
+        q.Color           = color_q(i,:);
+        q.LineWidth       = 1.1;
+      end
       N = this.size();
       for i = 1:N
         disk = acme_disk( this.ribRadius(i), ...
@@ -582,10 +624,10 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot "statically" non-discretized shell ribs shape
-    function shellRibs( this, figure_name, color );
+    function shellRibs( this, figure_name, color, scale, ~ )
       figure_name;
       hold on;
-      this.ribsTplot( eye(4), figure_name, color )
+      this.ribsTplot( eye(4), figure_name, color, scale )
       R = 1.1*this.surfaceMaxRadius();
       xlim([-R R]);
       ylim([-R R]);
@@ -597,11 +639,11 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot "dinamically" non-discretized shell ribs shape
-    function plotRibs( this, figure_name, color )
+    function plotRibs( this, figure_name, color, scale, ~ )
       figure_name;
       hold on;
       T = this.transformation();
-      this.ribsTplot( T, figure_name, color );
+      this.ribsTplot( T, figure_name, color, scale );
       R = 2.0*this.surfaceMaxRadius();
       C = T(1:3,4);
       xlim([C(1)-R C(1)+R]);
@@ -613,31 +655,76 @@ classdef enve_shell < handle
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Plot results of setup function
-    function plotSetup( this, figure_name, map_name )
+    %> Plot averageresults of setup function
+    function plotSetupAvg( this, figure_name, scale, ~ )
       figure_name;
       hold on;
-      N = this.size();
-      color_map = eval( strcat( 'colormap(', map_name, '(double(N)))' ) );
-      for i = 1:N
-        T = this.contactPointAffineRib(i);
-        plane = acme_plane( [0 0 0]', [0 0 1]' );
-        plane.transform(T);
-        plane.plot( figure_name, color_map(i,:) );
+      R = this.surfaceMaxRadius();
+      color_q = [0.0000, 0.4470, 0.7410; ...
+                 0.8500, 0.3250, 0.0980; ...
+                 0.9290, 0.6940, 0.1250; ...
+                 0.4940, 0.1840, 0.5560 ];
+      T = this.contactPointAffineAvg();
+      for i = 1:3 
+        q = quiver3(T(1,4), T(2,4), T(3,4), T(1,i), T(2,i), T(3,i), scale);
+        q.Marker          = '.';
+        q.MarkerSize      = 20;
+        q.MarkerEdgeColor = color_q(4,:);
+        q.MarkerFaceColor = color_q(4,:);
+        q.Color           = color_q(i,:);
+        q.LineWidth       = 1.1;
       end
-      R = 2.0*this.surfaceMaxRadius();
       C = T(1:3,4);
       axis equal;
-      xlim([C(1)-R C(1)+R]);
-      ylim([C(2)-R C(2)+R]);
-      zlim([C(3)-R C(3)+R]);
+      xlim([C(1)-2*R C(1)+2*R]);
+      ylim([C(2)-2*R C(2)+2*R]);
+      zlim([C(3)-2*R C(3)+2*R]);
       hold off;
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    %> Plot results of setup function for the i-th rib
+    function plotSetupRib( this, i, figure_name, scale, ~ )
+      figure_name;
+      hold on;
+      R = this.surfaceMaxRadius();
+      color_q = [0.0000, 0.4470, 0.7410; ...
+                 0.8500, 0.3250, 0.0980; ...
+                 0.9290, 0.6940, 0.1250; ...
+                 0.4940, 0.1840, 0.5560 ];
+      T = this.contactPointAffineRib(i);
+      for j = 1:3 
+        q = quiver3(T(1,4), T(2,4), T(3,4), T(1,j), T(2,j), T(3,j), scale);
+        q.Marker          = '.';
+        q.MarkerSize      = 20;
+        q.MarkerEdgeColor = color_q(4,:);
+        q.MarkerFaceColor = color_q(4,:);
+        q.Color           = color_q(j,:);
+        q.LineWidth       = 1.1;
+      end
+      C = T(1:3,4);
+      axis equal;
+      xlim([C(1)-2*R C(1)+2*R]);
+      ylim([C(2)-2*R C(2)+2*R]);
+      zlim([C(3)-2*R C(3)+2*R]);
+      hold off;
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    %> Plot results of setup function for each rib
+    function plotSetupVec( this, figure_name, scale, ~ )
+
+      for i = 1:this.size()
+        this.plotSetupRib( i, figure_name, scale );
+      end
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get surface object mesh grid
-    function out = meshShell( this )
+    function out = meshShell( this, ~ )
       W = this.surfaceWidth();
       y = -W:W/50:W;
       r = zeros(1, length(y));
@@ -664,7 +751,7 @@ classdef enve_shell < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get object type as string
-    function out = type( this )
+    function out = type( this, ~ )
       out = 'shell';
     end
   end

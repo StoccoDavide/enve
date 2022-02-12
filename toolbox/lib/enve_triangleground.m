@@ -36,35 +36,35 @@ classdef enve_triangleground < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Create C++ pointer to ENVE triangleground object instance
-    function delete( this )
+    function delete( this, ~ )
       mex_triangleground( 'delete', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get friction coefficent scaling factor
-    function out = normal( this )
+    function out = normal( this, ~ )
       out = mex_triangleground( 'normal', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get friction coefficent scaling factor
-    function out = getFriction( this )
+    function out = getFriction( this, ~ )
       out = mex_triangleground( 'getFriction', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set friction coefficent scaling factor
-    function setFriction( this, friction )
+    function setFriction( this, friction, ~ )
       mex_triangleground( 'setFriction', this.objectHandle, friction );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get triangle vertex 1 as ACME point object
-    function out = getVertex1( this )
+    function out = getVertex1( this, ~ )
       out = acme_point();
       out.copyByHandle( mex_triangleground( 'getVertex1', this.objectHandle ) );
     end
@@ -72,7 +72,7 @@ classdef enve_triangleground < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get triangle vertex 2 as ACME point object
-    function out = getVertex2( this )
+    function out = getVertex2( this, ~ )
       out = acme_point();
       out.copyByHandle( mex_triangleground( 'getVertex2', this.objectHandle ) );
     end
@@ -80,7 +80,7 @@ classdef enve_triangleground < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get triangle vertex 3 as ACME point object
-    function out = getVertex3( this )
+    function out = getVertex3( this, ~ )
       out = acme_point();
       out.copyByHandle( mex_triangleground( 'getVertex3', this.objectHandle ) );
     end
@@ -88,28 +88,28 @@ classdef enve_triangleground < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set triangle vertex 1 with an ACME point object
-    function setVertex1( this, other_obj )
+    function setVertex1( this, other_obj, ~ )
       mex_triangleground( 'setVertex1', this.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set triangle vertex 2 with an ACME point object
-    function setVertex2( this, other_obj )
+    function setVertex2( this, other_obj, ~ )
       mex_triangleground( 'setVertex2', this.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set triangle vertex 3 with an ACME point object
-    function setVertex3( this, other_obj )
+    function setVertex3( this, other_obj, ~ )
       mex_triangleground( 'setVertex3', this.objectHandle, other_obj.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Copy triangleground object from another triangleground
-    function copy( this, other_obj )
+    function copy( this, other_obj, ~ )
       if (other_obj.type() == "triangleground")
         mex_triangleground( 'copy', this.objectHandle, other_obj.objectHandle );
       else
@@ -120,28 +120,28 @@ classdef enve_triangleground < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Copy triangleground object from another triangleground shape
-    function copyByHandle( this, handle )
+    function copyByHandle( this, handle, ~ )
       mex_triangleground( 'copy', this.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Display object data
-    function disp( this )
+    function disp( this, ~ )
       disp( [[this.getFriction(); NaN; NaN], this.getVertex1().get(), this.getVertex2().get(),  this.getVertex3().get()] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set friction coefficent scaling factor
-    function out = toTriangle( this )
+    function out = toTriangle( this, ~ )
       out = acme_triangle( this.getVertex1().get(), this.getVertex2().get(), this.getVertex3().get() );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot triangle object
-    function plot( this, figure_name, color )
+    function plot( this, figure_name, color, ~ )
       figure_name;
       hold on;
       Vertex1 = this.getVertex1().get();
@@ -157,7 +157,7 @@ classdef enve_triangleground < acme_entity
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get object type as string
-    function out = type( this )
+    function out = type( this, ~ )
       out = 'triangleground';
     end
   end
