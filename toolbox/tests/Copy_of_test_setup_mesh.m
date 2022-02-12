@@ -5,7 +5,7 @@ close all;
 
 % Create shape and shell variables
 
-N  = 20;
+N  = 1;
 Rx = 0.313;
 Mx = 9.0;
 Ry = 0.11;

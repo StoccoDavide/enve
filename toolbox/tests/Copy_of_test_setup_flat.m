@@ -23,7 +23,8 @@ T = [ 1, 0, 0, 0.0; ...
 
 obj.transform( T )
 % obj.translate([0 0 0.26]')
-obj.rotate(pi/6, [1 0 0]')
+obj.rotate(pi/2, [0 1 0]')
+%obj.rotate(pi/6, [1 0 0]')
 
 T = obj.transformation()
 
@@ -38,7 +39,7 @@ road_color = [0.863 0.863 0.863];
 
 flat = enve_flat([0 0 0]', [0 0 1]', 1.0);
 
-obj.setupFlat(flat, T, 'sampling')
+obj.setupFlat(flat, T, 'geometric')
 
 obj.contactPointAvg()
 obj.contactDepthAvg()
@@ -47,4 +48,4 @@ out5 = figure;
 flat.plot(out5, road_color);
 obj.plotSetupVec(out5, 0.1);
 obj.plotSetupAvg(out5, 0.5);
-obj.plotRibs(out5, rubber_color, 0.5 );
+obj.plotEnve(out5, rubber_color, 0.5 );
