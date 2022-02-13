@@ -292,7 +292,7 @@ namespace enve
     bool int_bool = false;
     
     segment segment_tmp;
-    real    FA, FC, FB;
+    real    FA, FC, FB, FA4CB;
     real    segmentLength_tmp;
     real    segmentArea_tmp;
     real    segmentVolume_tmp;
@@ -316,23 +316,24 @@ namespace enve
       if (acme::intersection(*localGround[i], ribGround, segment_tmp, EPSILON_LOW))
       {
         segmentLength_tmp = segment_tmp.length();
-        if (segmentLength_tmp < EPSILON_HIGH)
+        if (segmentLength_tmp < EPSILON_LOW)
           break;
 
         // Simpson's rule
-        FA = std::max(0.0, radius - (segment_tmp.vertex(0) - ribCenterGround).norm());
-        FC = std::max(0.0, radius - (segment_tmp.centroid() - ribCenterGround).norm());
-        FB = std::max(0.0, radius - (segment_tmp.vertex(1) - ribCenterGround).norm());
+        FA    = std::max(0.0, radius - (segment_tmp.vertex(0) - ribCenterGround).norm());
+        FC    = std::max(0.0, radius - (segment_tmp.centroid() - ribCenterGround).norm());
+        FB    = std::max(0.0, radius - (segment_tmp.vertex(1) - ribCenterGround).norm());
+        FA4CB = std::max(EPSILON_LOW, FA + 4*FC + FB);
 
         int_bool = true;
 
         segmentArea_tmp   = segmentLength_tmp * width;
         segmentAreaTotal += segmentArea_tmp;
 
-        segmentVolume_tmp   = segmentLength_tmp/6 * (FA + 4*FC + FB) * width;
+        segmentVolume_tmp   = segmentLength_tmp/6 * FA4CB * width;
         segmentVolumeTotal += segmentVolume_tmp;
 
-        contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4*FC + segment_tmp.vertex(1)*FB) / (FA + 4*FC + FB);
+        contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4*FC + segment_tmp.vertex(1)*FB) / FA4CB;
         contactNormal_iter   = ((ribCenterGround - contactPoint_iter).normalized() +
                                 ribNormalGround*ribNormalGround.dot(localGround[i]->normal())
                                 ).normalized();
@@ -392,7 +393,9 @@ namespace enve
     point ribCenterGround(origin + rotation * center);
     disk ribGround(radius, ribCenterGround, ribNormalGround);
     segment segment_tmp;
-    if (acme::intersection(localGround, ribGround, segment_tmp, EPSILON_LOW))
+
+    bool int_bool = acme::intersection(localGround, ribGround, segment_tmp, EPSILON_LOW);
+    if (int_bool && segment_tmp.length() > EPSILON_LOW)
     {
       out.point    = segment_tmp.centroid();
       out.normal   = ((ribCenterGround - out.point).normalized() +
@@ -402,7 +405,7 @@ namespace enve
       out.depth    = radius - (out.point - ribCenterGround).norm();
       out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;
       out.volume   = (radius*radius*std::acos((radius-out.depth)/radius) - 
-                        (radius-out.depth)*std::sqrt(out.depth*(2*radius-out.depth)))*width;
+                     (radius-out.depth)*std::sqrt(out.depth*(2*radius-out.depth)))*width;
       return true;
     }
     else
@@ -435,7 +438,6 @@ namespace enve
 
     vec3  deltaX(0.1*radius, 0.0, 0.0);
     vec3  deltaY(0.0, 0.3*width, 0.0);
-    std::vector<point> pointStar_vec(4);
     std::vector<point> point_vec(4);
     vec3               normal_tmp;
     std::vector<real>  friction_vec(4);
@@ -447,14 +449,13 @@ namespace enve
     point origin_3 = origin + rotation * (center + deltaY);
     point origin_4 = origin + rotation * (center - deltaY);
 
-    vec3  lineDirectionStar(rotation * (-UNITZ_VEC3));
-    bool samplingStar = true;
-    samplingStar = samplingStar && this->samplingLine(localGround, origin_1, lineDirectionStar, pointStar_vec[0], normal_tmp, friction_vec[0]);
-    samplingStar = samplingStar && this->samplingLine(localGround, origin_2, lineDirectionStar, pointStar_vec[1], normal_tmp, friction_vec[1]);
-    samplingStar = samplingStar && this->samplingLine(localGround, origin_3, lineDirectionStar, pointStar_vec[2], normal_tmp, friction_vec[2]);
-    samplingStar = samplingStar && this->samplingLine(localGround, origin_4, lineDirectionStar, pointStar_vec[3], normal_tmp, friction_vec[3]);
+    vec3  lineDirection(rotation * (-UNITZ_VEC3));
+    this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
+    this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
+    this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
+    this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
-    vec3  lineDirection(-((pointStar_vec[0] - pointStar_vec[1]).cross(pointStar_vec[2] - pointStar_vec[3])).normalized());
+    lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
     bool sampling = true;
     sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
     sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
@@ -463,8 +464,13 @@ namespace enve
 
     out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    out.depth  = radius - (out.point - ribCenterGround).norm();
 
+    vec3 e_y = affine_in.linear().col(1);
+    vec3 e_x = (out.normal.cross(e_y)).normalized();
+    vec3 e_z = (e_y.cross(e_x)).normalized();
+    
+    out.depth  = radius*std::abs(out.normal.dot(e_z)) - (out.point - ribCenterGround).norm();
+    
     if ( sampling && out.depth > 0.0 )
     {
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
@@ -504,7 +510,6 @@ namespace enve
 
     vec3  deltaX(0.1*radius, 0.0, 0.0);
     vec3  deltaY(0.0, 0.3*width, 0.0);
-    std::vector<point> pointStar_vec(4);
     std::vector<point> point_vec(4);
     vec3               normal_tmp;
     std::vector<real>  friction_vec(4);
@@ -516,14 +521,13 @@ namespace enve
     point origin_3 = origin + rotation * (center + deltaY);
     point origin_4 = origin + rotation * (center - deltaY);
 
-    vec3  lineDirectionStar(rotation * (-UNITZ_VEC3));
-    bool samplingStar = true;
-    samplingStar = samplingStar && this->samplingLine(localGround, origin_1, lineDirectionStar, pointStar_vec[0], normal_tmp, friction_vec[0]);
-    samplingStar = samplingStar && this->samplingLine(localGround, origin_2, lineDirectionStar, pointStar_vec[1], normal_tmp, friction_vec[1]);
-    samplingStar = samplingStar && this->samplingLine(localGround, origin_3, lineDirectionStar, pointStar_vec[2], normal_tmp, friction_vec[2]);
-    samplingStar = samplingStar && this->samplingLine(localGround, origin_4, lineDirectionStar, pointStar_vec[3], normal_tmp, friction_vec[3]);
+    vec3  lineDirection(rotation * (-UNITZ_VEC3));
+    this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
+    this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
+    this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
+    this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
-    vec3  lineDirection(-((pointStar_vec[0] - pointStar_vec[1]).cross(pointStar_vec[2] - pointStar_vec[3])).normalized());
+    lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
     bool sampling = true;
     sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
     sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
@@ -532,7 +536,12 @@ namespace enve
 
     out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    out.depth  = radius - (out.point - ribCenterGround).norm();
+
+    vec3 e_y = affine_in.linear().col(1);
+    vec3 e_x = (out.normal.cross(e_y)).normalized();
+    vec3 e_z = (e_y.cross(e_x)).normalized();
+    
+    out.depth  = radius*std::abs(out.normal.dot(e_z)) - (out.point - ribCenterGround).norm();
 
     if ( sampling && out.depth > 0.0 )
     {

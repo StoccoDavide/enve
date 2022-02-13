@@ -38,14 +38,18 @@
         </inbodydescription>
         <location file="enve_flat.m" line="42" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1ac37c7c907acb150f5abb935ed4b9f8b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1a47c0d855b1d6f7d24ccc4d0338d5d0a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::getOrigin</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getOrigin</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Create C++ pointer to ENVE meh object instance. </para>
@@ -57,10 +61,10 @@
         </inbodydescription>
         <location file="enve_flat.m" line="57" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1aba1970be64a56163658eb22675aa4d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1ae46327f46f1fec74f93322057e5f91ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::setOrigin</definition>
-        <argsstring>(in this, in other_obj)</argsstring>
+        <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setOrigin</name>
         <param>
           <type>in</type>
@@ -69,6 +73,10 @@
         <param>
           <type>in</type>
           <declname>other_obj</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Set plane origin. </para>
@@ -79,14 +87,18 @@
         </inbodydescription>
         <location file="enve_flat.m" line="66" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1ae33edce192b988b2f44149105d2736ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1a1133eb81bdf54060efd6da987465677c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::getNormal</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getNormal</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Get plane normal. </para>
@@ -97,10 +109,10 @@
         </inbodydescription>
         <location file="enve_flat.m" line="74" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1ae2a355f70660312abe0a068203dc3edf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1a5640b057d9c37b83fdc44ecf9ff2efb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::setNormal</definition>
-        <argsstring>(in this, in other_obj)</argsstring>
+        <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setNormal</name>
         <param>
           <type>in</type>
@@ -109,6 +121,10 @@
         <param>
           <type>in</type>
           <declname>other_obj</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Set plane normal. </para>
@@ -119,14 +135,18 @@
         </inbodydescription>
         <location file="enve_flat.m" line="82" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1a41a0869418494e1faebf4eddf7dc1caf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1af9fb260117fecbe5a7a9546ba8b21d54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::getPlane</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getPlane</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Get plane. </para>
@@ -137,10 +157,10 @@
         </inbodydescription>
         <location file="enve_flat.m" line="90" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1a9c9a4c2b61bb453b548bdf3bbef12df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1ab275019edc2666fac4ae54ed2c176a5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::setPlane</definition>
-        <argsstring>(in this, in other_obj)</argsstring>
+        <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setPlane</name>
         <param>
           <type>in</type>
@@ -149,6 +169,10 @@
         <param>
           <type>in</type>
           <declname>other_obj</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Set plane. </para>
@@ -159,14 +183,18 @@
         </inbodydescription>
         <location file="enve_flat.m" line="99" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1a92b8f76e73dba8ed1bd8b8696b8be7c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1ac5af7c0c68af4e317222621fe7c4de3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::getFriction</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getFriction</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Get plane friction. </para>
@@ -177,10 +205,10 @@
         </inbodydescription>
         <location file="enve_flat.m" line="110" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1ad89fbfdaefd4d3d930dceec2c6ff623b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1a7def05f6be2d941544610b9b50f22c00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::setFriction</definition>
-        <argsstring>(in this, in friction)</argsstring>
+        <argsstring>(in this, in friction, in ignoredArg)</argsstring>
         <name>setFriction</name>
         <param>
           <type>in</type>
@@ -189,6 +217,10 @@
         <param>
           <type>in</type>
           <declname>friction</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Set plane friction. </para>
@@ -199,14 +231,18 @@
         </inbodydescription>
         <location file="enve_flat.m" line="118" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1aea6fc7203416453b98391009c7851ca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1aae071e3bb62fb5d0e89aa970c10163dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::isDegenerated</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>isDegenerated</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Check if plane is degenerated. </para>
@@ -217,10 +253,10 @@
         </inbodydescription>
         <location file="enve_flat.m" line="126" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1ac04d3cc2d53321319d54f80f4f63d659" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1acc286b6d18beae1413cb52a5dffb341b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::isApprox</definition>
-        <argsstring>(in this, in other_obj)</argsstring>
+        <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>isApprox</name>
         <param>
           <type>in</type>
@@ -229,6 +265,10 @@
         <param>
           <type>in</type>
           <declname>other_obj</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Check if planes are approximatively equal. </para>
@@ -239,10 +279,10 @@
         </inbodydescription>
         <location file="enve_flat.m" line="134" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1a3668959a6008566ce53029c43f2a1fc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1a61b36047370ac3bd9190faf586d8d760" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::copy</definition>
-        <argsstring>(in this, in other_obj)</argsstring>
+        <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>copy</name>
         <param>
           <type>in</type>
@@ -251,6 +291,10 @@
         <param>
           <type>in</type>
           <declname>other_obj</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Copy mesh object from another mesh. </para>
@@ -261,10 +305,10 @@
         </inbodydescription>
         <location file="enve_flat.m" line="146" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1a4d926e71f85c109470bc8a68117859e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1a97451342e33c9478c4e96effa1080a94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::copyByHandle</definition>
-        <argsstring>(in this, in handle)</argsstring>
+        <argsstring>(in this, in handle, in ignoredArg)</argsstring>
         <name>copyByHandle</name>
         <param>
           <type>in</type>
@@ -273,6 +317,10 @@
         <param>
           <type>in</type>
           <declname>handle</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Copy mesh object from another mesh shape. </para>
@@ -283,14 +331,18 @@
         </inbodydescription>
         <location file="enve_flat.m" line="158" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1ab5d09e8f8a4e480a5e007e6c7a3a3813" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1acbb8dda2490895b190a8499267b1d360" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::disp</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>disp</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Diplay object data. </para>
@@ -301,10 +353,10 @@
         </inbodydescription>
         <location file="enve_flat.m" line="166" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1a17eb7031f2cb146a2388b21514313749" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1a90fbfa5e0a6bb8d9099cb8cb1ffdf8fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::plot</definition>
-        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <argsstring>(in this, in figure_name, in color, in ignoredArg)</argsstring>
         <name>plot</name>
         <param>
           <type>in</type>
@@ -318,6 +370,10 @@
           <type>in</type>
           <declname>color</declname>
         </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
+        </param>
         <briefdescription>
 <para>Plot ENVE shape object. </para>
         </briefdescription>
@@ -327,14 +383,18 @@
         </inbodydescription>
         <location file="enve_flat.m" line="176" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00017_1ad7a91b448678867eafe73b6417b980ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00017_1a703a970be75e31b28c299c1b445bda28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_flat::type</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>type</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Get object type as string. </para>
@@ -374,23 +434,23 @@
     </collaborationgraph>
     <location file="enve_flat.m" line="26" column="1" bodyfile="enve_flat.m" bodystart="27" bodyend="192"/>
     <listofallmembers>
-      <member refid="a00017_1a3668959a6008566ce53029c43f2a1fc3" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>copy</name></member>
-      <member refid="a00017_1a4d926e71f85c109470bc8a68117859e1" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>copyByHandle</name></member>
-      <member refid="a00017_1ab5d09e8f8a4e480a5e007e6c7a3a3813" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>disp</name></member>
+      <member refid="a00017_1a61b36047370ac3bd9190faf586d8d760" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>copy</name></member>
+      <member refid="a00017_1a97451342e33c9478c4e96effa1080a94" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>copyByHandle</name></member>
+      <member refid="a00017_1acbb8dda2490895b190a8499267b1d360" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>disp</name></member>
       <member refid="a00017_1abf8bdb72c343dc5c24582efff3c7edd6" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>enve_flat</name></member>
-      <member refid="a00017_1a92b8f76e73dba8ed1bd8b8696b8be7c8" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>getFriction</name></member>
-      <member refid="a00017_1ae33edce192b988b2f44149105d2736ce" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>getNormal</name></member>
-      <member refid="a00017_1ac37c7c907acb150f5abb935ed4b9f8b6" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>getOrigin</name></member>
-      <member refid="a00017_1a41a0869418494e1faebf4eddf7dc1caf" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>getPlane</name></member>
-      <member refid="a00017_1ac04d3cc2d53321319d54f80f4f63d659" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>isApprox</name></member>
-      <member refid="a00017_1aea6fc7203416453b98391009c7851ca3" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>isDegenerated</name></member>
+      <member refid="a00017_1ac5af7c0c68af4e317222621fe7c4de3b" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>getFriction</name></member>
+      <member refid="a00017_1a1133eb81bdf54060efd6da987465677c" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>getNormal</name></member>
+      <member refid="a00017_1a47c0d855b1d6f7d24ccc4d0338d5d0a8" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>getOrigin</name></member>
+      <member refid="a00017_1af9fb260117fecbe5a7a9546ba8b21d54" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>getPlane</name></member>
+      <member refid="a00017_1acc286b6d18beae1413cb52a5dffb341b" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>isApprox</name></member>
+      <member refid="a00017_1aae071e3bb62fb5d0e89aa970c10163dd" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>isDegenerated</name></member>
       <member refid="a00017_1af782fcd8b9708536dd2412dc07289bc9" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>objectHandle</name></member>
-      <member refid="a00017_1a17eb7031f2cb146a2388b21514313749" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>plot</name></member>
-      <member refid="a00017_1ad89fbfdaefd4d3d930dceec2c6ff623b" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>setFriction</name></member>
-      <member refid="a00017_1ae2a355f70660312abe0a068203dc3edf" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>setNormal</name></member>
-      <member refid="a00017_1aba1970be64a56163658eb22675aa4d7b" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>setOrigin</name></member>
-      <member refid="a00017_1a9c9a4c2b61bb453b548bdf3bbef12df0" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>setPlane</name></member>
-      <member refid="a00017_1ad7a91b448678867eafe73b6417b980ca" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>type</name></member>
+      <member refid="a00017_1a90fbfa5e0a6bb8d9099cb8cb1ffdf8fa" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>plot</name></member>
+      <member refid="a00017_1a7def05f6be2d941544610b9b50f22c00" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>setFriction</name></member>
+      <member refid="a00017_1a5640b057d9c37b83fdc44ecf9ff2efb8" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>setNormal</name></member>
+      <member refid="a00017_1ae46327f46f1fec74f93322057e5f91ca" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>setOrigin</name></member>
+      <member refid="a00017_1ab275019edc2666fac4ae54ed2c176a5d" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>setPlane</name></member>
+      <member refid="a00017_1a703a970be75e31b28c299c1b445bda28" prot="public" virt="non-virtual"><scope>enve_flat</scope><name>type</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

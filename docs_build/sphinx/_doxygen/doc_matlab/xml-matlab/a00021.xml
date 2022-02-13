@@ -38,10 +38,10 @@
         </inbodydescription>
         <location file="enve_mesh.m" line="42" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00021_1ac5db0854f0e4df63bc8752cfbe6ee371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00021_1aaed68877069474008ff749147262fa91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_mesh::getTriangleground</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>getTriangleground</name>
         <param>
           <type>in</type>
@@ -50,6 +50,10 @@
         <param>
           <type>in</type>
           <declname>i</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Create C++ pointer to ENVE meh object instance. </para>
@@ -61,10 +65,10 @@
         </inbodydescription>
         <location file="enve_mesh.m" line="64" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00021_1a8df170a1cb7b46c7e536873ed48ad6f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00021_1af80e385d3d4a015c8f04e530e10d9778" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_mesh::getTriangle</definition>
-        <argsstring>(in this, in i)</argsstring>
+        <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>getTriangle</name>
         <param>
           <type>in</type>
@@ -73,6 +77,10 @@
         <param>
           <type>in</type>
           <declname>i</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Get mesh i-th triangle as ACME triangle object. </para>
@@ -83,14 +91,18 @@
         </inbodydescription>
         <location file="enve_mesh.m" line="73" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00021_1ad79f20bcc27d4e421a1118e8c6514b9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00021_1aee2b654615d6c70382c6e7ec1e35ff07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_mesh::size</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>size</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Get mesh size. </para>
@@ -101,10 +113,10 @@
         </inbodydescription>
         <location file="enve_mesh.m" line="81" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00021_1a9c3d09deb6c6203ae80384105562b2af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00021_1a2bc0077b8d8c8ca7fb756d1539ed5de6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_mesh::copy</definition>
-        <argsstring>(in this, in other_obj)</argsstring>
+        <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>copy</name>
         <param>
           <type>in</type>
@@ -113,6 +125,10 @@
         <param>
           <type>in</type>
           <declname>other_obj</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Copy mesh object from another mesh. </para>
@@ -123,10 +139,10 @@
         </inbodydescription>
         <location file="enve_mesh.m" line="89" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00021_1a5ea0075111faa43431fde15d60caea94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00021_1aa4d6538f8deec5159764b449d2c4002f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_mesh::copyByHandle</definition>
-        <argsstring>(in this, in handle)</argsstring>
+        <argsstring>(in this, in handle, in ignoredArg)</argsstring>
         <name>copyByHandle</name>
         <param>
           <type>in</type>
@@ -135,6 +151,10 @@
         <param>
           <type>in</type>
           <declname>handle</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Copy mesh object from another mesh shape. </para>
@@ -145,14 +165,18 @@
         </inbodydescription>
         <location file="enve_mesh.m" line="101" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00021_1a8e4f4eb5f30d397d3b427a63c6038575" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00021_1aa7e37d7cb3c97d9d3113fb048f778a22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_mesh::disp</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>disp</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -162,10 +186,10 @@
         </inbodydescription>
         <location file="enve_mesh.m" line="108" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00021_1afa292d6ced406ee504d623b01476f578" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00021_1af361037b42b95063133351ea1f64ae68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_mesh::plot</definition>
-        <argsstring>(in this, in figure_name, in color)</argsstring>
+        <argsstring>(in this, in figure_name, in color, in ignoredArg)</argsstring>
         <name>plot</name>
         <param>
           <type>in</type>
@@ -179,6 +203,10 @@
           <type>in</type>
           <declname>color</declname>
         </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
+        </param>
         <briefdescription>
 <para>Plot ENVE shape object. </para>
         </briefdescription>
@@ -188,14 +216,18 @@
         </inbodydescription>
         <location file="enve_mesh.m" line="116" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00021_1a71297b3bd7829699e5c390638b6f65c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00021_1a491756ccfe39a2a59b652289b45537ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_mesh::type</definition>
-        <argsstring>(in this)</argsstring>
+        <argsstring>(in this, in ignoredArg)</argsstring>
         <name>type</name>
         <param>
           <type>in</type>
           <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
         </param>
         <briefdescription>
 <para>Get object type as string. </para>
@@ -235,16 +267,16 @@
     </collaborationgraph>
     <location file="enve_mesh.m" line="26" column="1" bodyfile="enve_mesh.m" bodystart="27" bodyend="134"/>
     <listofallmembers>
-      <member refid="a00021_1a9c3d09deb6c6203ae80384105562b2af" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>copy</name></member>
-      <member refid="a00021_1a5ea0075111faa43431fde15d60caea94" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>copyByHandle</name></member>
-      <member refid="a00021_1a8e4f4eb5f30d397d3b427a63c6038575" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>disp</name></member>
+      <member refid="a00021_1a2bc0077b8d8c8ca7fb756d1539ed5de6" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>copy</name></member>
+      <member refid="a00021_1aa4d6538f8deec5159764b449d2c4002f" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>copyByHandle</name></member>
+      <member refid="a00021_1aa7e37d7cb3c97d9d3113fb048f778a22" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>disp</name></member>
       <member refid="a00021_1a2e6cd76bd1f465941d1d070f788d2099" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>enve_mesh</name></member>
-      <member refid="a00021_1a8df170a1cb7b46c7e536873ed48ad6f2" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>getTriangle</name></member>
-      <member refid="a00021_1ac5db0854f0e4df63bc8752cfbe6ee371" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>getTriangleground</name></member>
+      <member refid="a00021_1af80e385d3d4a015c8f04e530e10d9778" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>getTriangle</name></member>
+      <member refid="a00021_1aaed68877069474008ff749147262fa91" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>getTriangleground</name></member>
       <member refid="a00021_1a5a8954150870debdbd4dd434a148b60d" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>objectHandle</name></member>
-      <member refid="a00021_1afa292d6ced406ee504d623b01476f578" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>plot</name></member>
-      <member refid="a00021_1ad79f20bcc27d4e421a1118e8c6514b9f" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>size</name></member>
-      <member refid="a00021_1a71297b3bd7829699e5c390638b6f65c5" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>type</name></member>
+      <member refid="a00021_1af361037b42b95063133351ea1f64ae68" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>plot</name></member>
+      <member refid="a00021_1aee2b654615d6c70382c6e7ec1e35ff07" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>size</name></member>
+      <member refid="a00021_1a491756ccfe39a2a59b652289b45537ab" prot="public" virt="non-virtual"><scope>enve_mesh</scope><name>type</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

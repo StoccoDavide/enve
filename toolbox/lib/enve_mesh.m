@@ -27,7 +27,7 @@ classdef enve_mesh < handle
   %>
   %> Class container for ENVE mesh object
   %>
-  properties (SetAccess = {?enve_shell}, Hidden = true)
+  properties (Hidden = true) %(SetAccess = {?enve_shell}, Hidden = true)
     objectHandle; %> Handle to the underlying C++ class instance
   end
   %
@@ -49,14 +49,14 @@ classdef enve_mesh < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Create C++ pointer to ENVE meh object instance
-    function delete( this )
+    function delete( this, ~ )
       mex_mesh( 'delete', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get mesh i-th triangle as ACME triangle object
-    function out = getTriangleground( this, i )
+    function out = getTriangleground( this, i, ~ )
       out = enve_triangleground();
       out.copyByHandle( mex_mesh( 'getTriangleground', this.objectHandle, i ) );
     end
@@ -64,21 +64,21 @@ classdef enve_mesh < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get mesh i-th triangle as ACME triangle object
-    function out = getTriangle( this, i )
+    function out = getTriangle( this, i, ~ )
       out = this.getTriangleground(i).toTriangle();
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get mesh size
-    function out = size( this )
+    function out = size( this, ~ )
       out = mex_mesh( 'size', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Copy mesh object from another mesh
-    function copy( this, other_obj )
+    function copy( this, other_obj, ~ )
       if (other_obj.type() == "mesh")
         mex_mesh( 'copy', this.objectHandle, other_obj.objectHandle );
       else
@@ -89,20 +89,20 @@ classdef enve_mesh < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Copy mesh object from another mesh shape
-    function copyByHandle( this, handle )
+    function copyByHandle( this, handle, ~ )
       mex_mesh( 'copy', this.objectHandle, handle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function disp( this )
+    function disp( this, ~ )
       disp( strcat(num2str(this.size()), ' triangles'))
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot ENVE shape object
-    function plot( this, figure_name, color )
+    function plot( this, figure_name, color, ~ )
       figure_name;
       hold on;
       for i = 1:this.size()
@@ -114,7 +114,7 @@ classdef enve_mesh < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get object type as string
-    function out = type( this )
+    function out = type( this, ~ )
       out = 'mesh';
     end
   end
