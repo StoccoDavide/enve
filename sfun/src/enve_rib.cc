@@ -468,13 +468,12 @@ namespace enve
     vec3 e_y = affine_in.linear().col(1);
     vec3 e_x = (out.normal.cross(e_y)).normalized();
     vec3 e_z = (e_y.cross(e_x)).normalized();
-    
+
     out.depth  = radius*std::abs(out.normal.dot(e_z)) - (out.point - ribCenterGround).norm();
     
     if ( sampling && out.depth > 0.0 )
     {
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / 4.0;
-      out.depth    = radius - (out.point - ribCenterGround).norm();
       out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;
       out.volume   = (radius*radius*std::acos((radius-out.depth)/radius) - 
                      (radius-out.depth)*std::sqrt(out.depth*(2*radius-out.depth)))*width;

@@ -286,7 +286,7 @@
         </inbodydescription>
         <location file="include/enve_flat.hh" line="117" column="7" bodyfile="src/enve_flat.cc" bodystart="131" bodyend="135"/>
         <referencedby refid="a00062_1aab9a96fab4f1267b9433ec1f56b2ede8" compoundref="a00029" startline="379" endline="421">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1ad3141e45ab81272c1bfa2de2a2b04e12" compoundref="a00029" startline="628" endline="648">enve::rib::samplingLine</referencedby>
+        <referencedby refid="a00062_1ad3141e45ab81272c1bfa2de2a2b04e12" compoundref="a00029" startline="637" endline="657">enve::rib::samplingLine</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00050_1a0f78e2cb0f14de2fe9010275dd3a9789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
