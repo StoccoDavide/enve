@@ -14,12 +14,6 @@ Ly = 0.1025;
 
 %% Instantiate shape object
 
-out.depth = 6.704569e-05
-out.point = [ 2.000000e+00, 4.938393e+00, 0.000000e+00 ]'
-
-out.depth = 6.704569e-05
-out.point = [ 2.000000e+00, 4.938393e+00, 0.000000e+00 ]'
-
 obj = enve_shell(N, Rx, Mx, Ry, My, Ly);
 
 T = [ 1, 0, 0, 2.0; ...

@@ -2,7 +2,7 @@
 #                                                                     #
 # The ENVE project                                                    #
 #                                                                     #
-# Copyright (c) 2020-2021, Davide Stocco and Enrico Bertolazzi.       #
+# Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            #
 #                                                                     #
 # The ENVE project can not be copied and/or distributed without the   #
 # express permission of Davide Stocco and Enrico Bertolazzi.          #
