@@ -3,7 +3,7 @@
 (*                                                                     *)
 (* The ACME project                                                    *)
 (*                                                                     *)
-(* Copyright (c) 2020-2021_in, Davide Stocco and Enrico Bertolazzi.       *)
+(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
 (*                                                                     *)
 (* The ACME project and its components are supplied under the terms of *)
 (* the open source BSD 2-Clause License. The contents of the ACME      *)

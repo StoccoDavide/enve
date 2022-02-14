@@ -5,7 +5,7 @@ close all;
 
 % Create shape and shell variables
 
-N  = 1;
+N  = 20;
 Rx = 0.3130;
 Mx = 9.0;
 Ry = 0.11;
@@ -16,15 +16,16 @@ Ly = 0.1025;
 
 obj = enve_shell(N, Rx, Mx, Ry, My, Ly);
 
-T = [ 1, 0, 0, 0.0; ...
-      0, 1, 0, 0.0; ...
-      0, 0, 1, 0.301; ...
+T = [ 1, 0, 0, 2.0; ...
+      0, 1, 0, 5.0; ...
+      0, 0, 1, 0.276; ...
       0, 0, 0, 1 ];
 
 obj.transform( T )
 % obj.translate([0 0 0.26]')
-obj.rotate(pi/4, [0 1 0]')
-obj.rotate(pi/4, [1 0 0]')
+obj.rotate(pi/4, [1 0 0]') % Camber
+obj.rotate(pi/4, [0 1 0]') % Pitch
+obj.rotate(0, [0 0 1]') % Yaw
 
 T = obj.transformation()
 
@@ -37,32 +38,36 @@ road_color = [0.863 0.863 0.863];
 
 % Test setup
 
-flat = enve_flat([0 0 0]', [0 0 1]', 1.0);
+%ground = enve_flat([0 0 0]', [0 0 1]', 1.0);
+%obj.setupFlat(ground, T, 'sampling')
+ground = enve_mesh('../../files_rdf/sample.rdf');
+obj.setupMesh(ground, T, 'sampling')
 
-obj.setupFlat(flat, T, 'sampling')
 
-obj.contactPointAvg()
+
 obj.contactDepthAvg()
 
-z_vec = linspace(0.300, 0.200, 100);
-rho_vec_s = z_vec;
-rho_vec_g = z_vec;
-for i = 1:length(z_vec)
-  T = [ 0.7071    0.5000    0.5000         0; ...
-         0    0.7071   -0.7071         0; ...
-   -0.7071    0.5000    0.5000, z_vec(i); ...
-        0, 0, 0, 1 ];
-  obj.setupFlat(flat, T, 'sampling');
-  rho_vec_s(i) = obj.contactDepthAvg();
-  obj.setupFlat(flat, T, 'geometric');
-  rho_vec_g(i) = obj.contactDepthAvg();
-end
-
 out5 = figure;
-flat.plot(out5, road_color);
+ground.plot(out5, road_color);
 obj.plotSetupVec(out5, 0.1);
 obj.plotSetupAvg(out5, 0.5);
 obj.plotEnve(out5, rubber_color, 0.5 );
+
+z_vec = linspace(0.300, 0.230, 100);
+rho_vec_s = z_vec;
+rho_vec_g = z_vec;
+for i = 1:length(z_vec)
+  T = [ T(1,1), T(1,2), T(1,3), T(1,4); ...
+        T(2,1), T(2,2), T(2,3), T(2,4); ...
+        T(3,1), T(3,2), T(3,3), z_vec(i); ...
+        0, 0, 0, 1 ];
+  %obj.setupFlat(ground, T, 'sampling');
+  obj.setupMesh(ground, T, 'sampling');
+  rho_vec_s(i) = obj.contactDepthAvg();
+  %obj.setupFlat(ground, T, 'geometric');
+  obj.setupMesh(ground, T, 'geometric');
+  rho_vec_g(i) = obj.contactDepthAvg();
+end
 
 figure;
 hold on;
