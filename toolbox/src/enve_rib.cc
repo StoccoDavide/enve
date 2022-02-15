@@ -313,7 +313,7 @@ namespace enve
 
     for (size_t i = 0; i < localGround.size(); ++i)
     {
-      if (acme::intersection(*localGround[i], ribGround, segment_tmp, EPSILON_LOW))
+      if (acme::intersection(*localGround[i], ribGround, segment_tmp, 1e-5))
       {
         segmentLength_tmp = segment_tmp.length();
         if (segmentLength_tmp < EPSILON_LOW)
@@ -394,7 +394,7 @@ namespace enve
     disk ribGround(radius, ribCenterGround, ribNormalGround);
     segment segment_tmp;
 
-    bool int_bool = acme::intersection(localGround, ribGround, segment_tmp, EPSILON_LOW);
+    bool int_bool = acme::intersection(localGround, ribGround, segment_tmp, EPSILON_HIGH);
     if (int_bool && segment_tmp.length() > EPSILON_LOW)
     {
       out.point    = segment_tmp.centroid();
@@ -450,13 +450,13 @@ namespace enve
     point origin_4 = origin + rotation * (center - deltaY);
 
     vec3  lineDirection(rotation * (-UNITZ_VEC3));
-    this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
-    this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
-    this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
-    this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
+    bool sampling = true;
+    sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
+    sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
+    sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
+    sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
     lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    bool sampling = true;
     sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
     sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
     sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
@@ -521,13 +521,13 @@ namespace enve
     point origin_4 = origin + rotation * (center - deltaY);
 
     vec3  lineDirection(rotation * (-UNITZ_VEC3));
-    this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
-    this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
-    this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
-    this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
+    bool sampling = true;
+    sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
+    sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
+    sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
+    sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
     lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    bool sampling = true;
     sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
     sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
     sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
@@ -582,7 +582,7 @@ namespace enve
     bool               int_bool = false;
     for (size_t i = 0; i < localGround.size(); ++i)
     {
-      if (acme::intersection(line(origin, direction), *localGround[i], point_tmp, EPSILON_LOW))
+      if (this->intersection(line(origin, direction), *localGround[i], point_tmp, EPSILON_HIGH))
       {
         point_vec.push_back(point_tmp);
         normal_vec.push_back(localGround[i]->normal());
@@ -644,7 +644,7 @@ namespace enve
   ) 
     const
   {
-    if (acme::intersection(line(origin, direction), localGround, contactPoint, EPSILON_LOW))
+    if (acme::intersection(line(origin, direction), localGround, contactPoint, EPSILON_HIGH))
     {
       contactNormal   = localGround.normal();
       contactFriction = localGround.friction();
@@ -654,6 +654,46 @@ namespace enve
     {
       return false;
     }
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  rib::intersection(
+    line const     &line_in,
+    triangle const &triangle_in,
+    point          &point_out,
+    real            tolerance
+  )
+    const
+  {
+    point vertex0(triangle_in.vertex(0));
+    point vertex1(triangle_in.vertex(1));
+    point vertex2(triangle_in.vertex(2));
+    vec3  edge1(vertex1 - vertex0);
+    vec3  edge2(vertex2 - vertex0);
+    point origin(line_in.origin());
+    vec3  direction(line_in.direction());
+
+    vec3 h, s, q;
+    real a, f, u, v;
+    h = direction.cross(edge2);
+    a = edge1.dot(h);
+    if (a > -tolerance && a < tolerance)
+      return false;
+    real tolerance_space = 2.5e-02;
+    f = 1.0 / a;
+    s = origin - vertex0;
+    u = f * s.dot(h);
+    if (u < 0.0-tolerance_space || u > 1.0+tolerance_space)
+      return false;
+    q = s.cross(edge1);
+    v = f * direction.dot(q);
+    if (v < 0.0-tolerance_space || u + v > 1.0+tolerance_space)
+      return false;
+    real t    = f * edge2.dot(q);
+    point_out = origin + t * direction;
+    return true;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

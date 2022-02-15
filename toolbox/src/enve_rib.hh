@@ -240,6 +240,17 @@ namespace enve
       real               &contactFriction //!< Contact friction
     ) const;
 
+  private:
+
+    //! Custom line-triangle intersection algorithm
+    bool
+    intersection(
+      line const     &line_in,     //!< Input line
+      triangle const &triangle_in, //!< Input triangle
+      point          &point_out,   //!< Ouput point
+      real            tolerance    //!< Tolerance
+    ) const;
+
   }; // class rib
 
 } // namespace enve
