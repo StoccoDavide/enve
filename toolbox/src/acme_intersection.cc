@@ -2143,9 +2143,6 @@ namespace acme
     segment       &segment_out,
     real           tolerance)
   {
-    if (segment_in.isDegenerated(tolerance) || disk_in.isDegenerated(tolerance))
-      return false;
-
     real  disk_radius = disk_in.radius();
     point disk_center(disk_in.center());
     point segment_origin(segment_in.vertex(0));

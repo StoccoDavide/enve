@@ -21,6 +21,8 @@ classdef TestRig_graphic < handle
         G_normal            = gobjects(1,1);
         G_forces            = gobjects(1,3);
         G_moments           = gobjects(1,3);
+        G_P_wh              = gobjects(1,1);
+        G_P_cp              = gobjects(1,1);
         en_trace_wheel      = 1;
         en_trace_cp         = 1;
         en_RF_wheel         = 1;
@@ -30,6 +32,8 @@ classdef TestRig_graphic < handle
         en_forces           = 1;
         en_moments          = 1;
         en_realdim_scale    = 1;
+        en_P_wh             = 1;
+        en_P_cp             = 1;
         RF_up_rig           = eye(4);
         RF_low_rig          = eye(4);
         RF_wheel            = eye(4);
@@ -40,7 +44,7 @@ classdef TestRig_graphic < handle
     
     %% Public methods
     methods
-        function obj = TestRig_graphic(rig_up_stl,rig_up_stl_scale,rig_low_stl,rig_low_stl_scaale,wheel_stl,wheel_stl_scale, RF_up_rig, RF_low_rig, RF_wheel, RF_cam, RF_cp, RF_wheelHub, R_tire, B_tire, rho, STI_forces, STI_moments, en_realdim_scale, en_trace_wheel, en_trace_cp, en_RF_wheel, en_RF_cp, en_RF_wheelHub, en_normal, en_forces, en_moments)
+        function obj = TestRig_graphic(rig_up_stl,rig_up_stl_scale,rig_low_stl,rig_low_stl_scaale,wheel_stl,wheel_stl_scale, RF_up_rig, RF_low_rig, RF_wheel, RF_cam, RF_cp, RF_wheelHub, R_tire, B_tire, en_realdim_scale, en_trace_wheel, en_trace_cp, en_RF_wheel, en_RF_cp, en_RF_wheelHub, en_normal, en_forces, en_moments, en_P_wh, en_P_cp)
             
             obj.en_realdim_scale    = en_realdim_scale;
             obj.en_trace_wheel      = en_trace_wheel;
@@ -51,6 +55,8 @@ classdef TestRig_graphic < handle
             obj.en_normal           = en_normal;
             obj.en_forces           = en_forces;
             obj.en_moments          = en_moments;
+            obj.en_P_wh             = en_P_wh;
+            obj.en_P_cp             = en_P_cp;
             
             % setup graphics
             ax = gca;                               % get current graphic axis
@@ -69,17 +75,27 @@ classdef TestRig_graphic < handle
             
             if obj.en_RF_wheel
                 obj.G_RF_wheel(1) = hgtransform('Parent', obj.transf);
-                createRF(obj, obj.G_RF_wheel(1), 'yellow');
+                createRF(obj, obj.G_RF_wheel(1));
             end
             
             if obj.en_RF_wheelHub
                 obj.G_RF_wheelHub(1) = hgtransform('Parent', obj.transf);
-                createRF(obj, obj.G_RF_wheelHub(1), 'yellow');
+                createRF(obj, obj.G_RF_wheelHub(1));
             end
             
             if obj.en_RF_cp
                 obj.G_RF_cp(1) = hgtransform('Parent', obj.transf);
-                createRF(obj, obj.G_RF_cp(1), 'blue');
+                createRF(obj, obj.G_RF_cp(1));
+            end
+            
+            if obj.en_P_cp
+                obj.G_P_cp(1) = hgtransform('Parent', obj.transf);
+                createPoint(obj, [0,0,0], obj.G_P_cp(1), [0.9294 0.6941 0.1255], 0.01);
+            end
+            
+            if obj.en_P_wh
+                obj.G_P_wh(1) = hgtransform('Parent', obj.transf);
+                createPoint(obj, [0,0,0], obj.G_P_wh(1), 'blue', 0.01);
             end
             
 %             if obj.en_normal
@@ -95,13 +111,8 @@ classdef TestRig_graphic < handle
 %             end
             
             % Create the traces
-            if obj.en_trace_wheel
-                obj.Trace_wheel(1) = animatedline('Parent', ax, 'MaximumNumPoints', 1000, 'Color', [0 0.4470 0.7410], 'LineWidth',2);
-            end
-            
-            if obj.en_trace_cp
-                obj.Trace_cp(1) = animatedline('Parent', ax, 'MaximumNumPoints', 1000, 'Color', [0.9294 0.6941 0.1255], 'LineWidth',2);
-            end
+            obj.Trace_wheel(1) = animatedline('Parent', ax, 'MaximumNumPoints', 1000, 'Color', [0 0.4470 0.7410], 'LineWidth',2);
+            obj.Trace_cp(1)    = animatedline('Parent', ax, 'MaximumNumPoints', 1000, 'Color', [0.9294 0.6941 0.1255], 'LineWidth',2);
             
             % graphics setup pt2 (cannot be moved on top!)
             ax.DataAspectRatio = [1 1 1];           % fix axpect ratio
@@ -333,7 +344,7 @@ classdef TestRig_graphic < handle
         end
         
         function createPoint(~, coords, parent, color, radius)
-            [x,y,z] = sphere(10);
+            [x,y,z] = sphere(5);
             surf(x*radius+coords(1),y*radius+coords(2),z*radius+coords(3),      ...
                      'Parent' , parent,                                         ...
                      'FaceColor', color,                                        ...
@@ -341,12 +352,7 @@ classdef TestRig_graphic < handle
                      );
         end
         
-        function createRF(obj, parent, color)
-            createPoint(obj, [0,0,0], parent, color, 0.01);
-            
-            %createArrow(obj, [0,0,0], [1,0,0].*0.1, parent, 'red', 3);
-            %createArrow(obj, [0,0,0], [0,1,0].*0.1, parent, 'green', 3);
-            %createArrow(obj, [0,0,0], [0,0,1].*0.1, parent, 'blue', 3);
+        function createRF(obj, parent)
             
             createCylinder(obj, [1,0,0].*0.1, parent, 'red', 0.005, 1);
             createCylinder(obj, [0,1,0].*0.1, parent, 'green', 0.005, 1);
@@ -390,6 +396,12 @@ classdef TestRig_graphic < handle
             end
             if obj.en_RF_cp
                 obj.G_RF_cp(1).Matrix    = obj.RF_cp;
+            end
+            if obj.en_P_wh
+                obj.G_P_wh(1).Matrix    = obj.RF_wheelHub;
+            end
+            if obj.en_P_cp
+                obj.G_P_cp(1).Matrix    = obj.RF_cp;
             end
             drawnow
         end

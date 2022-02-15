@@ -12,7 +12,7 @@ addpath(genpath('./../sfun/virtualTestBench'));
 run('../toolbox/setup');
 
 % Test name
-test_name = 'sine_thetaX';
+test_name = 'translation_X';
 
 % sampling time 
 Ts = 1e-3;
@@ -24,10 +24,10 @@ Simulink.importExternalCTypes('./../sfun/virtualTestBench/include_sfun/sfun_type
 tire_data = TIR_read('205_60_R15__left_debug.tir');
 
 % Prepare input parameters
-p1  = 20;                          % Ribs number
+p1  = 20;                         % Ribs number
 p2  = tire_data.UNLOADED_RADIUS;  % Shell radius on x axis (m) 
 p3  = 9;                          % Shell curve degree for x axis 
-p4  = 0.11;                        % Shell radius on y axis (m) 
+p4  = 0.11;                       % Shell radius on y axis (m) 
 p5  = 6;                          % Shell curve degree for y axis 
 p6  = tire_data.WIDTH/2;          % Shell half width on y axis (m) 
 
@@ -35,7 +35,7 @@ p7  = 1;                          % method 0: ENVE use geometric enveloping, 1: 
 p8  = 0;                          % flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
 
 % ENVAR for TerrainServer
-road_file = '../files_rdf/sample.rdf';
+road_file = '../files_obj/HalfStep.obj';
 ground_path = [ pwd, '/', road_file];
 setenv('ENVE_GROUND_PATH', ground_path);
 
@@ -66,7 +66,7 @@ end
 tire_use_mode = 15;
 
 % Load the maneuver inputs
-load('inputs/sine_thetaX.mat');
+load('inputs/translation_X.mat');
 
 Tf = inputs.x.Time(end);
 

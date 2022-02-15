@@ -14,7 +14,7 @@ function setup(block)
 block.NumInputPorts  = 9;
 block.NumOutputPorts = 0;
 
-block.NumDialogPrms = 20;
+block.NumDialogPrms = 22;
 
 % Setup functional port properties
 block.SetPreCompInpPortInfoToDynamic;
@@ -82,6 +82,8 @@ if isempty(figHandles) || isempty(vis) || ~isa(vis,'TestRig_graphic') || ~vis.is
     en_normal         = block.DialogPrm(16).Data;
     en_forces         = block.DialogPrm(17).Data;
     en_moments        = block.DialogPrm(18).Data;
+    en_P_wh           = block.DialogPrm(19).Data;
+    en_P_cp           = block.DialogPrm(20).Data;
     
     % tire variables
     R_tire = tire_data.UNLOADED_RADIUS;
@@ -94,9 +96,6 @@ if isempty(figHandles) || isempty(vis) || ~isa(vis,'TestRig_graphic') || ~vis.is
     RF_cam      = block.InputPort(4).Data;
     RF_cp       = block.InputPort(5).Data;
     RF_wheelHub = block.InputPort(6).Data;
-    rho         = block.InputPort(7).Data;
-    STI_forces  = block.InputPort(8).Data;
-    STI_moments = block.InputPort(9).Data;
     
     vis = TestRig_graphic(rig_up_stl,                                   ...
                           rig_up_stl_scale,                             ...
@@ -112,9 +111,6 @@ if isempty(figHandles) || isempty(vis) || ~isa(vis,'TestRig_graphic') || ~vis.is
                           RF_wheelHub,                                  ...
                           R_tire,                                       ...
                           B_tire,                                       ...
-                          rho,                                          ...
-                          STI_forces,                                   ...
-                          STI_moments,                                  ...
                           en_realdim_scale,                             ...
                           en_trace_wheel,                               ...
                           en_trace_cp,                                  ...
@@ -123,7 +119,9 @@ if isempty(figHandles) || isempty(vis) || ~isa(vis,'TestRig_graphic') || ~vis.is
                           en_RF_wheelHub,                               ...
                           en_normal,                                    ...
                           en_forces,                                    ...
-                          en_moments                                    ...
+                          en_moments,                                   ...
+                          en_P_wh,                                      ...
+                          en_P_cp                                       ...
                           );   % initialize Testrig graphics
     
     % load road
@@ -131,10 +129,10 @@ if isempty(figHandles) || isempty(vis) || ~isa(vis,'TestRig_graphic') || ~vis.is
     if strcmp(fExt, '.rdf')
         [Nodes,Elements,MU] = RDF_read(road_file);
     elseif strcmp(fExt, '.obj')
-        obj = readObj(fname) ;
+        obj = readObj(road_file) ;
         Nodes = obj.v;
-        Elements = obj.t;
-        MU = ones(1,length(Elements));
+        Elements = obj.f.v;
+        MU = ones(length(Elements),1);
     else
         error('Wrong road file format');
     end
@@ -149,8 +147,8 @@ ud.vis = vis;
 % Save it in UserData
 set_param(block.BlockHandle,'UserData',ud);
 
-save_gif          = block.DialogPrm(19).Data;
-gif_folder        = block.DialogPrm(20).Data;
+save_gif          = block.DialogPrm(21).Data;
+gif_folder        = block.DialogPrm(22).Data;
 
 if save_gif
     gif_file = [gif_folder,'/','Animation.gif'];
@@ -185,8 +183,8 @@ STI_forces  = block.InputPort(8).Data;
 STI_moments = block.InputPort(9).Data;
 vis.step(RF_up_rig, RF_low_rig, RF_wheel, RF_cam, RF_cp, RF_wheelHub, rho, STI_forces, STI_moments);
 
-save_gif          = block.DialogPrm(19).Data;
-gif_folder        = block.DialogPrm(20).Data;
+save_gif          = block.DialogPrm(21).Data;
+gif_folder        = block.DialogPrm(22).Data;
 if save_gif
     gif_file = [gif_folder,'/','Animation.gif'];
     frame = getframe(gcf);

@@ -26,6 +26,9 @@
 *.a
 *.lib
 
+# Compiled Mex files
+*.mexmaci64
+
 # Executables
 *.exe
 *.out
