@@ -10,17 +10,17 @@ Rx = 0.313;
 Mx = 9.0;
 Ry = 0.11;
 My = 6.0;
-Ly = 0.205/2;
+Ly = 0.1025;
 
 %% Instantiate shape object
 
 obj = enve_shell(N, Rx, Mx, Ry, My, Ly);
 
 
-T = [ 1 0 0 64.0000000000017; ...
-      0 0.954946486838598 -0.296778043787980 1.01171480669502; ...
-      0 0.296778043787980 0.954946486838598 0.31305117472249; ...
-      0 0 0 1 ];
+T = [ 1.0, 0.0, 0.0, 0.2; ...
+      0.0, 1.0, 0.0, 0.0; ...
+      0.0, 0.0, 1.0, 0.3; ...
+      0.0, 0.0, 0.0, 1.0 ];
 
 % obj.transform( T )
 % obj.translate([0 0 0.26]')
@@ -34,14 +34,14 @@ road_color = [0.863 0.863 0.863];
 
 % Test setup
 
-mesh = enve_mesh('../../files_rdf/sample.rdf');
+mesh = enve_mesh('../../files_obj/HalfStep.obj', 1.0);
 
 tic
-boolean = obj.setupMesh(mesh, T, 'sampling')
+boolean = obj.setupMesh(mesh, T, 'geometric')
 toc
 
 out5 = figure;
-mesh.plot(out5, road_color)
+mesh.plot( out5, road_color )
 obj.plotSetupVec(out5, 0.1)
-obj.plotSetupAvg(out5, 0.5)
-obj.plotEnve(out5, rubber_color, 0.5 )
+%obj.plotSetupAvg(out5, 0.5)
+obj.plotEnve( out5, rubber_color, 0.5 )

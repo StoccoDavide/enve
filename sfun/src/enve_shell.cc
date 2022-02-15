@@ -454,7 +454,7 @@ namespace enve
     {
       // Perform intersection on all ribs
       bool out = false;
-        // Find if at least one rib intersect the ground surface
+      // Find if at least one rib intersect the ground surface
       for (size_t i = 0; i < this->size(); ++i)
         out = this->m_ribs[i].envelop(localGround, affine_in, method, this->m_out[i]) || out;
       return out;
