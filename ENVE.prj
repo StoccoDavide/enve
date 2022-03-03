@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="1775489161" file="/Users/davide/Documents/Git/enve/ENVE.prj" location="/Users/davide/Documents/Git/enve" name="ENVE" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="1297073650" file="/Users/davide/Documents/Git/enve/ENVE.prj" location="/Users/davide/Documents/Git/enve" name="ENVE" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>ENVE</param.appname>
     <param.authnamewatermark>D. Stocco, M. Larcher, E. Bertolazzi</param.authnamewatermark>
     <param.email>davide.stocco@unitn.it</param.email>

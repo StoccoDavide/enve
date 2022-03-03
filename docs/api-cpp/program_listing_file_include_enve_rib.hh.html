@@ -256,6 +256,16 @@
       <span class="n">real</span>               <span class="o">&amp;</span><span class="n">contactFriction</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
+  <span class="k">private</span><span class="o">:</span>
+
+    <span class="kt">bool</span>
+    <span class="n">intersection</span><span class="p">(</span>
+      <span class="n">line</span> <span class="k">const</span>     <span class="o">&amp;</span><span class="n">line_in</span><span class="p">,</span>
+      <span class="n">triangle</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangle_in</span><span class="p">,</span>
+      <span class="n">point</span>          <span class="o">&amp;</span><span class="n">point_out</span><span class="p">,</span>
+      <span class="n">real</span>            <span class="n">tolerance</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
   <span class="p">};</span> <span class="c1">// class rib</span>
 
 <span class="p">}</span> <span class="c1">// namespace enve</span>

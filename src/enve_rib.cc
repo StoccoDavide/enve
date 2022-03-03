@@ -292,6 +292,7 @@ namespace enve
     bool int_bool = false;
     
     segment segment_tmp;
+    vec3    normal_tmp;
     real    FA, FC, FB, FA4CB;
     real    segmentLength_tmp;
     real    segmentArea_tmp;
@@ -334,9 +335,8 @@ namespace enve
         segmentVolumeTotal += segmentVolume_tmp;
 
         contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4*FC + segment_tmp.vertex(1)*FB) / FA4CB;
-        contactNormal_iter   = ((ribCenterGround - contactPoint_iter).normalized() +
-                                ribNormalGround*ribNormalGround.dot(localGround[i]->normal())
-                                ).normalized();
+        normal_tmp           = (ribNormalGround.cross(ribCenterGround - out.point)).normalized();
+        contactNormal_iter   = (localGround[i]->normal()*(1.0 - localGround[i]->normal().dot(normal_tmp))).normalized();
         contactFriction_iter = localGround[i]->friction();
 
         contactPoint_tmp    += segmentVolume_tmp * contactPoint_iter;
@@ -391,16 +391,17 @@ namespace enve
 
     vec3  ribNormalGround(rotation * this->normal());
     point ribCenterGround(origin + rotation * center);
-    disk ribGround(radius, ribCenterGround, ribNormalGround);
+    disk  ribGround(radius, ribCenterGround, ribNormalGround);
+    
     segment segment_tmp;
+    vec3    normal_tmp;
 
     bool int_bool = acme::intersection(localGround, ribGround, segment_tmp, EPSILON_HIGH);
     if (int_bool && segment_tmp.length() > EPSILON_LOW)
     {
       out.point    = segment_tmp.centroid();
-      out.normal   = ((ribCenterGround - out.point).normalized() +
-                        ribNormalGround*ribNormalGround.dot(localGround.normal())
-                        ).normalized();
+      normal_tmp   = (ribNormalGround.cross(ribCenterGround - out.point)).normalized();
+      out.normal   = (localGround.normal()*(1.0 - localGround.normal().dot(normal_tmp))).normalized();
       out.friction = localGround.friction();
       out.depth    = radius - (out.point - ribCenterGround).norm();
       out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;
@@ -449,27 +450,32 @@ namespace enve
     point origin_3 = origin + rotation * (center + deltaY);
     point origin_4 = origin + rotation * (center - deltaY);
 
-    vec3  lineDirection(rotation * (-UNITZ_VEC3));
+    //vec3  lineDirection(rotation * (-UNITZ_VEC3));
+    vec3  lineDirection(-UNITZ_VEC3);
     bool sampling = true;
     sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
     sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
     sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
     sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
-    lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
-    sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
-    sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
-    sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
+    //lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+    //sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
+    //sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
+    //sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
+    //sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
-    out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    //out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    //out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+
+    point plane_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+    acme::intersection(line(ribCenterGround, -out.normal), plane(plane_point, out.normal), out.point);
 
     vec3 e_y = affine_in.linear().col(1);
     vec3 e_x = (out.normal.cross(e_y)).normalized();
     vec3 e_z = (e_y.cross(e_x)).normalized();
 
-    out.depth  = radius*std::abs(out.normal.dot(e_z)) - (out.point - ribCenterGround).norm();
+    out.depth = radius*std::abs(out.normal.dot(e_z)) - (out.point - ribCenterGround).norm();
     
     if ( sampling && out.depth > 0.0 )
     {
@@ -520,21 +526,26 @@ namespace enve
     point origin_3 = origin + rotation * (center + deltaY);
     point origin_4 = origin + rotation * (center - deltaY);
 
-    vec3  lineDirection(rotation * (-UNITZ_VEC3));
+    //vec3  lineDirection(rotation * (-UNITZ_VEC3));
+    vec3  lineDirection(-UNITZ_VEC3);
     bool sampling = true;
     sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
     sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
     sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
     sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
-    lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
-    sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
-    sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
-    sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
+    //lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+    //sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
+    //sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
+    //sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
+    //sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
 
-    out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    //out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    //out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+
+    point plane_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+    acme::intersection(line(ribCenterGround, -out.normal), plane(plane_point, out.normal), out.point);
 
     vec3 e_y = affine_in.linear().col(1);
     vec3 e_x = (out.normal.cross(e_y)).normalized();
@@ -582,7 +593,7 @@ namespace enve
     bool               int_bool = false;
     for (size_t i = 0; i < localGround.size(); ++i)
     {
-      if (this->intersection(line(origin, direction), *localGround[i], point_tmp, EPSILON_HIGH))
+      if (acme::intersection(line(origin, direction), *localGround[i], point_tmp, EPSILON_HIGH))
       {
         point_vec.push_back(point_tmp);
         normal_vec.push_back(localGround[i]->normal());

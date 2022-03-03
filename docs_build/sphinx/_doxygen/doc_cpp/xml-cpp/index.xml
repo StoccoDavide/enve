@@ -86,6 +86,7 @@
     <member refid="a00062_1aa352329d282547ef8d1298cff8089db5" kind="function"><name>envelopSampling</name></member>
     <member refid="a00062_1a66b6099b1c7f6d5bb96108cf5d2276b9" kind="function"><name>samplingLine</name></member>
     <member refid="a00062_1ad3141e45ab81272c1bfa2de2a2b04e12" kind="function"><name>samplingLine</name></member>
+    <member refid="a00062_1a0d3c4fc55421420518ef57b612c5d42c" kind="function"><name>intersection</name></member>
   </compound>
   <compound refid="a00066" kind="class"><name>enve::shape</name>
     <member refid="a00066_1a3ce2310bdfbf3557035dc8133d0b0f88" kind="typedef"><name>ptr</name></member>
