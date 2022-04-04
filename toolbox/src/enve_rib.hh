@@ -34,10 +34,6 @@
 #ifndef INCLUDE_ENVE_RIB
 #define INCLUDE_ENVE_RIB
 
-#include <acme.hh>
-#include <acme_disk.hh>
-#include <acme_utils.hh>
-
 #include "enve.hh"
 #include "enve_triangleground.hh"
 #include "enve_mesh.hh"

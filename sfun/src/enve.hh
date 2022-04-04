@@ -51,12 +51,15 @@
   ENVE_ERROR(MSG)
 #endif
 
-#include <acme.hh>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
+
+#include <acme.hh>
+#include <acme_disk.hh>
+#include <acme_utils.hh>
 
 using namespace acme;
 

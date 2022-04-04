@@ -56,7 +56,7 @@ main()
               << std::endl;
 
     // Load .rdf File
-    ground::mesh road("./files_rdf/sample.rdf");
+    ground::mesh road("./files_rdf/LakeTown.rdf");
 
     // Print OutMesh.txt file
     road.print("bin/OutMesh.txt");
@@ -73,11 +73,11 @@ main()
     // Orient the tire in the space
     real yaw_angle    = 0.0 * PI;
     real camber_angle = 0.0 * PI;
-    real pitch_angle  = 0.1 * PI;
+    real pitch_angle  = 0.0 * PI;
 
     // Create frame object
     affine pose;
-    pose = translate(1.0, 1.0, 0.31299) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(1.0, 1.0, 0.30) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();
@@ -90,6 +90,15 @@ main()
 
     // Display current tire data on command line
     tire_shell.print(std::cout);
+
+    affine cp_rib;
+    for (size_t i = 0; i < tire_shell.size(); ++i)
+    {
+      tire_shell.contactPointAffine(i, cp_rib);
+      std::cout << "Rib " << i << ":"
+                << cp_rib << std::endl
+                << std::endl;
+    }
 
     // Output performance data
     std::cout << "Execution time = " << tictoc.elapsed_ms() * 1000 << " us" << std::endl

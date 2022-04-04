@@ -217,31 +217,43 @@ namespace enve
       std::string const &axis   //!< Input axis
     );
 
-    //! Returns shell rotation affine_in
+    //! Returns shell rotation matrix
     mat3
     rotation(void) const;
 
-    //! Returns shell linear affine_in (rotation + scaling + shearing)
+    //! Returns shell linear matrix (rotation + scaling + shearing)
     mat3
     linear(void) const;
 
-    //! Set 4x4 affine transformation affine_in \n
-    //! Warning: Rotation affine_in must be orthonormal!
+    //! Set 4x4 affine transformation matrix \n
+    //! Warning: Rotation matrix must be orthonormal!
     void
     transform(
-      affine const &affine_in_in //!< Input 4x4 affine transformation affine_in
+      affine const &affine_in //!< Input 4x4 affine transformation matrix
     );
 
-    //! Set 4x4 affine transformation affine_in \n
-    //! Warning: Rotation affine_in must be orthonormal!
+    //! Set 4x4 affine transformation matrix \n
+    //! Warning: Rotation matrix must be orthonormal!
     void
     transform(
-      mat4 const &affine_in_in //!< Input 4x4 affine transformation affine_in
+      mat4 const &affine_in //!< Input 4x4 affine transformation matrix
     );
 
-    //! Get 4x4 affine transformation affine_in
+    //! Get 4x4 affine transformation matrix
     affine const &
     transformation(void) const;
+
+    //! Check if 4x4 affine transformation matrix is othornormal and right-handed
+    bool
+    checkTransformation(
+      mat4 const &affine_in //!< Input 4x4 affine transformation matrix
+    ) const;
+
+    //! Check if 4x4 affine transformation matrix is othornormal and right-handed
+    bool
+    checkTransformation(
+      affine const &affine_in //!< Input 4x4 affine transformation matrix
+    ) const;
 
     //! Get x vector
     vec3
@@ -292,7 +304,7 @@ namespace enve
     bool
     setup(
       ground::mesh const &ground,    //!< ENVE mesh object (ground)
-      affine       const &affine_in, //!< 4x4 affine transformation affine_in
+      affine       const &affine_in, //!< 4x4 affine transformation matrix
       std::string  const  method     //!< Method name (choose from: "geometric" or "sampling")
     );
 

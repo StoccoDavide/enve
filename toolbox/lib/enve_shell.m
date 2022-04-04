@@ -456,13 +456,14 @@ classdef enve_shell < handle
         q.Color           = color_q(i,:);
         q.LineWidth       = 1.1;
       end
+      num = 50;
       W = this.surfaceWidth();
-      y = -W:W/50:W;
+      y = -W:W/(num/2):W;
       r = zeros(1, length(y));
       for i = 1:length(y)
         r(i) = this.surfaceRadius(y(i));
       end
-      [X,Y,Z] = cylinder(r, 100);
+      [X,Y,Z] = cylinder(r, num);
       X_new = zeros(height(X), length(X));
       Y_new = zeros(height(X), length(X));
       Z_new = zeros(height(X), length(X));

@@ -232,7 +232,7 @@ namespace enve
       ENVE_ERROR("enve::rib::envelop(mesh, ...): invalid enveloping method.\n");
   }
 
-   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   bool
   rib::envelop(
@@ -324,18 +324,18 @@ namespace enve
         FA    = std::max(0.0, radius - (segment_tmp.vertex(0) - ribCenterGround).norm());
         FC    = std::max(0.0, radius - (segment_tmp.centroid() - ribCenterGround).norm());
         FB    = std::max(0.0, radius - (segment_tmp.vertex(1) - ribCenterGround).norm());
-        FA4CB = std::max(EPSILON_LOW, FA + 4*FC + FB);
+        FA4CB = std::max(FA + 4.0*FC + FB, EPSILON_LOW);
 
         int_bool = true;
 
         segmentArea_tmp   = segmentLength_tmp * width;
         segmentAreaTotal += segmentArea_tmp;
 
-        segmentVolume_tmp   = segmentLength_tmp/6 * FA4CB * width;
+        segmentVolume_tmp   = segmentLength_tmp/6.0 * FA4CB * width;
         segmentVolumeTotal += segmentVolume_tmp;
 
-        contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4*FC + segment_tmp.vertex(1)*FB) / FA4CB;
-        normal_tmp           = (ribNormalGround.cross(ribCenterGround - out.point)).normalized();
+        contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4.0*FC + segment_tmp.vertex(1)*FB) / FA4CB;
+        normal_tmp           = (ribNormalGround.cross(ribCenterGround - contactPoint_iter)).normalized();
         contactNormal_iter   = (localGround[i]->normal()*(1.0 - localGround[i]->normal().dot(normal_tmp))).normalized();
         contactFriction_iter = localGround[i]->friction();
 
@@ -347,11 +347,8 @@ namespace enve
     }
     if (int_bool)
     {
-      if (segmentAreaTotal < EPSILON_HIGH)
-        segmentAreaTotal   += EPSILON_HIGH;
-
-      if (segmentVolumeTotal < EPSILON_HIGH)
-        segmentVolumeTotal += EPSILON_HIGH;
+      segmentAreaTotal   = std::max(segmentAreaTotal,   EPSILON_HIGH);
+      segmentVolumeTotal = std::max(segmentVolumeTotal, EPSILON_HIGH);
 
       out.point    = contactPoint_tmp    / segmentVolumeTotal;
       out.normal   = (contactNormal_tmp  / segmentVolumeTotal).normalized();
@@ -445,27 +442,16 @@ namespace enve
     vec3  ribNormalGround(rotation * this->normal());
     point ribCenterGround(origin + rotation * center);
 
-    point origin_1 = origin + rotation * (center + deltaX);
-    point origin_2 = origin + rotation * (center - deltaX);
-    point origin_3 = origin + rotation * (center + deltaY);
-    point origin_4 = origin + rotation * (center - deltaY);
-
-    //vec3  lineDirection(rotation * (-UNITZ_VEC3));
     vec3  lineDirection(-UNITZ_VEC3);
     bool sampling = true;
-    sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
-    sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
-    sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
-    sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
-
-    //lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    //sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
-    //sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
-    //sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
-    //sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
-
-    //out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
-    //out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaX), lineDirection,
+                                              point_vec[0], normal_tmp, friction_vec[0]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaX), lineDirection,
+                                              point_vec[1], normal_tmp, friction_vec[1]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaY), lineDirection,
+                                              point_vec[2], normal_tmp, friction_vec[2]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection,
+                                              point_vec[3], normal_tmp, friction_vec[3]);
 
     point plane_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
@@ -521,27 +507,16 @@ namespace enve
     vec3  ribNormalGround(rotation * this->normal());
     point ribCenterGround(origin + rotation * center);
 
-    point origin_1 = origin + rotation * (center + deltaX);
-    point origin_2 = origin + rotation * (center - deltaX);
-    point origin_3 = origin + rotation * (center + deltaY);
-    point origin_4 = origin + rotation * (center - deltaY);
-
-    //vec3  lineDirection(rotation * (-UNITZ_VEC3));
     vec3  lineDirection(-UNITZ_VEC3);
     bool sampling = true;
-    sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
-    sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
-    sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
-    sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
-
-    //lineDirection = -((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    //sampling = sampling && this->samplingLine(localGround, origin_1, lineDirection, point_vec[0], normal_tmp, friction_vec[0]);
-    //sampling = sampling && this->samplingLine(localGround, origin_2, lineDirection, point_vec[1], normal_tmp, friction_vec[1]);
-    //sampling = sampling && this->samplingLine(localGround, origin_3, lineDirection, point_vec[2], normal_tmp, friction_vec[2]);
-    //sampling = sampling && this->samplingLine(localGround, origin_4, lineDirection, point_vec[3], normal_tmp, friction_vec[3]);
-
-    //out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
-    //out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaX), lineDirection,
+                                              point_vec[0], normal_tmp, friction_vec[0]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaX), lineDirection,
+                                              point_vec[1], normal_tmp, friction_vec[1]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center + deltaY), lineDirection,
+                                              point_vec[2], normal_tmp, friction_vec[2]);
+    sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection,
+                                              point_vec[3], normal_tmp, friction_vec[3]);
 
     point plane_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();

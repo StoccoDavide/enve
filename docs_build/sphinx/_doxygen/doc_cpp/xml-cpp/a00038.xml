@@ -7,8 +7,6 @@
       <node id="8">
         <label>enve.hh</label>
         <link refid="a00023"/>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
@@ -18,6 +16,12 @@
         <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -35,19 +39,19 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="14">
+      <node id="15">
         <label>enve_triangleground.hh</label>
         <link refid="a00017"/>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
         <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -69,10 +73,13 @@
       <node id="5">
         <label>acme_aabb.hh</label>
       </node>
-      <node id="15">
-        <label>acme_intersection.hh</label>
+      <node id="14">
+        <label>acme_disk.hh</label>
       </node>
       <node id="16">
+        <label>acme_intersection.hh</label>
+      </node>
+      <node id="17">
         <label>acme_segment.hh</label>
       </node>
       <node id="7">
@@ -311,14 +318,14 @@
 <codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>file<sp/>is<sp/>an<sp/>&quot;.rdf&quot;<sp/>file,<sp/>if<sp/>not<sp/>return<sp/>false</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(path.substr(path.size()<sp/>-<sp/>4,<sp/>4)<sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;.rdf&quot;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;enve::load(path):<sp/>not<sp/>a<sp/>*.rdf<sp/>file!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1ab0edbe7c1d942bd0ad4f1542bb13a8de" kindref="member">ENVE_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;enve::load(path):<sp/>not<sp/>a<sp/>*.rdf<sp/>file!&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>file<sp/>had<sp/>been<sp/>correctly<sp/>open,<sp/>if<sp/>not<sp/>return<sp/>false</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::ifstream<sp/>file(path);</highlight></codeline>
 <codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file.is_open())</highlight></codeline>
 <codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;enve::load(path):<sp/>rdf<sp/>file<sp/>not<sp/>opened&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1ab0edbe7c1d942bd0ad4f1542bb13a8de" kindref="member">ENVE_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;enve::load(path):<sp/>*.rdf<sp/>file<sp/>not<sp/>opened&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Vector<sp/>for<sp/>nodes<sp/>coordinates</highlight><highlight class="normal"></highlight></codeline>
@@ -337,7 +344,7 @@
 <codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((output_indicator<sp/>=<sp/>((output_indicator<sp/>+<sp/>1)<sp/>%<sp/>output_every))<sp/>==<sp/>1)</highlight></codeline>
 <codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\rLoading<sp/>mesh...<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\rLoading<sp/>*.rdf<sp/>mesh...<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="a00054_1a509271e206dd324be426e67ae616e05f" kindref="member">m_triangles</ref>.size()</highlight></codeline>
 <codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>triangles<sp/>detected<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -385,13 +392,13 @@
 <codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;integer&gt;<sp/><sp/><sp/><sp/><sp/>ipos(3);</highlight></codeline>
 <codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>ifriction;</highlight></codeline>
 <codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00054_1a1e754cb9ca2f6fae552ca523ac7ccf36" kindref="member">split</ref>(curline,<sp/>spos,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipos[0]<sp/><sp/><sp/>=<sp/>std::stoi(spos[0])<sp/>-<sp/>1;</highlight></codeline>
-<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipos[1]<sp/><sp/><sp/>=<sp/>std::stoi(spos[1])<sp/>-<sp/>1;</highlight></codeline>
-<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipos[2]<sp/><sp/><sp/>=<sp/>std::stoi(spos[2])<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipos[0]<sp/><sp/><sp/>=<sp/>std::stoi(spos[0]);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipos[1]<sp/><sp/><sp/>=<sp/>std::stoi(spos[1]);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipos[2]<sp/><sp/><sp/>=<sp/>std::stoi(spos[2]);</highlight></codeline>
 <codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ifriction<sp/>=<sp/>std::stod(spos[3]);</highlight></codeline>
-<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(ipos[0]<sp/>&gt;=<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;enve::ground::load(path):<sp/>element<sp/>0<sp/>index<sp/>cannot<sp/>be<sp/>negative\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(ipos[1]<sp/>&gt;=<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;enve::ground::load(path):<sp/>element<sp/>1<sp/>index<sp/>cannot<sp/>be<sp/>negative\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(ipos[2]<sp/>&gt;=<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;enve::ground::load(path):<sp/>element<sp/>2<sp/>index<sp/>cannot<sp/>be<sp/>negative\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(ipos[0]<sp/><sp/><sp/>&gt;=<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;enve::ground::load(path):<sp/>element<sp/>0<sp/>index<sp/>cannot<sp/>be<sp/>negative\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(ipos[1]<sp/><sp/><sp/>&gt;=<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;enve::ground::load(path):<sp/>element<sp/>1<sp/>index<sp/>cannot<sp/>be<sp/>negative\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(ipos[2]<sp/><sp/><sp/>&gt;=<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;enve::ground::load(path):<sp/>element<sp/>2<sp/>index<sp/>cannot<sp/>be<sp/>negative\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(ifriction<sp/>&gt;=<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;enve::ground::load(path):<sp/>element<sp/>friction<sp/>cannot<sp/>be<sp/>negative\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="293"><highlight class="normal"></highlight></codeline>
 <codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>shared<sp/>pointer<sp/>for<sp/>the<sp/>last<sp/>triangle<sp/>and<sp/>push<sp/>it<sp/>in<sp/>the<sp/>pointer<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
@@ -438,14 +445,14 @@
 <codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>file<sp/>is<sp/>an<sp/>&quot;.obj&quot;<sp/>file,<sp/>if<sp/>not<sp/>return<sp/>false</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(path.substr(path.size()<sp/>-<sp/>4,<sp/>4)<sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;.obj&quot;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;enve::load(path,<sp/>friction):<sp/>not<sp/>a<sp/>*.obj<sp/>file!&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1ab0edbe7c1d942bd0ad4f1542bb13a8de" kindref="member">ENVE_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;enve::load(path,<sp/>friction):<sp/>not<sp/>a<sp/>*.obj<sp/>file&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>file<sp/>had<sp/>been<sp/>correctly<sp/>open,<sp/>if<sp/>not<sp/>return<sp/>false</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::ifstream<sp/>file(path);</highlight></codeline>
 <codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file.is_open())</highlight></codeline>
 <codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;enve::load(path,<sp/>friction):<sp/>obj<sp/>file<sp/>not<sp/>opened&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="a00023_1ab0edbe7c1d942bd0ad4f1542bb13a8de" kindref="member">ENVE_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;enve::load(path,<sp/>friction):<sp/>*.obj<sp/>file<sp/>not<sp/>opened&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Vector<sp/>for<sp/>nodes<sp/>coordinates</highlight><highlight class="normal"></highlight></codeline>
@@ -462,7 +469,7 @@
 <codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((output_indicator<sp/>=<sp/>((output_indicator<sp/>+<sp/>1)<sp/>%<sp/>output_every))<sp/>==<sp/>1)</highlight></codeline>
 <codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout</highlight></codeline>
-<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\rLoading<sp/>mesh...<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\rLoading<sp/>*.obj<sp/>mesh...<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="a00054_1a509271e206dd324be426e67ae616e05f" kindref="member">m_triangles</ref>.size()</highlight></codeline>
 <codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>triangles<sp/>detected<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>

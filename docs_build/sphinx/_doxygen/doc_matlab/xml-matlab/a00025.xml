@@ -1321,7 +1321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="542" column="15"/>
+        <location file="enve_shell.m" line="543" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1af4bf6a59098b0563a0bb3613bf660368" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1355,7 +1355,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="558" column="15"/>
+        <location file="enve_shell.m" line="559" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1af35240d03c7136d75444ab5ba13e15c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1393,7 +1393,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="576" column="15"/>
+        <location file="enve_shell.m" line="577" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1a8282d4de072256a6090a5481a0cfa202" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1427,7 +1427,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="622" column="15"/>
+        <location file="enve_shell.m" line="623" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1acbe643a709133ab063d93b30837095d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1461,7 +1461,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="638" column="15"/>
+        <location file="enve_shell.m" line="639" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1abf6c2a43f9074bc54d109789d60d4471" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1499,7 +1499,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="656" column="15"/>
+        <location file="enve_shell.m" line="657" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1afa35238097829a7c21a977bd6c888fdd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1533,7 +1533,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="689" column="15"/>
+        <location file="enve_shell.m" line="690" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1a82ef2849f6a566644ed5c30878860518" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1567,7 +1567,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="705" column="15"/>
+        <location file="enve_shell.m" line="706" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1a906676305573077cfff15d987af5f55f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1597,7 +1597,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="723" column="15"/>
+        <location file="enve_shell.m" line="724" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1ac0a8e81c1f6634bd94fbf7d075ea9676" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1631,7 +1631,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="753" column="15"/>
+        <location file="enve_shell.m" line="754" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1a735e39131618af36e78d9c1fca57b3a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1661,7 +1661,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="783" column="15"/>
+        <location file="enve_shell.m" line="784" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1ab0764969fa3070e33ec544b6aa1f4759" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1683,7 +1683,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="794" column="15"/>
+        <location file="enve_shell.m" line="795" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00025_1a69ae0b7a60594ab714c9f0fb86c5f4e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -1705,7 +1705,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_shell.m" line="822" column="15"/>
+        <location file="enve_shell.m" line="823" column="15"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1734,7 +1734,7 @@
         <label>handle</label>
       </node>
     </collaborationgraph>
-    <location file="enve_shell.m" line="26" column="1" bodyfile="enve_shell.m" bodystart="27" bodyend="827"/>
+    <location file="enve_shell.m" line="26" column="1" bodyfile="enve_shell.m" bodystart="27" bodyend="828"/>
     <listofallmembers>
       <member refid="a00025_1a2e55dbeacca5cc939cfa0f771a48a5e3" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactAreaAvg</name></member>
       <member refid="a00025_1a324e779636ecc05b00a3a5d44f3d8e5b" prot="public" virt="non-virtual"><scope>enve_shell</scope><name>contactAreaRib</name></member>

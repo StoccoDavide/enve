@@ -77,6 +77,7 @@
   "%   OUT = mex_shell( 'rotation', OBJ );                               %\n" \
   "%         mex_shell( 'transform', OBJ, MATRIX );                      %\n" \
   "%   OUT = mex_shell( 'transformation', OBJ );                         %\n" \
+  "%   OUT = mex_shell( 'checkTransformation', OBJ );                    %\n" \
   "%   OUT = mex_shell( 'x', OBJ );                                      %\n" \
   "%   OUT = mex_shell( 'y', OBJ );                                      %\n" \
   "%   OUT = mex_shell( 'z', OBJ );                                      %\n" \
@@ -510,6 +511,30 @@ do_transformation(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   output[13] = outmat(1,3);
   output[14] = outmat(2,3);
   output[15] = outmat(3,3);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_checkTransformation(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_shell( 'checkTransformation', OBJ ): "
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+
+  enve::shell *self   = DATA_GET(arg_in_1);
+  real_type const *matrix_ptr;
+  mwSize           rows, cols;
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
+  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
+  acme::affine matrix;
+  matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
+                     matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
+                     matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
+                     matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
+  bool out = self->checkTransformation(matrix);
+  setScalarBool(arg_out_0, out);
 #undef CMD
 }
 
@@ -968,16 +993,17 @@ static map<string, DO_CMD> cmd_to_fun = {
   {"ribWidth",          do_ribWidth},
   {"ribAngle",          do_ribAngle},
   // Affine
-  {"translate",      do_translate},
-  {"translation",    do_translation},
-  {"rotate",         do_rotate},
-  {"rotation",       do_rotation},
-  {"transform",      do_transform},
-  {"transformation", do_transformation},
-  {"x",              do_x},
-  {"y",              do_y},
-  {"z",              do_z},
-  {"eulerAngles",    do_eulerAngles},
+  {"translate",           do_translate},
+  {"translation",         do_translation},
+  {"rotate",              do_rotate},
+  {"rotation",            do_rotation},
+  {"transform",           do_transform},
+  {"transformation",      do_transformation},
+  {"checkTransformation", do_checkTransformation},
+  {"x",                   do_x},
+  {"y",                   do_y},
+  {"z",                   do_z},
+  {"eulerAngles",         do_eulerAngles},
   // Setup
   {"setupFlat", do_setupFlat},
   {"setupMesh", do_setupMesh},

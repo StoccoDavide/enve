@@ -16,6 +16,6 @@
 <para>file: <ref refid="a00035" kindref="compound">enve_shape.cc</ref></para>
 <para>file: <ref refid="a00032" kindref="compound">enve_triangleground.cc</ref> </para>
     </detaileddescription>
-    <location file="include/enve.hh" line="64" column="1"/>
+    <location file="include/enve.hh" line="67" column="1"/>
   </compounddef>
 </doxygen>

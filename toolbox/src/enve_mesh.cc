@@ -208,14 +208,14 @@ namespace enve
       // Check if the file is an ".rdf" file, if not return false
       if (path.substr(path.size() - 4, 4) != ".rdf")
       {
-        std::cerr << "enve::load(path): not a *.rdf file!" << std::endl;
+        ENVE_ERROR("enve::load(path): not a *.rdf file!");
         return false;
       }
       // Check if the file had been correctly open, if not return false
       std::ifstream file(path);
       if (!file.is_open())
       {
-        std::cerr << "enve::load(path): rdf file not opened" << std::endl;
+        ENVE_ERROR("enve::load(path): *.rdf file not opened");
         return false;
       }
       // Vector for nodes coordinates
@@ -234,7 +234,7 @@ namespace enve
         if ((output_indicator = ((output_indicator + 1) % output_every)) == 1)
         {
           std::cout
-            << "\rLoading mesh... "
+            << "\rLoading *.rdf mesh... "
             << this->m_triangles.size()
             << " triangles detected " << std::endl;
         }
@@ -282,13 +282,13 @@ namespace enve
           std::vector<integer>     ipos(3);
           real ifriction;
           this->split(curline, spos, " ");
-          ipos[0]   = std::stoi(spos[0]) - 1;
-          ipos[1]   = std::stoi(spos[1]) - 1;
-          ipos[2]   = std::stoi(spos[2]) - 1;
+          ipos[0]   = std::stoi(spos[0]);
+          ipos[1]   = std::stoi(spos[1]);
+          ipos[2]   = std::stoi(spos[2]);
           ifriction = std::stod(spos[3]);
-          ENVE_ASSERT(ipos[0] >= 0, "enve::ground::load(path): element 0 index cannot be negative\n");
-          ENVE_ASSERT(ipos[1] >= 0, "enve::ground::load(path): element 1 index cannot be negative\n");
-          ENVE_ASSERT(ipos[2] >= 0, "enve::ground::load(path): element 2 index cannot be negative\n");
+          ENVE_ASSERT(ipos[0]   >= 0, "enve::ground::load(path): element 0 index cannot be negative\n");
+          ENVE_ASSERT(ipos[1]   >= 0, "enve::ground::load(path): element 1 index cannot be negative\n");
+          ENVE_ASSERT(ipos[2]   >= 0, "enve::ground::load(path): element 2 index cannot be negative\n");
           ENVE_ASSERT(ifriction >= 0, "enve::ground::load(path): element friction cannot be negative\n");
 
           // Create a shared pointer for the last triangle and push it in the pointer vector
@@ -335,14 +335,14 @@ namespace enve
       // Check if the file is an ".obj" file, if not return false
       if (path.substr(path.size() - 4, 4) != ".obj")
       {
-        std::cerr << "enve::load(path, friction): not a *.obj file!" << std::endl;
+        ENVE_ERROR("enve::load(path, friction): not a *.obj file");
         return false;
       }
       // Check if the file had been correctly open, if not return false
       std::ifstream file(path);
       if (!file.is_open())
       {
-        std::cerr << "enve::load(path, friction): obj file not opened" << std::endl;
+        ENVE_ERROR("enve::load(path, friction): *.obj file not opened");
         return false;
       }
       // Vector for nodes coordinates
@@ -359,7 +359,7 @@ namespace enve
         if ((output_indicator = ((output_indicator + 1) % output_every)) == 1)
         {
           std::cout
-            << "\rLoading mesh... "
+            << "\rLoading *.obj mesh... "
             << this->m_triangles.size()
             << " triangles detected " << std::endl;
         }

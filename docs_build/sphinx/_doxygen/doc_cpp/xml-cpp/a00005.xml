@@ -11,8 +11,6 @@
       <node id="4">
         <label>enve.hh</label>
         <link refid="a00023"/>
-        <childnode refid="2" relation="include">
-        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
@@ -22,6 +20,12 @@
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -37,8 +41,14 @@
       <node id="2">
         <label>acme.hh</label>
       </node>
+      <node id="10">
+        <label>acme_disk.hh</label>
+      </node>
       <node id="3">
         <label>acme_point.hh</label>
+      </node>
+      <node id="11">
+        <label>acme_utils.hh</label>
       </node>
       <node id="5">
         <label>fstream</label>

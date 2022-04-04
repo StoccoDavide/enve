@@ -63,11 +63,11 @@ main()
     ground::flat road(plane_point, plane_normal, plane_friction);
 
     // Initialize the tire shell
-    shell tire_shell(20,     // ribs number
-                     0.3208, // r_x
-                     2.0,    // m_x
-                     0.15,   // r_y
-                     2.0,    // m_y
+    shell tire_shell(3,      // ribs number
+                     0.3130, // r_x
+                     9.0,    // m_x
+                     0.11,   // r_y
+                     6.0,    // m_y
                      0.1025  // l_y
     );
 
@@ -78,7 +78,7 @@ main()
 
     // Create frame object
     affine pose;
-    pose = translate(2.0, 5.0, 0.276) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(2.0, 5.0, 0.3) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();
@@ -97,11 +97,10 @@ main()
     for (size_t i = 0; i < tire_shell.size(); ++i)
     {
       tire_shell.contactPointAffine(i, cp_rib);
-      std::cout << "Rib " << i << ":" << std::endl
+      std::cout << "Rib " << i << ":"
                 << cp_rib << std::endl
                 << std::endl;
     }
-    
 
     // Output performance data
     std::cout << "Execution time = " << tictoc.elapsed_ms() * 1000 << " us" << std::endl
