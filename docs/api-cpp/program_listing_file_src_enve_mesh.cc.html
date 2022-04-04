@@ -250,14 +250,14 @@
       <span class="c1">// Check if the file is an ".rdf" file, if not return false</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">!=</span> <span class="s">".rdf"</span><span class="p">)</span>
       <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"enve::load(path): not a *.rdf file!"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::load(path): not a *.rdf file!"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="c1">// Check if the file had been correctly open, if not return false</span>
       <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span>
       <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"enve::load(path): rdf file not opened"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::load(path): *.rdf file not opened"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="c1">// Vector for nodes coordinates</span>
@@ -276,7 +276,7 @@
         <span class="k">if</span> <span class="p">((</span><span class="n">output_indicator</span> <span class="o">=</span> <span class="p">((</span><span class="n">output_indicator</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">output_every</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
         <span class="p">{</span>
           <span class="n">std</span><span class="o">::</span><span class="n">cout</span>
-            <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r</span><span class="s">Loading mesh... "</span>
+            <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r</span><span class="s">Loading *.rdf mesh... "</span>
             <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>
             <span class="o">&lt;&lt;</span> <span class="s">" triangles detected "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
         <span class="p">}</span>
@@ -324,13 +324,13 @@
           <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">integer</span><span class="o">&gt;</span>     <span class="n">ipos</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
           <span class="n">real</span> <span class="n">ifriction</span><span class="p">;</span>
           <span class="k">this</span><span class="o">-&gt;</span><span class="n">split</span><span class="p">(</span><span class="n">curline</span><span class="p">,</span> <span class="n">spos</span><span class="p">,</span> <span class="s">" "</span><span class="p">);</span>
-          <span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>   <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+          <span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+          <span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>   <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
           <span class="n">ifriction</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 0 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 1 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 2 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 0 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 1 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 2 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
           <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ifriction</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element friction cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
           <span class="c1">// Create a shared pointer for the last triangle and push it in the pointer vector</span>
@@ -377,14 +377,14 @@
       <span class="c1">// Check if the file is an ".obj" file, if not return false</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">!=</span> <span class="s">".obj"</span><span class="p">)</span>
       <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"enve::load(path, friction): not a *.obj file!"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::load(path, friction): not a *.obj file"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="c1">// Check if the file had been correctly open, if not return false</span>
       <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span>
       <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"enve::load(path, friction): obj file not opened"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::load(path, friction): *.obj file not opened"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="c1">// Vector for nodes coordinates</span>
@@ -401,7 +401,7 @@
         <span class="k">if</span> <span class="p">((</span><span class="n">output_indicator</span> <span class="o">=</span> <span class="p">((</span><span class="n">output_indicator</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">output_every</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
         <span class="p">{</span>
           <span class="n">std</span><span class="o">::</span><span class="n">cout</span>
-            <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r</span><span class="s">Loading mesh... "</span>
+            <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r</span><span class="s">Loading *.obj mesh... "</span>
             <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>
             <span class="o">&lt;&lt;</span> <span class="s">" triangles detected "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
         <span class="p">}</span>

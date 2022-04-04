@@ -60,12 +60,12 @@ main()
     std::string method = "geometric";
 
     // Initialize the tire shell
-    shell tire_shell(20,   // ribs number
-                     0.31, // r_x
-                     3.1,  // m_x
-                     4.0,  // r_y
-                     3.1,  // m_y
-                     0.6   // l_y
+    shell tire_shell(20,  // ribs number
+                     0.3, // r_x
+                     4.0, // m_x
+                     0.3, // r_y
+                     4.0, // m_y
+                     0.1  // l_y
     );
 
     // Orient the tire in the space
@@ -77,13 +77,13 @@ main()
     real frequency = 1000; // Hz
     real speed     = 10;   // m/s
 
-    // Set starting and arrival positions
-    //point start(1.7, -140.0, 0.3);   // 12.19 triangles (10.0% of duty cycle - 20 ribs)
-    //point arrival(0.4, +140.0, 0.3); // 12.19 triangles
-    //point start(5.0, -140.0, 0.3);   // 3.27 triangles (2.9% of duty cycle - 20 ribs)
-    //point arrival(5.0, +140.0, 0.3); // 3.27 triangles
-    point start(2.0, -140.0, 0.26);   // 3.89 triangles (3.3% of duty cycle - 20 ribs)
-    point arrival(2.0, +140.0, 0.26); // 3.89 triangles
+    // Set starting and arrival positions ("geometric")
+    //point start(1.7, -140.0, 0.3);   // 24.13 triangles (22.0% of duty cycle - 20 ribs)
+    //point arrival(0.4, +140.0, 0.3); // 24.13 triangles
+    //point start(5.0, -140.0, 0.3);   // 5.52 triangles (4.8% of duty cycle - 20 ribs)
+    //point arrival(5.0, +140.0, 0.3); // 5.52 triangles
+    point start(2.0, -140.0, 0.26);   // 20.39 triangles (18.0% of duty cycle - 20 ribs) (4.8% of duty cycle - 5 ribs)
+    point arrival(2.0, +140.0, 0.26); // 20.39 triangles
 
     // Compute parameters
     real                   step_size = (arrival - start).norm() / speed * frequency;

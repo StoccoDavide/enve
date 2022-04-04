@@ -451,7 +451,7 @@
         </inbodydescription>
         <location file="include/enve_mesh.hh" line="160" column="7" bodyfile="src/enve_mesh.cc" bodystart="434" bodyend="445"/>
         <referencedby refid="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd" compoundref="a00038" startline="450" endline="458">intersection</referencedby>
-        <referencedby refid="a00070_1ad2f17102d34fe2239688b38bede9868b" compoundref="a00026" startline="431" endline="462">enve::shell::setup</referencedby>
+        <referencedby refid="a00070_1ad2f17102d34fe2239688b38bede9868b" compoundref="a00026" startline="459" endline="498">enve::shell::setup</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>

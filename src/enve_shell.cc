@@ -321,6 +321,7 @@ namespace enve
     mat4 const &affine_in
   )
   {
+    this->checkTransformation(affine_in);
     this->m_affine.matrix() = affine_in;
   }
 
@@ -331,6 +332,7 @@ namespace enve
     affine const &affine_in
   )
   {
+    this->checkTransformation(affine_in);
     this->m_affine = affine_in;
   }
 
@@ -341,6 +343,32 @@ namespace enve
     const
   {
     return this->m_affine;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  shell::checkTransformation(
+    mat4 const &affine_in
+  )
+    const
+  {
+    // Check if determinant is one
+    if (std::abs(affine_in.determinant() - 1.0) < EPSILON_LOW)
+      return true;
+    else
+      return false;    
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  bool
+  shell::checkTransformation(
+    affine const &affine_in
+  )
+    const
+  {
+    return this->checkTransformation(affine_in.matrix());
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -435,7 +463,15 @@ namespace enve
   )
   {
     // Set the new reference frame
-    this->m_affine = affine_in;
+    if (this->checkTransformation(affine_in))
+    {
+      this->transform(affine_in);
+    }
+    else
+    {
+      ENVE_ERROR( "enve::shell::setup(ground::mesh, ... ): Not an othonormal and right-handed affine transformation matrix.\n");
+      return false;
+    }
     // Shell Shadow update
     this->updateBBox();
     // Local intersected triangles vector
@@ -471,7 +507,15 @@ namespace enve
   )
   {
     // Set the new reference frame
-    this->m_affine = affine_in;
+    if (this->checkTransformation(affine_in))
+    {
+      this->transform(affine_in);
+    }
+    else
+    {
+      ENVE_ERROR( "enve::shell::setup(ground::flat, ... ): Not an othonormal and right-handed affine transformation matrix.\n");
+      return false;
+    }
     // Shell Shadow update
     this->updateBBox();
 

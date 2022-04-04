@@ -244,16 +244,26 @@
 
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
-      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in_in</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
     <span class="nf">transform</span><span class="p">(</span>
-      <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in_in</span>
+      <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
     <span class="p">);</span>
 
     <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span>
     <span class="n">transformation</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">checkTransformation</span><span class="p">(</span>
+      <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">bool</span>
+    <span class="nf">checkTransformation</span><span class="p">(</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
+    <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">vec3</span>
     <span class="nf">x</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>

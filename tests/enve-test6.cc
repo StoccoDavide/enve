@@ -91,6 +91,15 @@ main()
     // Display current tire data on command line
     tire_shell.print(std::cout);
 
+    affine cp_rib;
+    for (size_t i = 0; i < tire_shell.size(); ++i)
+    {
+      tire_shell.contactPointAffine(i, cp_rib);
+      std::cout << "Rib " << i << ":"
+                << cp_rib << std::endl
+                << std::endl;
+    }
+
     // Output performance data
     std::cout << "Execution time = " << tictoc.elapsed_ms() * 1000 << " us" << std::endl
               << std::endl

@@ -5,12 +5,12 @@ close all;
 
 % Create shape and shell variables
 
-N  = 10;
-Rx = 0.3;
-Mx = 4.0;
-Ry = 0.2;
-My = 2.0;
-Ly = 0.1;
+N  = 10;       
+Rx = 0.327;    
+Mx = 4.000;    
+Ry = 0.195;    
+My = 4.000;    
+Ly = 0.188*0.9;
 
 %% Instantiate shape object
 
@@ -28,36 +28,40 @@ obj.resize(8);
 
 obj
 
-T = [ 0, 1, 0, 1.1e4; ...
-      1, 0, 0, 1.1e4; ...
-      0, 0, 1, 0.28; ...
+T = [ 1, 0, 0, 0.0; ...
+      0, 1, 0, 0.0; ...
+      0, 0, 1, 0.31; ...
       0, 0, 0, 1 ];
 
-% obj.transform( T )
-% obj.translate([0 0 0.26]')
-% obj.rotate(pi/6, [1 0 0]')
+obj.transform( T )
+obj.rotate(10*pi/180, [1 0 0]')
+obj.rotate(10*pi/180, [0 1 0]')
+
+T = obj.transformation();
+obj.transform( T )
 
 % Set Color
 
 rubber_color = [0.4 0.4 0.4];
-road_color = [0.863 0.863 0.863];
+road_color   = [0.863 0.863 0.863];
+scale        = 0.2;
 
 % Test profile plot
 
 out1 = figure;
-obj.profile(out1, rubber_color)
+obj.profile(out1, rubber_color, scale);
 
 %% Test 3D shell shape
 
 out2 = figure;
 subplot(1,2,1);
-obj.shellShape(out2, rubber_color)
+obj.shellShape(out2, rubber_color, scale);
 xlabel('x');
 ylabel('y');
 zlabel('z');
 
 subplot(1,2,2);
-obj.plotShape(out2, rubber_color)
+obj.plotShape(out2, rubber_color, scale);
 xlabel('x');
 ylabel('y');
 zlabel('z');
@@ -66,13 +70,13 @@ zlabel('z');
 
 out3 = figure;
 subplot(1,2,1);
-obj.shellEnve(out3, rubber_color)
+obj.shellEnve(out3, rubber_color, scale);
 xlabel('x');
 ylabel('y');
 zlabel('z');
 
 subplot(1,2,2);
-obj.plotEnve(out3, rubber_color)
+obj.plotEnve(out3, rubber_color, scale);
 xlabel('x');
 ylabel('y');
 zlabel('z');
@@ -81,31 +85,29 @@ zlabel('z');
 
 out4 = figure;
 subplot(1,2,1);
-obj.shellRibs(out4, rubber_color)
+obj.shellRibs(out4, rubber_color, scale);
 xlabel('x');
 ylabel('y');
 zlabel('z');
 
 subplot(1,2,2);
-obj.plotRibs(out4, rubber_color)
+obj.plotRibs(out4, rubber_color, scale);
 xlabel('x');
 ylabel('y');
 zlabel('z');
 
 % Test setup
 
-T = [ 1, 0, 0, 1.1e4; ...
-      0, 1, 0, 1.1e4; ...
-      0, 0, 1, 0.28; ...
-      0, 0, 0, 1 ];
-
 flat = enve_flat([0 0 0]', [0 0 1]', 1.0);
 
-obj.setupFlat(flat, T, 'sampling')
+tic
+obj.setupFlat(flat, T, 'geometric')
+toc
 
-obj.contactPointAvg()
-
-out6 = figure;
-flat.plot(out6, road_color)
-obj.plotEnve(out6, rubber_color )
-obj.plotSetup(out6, 'hsv')
+out5 = figure; hold on;
+xlabel('x');
+ylabel('y');
+zlabel('z');
+flat.plot(out5, road_color)
+obj.shapeTplot(T, out5, rubber_color, scale);
+obj.plotSetupVec(out5, scale);
