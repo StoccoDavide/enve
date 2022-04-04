@@ -278,7 +278,7 @@ tirParams.QCRP1 = 0.2;
 tirParams.QCRP2 = 0.1;
 tirParams.QBRP1 = 0.1;
 tirParams.QDRP1 = 1;
-% % Declare Magic Formula 6.2 parameter names for C code generation
+% Declare Magic Formula 6.2 parameter names for C code generation
 tirParams.FUNCTION_NAME = 'default';
 tirParams.SWITCH_INTEG = 0;
 tirParams.Q_FCY2 = 0;
@@ -289,6 +289,19 @@ tirParams.Q_FYS1 = 0;
 tirParams.Q_FYS2 = 0;
 tirParams.Q_FYS3 = 0;
 tirParams.ENV_C1 = 0;
+tirParams.ENV_C2 = 0;
+% Declare Magic Formula 5.2 parameter names for C code generation
+tirParams.Q_A1 = 0;
+tirParams.Q_A2 = 0;
+tirParams.PHY3 = 0;
+tirParams.PTX1 = 0;
+tirParams.PTX2 = 0;
+tirParams.PTX3 = 0;
+tirParams.PTY1 = 0;
+tirParams.PTY2 = 0;
+tirParams.LSGKP = 1;
+tirParams.LSGAL = 1;
+
 % tirParams.ENV_C2 = 0;
 % Open the file
 ident = fopen(FileNameLocation);
@@ -1478,6 +1491,47 @@ for jj = 1:nlines
                 
                 if strcmp(ParamName,'ENV_C2')
                     tirParams.ENV_C2 = str2double(ParamValue);
+                end
+                
+                % Extra parameters for Magic Formula 5.2
+                if strcmp(ParamName,'Q_A1')
+                    tirParams.Q_A1 = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'Q_A2')
+                    tirParams.Q_A2 = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'PHY3')
+                    tirParams.PHY3 = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'PTX1')
+                    tirParams.PTX1 = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'PTX2')
+                    tirParams.PTX2 = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'PTX3')
+                    tirParams.PTX3 = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'PTY1')
+                    tirParams.PTY1 = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'PTY2')
+                    tirParams.PTY2 = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'LSGKP')
+                    tirParams.LSGKP = str2double(ParamValue);
+                end
+                
+                if strcmp(ParamName,'LSGAL')
+                    tirParams.LSGAL = str2double(ParamValue);
                 end
             end % If is not '[' '$' or '!'
         end % If equal exists
