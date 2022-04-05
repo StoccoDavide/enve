@@ -39,6 +39,7 @@
 
 # Matlab
 *.asv
+*.mexmaci64
 
 # Mesh files
 *.rdf

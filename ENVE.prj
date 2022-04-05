@@ -7,7 +7,7 @@
     <param.summary>A library for real-time tire/road contact evaluation</param.summary>
     <param.description />
     <param.screenshot>${PROJECT_ROOT}/docs_build/sphinx/logo.png</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.version>1.1</param.version>
     <param.output>${PROJECT_ROOT}/ENVE.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -65,7 +65,6 @@ populate_toolbox.rb</param.exclude.filters>
     <param.additional.sw.linux.url />
     <unset>
       <param.description />
-      <param.version />
       <param.output />
       <param.products.name />
       <param.products.id />
