@@ -60,10 +60,6 @@ typedef struct
   double rho_rl;             // Rear-Left shell (tire) penetration
   double rho_fr;             // Front-Right shell (tire) penetration
   double rho_fl;             // Front-Left shell (tire) penetration
-  double rho_dot_rr;         // Rear-Right shell (tire) penetration velocity
-  double rho_dot_rl;         // Rear-Left shell (tire) penetration velocity
-  double rho_dot_fr;         // Front-Right shell (tire) penetration velocity
-  double rho_dot_fl;         // Front-Left shell (tire) penetration velocity
   double in_mesh;            // Flag to detect if any wheel is outside the ground mesh. (0: at least one wheel is out of ground, 1: every wheels are in the ground)
 } groundContact;
 

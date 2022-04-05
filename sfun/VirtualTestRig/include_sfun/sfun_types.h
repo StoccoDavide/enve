@@ -48,7 +48,6 @@ typedef struct
   double RFpc_ground[16]; // Contact point (Pacejka one-rib equivalent) reference frame w.r.t. ground
   double friction;        // Friction coefficient
   double rho;             // Shell (tire) penetration
-  double rho_dot;         // Shell (tire) penetration velocity
   double in_mesh;         // Flag to detect if any wheel is outside the ground mesh. (0: at least one wheel is out of ground, 1: every wheels are in the ground)
 } groundContact;
 

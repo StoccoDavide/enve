@@ -33,12 +33,13 @@ T = [ 1, 0, 0, 1.0;  ...
       0, 0, 1, 0.31; ...
       0, 0, 0, 1 ];
 
-obj.transform( T )
-obj.rotate(10*pi/180, [1 0 0]')
-obj.rotate(10*pi/180, [0 1 0]')
+obj.transform(T);
+obj.rotate(150*pi/180, [0 0 1]'); % Yaw angle (rad)
+obj.rotate(150*pi/180, [1 0 0]'); % Camber angle (rad)
+obj.rotate(150*pi/180, [0 1 0]'); % Pitch angle (rad)
 
 T = obj.transformation();
-obj.transform( T )
+obj.transform(T);
 
 % Set Color
 
@@ -110,4 +111,4 @@ ylabel('y');
 zlabel('z');
 mesh.plot(out5, road_color);
 obj.shapeTplot(T, out5, rubber_color, scale);
-obj.plotSetupVec(out5, scale);
+obj.plotSetupAvg(out5, scale);
