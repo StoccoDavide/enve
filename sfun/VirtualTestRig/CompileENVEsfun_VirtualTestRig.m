@@ -35,9 +35,9 @@ clear all;
 addpath('./include_sfun');
 addpath('./src_sfun');
 
-%% ENVE sFunction interface
+%% ENVE S-Function interface
 
-disp('------------------ VIRTUAL TEST BENCH SFUN -------------------');
+disp('------------ ENVE VIRTUAL TEST RIG S-FUNCTION --------------');
 
 Simulink.importExternalCTypes('./include_sfun/sfun_types.h');
 
@@ -52,7 +52,7 @@ end
 
 def = legacy_code('initialize');
 
-def.SFunctionName    = 'sfun_ENVE_VIRTUALTESTBENCH';
+def.SFunctionName    = 'ENVEsfun_VirtualTestRig';
 def.Options.language = 'C++';
 
 def.IncPaths    = {'./include_sfun', './../src'};

@@ -37,8 +37,9 @@
 # Visual Studio Code
 .vscode/*
 
-# Matlab
+# Simulink/Matlab
 *.asv
+*.autosave
 *.mexmaci64
 
 # Mesh files
@@ -53,8 +54,16 @@ build/*
 bin/*
 lib/*
 lib3rd/*
-sfun/simulator/test/slprj/*
-sfun/virtualTestBench/test/slprj/*
+
+sfun/Simulator/test/slprj/*
+sfun/Simulator/ENVEsfun_Simulator.cpp
+sfun/Simulator/ENVEsfun_Simulator.mexmaci64
+sfun/Simulator/ENVEsfun_Simulator.tlc
+
+sfun/VirtualTestRig/test/slprj/*
+sfun/VirtualTestRig/ENVEsfun_VirtualTestRig.cpp
+sfun/VirtualTestRig/ENVEsfun_VirtualTestRig.mexmaci64
+sfun/VirtualTestRig/ENVEsfun_VirtualTestRig.tlc
 
 # Project
 docs_build/sphinx/_build
