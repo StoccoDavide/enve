@@ -429,7 +429,7 @@ namespace enve
     //! Get i-th rib contact volume (m^3)
     void
     contactVolume(
-      size_t i,    //!< Input i-th index
+      size_t i,     //!< Input i-th index
       real  &volume //!< Contact volume
     ) const;
 

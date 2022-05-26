@@ -32,6 +32,7 @@
 */
 
 #include "sfun_interface.h"
+#include "sfun_shellVehicle.hh"
 
 #ifdef __cplusplus
 extern "C"

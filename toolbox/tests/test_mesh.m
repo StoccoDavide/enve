@@ -4,7 +4,7 @@ close all;
 
 %% Create mesh from *.rdf
 
-m1 = enve_mesh('../../files_rdf/sample.rdf');
+m1 = enve_mesh('../../files_rdf/LakeTown.rdf');
 
 m1.getTriangleground(1);
 

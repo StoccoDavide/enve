@@ -36,17 +36,17 @@
 #ifndef INCLUDE_SFUN_INTEREFACE
 #define INCLUDE_SFUN_INTEREFACE
 
-#include <stdlib.h>
+//#include <stdlib.h>
 
-#include <iostream>
+//#include <iostream>
 
-#include "enve.hh"
-#include "enve_flat.hh"
-#include "enve_mesh.hh"
-#include "enve_shell.hh"
+//#include "enve.hh"
+//#include "enve_flat.hh"
+//#include "enve_mesh.hh"
+//#include "enve_shell.hh"
 
 #include "sfun_types.h"
-#include "sfun_shellVehicle.hh"
+//#include "sfun_shellVehicle.hh"
 
 #ifdef __cplusplus
 extern "C"

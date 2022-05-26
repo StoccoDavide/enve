@@ -336,13 +336,13 @@ namespace enve
 
         contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4.0*FC + segment_tmp.vertex(1)*FB) / FA4CB;
         normal_tmp           = (ribNormalGround.cross(ribCenterGround - contactPoint_iter)).normalized();
-        contactNormal_iter   = (localGround[i]->normal()*(1.0 - localGround[i]->normal().dot(normal_tmp))).normalized();
+        contactNormal_iter   = (localGround[i]->normal() - normal_tmp * localGround[i]->normal().dot(normal_tmp)).normalized();
+        //contactNormal_iter   = localGround[i]->normal();
         contactFriction_iter = localGround[i]->friction();
 
         contactPoint_tmp    += segmentVolume_tmp * contactPoint_iter;
         contactNormal_tmp   += segmentVolume_tmp * contactNormal_iter;
         contactFriction_tmp += segmentVolume_tmp * contactFriction_iter;
-
       }
     }
     if (int_bool)
@@ -352,6 +352,8 @@ namespace enve
 
       out.point    = contactPoint_tmp    / segmentVolumeTotal;
       out.normal   = (contactNormal_tmp  / segmentVolumeTotal).normalized();
+      //normal_tmp   = (ribNormalGround.cross(ribCenterGround - out.point)).normalized();
+      //out.normal   = (contactNormal_tmp - normal_tmp * contactNormal_tmp.dot(normal_tmp)).normalized();
       out.friction = contactFriction_tmp / segmentVolumeTotal;
       out.depth    = radius - (out.point - ribCenterGround).norm();
       out.area     = segmentAreaTotal;
@@ -453,9 +455,10 @@ namespace enve
     sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection,
                                               point_vec[3], normal_tmp, friction_vec[3]);
 
-    point plane_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    //point plane_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    acme::intersection(line(ribCenterGround, -out.normal), plane(plane_point, out.normal), out.point);
+    //acme::intersection(line(ribCenterGround, -out.normal), plane(plane_point, out.normal), out.point);
 
     vec3 e_y = affine_in.linear().col(1);
     vec3 e_x = (out.normal.cross(e_y)).normalized();

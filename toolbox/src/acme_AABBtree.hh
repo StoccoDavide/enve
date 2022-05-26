@@ -106,12 +106,12 @@ namespace acme
     ) const;
 
     //! Check if two AABB tree collide
-    template <typename collision>
+    template <typename collisionFunction>
     bool
     collision(
-      AABBtree const &tree,             //!< AABB tree used to check collision
-      collision       function,         //!< Function to check if the contents of two aabb collide
-      bool            swap_tree = false //!< If true exchange the tree in computation
+      AABBtree const   &tree,             //!< AABB tree used to check collision
+      collisionFunction function,         //!< Function to check if the contents of two aabb collide
+      bool              swap_tree = false //!< If true exchange the tree in computation
     ) const
     {
 
