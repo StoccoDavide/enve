@@ -76,6 +76,23 @@ foreach (F ${S})
   list( APPEND HEADERS ${RF} )
 endforeach (F ${S})
 
+if( BUILD_SIMULATOR )
+  include_directories( ./sfun/Simulator/include_sfun ./sfun/Simulator/src_sfun )
+
+  # Include S-Function sources
+  file( GLOB S ./sfun/Simulator/src_sfun/*.cc )
+  foreach (F ${S})
+    file( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
+    list( APPEND SOURCES ${RF} )
+  endforeach (F ${S})
+
+  # Include S-Function headers
+  file( GLOB S ./sfun/Simulator/include_sfun/* )
+  foreach (F ${S})
+    file( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
+    list( APPEND HEADERS ${RF} )
+  endforeach (F ${S})
+endif()
 
 # Dependencies (try to use already complied submodule on large project)
 set(UPDIR ${CMAKE_CURRENT_SOURCE_DIR}/..)

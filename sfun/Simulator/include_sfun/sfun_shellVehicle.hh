@@ -36,14 +36,10 @@
 #ifndef INCLUDE_SFUN_SHELLVEHICLE
 #define INCLUDE_SFUN_SHELLVEHICLE
 
-//#include "acme.hh"
-
 #include "enve.hh"
 #include "enve_flat.hh"
 #include "enve_mesh.hh"
 #include "enve_shell.hh"
-
-#include "sfun_interface.h"
 
 class shellVehicle
 {

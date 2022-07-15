@@ -74,7 +74,7 @@ extern "C"
     std::cout << "ENVE_GROUND_PATH: " << ground_path << std::endl;
 
     std::string extension = ground_path.substr(ground_path.size() - 4, 4);
-    enve::ground::mesh *ground;
+    enve::ground::mesh *ground = nullptr;
     if (extension == ".rdf")
       ground = new enve::ground::mesh(ground_path);
     else if (extension == ".obj")

@@ -25,7 +25,8 @@ set( CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS true )
 set( CMAKE_VERBOSE_MAKEFILE            true )
 set( BUILD_EXECUTABLE                  true )
 set( BUILD_SHARED                      true )
-set(default_build_type                 "Release")
+set( BUILD_SIMULATOR                   true )
+set( default_build_type                "Release" )
 
 # /Gd Uses the __cdecl calling convention (x86 only).
 # /Gr Uses the __fastcall calling convention (x86 only).
