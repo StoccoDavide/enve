@@ -76,15 +76,6 @@
 <span class="cp">#ifndef INCLUDE_ENVE_MESH</span>
 <span class="cp">#define INCLUDE_ENVE_MESH</span>
 
-<span class="c1">// Print progress to console while loading (large models)</span>
-<span class="cp">#define ENVE_CONSOLE_OUTPUT</span>
-
-<span class="cp">#include</span> <span class="cpf">&lt;acme.hh&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;acme_AABBtree.hh&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;acme_aabb.hh&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;acme_utils.hh&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;acme_triangle.hh&gt;</span><span class="cp"></span>
-
 <span class="cp">#include</span> <span class="cpf">"enve.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"enve_triangleground.hh"</span><span class="cp"></span>
 
@@ -181,20 +172,20 @@
 
       <span class="kt">bool</span>
       <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span>     <span class="n">AABBtree</span><span class="p">,</span>
-        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">triangles</span>
+        <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span>          <span class="k">const</span>  <span class="n">AABBtree</span><span class="p">,</span>
+        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span><span class="n">triangles</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
       <span class="kt">bool</span>
       <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span>     <span class="o">&amp;</span><span class="n">boxes</span><span class="p">,</span>
-        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">triangles</span>
+        <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span>           <span class="k">const</span> <span class="o">&amp;</span><span class="n">boxes</span><span class="p">,</span>
+        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span><span class="n">triangles</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
       <span class="kt">bool</span>
       <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span>         <span class="n">box</span><span class="p">,</span>
-        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">triangles</span>
+        <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span>              <span class="k">const</span>  <span class="n">box</span><span class="p">,</span>
+        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span><span class="n">triangles</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="k">private</span><span class="o">:</span>

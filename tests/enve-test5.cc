@@ -62,7 +62,7 @@ main()
     road.print("bin/OutMesh.txt");
 
     // Initialize the tire shell
-    shell tire_shell(10,     // ribs number
+    shell tire_shell(5,     // ribs number
                      0.3130, // r_x
                      9.0,    // m_x
                      0.11,   // r_y
@@ -77,7 +77,7 @@ main()
 
     // Create frame object
     affine pose;
-    pose = translate(1.0, 1.0, 0.30) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
+    pose = translate(48.5, 175.6, 0.29) * angleaxis(yaw_angle, UNITZ_VEC3) * angleaxis(camber_angle, UNITX_VEC3) * angleaxis(pitch_angle, UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();
@@ -87,7 +87,7 @@ main()
 
     // Stop chronometer
     tictoc.toc();
-
+ std::cout << "Completed\n";
     // Display current tire data on command line
     tire_shell.print(std::cout);
 

@@ -94,7 +94,7 @@ namespace enve
     rib(
       real         radius, //!< Input rib radius
       point const &center, //!< Input rib center
-      vec3 const  &normal, //!< Input rib normal to the laying plane
+      vec3  const &normal, //!< Input rib normal to the laying plane
       real         width,  //!< Input rib normal to the laying plane
       real         angle   //!< Input rib normal to the laying plane
     );
@@ -152,8 +152,8 @@ namespace enve
     //! Check if objects are (almost) equal
     bool
     isApprox(
-      rib const &rib_in,                 //!< Input object
-      real       tolerance = EPSILON_LOW //!< Tolerance
+      rib  const &rib_in,                 //!< Input object
+      real        tolerance = EPSILON_LOW //!< Tolerance
     ) const;
 
     //! Evaluate rib contact with no ground
@@ -167,6 +167,7 @@ namespace enve
     bool
     envelop(
       triangleground::vecptr const &localGround, //!< Local triangles candidate list
+      std::vector<size_t>    const &tris,
       affine                 const &affine_in,   //!< Input 4x4 affine transformation affine_in
       std::string            const  method,      //!< Enveloping model (choose from: "geometric" or "sampling")
       output                       &out          //!< Rib contact parameters output
@@ -185,6 +186,7 @@ namespace enve
     bool
     envelopGeometric(
       triangleground::vecptr const &localGround, //!< Local triangles candidate list
+      std::vector<size_t>    const &tris,
       affine                 const &affine_in,   //!< Input 4x4 affine transformation
       output                       &out          //!< Rib contact parameters output
     ) const;
@@ -218,8 +220,8 @@ namespace enve
     bool
     samplingLine(
       triangleground::vecptr const &localGround,    //!< Local triangles candidate list
-      point const                  &origin,         //!< Sampling line origin
-      vec3 const                   &direction,      //!< Sampling line direction
+      point                  const &origin,         //!< Sampling line origin
+      vec3                   const &direction,      //!< Sampling line direction
       point                        &contactPoint,   //!< Contact point
       vec3                         &contactNormal,  //!< Contact normal
       real                         &contactFriction //!< Contact friction
@@ -241,7 +243,7 @@ namespace enve
     //! Custom line-triangle intersection algorithm
     bool
     intersection(
-      line const     &line_in,     //!< Input line
+      line     const &line_in,     //!< Input line
       triangle const &triangle_in, //!< Input triangle
       point          &point_out,   //!< Ouput point
       real            tolerance    //!< Tolerance

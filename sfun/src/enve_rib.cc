@@ -66,7 +66,8 @@ namespace enve
     real         radius,
     plane const &plane,
     real         width,
-    real         angle)
+    real         angle
+  )
     : disk(radius, plane),
       m_width(width),
       m_angle(angle)
@@ -77,7 +78,8 @@ namespace enve
 
   rib::rib(
     real         radius,
-    plane const &plane)
+    plane const &plane
+  )
     : disk(radius, plane),
       m_width(QUIET_NAN),
       m_angle(QUIET_NAN)
@@ -91,7 +93,8 @@ namespace enve
     point const &center,
     vec3  const &normal,
     real         width,
-    real         angle)
+    real         angle
+  )
     : disk(radius, center, normal),
       m_width(width),
       m_angle(angle)
@@ -109,7 +112,8 @@ namespace enve
     real normal_y,
     real normal_z,
     real width,
-    real angle)
+    real angle
+  )
     : disk(radius, center_x, center_y, center_z, normal_x, normal_y, normal_z),
       m_width(width),
       m_angle(angle)
@@ -125,7 +129,8 @@ namespace enve
     real center_z,
     real normal_x,
     real normal_y,
-    real normal_z)
+    real normal_z
+  )
     : disk(radius, center_x, center_y, center_z, normal_x, normal_y, normal_z),
       m_width(QUIET_NAN),
       m_angle(QUIET_NAN)
@@ -203,8 +208,8 @@ namespace enve
 
   bool
   rib::isApprox(
-    rib const &rib_in,
-    real       tolerance
+    rib  const &rib_in,
+    real        tolerance
   )
     const
   {
@@ -218,6 +223,7 @@ namespace enve
   bool
   rib::envelop(
     triangleground::vecptr const &localGround,
+    std::vector<size_t>    const &tris,
     affine                 const &affine_in,
     std::string            const  method,
     output                       &out
@@ -225,7 +231,7 @@ namespace enve
     const
   {
     if (method == "geometric")
-      return this->envelopGeometric(localGround, affine_in, out);
+      return this->envelopGeometric(localGround, tris, affine_in, out);
     else if (method == "sampling")
       return this->envelopSampling(localGround, affine_in, out);
     else
@@ -278,6 +284,7 @@ namespace enve
   bool
   rib::envelopGeometric(
     triangleground::vecptr const &localGround,
+    std::vector<size_t>    const &tris,
     affine                 const &affine_in,
     output                       &out
   ) 
@@ -312,18 +319,22 @@ namespace enve
     point ribCenterGround(origin + rotation * center);
     disk  ribGround(radius, ribCenterGround, ribNormalGround);
 
-    for (size_t i = 0; i < localGround.size(); ++i)
+    size_t i;
+    for (size_t k = 0; k < tris.size(); ++k)
     {
+      i = tris[k];
       if (acme::intersection(*localGround[i], ribGround, segment_tmp, 1e-5))
       {
         segmentLength_tmp = segment_tmp.length();
         if (segmentLength_tmp < EPSILON_LOW)
+        {
           break;
+        }
 
         // Simpson's rule
-        FA    = std::max(0.0, radius - (segment_tmp.vertex(0) - ribCenterGround).norm());
+        FA    = std::max(0.0, radius - (segment_tmp.vertex(0)  - ribCenterGround).norm());
         FC    = std::max(0.0, radius - (segment_tmp.centroid() - ribCenterGround).norm());
-        FB    = std::max(0.0, radius - (segment_tmp.vertex(1) - ribCenterGround).norm());
+        FB    = std::max(0.0, radius - (segment_tmp.vertex(1)  - ribCenterGround).norm());
         FA4CB = std::max(FA + 4.0*FC + FB, EPSILON_LOW);
 
         int_bool = true;
@@ -337,7 +348,6 @@ namespace enve
         contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4.0*FC + segment_tmp.vertex(1)*FB) / FA4CB;
         normal_tmp           = (ribNormalGround.cross(ribCenterGround - contactPoint_iter)).normalized();
         contactNormal_iter   = (localGround[i]->normal() - normal_tmp * localGround[i]->normal().dot(normal_tmp)).normalized();
-        //contactNormal_iter   = localGround[i]->normal();
         contactFriction_iter = localGround[i]->friction();
 
         contactPoint_tmp    += segmentVolume_tmp * contactPoint_iter;
@@ -352,8 +362,6 @@ namespace enve
 
       out.point    = contactPoint_tmp    / segmentVolumeTotal;
       out.normal   = (contactNormal_tmp  / segmentVolumeTotal).normalized();
-      //normal_tmp   = (ribNormalGround.cross(ribCenterGround - out.point)).normalized();
-      //out.normal   = (contactNormal_tmp - normal_tmp * contactNormal_tmp.dot(normal_tmp)).normalized();
       out.friction = contactFriction_tmp / segmentVolumeTotal;
       out.depth    = radius - (out.point - ribCenterGround).norm();
       out.area     = segmentAreaTotal;
@@ -390,7 +398,7 @@ namespace enve
 
     vec3  ribNormalGround(rotation * this->normal());
     point ribCenterGround(origin + rotation * center);
-    disk  ribGround(radius, ribCenterGround, ribNormalGround);
+    disk ribGround(radius, ribCenterGround, ribNormalGround);
     
     segment segment_tmp;
     vec3    normal_tmp;
@@ -455,10 +463,8 @@ namespace enve
     sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection,
                                               point_vec[3], normal_tmp, friction_vec[3]);
 
-    //point plane_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    //acme::intersection(line(ribCenterGround, -out.normal), plane(plane_point, out.normal), out.point);
 
     vec3 e_y = affine_in.linear().col(1);
     vec3 e_x = (out.normal.cross(e_y)).normalized();
@@ -521,9 +527,8 @@ namespace enve
     sampling = sampling && this->samplingLine(localGround, origin + rotation * (center - deltaY), lineDirection,
                                               point_vec[3], normal_tmp, friction_vec[3]);
 
-    point plane_point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
+    out.point  = (point_vec[0] + point_vec[1] + point_vec[2] + point_vec[3]) / 4.0;
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
-    acme::intersection(line(ribCenterGround, -out.normal), plane(plane_point, out.normal), out.point);
 
     vec3 e_y = affine_in.linear().col(1);
     vec3 e_x = (out.normal.cross(e_y)).normalized();
@@ -556,20 +561,24 @@ namespace enve
   bool
   rib::samplingLine(
     triangleground::vecptr const &localGround,
-    point const                  &origin,
-    vec3 const                   &direction,
+    point                  const &origin,
+    vec3                   const &direction,
     point                        &contactPoint,
     vec3                         &contactNormal,
     real                         &contactFriction
   ) 
     const
   {
+    size_t             localGroundSize = localGround.size();
     point              point_tmp;
     std::vector<point> point_vec;
     std::vector<vec3>  normal_vec;
     std::vector<real>  friction_vec;
+    point_vec.reserve(localGroundSize);
+    normal_vec.reserve(localGroundSize);
+    friction_vec.reserve(localGroundSize);
     bool               int_bool = false;
-    for (size_t i = 0; i < localGround.size(); ++i)
+    for (size_t i = 0; i < localGroundSize; ++i)
     {
       if (acme::intersection(line(origin, direction), *localGround[i], point_tmp, EPSILON_HIGH))
       {
@@ -603,19 +612,19 @@ namespace enve
       }
       return true;
     }
-    else if (localGround.size() > 0 && !int_bool)
+    else if (localGroundSize > 0 && !int_bool)
     {
       // Flying over the mesh
       return false;
     }
-    else if (localGround.size() == 0)
+    else if (localGroundSize == 0)
     {
       // Out of mesh
       return false;
     }
     else
     {
-      ENVE_ERROR("enve::rib::samplingLine(mesh, ...): not handled condition.");
+      ENVE_ERROR("enve::rib::samplingLine(mesh, ...): condition not handled.\n");
       return false;
     }
   }
@@ -649,7 +658,7 @@ namespace enve
 
   bool
   rib::intersection(
-    line const     &line_in,
+    line     const &line_in,
     triangle const &triangle_in,
     point          &point_out,
     real            tolerance

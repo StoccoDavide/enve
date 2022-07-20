@@ -90,7 +90,7 @@ namespace enve
     size_t size
   )
   {
-    ENVE_ASSERT(size > 0, "enve::shell::resize(): shell ribs numer must be greater than 0.\n");
+    ENVE_ASSERT(size > 0, "enve::shell::resize(size): shell ribs numer must be greater than 0.\n");
 
     // Resize the contact point, friction and normal vectors
     this->m_ribs.clear();
@@ -98,6 +98,20 @@ namespace enve
 
     this->m_ribs.resize(size);
     this->m_out.resize(size);
+
+    if (!this->m_tris.empty())
+    {
+      for (size_t i = 0; i < size; ++i)
+      {
+        if (!this->m_tris[i].empty())
+          this->m_tris[i].clear();
+      }
+      this->m_tris.clear();
+    }
+
+    this->m_tris.resize(size);
+    for (size_t i = 0; i < size; ++i)
+      this->m_tris[i].reserve(200);
 
     // Locate the disks
     real shellWidth = this->m_shape->surfaceWidth();
@@ -109,9 +123,9 @@ namespace enve
       ribY += ribW;
       ribR  = this->m_shape->surfaceRadius(ribY);
       ribA  = this->m_shape->surfaceAngle(ribY);
-      ENVE_ASSERT(ribR > 0, "enve::shell::resize(size): Negative rib radius.\n" );
-      ENVE_ASSERT(ribR == ribR, "enve::shell::resize(size): NaN rib radius.\n" );
-      ENVE_ASSERT(ribA == ribA, "enve::shell::resize(size): NaN rib angle.\n" );
+      ENVE_ASSERT(ribR > 0,     "enve::shell::resize(size): negative rib radius.\n");
+      ENVE_ASSERT(ribR == ribR, "enve::shell::resize(size): NaN rib radius.\n");
+      ENVE_ASSERT(ribA == ribA, "enve::shell::resize(size): NaN rib angle.\n");
       this->m_ribs[i] = rib(ribR, point(0.0, ribY, 0.0), vec3(0.0, 1.0, 0.0), ribW, ribA);
     }
     // Update bounding aabb
@@ -349,12 +363,13 @@ namespace enve
 
   bool
   shell::checkTransformation(
-    mat4 const &affine_in
+    mat4 const &affine_in,
+    real        tolerance
   )
     const
   {
     // Check if determinant is one
-    if (std::abs(affine_in.determinant() - 1.0) < EPSILON_LOW)
+    if (std::abs(affine_in.determinant() - 1.0) < tolerance)
       return true;
     else
       return false;    
@@ -364,7 +379,8 @@ namespace enve
 
   bool
   shell::checkTransformation(
-    affine const &affine_in
+    affine const &affine_in,
+    real          tolerance
   )
     const
   {
@@ -459,40 +475,45 @@ namespace enve
   shell::setup(
     ground::mesh const &ground,
     affine       const &affine_in,
-    std::string  const  method
+    std::string  const  method,
+    bool                checkAffine,
+    real                tolerance
   )
   {
-    // Set the new reference frame
-    if (this->checkTransformation(affine_in))
+    // Othonormality check
+    if (checkAffine && !this->checkTransformation(affine_in, tolerance))
     {
-      this->transform(affine_in);
-    }
-    else
-    {
-      ENVE_ERROR( "enve::shell::setup(ground::mesh, ... ): Not an othonormal and right-handed affine transformation matrix.\n");
+      ENVE_ERROR("enve::shell::setup(mesh, ... ): not an othonormal and right-handed affine transformation matrix.\n");
       return false;
     }
+
+    // Set the new reference frame
+    this->transform(affine_in);
     // Shell Shadow update
     this->updateBBox();
     // Local intersected triangles vector
     triangleground::vecptr localGround;
+    localGround.reserve(200);
     ground.intersection(this->m_aabb, localGround);
 
     // End setup if there are no intersections
     if (localGround.size() < 1)
     {
-      // std::cout << "enve::setup(mesh, affine, threshold, method): WARNING No mesh detected under the shell.\n";
       for (size_t i = 0; i < this->size(); ++i)
         this->m_ribs[i].envelop(affine_in, this->m_out[i]);
       return false;
     }
     else
     {
+      // Calculate ribs candidates to speed up
+      if (method == "geometric")
+        this->updateRibsCandidates(localGround);
+
       // Perform intersection on all ribs
       bool out = false;
       // Find if at least one rib intersect the ground surface
       for (size_t i = 0; i < this->size(); ++i)
-        out = this->m_ribs[i].envelop(localGround, affine_in, method, this->m_out[i]) || out;
+        out = this->m_ribs[i].envelop(localGround, this->m_tris[i], affine_in, method, this->m_out[i]) || out;
       return out;
     }
   }
@@ -503,26 +524,28 @@ namespace enve
   shell::setup(
     ground::flat const &ground,
     affine       const &affine_in,
-    std::string  const  method
+    std::string  const  method,
+    bool                checkAffine,
+    real                tolerance
   )
   {
-    // Set the new reference frame
-    if (this->checkTransformation(affine_in))
+    // Othonormality check
+    if (checkAffine && !this->checkTransformation(affine_in, tolerance))
     {
-      this->transform(affine_in);
-    }
-    else
-    {
-      ENVE_ERROR( "enve::shell::setup(ground::flat, ... ): Not an othonormal and right-handed affine transformation matrix.\n");
+      ENVE_ERROR("enve::shell::setup(flat, ... ): not an othonormal and right-handed affine transformation matrix.\n");
       return false;
     }
+
+    // Set the new reference frame
+    this->transform(affine_in);
     // Shell Shadow update
     this->updateBBox();
 
     // Perform intersection on all ribs
+    bool out = false;
     for (size_t i = 0; i < this->size(); ++i)
-      this->m_ribs[i].envelop(ground, affine_in, method, this->m_out[i]);
-    return true;
+      out = this->m_ribs[i].envelop(ground, affine_in, method, this->m_out[i]);
+    return out;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -563,8 +586,8 @@ namespace enve
 
   void
   shell::contactPoint(
-    size_t i,
-    point &point
+    size_t  i,
+    point  &point
   )
     const
   {
@@ -614,8 +637,8 @@ namespace enve
 
   void
   shell::contactNormal(
-    size_t i,
-    vec3  &normal
+    size_t  i,
+    vec3   &normal
   )
     const
   {
@@ -663,8 +686,9 @@ namespace enve
 
   void
   shell::contactFriction(
-    size_t i,
-    real  &friction)
+    size_t  i,
+    real   &friction
+  )
     const
   {
     friction = this->m_out[i].friction;
@@ -674,7 +698,8 @@ namespace enve
 
   void
   shell::contactFriction(
-    std::vector<real> &friction)
+    std::vector<real> &friction
+  )
     const
   {
     size_t size = this->size(); 
@@ -708,8 +733,8 @@ namespace enve
 
   void
   shell::contactDepth(
-    size_t i,
-    real  &depth
+    size_t  i,
+    real   &depth
   )
     const
   {
@@ -747,8 +772,9 @@ namespace enve
 
   void
   shell::contactArea(
-    size_t i,
-    real  &area)
+    size_t  i,
+    real   &area
+  )
     const
   {
     area = this->m_out[i].area;
@@ -758,7 +784,8 @@ namespace enve
 
   void
   shell::contactArea(
-    std::vector<real> &area)
+    std::vector<real> &area
+  )
     const
   {
     size_t size = this->size(); 
@@ -784,8 +811,9 @@ namespace enve
 
   void
   shell::contactVolume(
-    size_t i,
-    real  &volume)
+    size_t  i,
+    real   &volume
+  )
     const
   {
     volume = this->m_out[i].volume;
@@ -795,7 +823,8 @@ namespace enve
 
   void
   shell::contactVolume(
-    std::vector<real> &volume)
+    std::vector<real> &volume
+  )
     const
   {
     size_t size = this->size(); 
@@ -808,7 +837,8 @@ namespace enve
 
   void
   shell::contactPointAffine(
-    affine &point_affine)
+    affine &point_affine
+  )
     const
   {
     point point;
@@ -826,7 +856,8 @@ namespace enve
   void
   shell::contactPointAffine(
     size_t  i,
-    affine &point_affine)
+    affine &point_affine
+  )
     const
   {
     vec3 x_vec((this->y().cross(this->m_out[i].normal)).normalized());
@@ -839,7 +870,8 @@ namespace enve
 
   void
   shell::contactPointAffine(
-    std::vector<affine> &point_affine)
+    std::vector<affine> &point_affine
+  )
     const
   {
     for (size_t i = 0; i < this->size(); ++i)
@@ -864,8 +896,8 @@ namespace enve
 
   void
   shell::relativeAngles(
-    size_t i,
-    vec3  &angles
+    size_t  i,
+    vec3   &angles
   )
     const
   {
@@ -892,7 +924,8 @@ namespace enve
 
   void
   shell::print(
-    out_stream &os)
+    out_stream &os
+  )
     const
   {
     point point;
@@ -994,6 +1027,51 @@ namespace enve
     
     os << " ------------     END     ------------" << std::endl
        << std::endl;
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  void
+  shell::updateRibsCandidates(
+    triangleground::vecptr const &localGround
+  )
+  {
+    real d0, d1, d2;
+    int  s0, s1, s2;
+    size_t size = this->size();
+
+    std::vector<real> y(size);
+    for (size_t i = 0; i < size; ++i)
+    {
+      y[i] = this->m_ribs[i].center().y();
+      if (!this->m_tris[i].empty())
+        this->m_tris[i].clear();
+    }
+
+    // Create shell middle plane
+    plane shellPlane(this->translation(), this->y());
+
+    // Iterate on triangles
+    for (size_t i = 0; i < localGround.size(); ++i)
+    {
+      // Calculate distance of i-th triangle
+      d0 = shellPlane.signedDistance( localGround[i]->vertex(0) );
+      d1 = shellPlane.signedDistance( localGround[i]->vertex(1) );
+      d2 = shellPlane.signedDistance( localGround[i]->vertex(2) );
+
+      // Iterate on ribs
+      for (size_t j = 0; j < size; ++j)
+      {
+        // Calculate sign of j-th rib distance
+        s0 = int( (real(0.0) < (d0-y[j])) - ((d0-y[j]) < real(0.0)) );
+        s1 = int( (real(0.0) < (d1-y[j])) - ((d1-y[j]) < real(0.0)) );
+        s2 = int( (real(0.0) < (d2-y[j])) - ((d2-y[j]) < real(0.0)) );
+
+        // Fill candidates list
+        if (s0 * s1 * s2 < 1 && std::abs(s0 + s1 + s2) < 2)
+          this->m_tris[j].push_back(i);
+      }
+    }
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

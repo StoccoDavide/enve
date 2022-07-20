@@ -76,14 +76,6 @@
 <span class="cp">#ifndef INCLUDE_ENVE_SHELL</span>
 <span class="cp">#define INCLUDE_ENVE_SHELL</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;numeric&gt;</span><span class="cp"></span>
-
-<span class="cp">#include</span> <span class="cpf">&lt;acme.hh&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;acme_aabb.hh&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;acme_point.hh&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;acme_segment.hh&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;acme_utils.hh&gt;</span><span class="cp"></span>
-
 <span class="cp">#include</span> <span class="cpf">"enve.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"enve_flat.hh"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"enve_mesh.hh"</span><span class="cp"></span>
@@ -112,11 +104,12 @@
     <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">shell</span><span class="o">::</span><span class="n">ptr</span><span class="o">&gt;</span>      <span class="n">vecptr</span><span class="p">;</span>
 
   <span class="k">private</span><span class="o">:</span>
-    <span class="n">affine</span>                 <span class="n">m_affine</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">rib</span><span class="o">&gt;</span>       <span class="n">m_ribs</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">shape</span><span class="o">&gt;</span> <span class="n">m_shape</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span>  <span class="n">m_aabb</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">output</span><span class="o">&gt;</span>    <span class="n">m_out</span><span class="p">;</span>
+    <span class="n">affine</span>                           <span class="n">m_affine</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">rib</span><span class="o">&gt;</span>                 <span class="n">m_ribs</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">shape</span><span class="o">&gt;</span>           <span class="n">m_shape</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">aabb</span><span class="o">&gt;</span>            <span class="n">m_aabb</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">output</span><span class="o">&gt;</span>              <span class="n">m_out</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;&gt;</span> <span class="n">m_tris</span><span class="p">;</span>
 
   <span class="k">public</span><span class="o">:</span>
     <span class="o">~</span><span class="n">shell</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
@@ -135,8 +128,8 @@
     <span class="p">);</span>
 
     <span class="n">shell</span><span class="p">(</span>
-      <span class="kt">size_t</span>       <span class="n">size</span><span class="p">,</span>
-      <span class="n">shape</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">shape_in</span>
+      <span class="kt">size_t</span>        <span class="n">size</span><span class="p">,</span>
+      <span class="n">shape</span>  <span class="k">const</span> <span class="o">&amp;</span><span class="n">shape_in</span>
     <span class="p">);</span>
 
     <span class="kt">void</span>
@@ -257,12 +250,14 @@
 
     <span class="kt">bool</span>
     <span class="nf">checkTransformation</span><span class="p">(</span>
-      <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
+      <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
+      <span class="n">real</span>        <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON_LOW</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">bool</span>
     <span class="nf">checkTransformation</span><span class="p">(</span>
-      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
+      <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
+      <span class="n">real</span>          <span class="n">tolerance</span> <span class="o">=</span> <span class="n">EPSILON_LOW</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="n">vec3</span>
@@ -307,14 +302,18 @@
     <span class="nf">setup</span><span class="p">(</span>
       <span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
       <span class="n">affine</span>       <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span><span class="p">,</span>
+      <span class="kt">bool</span>                <span class="n">checkAffine</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span>
+      <span class="n">real</span>                <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON_LOW</span>
     <span class="p">);</span>
 
     <span class="kt">bool</span>
     <span class="nf">setup</span><span class="p">(</span>
       <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
       <span class="n">affine</span>       <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span><span class="p">,</span>
+      <span class="kt">bool</span>                <span class="n">checkAffine</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span>
+      <span class="n">real</span>                <span class="n">tolerance</span>   <span class="o">=</span> <span class="n">EPSILON_LOW</span>
     <span class="p">);</span>
 
     <span class="cm">/*\</span>
@@ -333,8 +332,8 @@
 
     <span class="kt">void</span>
     <span class="nf">contactPoint</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span>
+      <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+      <span class="n">point</span>  <span class="o">&amp;</span><span class="n">point</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -349,8 +348,8 @@
 
     <span class="kt">void</span>
     <span class="nf">contactNormal</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">vec3</span>  <span class="o">&amp;</span><span class="n">normal</span>
+      <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+      <span class="n">vec3</span>   <span class="o">&amp;</span><span class="n">normal</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -365,8 +364,8 @@
 
     <span class="kt">void</span>
     <span class="nf">contactFriction</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">friction</span>
+      <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+      <span class="n">real</span>   <span class="o">&amp;</span><span class="n">friction</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -381,8 +380,8 @@
 
     <span class="kt">void</span>
     <span class="nf">contactDepth</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth</span>
+      <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+      <span class="n">real</span>   <span class="o">&amp;</span><span class="n">depth</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -397,8 +396,8 @@
 
     <span class="kt">void</span>
     <span class="nf">contactArea</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">area</span>
+      <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+      <span class="n">real</span>   <span class="o">&amp;</span><span class="n">area</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -413,8 +412,8 @@
 
     <span class="kt">void</span>
     <span class="nf">contactVolume</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">real</span>  <span class="o">&amp;</span><span class="n">volume</span>
+      <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+      <span class="n">real</span>   <span class="o">&amp;</span><span class="n">volume</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -445,8 +444,8 @@
 
     <span class="kt">void</span>
     <span class="nf">relativeAngles</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-      <span class="n">vec3</span>  <span class="o">&amp;</span><span class="n">angles</span>
+      <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+      <span class="n">vec3</span>   <span class="o">&amp;</span><span class="n">angles</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
     <span class="kt">void</span>
@@ -458,6 +457,13 @@
     <span class="nf">print</span><span class="p">(</span>
       <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span>
     <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+  <span class="k">private</span><span class="o">:</span>
+
+    <span class="kt">void</span>
+    <span class="n">updateRibsCandidates</span><span class="p">(</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">localGround</span>
+    <span class="p">);</span>
 
   <span class="p">};</span> <span class="c1">// class shell</span>
 

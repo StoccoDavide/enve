@@ -56,10 +56,19 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <numeric>
 
 #include <acme.hh>
+#include <acme_math.hh>
+#include <acme_triangle.hh>
 #include <acme_disk.hh>
+#include <acme_plane.hh>
 #include <acme_utils.hh>
+#include <acme_aabb.hh>
+#include <acme_AABBtree.hh>
+#include <acme_intersection.hh>
+#include <acme_segment.hh>
+#include <acme_point.hh>
 
 using namespace acme;
 

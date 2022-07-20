@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="a00025" kind="class" language="C++" prot="public">
     <compoundname>enve_shell</compoundname>
     <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
@@ -9,6 +9,7 @@
         <definition>Property enve_shell::objectHandle</definition>
         <argsstring></argsstring>
         <name>objectHandle</name>
+        <qualifiedname>enve_shell::objectHandle</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -25,6 +26,7 @@
         <definition>function enve_shell::enve_shell</definition>
         <argsstring>(in varargin)</argsstring>
         <name>enve_shell</name>
+        <qualifiedname>enve_shell::enve_shell</qualifiedname>
         <param>
           <type>in</type>
           <declname>varargin</declname>
@@ -43,6 +45,7 @@
         <definition>function enve_shell::resize</definition>
         <argsstring>(in this, in n, in ignoredArg)</argsstring>
         <name>resize</name>
+        <qualifiedname>enve_shell::resize</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -70,6 +73,7 @@
         <definition>function enve_shell::size</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>size</name>
+        <qualifiedname>enve_shell::size</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -92,6 +96,7 @@
         <definition>function enve_shell::surfaceMaxRadius</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>surfaceMaxRadius</name>
+        <qualifiedname>enve_shell::surfaceMaxRadius</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -114,6 +119,7 @@
         <definition>function enve_shell::surfaceMaxWidth</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>surfaceMaxWidth</name>
+        <qualifiedname>enve_shell::surfaceMaxWidth</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -136,6 +142,7 @@
         <definition>function enve_shell::surfaceWidthBound</definition>
         <argsstring>(in this, in y, in ignoredArg)</argsstring>
         <name>surfaceWidthBound</name>
+        <qualifiedname>enve_shell::surfaceWidthBound</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -162,6 +169,7 @@
         <definition>function enve_shell::surfaceWidth</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>surfaceWidth</name>
+        <qualifiedname>enve_shell::surfaceWidth</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -184,6 +192,7 @@
         <definition>function enve_shell::surfaceRadius</definition>
         <argsstring>(in this, in y, in ignoredArg)</argsstring>
         <name>surfaceRadius</name>
+        <qualifiedname>enve_shell::surfaceRadius</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -210,6 +219,7 @@
         <definition>function enve_shell::surfaceDerivative</definition>
         <argsstring>(in this, in y, in ignoredArg)</argsstring>
         <name>surfaceDerivative</name>
+        <qualifiedname>enve_shell::surfaceDerivative</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -236,6 +246,7 @@
         <definition>function enve_shell::surfaceAngle</definition>
         <argsstring>(in this, in y, in ignoredArg)</argsstring>
         <name>surfaceAngle</name>
+        <qualifiedname>enve_shell::surfaceAngle</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -262,6 +273,7 @@
         <definition>function enve_shell::ribRadius</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>ribRadius</name>
+        <qualifiedname>enve_shell::ribRadius</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -288,6 +300,7 @@
         <definition>function enve_shell::ribCenter</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>ribCenter</name>
+        <qualifiedname>enve_shell::ribCenter</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -314,6 +327,7 @@
         <definition>function enve_shell::ribWidth</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>ribWidth</name>
+        <qualifiedname>enve_shell::ribWidth</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -340,6 +354,7 @@
         <definition>function enve_shell::translate</definition>
         <argsstring>(in this, in vector, in ignoredArg)</argsstring>
         <name>translate</name>
+        <qualifiedname>enve_shell::translate</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -366,6 +381,7 @@
         <definition>function enve_shell::translation</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>translation</name>
+        <qualifiedname>enve_shell::translation</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -388,6 +404,7 @@
         <definition>function enve_shell::rotate</definition>
         <argsstring>(in this, in angle, in axis, in ignoredArg)</argsstring>
         <name>rotate</name>
+        <qualifiedname>enve_shell::rotate</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -418,6 +435,7 @@
         <definition>function enve_shell::rotation</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>rotation</name>
+        <qualifiedname>enve_shell::rotation</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -440,6 +458,7 @@
         <definition>function enve_shell::transform</definition>
         <argsstring>(in this, in matrix, in ignoredArg)</argsstring>
         <name>transform</name>
+        <qualifiedname>enve_shell::transform</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -466,6 +485,7 @@
         <definition>function enve_shell::transformation</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>transformation</name>
+        <qualifiedname>enve_shell::transformation</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -488,6 +508,7 @@
         <definition>function enve_shell::x</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>x</name>
+        <qualifiedname>enve_shell::x</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -510,6 +531,7 @@
         <definition>function enve_shell::y</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>y</name>
+        <qualifiedname>enve_shell::y</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -532,6 +554,7 @@
         <definition>function enve_shell::z</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>z</name>
+        <qualifiedname>enve_shell::z</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -554,6 +577,7 @@
         <definition>function enve_shell::eulerAngles</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>eulerAngles</name>
+        <qualifiedname>enve_shell::eulerAngles</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -576,6 +600,7 @@
         <definition>function enve_shell::setupFlat</definition>
         <argsstring>(in this, in flat, in transform, in method, in ignoredArg)</argsstring>
         <name>setupFlat</name>
+        <qualifiedname>enve_shell::setupFlat</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -610,6 +635,7 @@
         <definition>function enve_shell::setupMesh</definition>
         <argsstring>(in this, in mesh, in transform, in method, in ignoredArg)</argsstring>
         <name>setupMesh</name>
+        <qualifiedname>enve_shell::setupMesh</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -644,6 +670,7 @@
         <definition>function enve_shell::contactPointAvg</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactPointAvg</name>
+        <qualifiedname>enve_shell::contactPointAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -666,6 +693,7 @@
         <definition>function enve_shell::contactPointRib</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>contactPointRib</name>
+        <qualifiedname>enve_shell::contactPointRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -692,6 +720,7 @@
         <definition>function enve_shell::contactPointVec</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactPointVec</name>
+        <qualifiedname>enve_shell::contactPointVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -714,6 +743,7 @@
         <definition>function enve_shell::contactNormalAvg</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactNormalAvg</name>
+        <qualifiedname>enve_shell::contactNormalAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -736,6 +766,7 @@
         <definition>function enve_shell::contactNormalRib</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>contactNormalRib</name>
+        <qualifiedname>enve_shell::contactNormalRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -762,6 +793,7 @@
         <definition>function enve_shell::contactNormalVec</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactNormalVec</name>
+        <qualifiedname>enve_shell::contactNormalVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -784,6 +816,7 @@
         <definition>function enve_shell::contactDepthAvg</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactDepthAvg</name>
+        <qualifiedname>enve_shell::contactDepthAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -806,6 +839,7 @@
         <definition>function enve_shell::contactDepthRib</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>contactDepthRib</name>
+        <qualifiedname>enve_shell::contactDepthRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -832,6 +866,7 @@
         <definition>function enve_shell::contactDepthVec</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactDepthVec</name>
+        <qualifiedname>enve_shell::contactDepthVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -854,6 +889,7 @@
         <definition>function enve_shell::contactFrictionAvg</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactFrictionAvg</name>
+        <qualifiedname>enve_shell::contactFrictionAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -876,6 +912,7 @@
         <definition>function enve_shell::contactFrictionRib</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>contactFrictionRib</name>
+        <qualifiedname>enve_shell::contactFrictionRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -902,6 +939,7 @@
         <definition>function enve_shell::contactFrictionVec</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactFrictionVec</name>
+        <qualifiedname>enve_shell::contactFrictionVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -924,6 +962,7 @@
         <definition>function enve_shell::contactAreaAvg</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactAreaAvg</name>
+        <qualifiedname>enve_shell::contactAreaAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -946,6 +985,7 @@
         <definition>function enve_shell::contactAreaRib</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>contactAreaRib</name>
+        <qualifiedname>enve_shell::contactAreaRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -972,6 +1012,7 @@
         <definition>function enve_shell::contactAreaVec</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactAreaVec</name>
+        <qualifiedname>enve_shell::contactAreaVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -994,6 +1035,7 @@
         <definition>function enve_shell::contactVolumeAvg</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactVolumeAvg</name>
+        <qualifiedname>enve_shell::contactVolumeAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1016,6 +1058,7 @@
         <definition>function enve_shell::contactVolumeRib</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>contactVolumeRib</name>
+        <qualifiedname>enve_shell::contactVolumeRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1042,6 +1085,7 @@
         <definition>function enve_shell::contactVolumeVec</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactVolumeVec</name>
+        <qualifiedname>enve_shell::contactVolumeVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1064,6 +1108,7 @@
         <definition>function enve_shell::relativeAnglesAvg</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>relativeAnglesAvg</name>
+        <qualifiedname>enve_shell::relativeAnglesAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1086,6 +1131,7 @@
         <definition>function enve_shell::relativeAnglesRib</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>relativeAnglesRib</name>
+        <qualifiedname>enve_shell::relativeAnglesRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1112,6 +1158,7 @@
         <definition>function enve_shell::relativeAnglesVec</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>relativeAnglesVec</name>
+        <qualifiedname>enve_shell::relativeAnglesVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1134,6 +1181,7 @@
         <definition>function enve_shell::contactPointAffineAvg</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactPointAffineAvg</name>
+        <qualifiedname>enve_shell::contactPointAffineAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1156,6 +1204,7 @@
         <definition>function enve_shell::contactPointAffineRib</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>contactPointAffineRib</name>
+        <qualifiedname>enve_shell::contactPointAffineRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1182,6 +1231,7 @@
         <definition>function enve_shell::contactPointAffineVec</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>contactPointAffineVec</name>
+        <qualifiedname>enve_shell::contactPointAffineVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1204,6 +1254,7 @@
         <definition>function enve_shell::disp</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>disp</name>
+        <qualifiedname>enve_shell::disp</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1226,6 +1277,7 @@
         <definition>function enve_shell::profile</definition>
         <argsstring>(in this, in figure_name, in color, in ignoredArg)</argsstring>
         <name>profile</name>
+        <qualifiedname>enve_shell::profile</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1256,6 +1308,7 @@
         <definition>function enve_shell::shapeTplot</definition>
         <argsstring>(in this, in T, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>shapeTplot</name>
+        <qualifiedname>enve_shell::shapeTplot</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1294,6 +1347,7 @@
         <definition>function enve_shell::shellShape</definition>
         <argsstring>(in this, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>shellShape</name>
+        <qualifiedname>enve_shell::shellShape</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1328,6 +1382,7 @@
         <definition>function enve_shell::plotShape</definition>
         <argsstring>(in this, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>plotShape</name>
+        <qualifiedname>enve_shell::plotShape</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1362,6 +1417,7 @@
         <definition>function enve_shell::enveTplot</definition>
         <argsstring>(in this, in T, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>enveTplot</name>
+        <qualifiedname>enve_shell::enveTplot</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1400,6 +1456,7 @@
         <definition>function enve_shell::shellEnve</definition>
         <argsstring>(in this, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>shellEnve</name>
+        <qualifiedname>enve_shell::shellEnve</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1434,6 +1491,7 @@
         <definition>function enve_shell::plotEnve</definition>
         <argsstring>(in this, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>plotEnve</name>
+        <qualifiedname>enve_shell::plotEnve</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1468,6 +1526,7 @@
         <definition>function enve_shell::ribsTplot</definition>
         <argsstring>(in this, in T, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>ribsTplot</name>
+        <qualifiedname>enve_shell::ribsTplot</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1506,6 +1565,7 @@
         <definition>function enve_shell::shellRibs</definition>
         <argsstring>(in this, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>shellRibs</name>
+        <qualifiedname>enve_shell::shellRibs</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1540,6 +1600,7 @@
         <definition>function enve_shell::plotRibs</definition>
         <argsstring>(in this, in figure_name, in color, in scale, in ignoredArg)</argsstring>
         <name>plotRibs</name>
+        <qualifiedname>enve_shell::plotRibs</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1574,6 +1635,7 @@
         <definition>function enve_shell::plotSetupAvg</definition>
         <argsstring>(in this, in figure_name, in scale, in ignoredArg)</argsstring>
         <name>plotSetupAvg</name>
+        <qualifiedname>enve_shell::plotSetupAvg</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1604,6 +1666,7 @@
         <definition>function enve_shell::plotSetupRib</definition>
         <argsstring>(in this, in i, in figure_name, in scale, in ignoredArg)</argsstring>
         <name>plotSetupRib</name>
+        <qualifiedname>enve_shell::plotSetupRib</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1638,6 +1701,7 @@
         <definition>function enve_shell::plotSetupVec</definition>
         <argsstring>(in this, in figure_name, in scale, in ignoredArg)</argsstring>
         <name>plotSetupVec</name>
+        <qualifiedname>enve_shell::plotSetupVec</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1668,6 +1732,7 @@
         <definition>function enve_shell::meshShell</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>meshShell</name>
+        <qualifiedname>enve_shell::meshShell</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -1690,6 +1755,7 @@
         <definition>function enve_shell::type</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>type</name>
+        <qualifiedname>enve_shell::type</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>

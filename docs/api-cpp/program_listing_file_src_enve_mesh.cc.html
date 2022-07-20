@@ -103,7 +103,8 @@
     <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
     <span class="n">mesh</span><span class="o">::</span><span class="n">mesh</span><span class="p">(</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">)</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangles</span>
+    <span class="p">)</span>
       <span class="o">:</span> <span class="n">mesh</span><span class="p">()</span>
     <span class="p">{</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span> <span class="o">=</span> <span class="n">triangles</span><span class="p">;</span>
@@ -114,29 +115,32 @@
     <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
     <span class="n">mesh</span><span class="o">::</span><span class="n">mesh</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">path</span><span class="p">)</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">path</span>
+    <span class="p">)</span>
       <span class="o">:</span> <span class="n">mesh</span><span class="p">()</span>
     <span class="p">{</span>
       <span class="kt">bool</span> <span class="n">load_bool</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
-      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">load_bool</span><span class="p">,</span> <span class="s">"Error while reading file</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">load_bool</span><span class="p">,</span> <span class="s">"enve::mesh::mesh(path): error while reading file.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
     <span class="n">mesh</span><span class="o">::</span><span class="n">mesh</span><span class="p">(</span>
       <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">path</span><span class="p">,</span>
-      <span class="n">real</span>               <span class="n">friction</span><span class="p">)</span>
+      <span class="n">real</span>               <span class="n">friction</span>
+    <span class="p">)</span>
       <span class="o">:</span> <span class="n">mesh</span><span class="p">()</span>
     <span class="p">{</span>
       <span class="kt">bool</span> <span class="n">load_bool</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">friction</span><span class="p">);</span>
-      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">load_bool</span><span class="p">,</span> <span class="s">"Error while reading file</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">load_bool</span><span class="p">,</span> <span class="s">"enve::mesh::mesh(path, friction): error while reading file.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
 
     <span class="kt">void</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span>
-      <span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">mesh_in</span><span class="p">)</span>
+      <span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">mesh_in</span>
+    <span class="p">)</span>
     <span class="p">{</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span> <span class="o">=</span> <span class="n">mesh_in</span><span class="p">.</span><span class="n">m_triangles</span><span class="p">;</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span>    <span class="o">=</span> <span class="n">mesh_in</span><span class="p">.</span><span class="n">m_bboxes</span><span class="p">;</span>
@@ -169,7 +173,8 @@
 
     <span class="n">triangleground</span><span class="o">::</span><span class="n">ptr</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">ptrTriangleground</span><span class="p">(</span>
-      <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+      <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">)</span>
       <span class="k">const</span>
     <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -188,7 +193,8 @@
 
     <span class="kt">void</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">print</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">path</span><span class="p">)</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">path</span>
+    <span class="p">)</span>
       <span class="k">const</span>
     <span class="p">{</span>
       <span class="c1">// Create Out.txt</span>
@@ -247,40 +253,34 @@
       <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">path</span>
     <span class="p">)</span>
     <span class="p">{</span>
+      <span class="c1">// Start loading mesh</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Loading *.rdf mesh... "</span><span class="p">;</span>
+
       <span class="c1">// Check if the file is an ".rdf" file, if not return false</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">!=</span> <span class="s">".rdf"</span><span class="p">)</span>
       <span class="p">{</span>
-        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::load(path): not a *.rdf file!"</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::mesh::load(path): not a *.rdf file.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="c1">// Check if the file had been correctly open, if not return false</span>
       <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span>
       <span class="p">{</span>
-        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::load(path): *.rdf file not opened"</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::mesh::load(path): *.rdf file not opened.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="c1">// Vector for nodes coordinates</span>
       <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">nodes</span><span class="p">;</span>
+      <span class="n">nodes</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">25000</span><span class="p">);</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>
       <span class="kt">bool</span>               <span class="n">nodes_parse</span>    <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
       <span class="kt">bool</span>               <span class="n">elements_parse</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
 
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
-      <span class="k">const</span> <span class="kt">size_t</span> <span class="n">output_every</span>     <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
-      <span class="kt">size_t</span>       <span class="n">output_indicator</span> <span class="o">=</span> <span class="n">output_every</span><span class="p">;</span>
-<span class="cp">#endif</span>
       <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">curline</span><span class="p">;</span>
       <span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">curline</span><span class="p">))</span>
       <span class="p">{</span>
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">output_indicator</span> <span class="o">=</span> <span class="p">((</span><span class="n">output_indicator</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">output_every</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="p">{</span>
-          <span class="n">std</span><span class="o">::</span><span class="n">cout</span>
-            <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r</span><span class="s">Loading *.rdf mesh... "</span>
-            <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>
-            <span class="o">&lt;&lt;</span> <span class="s">" triangles detected "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-<span class="cp">#endif</span>
         <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">token</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">firstToken</span><span class="p">(</span><span class="n">curline</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">token</span> <span class="o">==</span> <span class="s">"[NODES]"</span> <span class="o">||</span> <span class="n">token</span> <span class="o">==</span> <span class="s">"NODES"</span><span class="p">)</span>
         <span class="p">{</span>
@@ -328,10 +328,10 @@
           <span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
           <span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>   <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
           <span class="n">ifriction</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 0 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 1 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 2 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ifriction</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element friction cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 0 index cannot be negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 1 index cannot be negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element 2 index cannot be negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ifriction</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path): element friction cannot be negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
           <span class="c1">// Create a shared pointer for the last triangle and push it in the pointer vector</span>
           <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">triangleground</span> <span class="k">const</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
@@ -341,27 +341,24 @@
           <span class="k">continue</span><span class="p">;</span>
         <span class="p">}</span>
       <span class="p">}</span>
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="cp">#endif</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+                <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" triangles detected"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+                <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
       <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
       <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
       <span class="p">{</span>
-        <span class="n">perror</span><span class="p">(</span><span class="s">"Loaded mesh is empty"</span><span class="p">);</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::mesh::load(path): *.rdf loaded mesh is empty"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="k">else</span>
       <span class="p">{</span>
         <span class="c1">// Update the local intersected triangles list</span>
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
         <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Building AABB tree... "</span><span class="p">;</span>
-<span class="cp">#endif</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBoxes</span><span class="p">();</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_AABBtree</span><span class="o">-&gt;</span><span class="n">build</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">);</span>
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
         <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
                   <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="cp">#endif</span>
         <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -374,38 +371,33 @@
       <span class="n">real</span>               <span class="n">friction</span>
     <span class="p">)</span>
     <span class="p">{</span>
+      <span class="c1">// Start loading mesh</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Loading *.obj mesh... "</span><span class="p">;</span>
+
       <span class="c1">// Check if the file is an ".obj" file, if not return false</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">!=</span> <span class="s">".obj"</span><span class="p">)</span>
       <span class="p">{</span>
-        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::load(path, friction): not a *.obj file"</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::mesh::load(path, friction): not a *.obj file.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="c1">// Check if the file had been correctly open, if not return false</span>
       <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span>
       <span class="p">{</span>
-        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::load(path, friction): *.obj file not opened"</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::mesh::load(path, friction): *.obj file not opened.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
+
       <span class="c1">// Vector for nodes coordinates</span>
       <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">nodes</span><span class="p">;</span>
+      <span class="n">nodes</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">25000</span><span class="p">);</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>
 
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
-      <span class="k">const</span> <span class="kt">size_t</span> <span class="n">output_every</span>     <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
-      <span class="kt">size_t</span>       <span class="n">output_indicator</span> <span class="o">=</span> <span class="n">output_every</span><span class="p">;</span>
-<span class="cp">#endif</span>
       <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">curline</span><span class="p">;</span>
       <span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">curline</span><span class="p">))</span>
       <span class="p">{</span>
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">output_indicator</span> <span class="o">=</span> <span class="p">((</span><span class="n">output_indicator</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">output_every</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="p">{</span>
-          <span class="n">std</span><span class="o">::</span><span class="n">cout</span>
-            <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r</span><span class="s">Loading *.obj mesh... "</span>
-            <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>
-            <span class="o">&lt;&lt;</span> <span class="s">" triangles detected "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-        <span class="p">}</span>
-<span class="cp">#endif</span>
         <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">token</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">firstToken</span><span class="p">(</span><span class="n">curline</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">token</span> <span class="o">==</span> <span class="s">"v"</span><span class="p">)</span>
         <span class="p">{</span>
@@ -428,9 +420,9 @@
           <span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
           <span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
           <span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">spos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path, friction): element 0 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path, friction): element 1 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path, friction): element 2 index cannot be negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path, friction): element 0 index cannot be negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path, friction): element 1 index cannot be negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ipos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::ground::load(path, friction): element 2 index cannot be negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
           <span class="c1">// Create a shared pointer for the last triangle and push it in the pointer vector</span>
           <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">triangleground</span> <span class="k">const</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">ipos</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
@@ -445,27 +437,24 @@
           <span class="k">continue</span><span class="p">;</span>
         <span class="p">}</span>
       <span class="p">}</span>
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="cp">#endif</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+                <span class="o">&lt;&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" triangles detected"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+                <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
       <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
       <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
       <span class="p">{</span>
-        <span class="n">perror</span><span class="p">(</span><span class="s">"Loaded mesh is empty"</span><span class="p">);</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::mesh::load(path, friction): *.obj loaded mesh is empty"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="k">else</span>
       <span class="p">{</span>
         <span class="c1">// Update the local intersected triangles list</span>
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
         <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Building AABB tree... "</span><span class="p">;</span>
-<span class="cp">#endif</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBoxes</span><span class="p">();</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_AABBtree</span><span class="o">-&gt;</span><span class="n">build</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">);</span>
-<span class="cp">#ifdef ENVE_CONSOLE_OUTPUT</span>
         <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
                   <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="cp">#endif</span>
         <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -474,8 +463,9 @@
 
     <span class="kt">bool</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span>
-      <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span>     <span class="n">ptrAABBtree</span><span class="p">,</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">)</span>
+      <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span>          <span class="k">const</span>  <span class="n">ptrAABBtree</span><span class="p">,</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span><span class="n">triangles</span>
+    <span class="p">)</span>
       <span class="k">const</span>
     <span class="p">{</span>
       <span class="n">triangles</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
@@ -490,8 +480,9 @@
 
     <span class="kt">bool</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span>
-      <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span>     <span class="o">&amp;</span><span class="n">ptrVecbox</span><span class="p">,</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">)</span>
+      <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span>           <span class="k">const</span> <span class="o">&amp;</span><span class="n">ptrVecbox</span><span class="p">,</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span><span class="n">triangles</span>
+    <span class="p">)</span>
       <span class="k">const</span>
     <span class="p">{</span>
       <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">ptrAABBtree</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">&gt;</span><span class="p">());</span>
@@ -503,8 +494,9 @@
 
     <span class="kt">bool</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span>
-      <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span>         <span class="n">ptrbox</span><span class="p">,</span>
-      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="o">&amp;</span><span class="n">triangles</span><span class="p">)</span>
+      <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span>              <span class="k">const</span>  <span class="n">ptrbox</span><span class="p">,</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span><span class="n">triangles</span>
+    <span class="p">)</span>
       <span class="k">const</span>
     <span class="p">{</span>
       <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="n">ptrVecbox</span><span class="p">;</span>
@@ -531,9 +523,10 @@
 
     <span class="kt">void</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">split</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>        <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span>        <span class="o">&amp;</span><span class="n">token</span><span class="p">)</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span>              <span class="k">const</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span>       <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span>              <span class="k">const</span> <span class="o">&amp;</span><span class="n">token</span>
+    <span class="p">)</span>
       <span class="k">const</span>
     <span class="p">{</span>
       <span class="n">out</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
@@ -572,7 +565,8 @@
 
     <span class="n">std</span><span class="o">::</span><span class="n">string</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">tail</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">)</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">in</span>
+    <span class="p">)</span>
       <span class="k">const</span>
     <span class="p">{</span>
       <span class="kt">size_t</span> <span class="n">token_start</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">find_first_not_of</span><span class="p">(</span><span class="s">" </span><span class="se">\t</span><span class="s">"</span><span class="p">);</span>
@@ -594,7 +588,8 @@
 
     <span class="n">std</span><span class="o">::</span><span class="n">string</span>
     <span class="n">mesh</span><span class="o">::</span><span class="n">firstToken</span><span class="p">(</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">)</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">in</span>
+    <span class="p">)</span>
       <span class="k">const</span>
     <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">in</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>

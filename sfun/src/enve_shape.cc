@@ -58,7 +58,8 @@ namespace enve
     real m_x,
     real r_y,
     real m_y,
-    real l_y)
+    real l_y
+  )
     : m_r_x(r_x),
       m_m_x(m_x),
       m_r_y(r_y),
@@ -71,7 +72,8 @@ namespace enve
 
   void
   shape::copy(
-    shape const &shape_in)
+    shape const &shape_in
+  )
   {
     this->m_r_x = shape_in.m_r_x;
     this->m_m_x = shape_in.m_m_x;
@@ -222,7 +224,7 @@ namespace enve
     const
   {
     real y_abs = std::abs(y);
-    ENVE_ASSERT(y_abs <= this->m_l_y, "enve::surfaceRadius(y): y coordinate is out of shape overall volume.");
+    ENVE_ASSERT(y_abs <= this->m_l_y, "enve::surfaceRadius(y): y coordinate is out of shape overall volume.\n");
     return std::pow(1.0 - std::pow(y_abs / this->m_r_y, this->m_m_y), 1.0 / this->m_m_x) * this->m_r_x;
   }
 
@@ -241,11 +243,12 @@ namespace enve
   real
   shape::surfaceDerivative(
     real y,
-    real tolerance)
+    real tolerance
+  )
     const
   {
     real y_abs = std::abs(y);
-    ENVE_ASSERT(this->checkWidthBound(y), "enve::surfaceDerivative(y, tolerance): y coordinate is out of shape overall volume.");
+    ENVE_ASSERT(this->checkWidthBound(y), "enve::surfaceDerivative(y, tolerance): y coordinate is out of shape overall volume.\n");
     if (y_abs > tolerance)
     {
       real sign  = y / y_abs;
@@ -264,7 +267,8 @@ namespace enve
   real
   shape::surfaceAngle(
     real y,
-    real tolerance)
+    real tolerance
+  )
     const
   {
     return std::atan(this->surfaceDerivative(y, tolerance));
@@ -274,7 +278,8 @@ namespace enve
 
   void
   shape::print(
-    out_stream &os)
+    out_stream &os
+  )
     const
   {
     os << "Shell shape parameters:" << std::endl

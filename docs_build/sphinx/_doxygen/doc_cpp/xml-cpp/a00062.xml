@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="a00062" kind="class" language="C++" prot="public">
     <compoundname>enve::rib</compoundname>
     <basecompoundref prot="public" virt="non-virtual">disk</basecompoundref>
@@ -10,6 +10,7 @@
         <definition>typedef std::shared_ptr&lt;rib const&gt; enve::rib::ptr</definition>
         <argsstring></argsstring>
         <name>ptr</name>
+        <qualifiedname>enve::rib::ptr</qualifiedname>
         <briefdescription>
 <para>Pointer to rib object. </para>
         </briefdescription>
@@ -24,6 +25,7 @@
         <definition>typedef std::vector&lt;rib::ptr&gt; enve::rib::vecptr</definition>
         <argsstring></argsstring>
         <name>vecptr</name>
+        <qualifiedname>enve::rib::vecptr</qualifiedname>
         <briefdescription>
 <para>Vector of pointers to rib objects. </para>
         </briefdescription>
@@ -40,6 +42,7 @@
         <definition>real enve::rib::m_width</definition>
         <argsstring></argsstring>
         <name>m_width</name>
+        <qualifiedname>enve::rib::m_width</qualifiedname>
         <briefdescription>
 <para>Rib width (m) </para>
         </briefdescription>
@@ -48,16 +51,17 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/enve_rib.hh" line="65" column="10" bodyfile="include/enve_rib.hh" bodystart="65" bodyend="-1"/>
-        <referencedby refid="a00062_1a517c9a544cb726f5c510e466e332a44b" compoundref="a00029" startline="158" endline="166">copy</referencedby>
-        <referencedby refid="a00062_1aefecf30015022cd81b3fec1b109c1d3e" compoundref="a00029" startline="205" endline="214">isApprox</referencedby>
-        <referencedby refid="a00062_1a2d8ac0496517c3b9febd64ec962368bf" compoundref="a00029" startline="138" endline="153">operator=</referencedby>
-        <referencedby refid="a00062_1ad858355272ad73057208b4052ddef9f2" compoundref="a00029" startline="171" endline="175">width</referencedby>
+        <referencedby refid="a00062_1a517c9a544cb726f5c510e466e332a44b" compoundref="a00029" startline="163" endline="171">copy</referencedby>
+        <referencedby refid="a00062_1aefecf30015022cd81b3fec1b109c1d3e" compoundref="a00029" startline="210" endline="219">isApprox</referencedby>
+        <referencedby refid="a00062_1a2d8ac0496517c3b9febd64ec962368bf" compoundref="a00029" startline="143" endline="158">operator=</referencedby>
+        <referencedby refid="a00062_1ad858355272ad73057208b4052ddef9f2" compoundref="a00029" startline="176" endline="180">width</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00062_1a21be5d0b7ed69dfe64f6aa1f1a3e6703" prot="private" static="no" mutable="no">
         <type>real</type>
         <definition>real enve::rib::m_angle</definition>
         <argsstring></argsstring>
         <name>m_angle</name>
+        <qualifiedname>enve::rib::m_angle</qualifiedname>
         <briefdescription>
 <para>Rib inclination angle (rad) </para>
         </briefdescription>
@@ -66,10 +70,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/enve_rib.hh" line="66" column="10" bodyfile="include/enve_rib.hh" bodystart="66" bodyend="-1"/>
-        <referencedby refid="a00062_1aed5c4d8fd8ef8bf886fd0f6104a04856" compoundref="a00029" startline="180" endline="184">angle</referencedby>
-        <referencedby refid="a00062_1a517c9a544cb726f5c510e466e332a44b" compoundref="a00029" startline="158" endline="166">copy</referencedby>
-        <referencedby refid="a00062_1aefecf30015022cd81b3fec1b109c1d3e" compoundref="a00029" startline="205" endline="214">isApprox</referencedby>
-        <referencedby refid="a00062_1a2d8ac0496517c3b9febd64ec962368bf" compoundref="a00029" startline="138" endline="153">operator=</referencedby>
+        <referencedby refid="a00062_1aed5c4d8fd8ef8bf886fd0f6104a04856" compoundref="a00029" startline="185" endline="189">angle</referencedby>
+        <referencedby refid="a00062_1a517c9a544cb726f5c510e466e332a44b" compoundref="a00029" startline="163" endline="171">copy</referencedby>
+        <referencedby refid="a00062_1aefecf30015022cd81b3fec1b109c1d3e" compoundref="a00029" startline="210" endline="219">isApprox</referencedby>
+        <referencedby refid="a00062_1a2d8ac0496517c3b9febd64ec962368bf" compoundref="a00029" startline="143" endline="158">operator=</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -78,6 +82,7 @@
         <definition>enve::rib::~rib</definition>
         <argsstring>(void)</argsstring>
         <name>~rib</name>
+        <qualifiedname>enve::rib::~rib</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -95,6 +100,7 @@
         <definition>enve::rib::rib</definition>
         <argsstring>(rib const &amp;)=default</argsstring>
         <name>rib</name>
+        <qualifiedname>enve::rib::rib</qualifiedname>
         <param>
           <type><ref refid="a00062" kindref="compound">rib</ref> const &amp;</type>
         </param>
@@ -112,6 +118,7 @@
         <definition>enve::rib::rib</definition>
         <argsstring>(rib &amp;&amp;)=default</argsstring>
         <name>rib</name>
+        <qualifiedname>enve::rib::rib</qualifiedname>
         <param>
           <type><ref refid="a00062" kindref="compound">rib</ref> &amp;&amp;</type>
         </param>
@@ -129,6 +136,7 @@
         <definition>enve::rib::rib</definition>
         <argsstring>(void)</argsstring>
         <name>rib</name>
+        <qualifiedname>enve::rib::rib</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -146,6 +154,7 @@
         <definition>enve::rib::rib</definition>
         <argsstring>(real radius, plane const &amp;plane, real width, real angle)</argsstring>
         <name>rib</name>
+        <qualifiedname>enve::rib::rib</qualifiedname>
         <param>
           <type>real</type>
           <declname>radius</declname>
@@ -177,13 +186,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="82" column="5" bodyfile="src/enve_rib.cc" bodystart="65" bodyend="74"/>
+        <location file="include/enve_rib.hh" line="82" column="5" bodyfile="src/enve_rib.cc" bodystart="65" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a709ecc6a1c0f7f3f3af0a08b0a83cac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::rib::rib</definition>
         <argsstring>(real radius, plane const &amp;plane)</argsstring>
         <name>rib</name>
+        <qualifiedname>enve::rib::rib</qualifiedname>
         <param>
           <type>real</type>
           <declname>radius</declname>
@@ -203,13 +213,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="89" column="5" bodyfile="src/enve_rib.cc" bodystart="78" bodyend="85"/>
+        <location file="include/enve_rib.hh" line="89" column="5" bodyfile="src/enve_rib.cc" bodystart="79" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a3eabe1238dd592e07cb8db78bd8b41b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::rib::rib</definition>
         <argsstring>(real radius, point const &amp;center, vec3 const &amp;normal, real width, real angle)</argsstring>
         <name>rib</name>
+        <qualifiedname>enve::rib::rib</qualifiedname>
         <param>
           <type>real</type>
           <declname>radius</declname>
@@ -247,13 +258,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="94" column="5" bodyfile="src/enve_rib.cc" bodystart="89" bodyend="99"/>
+        <location file="include/enve_rib.hh" line="94" column="5" bodyfile="src/enve_rib.cc" bodystart="91" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1ae838df721115c71e1355c92081eca8a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::rib::rib</definition>
         <argsstring>(real radius, real center_x, real center_y, real center_z, real normal_x, real normal_y, real normal_z, real width, real angle)</argsstring>
         <name>rib</name>
+        <qualifiedname>enve::rib::rib</qualifiedname>
         <param>
           <type>real</type>
           <declname>radius</declname>
@@ -315,13 +327,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="103" column="5" bodyfile="src/enve_rib.cc" bodystart="103" bodyend="117"/>
+        <location file="include/enve_rib.hh" line="103" column="5" bodyfile="src/enve_rib.cc" bodystart="106" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1ae0cfc81388fe110c9e9776bdd448eb3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::rib::rib</definition>
         <argsstring>(real radius, real center_x, real center_y, real center_z, real normal_x, real normal_y, real normal_z)</argsstring>
         <name>rib</name>
+        <qualifiedname>enve::rib::rib</qualifiedname>
         <param>
           <type>real</type>
           <declname>radius</declname>
@@ -371,13 +384,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="115" column="5" bodyfile="src/enve_rib.cc" bodystart="121" bodyend="133"/>
+        <location file="include/enve_rib.hh" line="115" column="5" bodyfile="src/enve_rib.cc" bodystart="125" bodyend="138"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a2d8ac0496517c3b9febd64ec962368bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="a00062" kindref="compound">rib</ref> &amp;</type>
         <definition>rib &amp; enve::rib::operator=</definition>
         <argsstring>(rib const &amp;rib_in)</argsstring>
         <name>operator=</name>
+        <qualifiedname>enve::rib::operator=</qualifiedname>
         <param>
           <type><ref refid="a00062" kindref="compound">rib</ref> const &amp;</type>
           <declname>rib_in</declname>
@@ -391,13 +405,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="126" column="5" bodyfile="src/enve_rib.cc" bodystart="138" bodyend="153"/>
+        <location file="include/enve_rib.hh" line="126" column="5" bodyfile="src/enve_rib.cc" bodystart="143" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a517c9a544cb726f5c510e466e332a44b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void enve::rib::copy</definition>
         <argsstring>(rib const &amp;rib_in)</argsstring>
         <name>copy</name>
+        <qualifiedname>enve::rib::copy</qualifiedname>
         <param>
           <type><ref refid="a00062" kindref="compound">rib</ref> const &amp;</type>
           <declname>rib_in</declname>
@@ -411,13 +426,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="132" column="5" bodyfile="src/enve_rib.cc" bodystart="158" bodyend="166"/>
+        <location file="include/enve_rib.hh" line="132" column="5" bodyfile="src/enve_rib.cc" bodystart="163" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1ad858355272ad73057208b4052ddef9f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::rib::width</definition>
         <argsstring>(void) const</argsstring>
         <name>width</name>
+        <qualifiedname>enve::rib::width</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -428,15 +444,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="138" column="5" bodyfile="src/enve_rib.cc" bodystart="171" bodyend="175"/>
-        <referencedby refid="a00062_1a432d988edac7834291ce40638205bdb6" compoundref="a00029" startline="279" endline="371">envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="424" endline="484">envelopSampling</referencedby>
+        <location file="include/enve_rib.hh" line="138" column="5" bodyfile="src/enve_rib.cc" bodystart="176" bodyend="180"/>
+        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="381">envelopGeometric</referencedby>
+        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="434" endline="493">envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00062_1aed5c4d8fd8ef8bf886fd0f6104a04856" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::rib::angle</definition>
         <argsstring>(void) const</argsstring>
         <name>angle</name>
+        <qualifiedname>enve::rib::angle</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -447,13 +464,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="142" column="5" bodyfile="src/enve_rib.cc" bodystart="180" bodyend="184"/>
+        <location file="include/enve_rib.hh" line="142" column="5" bodyfile="src/enve_rib.cc" bodystart="185" bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a64c18ecdbd65aef499aa5d03353cb745" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
         <definition>real &amp; enve::rib::width</definition>
         <argsstring>(void)</argsstring>
         <name>width</name>
+        <qualifiedname>enve::rib::width</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -464,13 +482,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="146" column="5" bodyfile="src/enve_rib.cc" bodystart="189" bodyend="192"/>
+        <location file="include/enve_rib.hh" line="146" column="5" bodyfile="src/enve_rib.cc" bodystart="194" bodyend="197"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a1d751f7fdfed182a58cf4f65db85e9d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
         <definition>real &amp; enve::rib::angle</definition>
         <argsstring>(void)</argsstring>
         <name>angle</name>
+        <qualifiedname>enve::rib::angle</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -481,13 +500,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="150" column="5" bodyfile="src/enve_rib.cc" bodystart="197" bodyend="200"/>
+        <location file="include/enve_rib.hh" line="150" column="5" bodyfile="src/enve_rib.cc" bodystart="202" bodyend="205"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1aefecf30015022cd81b3fec1b109c1d3e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::isApprox</definition>
         <argsstring>(rib const &amp;rib_in, real tolerance=EPSILON_LOW) const</argsstring>
         <name>isApprox</name>
+        <qualifiedname>enve::rib::isApprox</qualifiedname>
         <param>
           <type><ref refid="a00062" kindref="compound">rib</ref> const &amp;</type>
           <declname>rib_in</declname>
@@ -508,13 +528,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="154" column="5" bodyfile="src/enve_rib.cc" bodystart="205" bodyend="214"/>
+        <location file="include/enve_rib.hh" line="154" column="5" bodyfile="src/enve_rib.cc" bodystart="210" bodyend="219"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a7cc299985f5a98e68de6df64937b5af2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::envelop</definition>
         <argsstring>(affine const &amp;affine_in, output &amp;out) const</argsstring>
         <name>envelop</name>
+        <qualifiedname>enve::rib::envelop</qualifiedname>
         <param>
           <type>affine const &amp;</type>
           <declname>affine_in</declname>
@@ -534,18 +555,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="161" column="5" bodyfile="src/enve_rib.cc" bodystart="257" bodyend="274"/>
+        <location file="include/enve_rib.hh" line="161" column="5" bodyfile="src/enve_rib.cc" bodystart="263" bodyend="280"/>
       </memberdef>
-      <memberdef kind="function" id="a00062_1a205bc03a38124eb8326b11be9ca70a11" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00062_1adb63785090cac3b4cf046c214ca2dc82" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::envelop</definition>
-        <argsstring>(triangleground::vecptr const &amp;localGround, affine const &amp;affine_in, std::string const method, output &amp;out) const</argsstring>
+        <argsstring>(triangleground::vecptr const &amp;localGround, std::vector&lt; size_t &gt; const &amp;tris, affine const &amp;affine_in, std::string const method, output &amp;out) const</argsstring>
         <name>envelop</name>
+        <qualifiedname>enve::rib::envelop</qualifiedname>
         <param>
           <type><ref refid="a00074_1a1f4cea2747925d4b294879cdf2f50711" kindref="member">triangleground::vecptr</ref> const &amp;</type>
           <declname>localGround</declname>
           <briefdescription><para>Local triangles candidate list </para>
 </briefdescription>
+        </param>
+        <param>
+          <type>std::vector&lt; size_t &gt; const &amp;</type>
+          <declname>tris</declname>
         </param>
         <param>
           <type>affine const &amp;</type>
@@ -572,13 +598,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="168" column="5" bodyfile="src/enve_rib.cc" bodystart="219" bodyend="233"/>
+        <location file="include/enve_rib.hh" line="168" column="5" bodyfile="src/enve_rib.cc" bodystart="224" bodyend="239"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a15189b302c5116518072ddb6e52069fb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::envelop</definition>
         <argsstring>(ground::flat const &amp;localGround, affine const &amp;affine_in, std::string const method, output &amp;out) const</argsstring>
         <name>envelop</name>
+        <qualifiedname>enve::rib::envelop</qualifiedname>
         <param>
           <type><ref refid="a00050" kindref="compound">ground::flat</ref> const &amp;</type>
           <declname>localGround</declname>
@@ -610,18 +637,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="177" column="5" bodyfile="src/enve_rib.cc" bodystart="238" bodyend="252"/>
+        <location file="include/enve_rib.hh" line="178" column="5" bodyfile="src/enve_rib.cc" bodystart="244" bodyend="258"/>
       </memberdef>
-      <memberdef kind="function" id="a00062_1a432d988edac7834291ce40638205bdb6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::envelopGeometric</definition>
-        <argsstring>(triangleground::vecptr const &amp;localGround, affine const &amp;affine_in, output &amp;out) const</argsstring>
+        <argsstring>(triangleground::vecptr const &amp;localGround, std::vector&lt; size_t &gt; const &amp;tris, affine const &amp;affine_in, output &amp;out) const</argsstring>
         <name>envelopGeometric</name>
+        <qualifiedname>enve::rib::envelopGeometric</qualifiedname>
         <param>
           <type><ref refid="a00074_1a1f4cea2747925d4b294879cdf2f50711" kindref="member">triangleground::vecptr</ref> const &amp;</type>
           <declname>localGround</declname>
           <briefdescription><para>Local triangles candidate list </para>
 </briefdescription>
+        </param>
+        <param>
+          <type>std::vector&lt; size_t &gt; const &amp;</type>
+          <declname>tris</declname>
         </param>
         <param>
           <type>affine const &amp;</type>
@@ -642,14 +674,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="186" column="5" bodyfile="src/enve_rib.cc" bodystart="279" bodyend="371"/>
-        <referencedby refid="a00062_1a205bc03a38124eb8326b11be9ca70a11" compoundref="a00029" startline="219" endline="233">envelop</referencedby>
+        <location file="include/enve_rib.hh" line="187" column="5" bodyfile="src/enve_rib.cc" bodystart="285" bodyend="381"/>
+        <referencedby refid="a00062_1adb63785090cac3b4cf046c214ca2dc82" compoundref="a00029" startline="224" endline="239">envelop</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00062_1aab9a96fab4f1267b9433ec1f56b2ede8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::envelopGeometric</definition>
         <argsstring>(ground::flat const &amp;localGround, affine const &amp;affine_in, output &amp;out) const</argsstring>
         <name>envelopGeometric</name>
+        <qualifiedname>enve::rib::envelopGeometric</qualifiedname>
         <param>
           <type><ref refid="a00050" kindref="compound">ground::flat</ref> const &amp;</type>
           <declname>localGround</declname>
@@ -675,13 +708,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="194" column="5" bodyfile="src/enve_rib.cc" bodystart="376" bodyend="419"/>
+        <location file="include/enve_rib.hh" line="196" column="5" bodyfile="src/enve_rib.cc" bodystart="386" bodyend="429"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a32692f0230cff42f6e6197a8871d1a99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::envelopSampling</definition>
         <argsstring>(triangleground::vecptr const &amp;localGround, affine const &amp;affine_in, output &amp;out) const</argsstring>
         <name>envelopSampling</name>
+        <qualifiedname>enve::rib::envelopSampling</qualifiedname>
         <param>
           <type><ref refid="a00074_1a1f4cea2747925d4b294879cdf2f50711" kindref="member">triangleground::vecptr</ref> const &amp;</type>
           <declname>localGround</declname>
@@ -707,14 +741,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="202" column="5" bodyfile="src/enve_rib.cc" bodystart="424" bodyend="484"/>
-        <referencedby refid="a00062_1a205bc03a38124eb8326b11be9ca70a11" compoundref="a00029" startline="219" endline="233">envelop</referencedby>
+        <location file="include/enve_rib.hh" line="204" column="5" bodyfile="src/enve_rib.cc" bodystart="434" bodyend="493"/>
+        <referencedby refid="a00062_1adb63785090cac3b4cf046c214ca2dc82" compoundref="a00029" startline="224" endline="239">envelop</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00062_1aa352329d282547ef8d1298cff8089db5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::envelopSampling</definition>
         <argsstring>(ground::flat const &amp;localGround, affine const &amp;affine_in, output &amp;out) const</argsstring>
         <name>envelopSampling</name>
+        <qualifiedname>enve::rib::envelopSampling</qualifiedname>
         <param>
           <type><ref refid="a00050" kindref="compound">ground::flat</ref> const &amp;</type>
           <declname>localGround</declname>
@@ -740,7 +775,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="210" column="5" bodyfile="src/enve_rib.cc" bodystart="489" bodyend="549"/>
+        <location file="include/enve_rib.hh" line="212" column="5" bodyfile="src/enve_rib.cc" bodystart="498" bodyend="557"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -749,6 +784,7 @@
         <definition>bool enve::rib::samplingLine</definition>
         <argsstring>(triangleground::vecptr const &amp;localGround, point const &amp;origin, vec3 const &amp;direction, point &amp;contactPoint, vec3 &amp;contactNormal, real &amp;contactFriction) const</argsstring>
         <name>samplingLine</name>
+        <qualifiedname>enve::rib::samplingLine</qualifiedname>
         <param>
           <type><ref refid="a00074_1a1f4cea2747925d4b294879cdf2f50711" kindref="member">triangleground::vecptr</ref> const &amp;</type>
           <declname>localGround</declname>
@@ -792,14 +828,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="219" column="5" bodyfile="src/enve_rib.cc" bodystart="554" bodyend="618"/>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="424" endline="484">envelopSampling</referencedby>
+        <location file="include/enve_rib.hh" line="221" column="5" bodyfile="src/enve_rib.cc" bodystart="562" bodyend="630"/>
+        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="434" endline="493">envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00062_1ad3141e45ab81272c1bfa2de2a2b04e12" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::samplingLine</definition>
         <argsstring>(ground::flat const &amp;localGround, point const &amp;origin, vec3 const &amp;direction, point &amp;contactPoint, vec3 &amp;contactNormal, real &amp;contactFriction) const</argsstring>
         <name>samplingLine</name>
+        <qualifiedname>enve::rib::samplingLine</qualifiedname>
         <param>
           <type><ref refid="a00050" kindref="compound">ground::flat</ref> const &amp;</type>
           <declname>localGround</declname>
@@ -843,13 +880,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="230" column="5" bodyfile="src/enve_rib.cc" bodystart="623" bodyend="643"/>
+        <location file="include/enve_rib.hh" line="232" column="5" bodyfile="src/enve_rib.cc" bodystart="635" bodyend="655"/>
       </memberdef>
       <memberdef kind="function" id="a00062_1a0d3c4fc55421420518ef57b612c5d42c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::rib::intersection</definition>
         <argsstring>(line const &amp;line_in, triangle const &amp;triangle_in, point &amp;point_out, real tolerance) const</argsstring>
         <name>intersection</name>
+        <qualifiedname>enve::rib::intersection</qualifiedname>
         <param>
           <type>line const &amp;</type>
           <declname>line_in</declname>
@@ -881,7 +919,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_rib.hh" line="243" column="5" bodyfile="src/enve_rib.cc" bodystart="648" bodyend="683"/>
+        <location file="include/enve_rib.hh" line="245" column="5" bodyfile="src/enve_rib.cc" bodystart="660" bodyend="695"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -911,15 +949,15 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/enve_rib.hh" line="58" column="3" bodyfile="include/enve_rib.hh" bodystart="59" bodyend="250"/>
+    <location file="include/enve_rib.hh" line="58" column="3" bodyfile="include/enve_rib.hh" bodystart="59" bodyend="252"/>
     <listofallmembers>
       <member refid="a00062_1aed5c4d8fd8ef8bf886fd0f6104a04856" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>angle</name></member>
       <member refid="a00062_1a1d751f7fdfed182a58cf4f65db85e9d1" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>angle</name></member>
       <member refid="a00062_1a517c9a544cb726f5c510e466e332a44b" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>copy</name></member>
       <member refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelop</name></member>
-      <member refid="a00062_1a205bc03a38124eb8326b11be9ca70a11" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelop</name></member>
+      <member refid="a00062_1adb63785090cac3b4cf046c214ca2dc82" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelop</name></member>
       <member refid="a00062_1a15189b302c5116518072ddb6e52069fb" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelop</name></member>
-      <member refid="a00062_1a432d988edac7834291ce40638205bdb6" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelopGeometric</name></member>
+      <member refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelopGeometric</name></member>
       <member refid="a00062_1aab9a96fab4f1267b9433ec1f56b2ede8" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelopGeometric</name></member>
       <member refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelopSampling</name></member>
       <member refid="a00062_1aa352329d282547ef8d1298cff8089db5" prot="public" virt="non-virtual"><scope>enve::rib</scope><name>envelopSampling</name></member>

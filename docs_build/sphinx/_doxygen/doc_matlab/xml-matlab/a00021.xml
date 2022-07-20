@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="a00021" kind="class" language="C++" prot="public">
     <compoundname>enve_mesh</compoundname>
     <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
@@ -9,6 +9,7 @@
         <definition>Property enve_mesh::objectHandle</definition>
         <argsstring></argsstring>
         <name>objectHandle</name>
+        <qualifiedname>enve_mesh::objectHandle</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -25,6 +26,7 @@
         <definition>function enve_mesh::enve_mesh</definition>
         <argsstring>(in varargin)</argsstring>
         <name>enve_mesh</name>
+        <qualifiedname>enve_mesh::enve_mesh</qualifiedname>
         <param>
           <type>in</type>
           <declname>varargin</declname>
@@ -43,6 +45,7 @@
         <definition>function enve_mesh::getTriangleground</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>getTriangleground</name>
+        <qualifiedname>enve_mesh::getTriangleground</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -70,6 +73,7 @@
         <definition>function enve_mesh::getTriangle</definition>
         <argsstring>(in this, in i, in ignoredArg)</argsstring>
         <name>getTriangle</name>
+        <qualifiedname>enve_mesh::getTriangle</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -96,6 +100,7 @@
         <definition>function enve_mesh::size</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>size</name>
+        <qualifiedname>enve_mesh::size</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -118,6 +123,7 @@
         <definition>function enve_mesh::copy</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>copy</name>
+        <qualifiedname>enve_mesh::copy</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -144,6 +150,7 @@
         <definition>function enve_mesh::copyByHandle</definition>
         <argsstring>(in this, in handle, in ignoredArg)</argsstring>
         <name>copyByHandle</name>
+        <qualifiedname>enve_mesh::copyByHandle</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -170,6 +177,7 @@
         <definition>function enve_mesh::disp</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>disp</name>
+        <qualifiedname>enve_mesh::disp</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -191,6 +199,7 @@
         <definition>function enve_mesh::plot</definition>
         <argsstring>(in this, in figure_name, in color, in ignoredArg)</argsstring>
         <name>plot</name>
+        <qualifiedname>enve_mesh::plot</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -221,6 +230,7 @@
         <definition>function enve_mesh::type</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>type</name>
+        <qualifiedname>enve_mesh::type</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>

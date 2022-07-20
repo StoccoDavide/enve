@@ -34,9 +34,6 @@
 #ifndef INCLUDE_ENVE_FLAT
 #define INCLUDE_ENVE_FLAT
 
-#include <acme.hh>
-#include <acme_plane.hh>
-
 #include "enve.hh"
 
 using namespace acme;

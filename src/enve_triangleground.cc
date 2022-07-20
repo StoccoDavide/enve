@@ -71,7 +71,8 @@ namespace enve
     real vertex2_x,
     real vertex2_y,
     real vertex2_z,
-    real friction)
+    real friction
+  )
     : triangle(vertex0_x, vertex0_y, vertex0_z, vertex1_x, vertex1_y, vertex1_z, vertex2_x, vertex2_y, vertex2_z),
       m_friction(friction)
   {
@@ -88,7 +89,8 @@ namespace enve
     point const &point0,
     point const &point1,
     point const &point2,
-    real         friction)
+    real         friction
+  )
     : triangle(point0, point1, point2),
       m_friction(friction)
   {
@@ -100,7 +102,8 @@ namespace enve
 
   triangleground::triangleground(
     point const vertex[3],
-    real        friction)
+    real        friction
+  )
     : triangle(vertex),
       m_friction(friction)
   {
@@ -112,7 +115,8 @@ namespace enve
 
   void
   triangleground::copy(
-    triangleground const &triangleground_in)
+    triangleground const &triangleground_in
+  )
   {
     triangle::operator=(triangleground_in);
     this->m_friction  = triangleground_in.m_friction;
@@ -125,7 +129,8 @@ namespace enve
   bool
   triangleground::isApprox(
     triangleground const &triangleground_in,
-    real                  tolerance)
+    real                  tolerance
+  )
     const
   {
     return this->vertex(0).isApprox(triangleground_in.vertex(0)) &&
@@ -183,7 +188,8 @@ namespace enve
 
   point const &
   triangleground::operator[](
-    size_t i)
+    size_t i
+  )
     const
   {
     return triangle::vertex(i);
@@ -193,7 +199,8 @@ namespace enve
 
   point const &
   triangleground::vertex(
-    size_t i)
+    size_t i
+  )
     const
   {
     return triangle::vertex(i);
@@ -203,7 +210,8 @@ namespace enve
 
   point &
   triangleground::operator[](
-    size_t i)
+    size_t i
+  )
   {
     return triangle::vertex(i);
   }
@@ -212,7 +220,8 @@ namespace enve
 
   point &
   triangleground::vertex(
-    size_t i)
+    size_t i
+  )
   {
     return triangle::vertex(i);
   }

@@ -50,7 +50,7 @@ main()
     // Instantiate a TicToc object
     Utils::TicToc tictoc;
 
-    std::cout << "ENVE TERRAIN SERVER TIMING TEST" << std::endl
+    std::cout << "ENVE TERRAIN SERVER TIMING TEST 1" << std::endl
               << std::endl;
 
     // Load .rdf File
@@ -77,7 +77,7 @@ main()
     real frequency = 1000; // Hz
     real speed     = 10;   // m/s
 
-    // Set starting and arrival positions ("geometric")
+    // Set starting and arrival positions
     //point start(1.7, -140.0, 0.3);   // 24.13 triangles (22.0% of duty cycle - 20 ribs)
     //point arrival(0.4, +140.0, 0.3); // 24.13 triangles
     //point start(5.0, -140.0, 0.3);   // 5.52 triangles (4.8% of duty cycle - 20 ribs)
@@ -153,7 +153,7 @@ main()
 
     // This constructs a duration object using milliseconds
     std::cout << std::endl
-              << "ENVE TIMING TEST: Completed" << std::endl
+              << "ENVE TIMING TEST 1: Completed" << std::endl
               << std::endl;
   }
   catch (std::exception const &exc)
@@ -162,6 +162,6 @@ main()
   }
   catch (...)
   {
-    std::cerr << "ENVE TIMING TEST: Unknown error" << std::endl;
+    std::cerr << "ENVE TIMING TEST 1: Unknown error" << std::endl;
   }
 }

@@ -34,9 +34,6 @@
 #ifndef INCLUDE_ENVE_SHAPE
 #define INCLUDE_ENVE_SHAPE
 
-#include <acme.hh>
-#include <acme_math.hh>
-
 #include "enve.hh"
 
 using namespace acme;

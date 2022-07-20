@@ -34,9 +34,6 @@
 #ifndef INCLUDE_ENVE_OUTPUT
 #define INCLUDE_ENVE_OUTPUT
 
-#include <acme.hh>
-#include <acme_point.hh>
-
 #include "enve.hh"
 
 using namespace acme;

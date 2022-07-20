@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.2" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.4" xml:lang="en-US">
   <compound refid="a00050" kind="class"><name>enve::ground::flat</name>
     <member refid="a00050_1a159c72538bd75b2f02a2744efb9bf442" kind="typedef"><name>ptr</name></member>
     <member refid="a00050_1ab9e0ffcbf413e6ac215b2789baa27a0e" kind="typedef"><name>vecptr</name></member>
@@ -49,12 +49,12 @@
     <member refid="a00054_1aea68871e91b61586560848ed2428dcd9" kind="function"><name>firstToken</name></member>
   </compound>
   <compound refid="a00058" kind="struct"><name>enve::output</name>
-    <member refid="a00058_1a10861f23b47b771fa0ad3e3f3a9f496d" kind="variable"><name>point</name></member>
-    <member refid="a00058_1a86b9f8f045012e9b431ee236e74bc3cc" kind="variable"><name>normal</name></member>
-    <member refid="a00058_1a36868226b72abde95c19fe9c9af99101" kind="variable"><name>friction</name></member>
-    <member refid="a00058_1a57ca0dac1335fa3801b6c2be24ebcc5d" kind="variable"><name>depth</name></member>
-    <member refid="a00058_1adac29223172de5fec03fe29c1a89e924" kind="variable"><name>area</name></member>
-    <member refid="a00058_1a7b02cda7b7415344063c4cb000e2f75a" kind="variable"><name>volume</name></member>
+    <member refid="a00058_1af837ad25131da4cb4e19347ec8dde425" kind="variable"><name>point</name></member>
+    <member refid="a00058_1ad3600294ac2beb33fadfb3488f604967" kind="variable"><name>normal</name></member>
+    <member refid="a00058_1abfb93c7838b3decda3fede1dd14b0e80" kind="variable"><name>friction</name></member>
+    <member refid="a00058_1a858ebcf8a5dc2004c55df908ebf9eec1" kind="variable"><name>depth</name></member>
+    <member refid="a00058_1af5ab7b574218c1b899d3f1630ba293de" kind="variable"><name>area</name></member>
+    <member refid="a00058_1a96825ad48818cf04cb9df013b7b95bb2" kind="variable"><name>volume</name></member>
   </compound>
   <compound refid="a00062" kind="class"><name>enve::rib</name>
     <member refid="a00062_1aaa9b09748c9ba3b5474eebaa2e847e4c" kind="typedef"><name>ptr</name></member>
@@ -78,9 +78,9 @@
     <member refid="a00062_1a1d751f7fdfed182a58cf4f65db85e9d1" kind="function"><name>angle</name></member>
     <member refid="a00062_1aefecf30015022cd81b3fec1b109c1d3e" kind="function"><name>isApprox</name></member>
     <member refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" kind="function"><name>envelop</name></member>
-    <member refid="a00062_1a205bc03a38124eb8326b11be9ca70a11" kind="function"><name>envelop</name></member>
+    <member refid="a00062_1adb63785090cac3b4cf046c214ca2dc82" kind="function"><name>envelop</name></member>
     <member refid="a00062_1a15189b302c5116518072ddb6e52069fb" kind="function"><name>envelop</name></member>
-    <member refid="a00062_1a432d988edac7834291ce40638205bdb6" kind="function"><name>envelopGeometric</name></member>
+    <member refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" kind="function"><name>envelopGeometric</name></member>
     <member refid="a00062_1aab9a96fab4f1267b9433ec1f56b2ede8" kind="function"><name>envelopGeometric</name></member>
     <member refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" kind="function"><name>envelopSampling</name></member>
     <member refid="a00062_1aa352329d282547ef8d1298cff8089db5" kind="function"><name>envelopSampling</name></member>
@@ -130,6 +130,7 @@
     <member refid="a00070_1a442a1c35765c1b3c01a4e20772fddef9" kind="variable"><name>m_shape</name></member>
     <member refid="a00070_1a1950f8b6966e0277bf7b9266bb8929af" kind="variable"><name>m_aabb</name></member>
     <member refid="a00070_1a9bd07491e1b481f02a5d7206b34cf346" kind="variable"><name>m_out</name></member>
+    <member refid="a00070_1a0b5749ee6bdd624106639a620a87076d" kind="variable"><name>m_tris</name></member>
     <member refid="a00070_1a9e3dfd623bc883cb0dbab5fdad026a26" kind="function"><name>~shell</name></member>
     <member refid="a00070_1a7840e1d408713ab4eb4b91e5c3912e07" kind="function"><name>shell</name></member>
     <member refid="a00070_1afda23b623e717fdd16126eb5de7685e0" kind="function"><name>shell</name></member>
@@ -157,16 +158,16 @@
     <member refid="a00070_1af5191a07e4f5385296139baf44c74caa" kind="function"><name>transform</name></member>
     <member refid="a00070_1a5ea27e946e4bae2651823ff03a605665" kind="function"><name>transform</name></member>
     <member refid="a00070_1ab8206d37a830c82ad372d3276556630a" kind="function"><name>transformation</name></member>
-    <member refid="a00070_1a47cae6494f70886cd2a201251fecb32c" kind="function"><name>checkTransformation</name></member>
-    <member refid="a00070_1ae3ec347179adeeb7d1fb03cd7eed2f7c" kind="function"><name>checkTransformation</name></member>
+    <member refid="a00070_1a64761619387af085656a4d5c3bf77cd2" kind="function"><name>checkTransformation</name></member>
+    <member refid="a00070_1abc165d9d4d52d4394f42018b6e901d5c" kind="function"><name>checkTransformation</name></member>
     <member refid="a00070_1ad7868ccdd90b807c75684cb51c256d03" kind="function"><name>x</name></member>
     <member refid="a00070_1a1de4c83db18282e37892c7adb0224232" kind="function"><name>y</name></member>
     <member refid="a00070_1a79039f854236a5ae427da3f0868f988a" kind="function"><name>z</name></member>
     <member refid="a00070_1a3758f1248a4e9a9487682560d75ae823" kind="function"><name>eulerAngles</name></member>
     <member refid="a00070_1ac9d1d2c263ae78a9b221120262cd9454" kind="function"><name>BBox</name></member>
     <member refid="a00070_1a2752d2f553b89f2b722c14f98380b025" kind="function"><name>updateBBox</name></member>
-    <member refid="a00070_1ad2f17102d34fe2239688b38bede9868b" kind="function"><name>setup</name></member>
-    <member refid="a00070_1a6776c577268f032d0d158f74cc431d99" kind="function"><name>setup</name></member>
+    <member refid="a00070_1ad9280ec1aea116a96674f6a1f9df7fe6" kind="function"><name>setup</name></member>
+    <member refid="a00070_1a3246315053841cddc5aabdd01e2a66d4" kind="function"><name>setup</name></member>
     <member refid="a00070_1a1117628a990224ce2537e5bcea64ce0f" kind="function"><name>contactPoint</name></member>
     <member refid="a00070_1a89109d80eb8c4365b5c7c3cc2a3946f8" kind="function"><name>contactPoint</name></member>
     <member refid="a00070_1a5e7cd77d99b01e92288fd0e5ed884bb6" kind="function"><name>contactPoint</name></member>
@@ -192,6 +193,7 @@
     <member refid="a00070_1ae48557597d39b647eac55a03704bdfc3" kind="function"><name>relativeAngles</name></member>
     <member refid="a00070_1a23d2a9c7d4bc4b10558e05941582df2d" kind="function"><name>relativeAngles</name></member>
     <member refid="a00070_1a1a425eec93c459c7542b22b1c28c5417" kind="function"><name>print</name></member>
+    <member refid="a00070_1a1eaaa97bbc0fd4bb414b3945857ac421" kind="function"><name>updateRibsCandidates</name></member>
   </compound>
   <compound refid="a00074" kind="class"><name>enve::triangleground</name>
     <member refid="a00074_1a3e14a04aa4f4e4db9097e821f546ce61" kind="typedef"><name>ptr</name></member>
@@ -235,7 +237,6 @@
   </compound>
   <compound refid="a00011" kind="file"><name>enve_mesh.hh</name>
     <member refid="a00011_1ad517377dad23671ba7ebf182d3dc81b7" kind="define"><name>INCLUDE_ENVE_MESH</name></member>
-    <member refid="a00011_1a00751197d46b68281547bd97ad8f0ab5" kind="define"><name>ENVE_CONSOLE_OUTPUT</name></member>
   </compound>
   <compound refid="a00005" kind="file"><name>enve_output.hh</name>
     <member refid="a00005_1a7aae512d7783170d5e417747fc4893b0" kind="define"><name>INCLUDE_ENVE_OUTPUT</name></member>

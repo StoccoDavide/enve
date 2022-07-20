@@ -34,14 +34,6 @@
 #ifndef INCLUDE_ENVE_SHELL
 #define INCLUDE_ENVE_SHELL
 
-#include <numeric>
-
-#include <acme.hh>
-#include <acme_aabb.hh>
-#include <acme_point.hh>
-#include <acme_segment.hh>
-#include <acme_utils.hh>
-
 #include "enve.hh"
 #include "enve_flat.hh"
 #include "enve_mesh.hh"
@@ -71,11 +63,12 @@ namespace enve
     typedef std::vector<shell::ptr>      vecptr; //!< Vector of pointers to shell objects
 
   private:
-    affine                 m_affine; //!< Shell reference frame (ISO)
-    std::vector<rib>       m_ribs;   //!< Shell ribs vector
-    std::shared_ptr<shape> m_shape;  //!< Shell shape
-    std::shared_ptr<aabb>  m_aabb;   //!< Shell bounding aabb (must be transformed in the mesh reference frame before intersection!)
-    std::vector<output>    m_out;    //!< Contact parameters output vector
+    affine                           m_affine; //!< Shell reference frame (ISO)
+    std::vector<rib>                 m_ribs;   //!< Shell ribs vector
+    std::shared_ptr<shape>           m_shape;  //!< Shell shape
+    std::shared_ptr<aabb>            m_aabb;   //!< Shell bounding aabb (must be transformed in the mesh reference frame before intersection!)
+    std::vector<output>              m_out;    //!< Contact parameters output vector
+    std::vector<std::vector<size_t>> m_tris;   //!< Candidates triangle vector
 
   public:
     //! Shell class destructor
@@ -99,8 +92,8 @@ namespace enve
 
     //! Shell class constructor
     shell(
-      size_t       size,    //!< Input ribs number
-      shape const &shape_in //!< Input shape object
+      size_t        size,    //!< Input ribs number
+      shape  const &shape_in //!< Input shape object
     );
 
     //! Resize shell size, position and stored contact results
@@ -166,7 +159,7 @@ namespace enve
       size_t i //!< Input index
     ) const;
 
-    //! Get i-th rib unloaded radius (m)
+    //! Get i-th rib center (m)
     point
     ribCenter(
       size_t i //!< Input index
@@ -246,13 +239,15 @@ namespace enve
     //! Check if 4x4 affine transformation matrix is othornormal and right-handed
     bool
     checkTransformation(
-      mat4 const &affine_in //!< Input 4x4 affine transformation matrix
+      mat4 const &affine_in,              //!< Input 4x4 affine transformation matrix
+      real        tolerance = EPSILON_LOW //!< Affine trasformation othonomality check tolerance
     ) const;
 
     //! Check if 4x4 affine transformation matrix is othornormal and right-handed
     bool
     checkTransformation(
-      affine const &affine_in //!< Input 4x4 affine transformation matrix
+      affine const &affine_in,              //!< Input 4x4 affine transformation matrix
+      real          tolerance = EPSILON_LOW //!< Affine trasformation othonomality check tolerance
     ) const;
 
     //! Get x vector
@@ -303,17 +298,21 @@ namespace enve
     //! Update current shell position and find contact parameters (intersection with mesh)
     bool
     setup(
-      ground::mesh const &ground,    //!< ENVE mesh object (ground)
-      affine       const &affine_in, //!< 4x4 affine transformation matrix
-      std::string  const  method     //!< Method name (choose from: "geometric" or "sampling")
+      ground::mesh const &ground,                   //!< Mesh ground object
+      affine       const &affine_in,                //!< 4x4 affine transformation matrix
+      std::string  const  method,                   //!< Method name (choose from: "geometric" or "sampling")
+      bool                checkAffine = false,      //!< Affine trasformation othonomality check
+      real                tolerance   = EPSILON_LOW //!< Affine trasformation othonomality check tolerance
     );
 
     //! Update current shell position and find contact parameters (intersection with plane)
     bool
     setup(
-      ground::flat const &ground,    //!< ENVE flat object (ground)
-      affine       const &affine_in, //!< 4x4 affine transformation
-      std::string  const  method     //!< Method name (choose from: "geometric" or "sampling")
+      ground::flat const &ground,                   //!< Flat ground object
+      affine       const &affine_in,                //!< 4x4 affine transformation
+      std::string  const  method,                   //!< Method name (choose from: "geometric" or "sampling")
+      bool                checkAffine = false,      //!< Affine trasformation othonomality check
+      real                tolerance   = EPSILON_LOW //!< Affine trasformation othonomality check tolerance
     );
 
     /*\
@@ -334,8 +333,8 @@ namespace enve
     //! Get contact point
     void
     contactPoint(
-      size_t i,    //!< Input i-th index
-      point &point //!< Contact point
+      size_t  i,    //!< Input i-th index
+      point  &point //!< Contact point
     ) const;
 
     //! Get contact points vector
@@ -353,8 +352,8 @@ namespace enve
     //! Get contact normal vector for the i-th rib
     void
     contactNormal(
-      size_t i,     //!< Input i-th index
-      vec3  &normal //!< Contact point normal direction
+      size_t  i,     //!< Input i-th index
+      vec3   &normal //!< Contact point normal direction
     ) const;
 
     //! Get contact normal vectors vector
@@ -372,8 +371,8 @@ namespace enve
     //! Get i-th rib contact friction coefficient
     void
     contactFriction(
-      size_t i,       //!< Input i-th index
-      real  &friction //!< Contact friction coefficient
+      size_t  i,       //!< Input i-th index
+      real   &friction //!< Contact friction coefficient
     ) const;
 
     //! Get contact friction coefficient vector
@@ -391,8 +390,8 @@ namespace enve
     //! Get contact depth at center point for the i-th rib (m) (projected on rib plane)
     void
     contactDepth(
-      size_t i,    //!< Input i-th index
-      real  &depth //!< Contact depth
+      size_t  i,    //!< Input i-th index
+      real   &depth //!< Contact depth
     ) const;
 
     //! Get contact depth vector (m) (projected on rib plane)
@@ -410,8 +409,8 @@ namespace enve
     //! Get i-th rib contact area (m^2)
     void
     contactArea(
-      size_t i,    //!< Input i-th index
-      real  &area //!< Contact area
+      size_t  i,    //!< Input i-th index
+      real   &area //!< Contact area
     ) const;
 
     //! Get contact area vector (m^2)
@@ -429,8 +428,8 @@ namespace enve
     //! Get i-th rib contact volume (m^3)
     void
     contactVolume(
-      size_t i,     //!< Input i-th index
-      real  &volume //!< Contact volume
+      size_t  i,     //!< Input i-th index
+      real   &volume //!< Contact volume
     ) const;
 
     //! Get contact volume vector (m^3)
@@ -469,8 +468,8 @@ namespace enve
     //! WARNING: Rotation sequence ZXY!
     void
     relativeAngles(
-      size_t i,     //!< Input i-th index
-      vec3  &angles //!< Relative angles vector (rad)
+      size_t  i,     //!< Input i-th index
+      vec3   &angles //!< Relative angles vector (rad)
     ) const;
 
     //! Get shell relative angles as vector (rad) \n
@@ -485,6 +484,14 @@ namespace enve
     print(
       out_stream &os //!< Output stream type
     ) const;
+
+  private:
+
+    //! Update the list of ribs candidates
+    void
+    updateRibsCandidates(
+      triangleground::vecptr const &localGround //!< Local triangles candidate list
+    );
 
   }; // class shell
 

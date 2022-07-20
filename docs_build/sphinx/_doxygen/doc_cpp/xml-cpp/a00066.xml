@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="a00066" kind="class" language="C++" prot="public">
     <compoundname>enve::shape</compoundname>
     <includes refid="a00020" local="no">enve_shape.hh</includes>
@@ -9,6 +9,7 @@
         <definition>typedef std::shared_ptr&lt;shape const&gt; enve::shape::ptr</definition>
         <argsstring></argsstring>
         <name>ptr</name>
+        <qualifiedname>enve::shape::ptr</qualifiedname>
         <briefdescription>
 <para>Pointer to shape object. </para>
         </briefdescription>
@@ -16,13 +17,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="60" column="29" bodyfile="include/enve_shape.hh" bodystart="60" bodyend="-1"/>
+        <location file="include/enve_shape.hh" line="57" column="29" bodyfile="include/enve_shape.hh" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="a00066_1a49d70ac4952e445499b69eb28f182eb8" prot="public" static="no">
         <type>std::vector&lt; <ref refid="a00066_1a3ce2310bdfbf3557035dc8133d0b0f88" kindref="member">shape::ptr</ref> &gt;</type>
         <definition>typedef std::vector&lt;shape::ptr&gt; enve::shape::vecptr</definition>
         <argsstring></argsstring>
         <name>vecptr</name>
+        <qualifiedname>enve::shape::vecptr</qualifiedname>
         <briefdescription>
 <para>Vector of pointers to shape objects. </para>
         </briefdescription>
@@ -30,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="61" column="30" bodyfile="include/enve_shape.hh" bodystart="61" bodyend="-1"/>
+        <location file="include/enve_shape.hh" line="58" column="30" bodyfile="include/enve_shape.hh" bodystart="58" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -39,6 +41,7 @@
         <definition>real enve::shape::m_r_x</definition>
         <argsstring></argsstring>
         <name>m_r_x</name>
+        <qualifiedname>enve::shape::m_r_x</qualifiedname>
         <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Section radius on x axis (m) </para>
@@ -47,20 +50,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="64" column="10" bodyfile="include/enve_shape.hh" bodystart="64" bodyend="-1"/>
-        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="73" endline="81">copy</referencedby>
-        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="86" endline="97">isApprox</referencedby>
-        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="276" endline="287">print</referencedby>
-        <referencedby refid="a00066_1a362ae4ce951c9a6da83819f58b909c8b" compoundref="a00035" startline="102" endline="106">Rx</referencedby>
-        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="242" endline="260">surfaceDerivative</referencedby>
-        <referencedby refid="a00066_1ac85f00278892b2330e9325209a16e478" compoundref="a00035" startline="187" endline="191">surfaceMaxRadius</referencedby>
-        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="219" endline="227">surfaceRadius</referencedby>
+        <location file="include/enve_shape.hh" line="61" column="10" bodyfile="include/enve_shape.hh" bodystart="61" bodyend="-1"/>
+        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="74" endline="83">copy</referencedby>
+        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="88" endline="99">isApprox</referencedby>
+        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="280" endline="292">print</referencedby>
+        <referencedby refid="a00066_1a362ae4ce951c9a6da83819f58b909c8b" compoundref="a00035" startline="104" endline="108">Rx</referencedby>
+        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="244" endline="263">surfaceDerivative</referencedby>
+        <referencedby refid="a00066_1ac85f00278892b2330e9325209a16e478" compoundref="a00035" startline="189" endline="193">surfaceMaxRadius</referencedby>
+        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="221" endline="229">surfaceRadius</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00066_1a5a66e7271b073cb0553cffd10baca4b4" prot="private" static="no" mutable="no">
         <type>real</type>
         <definition>real enve::shape::m_m_x</definition>
         <argsstring></argsstring>
         <name>m_m_x</name>
+        <qualifiedname>enve::shape::m_m_x</qualifiedname>
         <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Section curve degree for x axis. </para>
@@ -69,19 +73,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="65" column="10" bodyfile="include/enve_shape.hh" bodystart="65" bodyend="-1"/>
-        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="73" endline="81">copy</referencedby>
-        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="86" endline="97">isApprox</referencedby>
-        <referencedby refid="a00066_1aef07a6a7d0f3ebccf234c058c974b50f" compoundref="a00035" startline="111" endline="115">Mx</referencedby>
-        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="276" endline="287">print</referencedby>
-        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="242" endline="260">surfaceDerivative</referencedby>
-        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="219" endline="227">surfaceRadius</referencedby>
+        <location file="include/enve_shape.hh" line="62" column="10" bodyfile="include/enve_shape.hh" bodystart="62" bodyend="-1"/>
+        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="74" endline="83">copy</referencedby>
+        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="88" endline="99">isApprox</referencedby>
+        <referencedby refid="a00066_1aef07a6a7d0f3ebccf234c058c974b50f" compoundref="a00035" startline="113" endline="117">Mx</referencedby>
+        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="280" endline="292">print</referencedby>
+        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="244" endline="263">surfaceDerivative</referencedby>
+        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="221" endline="229">surfaceRadius</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00066_1a6226a6f978092fd507c9e422b01c8347" prot="private" static="no" mutable="no">
         <type>real</type>
         <definition>real enve::shape::m_r_y</definition>
         <argsstring></argsstring>
         <name>m_r_y</name>
+        <qualifiedname>enve::shape::m_r_y</qualifiedname>
         <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Section radius on y axis (m) </para>
@@ -90,19 +95,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="66" column="10" bodyfile="include/enve_shape.hh" bodystart="66" bodyend="-1"/>
-        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="73" endline="81">copy</referencedby>
-        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="86" endline="97">isApprox</referencedby>
-        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="276" endline="287">print</referencedby>
-        <referencedby refid="a00066_1a36675badf724540b2f6c6d9b801fd87b" compoundref="a00035" startline="120" endline="124">Ry</referencedby>
-        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="242" endline="260">surfaceDerivative</referencedby>
-        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="219" endline="227">surfaceRadius</referencedby>
+        <location file="include/enve_shape.hh" line="63" column="10" bodyfile="include/enve_shape.hh" bodystart="63" bodyend="-1"/>
+        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="74" endline="83">copy</referencedby>
+        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="88" endline="99">isApprox</referencedby>
+        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="280" endline="292">print</referencedby>
+        <referencedby refid="a00066_1a36675badf724540b2f6c6d9b801fd87b" compoundref="a00035" startline="122" endline="126">Ry</referencedby>
+        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="244" endline="263">surfaceDerivative</referencedby>
+        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="221" endline="229">surfaceRadius</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00066_1a51b0e2e889ad496958b093d711664fac" prot="private" static="no" mutable="no">
         <type>real</type>
         <definition>real enve::shape::m_m_y</definition>
         <argsstring></argsstring>
         <name>m_m_y</name>
+        <qualifiedname>enve::shape::m_m_y</qualifiedname>
         <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Section curve degree for y axis. </para>
@@ -111,19 +117,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="67" column="10" bodyfile="include/enve_shape.hh" bodystart="67" bodyend="-1"/>
-        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="73" endline="81">copy</referencedby>
-        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="86" endline="97">isApprox</referencedby>
-        <referencedby refid="a00066_1af0c1033e8c7fae43c00418326105e308" compoundref="a00035" startline="129" endline="133">My</referencedby>
-        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="276" endline="287">print</referencedby>
-        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="242" endline="260">surfaceDerivative</referencedby>
-        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="219" endline="227">surfaceRadius</referencedby>
+        <location file="include/enve_shape.hh" line="64" column="10" bodyfile="include/enve_shape.hh" bodystart="64" bodyend="-1"/>
+        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="74" endline="83">copy</referencedby>
+        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="88" endline="99">isApprox</referencedby>
+        <referencedby refid="a00066_1af0c1033e8c7fae43c00418326105e308" compoundref="a00035" startline="131" endline="135">My</referencedby>
+        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="280" endline="292">print</referencedby>
+        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="244" endline="263">surfaceDerivative</referencedby>
+        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="221" endline="229">surfaceRadius</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00066_1a6a7daaee277c701a23a9624a3a5d3049" prot="private" static="no" mutable="no">
         <type>real</type>
         <definition>real enve::shape::m_l_y</definition>
         <argsstring></argsstring>
         <name>m_l_y</name>
+        <qualifiedname>enve::shape::m_l_y</qualifiedname>
         <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Section surface effective half width (m) </para>
@@ -132,15 +139,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="68" column="10" bodyfile="include/enve_shape.hh" bodystart="68" bodyend="-1"/>
-        <referencedby refid="a00066_1a21cf4f513087dd2abb003fec5d92c1d1" compoundref="a00035" startline="205" endline="214">checkWidthBound</referencedby>
-        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="73" endline="81">copy</referencedby>
-        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="86" endline="97">isApprox</referencedby>
-        <referencedby refid="a00066_1abd9de85ef82adb854424b612ea793513" compoundref="a00035" startline="138" endline="142">Ly</referencedby>
-        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="276" endline="287">print</referencedby>
-        <referencedby refid="a00066_1aa36696b6e44d0c255295143221e8ee16" compoundref="a00035" startline="196" endline="200">surfaceMaxWidth</referencedby>
-        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="219" endline="227">surfaceRadius</referencedby>
-        <referencedby refid="a00066_1a6487c0ca3481b588ea377fcaa839e800" compoundref="a00035" startline="233" endline="237">surfaceWidth</referencedby>
+        <location file="include/enve_shape.hh" line="65" column="10" bodyfile="include/enve_shape.hh" bodystart="65" bodyend="-1"/>
+        <referencedby refid="a00066_1a21cf4f513087dd2abb003fec5d92c1d1" compoundref="a00035" startline="207" endline="216">checkWidthBound</referencedby>
+        <referencedby refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" compoundref="a00035" startline="74" endline="83">copy</referencedby>
+        <referencedby refid="a00066_1aa509c8fa017ef7500110beae8289b514" compoundref="a00035" startline="88" endline="99">isApprox</referencedby>
+        <referencedby refid="a00066_1abd9de85ef82adb854424b612ea793513" compoundref="a00035" startline="140" endline="144">Ly</referencedby>
+        <referencedby refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" compoundref="a00035" startline="280" endline="292">print</referencedby>
+        <referencedby refid="a00066_1aa36696b6e44d0c255295143221e8ee16" compoundref="a00035" startline="198" endline="202">surfaceMaxWidth</referencedby>
+        <referencedby refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" compoundref="a00035" startline="221" endline="229">surfaceRadius</referencedby>
+        <referencedby refid="a00066_1a6487c0ca3481b588ea377fcaa839e800" compoundref="a00035" startline="235" endline="239">surfaceWidth</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -149,6 +156,7 @@
         <definition>enve::shape::~shape</definition>
         <argsstring>(void)</argsstring>
         <name>~shape</name>
+        <qualifiedname>enve::shape::~shape</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -159,13 +167,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="72" column="5" bodyfile="src/enve_shape.cc" bodystart="44" bodyend="46"/>
+        <location file="include/enve_shape.hh" line="69" column="5" bodyfile="src/enve_shape.cc" bodystart="44" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a04b2620eb53b31cf26087c208fd21027" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::shape::shape</definition>
         <argsstring>(shape const &amp;)=default</argsstring>
         <name>shape</name>
+        <qualifiedname>enve::shape::shape</qualifiedname>
         <param>
           <type><ref refid="a00066" kindref="compound">shape</ref> const &amp;</type>
         </param>
@@ -176,13 +185,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="75" column="5"/>
+        <location file="include/enve_shape.hh" line="72" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a6cb567b938b38b63281a46ea669bcf21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::shape::shape</definition>
         <argsstring>(shape &amp;&amp;)=default</argsstring>
         <name>shape</name>
+        <qualifiedname>enve::shape::shape</qualifiedname>
         <param>
           <type><ref refid="a00066" kindref="compound">shape</ref> &amp;&amp;</type>
         </param>
@@ -193,13 +203,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="78" column="5"/>
+        <location file="include/enve_shape.hh" line="75" column="5"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1ad73f91566c660897b63fa840f9a78412" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::shape::shape</definition>
         <argsstring>(void)</argsstring>
         <name>shape</name>
+        <qualifiedname>enve::shape::shape</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -210,13 +221,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="81" column="5" bodyfile="src/enve_shape.cc" bodystart="50" bodyend="52"/>
+        <location file="include/enve_shape.hh" line="78" column="5" bodyfile="src/enve_shape.cc" bodystart="50" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a504197004c4522d009221b0d9918624d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::shape::shape</definition>
         <argsstring>(real r_x, real m_x, real r_y, real m_y, real l_y)</argsstring>
         <name>shape</name>
+        <qualifiedname>enve::shape::shape</qualifiedname>
         <param>
           <type>real</type>
           <declname>r_x</declname>
@@ -254,13 +266,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="84" column="5" bodyfile="src/enve_shape.cc" bodystart="56" bodyend="68"/>
+        <location file="include/enve_shape.hh" line="81" column="5" bodyfile="src/enve_shape.cc" bodystart="56" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a01bf679dac42a6a354f3ec1327402bef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void enve::shape::copy</definition>
         <argsstring>(shape const &amp;shape_in)</argsstring>
         <name>copy</name>
+        <qualifiedname>enve::shape::copy</qualifiedname>
         <param>
           <type><ref refid="a00066" kindref="compound">shape</ref> const &amp;</type>
           <declname>shape_in</declname>
@@ -274,13 +287,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="94" column="5" bodyfile="src/enve_shape.cc" bodystart="73" bodyend="81"/>
+        <location file="include/enve_shape.hh" line="91" column="5" bodyfile="src/enve_shape.cc" bodystart="74" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1aa509c8fa017ef7500110beae8289b514" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::shape::isApprox</definition>
         <argsstring>(shape const &amp;shape_in, real tolerance=EPSILON_LOW) const</argsstring>
         <name>isApprox</name>
+        <qualifiedname>enve::shape::isApprox</qualifiedname>
         <param>
           <type><ref refid="a00066" kindref="compound">shape</ref> const &amp;</type>
           <declname>shape_in</declname>
@@ -301,13 +315,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="100" column="5" bodyfile="src/enve_shape.cc" bodystart="86" bodyend="97"/>
+        <location file="include/enve_shape.hh" line="97" column="5" bodyfile="src/enve_shape.cc" bodystart="88" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a362ae4ce951c9a6da83819f58b909c8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::shape::Rx</definition>
         <argsstring>(void) const</argsstring>
         <name>Rx</name>
+        <qualifiedname>enve::shape::Rx</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -318,13 +333,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="107" column="5" bodyfile="src/enve_shape.cc" bodystart="102" bodyend="106"/>
+        <location file="include/enve_shape.hh" line="104" column="5" bodyfile="src/enve_shape.cc" bodystart="104" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1aef07a6a7d0f3ebccf234c058c974b50f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::shape::Mx</definition>
         <argsstring>(void) const</argsstring>
         <name>Mx</name>
+        <qualifiedname>enve::shape::Mx</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -335,13 +351,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="111" column="5" bodyfile="src/enve_shape.cc" bodystart="111" bodyend="115"/>
+        <location file="include/enve_shape.hh" line="108" column="5" bodyfile="src/enve_shape.cc" bodystart="113" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a36675badf724540b2f6c6d9b801fd87b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::shape::Ry</definition>
         <argsstring>(void) const</argsstring>
         <name>Ry</name>
+        <qualifiedname>enve::shape::Ry</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -352,13 +369,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="115" column="5" bodyfile="src/enve_shape.cc" bodystart="120" bodyend="124"/>
+        <location file="include/enve_shape.hh" line="112" column="5" bodyfile="src/enve_shape.cc" bodystart="122" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1af0c1033e8c7fae43c00418326105e308" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::shape::My</definition>
         <argsstring>(void) const</argsstring>
         <name>My</name>
+        <qualifiedname>enve::shape::My</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -369,13 +387,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="119" column="5" bodyfile="src/enve_shape.cc" bodystart="129" bodyend="133"/>
+        <location file="include/enve_shape.hh" line="116" column="5" bodyfile="src/enve_shape.cc" bodystart="131" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1abd9de85ef82adb854424b612ea793513" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::shape::Ly</definition>
         <argsstring>(void) const</argsstring>
         <name>Ly</name>
+        <qualifiedname>enve::shape::Ly</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -386,13 +405,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="123" column="5" bodyfile="src/enve_shape.cc" bodystart="138" bodyend="142"/>
+        <location file="include/enve_shape.hh" line="120" column="5" bodyfile="src/enve_shape.cc" bodystart="140" bodyend="144"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a411953a85bf29fd1244f96f4dad101dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
         <definition>real &amp; enve::shape::Rx</definition>
         <argsstring>(void)</argsstring>
         <name>Rx</name>
+        <qualifiedname>enve::shape::Rx</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -403,13 +423,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="127" column="5" bodyfile="src/enve_shape.cc" bodystart="147" bodyend="150"/>
+        <location file="include/enve_shape.hh" line="124" column="5" bodyfile="src/enve_shape.cc" bodystart="149" bodyend="152"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a290bd6493efcc429780612d3612465fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
         <definition>real &amp; enve::shape::Mx</definition>
         <argsstring>(void)</argsstring>
         <name>Mx</name>
+        <qualifiedname>enve::shape::Mx</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -420,13 +441,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="131" column="5" bodyfile="src/enve_shape.cc" bodystart="155" bodyend="158"/>
+        <location file="include/enve_shape.hh" line="128" column="5" bodyfile="src/enve_shape.cc" bodystart="157" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1ae5de29ce307d57aa55f3754243450492" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
         <definition>real &amp; enve::shape::Ry</definition>
         <argsstring>(void)</argsstring>
         <name>Ry</name>
+        <qualifiedname>enve::shape::Ry</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -437,13 +459,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="135" column="5" bodyfile="src/enve_shape.cc" bodystart="163" bodyend="166"/>
+        <location file="include/enve_shape.hh" line="132" column="5" bodyfile="src/enve_shape.cc" bodystart="165" bodyend="168"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a0786393518b528d64627b8f512673573" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
         <definition>real &amp; enve::shape::My</definition>
         <argsstring>(void)</argsstring>
         <name>My</name>
+        <qualifiedname>enve::shape::My</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -454,13 +477,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="139" column="5" bodyfile="src/enve_shape.cc" bodystart="171" bodyend="174"/>
+        <location file="include/enve_shape.hh" line="136" column="5" bodyfile="src/enve_shape.cc" bodystart="173" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1adf4743dce524aadd534feed30de14a19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
         <definition>real &amp; enve::shape::Ly</definition>
         <argsstring>(void)</argsstring>
         <name>Ly</name>
+        <qualifiedname>enve::shape::Ly</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -471,13 +495,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="143" column="5" bodyfile="src/enve_shape.cc" bodystart="179" bodyend="182"/>
+        <location file="include/enve_shape.hh" line="140" column="5" bodyfile="src/enve_shape.cc" bodystart="181" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1ac85f00278892b2330e9325209a16e478" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::shape::surfaceMaxRadius</definition>
         <argsstring>(void) const</argsstring>
         <name>surfaceMaxRadius</name>
+        <qualifiedname>enve::shape::surfaceMaxRadius</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -488,13 +513,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="147" column="5" bodyfile="src/enve_shape.cc" bodystart="187" bodyend="191"/>
+        <location file="include/enve_shape.hh" line="144" column="5" bodyfile="src/enve_shape.cc" bodystart="189" bodyend="193"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1aa36696b6e44d0c255295143221e8ee16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::shape::surfaceMaxWidth</definition>
         <argsstring>(void) const</argsstring>
         <name>surfaceMaxWidth</name>
+        <qualifiedname>enve::shape::surfaceMaxWidth</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -505,13 +531,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="151" column="5" bodyfile="src/enve_shape.cc" bodystart="196" bodyend="200"/>
+        <location file="include/enve_shape.hh" line="148" column="5" bodyfile="src/enve_shape.cc" bodystart="198" bodyend="202"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a21cf4f513087dd2abb003fec5d92c1d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::shape::checkWidthBound</definition>
         <argsstring>(real y) const</argsstring>
         <name>checkWidthBound</name>
+        <qualifiedname>enve::shape::checkWidthBound</qualifiedname>
         <param>
           <type>real</type>
           <declname>y</declname>
@@ -525,14 +552,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="155" column="5" bodyfile="src/enve_shape.cc" bodystart="205" bodyend="214"/>
-        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="242" endline="260">surfaceDerivative</referencedby>
+        <location file="include/enve_shape.hh" line="152" column="5" bodyfile="src/enve_shape.cc" bodystart="207" bodyend="216"/>
+        <referencedby refid="a00066_1ab5954b74fc6995de02be1986765b179d" compoundref="a00035" startline="244" endline="263">surfaceDerivative</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00066_1a22b1c3e3beca259ec3cc430647d27a20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
         <definition>real enve::shape::surfaceRadius</definition>
         <argsstring>(real y) const</argsstring>
         <name>surfaceRadius</name>
+        <qualifiedname>enve::shape::surfaceRadius</qualifiedname>
         <param>
           <type>real</type>
           <declname>y</declname>
@@ -545,13 +573,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="160" column="5" bodyfile="src/enve_shape.cc" bodystart="219" bodyend="227"/>
+        <location file="include/enve_shape.hh" line="157" column="5" bodyfile="src/enve_shape.cc" bodystart="221" bodyend="229"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a6487c0ca3481b588ea377fcaa839e800" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::shape::surfaceWidth</definition>
         <argsstring>(void) const</argsstring>
         <name>surfaceWidth</name>
+        <qualifiedname>enve::shape::surfaceWidth</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -562,13 +591,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="166" column="5" bodyfile="src/enve_shape.cc" bodystart="233" bodyend="237"/>
+        <location file="include/enve_shape.hh" line="163" column="5" bodyfile="src/enve_shape.cc" bodystart="235" bodyend="239"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1ab5954b74fc6995de02be1986765b179d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
         <definition>real enve::shape::surfaceDerivative</definition>
         <argsstring>(real y, real tolerance=EPSILON_MEDIUM) const</argsstring>
         <name>surfaceDerivative</name>
+        <qualifiedname>enve::shape::surfaceDerivative</qualifiedname>
         <param>
           <type>real</type>
           <declname>y</declname>
@@ -589,14 +619,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="170" column="5" bodyfile="src/enve_shape.cc" bodystart="242" bodyend="260"/>
-        <referencedby refid="a00066_1a6e4acd6863557e72a63a921322d2c504" compoundref="a00035" startline="265" endline="271">surfaceAngle</referencedby>
+        <location file="include/enve_shape.hh" line="167" column="5" bodyfile="src/enve_shape.cc" bodystart="244" bodyend="263"/>
+        <referencedby refid="a00066_1a6e4acd6863557e72a63a921322d2c504" compoundref="a00035" startline="268" endline="275">surfaceAngle</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00066_1a6e4acd6863557e72a63a921322d2c504" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real</type>
         <definition>real enve::shape::surfaceAngle</definition>
         <argsstring>(real y, real tolerance=EPSILON_MEDIUM) const</argsstring>
         <name>surfaceAngle</name>
+        <qualifiedname>enve::shape::surfaceAngle</qualifiedname>
         <param>
           <type>real</type>
           <declname>y</declname>
@@ -617,13 +648,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="177" column="5" bodyfile="src/enve_shape.cc" bodystart="265" bodyend="271"/>
+        <location file="include/enve_shape.hh" line="174" column="5" bodyfile="src/enve_shape.cc" bodystart="268" bodyend="275"/>
       </memberdef>
       <memberdef kind="function" id="a00066_1a25fb65951d112f9f4595b07c8c8b3630" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void enve::shape::print</definition>
         <argsstring>(out_stream &amp;os) const</argsstring>
         <name>print</name>
+        <qualifiedname>enve::shape::print</qualifiedname>
         <param>
           <type>out_stream &amp;</type>
           <declname>os</declname>
@@ -637,7 +669,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_shape.hh" line="184" column="5" bodyfile="src/enve_shape.cc" bodystart="276" bodyend="287"/>
+        <location file="include/enve_shape.hh" line="181" column="5" bodyfile="src/enve_shape.cc" bodystart="280" bodyend="292"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -645,7 +677,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/enve_shape.hh" line="57" column="3" bodyfile="include/enve_shape.hh" bodystart="58" bodyend="188"/>
+    <location file="include/enve_shape.hh" line="54" column="3" bodyfile="include/enve_shape.hh" bodystart="55" bodyend="185"/>
     <listofallmembers>
       <member refid="a00066_1a21cf4f513087dd2abb003fec5d92c1d1" prot="public" virt="non-virtual"><scope>enve::shape</scope><name>checkWidthBound</name></member>
       <member refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" prot="public" virt="non-virtual"><scope>enve::shape</scope><name>copy</name></member>

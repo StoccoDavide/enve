@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="a00044" kind="namespace" language="C++">
     <compoundname>enve</compoundname>
     <innerclass refid="a00058" prot="public">enve::output</innerclass>
@@ -16,6 +16,6 @@
 <para>file: <ref refid="a00035" kindref="compound">enve_shape.cc</ref></para>
 <para>file: <ref refid="a00032" kindref="compound">enve_triangleground.cc</ref> </para>
     </detaileddescription>
-    <location file="include/enve.hh" line="67" column="1"/>
+    <location file="include/enve.hh" line="76" column="1"/>
   </compounddef>
 </doxygen>

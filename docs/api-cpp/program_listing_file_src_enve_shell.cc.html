@@ -132,7 +132,7 @@
     <span class="kt">size_t</span> <span class="n">size</span>
   <span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::shell::resize(): shell ribs numer must be greater than 0.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::shell::resize(size): shell ribs numer must be greater than 0.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
     <span class="c1">// Resize the contact point, friction and normal vectors</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
@@ -140,6 +140,20 @@
 
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">empty</span><span class="p">())</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">clear</span><span class="p">();</span>
+      <span class="p">}</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">reserve</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
 
     <span class="c1">// Locate the disks</span>
     <span class="n">real</span> <span class="n">shellWidth</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceWidth</span><span class="p">();</span>
@@ -151,9 +165,9 @@
       <span class="n">ribY</span> <span class="o">+=</span> <span class="n">ribW</span><span class="p">;</span>
       <span class="n">ribR</span>  <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceRadius</span><span class="p">(</span><span class="n">ribY</span><span class="p">);</span>
       <span class="n">ribA</span>  <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_shape</span><span class="o">-&gt;</span><span class="n">surfaceAngle</span><span class="p">(</span><span class="n">ribY</span><span class="p">);</span>
-      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ribR</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"enve::shell::resize(size): Negative rib radius.</span><span class="se">\n</span><span class="s">"</span> <span class="p">);</span>
-      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ribR</span> <span class="o">==</span> <span class="n">ribR</span><span class="p">,</span> <span class="s">"enve::shell::resize(size): NaN rib radius.</span><span class="se">\n</span><span class="s">"</span> <span class="p">);</span>
-      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ribA</span> <span class="o">==</span> <span class="n">ribA</span><span class="p">,</span> <span class="s">"enve::shell::resize(size): NaN rib angle.</span><span class="se">\n</span><span class="s">"</span> <span class="p">);</span>
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ribR</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>     <span class="s">"enve::shell::resize(size): negative rib radius.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ribR</span> <span class="o">==</span> <span class="n">ribR</span><span class="p">,</span> <span class="s">"enve::shell::resize(size): NaN rib radius.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">ribA</span> <span class="o">==</span> <span class="n">ribA</span><span class="p">,</span> <span class="s">"enve::shell::resize(size): NaN rib angle.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rib</span><span class="p">(</span><span class="n">ribR</span><span class="p">,</span> <span class="n">point</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">ribY</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">vec3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">ribW</span><span class="p">,</span> <span class="n">ribA</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="c1">// Update bounding aabb</span>
@@ -391,12 +405,13 @@
 
   <span class="kt">bool</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">checkTransformation</span><span class="p">(</span>
-    <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
+    <span class="n">mat4</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
+    <span class="n">real</span>        <span class="n">tolerance</span>
   <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="c1">// Check if determinant is one</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">affine_in</span><span class="p">.</span><span class="n">determinant</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">EPSILON_LOW</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">affine_in</span><span class="p">.</span><span class="n">determinant</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">)</span>
       <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
     <span class="k">else</span>
       <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
@@ -406,7 +421,8 @@
 
   <span class="kt">bool</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">checkTransformation</span><span class="p">(</span>
-    <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span>
+    <span class="n">affine</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">tolerance</span>
   <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
@@ -501,40 +517,45 @@
   <span class="n">shell</span><span class="o">::</span><span class="n">setup</span><span class="p">(</span>
     <span class="n">ground</span><span class="o">::</span><span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
     <span class="n">affine</span>       <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span><span class="p">,</span>
+    <span class="kt">bool</span>                <span class="n">checkAffine</span><span class="p">,</span>
+    <span class="n">real</span>                <span class="n">tolerance</span>
   <span class="p">)</span>
   <span class="p">{</span>
-    <span class="c1">// Set the new reference frame</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">checkTransformation</span><span class="p">(</span><span class="n">affine_in</span><span class="p">))</span>
+    <span class="c1">// Othonormality check</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">checkAffine</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">checkTransformation</span><span class="p">(</span><span class="n">affine_in</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">))</span>
     <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">transform</span><span class="p">(</span><span class="n">affine_in</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-      <span class="n">ENVE_ERROR</span><span class="p">(</span> <span class="s">"enve::shell::setup(ground::mesh, ... ): Not an othonormal and right-handed affine transformation matrix.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::shell::setup(mesh, ... ): not an othonormal and right-handed affine transformation matrix.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
       <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
+
+    <span class="c1">// Set the new reference frame</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">transform</span><span class="p">(</span><span class="n">affine_in</span><span class="p">);</span>
     <span class="c1">// Shell Shadow update</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
     <span class="c1">// Local intersected triangles vector</span>
     <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="n">localGround</span><span class="p">;</span>
+    <span class="n">localGround</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
     <span class="n">ground</span><span class="p">.</span><span class="n">intersection</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_aabb</span><span class="p">,</span> <span class="n">localGround</span><span class="p">);</span>
 
     <span class="c1">// End setup if there are no intersections</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">localGround</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
     <span class="p">{</span>
-      <span class="c1">// std::cout &lt;&lt; "enve::setup(mesh, affine, threshold, method): WARNING No mesh detected under the shell.\n";</span>
       <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
         <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">envelop</span><span class="p">(</span><span class="n">affine_in</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
       <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
+      <span class="c1">// Calculate ribs candidates to speed up</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">method</span> <span class="o">==</span> <span class="s">"geometric"</span><span class="p">)</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateRibsCandidates</span><span class="p">(</span><span class="n">localGround</span><span class="p">);</span>
+
       <span class="c1">// Perform intersection on all ribs</span>
       <span class="kt">bool</span> <span class="n">out</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
       <span class="c1">// Find if at least one rib intersect the ground surface</span>
       <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">envelop</span><span class="p">(</span><span class="n">localGround</span><span class="p">,</span> <span class="n">affine_in</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">||</span> <span class="n">out</span><span class="p">;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">envelop</span><span class="p">(</span><span class="n">localGround</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">affine_in</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">||</span> <span class="n">out</span><span class="p">;</span>
       <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
@@ -545,26 +566,28 @@
   <span class="n">shell</span><span class="o">::</span><span class="n">setup</span><span class="p">(</span>
     <span class="n">ground</span><span class="o">::</span><span class="n">flat</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">ground</span><span class="p">,</span>
     <span class="n">affine</span>       <span class="k">const</span> <span class="o">&amp;</span><span class="n">affine_in</span><span class="p">,</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span>  <span class="k">const</span>  <span class="n">method</span><span class="p">,</span>
+    <span class="kt">bool</span>                <span class="n">checkAffine</span><span class="p">,</span>
+    <span class="n">real</span>                <span class="n">tolerance</span>
   <span class="p">)</span>
   <span class="p">{</span>
-    <span class="c1">// Set the new reference frame</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">checkTransformation</span><span class="p">(</span><span class="n">affine_in</span><span class="p">))</span>
+    <span class="c1">// Othonormality check</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">checkAffine</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">checkTransformation</span><span class="p">(</span><span class="n">affine_in</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">))</span>
     <span class="p">{</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">transform</span><span class="p">(</span><span class="n">affine_in</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-      <span class="n">ENVE_ERROR</span><span class="p">(</span> <span class="s">"enve::shell::setup(ground::flat, ... ): Not an othonormal and right-handed affine transformation matrix.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="s">"enve::shell::setup(flat, ... ): not an othonormal and right-handed affine transformation matrix.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
       <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
+
+    <span class="c1">// Set the new reference frame</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">transform</span><span class="p">(</span><span class="n">affine_in</span><span class="p">);</span>
     <span class="c1">// Shell Shadow update</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBox</span><span class="p">();</span>
 
     <span class="c1">// Perform intersection on all ribs</span>
+    <span class="kt">bool</span> <span class="n">out</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
-      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">envelop</span><span class="p">(</span><span class="n">ground</span><span class="p">,</span> <span class="n">affine_in</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="n">out</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">envelop</span><span class="p">(</span><span class="n">ground</span><span class="p">,</span> <span class="n">affine_in</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
@@ -605,8 +628,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactPoint</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-    <span class="n">point</span> <span class="o">&amp;</span><span class="n">point</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">point</span>  <span class="o">&amp;</span><span class="n">point</span>
   <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
@@ -656,8 +679,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactNormal</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-    <span class="n">vec3</span>  <span class="o">&amp;</span><span class="n">normal</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">vec3</span>   <span class="o">&amp;</span><span class="n">normal</span>
   <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
@@ -705,8 +728,9 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactFriction</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">friction</span><span class="p">)</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="o">&amp;</span><span class="n">friction</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">friction</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">friction</span><span class="p">;</span>
@@ -716,7 +740,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactFriction</span><span class="p">(</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">friction</span><span class="p">)</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">friction</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
@@ -750,8 +775,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactDepth</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">depth</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="o">&amp;</span><span class="n">depth</span>
   <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
@@ -789,8 +814,9 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactArea</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">area</span><span class="p">)</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="o">&amp;</span><span class="n">area</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">area</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">area</span><span class="p">;</span>
@@ -800,7 +826,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactArea</span><span class="p">(</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">area</span><span class="p">)</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">area</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
@@ -826,8 +853,9 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactVolume</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-    <span class="n">real</span>  <span class="o">&amp;</span><span class="n">volume</span><span class="p">)</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">real</span>   <span class="o">&amp;</span><span class="n">volume</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">volume</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">volume</span><span class="p">;</span>
@@ -837,7 +865,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactVolume</span><span class="p">(</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">volume</span><span class="p">)</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">volume</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
@@ -850,7 +879,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactPointAffine</span><span class="p">(</span>
-    <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">point</span> <span class="n">point</span><span class="p">;</span>
@@ -868,7 +898,8 @@
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactPointAffine</span><span class="p">(</span>
     <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
-    <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="n">affine</span> <span class="o">&amp;</span><span class="n">point_affine</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">vec3</span> <span class="nf">x_vec</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">().</span><span class="n">cross</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_out</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">normal</span><span class="p">)).</span><span class="n">normalized</span><span class="p">());</span>
@@ -881,7 +912,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">contactPointAffine</span><span class="p">(</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">affine</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point_affine</span><span class="p">)</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">affine</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">point_affine</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
@@ -906,8 +938,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">relativeAngles</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">,</span>
-    <span class="n">vec3</span>  <span class="o">&amp;</span><span class="n">angles</span>
+    <span class="kt">size_t</span>  <span class="n">i</span><span class="p">,</span>
+    <span class="n">vec3</span>   <span class="o">&amp;</span><span class="n">angles</span>
   <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
@@ -934,7 +966,8 @@
 
   <span class="kt">void</span>
   <span class="n">shell</span><span class="o">::</span><span class="n">print</span><span class="p">(</span>
-    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">)</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">point</span> <span class="n">point</span><span class="p">;</span>
@@ -1036,6 +1069,51 @@
 
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="s">" ------------     END     ------------"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">shell</span><span class="o">::</span><span class="n">updateRibsCandidates</span><span class="p">(</span>
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">localGround</span>
+  <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">real</span> <span class="n">d0</span><span class="p">,</span> <span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">;</span>
+    <span class="kt">int</span>  <span class="n">s0</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_ribs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">center</span><span class="p">().</span><span class="n">y</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">empty</span><span class="p">())</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Create shell middle plane</span>
+    <span class="n">plane</span> <span class="n">shellPlane</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">translation</span><span class="p">(),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">());</span>
+
+    <span class="c1">// Iterate on triangles</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">localGround</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Calculate distance of i-th triangle</span>
+      <span class="n">d0</span> <span class="o">=</span> <span class="n">shellPlane</span><span class="p">.</span><span class="n">signedDistance</span><span class="p">(</span> <span class="n">localGround</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">);</span>
+      <span class="n">d1</span> <span class="o">=</span> <span class="n">shellPlane</span><span class="p">.</span><span class="n">signedDistance</span><span class="p">(</span> <span class="n">localGround</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">);</span>
+      <span class="n">d2</span> <span class="o">=</span> <span class="n">shellPlane</span><span class="p">.</span><span class="n">signedDistance</span><span class="p">(</span> <span class="n">localGround</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">);</span>
+
+      <span class="c1">// Iterate on ribs</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="c1">// Calculate sign of j-th rib distance</span>
+        <span class="n">s0</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span> <span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">d0</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span> <span class="o">-</span> <span class="p">((</span><span class="n">d0</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span> <span class="p">);</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span> <span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">d1</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span> <span class="o">-</span> <span class="p">((</span><span class="n">d1</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span> <span class="p">);</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span> <span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">d2</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span> <span class="o">-</span> <span class="p">((</span><span class="n">d2</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span> <span class="p">);</span>
+
+        <span class="c1">// Fill candidates list</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">s0</span> <span class="o">*</span> <span class="n">s1</span> <span class="o">*</span> <span class="n">s2</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">s0</span> <span class="o">+</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_tris</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 
   <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>

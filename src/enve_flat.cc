@@ -69,11 +69,12 @@ namespace enve
       real normal_x,
       real normal_y,
       real normal_z,
-      real friction)
+      real friction
+    )
       : plane(origin_x, origin_y, origin_z, normal_x, normal_y, normal_z),
         m_friction(friction)
     {
-      ENVE_ASSERT(normal_z > 0, "enve::ground::flat::flat(): normal z axis component must be positive.\n");
+      ENVE_ASSERT(normal_z > 0, "enve::ground::flat::flat( ... ): normal z-axis component must be positive.\n");
       this->plane::normalize();
     }
 
@@ -82,11 +83,12 @@ namespace enve
     flat::flat(
       point const &origin,
       vec3 const  &normal,
-      real         friction)
+      real         friction
+    )
       : plane(origin, normal),
         m_friction(friction)
     {
-      ENVE_ASSERT(normal.z() > 0, "enve::ground::flat::flat(): normal z axis component must be positive.\n");
+      ENVE_ASSERT(normal.z() > 0, "enve::ground::flat::flat( ... ): normal z-axis component must be positive.\n");
       this->plane::normalize();
     }
 
@@ -94,11 +96,12 @@ namespace enve
 
     flat::flat(
       plane const &plane_in,
-      real         friction)
+      real         friction
+    )
       : plane(plane_in),
         m_friction(friction)
     {
-      ENVE_ASSERT(this->plane::normal().z() > 0, "enve::ground::flat::flat(): normal z axis component must be positive.\n");
+      ENVE_ASSERT(this->plane::normal().z() > 0, "enve::ground::flat::flat( ... ): normal z-axis component must be positive.\n");
       this->plane::normalize();
     }
 
@@ -106,7 +109,8 @@ namespace enve
 
     void
     flat::copy(
-      flat const &flat_in)
+      flat const &flat_in
+    )
     {
       plane::operator  =(flat_in);
       this->m_friction = flat_in.m_friction;
@@ -118,7 +122,8 @@ namespace enve
     bool
     flat::isApprox(
       flat const &flat_in,
-      real        tolerance)
+      real        tolerance
+    )
       const
     {
       return this->plane::isApprox(flat_in) &&

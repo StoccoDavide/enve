@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="a00050" kind="class" language="C++" prot="public">
     <compoundname>enve::ground::flat</compoundname>
     <basecompoundref prot="public" virt="non-virtual">plane</basecompoundref>
@@ -10,6 +10,7 @@
         <definition>typedef std::shared_ptr&lt;flat const&gt; enve::ground::flat::ptr</definition>
         <argsstring></argsstring>
         <name>ptr</name>
+        <qualifiedname>enve::ground::flat::ptr</qualifiedname>
         <briefdescription>
 <para>Shared pointer to flat object. </para>
         </briefdescription>
@@ -17,13 +18,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="63" column="31" bodyfile="include/enve_flat.hh" bodystart="63" bodyend="-1"/>
+        <location file="include/enve_flat.hh" line="60" column="31" bodyfile="include/enve_flat.hh" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="a00050_1ab9e0ffcbf413e6ac215b2789baa27a0e" prot="public" static="no">
         <type>std::vector&lt; <ref refid="a00050_1a159c72538bd75b2f02a2744efb9bf442" kindref="member">flat::ptr</ref> &gt;</type>
         <definition>typedef std::vector&lt;flat::ptr&gt; enve::ground::flat::vecptr</definition>
         <argsstring></argsstring>
         <name>vecptr</name>
+        <qualifiedname>enve::ground::flat::vecptr</qualifiedname>
         <briefdescription>
 <para>Vector of shared pointers to flat objects. </para>
         </briefdescription>
@@ -31,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="64" column="32" bodyfile="include/enve_flat.hh" bodystart="64" bodyend="-1"/>
+        <location file="include/enve_flat.hh" line="61" column="32" bodyfile="include/enve_flat.hh" bodystart="61" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -40,6 +42,7 @@
         <definition>real enve::ground::flat::m_friction</definition>
         <argsstring></argsstring>
         <name>m_friction</name>
+        <qualifiedname>enve::ground::flat::m_friction</qualifiedname>
         <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Face friction coefficient scaling factor. </para>
@@ -48,10 +51,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="67" column="12" bodyfile="include/enve_flat.hh" bodystart="67" bodyend="-1"/>
-        <referencedby refid="a00050_1af26cbffc1ad6fd269acc832cf8226ccf" compoundref="a00041" startline="108" endline="114">copy</referencedby>
-        <referencedby refid="a00050_1ab696dc901373db2dcc49028eea16bb69" compoundref="a00041" startline="131" endline="135">friction</referencedby>
-        <referencedby refid="a00050_1adc60c85f9402159fb9409c9145a40965" compoundref="a00041" startline="119" endline="126">isApprox</referencedby>
+        <location file="include/enve_flat.hh" line="64" column="12" bodyfile="include/enve_flat.hh" bodystart="64" bodyend="-1"/>
+        <referencedby refid="a00050_1af26cbffc1ad6fd269acc832cf8226ccf" compoundref="a00041" startline="111" endline="118">copy</referencedby>
+        <referencedby refid="a00050_1ab696dc901373db2dcc49028eea16bb69" compoundref="a00041" startline="136" endline="140">friction</referencedby>
+        <referencedby refid="a00050_1adc60c85f9402159fb9409c9145a40965" compoundref="a00041" startline="123" endline="131">isApprox</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -60,6 +63,7 @@
         <definition>enve::ground::flat::flat</definition>
         <argsstring>(flat const &amp;)=delete</argsstring>
         <name>flat</name>
+        <qualifiedname>enve::ground::flat::flat</qualifiedname>
         <param>
           <type><ref refid="a00050" kindref="compound">flat</ref> const &amp;</type>
         </param>
@@ -70,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="69" column="7"/>
+        <location file="include/enve_flat.hh" line="66" column="7"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -79,6 +83,7 @@
         <definition>enve::ground::flat::~flat</definition>
         <argsstring>(void)</argsstring>
         <name>~flat</name>
+        <qualifiedname>enve::ground::flat::~flat</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -89,13 +94,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="73" column="7" bodyfile="src/enve_flat.cc" bodystart="53" bodyend="55"/>
+        <location file="include/enve_flat.hh" line="70" column="7" bodyfile="src/enve_flat.cc" bodystart="53" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1a4f727a921ba073396a3af587afe33706" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::ground::flat::flat</definition>
         <argsstring>(void)</argsstring>
         <name>flat</name>
+        <qualifiedname>enve::ground::flat::flat</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -106,13 +112,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="76" column="7" bodyfile="src/enve_flat.cc" bodystart="59" bodyend="61"/>
+        <location file="include/enve_flat.hh" line="73" column="7" bodyfile="src/enve_flat.cc" bodystart="59" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1ad1ab2fdca3aab1cdd7bc152d7ca7714d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::ground::flat::flat</definition>
         <argsstring>(real origin_x, real origin_y, real origin_z, real normal_x, real normal_y, real normal_z, real friction)</argsstring>
         <name>flat</name>
+        <qualifiedname>enve::ground::flat::flat</qualifiedname>
         <param>
           <type>real</type>
           <declname>origin_x</declname>
@@ -162,13 +169,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="79" column="7" bodyfile="src/enve_flat.cc" bodystart="65" bodyend="78"/>
+        <location file="include/enve_flat.hh" line="76" column="7" bodyfile="src/enve_flat.cc" bodystart="65" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1aff61b12a4d7daaa6a81d85074ff3fd90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::ground::flat::flat</definition>
         <argsstring>(point const &amp;origin, vec3 const &amp;normal, real friction)</argsstring>
         <name>flat</name>
+        <qualifiedname>enve::ground::flat::flat</qualifiedname>
         <param>
           <type>point const &amp;</type>
           <declname>origin</declname>
@@ -194,13 +202,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="90" column="7" bodyfile="src/enve_flat.cc" bodystart="82" bodyend="91"/>
+        <location file="include/enve_flat.hh" line="87" column="7" bodyfile="src/enve_flat.cc" bodystart="83" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1a3b71551fd97ddf109887297f70929ab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::ground::flat::flat</definition>
         <argsstring>(plane const &amp;plane_in, real friction)</argsstring>
         <name>flat</name>
+        <qualifiedname>enve::ground::flat::flat</qualifiedname>
         <param>
           <type>plane const &amp;</type>
           <declname>plane_in</declname>
@@ -220,13 +229,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="97" column="7" bodyfile="src/enve_flat.cc" bodystart="95" bodyend="103"/>
+        <location file="include/enve_flat.hh" line="94" column="7" bodyfile="src/enve_flat.cc" bodystart="97" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1af26cbffc1ad6fd269acc832cf8226ccf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void enve::ground::flat::copy</definition>
         <argsstring>(flat const &amp;flat_in)</argsstring>
         <name>copy</name>
+        <qualifiedname>enve::ground::flat::copy</qualifiedname>
         <param>
           <type><ref refid="a00050" kindref="compound">flat</ref> const &amp;</type>
           <declname>flat_in</declname>
@@ -240,13 +250,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="104" column="7" bodyfile="src/enve_flat.cc" bodystart="108" bodyend="114"/>
+        <location file="include/enve_flat.hh" line="101" column="7" bodyfile="src/enve_flat.cc" bodystart="111" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1adc60c85f9402159fb9409c9145a40965" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool enve::ground::flat::isApprox</definition>
         <argsstring>(flat const &amp;flat_in, real tolerance=EPSILON_LOW) const</argsstring>
         <name>isApprox</name>
+        <qualifiedname>enve::ground::flat::isApprox</qualifiedname>
         <param>
           <type><ref refid="a00050" kindref="compound">flat</ref> const &amp;</type>
           <declname>flat_in</declname>
@@ -267,13 +278,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="110" column="7" bodyfile="src/enve_flat.cc" bodystart="119" bodyend="126"/>
+        <location file="include/enve_flat.hh" line="107" column="7" bodyfile="src/enve_flat.cc" bodystart="123" bodyend="131"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1ab696dc901373db2dcc49028eea16bb69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>real const &amp;</type>
         <definition>real const  &amp; enve::ground::flat::friction</definition>
         <argsstring>(void) const</argsstring>
         <name>friction</name>
+        <qualifiedname>enve::ground::flat::friction</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -284,15 +296,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="117" column="7" bodyfile="src/enve_flat.cc" bodystart="131" bodyend="135"/>
-        <referencedby refid="a00062_1aab9a96fab4f1267b9433ec1f56b2ede8" compoundref="a00029" startline="376" endline="419">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1ad3141e45ab81272c1bfa2de2a2b04e12" compoundref="a00029" startline="623" endline="643">enve::rib::samplingLine</referencedby>
+        <location file="include/enve_flat.hh" line="114" column="7" bodyfile="src/enve_flat.cc" bodystart="136" bodyend="140"/>
+        <referencedby refid="a00062_1aab9a96fab4f1267b9433ec1f56b2ede8" compoundref="a00029" startline="386" endline="429">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1ad3141e45ab81272c1bfa2de2a2b04e12" compoundref="a00029" startline="635" endline="655">enve::rib::samplingLine</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00050_1a0f78e2cb0f14de2fe9010275dd3a9789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>real &amp;</type>
         <definition>real &amp; enve::ground::flat::friction</definition>
         <argsstring>(void)</argsstring>
         <name>friction</name>
+        <qualifiedname>enve::ground::flat::friction</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -303,13 +316,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="121" column="7" bodyfile="src/enve_flat.cc" bodystart="140" bodyend="143"/>
+        <location file="include/enve_flat.hh" line="118" column="7" bodyfile="src/enve_flat.cc" bodystart="145" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1abef0bcad25ee073aaa889a58760a4cbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>plane const &amp;</type>
         <definition>plane const  &amp; enve::ground::flat::layingPlane</definition>
         <argsstring>(void) const</argsstring>
         <name>layingPlane</name>
+        <qualifiedname>enve::ground::flat::layingPlane</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -320,13 +334,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="125" column="7" bodyfile="src/enve_flat.cc" bodystart="148" bodyend="152"/>
+        <location file="include/enve_flat.hh" line="122" column="7" bodyfile="src/enve_flat.cc" bodystart="153" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="a00050_1aa107e521521875bdf184d482d9c00825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>plane &amp;</type>
         <definition>plane &amp; enve::ground::flat::layingPlane</definition>
         <argsstring>(void)</argsstring>
         <name>layingPlane</name>
+        <qualifiedname>enve::ground::flat::layingPlane</qualifiedname>
         <param>
           <type>void</type>
         </param>
@@ -337,7 +352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_flat.hh" line="129" column="7" bodyfile="src/enve_flat.cc" bodystart="157" bodyend="160"/>
+        <location file="include/enve_flat.hh" line="126" column="7" bodyfile="src/enve_flat.cc" bodystart="162" bodyend="165"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -367,7 +382,7 @@
         <label>plane</label>
       </node>
     </collaborationgraph>
-    <location file="include/enve_flat.hh" line="60" column="5" bodyfile="include/enve_flat.hh" bodystart="61" bodyend="130"/>
+    <location file="include/enve_flat.hh" line="57" column="5" bodyfile="include/enve_flat.hh" bodystart="58" bodyend="127"/>
     <listofallmembers>
       <member refid="a00050_1af26cbffc1ad6fd269acc832cf8226ccf" prot="public" virt="non-virtual"><scope>enve::ground::flat</scope><name>copy</name></member>
       <member refid="a00050_1a60478551b305fec4965412043387f3e4" prot="private" virt="non-virtual"><scope>enve::ground::flat</scope><name>flat</name></member>

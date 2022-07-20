@@ -113,7 +113,8 @@
     <span class="n">real</span> <span class="n">vertex2_x</span><span class="p">,</span>
     <span class="n">real</span> <span class="n">vertex2_y</span><span class="p">,</span>
     <span class="n">real</span> <span class="n">vertex2_z</span><span class="p">,</span>
-    <span class="n">real</span> <span class="n">friction</span><span class="p">)</span>
+    <span class="n">real</span> <span class="n">friction</span>
+  <span class="p">)</span>
     <span class="o">:</span> <span class="n">triangle</span><span class="p">(</span><span class="n">vertex0_x</span><span class="p">,</span> <span class="n">vertex0_y</span><span class="p">,</span> <span class="n">vertex0_z</span><span class="p">,</span> <span class="n">vertex1_x</span><span class="p">,</span> <span class="n">vertex1_y</span><span class="p">,</span> <span class="n">vertex1_z</span><span class="p">,</span> <span class="n">vertex2_x</span><span class="p">,</span> <span class="n">vertex2_y</span><span class="p">,</span> <span class="n">vertex2_z</span><span class="p">),</span>
       <span class="n">m_friction</span><span class="p">(</span><span class="n">friction</span><span class="p">)</span>
   <span class="p">{</span>
@@ -130,7 +131,8 @@
     <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point0</span><span class="p">,</span>
     <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point1</span><span class="p">,</span>
     <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">point2</span><span class="p">,</span>
-    <span class="n">real</span>         <span class="n">friction</span><span class="p">)</span>
+    <span class="n">real</span>         <span class="n">friction</span>
+  <span class="p">)</span>
     <span class="o">:</span> <span class="n">triangle</span><span class="p">(</span><span class="n">point0</span><span class="p">,</span> <span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">),</span>
       <span class="n">m_friction</span><span class="p">(</span><span class="n">friction</span><span class="p">)</span>
   <span class="p">{</span>
@@ -142,7 +144,8 @@
 
   <span class="n">triangleground</span><span class="o">::</span><span class="n">triangleground</span><span class="p">(</span>
     <span class="n">point</span> <span class="k">const</span> <span class="n">vertex</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
-    <span class="n">real</span>        <span class="n">friction</span><span class="p">)</span>
+    <span class="n">real</span>        <span class="n">friction</span>
+  <span class="p">)</span>
     <span class="o">:</span> <span class="n">triangle</span><span class="p">(</span><span class="n">vertex</span><span class="p">),</span>
       <span class="n">m_friction</span><span class="p">(</span><span class="n">friction</span><span class="p">)</span>
   <span class="p">{</span>
@@ -154,7 +157,8 @@
 
   <span class="kt">void</span>
   <span class="n">triangleground</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span>
-    <span class="n">triangleground</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangleground_in</span><span class="p">)</span>
+    <span class="n">triangleground</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangleground_in</span>
+  <span class="p">)</span>
   <span class="p">{</span>
     <span class="n">triangle</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">triangleground_in</span><span class="p">);</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span>  <span class="o">=</span> <span class="n">triangleground_in</span><span class="p">.</span><span class="n">m_friction</span><span class="p">;</span>
@@ -167,7 +171,8 @@
   <span class="kt">bool</span>
   <span class="n">triangleground</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span>
     <span class="n">triangleground</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">triangleground_in</span><span class="p">,</span>
-    <span class="n">real</span>                  <span class="n">tolerance</span><span class="p">)</span>
+    <span class="n">real</span>                  <span class="n">tolerance</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">isApprox</span><span class="p">(</span><span class="n">triangleground_in</span><span class="p">.</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">&amp;&amp;</span>
@@ -225,7 +230,8 @@
 
   <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
   <span class="n">triangleground</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+    <span class="kt">size_t</span> <span class="n">i</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -235,7 +241,8 @@
 
   <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
   <span class="n">triangleground</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+    <span class="kt">size_t</span> <span class="n">i</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -245,7 +252,8 @@
 
   <span class="n">point</span> <span class="o">&amp;</span>
   <span class="n">triangleground</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+    <span class="kt">size_t</span> <span class="n">i</span>
+  <span class="p">)</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
   <span class="p">}</span>
@@ -254,7 +262,8 @@
 
   <span class="n">point</span> <span class="o">&amp;</span>
   <span class="n">triangleground</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span>
-    <span class="kt">size_t</span> <span class="n">i</span><span class="p">)</span>
+    <span class="kt">size_t</span> <span class="n">i</span>
+  <span class="p">)</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
   <span class="p">}</span>

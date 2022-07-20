@@ -100,7 +100,8 @@
     <span class="n">real</span> <span class="n">m_x</span><span class="p">,</span>
     <span class="n">real</span> <span class="n">r_y</span><span class="p">,</span>
     <span class="n">real</span> <span class="n">m_y</span><span class="p">,</span>
-    <span class="n">real</span> <span class="n">l_y</span><span class="p">)</span>
+    <span class="n">real</span> <span class="n">l_y</span>
+  <span class="p">)</span>
     <span class="o">:</span> <span class="n">m_r_x</span><span class="p">(</span><span class="n">r_x</span><span class="p">),</span>
       <span class="n">m_m_x</span><span class="p">(</span><span class="n">m_x</span><span class="p">),</span>
       <span class="n">m_r_y</span><span class="p">(</span><span class="n">r_y</span><span class="p">),</span>
@@ -113,7 +114,8 @@
 
   <span class="kt">void</span>
   <span class="n">shape</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span>
-    <span class="n">shape</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">shape_in</span><span class="p">)</span>
+    <span class="n">shape</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">shape_in</span>
+  <span class="p">)</span>
   <span class="p">{</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_r_x</span><span class="p">;</span>
     <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span> <span class="o">=</span> <span class="n">shape_in</span><span class="p">.</span><span class="n">m_m_x</span><span class="p">;</span>
@@ -264,7 +266,7 @@
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">real</span> <span class="n">y_abs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">y_abs</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">,</span> <span class="s">"enve::surfaceRadius(y): y coordinate is out of shape overall volume."</span><span class="p">);</span>
+    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">y_abs</span> <span class="o">&lt;=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_l_y</span><span class="p">,</span> <span class="s">"enve::surfaceRadius(y): y coordinate is out of shape overall volume.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="n">y_abs</span> <span class="o">/</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_y</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_y</span><span class="p">),</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_m_x</span><span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_r_x</span><span class="p">;</span>
   <span class="p">}</span>
 
@@ -283,11 +285,12 @@
   <span class="n">real</span>
   <span class="n">shape</span><span class="o">::</span><span class="n">surfaceDerivative</span><span class="p">(</span>
     <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
-    <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
+    <span class="n">real</span> <span class="n">tolerance</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">real</span> <span class="n">y_abs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">checkWidthBound</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="s">"enve::surfaceDerivative(y, tolerance): y coordinate is out of shape overall volume."</span><span class="p">);</span>
+    <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">checkWidthBound</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="s">"enve::surfaceDerivative(y, tolerance): y coordinate is out of shape overall volume.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">y_abs</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">)</span>
     <span class="p">{</span>
       <span class="n">real</span> <span class="n">sign</span>  <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="n">y_abs</span><span class="p">;</span>
@@ -306,7 +309,8 @@
   <span class="n">real</span>
   <span class="n">shape</span><span class="o">::</span><span class="n">surfaceAngle</span><span class="p">(</span>
     <span class="n">real</span> <span class="n">y</span><span class="p">,</span>
-    <span class="n">real</span> <span class="n">tolerance</span><span class="p">)</span>
+    <span class="n">real</span> <span class="n">tolerance</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">atan</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">surfaceDerivative</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">));</span>
@@ -316,7 +320,8 @@
 
   <span class="kt">void</span>
   <span class="n">shape</span><span class="o">::</span><span class="n">print</span><span class="p">(</span>
-    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">)</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span><span class="n">os</span>
+  <span class="p">)</span>
     <span class="k">const</span>
   <span class="p">{</span>
     <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="s">"Shell shape parameters:"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>

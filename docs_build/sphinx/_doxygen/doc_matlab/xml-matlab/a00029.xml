@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="a00029" kind="class" language="C++" prot="public">
     <compoundname>enve_triangleground</compoundname>
     <basecompoundref prot="public" virt="non-virtual">acme_entity</basecompoundref>
@@ -9,6 +9,7 @@
         <definition>function enve_triangleground::enve_triangleground</definition>
         <argsstring>(in varargin)</argsstring>
         <name>enve_triangleground</name>
+        <qualifiedname>enve_triangleground::enve_triangleground</qualifiedname>
         <param>
           <type>in</type>
           <declname>varargin</declname>
@@ -27,6 +28,7 @@
         <definition>function enve_triangleground::normal</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>normal</name>
+        <qualifiedname>enve_triangleground::normal</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -50,6 +52,7 @@
         <definition>function enve_triangleground::getFriction</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getFriction</name>
+        <qualifiedname>enve_triangleground::getFriction</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -72,6 +75,7 @@
         <definition>function enve_triangleground::setFriction</definition>
         <argsstring>(in this, in friction, in ignoredArg)</argsstring>
         <name>setFriction</name>
+        <qualifiedname>enve_triangleground::setFriction</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -98,6 +102,7 @@
         <definition>function enve_triangleground::getVertex1</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getVertex1</name>
+        <qualifiedname>enve_triangleground::getVertex1</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -120,6 +125,7 @@
         <definition>function enve_triangleground::getVertex2</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getVertex2</name>
+        <qualifiedname>enve_triangleground::getVertex2</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -142,6 +148,7 @@
         <definition>function enve_triangleground::getVertex3</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getVertex3</name>
+        <qualifiedname>enve_triangleground::getVertex3</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -164,6 +171,7 @@
         <definition>function enve_triangleground::setVertex1</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setVertex1</name>
+        <qualifiedname>enve_triangleground::setVertex1</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -190,6 +198,7 @@
         <definition>function enve_triangleground::setVertex2</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setVertex2</name>
+        <qualifiedname>enve_triangleground::setVertex2</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -216,6 +225,7 @@
         <definition>function enve_triangleground::setVertex3</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setVertex3</name>
+        <qualifiedname>enve_triangleground::setVertex3</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -242,6 +252,7 @@
         <definition>function enve_triangleground::copy</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>copy</name>
+        <qualifiedname>enve_triangleground::copy</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -268,6 +279,7 @@
         <definition>function enve_triangleground::copyByHandle</definition>
         <argsstring>(in this, in handle, in ignoredArg)</argsstring>
         <name>copyByHandle</name>
+        <qualifiedname>enve_triangleground::copyByHandle</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -294,6 +306,7 @@
         <definition>function enve_triangleground::disp</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>disp</name>
+        <qualifiedname>enve_triangleground::disp</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -316,6 +329,7 @@
         <definition>function enve_triangleground::toTriangle</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>toTriangle</name>
+        <qualifiedname>enve_triangleground::toTriangle</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -338,6 +352,7 @@
         <definition>function enve_triangleground::plot</definition>
         <argsstring>(in this, in figure_name, in color, in ignoredArg)</argsstring>
         <name>plot</name>
+        <qualifiedname>enve_triangleground::plot</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -368,6 +383,7 @@
         <definition>function enve_triangleground::type</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>type</name>
+        <qualifiedname>enve_triangleground::type</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>

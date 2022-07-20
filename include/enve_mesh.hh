@@ -34,15 +34,6 @@
 #ifndef INCLUDE_ENVE_MESH
 #define INCLUDE_ENVE_MESH
 
-// Print progress to console while loading (large models)
-#define ENVE_CONSOLE_OUTPUT
-
-#include <acme.hh>
-#include <acme_AABBtree.hh>
-#include <acme_aabb.hh>
-#include <acme_utils.hh>
-#include <acme_triangle.hh>
-
 #include "enve.hh"
 #include "enve_triangleground.hh"
 
@@ -158,22 +149,22 @@ namespace enve
       //! Intersect the mesh AABB tree with an external AABB tree
       bool
       intersection(
-        AABBtree::ptr const     AABBtree, //!< External AABBtree object pointer
-        triangleground::vecptr &triangles //!< Intersected triangleground vector list
+        AABBtree::ptr          const  AABBtree, //!< External AABBtree object pointer
+        triangleground::vecptr       &triangles //!< Intersected triangleground vector list
       ) const;
 
       //! Update the mesh AABBtree with an external aabb object pointer vector
       bool
       intersection(
-        aabb::vecptr const     &boxes,    //!< External aabb object pointer vector
-        triangleground::vecptr &triangles //!< Intersected triangleground vector list
+        aabb::vecptr           const &boxes,    //!< External aabb object pointer vector
+        triangleground::vecptr       &triangles //!< Intersected triangleground vector list
       ) const;
 
       //! Update the mesh AABBtree with an external aabb object pointer
       bool
       intersection(
-        aabb::ptr const         box,      //!< External aabb object pointer
-        triangleground::vecptr &triangles //!< Intersected triangleground vector list
+        aabb::ptr              const  box,      //!< External aabb object pointer
+        triangleground::vecptr       &triangles //!< Intersected triangleground vector list
       ) const;
 
     private:

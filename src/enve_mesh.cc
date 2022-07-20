@@ -61,7 +61,8 @@ namespace enve
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     mesh::mesh(
-      triangleground::vecptr const &triangles)
+      triangleground::vecptr const &triangles
+    )
       : mesh()
     {
       this->m_triangles = triangles;
@@ -72,29 +73,32 @@ namespace enve
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     mesh::mesh(
-      std::string const &path)
+      std::string const &path
+    )
       : mesh()
     {
       bool load_bool = load(path);
-      ENVE_ASSERT(load_bool, "Error while reading file\n");
+      ENVE_ASSERT(load_bool, "enve::mesh::mesh(path): error while reading file.\n");
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     mesh::mesh(
       std::string const &path,
-      real               friction)
+      real               friction
+    )
       : mesh()
     {
       bool load_bool = load(path, friction);
-      ENVE_ASSERT(load_bool, "Error while reading file\n");
+      ENVE_ASSERT(load_bool, "enve::mesh::mesh(path, friction): error while reading file.\n");
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     void
     mesh::copy(
-      mesh const &mesh_in)
+      mesh const &mesh_in
+    )
     {
       this->m_triangles = mesh_in.m_triangles;
       this->m_bboxes    = mesh_in.m_bboxes;
@@ -127,7 +131,8 @@ namespace enve
 
     triangleground::ptr
     mesh::ptrTriangleground(
-      size_t i)
+      size_t i
+    )
       const
     {
       return this->m_triangles[i];
@@ -146,7 +151,8 @@ namespace enve
 
     void
     mesh::print(
-      std::string const &path)
+      std::string const &path
+    )
       const
     {
       // Create Out.txt
@@ -205,40 +211,34 @@ namespace enve
       std::string const &path
     )
     {
+      // Start loading mesh
+      std::cout << "Loading *.rdf mesh... ";
+    
       // Check if the file is an ".rdf" file, if not return false
       if (path.substr(path.size() - 4, 4) != ".rdf")
       {
-        ENVE_ERROR("enve::load(path): not a *.rdf file!");
+        std::cout << "Failed" << std::endl;
+        ENVE_ERROR("enve::mesh::load(path): not a *.rdf file.\n");
         return false;
       }
       // Check if the file had been correctly open, if not return false
       std::ifstream file(path);
       if (!file.is_open())
       {
-        ENVE_ERROR("enve::load(path): *.rdf file not opened");
+        std::cout << "Failed" << std::endl;
+        ENVE_ERROR("enve::mesh::load(path): *.rdf file not opened.\n");
         return false;
       }
       // Vector for nodes coordinates
       std::vector<point> nodes;
+      nodes.reserve(25000);
+      this->m_triangles.reserve(100000);
       bool               nodes_parse    = false;
       bool               elements_parse = false;
 
-#ifdef ENVE_CONSOLE_OUTPUT
-      const size_t output_every     = 5000;
-      size_t       output_indicator = output_every;
-#endif
       std::string curline;
       while (std::getline(file, curline))
       {
-#ifdef ENVE_CONSOLE_OUTPUT
-        if ((output_indicator = ((output_indicator + 1) % output_every)) == 1)
-        {
-          std::cout
-            << "\rLoading *.rdf mesh... "
-            << this->m_triangles.size()
-            << " triangles detected " << std::endl;
-        }
-#endif
         std::string token = this->firstToken(curline);
         if (token == "[NODES]" || token == "NODES")
         {
@@ -286,10 +286,10 @@ namespace enve
           ipos[1]   = std::stoi(spos[1]);
           ipos[2]   = std::stoi(spos[2]);
           ifriction = std::stod(spos[3]);
-          ENVE_ASSERT(ipos[0]   >= 0, "enve::ground::load(path): element 0 index cannot be negative\n");
-          ENVE_ASSERT(ipos[1]   >= 0, "enve::ground::load(path): element 1 index cannot be negative\n");
-          ENVE_ASSERT(ipos[2]   >= 0, "enve::ground::load(path): element 2 index cannot be negative\n");
-          ENVE_ASSERT(ifriction >= 0, "enve::ground::load(path): element friction cannot be negative\n");
+          ENVE_ASSERT(ipos[0]   >= 0, "enve::ground::load(path): element 0 index cannot be negative.\n");
+          ENVE_ASSERT(ipos[1]   >= 0, "enve::ground::load(path): element 1 index cannot be negative.\n");
+          ENVE_ASSERT(ipos[2]   >= 0, "enve::ground::load(path): element 2 index cannot be negative.\n");
+          ENVE_ASSERT(ifriction >= 0, "enve::ground::load(path): element friction cannot be negative.\n");
 
           // Create a shared pointer for the last triangle and push it in the pointer vector
           this->m_triangles.push_back(std::make_shared<triangleground const>(nodes[ipos[0]], 
@@ -299,31 +299,28 @@ namespace enve
           continue;
         }
       }
-#ifdef ENVE_CONSOLE_OUTPUT
-      std::cout << std::endl;
-#endif
+      std::cout << "Done" << std::endl
+                << this->m_triangles.size() << " triangles detected" << std::endl
+                << std::endl;
+
       file.close();
       if (this->m_triangles.empty())
       {
-        perror("Loaded mesh is empty");
+        ENVE_ERROR("enve::mesh::load(path): *.rdf loaded mesh is empty");
         return false;
       }
       else
       {
         // Update the local intersected triangles list
-#ifdef ENVE_CONSOLE_OUTPUT
         std::cout << "Building AABB tree... ";
-#endif
         this->updateBBoxes();
         this->m_AABBtree->build(this->m_bboxes);
-#ifdef ENVE_CONSOLE_OUTPUT
         std::cout << "Done" << std::endl
                   << std::endl;
-#endif
         return true;
       }
     }
-
+    
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     bool
@@ -332,38 +329,33 @@ namespace enve
       real               friction
     )
     {
+      // Start loading mesh
+      std::cout << "Loading *.obj mesh... ";
+
       // Check if the file is an ".obj" file, if not return false
       if (path.substr(path.size() - 4, 4) != ".obj")
       {
-        ENVE_ERROR("enve::load(path, friction): not a *.obj file");
+        std::cout << "Failed" << std::endl;
+        ENVE_ERROR("enve::mesh::load(path, friction): not a *.obj file.\n");
         return false;
       }
       // Check if the file had been correctly open, if not return false
       std::ifstream file(path);
       if (!file.is_open())
       {
-        ENVE_ERROR("enve::load(path, friction): *.obj file not opened");
+        std::cout << "Failed" << std::endl;
+        ENVE_ERROR("enve::mesh::load(path, friction): *.obj file not opened.\n");
         return false;
       }
+
       // Vector for nodes coordinates
       std::vector<point> nodes;
+      nodes.reserve(25000);
+      this->m_triangles.reserve(100000);
 
-#ifdef ENVE_CONSOLE_OUTPUT
-      const size_t output_every     = 5000;
-      size_t       output_indicator = output_every;
-#endif
       std::string curline;
       while (std::getline(file, curline))
       {
-#ifdef ENVE_CONSOLE_OUTPUT
-        if ((output_indicator = ((output_indicator + 1) % output_every)) == 1)
-        {
-          std::cout
-            << "\rLoading *.obj mesh... "
-            << this->m_triangles.size()
-            << " triangles detected " << std::endl;
-        }
-#endif
         std::string token = this->firstToken(curline);
         if (token == "v")
         {
@@ -386,9 +378,9 @@ namespace enve
           ipos[0] = std::stoi(spos[0]) - 1;
           ipos[1] = std::stoi(spos[1]) - 1;
           ipos[2] = std::stoi(spos[2]) - 1;
-          ENVE_ASSERT(ipos[0] >= 0, "enve::ground::load(path, friction): element 0 index cannot be negative\n");
-          ENVE_ASSERT(ipos[1] >= 0, "enve::ground::load(path, friction): element 1 index cannot be negative\n");
-          ENVE_ASSERT(ipos[2] >= 0, "enve::ground::load(path, friction): element 2 index cannot be negative\n");
+          ENVE_ASSERT(ipos[0] >= 0, "enve::ground::load(path, friction): element 0 index cannot be negative.\n");
+          ENVE_ASSERT(ipos[1] >= 0, "enve::ground::load(path, friction): element 1 index cannot be negative.\n");
+          ENVE_ASSERT(ipos[2] >= 0, "enve::ground::load(path, friction): element 2 index cannot be negative.\n");
 
           // Create a shared pointer for the last triangle and push it in the pointer vector
           this->m_triangles.push_back(std::make_shared<triangleground const>(nodes[ipos[0]], 
@@ -403,27 +395,24 @@ namespace enve
           continue;
         }
       }
-#ifdef ENVE_CONSOLE_OUTPUT
-      std::cout << std::endl;
-#endif
+      std::cout << "Done" << std::endl
+                << this->m_triangles.size() << " triangles detected" << std::endl
+                << std::endl;
+
       file.close();
       if (this->m_triangles.empty())
       {
-        perror("Loaded mesh is empty");
+        ENVE_ERROR("enve::mesh::load(path, friction): *.obj loaded mesh is empty");
         return false;
       }
       else
       {
         // Update the local intersected triangles list
-#ifdef ENVE_CONSOLE_OUTPUT
         std::cout << "Building AABB tree... ";
-#endif
         this->updateBBoxes();
         this->m_AABBtree->build(this->m_bboxes);
-#ifdef ENVE_CONSOLE_OUTPUT
         std::cout << "Done" << std::endl
                   << std::endl;
-#endif
         return true;
       }
     }
@@ -432,8 +421,9 @@ namespace enve
 
     bool
     mesh::intersection(
-      AABBtree::ptr const     ptrAABBtree,
-      triangleground::vecptr &triangles)
+      AABBtree::ptr          const  ptrAABBtree,
+      triangleground::vecptr       &triangles
+    )
       const
     {
       triangles.clear();
@@ -448,8 +438,9 @@ namespace enve
 
     bool
     mesh::intersection(
-      aabb::vecptr const     &ptrVecbox,
-      triangleground::vecptr &triangles)
+      aabb::vecptr           const &ptrVecbox,
+      triangleground::vecptr       &triangles
+    )
       const
     {
       AABBtree::ptr ptrAABBtree(std::make_shared<AABBtree>());
@@ -461,8 +452,9 @@ namespace enve
 
     bool
     mesh::intersection(
-      aabb::ptr const         ptrbox,
-      triangleground::vecptr &triangles)
+      aabb::ptr              const  ptrbox,
+      triangleground::vecptr       &triangles
+    )
       const
     {
       aabb::vecptr ptrVecbox;
@@ -489,9 +481,10 @@ namespace enve
 
     void
     mesh::split(
-      std::string const        &in,
-      std::vector<std::string> &out,
-      std::string const        &token)
+      std::string              const &in,
+      std::vector<std::string>       &out,
+      std::string              const &token
+    )
       const
     {
       out.clear();
@@ -530,7 +523,8 @@ namespace enve
 
     std::string
     mesh::tail(
-      std::string const &in)
+      std::string const &in
+    )
       const
     {
       size_t token_start = in.find_first_not_of(" \t");
@@ -552,7 +546,8 @@ namespace enve
 
     std::string
     mesh::firstToken(
-      std::string const &in)
+      std::string const &in
+    )
       const
     {
       if (!in.empty())

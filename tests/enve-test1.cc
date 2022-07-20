@@ -62,7 +62,7 @@ main()
     //road.print("bin/OutMesh.txt");
 
     // Initialize the tire shell
-    shell tire_shell(3,     // ribs number
+    shell tire_shell(4,     // ribs number
                      0.3130, // r_x
                      9.0,    // m_x
                      0.11,   // r_y

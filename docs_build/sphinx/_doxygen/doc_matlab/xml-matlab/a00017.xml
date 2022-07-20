@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="a00017" kind="class" language="C++" prot="public">
     <compoundname>enve_flat</compoundname>
     <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
@@ -9,6 +9,7 @@
         <definition>Property enve_flat::objectHandle</definition>
         <argsstring></argsstring>
         <name>objectHandle</name>
+        <qualifiedname>enve_flat::objectHandle</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -25,6 +26,7 @@
         <definition>function enve_flat::enve_flat</definition>
         <argsstring>(in varargin)</argsstring>
         <name>enve_flat</name>
+        <qualifiedname>enve_flat::enve_flat</qualifiedname>
         <param>
           <type>in</type>
           <declname>varargin</declname>
@@ -43,6 +45,7 @@
         <definition>function enve_flat::getOrigin</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getOrigin</name>
+        <qualifiedname>enve_flat::getOrigin</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -66,6 +69,7 @@
         <definition>function enve_flat::setOrigin</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setOrigin</name>
+        <qualifiedname>enve_flat::setOrigin</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -92,6 +96,7 @@
         <definition>function enve_flat::getNormal</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getNormal</name>
+        <qualifiedname>enve_flat::getNormal</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -114,6 +119,7 @@
         <definition>function enve_flat::setNormal</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setNormal</name>
+        <qualifiedname>enve_flat::setNormal</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -140,6 +146,7 @@
         <definition>function enve_flat::getPlane</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getPlane</name>
+        <qualifiedname>enve_flat::getPlane</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -162,6 +169,7 @@
         <definition>function enve_flat::setPlane</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>setPlane</name>
+        <qualifiedname>enve_flat::setPlane</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -188,6 +196,7 @@
         <definition>function enve_flat::getFriction</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>getFriction</name>
+        <qualifiedname>enve_flat::getFriction</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -210,6 +219,7 @@
         <definition>function enve_flat::setFriction</definition>
         <argsstring>(in this, in friction, in ignoredArg)</argsstring>
         <name>setFriction</name>
+        <qualifiedname>enve_flat::setFriction</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -236,6 +246,7 @@
         <definition>function enve_flat::isDegenerated</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>isDegenerated</name>
+        <qualifiedname>enve_flat::isDegenerated</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -258,6 +269,7 @@
         <definition>function enve_flat::isApprox</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>isApprox</name>
+        <qualifiedname>enve_flat::isApprox</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -284,6 +296,7 @@
         <definition>function enve_flat::copy</definition>
         <argsstring>(in this, in other_obj, in ignoredArg)</argsstring>
         <name>copy</name>
+        <qualifiedname>enve_flat::copy</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -310,6 +323,7 @@
         <definition>function enve_flat::copyByHandle</definition>
         <argsstring>(in this, in handle, in ignoredArg)</argsstring>
         <name>copyByHandle</name>
+        <qualifiedname>enve_flat::copyByHandle</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -336,6 +350,7 @@
         <definition>function enve_flat::disp</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>disp</name>
+        <qualifiedname>enve_flat::disp</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -358,6 +373,7 @@
         <definition>function enve_flat::plot</definition>
         <argsstring>(in this, in figure_name, in color, in ignoredArg)</argsstring>
         <name>plot</name>
+        <qualifiedname>enve_flat::plot</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -388,6 +404,7 @@
         <definition>function enve_flat::type</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
         <name>type</name>
+        <qualifiedname>enve_flat::type</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>

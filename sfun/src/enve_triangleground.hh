@@ -34,12 +34,6 @@
 #ifndef INCLUDE_ENVE_TRIANGLEGROUND
 #define INCLUDE_ENVE_TRIANGLEGROUND
 
-#include <acme.hh>
-#include <acme_aabb.hh>
-#include <acme_intersection.hh>
-#include <acme_segment.hh>
-#include <acme_triangle.hh>
-
 #include "enve.hh"
 
 using namespace acme;
