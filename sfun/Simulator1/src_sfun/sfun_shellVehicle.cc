@@ -49,10 +49,14 @@ shellVehicle::init(
   const double *m_x,
   const double *r_y,
   const double *m_y,
-  const double *l_y
+  const double *l_y,
+  const double *flatHeight,
+  const double *flatFriction
 )
 {
-  this->m_enveShell = new enve::shell(*size, *r_x, *m_x, *r_y, *m_y, *l_y);
+  this->m_enveShell             = new enve::shell(*size, *r_x, *m_x, *r_y, *m_y, *l_y);
+  this->m_groundFlat.origin()   = acme::vec3(0.0, 0.0, *flatHeight);
+  this->m_groundFlat.friction() = *flatFriction;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -88,7 +92,6 @@ shellVehicle::out(
     method_in = "sampling";
   else
     method_in = "none";
-
 
   // ENVE computation plane
   bool in_mesh;

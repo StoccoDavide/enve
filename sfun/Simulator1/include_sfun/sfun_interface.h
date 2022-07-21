@@ -33,51 +33,56 @@
 
 #pragma once
 
-#ifndef INCLUDE_SFUN_SHELLVEHICLE
-#define INCLUDE_SFUN_SHELLVEHICLE
+#ifndef INCLUDE_SFUN_INTEREFACE
+#define INCLUDE_SFUN_INTEREFACE
 
-#include "acme.hh"
+#include "sfun_types.h"
 
-#include "enve.hh"
-#include "enve_flat.hh"
-#include "enve_mesh.hh"
-#include "enve_shell.hh"
-
-#include "sfun_interface.h"
-
-class shellVehicle
+#ifdef __cplusplus
+extern "C"
 {
-private:
-  enve::shell       *m_enveShell;  // Shell object
-  enve::ground::flat m_groundFlat; // Ground flat object pointer
+#endif
 
-public:
-  // Default class constructor
-  shellVehicle(void);
-
-  // Function initializes virtual plane and tire model for one tire
+  // Function initializes a ENVE shell object
   void
-  init(
-    const double *size, // Ribs number
-    const double *r_x,  // Shell radius on x axis (m)
-    const double *m_x,  // Shell curve degree for x axis
-    const double *r_y,  // Shell radius on y axis (m)
-    const double *m_y,  // Shell curve degree for y axis
-    const double *l_y   // Surface half width on y axis (m)
+  sfun_init(
+    const double *size,        // Ribs number
+    const double *r_x,         // Shell radius on x axis (m)
+    const double *m_x,         // Shell curve degree for x axis
+    const double *r_y,         // Shell radius on y axis (m)
+    const double *m_y,         // Shell curve degree for y axis
+    const double *l_y,         // Surface half width on y axis (m)
+    const double *flatHeight,  // Flat ground surface height (m)
+    const double *flatFriction // Flat ground surface friction scaling coefficient (-)
   );
 
-  // Function outputs the computation of ENVE for one tire, including logic for out-mesh conditions.
-  // If there are no triangles under the tire shadow, ENVE will work with a virtual plane created from the last contact point
-  bool
-  out(
-    enve::ground::mesh *groundMesh, // Ground object
-    const double      (&RFw)[16],   // Wheel hub reference frame
-    const double       *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
-    double            (&RFpc)[16],  // Contact point reference frame
-    double             &rho,        // Shell penetration (m)
-    double             &friction,   // Friction coefficient
-    const double       *flat_enable // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
+  // Library entry point for step update: update ENVE computation for the one shell (tire)
+  void
+  sfun_out(
+    const shellsRF *input,     // Input bus containing the shell reference frame
+    groundContact  *output,     // Output bus containing the contact point reference frame
+    const double   *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    const double   *flat_enable // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
   );
-};
+
+  // Library entry point for delete the allocated memory
+  void
+  sfun_end(void);
+
+  // Library entry point for delete the allocated memory for shell object
+  void
+  sfun_destroy_shell(
+    void *shell_sf // Shell object pointer to be deleted
+  );
+
+  // Library entry point for delete the allocated memory for ground object
+  void
+  sfun_destroy_ground(
+    void *ground_sf // Ground object pointer to be deleted
+  );
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

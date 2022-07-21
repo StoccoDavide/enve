@@ -1037,7 +1037,7 @@ namespace enve
   )
   {
     real d0, d1, d2;
-    int  s0, s1, s2;
+    int  sum;
     size_t size = this->size();
 
     std::vector<real> y(size);
@@ -1050,6 +1050,7 @@ namespace enve
 
     // Create shell middle plane
     plane shellPlane(this->translation(), this->y());
+    shellPlane.normalize();
 
     // Iterate on triangles
     for (size_t i = 0; i < localGround.size(); ++i)
@@ -1063,12 +1064,12 @@ namespace enve
       for (size_t j = 0; j < size; ++j)
       {
         // Calculate sign of j-th rib distance
-        s0 = int( (real(0.0) < (d0-y[j])) - ((d0-y[j]) < real(0.0)) );
-        s1 = int( (real(0.0) < (d1-y[j])) - ((d1-y[j]) < real(0.0)) );
-        s2 = int( (real(0.0) < (d2-y[j])) - ((d2-y[j]) < real(0.0)) );
+        sum = int( (real(0.0) < (d0-y[j])) - ((d0-y[j]) < real(0.0)) ) +
+              int( (real(0.0) < (d1-y[j])) - ((d1-y[j]) < real(0.0)) ) +
+              int( (real(0.0) < (d2-y[j])) - ((d2-y[j]) < real(0.0)) );
 
         // Fill candidates list
-        if (s0 * s1 * s2 < 1 && std::abs(s0 + s1 + s2) < 2)
+        if (-3 < sum && sum < 3)
           this->m_tris[j].push_back(i);
       }
     }

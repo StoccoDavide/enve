@@ -33,22 +33,49 @@
 
 #pragma once
 
-#ifndef INCLUDE_SFUN_TYPES
-#define INCLUDE_SFUN_TYPES
+#ifndef INCLUDE_SFUN_SHELLVEHICLE
+#define INCLUDE_SFUN_SHELLVEHICLE
 
-// Structure containing the input of ENVE
-typedef struct
-{
-  double RFw[16]; // Shell (tire) hub reference frame w.r.t. ground
-} shellRF;
+#include "enve.hh"
+#include "enve_flat.hh"
+#include "enve_mesh.hh"
+#include "enve_shell.hh"
 
-// Structure containing the output of ENVE
-typedef struct
+class shellVehicle
 {
-  double RFpc_ground[16]; // Contact point (Pacejka one-rib equivalent) reference frame w.r.t. ground
-  double friction;        // Friction coefficient
-  double rho;             // Shell (tire) penetration
-  double in_mesh;         // Flag to detect if any wheel is outside the ground mesh. (0: at least one wheel is out of ground, 1: every wheels are in the ground)
-} groundContact;
+private:
+  enve::shell       *m_enveShell;  // Shell object
+  enve::ground::flat m_groundFlat; // Ground flat object pointer
+
+public:
+  // Default class constructor
+  shellVehicle(void);
+
+  // Function initializes virtual plane and tire model for one tire
+  void
+  init(
+    const double *size,        // Ribs number
+    const double *r_x,         // Shell radius on x axis (m)
+    const double *m_x,         // Shell curve degree for x axis
+    const double *r_y,         // Shell radius on y axis (m)
+    const double *m_y,         // Shell curve degree for y axis
+    const double *l_y,         // Surface half width on y axis (m)
+    const double *flatHeight,  // Flat ground surface height (m)
+    const double *flatFriction // Flat ground surface friction scaling coefficient (-)
+  );
+
+  // Function outputs the computation of ENVE for one tire, including logic for out-mesh conditions.
+  // If there are no triangles under the tire shadow, ENVE will work with a virtual plane created from the last contact point
+  bool
+  out(
+    enve::ground::mesh *groundMesh, // Ground object
+    const double      (&RFw)[16],   // Wheel hub reference frame
+    const double       *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    double            (&RFpc)[16],  // Contact point reference frame
+    double             &rho,        // Shell penetration (m)
+    double             &friction,   // Friction coefficient
+    const double       *flat_enable // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
+  );
+};
 
 #endif

@@ -33,64 +33,22 @@
 
 #pragma once
 
-#ifndef INCLUDE_SFUN_INTEREFACE
-#define INCLUDE_SFUN_INTEREFACE
+#ifndef INCLUDE_SFUN_TYPES
+#define INCLUDE_SFUN_TYPES
 
-#include <stdlib.h>
-
-#include <iostream>
-
-#include "enve.hh"
-#include "enve_flat.hh"
-#include "enve_mesh.hh"
-#include "enve_shell.hh"
-
-#include "sfun_shellVehicle.hh"
-#include "sfun_types.h"
-
-#ifdef __cplusplus
-extern "C"
+// Structure containing the input of ENVE
+typedef struct
 {
-#endif
+  double RFw[16]; // Shell (tire) hub reference frame w.r.t. ground
+} shellsRF;
 
-  // Function initializes a ENVE shell object
-  void
-  sfun_init(
-    const double *size, // Ribs number
-    const double *r_x,  // Shell radius on x axis (m)
-    const double *m_x,  // Shell curve degree for x axis
-    const double *r_y,  // Shell radius on y axis (m)
-    const double *m_y,  // Shell curve degree for y axis
-    const double *l_y   // Surface half width on y axis (m)
-  );
-
-  // Library entry point for step update: update ENVE computation for the one shell (tire)
-  void
-  sfun_out(
-    const shellRF *input,      // Input bus containing the shell reference frame
-    groundContact *output,     // Output bus containing the contact point reference frame
-    const double  *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
-    const double  *flat_enable // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
-  );
-
-  // Library entry point for delete the allocated memory
-  void
-  sfun_end(void);
-
-  // Library entry point for delete the allocated memory for shell object
-  void
-  sfun_destroy_shell(
-    void *shell_sf // Shell object pointer to be deleted
-  );
-
-  // Library entry point for delete the allocated memory for ground object
-  void
-  sfun_destroy_ground(
-    void *ground_sf // Ground object pointer to be deleted
-  );
-
-#ifdef __cplusplus
-}
-#endif
+// Structure containing the output of ENVE
+typedef struct
+{
+  double RFpc_ground[16]; // Contact point (Pacejka one-rib equivalent) reference frame w.r.t. ground
+  double friction;        // Friction coefficient
+  double rho;             // Shell (tire) penetration
+  double in_mesh;         // Flag to detect if any wheel is outside the ground mesh. (0: at least one wheel is out of ground, 1: every wheels are in the ground)
+} groundContact;
 
 #endif

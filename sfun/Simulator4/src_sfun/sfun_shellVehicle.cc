@@ -93,7 +93,6 @@ shellVehicle::out(
   else
     method_in = "none";
 
-
   // ENVE computation plane
   bool in_mesh;
   if (*flat_enable != 0)

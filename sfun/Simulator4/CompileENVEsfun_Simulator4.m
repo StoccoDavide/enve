@@ -32,37 +32,111 @@
 clc;
 clear all;
 
+build_utils    = false;
+build_acme     = false;
+build_enve     = true;
+block_generate = false;
+
 addpath('./include_sfun');
 addpath('./src_sfun');
 
-%% ENVE S-Function interface
+disp('----------------- ENVE SIMULATOR 4 S-FUNCTION ------------------');
 
-disp('----------------- ENVE SIMULATOR S-FUNCTION ------------------');
+%% Compile C++ libraries
 
 Simulink.importExternalCTypes('./include_sfun/sfun_types.h');
 
-if isunix && ~ismac
-    dyn_ext = '.so';
-elseif ismac
-    dyn_ext = '.dylib';
+if ismac
+  dyn_ext = '.dylib';
+elseif ispc
+  dyn_ext = '.dll';
+elseif isunix
+  dyn_ext = '.so';
 else
-    disp('Platform not supported');
-    return;
+  disp('Platform not supported');
+  return;
 end
 
+if build_utils
+  disp('Building UTILS library...');
+  cd ./../../submodules/acme/submodules/Utils
+  if ismac
+    ! rake clean
+    ! rake build_osx
+  elseif ispc
+    ! rake clean
+    ! rake build_windows
+  elseif isunix
+    ! rake clean
+    ! rake build_linux
+  end
+  cd ./../../../../sfun/Simulator4
+  disp('Done');
+end
+
+if build_acme
+  disp('Building ACME library...');
+  cd ./../../submodules/acme
+  if ismac
+    ! rake clean
+    ! rake build_osx
+  elseif ispc
+    ! rake clean
+    ! rake build_windows
+  elseif isunix
+    ! rake clean
+    ! rake build_linux
+  end
+  cd ./../../sfun/Simulator4
+  disp('Done');
+end
+
+if build_enve
+  disp('Building ENVE library...');
+  cd ./../..
+  if ismac
+    ! rake clean
+    ! rake build_osx
+  elseif ispc
+    ! rake clean
+    ! rake build_windows
+  elseif isunix
+    ! rake clean
+    ! rake build_linux
+  end
+  cd ./sfun/Simulator4
+  disp('Done');
+end
+
+%% ENVE S-Function interface
+
+disp('Building S-FUNCTION...');
+
 def = legacy_code('initialize');
+def.SFunctionName    = 'ENVEsfun_Simulator4';
+def.Options.language = 'C';
 
-def.SFunctionName    = 'ENVEsfun_Simulator';
-def.Options.language = 'C++';
+lib_dir = '/usr/local/lib';
+if (~contains(getenv('LD_RUN_PATH'), lib_dir))
+  setenv('LD_RUN_PATH', [getenv('LD_RUN_PATH') ':' lib_dir]);
+end
 
-def.IncPaths    = {'./include_sfun', './../src'};
-def.SrcPaths    = {'./src_sfun', './../src'};
-def.HeaderFiles = {'sfun_types.h', 'sfun_interface.h', 'sfun_shellVehicle.hh'};
-def.SourceFiles = {'sfun_interface.cc', 'sfun_shellVehicle.cc'};
+def.IncPaths    = {'../../lib/include'};
+def.HeaderFiles = {'sfun_types.h', 'sfun_interface.h'};
 
-def.LibPaths = {'./../../lib/dll'};
-lib_name = ['./../../lib/dll/libenve_osx', dyn_ext];
-def.HostLibFiles = { lib_name };
+def.LibPaths = {lib_dir};
+if ismac
+  lib_name = ['../../lib/dll/libenve_osx', dyn_ext];
+elseif ispc
+  disp('Fill information!');
+  return;
+elseif isunix
+  lib_name = [lib_dir, '/libenve_linux', dyn_ext];
+else
+  disp('Platform not supported');
+  return;
+end
+def.HostLibFiles = {lib_name};
 
 %% Functions interface
 
@@ -93,9 +167,19 @@ def.TerminateFcnSpec = 'void sfun_end()';
 
 %% Create MEX
 
-legacy_code('sfcn_cmex_generate', def);
-legacy_code('compile', def, {} );
-legacy_code('sfcn_tlc_generate', def);
-legacy_code('slblock_generate', def, def.SFunctionName);
+disp('Building MATLAB mex...');
+if isfile(lib_name)
+  legacy_code('generate_for_sim',def);
+  legacy_code('sfcn_cmex_generate', def);
+  legacy_code('sfcn_tlc_generate', def);
+  legacy_code('sfcn_makecfg_generate', def);
+  legacy_code('compile', def, {} );
+  if block_generate
+      legacy_code('slblock_generate', def, def.SFunctionName);
+  end
+else
+  disp('ENVE is not installed, cannot create MATLAB mex.');
+end
+disp('Done');
 
-disp('---------------------------- DONE ----------------------------');
+disp('----------------------------- DONE -----------------------------');

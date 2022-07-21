@@ -76,22 +76,44 @@ foreach (F ${S})
   list( APPEND HEADERS ${RF} )
 endforeach (F ${S})
 
-if( BUILD_SIMULATOR )
-  include_directories( ./sfun/Simulator/include_sfun ./sfun/Simulator/src_sfun )
+if(SIMULATOR_SHELLS_NUMBER EQUAL 1)
+
+  # Include S-Function directories
+  include_directories( ./sfun/Simulator1/include_sfun ./sfun/Simulator1/src_sfun )
 
   # Include S-Function sources
-  file( GLOB S ./sfun/Simulator/src_sfun/*.cc )
+  file( GLOB S ./sfun/Simulator1/src_sfun/*.cc )
   foreach (F ${S})
     file( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
     list( APPEND SOURCES ${RF} )
   endforeach (F ${S})
 
   # Include S-Function headers
-  file( GLOB S ./sfun/Simulator/include_sfun/* )
+  file( GLOB S ./sfun/Simulator1/include_sfun/* )
   foreach (F ${S})
     file( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
     list( APPEND HEADERS ${RF} )
   endforeach (F ${S})
+
+elseif(SIMULATOR_SHELLS_NUMBER EQUAL 4)
+
+  # Include S-Function directories
+  include_directories( ./sfun/Simulator4/include_sfun ./sfun/Simulator4/src_sfun )
+
+  # Include S-Function sources
+  file( GLOB S ./sfun/Simulator4/src_sfun/*.cc )
+  foreach (F ${S})
+    file( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
+    list( APPEND SOURCES ${RF} )
+  endforeach (F ${S})
+
+  # Include S-Function headers
+  file( GLOB S ./sfun/Simulator4/include_sfun/* )
+  foreach (F ${S})
+    file( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
+    list( APPEND HEADERS ${RF} )
+  endforeach (F ${S})
+
 endif()
 
 # Dependencies (try to use already complied submodule on large project)
@@ -155,11 +177,6 @@ if(BUILD_SHARED)
     PUBLIC_HEADER "${HEADERS}"
     POSITION_INDEPENDENT_CODE ON
   )
-  # target_include_directories(
-  #   ${DYNAMIC_PROJECT} PUBLIC 
-  #   "$<BUILD_INTERFACE:${enve_DIR}>"
-  #   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
-  # )
   target_link_libraries( ${DYNAMIC_PROJECT} PUBLIC ${ACME} ${UTILS} )
   if(WIN32)
     set_target_properties(
