@@ -18,7 +18,7 @@
 \*--------------------------------------------------------------------------*/
 
 ///
-/// file: Utils_zstream.hh
+/// file: Utils_zstr.hh
 ///
 #pragma once
 
@@ -49,16 +49,20 @@
 #pragma clang diagnostic ignored "-Wpadded"
 #endif
 
-#include "Utils/Utils.hxx"
+#include "Utils.hh"
 
-#ifdef UTILS_OS_WINDOWS
-  #include "zlib.h"
-#else
-  #include <zlib.h>
+// Mute Warning in including zstr.hpp
+#ifndef _POSIX_C_SOURCE
+  #define _POSIX_C_SOURCE 0
+#endif
+#ifndef _XOPEN_SOURCE
+  #define _XOPEN_SOURCE 0
+#endif
+#ifndef _GNU_SOURCE
+  #define _GNU_SOURCE 0
 #endif
 
-#include "Utils/zstream/izstream.hpp"
-#include "Utils/zstream/ozstream.hpp"
+#include "Utils/zstr/zstr.hpp"
 
 #ifdef __clang__
 #pragma clang diagnostic pop
@@ -69,5 +73,5 @@
 #endif
 
 ///
-/// eof: Utils.hh
+/// eof: Utils_zstr.hh
 ///
