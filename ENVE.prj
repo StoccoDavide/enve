@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="2456315228" file="/Users/davide/Documents/Git/enve/ENVE.prj" location="/Users/davide/Documents/Git/enve" name="ENVE" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="347921062" file="/Users/davide/Documents/Git/enve/ENVE.prj" location="/Users/davide/Documents/Git/enve" name="ENVE" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>ENVE</param.appname>
     <param.authnamewatermark>D. Stocco, M. Larcher, E. Bertolazzi</param.authnamewatermark>
     <param.email>davide.stocco@unitn.it</param.email>
@@ -7,7 +7,7 @@
     <param.summary>A library for real-time tire/road contact evaluation</param.summary>
     <param.description />
     <param.screenshot>${PROJECT_ROOT}/docs_build/sphinx/logo.png</param.screenshot>
-    <param.version>1.2</param.version>
+    <param.version>2.0</param.version>
     <param.output>${PROJECT_ROOT}/ENVE.mltbx</param.output>
     <param.products.name />
     <param.products.id />

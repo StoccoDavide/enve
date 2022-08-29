@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Program Listing for File enve_rib.cc &#8212; ENVE v1.1
+    <title>Program Listing for File enve_rib.cc &#8212; ENVE v1.2
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -80,10 +80,10 @@ namespace enve
 
   /*\
    |        _ _
-   |   _ __(_) |__
-   |  | '__| | '_ \
+   |   _ _(_) |_
+   |  | '_| | '_ \
    |  | |  | | |_) |
-   |  |_|  |_|_.__/
+   |  |_|  |_|_._/
    |
   \*/
 
@@ -337,12 +337,16 @@ namespace enve
     point center = this-&gt;center();
     point origin(affine_in.translation());
     mat3  rotation(affine_in.linear());
+    mat3  rotation_inv(rotation.transpose());
 
     bool int_bool = false;
 
     segment segment_tmp;
     vec3    normal_tmp;
-    real    FA, FC, FB, FA4CB;
+    point   point_a, point_b;
+    real    theta_a, theta_b;
+    real    r_a, r_b, r_c, cos_theta_c, sin_theta_c;
+    real    sectionArea;
     real    segmentLength_tmp;
     real    segmentArea_tmp;
     real    segmentVolume_tmp;
@@ -367,29 +371,52 @@ namespace enve
       i = tris[k];
       if (acme::intersection(*localGround[i], ribGround, segment_tmp, 1e-5))
       {
+        // Find intersection points
+        point_a = rotation_inv * (segment_tmp.vertex(0) - ribCenterGround);
+        point_b = rotation_inv * (segment_tmp.vertex(1) - ribCenterGround);
+
+        // Find angles
+        theta_a = std::atan2(point_a.z(), point_a.x());
+        theta_b = std::atan2(point_b.z(), point_b.x());
+
+        // Check consistency
         segmentLength_tmp = segment_tmp.length();
-        if (segmentLength_tmp &lt; EPSILON_LOW)
+
+        if(theta_b &lt; theta_a)
+        {
+          std::swap(theta_a, theta_b);
+          std::swap(r_a, r_b);
+        }
+
+        // Check intersection
+        if (theta_b - theta_a &lt; EPSILON_LOW &amp;&amp; segmentLength_tmp &lt; EPSILON_LOW)
         {
           break;
         }
-
-        // Simpson's rule
-        FA    = std::max(0.0, radius - (segment_tmp.vertex(0)  - ribCenterGround).norm());
-        FC    = std::max(0.0, radius - (segment_tmp.centroid() - ribCenterGround).norm());
-        FB    = std::max(0.0, radius - (segment_tmp.vertex(1)  - ribCenterGround).norm());
-        FA4CB = std::max(FA + 4.0*FC + FB, EPSILON_LOW);
-
         int_bool = true;
 
+        // Find radius
+        r_a = std::min(radius, std::max(0.0, point_a.norm()));
+        r_b = std::min(radius, std::max(0.0, point_b.norm()));
+        r_c = std::min(radius, std::max(0.0,
+                (2*r_a*r_b) / std::max(EPSILON_LOW, (r_a+r_b)) * std::cos((theta_b-theta_a)/2.0)
+              ));
+
+        // Find area
+        cos_theta_c = std::cos((theta_a + theta_b)/2);
+        sin_theta_c = std::sin((theta_a + theta_b)/2);
+        sectionArea = radius*radius*(theta_b-theta_a)/2 - r_a*r_b*std::sin(theta_b-theta_a)/2;
+
+        // Store results
         segmentArea_tmp   = segmentLength_tmp * width;
         segmentAreaTotal += segmentArea_tmp;
 
-        segmentVolume_tmp   = segmentLength_tmp/6.0 * FA4CB * width;
+        segmentVolume_tmp   = sectionArea * width;
         segmentVolumeTotal += segmentVolume_tmp;
 
-        contactPoint_iter    = (segment_tmp.vertex(0)*FA + segment_tmp.centroid()*4.0*FC + segment_tmp.vertex(1)*FB) / FA4CB;
-        normal_tmp           = (ribNormalGround.cross(ribCenterGround - contactPoint_iter)).normalized();
-        contactNormal_iter   = (localGround[i]-&gt;normal() - normal_tmp * localGround[i]-&gt;normal().dot(normal_tmp)).normalized();
+        contactPoint_iter    = origin + rotation * (center + r_c * point(cos_theta_c, 0.0, sin_theta_c));
+        normal_tmp           = rotation * vec3(-cos_theta_c, 0.0, -sin_theta_c);
+        contactNormal_iter   = (normal_tmp + ribNormalGround * (localGround[i]-&gt;normal() - normal_tmp).dot(ribNormalGround)).normalized();
         contactFriction_iter = localGround[i]-&gt;friction();
 
         contactPoint_tmp    += segmentVolume_tmp * contactPoint_iter;
@@ -450,7 +477,7 @@ namespace enve
     {
       out.point    = segment_tmp.centroid();
       normal_tmp   = (ribNormalGround.cross(ribCenterGround - out.point)).normalized();
-      out.normal   = (localGround.normal()*(1.0 - localGround.normal().dot(normal_tmp))).normalized();
+      out.normal   = (localGround.normal() - normal_tmp * localGround.normal().dot(normal_tmp)).normalized();
       out.friction = localGround.friction();
       out.depth    = radius - (out.point - ribCenterGround).norm();
       out.area     = 2*std::sqrt(out.depth*(2*radius-out.depth))*width;

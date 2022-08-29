@@ -60,7 +60,7 @@ main()
     std::string method = "geometric";
 
     // Initialize the tire shell
-    shell tire_shell(20,  // ribs number
+    shell tire_shell(10,  // ribs number
                      0.3, // r_x
                      4.0, // m_x
                      0.3, // r_y

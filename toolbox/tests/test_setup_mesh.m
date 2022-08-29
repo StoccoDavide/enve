@@ -5,7 +5,7 @@ close all;
 
 % Create shape and shell variables
 
-N  = 10;       
+N  = 5;       
 Rx = 0.327;    
 Mx = 4.000;    
 Ry = 0.195;    
@@ -24,13 +24,13 @@ obj.size()
 
 % Test delete
 
-obj.resize(8);
+obj.resize(5);
 
 obj
 
 T = [ 1, 0, 0, 1.0;  ...
       0, 1, 0, 1.0;  ...
-      0, 0, 1, 0.31; ...
+      0, 0, 1, 0.3; ...
       0, 0, 0, 1 ];
 
 obj.transform(T);
@@ -111,4 +111,5 @@ ylabel('y');
 zlabel('z');
 mesh.plot(out5, road_color);
 obj.shapeTplot(T, out5, rubber_color, scale);
+obj.plotSetupVec(out5, 0.5*scale);
 obj.plotSetupAvg(out5, scale);

@@ -20,8 +20,8 @@
         </inbodydescription>
         <location file="include/enve_output.hh" line="54" column="17" bodyfile="include/enve_output.hh" bodystart="54" bodyend="-1"/>
         <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="381">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="434" endline="493">enve::rib::envelopSampling</referencedby>
+        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00058_1ad3600294ac2beb33fadfb3488f604967" prot="public" static="no" mutable="no">
         <type>acme::vec3</type>
@@ -39,8 +39,8 @@
         </inbodydescription>
         <location file="include/enve_output.hh" line="55" column="17" bodyfile="include/enve_output.hh" bodystart="55" bodyend="-1"/>
         <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="381">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="434" endline="493">enve::rib::envelopSampling</referencedby>
+        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00058_1abfb93c7838b3decda3fede1dd14b0e80" prot="public" static="no" mutable="no">
         <type>acme::real</type>
@@ -58,8 +58,8 @@
         </inbodydescription>
         <location file="include/enve_output.hh" line="56" column="17" bodyfile="include/enve_output.hh" bodystart="56" bodyend="-1"/>
         <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="381">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="434" endline="493">enve::rib::envelopSampling</referencedby>
+        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00058_1a858ebcf8a5dc2004c55df908ebf9eec1" prot="public" static="no" mutable="no">
         <type>acme::real</type>
@@ -77,8 +77,8 @@
         </inbodydescription>
         <location file="include/enve_output.hh" line="57" column="17" bodyfile="include/enve_output.hh" bodystart="57" bodyend="-1"/>
         <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="381">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="434" endline="493">enve::rib::envelopSampling</referencedby>
+        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00058_1af5ab7b574218c1b899d3f1630ba293de" prot="public" static="no" mutable="no">
         <type>acme::real</type>
@@ -96,8 +96,8 @@
         </inbodydescription>
         <location file="include/enve_output.hh" line="58" column="17" bodyfile="include/enve_output.hh" bodystart="58" bodyend="-1"/>
         <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="381">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="434" endline="493">enve::rib::envelopSampling</referencedby>
+        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00058_1a96825ad48818cf04cb9df013b7b95bb2" prot="public" static="no" mutable="no">
         <type>acme::real</type>
@@ -115,8 +115,8 @@
         </inbodydescription>
         <location file="include/enve_output.hh" line="59" column="17" bodyfile="include/enve_output.hh" bodystart="59" bodyend="-1"/>
         <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="381">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="434" endline="493">enve::rib::envelopSampling</referencedby>
+        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>

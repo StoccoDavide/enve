@@ -973,7 +973,8 @@ namespace enve
     for (size_t i = 0; i < relative_angles_vec.size(); ++i)
       os << "Rib " << i << " : C = " << this->m_ribs[i].center()
                    << "        R = " << this->m_ribs[i].radius() << " m" << std::endl
-                   << "        A = " << this->m_ribs[i].angle() << " rad" << std::endl;
+                   << "        W = " << this->m_ribs[i].width()  << " m" << std::endl
+                   << "        A = " << this->m_ribs[i].angle()  << " rad" << std::endl;
                    
     os << "Contact parameters:" << std::endl
        << "Shell maximum radius" << std::endl
