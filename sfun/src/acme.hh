@@ -63,7 +63,7 @@
 #include <vector>
 
 // Eigen libraries
-#include <Eigen/Dense>
+#include "Utils_eigen.hh"
 
 //!  Namespace containing all acme typedefs, classes and routines
 namespace acme

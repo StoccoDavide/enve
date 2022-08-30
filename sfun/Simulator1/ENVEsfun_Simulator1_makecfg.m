@@ -2,7 +2,7 @@ function ENVEsfun_Simulator1_makecfg(BuildInfo)
 %ENVESFUN_SIMULATOR1_MAKECFG adds include and source directories to the BuildInfo object.
 
 %    Simulink version    : 10.4 (R2021b) 14-May-2021
-%    MATLAB file generated on : 21-Jul-2022 17:50:38
+%    MATLAB file generated on : 30-Aug-2022 15:12:00
 
 % Verify the Simulink version
 verify_simulink_version();

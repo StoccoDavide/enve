@@ -15,7 +15,7 @@
 %    Davide Stocco                                                    %
 %    Department of Industrial Engineering                             %
 %    University of Trento                                             %
-%    e-mail: davide.stocco@unitn.it    c                               %
+%    e-mail: davide.stocco@unitn.it                                   %
 %                                                                     %
 %    Matteo Larcher                                                   %
 %    Department of Industrial Engineering                             %
@@ -29,12 +29,17 @@
 %                                                                     %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
+% oldPath = getenv('PATH');
+% newPath = strcat(oldPath, pathsep, 'path-to-cmake');
+% setenv('PATH', newPath);
+% ! cmake --version'
+
 clc;
 clear all;
 
 build_utils    = false;
 build_acme     = false;
-build_enve     = true;
+build_enve     = false;
 block_generate = true;
 
 addpath('./include_sfun');

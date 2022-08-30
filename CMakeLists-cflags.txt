@@ -28,7 +28,7 @@ set( BUILD_SHARED                      true )
 set( default_build_type                "Release" )
 
 # Choose the simulator build flavour:
-set( SIMULATOR_SHELLS_NUMBER 4 )
+set( SIMULATOR_SHELLS_NUMBER 1 )
 
 #if( SIMULATOR_SHELLS_NUMBER GREATER 0 )
 #  add_compile_definitions(SHELLS_NUMBER = ${SIMULATOR_SHELLS_NUMBER})
