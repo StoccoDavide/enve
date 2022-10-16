@@ -1,35 +1,24 @@
 /*
-(***********************************************************************)
-(*                                                                     *)
-(* The ENVE project                                                    *)
-(*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
-(*                                                                     *)
-(* The ENVE project and its components are supplied under the terms of *)
-(* the open source BSD 2-Clause License. The contents of the ENVE      *)
-(* project and its components may not be copied or disclosed except in *)
-(* accordance with the terms of the BSD 2-Clause License.              *)
-(*                                                                     *)
-(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
-(*                                                                     *)
-(*    Davide Stocco                                                    *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: davide.stocco@unitn.it                                   *)
-(*                                                                     *)
-(*    Enrico Bertolazzi                                                *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: enrico.bertolazzi@unitn.it                               *)
-(*                                                                     *)
-(***********************************************************************)
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                     *
+ * This file is part of the ENVE project.                              *
+ *                                                                     *
+ * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ *                                                                     *
+ * The ENVE project can not be copied and/or distributed without       *
+ * the express permission of Davide Stocco.                            *
+ *                                                                     *
+ *    Davide Stocco                                                    *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 
 ///
 /// file: enve.hh
 ///
-
-#pragma once
 
 #ifndef INCLUDE_ENVE
 #define INCLUDE_ENVE
@@ -52,31 +41,46 @@
 #endif
 
 #include <fstream>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <numeric>
 
 #include "acme.hh"
-#include "acme_math.hh"
-#include "acme_triangle.hh"
-#include "acme_disk.hh"
-#include "acme_plane.hh"
-#include "acme_utils.hh"
-#include "acme_aabb.hh"
-#include "acme_AABBtree.hh"
-#include "acme_intersection.hh"
-#include "acme_segment.hh"
-#include "acme_point.hh"
 
-using namespace acme;
+using acme::real;
+using acme::integer;
+using acme::out_stream;
 
-//! Namepaces containing all objects classes and routines
-namespace enve
-{
+using acme::QUIET_NAN;
+using acme::EPSILON_LOW;
+using acme::EPSILON_MEDIUM;
+using acme::EPSILON_HIGH;
 
-} // namespace enve
+using acme::vec3;
+using acme::mat3;
+using acme::mat4;
+
+using acme::point;
+using acme::line;
+using acme::triangle;
+using acme::disk;
+using acme::plane;
+using acme::affine;
+using acme::aabb;
+using acme::AABBtree;
+
+using acme::NAN_VEC3;
+using acme::NAN_POINT;
+using acme::NAN_TRIANGLE;
+using acme::NAN_DISK;
+using acme::NAN_AABB;
+
+using acme::IsApprox;
+
+#include "enve/flat.hxx"
+#include "enve/mesh.hxx"
+#include "enve/output.hxx"
+#include "enve/rib.hxx"
+#include "enve/shape.hxx"
+#include "enve/shell.hxx"
+#include "enve/triangleground.hxx"
 
 #endif
 

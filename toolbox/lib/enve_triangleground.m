@@ -42,9 +42,9 @@ classdef enve_triangleground < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Get friction coefficent scaling factor
-    function out = normal( this, ~ )
-      out = mex_triangleground( 'normal', this.objectHandle );
+    %> Get ID
+    function out = getID( this, ~ )
+      out = mex_triangleground( 'getID', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -52,13 +52,6 @@ classdef enve_triangleground < acme_entity
     %> Get friction coefficent scaling factor
     function out = getFriction( this, ~ )
       out = mex_triangleground( 'getFriction', this.objectHandle );
-    end
-    %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %> Set friction coefficent scaling factor
-    function setFriction( this, friction, ~ )
-      mex_triangleground( 'setFriction', this.objectHandle, friction );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -126,9 +119,16 @@ classdef enve_triangleground < acme_entity
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
+    %> Get normal
+    function out = normal( this, ~ )
+      out = mex_triangleground( 'normal', this.objectHandle );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     %> Display object data
     function disp( this, ~ )
-      disp( [[this.getFriction(); NaN; NaN], this.getVertex1().get(), this.getVertex2().get(),  this.getVertex3().get()] );
+      disp( [[this.getID(); this.getFriction(); NaN], this.getVertex1().get(), this.getVertex2().get(),  this.getVertex3().get()] );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

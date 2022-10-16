@@ -1,28 +1,28 @@
 /*
-(***********************************************************************)
-(*                                                                     *)
-(* The ACME project                                                    *)
-(*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
-(*                                                                     *)
-(* The ACME project and its components are supplied under the terms of *)
-(* the open source BSD 2-Clause License. The contents of the ACME      *)
-(* project and its components may not be copied or disclosed except in *)
-(* accordance with the terms of the BSD 2-Clause License.              *)
-(*                                                                     *)
-(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
-(*                                                                     *)
-(*    Davide Stocco                                                    *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: davide.stocco@unitn.it                                   *)
-(*                                                                     *)
-(*    Enrico Bertolazzi                                                *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: enrico.bertolazzi@unitn.it                               *)
-(*                                                                     *)
-(***********************************************************************)
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                     *
+ * The ACME project                                                    *
+ *                                                                     *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
+ *                                                                     *
+ * The ACME project and its components are supplied under the terms of *
+ * the open source BSD 2-Clause License. The contents of the ACME      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 2-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-2-Clause                   *
+ *                                                                     *
+ *    Davide Stocco                                                    *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
+ *                                                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 
 ///
@@ -106,9 +106,9 @@ namespace acme
   \*/
 
   static real const EPSILON_MACHINE = std::numeric_limits<real>::epsilon();      //!< Machine epsilon epsilon static constant value
-  static real const EPSILON_HIGH    = 1.0E-16;                                   //!< High precision epsilon static constant value
-  static real const EPSILON_MEDIUM  = 1.0E-10;                                   //!< Medium precision epsilon static constant value
-  static real const EPSILON_LOW     = 1.0E-07;                                   //!< Low precision epsilon static constant value
+  static real const EPSILON_HIGH    = real(1.0e-16);                             //!< High precision epsilon static constant value
+  static real const EPSILON_MEDIUM  = real(1.0e-10);                             //!< Medium precision epsilon static constant value
+  static real const EPSILON_LOW     = real(1.0e-07);                             //!< Low precision epsilon static constant value
   static real const EPSILON         = EPSILON_MEDIUM;                            //!< Standard precision epsilon static constant value
   static real const INFTY           = std::numeric_limits<real>::infinity();     //!< Infinity static constant value
   static real const QUIET_NAN       = std::numeric_limits<real>::quiet_NaN();    //!< Not-a-Number static constant value
@@ -119,10 +119,10 @@ namespace acme
   static vec2 const UNITY_VEC2    = vec2::UnitY();             //!< Y axis unit vec2 static constant object
   static vec2 const NAN_VEC2      = vec2::Constant(QUIET_NAN); //!< Not-a-Number vec2 static constant object
   static mat2 const NAN_MAT2      = mat2::Constant(QUIET_NAN); //!< Not-a-Number mat2 static constant object
-  static vec2 const ZEROS_VEC2    = vec2::Constant(0.0);       //!< Zeros vec2 static constant object
-  static mat2 const ZEROS_MAT2    = mat2::Constant(0.0);       //!< Zeros mat2 static constant object
-  static vec2 const ONES_VEC2     = vec2::Constant(1.0);       //!< Ones vec2 static constant object
-  static mat2 const ONES_MAT2     = mat2::Constant(1.0);       //!< Ones mat2 static constant object
+  static vec2 const ZEROS_VEC2    = vec2::Constant(real(0.0));       //!< Zeros vec2 static constant object
+  static mat2 const ZEROS_MAT2    = mat2::Constant(real(0.0));       //!< Zeros mat2 static constant object
+  static vec2 const ONES_VEC2     = vec2::Constant(real(1.0));       //!< Ones vec2 static constant object
+  static mat2 const ONES_MAT2     = mat2::Constant(real(1.0));       //!< Ones mat2 static constant object
   static mat2 const IDENTITY_MAT2 = mat2::Identity();          //!< Identity mat2 static constant object
 
   static vec3 const UNITX_VEC3    = vec3::UnitX();             //!< X axis unit vec3 type
@@ -130,10 +130,10 @@ namespace acme
   static vec3 const UNITZ_VEC3    = vec3::UnitZ();             //!< Z axis unit vec3 type
   static vec3 const NAN_VEC3      = vec3::Constant(QUIET_NAN); //!< Not-a-Number vec3 type
   static mat3 const NAN_MAT3      = mat3::Constant(QUIET_NAN); //!< Not-a-Number mat3 type
-  static vec3 const ZEROS_VEC3    = vec3::Constant(0.0);       //!< Zeros vec3 type
-  static mat3 const ZEROS_MAT3    = mat3::Constant(0.0);       //!< Zeros mat3 type
-  static vec3 const ONES_VEC3     = vec3::Constant(1.0);       //!< Ones vec3 type
-  static mat3 const ONES_MAT3     = mat3::Constant(1.0);       //!< Ones mat3 type
+  static vec3 const ZEROS_VEC3    = vec3::Constant(real(0.0));       //!< Zeros vec3 type
+  static mat3 const ZEROS_MAT3    = mat3::Constant(real(0.0));       //!< Zeros mat3 type
+  static vec3 const ONES_VEC3     = vec3::Constant(real(1.0));       //!< Ones vec3 type
+  static mat3 const ONES_MAT3     = mat3::Constant(real(1.0));       //!< Ones mat3 type
   static mat3 const IDENTITY_MAT3 = mat3::Identity();          //!< Identity mat3 type
 
   static vec4 const UNITX_VEC4    = vec4::UnitX();             //!< X axis unit vec4 type
@@ -142,20 +142,41 @@ namespace acme
   static vec4 const UNITW_VEC4    = vec4::UnitW();             //!< W axis unit vec4 type
   static vec4 const NAN_VEC4      = vec4::Constant(QUIET_NAN); //!< Not-a-Number vec4 type
   static mat4 const NAN_MAT4      = mat4::Constant(QUIET_NAN); //!< Not-a-Number mat4 type
-  static vec4 const ZEROS_VEC4    = vec4::Constant(0.0);       //!< Zeros vec4 type
-  static mat4 const ZEROS_MAT4    = mat4::Constant(0.0);       //!< Zeros mat4 type
-  static vec4 const ONES_VEC4     = vec4::Constant(1.0);       //!< Ones vec4 type
-  static mat4 const ONES_MAT4     = mat4::Constant(1.0);       //!< Ones mat4 type
+  static vec4 const ZEROS_VEC4    = vec4::Constant(real(0.0));       //!< Zeros vec4 type
+  static mat4 const ZEROS_MAT4    = mat4::Constant(real(0.0));       //!< Zeros mat4 type
+  static vec4 const ONES_VEC4     = vec4::Constant(real(1.0));       //!< Ones vec4 type
+  static mat4 const ONES_MAT4     = mat4::Constant(real(1.0));       //!< Ones mat4 type
   static mat4 const IDENTITY_MAT4 = mat4::Identity();          //!< Identity mat4 type
 
-  static vec2 THROWAWAY_VEC2 = vec2(NAN_VEC2); //!< Throwaway vec2 type static non-const object
-  static vec3 THROWAWAY_VEC3 = vec3(NAN_VEC3); //!< Throwaway vec3 type static non-const object
-  static vec4 THROWAWAY_VEC4 = vec4(NAN_VEC4); //!< Throwaway vec4 type static non-const object
-  static mat2 THROWAWAY_MAT2 = mat2(NAN_MAT2); //!< Throwaway mat2 type static non-const object
-  static mat3 THROWAWAY_MAT3 = mat3(NAN_MAT3); //!< Throwaway mat3 type static non-const object
-  static mat4 THROWAWAY_MAT4 = mat4(NAN_MAT4); //!< Throwaway mat4 type static non-const object
+  static vec2 DUMMY_VEC2(NAN_VEC2); //!< Dummy vec2 type static non-const object
+  static vec3 DUMMY_VEC3(NAN_VEC3); //!< Dummy vec3 type static non-const object
+  static vec4 DUMMY_VEC4(NAN_VEC4); //!< Dummy vec4 type static non-const object
+  static mat2 DUMMY_MAT2(NAN_MAT2); //!< Dummy mat2 type static non-const object
+  static mat3 DUMMY_MAT3(NAN_MAT3); //!< Dummy mat3 type static non-const object
+  static mat4 DUMMY_MAT4(NAN_MAT4); //!< Dummy mat4 type static non-const object
 
 } // namespace acme
+
+#include "acme/aabb.hxx"
+#include "acme/AABBtree.hxx"
+#include "acme/ball.hxx"
+#include "acme/collection.hxx"
+#include "acme/collinear.hxx"
+#include "acme/coplanar.hxx"
+#include "acme/disk.hxx"
+#include "acme/entity.hxx"
+#include "acme/intersection.hxx"
+#include "acme/line.hxx"
+#include "acme/math.hxx"
+#include "acme/none.hxx"
+#include "acme/orthogonal.hxx"
+#include "acme/parallel.hxx"
+#include "acme/plane.hxx"
+#include "acme/point.hxx"
+#include "acme/ray.hxx"
+#include "acme/segment.hxx"
+#include "acme/triangle.hxx"
+#include "acme/utilities.hxx"
 
 #endif
 

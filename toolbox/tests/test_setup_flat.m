@@ -5,7 +5,7 @@ close all;
 
 % Create shape and shell variables
 
-N  = 10;       
+Nr  = 10;       
 Rx = 0.327;    
 Mx = 4.000;    
 Ry = 0.195;    
@@ -14,7 +14,7 @@ Ly = 0.188*0.9;
 
 %% Instantiate shape object
 
-obj = enve_shell(N, Rx, Mx, Ry, My, Ly);
+obj = enve_shell(Nr, Rx, Mx, Ry, My, Ly);
 
 % Test getters
 

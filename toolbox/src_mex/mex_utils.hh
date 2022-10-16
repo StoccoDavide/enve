@@ -1,34 +1,24 @@
 /*
-(***********************************************************************)
-(*                                                                     *)
-(* The ENVE project                                                    *)
-(*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
-(*                                                                     *)
-(* The ENVE project and its components are supplied under the terms of *)
-(* the open source BSD 2-Clause License. The contents of the ENVE      *)
-(* project and its components may not be copied or disclosed except in *)
-(* accordance with the terms of the BSD 2-Clause License.              *)
-(*                                                                     *)
-(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
-(*                                                                     *)
-(*    Davide Stocco                                                    *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: davide.stocco@unitn.it                                   *)
-(*                                                                     *)
-(*    Enrico Bertolazzi                                                *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: enrico.bertolazzi@unitn.it                               *)
-(*                                                                     *)
-(***********************************************************************)
-(*                                                                     *)
-(*  Source:                                                            *)
-(*  URL: https://github.com/ebertolazzi/Clothoids                      *)
-(*                                                                     *)
-(***********************************************************************)
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                     *
+ * This file is part of the ENVE project.                              *
+ *                                                                     *
+ * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ *                                                                     *
+ * The ENVE project can not be copied and/or distributed without       *
+ * the express permission of Davide Stocco.                            *
+ *                                                                     *
+ *    Davide Stocco                                                    *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
+
+///
+/// file: mex_utils.cc
+///
 
 #ifndef MEX_UTILS
 #define MEX_UTILS
@@ -68,7 +58,7 @@
   if (!(COND))                           \
   {                                      \
     std::ostringstream ost;              \
-    ost << "Mex Error: " << MSG << '\n'; \
+    ost << "Mex Error: " << MSG << "\n"; \
     mexErrMsgTxt(ost.str().c_str());     \
   }
 
@@ -151,7 +141,7 @@ getInt(mxArray const *arg, char const msg[])
     double tmp = *static_cast<double *>(ptr);
     MEX_ASSERT(
         tmp == std::floor(tmp),
-        msg << " expected int, found " << tmp << '\n');
+        msg << " expected int, found " << tmp << "\n");
     res = static_cast<int64_t>(tmp);
   }
   break;
@@ -160,7 +150,7 @@ getInt(mxArray const *arg, char const msg[])
     float tmp = *static_cast<float *>(ptr);
     MEX_ASSERT(
         tmp == std::floor(tmp),
-        msg << " expected int, found " << tmp << '\n');
+        msg << " expected int, found " << tmp << "\n");
     res = static_cast<int64_t>(tmp);
   }
   break;
@@ -181,7 +171,7 @@ getVectorPointer(mxArray const *arg, mwSize &sz, char const msg[])
   mwSize const *dims = mxGetDimensions(arg);
   MEX_ASSERT(
       dims[0] == 1 || dims[1] == 1,
-      msg << "\nExpect (1 x n or n x 1) matrix, found " << dims[0] << " x " << dims[1] << '\n');
+      msg << "\nExpect (1 x n or n x 1) matrix, found " << dims[0] << " x " << dims[1] << "\n");
   sz = dims[0] * dims[1];
   return mxGetPr(arg);
 }
@@ -347,3 +337,7 @@ destroyObject(const mxArray *in)
 #endif
 
 #endif
+
+///
+/// eof: mex_utils.cc
+///

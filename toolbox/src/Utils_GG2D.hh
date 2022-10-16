@@ -72,8 +72,14 @@ namespace Utils {
     Point2D<Real> m_Pa;
     Point2D<Real> m_Pb;
   public:
-    //Segment2D() = default;
+
+    Segment2D() = default;
     //~Segment2D() = default;
+
+    Segment2D( Segment2D<Real> const & S )
+    : m_Pa(S.m_Pa)
+    , m_Pb(S.m_Pb)
+    {}
 
     Segment2D( Point2D<Real> const & A, Point2D<Real> const & B )
     : m_Pa(A)
@@ -86,6 +92,12 @@ namespace Utils {
       m_Pb = B;
     }
 
+    void
+    setup( Real const * A, Real const * B ) {
+      m_Pa.coeffRef(0) = A[0]; m_Pa.coeffRef(1) = A[1];
+      m_Pb.coeffRef(0) = B[0]; m_Pb.coeffRef(1) = B[1];
+    }
+
     //Segment2D<Real> const &
     //operator = ( Segment2D<Real> const & RHS ) {
     //  m_Pa = RHS.m_Pa;
@@ -93,7 +105,7 @@ namespace Utils {
     //  return *this;
     //}
 
-    Real          signed_distance( Point2D<Real> const & P ) const;
+    //Real          signed_distance( Point2D<Real> const & P ) const;
     bool          projection( Point2D<Real> const & P, Real & s ) const;
     Point2D<Real> projection( Point2D<Real> const & P, Real & s, Real & t ) const;
     Point2D<Real> eval( Real & s ) const;
@@ -103,7 +115,7 @@ namespace Utils {
     Point2D<Real> const & Pb() const { return m_Pb; }
 
     void bbox( Point2D<Real> & pmin, Point2D<Real> & pmax ) const;
-    bool intersect( Segment2D<Real> & S, Real & s, Real & t ) const;
+    bool intersect( Segment2D<Real> const & S, Real & s, Real & t ) const;
 
   };
 

@@ -1,40 +1,34 @@
 /*
-(***********************************************************************)
-(*                                                                     *)
-(* The ENVE project                                                    *)
-(*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
-(*                                                                     *)
-(* The ENVE project and its components are supplied under the terms of *)
-(* the open source BSD 2-Clause License. The contents of the ENVE      *)
-(* project and its components may not be copied or disclosed except in *)
-(* accordance with the terms of the BSD 2-Clause License.              *)
-(*                                                                     *)
-(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
-(*                                                                     *)
-(*    Davide Stocco                                                    *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: davide.stocco@unitn.it                                   *)
-(*                                                                     *)
-(*    Enrico Bertolazzi                                                *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: enrico.bertolazzi@unitn.it                               *)
-(*                                                                     *)
-(***********************************************************************)
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                     *
+ * This file is part of the ENVE project.                              *
+ *                                                                     *
+ * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ *                                                                     *
+ * The ENVE project can not be copied and/or distributed without       *
+ * the express permission of Davide Stocco.                            *
+ *                                                                     *
+ *    Davide Stocco                                                    *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 
+///
+/// file: mex_shell.cc
+///
+
 #include "acme.hh"
-#include "acme_point.hh"
-#include "enve_shell.hh"
+#include "enve.hh"
 #include "mex_utils.hh"
 
 #define ASSERT(COND, MSG)                \
   if (!(COND))                           \
   {                                      \
     std::ostringstream ost;              \
-    ost << "mex_shell: " << MSG << '\n'; \
+    ost << "mex_shell: " << MSG << "\n"; \
     mexErrMsgTxt(ost.str().c_str());     \
   }
 
@@ -105,15 +99,17 @@
   "%                                                                     %\n" \
   "%=====================================================================%\n" \
   "%                                                                     %\n" \
+  "% This file is part of the ENVE project.                              %\n" \
+  "%                                                                     %\n" \
+  "% Copyright (c) 2022, Davide Stocco. All rights reserved.             %\n" \
+  "%                                                                     %\n" \
+  "% The ENVE project can not be copied and/or distributed without       %\n" \
+  "% the express permission of Davide Stocco.                            %\n" \
+  "%                                                                     %\n" \
   "%    Davide Stocco                                                    %\n" \
   "%    Department of Industrial Engineering                             %\n" \
   "%    University of Trento                                             %\n" \
-  "%    davide.stocco@unitn.it                                           %\n" \
-  "%                                                                     %\n" \
-  "%    Enrico Bertolazzi                                                %\n" \
-  "%    Department of Industrial Engineering                             %\n" \
-  "%    University of Trento                                             %\n" \
-  "%    enrico.bertolazzi@unitn.it                                       %\n" \
+  "%    e-mail: davide.stocco@unitn.it                                   %\n" \
   "%                                                                     %\n" \
   "%=====================================================================%\n"
 
@@ -149,8 +145,8 @@ static void
 do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 7, CMD "expected 7 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 7, CMD "expected 7 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   MEX_ASSERT(
     mxIsChar(arg_in_0),
@@ -160,12 +156,12 @@ do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 
   if (nrhs == 7)
   {
-    int       size = getInt(arg_in_1, CMD "Error in reading ribs number input value");
-    real_type r_x  = getScalarValue(arg_in_2, CMD "Error in reading Rx input value");
-    real_type m_x  = getScalarValue(arg_in_3, CMD "Error in reading Mx input value");
-    real_type r_y  = getScalarValue(arg_in_4, CMD "Error in reading Ry input value");
-    real_type m_y  = getScalarValue(arg_in_5, CMD "Error in reading My input value");
-    real_type l_y  = getScalarValue(arg_in_6, CMD "Error in reading Ly input value");
+    int       size = getInt(arg_in_1, CMD "error in reading ribs number input value");
+    real_type r_x  = getScalarValue(arg_in_2, CMD "error in reading Rx input value");
+    real_type m_x  = getScalarValue(arg_in_3, CMD "error in reading Mx input value");
+    real_type r_y  = getScalarValue(arg_in_4, CMD "error in reading Ry input value");
+    real_type m_y  = getScalarValue(arg_in_5, CMD "error in reading My input value");
+    real_type l_y  = getScalarValue(arg_in_6, CMD "error in reading Ly input value");
     ptr            = new enve::shell(size, r_x, m_x, r_y, m_y, l_y);
   }
   DATA_NEW(arg_out_0, ptr);
@@ -178,8 +174,8 @@ static void
 do_delete(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'delete', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   DATA_DELETE(arg_in_1);
 #undef CMD
@@ -191,11 +187,11 @@ static void
 do_resize(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'resize', OBJ, N ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          size = getInt(arg_in_2, CMD "Error in reading input value");
+  int          size = getInt(arg_in_2, CMD "error in reading input value");
   self->resize(size);
 #undef CMD
 }
@@ -206,8 +202,8 @@ static void
 do_size(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'size', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
   setScalarInt(arg_out_0, self->size());
@@ -220,8 +216,8 @@ static void
 do_surfaceMaxRadius(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'surfaceMaxRadius', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
   setScalarValue(arg_out_0, self->surfaceMaxRadius());
@@ -234,8 +230,8 @@ static void
 do_surfaceMaxWidth(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'surfaceMaxWidth', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
   setScalarValue(arg_out_0, self->surfaceMaxWidth());
@@ -248,8 +244,8 @@ static void
 do_surfaceWidth(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'surfaceWidth', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
   setScalarValue(arg_out_0, self->surfaceWidth());
@@ -262,11 +258,11 @@ static void
 do_checkWidthBound(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'checkWidthBound', OBJ, Y ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  real_type    y    = getScalarValue(arg_in_2, CMD "Error in reading y coordinate input value");
+  real_type    y    = getScalarValue(arg_in_2, CMD "error in reading y coordinate input value");
   setScalarValue(arg_out_0, self->checkWidthBound(y));
 #undef CMD
 }
@@ -277,11 +273,11 @@ static void
 do_surfaceRadius(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'surfaceRadius', OBJ, Y ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  real_type    y    = getScalarValue(arg_in_2, CMD "Error in reading y coordinate input value");
+  real_type    y    = getScalarValue(arg_in_2, CMD "error in reading y coordinate input value");
   setScalarValue(arg_out_0, self->surfaceRadius(y));
 #undef CMD
 }
@@ -292,11 +288,11 @@ static void
 do_surfaceDerivative(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'surfaceDerivative', OBJ, Y ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  real_type    y    = getScalarValue(arg_in_2, CMD "Error in reading y coordinate input value");
+  real_type    y    = getScalarValue(arg_in_2, CMD "error in reading y coordinate input value");
   setScalarValue(arg_out_0, self->surfaceDerivative(y));
 #undef CMD
 }
@@ -307,11 +303,11 @@ static void
 do_surfaceAngle(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'surfaceAngle', OBJ, Y ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  real_type    y    = getScalarValue(arg_in_2, CMD "Error in reading y coordinate input value");
+  real_type    y    = getScalarValue(arg_in_2, CMD "error in reading y coordinate input value");
   setScalarValue(arg_out_0, self->surfaceAngle(y));
 #undef CMD
 }
@@ -322,11 +318,11 @@ static void
 do_ribRadius(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'ribRadius', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i    = getInt(arg_in_2, CMD "error in reading input value");
   setScalarValue(arg_out_0, self->ribRadius(i - 1));
 #undef CMD
 }
@@ -337,11 +333,11 @@ static void
 do_ribCenter(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'ribCenter', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i    = getInt(arg_in_2, CMD "error in reading input value");
   acme::point *out  = new acme::point(self->ribCenter(i - 1));
   arg_out_0         = convertPtr2Mat<acme::point>(out);
 #undef CMD
@@ -353,11 +349,11 @@ static void
 do_ribWidth(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'ribWidth', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i    = getInt(arg_in_2, CMD "error in reading input value");
   setScalarValue(arg_out_0, self->ribWidth(i - 1));
 #undef CMD
 }
@@ -368,11 +364,11 @@ static void
 do_ribAngle(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'ribAngle', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i    = getInt(arg_in_2, CMD "error in reading input value");
   setScalarValue(arg_out_0, self->ribAngle(i - 1));
 #undef CMD
 }
@@ -383,14 +379,14 @@ static void
 do_translate(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'translate', OBJ, VECTOR ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::shell     *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize           rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
-  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "error in first input matrix");
+  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << "\n");
   real_type x = matrix_ptr[0];
   real_type y = matrix_ptr[1];
   real_type z = matrix_ptr[2];
@@ -404,8 +400,8 @@ static void
 do_translation(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'translation', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
@@ -422,15 +418,15 @@ static void
 do_rotate(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'rotate', OBJ, ANGLE, AXIS ): "
-  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 4, CMD "expected 4 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::shell     *self  = DATA_GET(arg_in_1);
-  real_type        angle = getScalarValue(arg_in_2, CMD "Error in reading second input value");
+  real_type        angle = getScalarValue(arg_in_2, CMD "error in reading second input value");
   real_type const *vector_ptr;
   mwSize           rows, cols;
-  vector_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "Error in reading axis vector");
-  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
+  vector_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "error in reading axis vector");
+  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << "\n");
   acme::vec3 vector(vector_ptr[0], vector_ptr[1], vector_ptr[2]);
   self->rotate(angle, vector);
 #undef CMD
@@ -442,8 +438,8 @@ static void
 do_rotation(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'rotation', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 3);
@@ -466,14 +462,14 @@ static void
 do_transform(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'transform', OBJ, MATRIX ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::shell     *self = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize           rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
-  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "error in reading affine transformation matrix");
+  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << "\n");
   acme::affine matrix;
   matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
                      matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
@@ -489,8 +485,8 @@ static void
 do_transformation(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'transformation', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 4, 4);
@@ -520,14 +516,14 @@ static void
 do_checkTransformation(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'checkTransformation', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type const *matrix_ptr;
   mwSize           rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in reading affine transformation matrix");
-  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "error in reading affine transformation matrix");
+  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << "\n");
   acme::affine matrix;
   matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
                      matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
@@ -544,8 +540,8 @@ static void
 do_x(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'x', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
@@ -562,8 +558,8 @@ static void
 do_y(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'y', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
@@ -580,8 +576,8 @@ static void
 do_z(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'z', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
@@ -598,8 +594,8 @@ static void
 do_eulerAngles(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'eulerAngles', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
@@ -617,15 +613,15 @@ static void
 do_setupFlat(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'setupFlat', OBJ, GROUND, AFFINE, METHOD ): "
-  MEX_ASSERT(nrhs == 5, CMD "expected 5 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 5, CMD "expected 5 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell        *self   = DATA_GET(arg_in_1);
   enve::ground::flat *ground = convertMat2Ptr<enve::ground::flat>(arg_in_2);
   real_type const    *matrix_ptr;
   mwSize              rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "Error in reading affine transformation matrix");
-  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "error in reading affine transformation matrix");
+  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << "\n");
   acme::affine matrix;
   matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
                      matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
@@ -643,15 +639,15 @@ static void
 do_setupMesh(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'setupMesh', OBJ, GROUND, AFFINE, METHOD  ): "
-  MEX_ASSERT(nrhs == 5, CMD "expected 5 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 5, CMD "expected 5 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell        *self   = DATA_GET(arg_in_1);
   enve::ground::mesh *ground = convertMat2Ptr<enve::ground::mesh>(arg_in_2);
   real_type const    *matrix_ptr;
   mwSize              rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "Error in reading affine transformation matrix");
-  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix_ptr = getMatrixPointer(arg_in_3, rows, cols, CMD "error in reading affine transformation matrix");
+  MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << "\n");
   acme::affine matrix;
   matrix.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
                      matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
@@ -669,8 +665,8 @@ static void
 do_contactPointAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactPointAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
   acme::point *out  = new acme::point();
@@ -685,11 +681,11 @@ static void
 do_contactPointRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactPointRib', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i    = getInt(arg_in_2, CMD "error in reading input value");
   acme::point *out  = new acme::point();
   self->contactPoint(i - 1, *out);
   arg_out_0 = convertPtr2Mat<acme::point>(out);
@@ -702,8 +698,8 @@ static void
 do_contactNormalAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactNormalAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
@@ -721,11 +717,11 @@ static void
 do_contactNormalRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactNormalRib', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
-  int          i      = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i      = getInt(arg_in_2, CMD "error in reading input value");
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
   vec3         outvec;
   self->contactNormal(i - 1, outvec);
@@ -741,8 +737,8 @@ static void
 do_contactDepthAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactDepthAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self  = DATA_GET(arg_in_1);
   real_type    depth;
@@ -757,11 +753,11 @@ static void
 do_contactDepthRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactDepthRib',  OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self  = DATA_GET(arg_in_1);
-  int          i     = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i     = getInt(arg_in_2, CMD "error in reading input value");
   real_type    depth;
   self->contactDepth(i - 1, depth);
   setScalarValue(arg_out_0, depth);
@@ -774,8 +770,8 @@ static void
 do_contactFrictionAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactFrictionAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
   real_type    friction;
@@ -790,11 +786,11 @@ static void
 do_contactFrictionRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactFrictionRib',  OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i    = getInt(arg_in_2, CMD "error in reading input value");
   real_type    friction;
   self->contactFriction(i - 1, friction);
   setScalarValue(arg_out_0, friction);
@@ -807,8 +803,8 @@ static void
 do_contactAreaAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactAreaAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
   real_type    area;
@@ -823,11 +819,11 @@ static void
 do_contactAreaRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactAreaRib',  OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i    = getInt(arg_in_2, CMD "error in reading input value");
   real_type    area;
   self->contactArea(i - 1, area);
   setScalarValue(arg_out_0, area);
@@ -840,8 +836,8 @@ static void
 do_contactVolumeAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactVolumeAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
   real_type    volume;
@@ -856,11 +852,11 @@ static void
 do_contactVolumeRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactVolumeRib',  OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self = DATA_GET(arg_in_1);
-  int          i    = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i    = getInt(arg_in_2, CMD "error in reading input value");
   real_type    volume;
   self->contactVolume(i - 1, volume);
   setScalarValue(arg_out_0, volume);
@@ -873,8 +869,8 @@ static void
 do_contactPointAffineAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactPointAffineAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 4, 4);
@@ -905,11 +901,11 @@ static void
 do_contactPointAffineRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'contactPointAffineRib', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
-  int          i      = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i      = getInt(arg_in_2, CMD "error in reading input value");
   real_type   *output = createMatrixValue(arg_out_0, 4, 4);
   acme::affine outmat;
   self->contactPointAffine(i - 1, outmat);
@@ -938,8 +934,8 @@ static void
 do_relativeAnglesAvg(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'relativeAnglesAvg', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
@@ -957,11 +953,11 @@ static void
 do_relativeAnglesRib(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_shell( 'relativeAnglesRib', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::shell *self   = DATA_GET(arg_in_1);
-  int          i      = getInt(arg_in_2, CMD "Error in reading input value");
+  int          i      = getInt(arg_in_2, CMD "error in reading input value");
   real_type   *output = createMatrixValue(arg_out_0, 3, 1);
   acme::vec3   outvec;
   self->relativeAngles(i - 1, outvec);
@@ -1039,7 +1035,7 @@ mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 
   try
   {
-    MEX_ASSERT(mxIsChar(arg_in_0), "First argument must be a string");
+    MEX_ASSERT(mxIsChar(arg_in_0), "first argument must be a string\n");
     string cmd  = mxArrayToString(arg_in_0);
     DO_CMD pfun = cmd_to_fun.at(cmd);
     pfun(nlhs, plhs, nrhs, prhs);
@@ -1053,3 +1049,7 @@ mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
     mexErrMsgTxt("mex_shell failed\n");
   }
 }
+
+///
+/// eof: mex_shell.cc
+///

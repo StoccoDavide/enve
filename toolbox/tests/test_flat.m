@@ -4,7 +4,7 @@ close all;
 
 % Create flat
 
-f1 = enve_flat([1 2 3]', [1 1 1]', 1.0);
+f1 = enve_flat(1.0, [1 2 3]', [1 1 1]');
 f1
 
 % Plot output

@@ -115,7 +115,7 @@ namespace Utils {
 
   template <typename Real>
   bool
-  Segment2D<Real>::intersect( Segment2D<Real> & S, Real & s, Real & t ) const {
+  Segment2D<Real>::intersect( Segment2D<Real> const & S, Real & s, Real & t ) const {
     s = t = 0;
     // check if collinear
     Point2D<Real> D1, D2, RES;

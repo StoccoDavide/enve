@@ -13,7 +13,7 @@ p5 = acme_point([1 2 -1]')
 
 % Create triangleroad
 
-t1 = enve_triangleground(p1.get(), p2.get(), p3.get(), 1.0)
+t1 = enve_triangleground(0, 1.0, p1.get(), p2.get(), p3.get())
 
 % Plot output
 

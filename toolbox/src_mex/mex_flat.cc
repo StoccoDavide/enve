@@ -1,40 +1,34 @@
 /*
-(***********************************************************************)
-(*                                                                     *)
-(* The ENVE project                                                    *)
-(*                                                                     *)
-(* Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *)
-(*                                                                     *)
-(* The ENVE project and its components are supplied under the terms of *)
-(* the open source BSD 2-Clause License. The contents of the ENVE      *)
-(* project and its components may not be copied or disclosed except in *)
-(* accordance with the terms of the BSD 2-Clause License.              *)
-(*                                                                     *)
-(* URL: https://opensource.org/licenses/BSD-2-Clause                   *)
-(*                                                                     *)
-(*    Davide Stocco                                                    *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: davide.stocco@unitn.it                                   *)
-(*                                                                     *)
-(*    Enrico Bertolazzi                                                *)
-(*    Department of Industrial Engineering                             *)
-(*    University of Trento                                             *)
-(*    e-mail: enrico.bertolazzi@unitn.it                               *)
-(*                                                                     *)
-(***********************************************************************)
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                     *
+ * This file is part of the ENVE project.                              *
+ *                                                                     *
+ * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ *                                                                     *
+ * The ENVE project can not be copied and/or distributed without       *
+ * the express permission of Davide Stocco.                            *
+ *                                                                     *
+ *    Davide Stocco                                                    *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 
+///
+/// file: mex_flat.cc
+///
+
 #include "acme.hh"
-#include "acme_plane.hh"
-#include "enve_flat.hh"
+#include "enve.hh"
 #include "mex_utils.hh"
 
 #define ASSERT(COND, MSG)               \
   if (!(COND))                          \
   {                                     \
     std::ostringstream ost;             \
-    ost << "mex_flat: " << MSG << '\n'; \
+    ost << "mex_flat: " << MSG << "\n"; \
     mexErrMsgTxt(ost.str().c_str());    \
   }
 
@@ -45,9 +39,9 @@
   "% CONSTRUCTORS:                                                       %\n" \
   "%   obj = mex_flat( 'new' );                                          %\n" \
   "%   obj = mex_flat( 'new',                                            %\n" \
+  "%                    FRICTION,  : Ground plane friction               %\n" \
   "%                    [X; Y; Z], : Ground plane origin                 %\n" \
   "%                    [X; Y; Z], : Ground plane normal                 %\n" \
-  "%                    FRICTION  : Ground plane friction                %\n" \
   "%                   );                                                %\n" \
   "%                                                                     %\n" \
   "% DESTRUCTOR:                                                         %\n" \
@@ -68,15 +62,17 @@
   "%                                                                     %\n" \
   "%=====================================================================%\n" \
   "%                                                                     %\n" \
+  "% This file is part of the ENVE project.                              %\n" \
+  "%                                                                     %\n" \
+  "% Copyright (c) 2022, Davide Stocco. All rights reserved.             %\n" \
+  "%                                                                     %\n" \
+  "% The ENVE project can not be copied and/or distributed without       %\n" \
+  "% the express permission of Davide Stocco.                            %\n" \
+  "%                                                                     %\n" \
   "%    Davide Stocco                                                    %\n" \
   "%    Department of Industrial Engineering                             %\n" \
   "%    University of Trento                                             %\n" \
-  "%    davide.stocco@unitn.it                                           %\n" \
-  "%                                                                     %\n" \
-  "%    Enrico Bertolazzi                                                %\n" \
-  "%    Department of Industrial Engineering                             %\n" \
-  "%    University of Trento                                             %\n" \
-  "%    enrico.bertolazzi@unitn.it                                       %\n" \
+  "%    e-mail: davide.stocco@unitn.it                                   %\n" \
   "%                                                                     %\n" \
   "%=====================================================================%\n"
 
@@ -112,51 +108,41 @@ static void
 do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 1 || nrhs == 4 || nrhs == 8, CMD "expected 1, 4 or 8 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 1 || nrhs == 4 || nrhs == 8, CMD "expected 1 or 4 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   MEX_ASSERT(
     mxIsChar(arg_in_0),
     CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
 
+  real_type mu = acme::QUIET_NAN;
   real_type ox = acme::QUIET_NAN;
   real_type oy = acme::QUIET_NAN;
   real_type oz = acme::QUIET_NAN;
   real_type nx = acme::QUIET_NAN;
   real_type ny = acme::QUIET_NAN;
   real_type nz = acme::QUIET_NAN;
-  real_type mu = acme::QUIET_NAN;
 
   if (nrhs == 4)
   {
+    mu = getScalarValue(arg_in_1, CMD "error in reading input friction value");
     real_type const *matrix1_ptr;
     mwSize           rows1, cols1;
-    matrix1_ptr = getMatrixPointer(arg_in_1, rows1, cols1, CMD "Error in first input matrix");
-    MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << '\n');
+    matrix1_ptr = getMatrixPointer(arg_in_2, rows1, cols1, CMD "error in first input matrix");
+    MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << "\n");
     ox = matrix1_ptr[0];
     oy = matrix1_ptr[1];
     oz = matrix1_ptr[2];
     real_type const *matrix2_ptr;
     mwSize           rows2, cols2;
-    matrix2_ptr = getMatrixPointer(arg_in_2, rows2, cols2, CMD "Error in second input matrix");
-    MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << '\n');
+    matrix2_ptr = getMatrixPointer(arg_in_3, rows2, cols2, CMD "error in second input matrix");
+    MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << "\n");
     nx = matrix2_ptr[0];
     ny = matrix2_ptr[1];
     nz = matrix2_ptr[2];
-    mu = getScalarValue(arg_in_3, CMD "Error in reading input friction value");
-  }
-  else if (nrhs == 8)
-  {
-    ox = getScalarValue(arg_in_1, CMD "Error in reading input origin x value");
-    oy = getScalarValue(arg_in_2, CMD "Error in reading input origin y value");
-    oz = getScalarValue(arg_in_3, CMD "Error in reading input origin z value");
-    nx = getScalarValue(arg_in_4, CMD "Error in reading input normal x value");
-    ny = getScalarValue(arg_in_5, CMD "Error in reading input normal y value");
-    nz = getScalarValue(arg_in_6, CMD "Error in reading input normal z value");
-    mu = getScalarValue(arg_in_7, CMD "Error in reading input friction value");
   }
 
-  enve::ground::flat *self = new enve::ground::flat(ox, oy, oz, nx, ny, nz, mu);
+  enve::ground::flat *self = new enve::ground::flat(mu, ox, oy, oz, nx, ny, nz);
 
   DATA_NEW(arg_out_0, self);
 #undef CMD
@@ -168,8 +154,8 @@ static void
 do_delete(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'delete', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   DATA_DELETE(arg_in_1);
 #undef CMD
@@ -181,8 +167,8 @@ static void
 do_getOrigin(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'getOrigin', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
   acme::point        *out  = new acme::point(self->origin());
@@ -199,8 +185,8 @@ do_setOrigin(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   enve::ground::flat *self = DATA_GET(arg_in_1);
   real_type const    *matrix_ptr;
   mwSize              rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
-  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "error in first input matrix");
+  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << "\n");
   self->origin() = acme::point(matrix_ptr[0], matrix_ptr[1], matrix_ptr[2]);
 #undef CMD
 }
@@ -211,8 +197,8 @@ static void
 do_getNormal(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'getNormal', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self   = DATA_GET(arg_in_1);
   real_type          *output = createMatrixValue(arg_out_0, 3, 1);
@@ -229,14 +215,14 @@ static void
 do_setNormal(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'setNormal', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
   real_type const    *matrix_ptr;
   mwSize              rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "Error in first input matrix");
-  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << '\n');
+  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "error in first input matrix");
+  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << "\n");
   self->normal() = acme::vec3(matrix_ptr[0], matrix_ptr[1], matrix_ptr[2]);
 #undef CMD
 }
@@ -247,8 +233,8 @@ static void
 do_getPlane(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'getPlane', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
   acme::plane        *out  = new acme::plane(self->layingPlane());
@@ -262,8 +248,8 @@ static void
 do_setPlane(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'setPlane', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self  = DATA_GET(arg_in_1);
   acme::plane        *other = DATA_GET(arg_in_2);
@@ -278,8 +264,8 @@ do_getFriction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 
 #define CMD "mex_flat( 'getFriction', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
   setScalarValue(arg_out_0, self->friction());
@@ -293,11 +279,11 @@ do_setFriction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 
 #define CMD "mex_flat( 'setFriction', OBJ, FRICTION ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self  = DATA_GET(arg_in_1);
-  real_type           other = getScalarValue(arg_in_2, CMD "Error in reading input value");
+  real_type           other = getScalarValue(arg_in_2, CMD "error in reading input value");
   self->friction()          = other;
 #undef CMD
 }
@@ -308,8 +294,8 @@ static void
 do_isDegenerated(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'isDegenerated', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
   setScalarBool(arg_out_0, self->isDegenerated());
@@ -322,8 +308,8 @@ static void
 do_isApprox(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'isApprox', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self  = DATA_GET(arg_in_1);
   enve::ground::flat *other = DATA_GET(arg_in_2);
@@ -337,12 +323,12 @@ static void
 do_copy(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'copy', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << '\n');
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << '\n');
+  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::ground::flat *self  = DATA_GET(arg_in_1);
   enve::ground::flat *other = DATA_GET(arg_in_2);
-  *self                     = *other;
+  self->copy(*other);
 #undef CMD
 }
 
@@ -379,7 +365,7 @@ mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 
   try
   {
-    MEX_ASSERT(mxIsChar(arg_in_0), "First argument must be a string");
+    MEX_ASSERT(mxIsChar(arg_in_0), "first argument must be a string\n");
     string cmd  = mxArrayToString(arg_in_0);
     DO_CMD pfun = cmd_to_fun.at(cmd);
     pfun(nlhs, plhs, nrhs, prhs);
@@ -393,3 +379,7 @@ mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
     mexErrMsgTxt("mex_flat failed\n");
   }
 }
+
+///
+/// eof: mex_flat.cc
+///
