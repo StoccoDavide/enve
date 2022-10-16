@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.4" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.5" xml:lang="en-US">
   <compound refid="a00017" kind="class"><name>enve_flat</name>
     <member refid="a00017_1af782fcd8b9708536dd2412dc07289bc9" kind="variable"><name>objectHandle</name></member>
     <member refid="a00017_1abf8bdb72c343dc5c24582efff3c7edd6" kind="function"><name>enve_flat</name></member>
@@ -101,9 +101,8 @@
   </compound>
   <compound refid="a00029" kind="class"><name>enve_triangleground</name>
     <member refid="a00029_1ae8cc84feb70631c0d80dd6439cafb5de" kind="function"><name>enve_triangleground</name></member>
-    <member refid="a00029_1af80d972dbea8e624fcef1dc5d72f8482" kind="function"><name>normal</name></member>
+    <member refid="a00029_1a6464f16b5374be8a4973678e9a8ab5f3" kind="function"><name>getID</name></member>
     <member refid="a00029_1ad2d2103782d6807c5c3cb0bd3c444d7b" kind="function"><name>getFriction</name></member>
-    <member refid="a00029_1a86a094f047fb3bc2e7f307bb0bd1e7c8" kind="function"><name>setFriction</name></member>
     <member refid="a00029_1a51e60df2c15caba52fa29c5f7e995ae6" kind="function"><name>getVertex1</name></member>
     <member refid="a00029_1a877b126b496ff10fffe8f87627256dac" kind="function"><name>getVertex2</name></member>
     <member refid="a00029_1a8ba141d7c6d24ca07183cff8f666c2bc" kind="function"><name>getVertex3</name></member>
@@ -112,6 +111,7 @@
     <member refid="a00029_1a8bebceb15d8e99f360d1e6c3d9f0fe32" kind="function"><name>setVertex3</name></member>
     <member refid="a00029_1aec339d78bbc35f22bcd20feb757c529b" kind="function"><name>copy</name></member>
     <member refid="a00029_1aaa5ce2b8742590c18f30f8a43c89e500" kind="function"><name>copyByHandle</name></member>
+    <member refid="a00029_1af80d972dbea8e624fcef1dc5d72f8482" kind="function"><name>normal</name></member>
     <member refid="a00029_1a8d9b94627dec7f03dd15c259f1114d0d" kind="function"><name>disp</name></member>
     <member refid="a00029_1a26f158ae1459ad715fd522cd6ae8da52" kind="function"><name>toTriangle</name></member>
     <member refid="a00029_1ab1b8bc55d4ac80478c28044513705a66" kind="function"><name>plot</name></member>

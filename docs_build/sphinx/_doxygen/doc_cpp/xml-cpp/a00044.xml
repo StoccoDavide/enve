@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="a00044" kind="namespace" language="C++">
     <compoundname>enve</compoundname>
     <innerclass refid="a00058" prot="public">enve::output</innerclass>
@@ -9,13 +9,19 @@
     <innerclass refid="a00074" prot="public">enve::triangleground</innerclass>
     <innernamespace refid="a00045">enve::ground</innernamespace>
     <briefdescription>
-<para>Namepaces containing all objects classes and routines. </para>
     </briefdescription>
     <detaileddescription>
-<para>file: <ref refid="a00038" kindref="compound">enve_mesh.cc</ref></para>
-<para>file: <ref refid="a00035" kindref="compound">enve_shape.cc</ref></para>
-<para>file: <ref refid="a00032" kindref="compound">enve_triangleground.cc</ref> </para>
+<para>file: <ref refid="a00017" kindref="compound">flat.hxx</ref></para>
+<para>file: <ref refid="a00002" kindref="compound">mesh.hxx</ref></para>
+<para>file: <ref refid="a00008" kindref="compound">output.hxx</ref></para>
+<para>file: <ref refid="a00005" kindref="compound">rib.hxx</ref></para>
+<para>file: <ref refid="a00011" kindref="compound">shape.hxx</ref></para>
+<para>file: <ref refid="a00020" kindref="compound">shell.hxx</ref></para>
+<para>file: <ref refid="a00014" kindref="compound">triangleground.hxx</ref></para>
+<para>file: <ref refid="a00032" kindref="compound">mesh.cc</ref></para>
+<para>file: <ref refid="a00023" kindref="compound">shape.cc</ref></para>
+<para>file: <ref refid="a00035" kindref="compound">triangleground.cc</ref> </para>
     </detaileddescription>
-    <location file="include/enve.hh" line="76" column="1"/>
+    <location file="src/enve/flat.hxx" line="26" column="1"/>
   </compounddef>
 </doxygen>

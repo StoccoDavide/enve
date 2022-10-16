@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Class mesh &#8212; ENVE v1.2
+    <title>Class mesh &#8212; ENVE v2.0
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -44,7 +44,7 @@
 <span id="exhale-class-a00054"></span><h1>Class mesh<a class="headerlink" href="#class-mesh" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_enve_mesh.hh.html#file-include-enve-mesh-hh"><span class="std std-ref">File enve_mesh.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_enve_mesh.hxx.html#file-src-enve-mesh-hxx"><span class="std std-ref">File mesh.hxx</span></a></p></li>
 </ul>
 <div class="section" id="class-documentation">
 <h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
@@ -79,18 +79,17 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4meshD0Ev">
-<span id="_CPPv3N4enve6ground4meshD0Ev"></span><span id="_CPPv2N4enve6ground4meshD0Ev"></span><span id="enve::ground::mesh::~mesh__void"></span><span class="target" id="a00054_1a03f45d115d115e6391426eacf3a85625"></span><span class="sig-name descname"><span class="n"><span class="pre">~mesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4meshD0Ev" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERK4mesh">
+<span id="_CPPv3N4enve6ground4mesh4meshERK4mesh"></span><span id="_CPPv2N4enve6ground4mesh4meshERK4mesh"></span><span id="enve::ground::mesh::mesh__meshCR"></span><span class="target" id="a00054_1ad2400d16afd81a390481c38751f84599"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4mesh4meshERK4mesh" title="enve::ground::mesh::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERK4mesh" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Mesh class destructor. </p>
-<p>Mesh copy constructor </p>
+<p>Mesh copy constructor. </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERK4mesh">
-<span id="_CPPv3N4enve6ground4mesh4meshERK4mesh"></span><span id="_CPPv2N4enve6ground4mesh4meshERK4mesh"></span><span id="enve::ground::mesh::mesh__meshCR"></span><span class="target" id="a00054_1ad2400d16afd81a390481c38751f84599"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4mesh4meshERK4mesh" title="enve::ground::mesh::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERK4mesh" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERR4mesh">
+<span id="_CPPv3N4enve6ground4mesh4meshERR4mesh"></span><span id="_CPPv2N4enve6ground4mesh4meshERR4mesh"></span><span id="enve::ground::mesh::mesh__meshRR"></span><span class="target" id="a00054_1a5dd413983d0e4c6af600d692bd555e75"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4mesh4meshERR4mesh" title="enve::ground::mesh::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERR4mesh" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Mesh move constructor. </p>
@@ -98,10 +97,30 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4meshERRK4mesh">
-<span id="_CPPv3N4enve6ground4mesh4meshERRK4mesh"></span><span id="_CPPv2N4enve6ground4mesh4meshERRK4mesh"></span><span id="enve::ground::mesh::mesh__meshCRR"></span><span class="target" id="a00054_1abca52061423e0722324997d154d18bd0"></span><span class="sig-name descname"><span class="n"><span class="pre">mesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4mesh4meshERRK4mesh" title="enve::ground::mesh::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4meshERRK4mesh" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4meshaSERK4mesh">
+<span id="_CPPv3N4enve6ground4meshaSERK4mesh"></span><span id="_CPPv2N4enve6ground4meshaSERK4mesh"></span><span id="enve::ground::mesh::assign-operator__meshCR"></span><span class="target" id="a00054_1a9597eee2b0ad2680557bccfa8da8f872"></span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4meshaSERK4mesh" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Mesh assignment operator </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4meshaSERR4mesh">
+<span id="_CPPv3N4enve6ground4meshaSERR4mesh"></span><span id="_CPPv2N4enve6ground4meshaSERR4mesh"></span><span id="enve::ground::mesh::assign-operator__meshRR"></span><span class="target" id="a00054_1afec9532d4b95f5a1b58621e88896776d"></span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4meshaSERR4mesh" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Mesh move assignment operator </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4meshD0Ev">
+<span id="_CPPv3N4enve6ground4meshD0Ev"></span><span id="_CPPv2N4enve6ground4meshD0Ev"></span><span id="enve::ground::mesh::~mesh__void"></span><span class="target" id="a00054_1a47386eb746ffebe1e260d23f89b00a6c"></span><span class="sig-name descname"><span class="n"><span class="pre">~mesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4enve6ground4meshD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Mesh class destructor. </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
@@ -163,14 +182,14 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4enve6ground4mesh4copyERK4mesh">
-<span id="_CPPv3N4enve6ground4mesh4copyERK4mesh"></span><span id="_CPPv2N4enve6ground4mesh4copyERK4mesh"></span><span id="enve::ground::mesh::copy__meshCR"></span><span class="target" id="a00054_1aea5c6e6e730d7b464bee433b81ed1f42"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mesh_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4copyERK4mesh" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N4enve6ground4mesh4copyERK4mesh"></span><span id="_CPPv2N4enve6ground4mesh4copyERK4mesh"></span><span id="enve::ground::mesh::copy__meshCR"></span><span class="target" id="a00054_1a35e2da751bcb8a39298c4b192131a465"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">copy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve6ground4meshE" title="enve::ground::mesh"><span class="n"><span class="pre">mesh</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mesh_obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve6ground4mesh4copyERK4mesh" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Copy mesh object. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>mesh_in</strong> – Mesh object to be copied </p>
+<p><strong>mesh_obj</strong> – Mesh object to be copied </p>
 </dd>
 </dl>
 </dd>

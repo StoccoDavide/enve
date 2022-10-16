@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="a00054" kind="class" language="C++" prot="public">
     <compoundname>enve::ground::mesh</compoundname>
-    <includes refid="a00011" local="no">enve_mesh.hh</includes>
+    <includes refid="a00002" local="no">mesh.hxx</includes>
       <sectiondef kind="public-type">
       <memberdef kind="typedef" id="a00054_1ab4e5368963810591e646ef48e9de351e" prot="public" static="no">
         <type>std::shared_ptr&lt; <ref refid="a00054" kindref="compound">mesh</ref> const  &gt;</type>
@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="61" column="31" bodyfile="include/enve_mesh.hh" bodystart="61" bodyend="-1"/>
+        <location file="src/enve/mesh.hxx" line="47" column="31" bodyfile="src/enve/mesh.hxx" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="a00054_1a38058148fed4fe8ce3a0d477b3776ce9" prot="public" static="no">
         <type>std::vector&lt; <ref refid="a00054_1ab4e5368963810591e646ef48e9de351e" kindref="member">mesh::ptr</ref> &gt;</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="62" column="32" bodyfile="include/enve_mesh.hh" bodystart="62" bodyend="-1"/>
+        <location file="src/enve/mesh.hxx" line="48" column="32" bodyfile="src/enve/mesh.hxx" bodystart="48" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -49,15 +49,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="65" column="30" bodyfile="include/enve_mesh.hh" bodystart="65" bodyend="-1"/>
-        <referencedby refid="a00054_1aea5c6e6e730d7b464bee433b81ed1f42" compoundref="a00038" startline="99" endline="106">copy</referencedby>
-        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00038" startline="210" endline="322">load</referencedby>
-        <referencedby refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" compoundref="a00038" startline="63" endline="71">mesh</referencedby>
-        <referencedby refid="a00054_1a21c9d0e4ed514dd076b2f7245be71a4d" compoundref="a00038" startline="153" endline="187">print</referencedby>
-        <referencedby refid="a00054_1a64db833f07e0e1f7b663f478c6f80ced" compoundref="a00038" startline="133" endline="139">ptrTriangleground</referencedby>
-        <referencedby refid="a00054_1a54e0bd8792817f5069a32ea3962d06e6" compoundref="a00038" startline="201" endline="205">size</referencedby>
-        <referencedby refid="a00054_1a5ab2a04622d3b2d28df6b25b18e83f4d" compoundref="a00038" startline="468" endline="478">updateBBoxes</referencedby>
-        <referencedby refid="a00054_1a55d3ec4a6bcabb19c38cedc1ba17cc28" compoundref="a00038" startline="124" endline="128">vecptrTriangleground</referencedby>
+        <location file="src/enve/mesh.hxx" line="51" column="30" bodyfile="src/enve/mesh.hxx" bodystart="51" bodyend="-1"/>
+        <referencedby refid="a00054_1a35e2da751bcb8a39298c4b192131a465" compoundref="a00032" startline="92" endline="99">copy</referencedby>
+        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00032" startline="208" endline="345">load</referencedby>
+        <referencedby refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" compoundref="a00032" startline="48" endline="56">mesh</referencedby>
+        <referencedby refid="a00054_1a21c9d0e4ed514dd076b2f7245be71a4d" compoundref="a00032" startline="146" endline="185">print</referencedby>
+        <referencedby refid="a00054_1a64db833f07e0e1f7b663f478c6f80ced" compoundref="a00032" startline="126" endline="132">ptrTriangleground</referencedby>
+        <referencedby refid="a00054_1a54e0bd8792817f5069a32ea3962d06e6" compoundref="a00032" startline="199" endline="203">size</referencedby>
+        <referencedby refid="a00054_1a5ab2a04622d3b2d28df6b25b18e83f4d" compoundref="a00032" startline="513" endline="522">updateBBoxes</referencedby>
+        <referencedby refid="a00054_1a55d3ec4a6bcabb19c38cedc1ba17cc28" compoundref="a00032" startline="117" endline="121">vecptrTriangleground</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00054_1a962407fcf5907c500a3f0f07a5798906" prot="private" static="no" mutable="no">
         <type>aabb::vecptr</type>
@@ -72,13 +72,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="66" column="30" bodyfile="include/enve_mesh.hh" bodystart="66" bodyend="-1"/>
-        <referencedby refid="a00054_1ab1e51f4f5d1564992740027f8f7e4976" compoundref="a00038" startline="192" endline="196">bboxes</referencedby>
-        <referencedby refid="a00054_1a127dbfd0bb99404e0f3e0d4023276d18" compoundref="a00038" startline="111" endline="119">clear</referencedby>
-        <referencedby refid="a00054_1aea5c6e6e730d7b464bee433b81ed1f42" compoundref="a00038" startline="99" endline="106">copy</referencedby>
-        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00038" startline="210" endline="322">load</referencedby>
-        <referencedby refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" compoundref="a00038" startline="63" endline="71">mesh</referencedby>
-        <referencedby refid="a00054_1a5ab2a04622d3b2d28df6b25b18e83f4d" compoundref="a00038" startline="468" endline="478">updateBBoxes</referencedby>
+        <location file="src/enve/mesh.hxx" line="52" column="30" bodyfile="src/enve/mesh.hxx" bodystart="52" bodyend="-1"/>
+        <referencedby refid="a00054_1ab1e51f4f5d1564992740027f8f7e4976" compoundref="a00032" startline="190" endline="194">bboxes</referencedby>
+        <referencedby refid="a00054_1a127dbfd0bb99404e0f3e0d4023276d18" compoundref="a00032" startline="104" endline="112">clear</referencedby>
+        <referencedby refid="a00054_1a35e2da751bcb8a39298c4b192131a465" compoundref="a00032" startline="92" endline="99">copy</referencedby>
+        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00032" startline="208" endline="345">load</referencedby>
+        <referencedby refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" compoundref="a00032" startline="48" endline="56">mesh</referencedby>
+        <referencedby refid="a00054_1a5ab2a04622d3b2d28df6b25b18e83f4d" compoundref="a00032" startline="513" endline="522">updateBBoxes</referencedby>
       </memberdef>
       <memberdef kind="variable" id="a00054_1ac543976bee2bebc3829416fa14024390" prot="private" static="no" mutable="no">
         <type>AABBtree::ptr</type>
@@ -93,34 +93,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="67" column="30" bodyfile="include/enve_mesh.hh" bodystart="67" bodyend="-1"/>
-        <referencedby refid="a00054_1aea5c6e6e730d7b464bee433b81ed1f42" compoundref="a00038" startline="99" endline="106">copy</referencedby>
-        <referencedby refid="a00054_1a3b0e80f70a590775bf1efd1140e102c5" compoundref="a00038" startline="423" endline="435">intersection</referencedby>
-        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00038" startline="210" endline="322">load</referencedby>
-        <referencedby refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" compoundref="a00038" startline="63" endline="71">mesh</referencedby>
-        <referencedby refid="a00054_1af2a5ef6c56086ff3046d2b2a17d35333" compoundref="a00038" startline="144" endline="148">ptrAABBtree</referencedby>
+        <location file="src/enve/mesh.hxx" line="53" column="30" bodyfile="src/enve/mesh.hxx" bodystart="53" bodyend="-1"/>
+        <referencedby refid="a00054_1a35e2da751bcb8a39298c4b192131a465" compoundref="a00032" startline="92" endline="99">copy</referencedby>
+        <referencedby refid="a00054_1a3b0e80f70a590775bf1efd1140e102c5" compoundref="a00032" startline="468" endline="480">intersection</referencedby>
+        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00032" startline="208" endline="345">load</referencedby>
+        <referencedby refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" compoundref="a00032" startline="48" endline="56">mesh</referencedby>
+        <referencedby refid="a00054_1af2a5ef6c56086ff3046d2b2a17d35333" compoundref="a00032" startline="137" endline="141">ptrAABBtree</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="a00054_1a03f45d115d115e6391426eacf3a85625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>enve::ground::mesh::~mesh</definition>
-        <argsstring>(void)</argsstring>
-        <name>~mesh</name>
-        <qualifiedname>enve::ground::mesh::~mesh</qualifiedname>
-        <param>
-          <type>void</type>
-        </param>
-        <briefdescription>
-<para>Mesh class destructor. </para>
-        </briefdescription>
-        <detaileddescription>
-<para>Mesh copy constructor </para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/enve_mesh.hh" line="71" column="7" bodyfile="src/enve_mesh.cc" bodystart="50" bodyend="52"/>
-      </memberdef>
       <memberdef kind="function" id="a00054_1ad2400d16afd81a390481c38751f84599" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>enve::ground::mesh::mesh</definition>
@@ -131,30 +112,87 @@
           <type><ref refid="a00054" kindref="compound">mesh</ref> const &amp;</type>
         </param>
         <briefdescription>
+<para>Mesh copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/enve/mesh.hxx" line="57" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="a00054_1a5dd413983d0e4c6af600d692bd555e75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::mesh::mesh</definition>
+        <argsstring>(mesh &amp;&amp;)=delete</argsstring>
+        <name>mesh</name>
+        <qualifiedname>enve::ground::mesh::mesh</qualifiedname>
+        <param>
+          <type><ref refid="a00054" kindref="compound">mesh</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
 <para>Mesh move constructor. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="74" column="7"/>
+        <location file="src/enve/mesh.hxx" line="60" column="7"/>
       </memberdef>
-      <memberdef kind="function" id="a00054_1abca52061423e0722324997d154d18bd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>enve::ground::mesh::mesh</definition>
-        <argsstring>(mesh const &amp;&amp;)=delete</argsstring>
-        <name>mesh</name>
-        <qualifiedname>enve::ground::mesh::mesh</qualifiedname>
+      <memberdef kind="function" id="a00054_1a9597eee2b0ad2680557bccfa8da8f872" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00054" kindref="compound">mesh</ref> &amp;</type>
+        <definition>mesh &amp; enve::ground::mesh::operator=</definition>
+        <argsstring>(const mesh &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>enve::ground::mesh::operator=</qualifiedname>
         <param>
-          <type><ref refid="a00054" kindref="compound">mesh</ref> const &amp;&amp;</type>
+          <type>const <ref refid="a00054" kindref="compound">mesh</ref> &amp;</type>
         </param>
         <briefdescription>
+<para>Mesh assignment operator <linebreak/>
+ </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="77" column="7"/>
+        <location file="src/enve/mesh.hxx" line="63" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="a00054_1afec9532d4b95f5a1b58621e88896776d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="a00054" kindref="compound">mesh</ref> &amp;</type>
+        <definition>mesh &amp; enve::ground::mesh::operator=</definition>
+        <argsstring>(mesh &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>enve::ground::mesh::operator=</qualifiedname>
+        <param>
+          <type><ref refid="a00054" kindref="compound">mesh</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Mesh move assignment operator <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/enve/mesh.hxx" line="66" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="a00054_1a47386eb746ffebe1e260d23f89b00a6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>enve::ground::mesh::~mesh</definition>
+        <argsstring>(void)=default</argsstring>
+        <name>~mesh</name>
+        <qualifiedname>enve::ground::mesh::~mesh</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Mesh class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/enve/mesh.hxx" line="69" column="7"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1aabc8dfb47aaa2c8994e67c096c47b4e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -172,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="80" column="7" bodyfile="src/enve_mesh.cc" bodystart="56" bodyend="59"/>
+        <location file="src/enve/mesh.hxx" line="72" column="7" bodyfile="src/mesh.cc" bodystart="41" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -193,7 +231,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="83" column="7" bodyfile="src/enve_mesh.cc" bodystart="63" bodyend="71"/>
+        <location file="src/enve/mesh.hxx" line="75" column="7" bodyfile="src/mesh.cc" bodystart="48" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a6d98aea4d8fa88866d8c86805be092d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -214,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="88" column="7" bodyfile="src/enve_mesh.cc" bodystart="75" bodyend="82"/>
+        <location file="src/enve/mesh.hxx" line="80" column="7" bodyfile="src/mesh.cc" bodystart="60" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a772bfe280e2d1c66a446820bc91f892b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -241,17 +279,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="93" column="7" bodyfile="src/enve_mesh.cc" bodystart="86" bodyend="94"/>
+        <location file="src/enve/mesh.hxx" line="85" column="7" bodyfile="src/mesh.cc" bodystart="75" bodyend="87"/>
       </memberdef>
-      <memberdef kind="function" id="a00054_1aea5c6e6e730d7b464bee433b81ed1f42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00054_1a35e2da751bcb8a39298c4b192131a465" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void enve::ground::mesh::copy</definition>
-        <argsstring>(mesh const &amp;mesh_in)</argsstring>
+        <argsstring>(mesh const &amp;mesh_obj)</argsstring>
         <name>copy</name>
         <qualifiedname>enve::ground::mesh::copy</qualifiedname>
         <param>
           <type><ref refid="a00054" kindref="compound">mesh</ref> const &amp;</type>
-          <declname>mesh_in</declname>
+          <declname>mesh_obj</declname>
           <briefdescription><para>Mesh object to be copied </para>
 </briefdescription>
         </param>
@@ -262,7 +300,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="100" column="7" bodyfile="src/enve_mesh.cc" bodystart="99" bodyend="106"/>
+        <location file="src/enve/mesh.hxx" line="92" column="7" bodyfile="src/mesh.cc" bodystart="92" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a127dbfd0bb99404e0f3e0d4023276d18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -280,7 +318,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="106" column="7" bodyfile="src/enve_mesh.cc" bodystart="111" bodyend="119"/>
+        <location file="src/enve/mesh.hxx" line="98" column="7" bodyfile="src/mesh.cc" bodystart="104" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a55d3ec4a6bcabb19c38cedc1ba17cc28" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="a00074_1a1f4cea2747925d4b294879cdf2f50711" kindref="member">triangleground::vecptr</ref> const &amp;</type>
@@ -298,7 +336,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="110" column="7" bodyfile="src/enve_mesh.cc" bodystart="124" bodyend="128"/>
+        <location file="src/enve/mesh.hxx" line="102" column="7" bodyfile="src/mesh.cc" bodystart="117" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a64db833f07e0e1f7b663f478c6f80ced" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="a00074_1a3e14a04aa4f4e4db9097e821f546ce61" kindref="member">triangleground::ptr</ref></type>
@@ -319,7 +357,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="114" column="7" bodyfile="src/enve_mesh.cc" bodystart="133" bodyend="139"/>
+        <location file="src/enve/mesh.hxx" line="107" column="7" bodyfile="src/mesh.cc" bodystart="126" bodyend="132"/>
+        <referencedby refid="a00054_1a3b0e80f70a590775bf1efd1140e102c5" compoundref="a00032" startline="468" endline="480">intersection</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1af2a5ef6c56086ff3046d2b2a17d35333" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>AABBtree::ptr const</type>
@@ -337,8 +376,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="120" column="7" bodyfile="src/enve_mesh.cc" bodystart="144" bodyend="148"/>
-        <referencedby refid="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd" compoundref="a00038" startline="440" endline="449">intersection</referencedby>
+        <location file="src/enve/mesh.hxx" line="113" column="7" bodyfile="src/mesh.cc" bodystart="137" bodyend="141"/>
+        <referencedby refid="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd" compoundref="a00032" startline="485" endline="494">intersection</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1a21c9d0e4ed514dd076b2f7245be71a4d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -359,7 +398,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="124" column="7" bodyfile="src/enve_mesh.cc" bodystart="153" bodyend="187"/>
+        <location file="src/enve/mesh.hxx" line="118" column="7" bodyfile="src/mesh.cc" bodystart="146" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1ab1e51f4f5d1564992740027f8f7e4976" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>aabb::vecptr const &amp;</type>
@@ -377,7 +416,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="130" column="7" bodyfile="src/enve_mesh.cc" bodystart="192" bodyend="196"/>
+        <location file="src/enve/mesh.hxx" line="124" column="7" bodyfile="src/mesh.cc" bodystart="190" bodyend="194"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a54e0bd8792817f5069a32ea3962d06e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -395,8 +434,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="134" column="7" bodyfile="src/enve_mesh.cc" bodystart="201" bodyend="205"/>
-        <referencedby refid="a00054_1a127dbfd0bb99404e0f3e0d4023276d18" compoundref="a00038" startline="111" endline="119">clear</referencedby>
+        <location file="src/enve/mesh.hxx" line="129" column="7" bodyfile="src/mesh.cc" bodystart="199" bodyend="203"/>
+        <referencedby refid="a00054_1a127dbfd0bb99404e0f3e0d4023276d18" compoundref="a00032" startline="104" endline="112">clear</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1a071c33f02a87be53717ed2a251fc4db7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -417,8 +456,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="138" column="7" bodyfile="src/enve_mesh.cc" bodystart="210" bodyend="322"/>
-        <referencedby refid="a00054_1a6d98aea4d8fa88866d8c86805be092d5" compoundref="a00038" startline="75" endline="82">mesh</referencedby>
+        <location file="src/enve/mesh.hxx" line="134" column="7" bodyfile="src/mesh.cc" bodystart="208" bodyend="345"/>
+        <referencedby refid="a00054_1a6d98aea4d8fa88866d8c86805be092d5" compoundref="a00032" startline="60" endline="71">mesh</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1ac7ef87e939cbd132d796c0134c25c163" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -445,7 +484,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="144" column="7" bodyfile="src/enve_mesh.cc" bodystart="327" bodyend="418"/>
+        <location file="src/enve/mesh.hxx" line="140" column="7" bodyfile="src/mesh.cc" bodystart="350" bodyend="463"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a3b0e80f70a590775bf1efd1140e102c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -472,9 +511,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="151" column="7" bodyfile="src/enve_mesh.cc" bodystart="423" bodyend="435"/>
-        <referencedby refid="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd" compoundref="a00038" startline="440" endline="449">intersection</referencedby>
-        <referencedby refid="a00070_1ad9280ec1aea116a96674f6a1f9df7fe6" compoundref="a00026" startline="475" endline="519">enve::shell::setup</referencedby>
+        <location file="src/enve/mesh.hxx" line="147" column="7" bodyfile="src/mesh.cc" bodystart="468" bodyend="480"/>
+        <referencedby refid="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd" compoundref="a00032" startline="485" endline="494">intersection</referencedby>
+        <referencedby refid="a00070_1ad38f267f9406df88069c28969d52eef8" compoundref="a00026" startline="453" endline="491">enve::shell::setup</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -501,7 +540,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="158" column="7" bodyfile="src/enve_mesh.cc" bodystart="440" bodyend="449"/>
+        <location file="src/enve/mesh.hxx" line="154" column="7" bodyfile="src/mesh.cc" bodystart="485" bodyend="494"/>
       </memberdef>
       <memberdef kind="function" id="a00054_1a02f9e924e717939b06a1d06f00f073b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -528,7 +567,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="165" column="7" bodyfile="src/enve_mesh.cc" bodystart="454" bodyend="463"/>
+        <location file="src/enve/mesh.hxx" line="161" column="7" bodyfile="src/mesh.cc" bodystart="499" bodyend="508"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -548,9 +587,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="173" column="7" bodyfile="src/enve_mesh.cc" bodystart="468" bodyend="478"/>
-        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00038" startline="210" endline="322">load</referencedby>
-        <referencedby refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" compoundref="a00038" startline="63" endline="71">mesh</referencedby>
+        <location file="src/enve/mesh.hxx" line="169" column="7" bodyfile="src/mesh.cc" bodystart="513" bodyend="522"/>
+        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00032" startline="208" endline="345">load</referencedby>
+        <referencedby refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" compoundref="a00032" startline="48" endline="56">mesh</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1a1e754cb9ca2f6fae552ca523ac7ccf36" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -583,8 +622,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="177" column="7" bodyfile="src/enve_mesh.cc" bodystart="483" bodyend="520"/>
-        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00038" startline="210" endline="322">load</referencedby>
+        <location file="src/enve/mesh.hxx" line="173" column="7" bodyfile="src/mesh.cc" bodystart="527" bodyend="559"/>
+        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00032" startline="208" endline="345">load</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1aaf90a36984830084ea73e8b27f11196f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -605,8 +644,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="185" column="7" bodyfile="src/enve_mesh.cc" bodystart="525" bodyend="543"/>
-        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00038" startline="210" endline="322">load</referencedby>
+        <location file="src/enve/mesh.hxx" line="181" column="7" bodyfile="src/mesh.cc" bodystart="564" bodyend="578"/>
+        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00032" startline="208" endline="345">load</referencedby>
       </memberdef>
       <memberdef kind="function" id="a00054_1aea68871e91b61586560848ed2428dcd9" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -627,8 +666,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_mesh.hh" line="191" column="7" bodyfile="src/enve_mesh.cc" bodystart="548" bodyend="570"/>
-        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00038" startline="210" endline="322">load</referencedby>
+        <location file="src/enve/mesh.hxx" line="187" column="7" bodyfile="src/mesh.cc" bodystart="583" bodyend="601"/>
+        <referencedby refid="a00054_1a071c33f02a87be53717ed2a251fc4db7" compoundref="a00032" startline="208" endline="345">load</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -636,11 +675,11 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/enve_mesh.hh" line="58" column="5" bodyfile="include/enve_mesh.hh" bodystart="59" bodyend="195"/>
+    <location file="src/enve/mesh.hxx" line="44" column="5" bodyfile="src/enve/mesh.hxx" bodystart="45" bodyend="191"/>
     <listofallmembers>
       <member refid="a00054_1ab1e51f4f5d1564992740027f8f7e4976" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>bboxes</name></member>
       <member refid="a00054_1a127dbfd0bb99404e0f3e0d4023276d18" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>clear</name></member>
-      <member refid="a00054_1aea5c6e6e730d7b464bee433b81ed1f42" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>copy</name></member>
+      <member refid="a00054_1a35e2da751bcb8a39298c4b192131a465" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>copy</name></member>
       <member refid="a00054_1aea68871e91b61586560848ed2428dcd9" prot="private" virt="non-virtual"><scope>enve::ground::mesh</scope><name>firstToken</name></member>
       <member refid="a00054_1a3b0e80f70a590775bf1efd1140e102c5" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>intersection</name></member>
       <member refid="a00054_1a3ea6a087aca29a26810c4714ea9c7bbd" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>intersection</name></member>
@@ -651,11 +690,13 @@
       <member refid="a00054_1a962407fcf5907c500a3f0f07a5798906" prot="private" virt="non-virtual"><scope>enve::ground::mesh</scope><name>m_bboxes</name></member>
       <member refid="a00054_1a509271e206dd324be426e67ae616e05f" prot="private" virt="non-virtual"><scope>enve::ground::mesh</scope><name>m_triangles</name></member>
       <member refid="a00054_1ad2400d16afd81a390481c38751f84599" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>mesh</name></member>
-      <member refid="a00054_1abca52061423e0722324997d154d18bd0" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>mesh</name></member>
+      <member refid="a00054_1a5dd413983d0e4c6af600d692bd555e75" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>mesh</name></member>
       <member refid="a00054_1aabc8dfb47aaa2c8994e67c096c47b4e9" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>mesh</name></member>
       <member refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>mesh</name></member>
       <member refid="a00054_1a6d98aea4d8fa88866d8c86805be092d5" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>mesh</name></member>
       <member refid="a00054_1a772bfe280e2d1c66a446820bc91f892b" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>mesh</name></member>
+      <member refid="a00054_1a9597eee2b0ad2680557bccfa8da8f872" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>operator=</name></member>
+      <member refid="a00054_1afec9532d4b95f5a1b58621e88896776d" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>operator=</name></member>
       <member refid="a00054_1a21c9d0e4ed514dd076b2f7245be71a4d" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>print</name></member>
       <member refid="a00054_1ab4e5368963810591e646ef48e9de351e" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>ptr</name></member>
       <member refid="a00054_1af2a5ef6c56086ff3046d2b2a17d35333" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>ptrAABBtree</name></member>
@@ -666,7 +707,7 @@
       <member refid="a00054_1a5ab2a04622d3b2d28df6b25b18e83f4d" prot="private" virt="non-virtual"><scope>enve::ground::mesh</scope><name>updateBBoxes</name></member>
       <member refid="a00054_1a38058148fed4fe8ce3a0d477b3776ce9" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>vecptr</name></member>
       <member refid="a00054_1a55d3ec4a6bcabb19c38cedc1ba17cc28" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>vecptrTriangleground</name></member>
-      <member refid="a00054_1a03f45d115d115e6391426eacf3a85625" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>~mesh</name></member>
+      <member refid="a00054_1a47386eb746ffebe1e260d23f89b00a6c" prot="public" virt="non-virtual"><scope>enve::ground::mesh</scope><name>~mesh</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

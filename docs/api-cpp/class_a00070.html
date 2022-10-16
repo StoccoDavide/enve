@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Class shell &#8212; ENVE v1.2
+    <title>Class shell &#8212; ENVE v2.0
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -44,7 +44,7 @@
 <span id="exhale-class-a00070"></span><h1>Class shell<a class="headerlink" href="#class-shell" title="Permalink to this headline">¶</a>
 </h1>
 <ul class="simple">
-<li><p>Defined in <a class="reference internal" href="file_include_enve_shell.hh.html#file-include-enve-shell-hh"><span class="std std-ref">File enve_shell.hh</span></a></p></li>
+<li><p>Defined in <a class="reference internal" href="file_src_enve_shell.hxx.html#file-src-enve-shell-hxx"><span class="std std-ref">File shell.hxx</span></a></p></li>
 </ul>
 <div class="section" id="class-documentation">
 <h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
@@ -79,15 +79,6 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4enve5shellD0Ev">
-<span id="_CPPv3N4enve5shellD0Ev"></span><span id="_CPPv2N4enve5shellD0Ev"></span><span id="enve::shell::~shell__void"></span><span class="target" id="a00070_1a9e3dfd623bc883cb0dbab5fdad026a26"></span><span class="sig-name descname"><span class="n"><span class="pre">~shell</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shellD0Ev" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Shell class destructor. </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4enve5shell5shellERK5shell">
 <span id="_CPPv3N4enve5shell5shellERK5shell"></span><span id="_CPPv2N4enve5shell5shellERK5shell"></span><span id="enve::shell::shell__shellCR"></span><span class="target" id="a00070_1a7840e1d408713ab4eb4b91e5c3912e07"></span><span class="sig-name descname"><span class="n"><span class="pre">shell</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve5shell5shellERK5shell" title="enve::shell::shell"><span class="n"><span class="pre">shell</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve5shell5shellERK5shell" title="Permalink to this definition">¶</a><br>
 </dt>
@@ -97,11 +88,38 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4enve5shell5shellERRK5shell">
-<span id="_CPPv3N4enve5shell5shellERRK5shell"></span><span id="_CPPv2N4enve5shell5shellERRK5shell"></span><span id="enve::shell::shell__shellCRR"></span><span class="target" id="a00070_1afda23b623e717fdd16126eb5de7685e0"></span><span class="sig-name descname"><span class="n"><span class="pre">shell</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve5shell5shellERRK5shell" title="enve::shell::shell"><span class="n"><span class="pre">shell</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve5shell5shellERRK5shell" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4enve5shell5shellERR5shell">
+<span id="_CPPv3N4enve5shell5shellERR5shell"></span><span id="_CPPv2N4enve5shell5shellERR5shell"></span><span id="enve::shell::shell__shellRR"></span><span class="target" id="a00070_1a357daba48d94b16c8158af6bd5f2e8bb"></span><span class="sig-name descname"><span class="n"><span class="pre">shell</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve5shell5shellERR5shell" title="enve::shell::shell"><span class="n"><span class="pre">shell</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve5shell5shellERR5shell" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Shell move constructor. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve5shellaSERK5shell">
+<span id="_CPPv3N4enve5shellaSERK5shell"></span><span id="_CPPv2N4enve5shellaSERK5shell"></span><span id="enve::shell::assign-operator__shellCR"></span><span class="target" id="a00070_1a297a8edd6d4b0976c988632c17fe3a9f"></span><a class="reference internal" href="#_CPPv4N4enve5shellE" title="enve::shell"><span class="n"><span class="pre">shell</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4enve5shellE" title="enve::shell"><span class="n"><span class="pre">shell</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve5shellaSERK5shell" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shell assignment operator </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve5shellaSERR5shell">
+<span id="_CPPv3N4enve5shellaSERR5shell"></span><span id="_CPPv2N4enve5shellaSERR5shell"></span><span id="enve::shell::assign-operator__shellRR"></span><span class="target" id="a00070_1a2d08f242d26599ce1369d965bf670270"></span><a class="reference internal" href="#_CPPv4N4enve5shellE" title="enve::shell"><span class="n"><span class="pre">shell</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve5shellE" title="enve::shell"><span class="n"><span class="pre">shell</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4enve5shellaSERR5shell" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shell move assignment operator </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4enve5shellD0Ev">
+<span id="_CPPv3N4enve5shellD0Ev"></span><span id="_CPPv2N4enve5shellD0Ev"></span><span id="enve::shell::~shell__void"></span><span class="target" id="a00070_1a523401b2c365390fca0a8a42a6c25be4"></span><span class="sig-name descname"><span class="n"><span class="pre">~shell</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4enve5shellD0Ev" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Shell class destructor. </p>
 </dd>
 </dl>
 
@@ -129,7 +147,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4enve5shell5shellE6size_tRK5shape">
-<span id="_CPPv3N4enve5shell5shellE6size_tRK5shape"></span><span id="_CPPv2N4enve5shell5shellE6size_tRK5shape"></span><span id="enve::shell::shell__s.shapeCR"></span><span class="target" id="a00070_1af45510d7118c1f0aea21c2dc7bfcbeff"></span><span class="sig-name descname"><span class="n"><span class="pre">shell</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span>, <a class="reference internal" href="class_a00066.html#_CPPv4N4enve5shapeE" title="enve::shape"><span class="n"><span class="pre">shape</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell5shellE6size_tRK5shape" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N4enve5shell5shellE6size_tRK5shape"></span><span id="_CPPv2N4enve5shell5shellE6size_tRK5shape"></span><span id="enve::shell::shell__s.shapeCR"></span><span class="target" id="a00070_1ac3701a314a6491753133bdd9e36f54b9"></span><span class="sig-name descname"><span class="n"><span class="pre">shell</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span>, <a class="reference internal" href="class_a00066.html#_CPPv4N4enve5shapeE" title="enve::shape"><span class="n"><span class="pre">shape</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">shape_obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell5shellE6size_tRK5shape" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Shell class constructor. </p>
@@ -138,7 +156,7 @@
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>size</strong> – Input ribs number </p></li>
-<li><p><strong>shape_in</strong> – Input shape object </p></li>
+<li><p><strong>shape_obj</strong> – Input shape object </p></li>
 </ul>
 </dd>
 </dl>
@@ -324,14 +342,14 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4enve5shell9translateERK4vec3">
-<span id="_CPPv3N4enve5shell9translateERK4vec3"></span><span id="_CPPv2N4enve5shell9translateERK4vec3"></span><span id="enve::shell::translate__vec3CR"></span><span class="target" id="a00070_1a812b5a7947d74eff88e5b9cfe24c9ef0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">vec3</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell9translateERK4vec3" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N4enve5shell9translateERK4vec3"></span><span id="_CPPv2N4enve5shell9translateERK4vec3"></span><span id="enve::shell::translate__vec3CR"></span><span class="target" id="a00070_1aa251db96c6db18b89408028c070426bf"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">translate</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">vec3</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell9translateERK4vec3" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Translate shell by vector. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>vector_in</strong> – Translation vector </p>
+<p><strong>vector</strong> – Translation vector </p>
 </dd>
 </dl>
 </dd>
@@ -402,7 +420,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4enve5shell9transformERK6affine">
-<span id="_CPPv3N4enve5shell9transformERK6affine"></span><span id="_CPPv2N4enve5shell9transformERK6affine"></span><span id="enve::shell::transform__affineCR"></span><span class="target" id="a00070_1af5191a07e4f5385296139baf44c74caa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transform</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">affine_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell9transformERK6affine" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N4enve5shell9transformERK6affine"></span><span id="_CPPv2N4enve5shell9transformERK6affine"></span><span id="enve::shell::transform__affineCR"></span><span class="target" id="a00070_1aa0639ac180bf0d51fdbd254e4494db3e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transform</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell9transformERK6affine" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Set 4x4 affine transformation matrix </p>
@@ -411,7 +429,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>affine_in</strong> – Input 4x4 affine transformation matrix </p>
+<p><strong>pose</strong> – Input 4x4 affine transformation matrix </p>
 </dd>
 </dl>
 </dd>
@@ -419,7 +437,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4enve5shell9transformERK4mat4">
-<span id="_CPPv3N4enve5shell9transformERK4mat4"></span><span id="_CPPv2N4enve5shell9transformERK4mat4"></span><span id="enve::shell::transform__mat4CR"></span><span class="target" id="a00070_1a5ea27e946e4bae2651823ff03a605665"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transform</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">mat4</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">affine_in</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell9transformERK4mat4" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N4enve5shell9transformERK4mat4"></span><span id="_CPPv2N4enve5shell9transformERK4mat4"></span><span id="enve::shell::transform__mat4CR"></span><span class="target" id="a00070_1aa9e3499b27a48163cf2c3ec44f930813"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">transform</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">mat4</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell9transformERK4mat4" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Set 4x4 affine transformation matrix </p>
@@ -428,7 +446,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>affine_in</strong> – Input 4x4 affine transformation matrix </p>
+<p><strong>pose</strong> – Input 4x4 affine transformation matrix </p>
 </dd>
 </dl>
 </dd>
@@ -445,7 +463,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4enve5shell19checkTransformationERK4mat44real">
-<span id="_CPPv3NK4enve5shell19checkTransformationERK4mat44real"></span><span id="_CPPv2NK4enve5shell19checkTransformationERK4mat44real"></span><span id="enve::shell::checkTransformation__mat4CR.realC"></span><span class="target" id="a00070_1a64761619387af085656a4d5c3bf77cd2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">checkTransformation</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">mat4</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">affine_in</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell19checkTransformationERK4mat44real" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3NK4enve5shell19checkTransformationERK4mat44real"></span><span id="_CPPv2NK4enve5shell19checkTransformationERK4mat44real"></span><span id="enve::shell::checkTransformation__mat4CR.realC"></span><span class="target" id="a00070_1a9dfbf114a6470507835525791f1e98c3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">checkTransformation</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">mat4</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell19checkTransformationERK4mat44real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check if 4x4 affine transformation matrix is othornormal and right-handed. </p>
@@ -453,7 +471,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>affine_in</strong> – Input 4x4 affine transformation matrix </p></li>
+<li><p><strong>pose</strong> – Input 4x4 affine transformation matrix </p></li>
 <li><p><strong>tolerance</strong> – Affine trasformation othonomality check tolerance </p></li>
 </ul>
 </dd>
@@ -463,7 +481,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4enve5shell19checkTransformationERK6affine4real">
-<span id="_CPPv3NK4enve5shell19checkTransformationERK6affine4real"></span><span id="_CPPv2NK4enve5shell19checkTransformationERK6affine4real"></span><span id="enve::shell::checkTransformation__affineCR.realC"></span><span class="target" id="a00070_1abc165d9d4d52d4394f42018b6e901d5c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">checkTransformation</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">affine_in</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell19checkTransformationERK6affine4real" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3NK4enve5shell19checkTransformationERK6affine4real"></span><span id="_CPPv2NK4enve5shell19checkTransformationERK6affine4real"></span><span id="enve::shell::checkTransformation__affineCR.realC"></span><span class="target" id="a00070_1a5330f87f27d94320663c28136796bf11"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">checkTransformation</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell19checkTransformationERK6affine4real" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Check if 4x4 affine transformation matrix is othornormal and right-handed. </p>
@@ -471,7 +489,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
 <ul class="simple">
-<li><p><strong>affine_in</strong> – Input 4x4 affine transformation matrix </p></li>
+<li><p><strong>pose</strong> – Input 4x4 affine transformation matrix </p></li>
 <li><p><strong>tolerance</strong> – Affine trasformation othonomality check tolerance </p></li>
 </ul>
 </dd>
@@ -542,8 +560,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringEb4real">
-<span id="_CPPv3N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringEb4real"></span><span id="_CPPv2N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringEb4real"></span><span id="enve::shell::setup__ground::meshCR.affineCR.ssC.b.real"></span><span class="target" id="a00070_1ad9280ec1aea116a96674f6a1f9df7fe6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setup</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringEb4real" title="enve::shell::setup::ground"><span class="n"><span class="pre">ground</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mesh</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ground</span></span>, <span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">affine_in</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">method</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">checkAffine</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringEb4real" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringE">
+<span id="_CPPv3N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringE"></span><span id="_CPPv2N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringE"></span><span id="enve::shell::setup__ground::meshCR.affineCR.ssC"></span><span class="target" id="a00070_1ad38f267f9406df88069c28969d52eef8"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setup</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringE" title="enve::shell::setup::ground"><span class="n"><span class="pre">ground</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mesh</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ground</span></span>, <span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">method</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell5setupERKN6ground4meshERK6affineKNSt6stringE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Update current shell position and find contact parameters (intersection with mesh) </p>
@@ -552,10 +570,8 @@
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>ground</strong> – Mesh ground object </p></li>
-<li><p><strong>affine_in</strong> – 4x4 affine transformation matrix </p></li>
+<li><p><strong>pose</strong> – 4x4 affine transformation matrix </p></li>
 <li><p><strong>method</strong> – Method name (choose from: “geometric” or “sampling”) </p></li>
-<li><p><strong>checkAffine</strong> – Affine trasformation othonomality check </p></li>
-<li><p><strong>tolerance</strong> – Affine trasformation othonomality check tolerance </p></li>
 </ul>
 </dd>
 </dl>
@@ -563,8 +579,8 @@
 </dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringEb4real">
-<span id="_CPPv3N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringEb4real"></span><span id="_CPPv2N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringEb4real"></span><span id="enve::shell::setup__ground::flatCR.affineCR.ssC.b.real"></span><span class="target" id="a00070_1a3246315053841cddc5aabdd01e2a66d4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setup</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringEb4real" title="enve::shell::setup::ground"><span class="n"><span class="pre">ground</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">flat</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ground</span></span>, <span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">affine_in</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">method</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">checkAffine</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span>, <span class="n"><span class="pre">real</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tolerance</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">EPSILON_LOW</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringEb4real" title="Permalink to this definition">¶</a><br>
+<dt class="sig sig-object cpp" id="_CPPv4N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringE">
+<span id="_CPPv3N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringE"></span><span id="_CPPv2N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringE"></span><span id="enve::shell::setup__ground::flatCR.affineCR.ssC"></span><span class="target" id="a00070_1a82dfe49dcfa0f331affb18576f2a3246"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setup</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringE" title="enve::shell::setup::ground"><span class="n"><span class="pre">ground</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">flat</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ground</span></span>, <span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">method</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4enve5shell5setupERKN6ground4flatERK6affineKNSt6stringE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Update current shell position and find contact parameters (intersection with plane) </p>
@@ -573,10 +589,8 @@
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>ground</strong> – Flat ground object </p></li>
-<li><p><strong>affine_in</strong> – 4x4 affine transformation </p></li>
+<li><p><strong>pose</strong> – 4x4 affine transformation </p></li>
 <li><p><strong>method</strong> – Method name (choose from: “geometric” or “sampling”) </p></li>
-<li><p><strong>checkAffine</strong> – Affine trasformation othonomality check </p></li>
-<li><p><strong>tolerance</strong> – Affine trasformation othonomality check tolerance </p></li>
 </ul>
 </dd>
 </dl>
@@ -873,14 +887,14 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4enve5shell18contactPointAffineER6affine">
-<span id="_CPPv3NK4enve5shell18contactPointAffineER6affine"></span><span id="_CPPv2NK4enve5shell18contactPointAffineER6affine"></span><span id="enve::shell::contactPointAffine__affineRC"></span><span class="target" id="a00070_1a9a42f5bfd1ee3bd424afd900d48cc2ba"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contactPointAffine</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point_affine</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell18contactPointAffineER6affine" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3NK4enve5shell18contactPointAffineER6affine"></span><span id="_CPPv2NK4enve5shell18contactPointAffineER6affine"></span><span id="enve::shell::contactPointAffine__affineRC"></span><span class="target" id="a00070_1aaf965391008cf6ff7d7e92502377e72b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contactPointAffine</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell18contactPointAffineER6affine" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get contact point 4x4 affine transformation matrix. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>point_affine</strong> – Contact point affine transformation matrix </p>
+<p><strong>pose</strong> – Contact point affine transformation matrix </p>
 </dd>
 </dl>
 </dd>
@@ -888,7 +902,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4enve5shell18contactPointAffineE6size_tR6affine">
-<span id="_CPPv3NK4enve5shell18contactPointAffineE6size_tR6affine"></span><span id="_CPPv2NK4enve5shell18contactPointAffineE6size_tR6affine"></span><span id="enve::shell::contactPointAffine__s.affineRC"></span><span class="target" id="a00070_1a927d071289063cf3e734dea433313a41"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contactPointAffine</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point_affine</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell18contactPointAffineE6size_tR6affine" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3NK4enve5shell18contactPointAffineE6size_tR6affine"></span><span id="_CPPv2NK4enve5shell18contactPointAffineE6size_tR6affine"></span><span id="enve::shell::contactPointAffine__s.affineRC"></span><span class="target" id="a00070_1a81452c44502522b33b842665a34cd351"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contactPointAffine</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="n"><span class="pre">affine</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell18contactPointAffineE6size_tR6affine" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get contact point 4x4 affine transformation matrix for the i-th rib. </p>
@@ -897,7 +911,7 @@
 <dd class="field-odd">
 <ul class="simple">
 <li><p><strong>i</strong> – Input i-th index </p></li>
-<li><p><strong>point_affine</strong> – Contact point affine transformation matrix </p></li>
+<li><p><strong>pose</strong> – Contact point affine transformation matrix </p></li>
 </ul>
 </dd>
 </dl>
@@ -906,14 +920,14 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4enve5shell18contactPointAffineERNSt6vectorI6affineEE">
-<span id="_CPPv3NK4enve5shell18contactPointAffineERNSt6vectorI6affineEE"></span><span id="_CPPv2NK4enve5shell18contactPointAffineERNSt6vectorI6affineEE"></span><span id="enve::shell::contactPointAffine__std::vector:affine:RC"></span><span class="target" id="a00070_1aa74194b2f8d72799adeb8a061edff043"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contactPointAffine</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">affine</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">point_affine</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell18contactPointAffineERNSt6vectorI6affineEE" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3NK4enve5shell18contactPointAffineERNSt6vectorI6affineEE"></span><span id="_CPPv2NK4enve5shell18contactPointAffineERNSt6vectorI6affineEE"></span><span id="enve::shell::contactPointAffine__std::vector:affine:RC"></span><span class="target" id="a00070_1a6116bf00919b1d950827b0458de414cd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contactPointAffine</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">affine</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4enve5shell18contactPointAffineERNSt6vectorI6affineEE" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Get contact point 4x4 affine transformation matrices. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd">
-<p><strong>point_affine</strong> – Contact point affine transformation matrices vector </p>
+<p><strong>pose</strong> – Contact point affine transformation matrices vector </p>
 </dd>
 </dl>
 </dd>

@@ -1,16 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="a00058" kind="struct" language="C++" prot="public">
     <compoundname>enve::output</compoundname>
-    <includes refid="a00005" local="no">enve_output.hh</includes>
+    <includes refid="a00008" local="no">output.hxx</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="a00058_1af837ad25131da4cb4e19347ec8dde425" prot="public" static="no" mutable="no">
-        <type>acme::point</type>
-        <definition>acme::point enve::output::point</definition>
+      <memberdef kind="variable" id="a00058_1a10861f23b47b771fa0ad3e3f3a9f496d" prot="public" static="no" mutable="no">
+        <type>point</type>
+        <definition>point enve::output::point</definition>
         <argsstring></argsstring>
         <name>point</name>
         <qualifiedname>enve::output::point</qualifiedname>
-        <initializer>= acme::NAN_POINT</initializer>
+        <initializer>= NAN_POINT</initializer>
         <briefdescription>
 <para>Contact points vector. </para>
         </briefdescription>
@@ -18,18 +18,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_output.hh" line="54" column="17" bodyfile="include/enve_output.hh" bodystart="54" bodyend="-1"/>
-        <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
+        <location file="src/enve/output.hxx" line="40" column="11" bodyfile="src/enve/output.hxx" bodystart="40" bodyend="-1"/>
+        <referencedby refid="a00062_1a4b11fa74ab70a387864d8120234dd059" compoundref="a00029" startline="179" endline="194">enve::rib::envelop</referencedby>
+        <referencedby refid="a00062_1a663d27b7262157bb9b68ab6df9937daf" compoundref="a00029" startline="199" endline="318">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1af64457341d85970f76d522f1af0e5d33" compoundref="a00029" startline="371" endline="436">enve::rib::envelopSampling</referencedby>
       </memberdef>
-      <memberdef kind="variable" id="a00058_1ad3600294ac2beb33fadfb3488f604967" prot="public" static="no" mutable="no">
-        <type>acme::vec3</type>
-        <definition>acme::vec3 enve::output::normal</definition>
+      <memberdef kind="variable" id="a00058_1a86b9f8f045012e9b431ee236e74bc3cc" prot="public" static="no" mutable="no">
+        <type>vec3</type>
+        <definition>vec3 enve::output::normal</definition>
         <argsstring></argsstring>
         <name>normal</name>
         <qualifiedname>enve::output::normal</qualifiedname>
-        <initializer>= acme::NAN_VEC3</initializer>
+        <initializer>= NAN_VEC3</initializer>
         <briefdescription>
 <para>Contact normal unit vectors. </para>
         </briefdescription>
@@ -37,18 +37,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_output.hh" line="55" column="17" bodyfile="include/enve_output.hh" bodystart="55" bodyend="-1"/>
-        <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
+        <location file="src/enve/output.hxx" line="41" column="11" bodyfile="src/enve/output.hxx" bodystart="41" bodyend="-1"/>
+        <referencedby refid="a00062_1a4b11fa74ab70a387864d8120234dd059" compoundref="a00029" startline="179" endline="194">enve::rib::envelop</referencedby>
+        <referencedby refid="a00062_1a663d27b7262157bb9b68ab6df9937daf" compoundref="a00029" startline="199" endline="318">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1af64457341d85970f76d522f1af0e5d33" compoundref="a00029" startline="371" endline="436">enve::rib::envelopSampling</referencedby>
       </memberdef>
-      <memberdef kind="variable" id="a00058_1abfb93c7838b3decda3fede1dd14b0e80" prot="public" static="no" mutable="no">
-        <type>acme::real</type>
-        <definition>acme::real enve::output::friction</definition>
+      <memberdef kind="variable" id="a00058_1a36868226b72abde95c19fe9c9af99101" prot="public" static="no" mutable="no">
+        <type>real</type>
+        <definition>real enve::output::friction</definition>
         <argsstring></argsstring>
         <name>friction</name>
         <qualifiedname>enve::output::friction</qualifiedname>
-        <initializer>= acme::QUIET_NAN</initializer>
+        <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Contact friction. </para>
         </briefdescription>
@@ -56,18 +56,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_output.hh" line="56" column="17" bodyfile="include/enve_output.hh" bodystart="56" bodyend="-1"/>
-        <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
+        <location file="src/enve/output.hxx" line="42" column="11" bodyfile="src/enve/output.hxx" bodystart="42" bodyend="-1"/>
+        <referencedby refid="a00062_1a4b11fa74ab70a387864d8120234dd059" compoundref="a00029" startline="179" endline="194">enve::rib::envelop</referencedby>
+        <referencedby refid="a00062_1a663d27b7262157bb9b68ab6df9937daf" compoundref="a00029" startline="199" endline="318">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1af64457341d85970f76d522f1af0e5d33" compoundref="a00029" startline="371" endline="436">enve::rib::envelopSampling</referencedby>
       </memberdef>
-      <memberdef kind="variable" id="a00058_1a858ebcf8a5dc2004c55df908ebf9eec1" prot="public" static="no" mutable="no">
-        <type>acme::real</type>
-        <definition>acme::real enve::output::depth</definition>
+      <memberdef kind="variable" id="a00058_1a57ca0dac1335fa3801b6c2be24ebcc5d" prot="public" static="no" mutable="no">
+        <type>real</type>
+        <definition>real enve::output::depth</definition>
         <argsstring></argsstring>
         <name>depth</name>
         <qualifiedname>enve::output::depth</qualifiedname>
-        <initializer>= acme::QUIET_NAN</initializer>
+        <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Contact depth. </para>
         </briefdescription>
@@ -75,18 +75,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_output.hh" line="57" column="17" bodyfile="include/enve_output.hh" bodystart="57" bodyend="-1"/>
-        <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
+        <location file="src/enve/output.hxx" line="43" column="11" bodyfile="src/enve/output.hxx" bodystart="43" bodyend="-1"/>
+        <referencedby refid="a00062_1a4b11fa74ab70a387864d8120234dd059" compoundref="a00029" startline="179" endline="194">enve::rib::envelop</referencedby>
+        <referencedby refid="a00062_1a663d27b7262157bb9b68ab6df9937daf" compoundref="a00029" startline="199" endline="318">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1af64457341d85970f76d522f1af0e5d33" compoundref="a00029" startline="371" endline="436">enve::rib::envelopSampling</referencedby>
       </memberdef>
-      <memberdef kind="variable" id="a00058_1af5ab7b574218c1b899d3f1630ba293de" prot="public" static="no" mutable="no">
-        <type>acme::real</type>
-        <definition>acme::real enve::output::area</definition>
+      <memberdef kind="variable" id="a00058_1adac29223172de5fec03fe29c1a89e924" prot="public" static="no" mutable="no">
+        <type>real</type>
+        <definition>real enve::output::area</definition>
         <argsstring></argsstring>
         <name>area</name>
         <qualifiedname>enve::output::area</qualifiedname>
-        <initializer>= acme::QUIET_NAN</initializer>
+        <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Contact area. </para>
         </briefdescription>
@@ -94,18 +94,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_output.hh" line="58" column="17" bodyfile="include/enve_output.hh" bodystart="58" bodyend="-1"/>
-        <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
+        <location file="src/enve/output.hxx" line="44" column="11" bodyfile="src/enve/output.hxx" bodystart="44" bodyend="-1"/>
+        <referencedby refid="a00062_1a4b11fa74ab70a387864d8120234dd059" compoundref="a00029" startline="179" endline="194">enve::rib::envelop</referencedby>
+        <referencedby refid="a00062_1a663d27b7262157bb9b68ab6df9937daf" compoundref="a00029" startline="199" endline="318">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1af64457341d85970f76d522f1af0e5d33" compoundref="a00029" startline="371" endline="436">enve::rib::envelopSampling</referencedby>
       </memberdef>
-      <memberdef kind="variable" id="a00058_1a96825ad48818cf04cb9df013b7b95bb2" prot="public" static="no" mutable="no">
-        <type>acme::real</type>
-        <definition>acme::real enve::output::volume</definition>
+      <memberdef kind="variable" id="a00058_1a7b02cda7b7415344063c4cb000e2f75a" prot="public" static="no" mutable="no">
+        <type>real</type>
+        <definition>real enve::output::volume</definition>
         <argsstring></argsstring>
         <name>volume</name>
         <qualifiedname>enve::output::volume</qualifiedname>
-        <initializer>= acme::QUIET_NAN</initializer>
+        <initializer>= QUIET_NAN</initializer>
         <briefdescription>
 <para>Contact volume. </para>
         </briefdescription>
@@ -113,24 +113,52 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/enve_output.hh" line="59" column="17" bodyfile="include/enve_output.hh" bodystart="59" bodyend="-1"/>
-        <referencedby refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" compoundref="a00029" startline="263" endline="280">enve::rib::envelop</referencedby>
-        <referencedby refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" compoundref="a00029" startline="285" endline="408">enve::rib::envelopGeometric</referencedby>
-        <referencedby refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" compoundref="a00029" startline="461" endline="520">enve::rib::envelopSampling</referencedby>
+        <location file="src/enve/output.hxx" line="45" column="11" bodyfile="src/enve/output.hxx" bodystart="45" bodyend="-1"/>
+        <referencedby refid="a00062_1a4b11fa74ab70a387864d8120234dd059" compoundref="a00029" startline="179" endline="194">enve::rib::envelop</referencedby>
+        <referencedby refid="a00062_1a663d27b7262157bb9b68ab6df9937daf" compoundref="a00029" startline="199" endline="318">enve::rib::envelopGeometric</referencedby>
+        <referencedby refid="a00062_1af64457341d85970f76d522f1af0e5d33" compoundref="a00029" startline="371" endline="436">enve::rib::envelopSampling</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>Output data class. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/enve_output.hh" line="53" column="3" bodyfile="include/enve_output.hh" bodystart="53" bodyend="60"/>
+    <collaborationgraph>
+      <node id="2">
+        <label>point</label>
+      </node>
+      <node id="4">
+        <label>real</label>
+      </node>
+      <node id="3">
+        <label>vec3</label>
+      </node>
+      <node id="1">
+        <label>enve::output</label>
+        <link refid="a00058"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>point</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>normal</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>area</edgelabel>
+          <edgelabel>depth</edgelabel>
+          <edgelabel>friction</edgelabel>
+          <edgelabel>volume</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/enve/output.hxx" line="39" column="3" bodyfile="src/enve/output.hxx" bodystart="39" bodyend="46"/>
     <listofallmembers>
-      <member refid="a00058_1af5ab7b574218c1b899d3f1630ba293de" prot="public" virt="non-virtual"><scope>enve::output</scope><name>area</name></member>
-      <member refid="a00058_1a858ebcf8a5dc2004c55df908ebf9eec1" prot="public" virt="non-virtual"><scope>enve::output</scope><name>depth</name></member>
-      <member refid="a00058_1abfb93c7838b3decda3fede1dd14b0e80" prot="public" virt="non-virtual"><scope>enve::output</scope><name>friction</name></member>
-      <member refid="a00058_1ad3600294ac2beb33fadfb3488f604967" prot="public" virt="non-virtual"><scope>enve::output</scope><name>normal</name></member>
-      <member refid="a00058_1af837ad25131da4cb4e19347ec8dde425" prot="public" virt="non-virtual"><scope>enve::output</scope><name>point</name></member>
-      <member refid="a00058_1a96825ad48818cf04cb9df013b7b95bb2" prot="public" virt="non-virtual"><scope>enve::output</scope><name>volume</name></member>
+      <member refid="a00058_1adac29223172de5fec03fe29c1a89e924" prot="public" virt="non-virtual"><scope>enve::output</scope><name>area</name></member>
+      <member refid="a00058_1a57ca0dac1335fa3801b6c2be24ebcc5d" prot="public" virt="non-virtual"><scope>enve::output</scope><name>depth</name></member>
+      <member refid="a00058_1a36868226b72abde95c19fe9c9af99101" prot="public" virt="non-virtual"><scope>enve::output</scope><name>friction</name></member>
+      <member refid="a00058_1a86b9f8f045012e9b431ee236e74bc3cc" prot="public" virt="non-virtual"><scope>enve::output</scope><name>normal</name></member>
+      <member refid="a00058_1a10861f23b47b771fa0ad3e3f3a9f496d" prot="public" virt="non-virtual"><scope>enve::output</scope><name>point</name></member>
+      <member refid="a00058_1a7b02cda7b7415344063c4cb000e2f75a" prot="public" virt="non-virtual"><scope>enve::output</scope><name>volume</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

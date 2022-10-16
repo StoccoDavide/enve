@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
+  <compounddef id="dir_836c3a103813e8024b005f25de67dd41" kind="dir">
+    <compoundname>src/enve</compoundname>
+    <innerfile refid="a00017">flat.hxx</innerfile>
+    <innerfile refid="a00002">mesh.hxx</innerfile>
+    <innerfile refid="a00008">output.hxx</innerfile>
+    <innerfile refid="a00005">rib.hxx</innerfile>
+    <innerfile refid="a00011">shape.hxx</innerfile>
+    <innerfile refid="a00020">shell.hxx</innerfile>
+    <innerfile refid="a00014">triangleground.hxx</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/enve/"/>
+  </compounddef>
+</doxygen>

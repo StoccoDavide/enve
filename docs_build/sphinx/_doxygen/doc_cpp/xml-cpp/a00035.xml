@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="a00035" kind="file" language="C++">
-    <compoundname>enve_shape.cc</compoundname>
-    <includes refid="a00020" local="yes">enve_shape.hh</includes>
+    <compoundname>triangleground.cc</compoundname>
+    <includes refid="a00041" local="yes">enve.hh</includes>
     <incdepgraph>
-      <node id="3">
+      <node id="2">
         <label>enve.hh</label>
-        <link refid="a00023"/>
+        <link refid="a00041"/>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
@@ -23,87 +23,68 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="2">
-        <label>enve_shape.hh</label>
-        <link refid="a00020"/>
-        <childnode refid="3" relation="include">
+      <node id="5">
+        <label>enve/flat.hxx</label>
+        <link refid="a00017"/>
+      </node>
+      <node id="6">
+        <label>enve/mesh.hxx</label>
+        <link refid="a00002"/>
+        <childnode refid="7" relation="include">
         </childnode>
+      </node>
+      <node id="8">
+        <label>enve/output.hxx</label>
+        <link refid="a00008"/>
+      </node>
+      <node id="9">
+        <label>enve/rib.hxx</label>
+        <link refid="a00005"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>enve/shape.hxx</label>
+        <link refid="a00011"/>
+      </node>
+      <node id="11">
+        <label>enve/shell.hxx</label>
+        <link refid="a00020"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>triangleground.hxx</label>
+        <link refid="a00014"/>
       </node>
       <node id="1">
-        <label>src/enve_shape.cc</label>
+        <label>src/triangleground.cc</label>
         <link refid="a00035"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="4">
         <label>acme.hh</label>
       </node>
-      <node id="17">
-        <label>acme_AABBtree.hh</label>
-      </node>
-      <node id="16">
-        <label>acme_aabb.hh</label>
-      </node>
-      <node id="13">
-        <label>acme_disk.hh</label>
-      </node>
-      <node id="18">
-        <label>acme_intersection.hh</label>
-      </node>
-      <node id="11">
-        <label>acme_math.hh</label>
-      </node>
-      <node id="14">
-        <label>acme_plane.hh</label>
-      </node>
-      <node id="20">
-        <label>acme_point.hh</label>
-      </node>
-      <node id="19">
-        <label>acme_segment.hh</label>
-      </node>
-      <node id="12">
-        <label>acme_triangle.hh</label>
-      </node>
-      <node id="15">
-        <label>acme_utils.hh</label>
-      </node>
-      <node id="4">
+      <node id="3">
         <label>fstream</label>
-      </node>
-      <node id="5">
-        <label>iostream</label>
-      </node>
-      <node id="9">
-        <label>numeric</label>
-      </node>
-      <node id="6">
-        <label>sstream</label>
-      </node>
-      <node id="7">
-        <label>string</label>
-      </node>
-      <node id="8">
-        <label>vector</label>
       </node>
     </incdepgraph>
     <innernamespace refid="a00044">enve</innernamespace>
@@ -113,301 +94,268 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="2"><highlight class="comment">(***********************************************************************)</highlight></codeline>
-<codeline lineno="3"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="4"><highlight class="comment">(*<sp/>The<sp/>ENVE<sp/>project<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="5"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="6"><highlight class="comment">(*<sp/>Copyright<sp/>(c)<sp/>2020,<sp/>Davide<sp/>Stocco<sp/>and<sp/>Enrico<sp/>Bertolazzi.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="7"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="8"><highlight class="comment">(*<sp/>The<sp/>ENVE<sp/>project<sp/>can<sp/>not<sp/>be<sp/>copied<sp/>and/or<sp/>distributed<sp/>without<sp/>the<sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="9"><highlight class="comment">(*<sp/>express<sp/>permission<sp/>of<sp/>Davide<sp/>Stocco<sp/>and<sp/>Enrico<sp/>Bertolazzi.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="10"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="11"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Davide<sp/>Stocco<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="12"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="13"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="14"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>davide.stocco@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="15"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="16"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Enrico<sp/>Bertolazzi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="17"><highlight class="comment">(*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="18"><highlight class="comment">(*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="19"><highlight class="comment">(*<sp/><sp/><sp/><sp/>e-mail:<sp/>enrico.bertolazzi@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="20"><highlight class="comment">(*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*)</highlight></codeline>
-<codeline lineno="21"><highlight class="comment">(***********************************************************************)</highlight></codeline>
-<codeline lineno="22"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>the<sp/>ENVE<sp/>project.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2022,<sp/>Davide<sp/>Stocco.<sp/>All<sp/>rights<sp/>reserved.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>The<sp/>ENVE<sp/>project<sp/>can<sp/>not<sp/>be<sp/>copied<sp/>and/or<sp/>distributed<sp/>without<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>the<sp/>express<sp/>permission<sp/>of<sp/>Davide<sp/>Stocco.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>Davide<sp/>Stocco<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>Department<sp/>of<sp/>Industrial<sp/>Engineering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>University<sp/>of<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>e-mail:<sp/>davide.stocco@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*<sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00041" kindref="compound">enve.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="a00044" kindref="compound">enve</ref></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="a00020" kindref="compound">enve_shape.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="a00044" kindref="compound">enve</ref></highlight></codeline>
-<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
-<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>_</highlight></codeline>
-<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>___|<sp/>|__<sp/><sp/><sp/>__<sp/>_<sp/>_<sp/>__<sp/><sp/><sp/>___</highlight></codeline>
-<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>/<sp/>__|<sp/>&apos;_<sp/>\<sp/>/<sp/>_`<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\</highlight></codeline>
-<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>\__<sp/>\<sp/>|<sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|_)<sp/>|<sp/><sp/>__/</highlight></codeline>
-<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|___/_|<sp/>|_|\__,_|<sp/>.__/<sp/>\___|</highlight></codeline>
-<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|_|</highlight></codeline>
-<codeline lineno="40"><highlight class="comment"><sp/><sp/>\*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="a00066_1a734bbb48f26f4de73d5e1aeeda011e8a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a734bbb48f26f4de73d5e1aeeda011e8a" kindref="member">shape::~shape</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>|_<sp/>_<sp/>__(_)<sp/>__<sp/>_<sp/>_<sp/>__<sp/><sp/><sp/>__<sp/>_|<sp/>|<sp/>___<sp/>_<sp/>__<sp/>___<sp/><sp/><sp/>__<sp/>_<sp/><sp/>__|<sp/>|</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>__|<sp/>&apos;__|<sp/>|/<sp/>_`<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_`<sp/>|<sp/>|/<sp/>_<sp/>\<sp/>&apos;__/<sp/>_<sp/>\<sp/>/<sp/>_`<sp/>|/<sp/>_`<sp/>|</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>|_|<sp/>|<sp/><sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>(_|<sp/>|<sp/>|<sp/><sp/>__/<sp/>|<sp/>|<sp/>(_)<sp/>|<sp/>(_|<sp/>|<sp/>(_|<sp/>|</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>\__|_|<sp/><sp/>|_|\__,_|_|<sp/>|_|\__,<sp/>|_|\___|_|<sp/><sp/>\___/<sp/>\__,_|\__,_|</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|___/</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/>\*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kindref="member">triangleground::triangleground</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>triangle(NAN_TRIANGLE),</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_id(integer(0)),</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_friction(QUIET_NAN),</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_normal(NAN_VEC3),</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_bbox(NAN_AABB)</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50" refid="a00066_1ad73f91566c660897b63fa840f9a78412" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape::shape</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="a00066_1a504197004c4522d009221b0d9918624d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1ad73f91566c660897b63fa840f9a78412" kindref="member">shape::shape</ref>(</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>r_x,</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>m_x,</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>r_y,</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>m_y,</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>l_y</highlight></codeline>
+<codeline lineno="50" refid="a00074_1a99553b500eed195d8bde2279facd7e2b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kindref="member">triangleground::triangleground</ref>(</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>integer<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>friction,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_0_x,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_0_y,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_0_z,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_1_x,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_1_y,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_1_z,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_2_x,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_2_y,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>vertex_2_z</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>m_r_x(r_x),</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_m_x(m_x),</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_r_y(r_y),</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_m_y(m_y),</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_l_y(l_y)</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74" refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" kindref="member">shape::copy</ref>(</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00066" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;shape_in</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref><sp/>=<sp/>shape_in.<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref>;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref><sp/>=<sp/>shape_in.<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref>;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref><sp/>=<sp/>shape_in.<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref>;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref><sp/>=<sp/>shape_in.<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref>;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref><sp/>=<sp/>shape_in.<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="88" refid="a00066_1aa509c8fa017ef7500110beae8289b514" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1aa509c8fa017ef7500110beae8289b514" kindref="member">shape::isApprox</ref>(</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00066" kindref="compound">shape</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;shape_in,</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tolerance<sp/></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="92"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="93"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>acme::isApprox(this-&gt;<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref>,<sp/>shape_in.<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref>,<sp/>tolerance)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>acme::isApprox(this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref>,<sp/>shape_in.<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref>,<sp/>tolerance)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>acme::isApprox(this-&gt;<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref>,<sp/>shape_in.<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref>,<sp/>tolerance)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>acme::isApprox(this-&gt;<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref>,<sp/>shape_in.<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref>,<sp/>tolerance)<sp/>&amp;&amp;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>acme::isApprox(this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>,<sp/>shape_in.<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>,<sp/>tolerance);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="104" refid="a00066_1a362ae4ce951c9a6da83819f58b909c8b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a362ae4ce951c9a6da83819f58b909c8b" kindref="member">shape::Rx</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="105"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="106"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref>;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="113" refid="a00066_1aef07a6a7d0f3ebccf234c058c974b50f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1aef07a6a7d0f3ebccf234c058c974b50f" kindref="member">shape::Mx</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="114"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="115"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref>;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="122" refid="a00066_1a36675badf724540b2f6c6d9b801fd87b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a36675badf724540b2f6c6d9b801fd87b" kindref="member">shape::Ry</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="123"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="124"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref>;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="131" refid="a00066_1af0c1033e8c7fae43c00418326105e308" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1af0c1033e8c7fae43c00418326105e308" kindref="member">shape::My</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="132"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="133"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>triangle(vertex_0_x,<sp/>vertex_0_y,<sp/>vertex_0_z,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vertex_1_x,<sp/>vertex_1_y,<sp/>vertex_1_z,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vertex_2_x,<sp/>vertex_2_y,<sp/>vertex_2_z),</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_id(id),</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_friction(friction),</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_normal(NAN_VEC3),</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_bbox(NAN_AABB)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1a518c0f69871ecb8bbe6403595594e609" kindref="member">updateNormal</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1aa5608517e6220b1169f24f4e24ebee09" kindref="member">updateBbox</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="a00074_1aaaf1e395cb22955794583b69ffa07873" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kindref="member">triangleground::triangleground</ref>(</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>integer<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>friction,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>point_0,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>point_1,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>point_2</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>triangle(point_0,<sp/>point_1,<sp/>point_2),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_id(id),</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_friction(friction),</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_normal(NAN_VEC3),</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_bbox(NAN_AABB)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1a518c0f69871ecb8bbe6403595594e609" kindref="member">updateNormal</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1aa5608517e6220b1169f24f4e24ebee09" kindref="member">updateBbox</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="a00074_1a07c7a4d1df0c6268e2e57c0661cc2d8a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kindref="member">triangleground::triangleground</ref>(</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>integer<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>friction,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>vertex[3]</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>triangle(vertex),</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_id(id),</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_friction(friction),</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_normal(NAN_VEC3),</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_bbox(NAN_AABB)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1a518c0f69871ecb8bbe6403595594e609" kindref="member">updateNormal</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1aa5608517e6220b1169f24f4e24ebee09" kindref="member">updateBbox</ref>();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="a00074_1a665a7b1562ad6cf88d47266201b3542a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a665a7b1562ad6cf88d47266201b3542a" kindref="member">triangleground::copy</ref>(</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074" kindref="compound">triangleground</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>triangleground_obj</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;triangle::operator=(triangleground_obj);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" kindref="member">m_friction</ref><sp/>=<sp/>triangleground_obj.<ref refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" kindref="member">m_friction</ref>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" kindref="member">m_normal</ref><sp/><sp/><sp/>=<sp/>triangleground_obj.<ref refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" kindref="member">m_normal</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1a8f92c7338841df34a838f03d967480cb" kindref="member">m_bbox</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>triangleground_obj.<ref refid="a00074_1a8f92c7338841df34a838f03d967480cb" kindref="member">m_bbox</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="a00074_1a70c938d5aa283c0cf8d040d1be88101d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a70c938d5aa283c0cf8d040d1be88101d" kindref="member">triangleground::isApprox</ref>(</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00074" kindref="compound">triangleground</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>triangleground_obj,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tolerance</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="131"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
+<codeline lineno="132"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;triangle::isApprox(triangleground_obj)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IsApprox(this-&gt;<ref refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" kindref="member">m_friction</ref>,<sp/>triangleground_obj.<ref refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" kindref="member">m_friction</ref>,<sp/>tolerance);</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"></highlight></codeline>
 <codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="138"><highlight class="normal"></highlight></codeline>
 <codeline lineno="139"><highlight class="normal"><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="140" refid="a00066_1abd9de85ef82adb854424b612ea793513" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1abd9de85ef82adb854424b612ea793513" kindref="member">shape::Ly</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="140" refid="a00074_1a26ce64776ae666ab0ec05bf6e7cd4164" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a26ce64776ae666ab0ec05bf6e7cd4164" kindref="member">triangleground::friction</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
 <codeline lineno="141"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
 <codeline lineno="142"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" kindref="member">m_friction</ref>;</highlight></codeline>
 <codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="145"><highlight class="normal"></highlight></codeline>
 <codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="147"><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="149" refid="a00066_1a411953a85bf29fd1244f96f4dad101dd" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a362ae4ce951c9a6da83819f58b909c8b" kindref="member">shape::Rx</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref>;</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="157" refid="a00066_1a290bd6493efcc429780612d3612465fe" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1aef07a6a7d0f3ebccf234c058c974b50f" kindref="member">shape::Mx</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref>;</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>integer<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="149" refid="a00074_1a9372b2d1bfa438611dff6b6c3e29e649" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a9372b2d1bfa438611dff6b6c3e29e649" kindref="member">triangleground::id</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="150"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
+<codeline lineno="151"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00074_1a60f6b9459153f7eb983b9f2a903c0046" kindref="member">m_id</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>aabb<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="158" refid="a00074_1a66ea972ef13e8faa90cf90285b07870d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a66ea972ef13e8faa90cf90285b07870d" kindref="member">triangleground::bbox</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="159"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
+<codeline lineno="160"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00074_1a8f92c7338841df34a838f03d967480cb" kindref="member">m_bbox</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="165" refid="a00066_1ae5de29ce307d57aa55f3754243450492" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a36675badf724540b2f6c6d9b801fd87b" kindref="member">shape::Ry</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref>;</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="173" refid="a00066_1a0786393518b528d64627b8f512673573" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1af0c1033e8c7fae43c00418326105e308" kindref="member">shape::My</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref>;</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/>real<sp/>&amp;</highlight></codeline>
-<codeline lineno="181" refid="a00066_1adf4743dce524aadd534feed30de14a19" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1abd9de85ef82adb854424b612ea793513" kindref="member">shape::Ly</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>;</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>vec3<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="167" refid="a00074_1acfb42f59e8569d9037dd5df03e9eb456" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1acfb42f59e8569d9037dd5df03e9eb456" kindref="member">triangleground::normal</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="168"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
+<codeline lineno="169"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" kindref="member">m_normal</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>point<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="176" refid="a00074_1aca9199ed0180a4fa171860ae125b1cde" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1aca9199ed0180a4fa171860ae125b1cde" kindref="member">triangleground::operator[]</ref>(</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="179"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
+<codeline lineno="180"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>triangle::vertex(i);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="185"><highlight class="normal"></highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="189" refid="a00066_1ac85f00278892b2330e9325209a16e478" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1ac85f00278892b2330e9325209a16e478" kindref="member">shape::surfaceMaxRadius</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>point<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
+<codeline lineno="187" refid="a00074_1ac72a0b906deb096694697de281c49671" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">triangleground::vertex</ref>(</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
 <codeline lineno="190"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
 <codeline lineno="191"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>triangle::vertex(i);</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="194"><highlight class="normal"></highlight></codeline>
 <codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="196"><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="198" refid="a00066_1aa36696b6e44d0c255295143221e8ee16" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1aa36696b6e44d0c255295143221e8ee16" kindref="member">shape::surfaceMaxWidth</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="199"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="200"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>;</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"></highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="207" refid="a00066_1a21cf4f513087dd2abb003fec5d92c1d1" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a21cf4f513087dd2abb003fec5d92c1d1" kindref="member">shape::checkWidthBound</ref>(</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="210"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="211"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(std::abs(y)<sp/>&gt;<sp/>this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>)</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"></highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="219"><highlight class="normal"></highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/>real</highlight></codeline>
-<codeline lineno="221" refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a22b1c3e3beca259ec3cc430647d27a20" kindref="member">shape::surfaceRadius</ref>(</highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="224"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="225"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y_abs<sp/>=<sp/>std::abs(y);</highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(y_abs<sp/>&lt;=<sp/>this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>,<sp/></highlight><highlight class="stringliteral">&quot;enve::surfaceRadius(y):<sp/>y<sp/>coordinate<sp/>is<sp/>out<sp/>of<sp/>shape<sp/>overall<sp/>volume.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::pow(1.0<sp/>-<sp/>std::pow(y_abs<sp/>/<sp/>this-&gt;<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref>,<sp/>this-&gt;<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref>),<sp/>1.0<sp/>/<sp/>this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref>)<sp/>*<sp/>this-&gt;<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref>;</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="230"><highlight class="normal"></highlight></codeline>
-<codeline lineno="231"><highlight class="normal"></highlight></codeline>
-<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="233"><highlight class="normal"></highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/>real<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;</highlight></codeline>
-<codeline lineno="235" refid="a00066_1a6487c0ca3481b588ea377fcaa839e800" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a6487c0ca3481b588ea377fcaa839e800" kindref="member">shape::surfaceWidth</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="236"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="237"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref>;</highlight></codeline>
-<codeline lineno="239"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"></highlight></codeline>
-<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="242"><highlight class="normal"></highlight></codeline>
-<codeline lineno="243"><highlight class="normal"><sp/><sp/>real</highlight></codeline>
-<codeline lineno="244" refid="a00066_1ab5954b74fc6995de02be1986765b179d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1ab5954b74fc6995de02be1986765b179d" kindref="member">shape::surfaceDerivative</ref>(</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y,</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>tolerance</highlight></codeline>
-<codeline lineno="247"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="248"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="249"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y_abs<sp/>=<sp/>std::abs(y);</highlight></codeline>
-<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kindref="member">ENVE_ASSERT</ref>(this-&gt;<ref refid="a00066_1a21cf4f513087dd2abb003fec5d92c1d1" kindref="member">checkWidthBound</ref>(y),<sp/></highlight><highlight class="stringliteral">&quot;enve::surfaceDerivative(y,<sp/>tolerance):<sp/>y<sp/>coordinate<sp/>is<sp/>out<sp/>of<sp/>shape<sp/>overall<sp/>volume.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(y_abs<sp/>&gt;<sp/>tolerance)</highlight></codeline>
-<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>sign<sp/><sp/>=<sp/>y<sp/>/<sp/>y_abs;</highlight></codeline>
-<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y_val<sp/>=<sp/>sign<sp/>*<sp/>y;</highlight></codeline>
-<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>real<sp/>y_pre<sp/>=<sp/>std::pow(y_val<sp/>/<sp/>this-&gt;<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref>,<sp/>this-&gt;<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref>);</highlight></codeline>
-<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-sign<sp/>*<sp/>std::pow(1.0<sp/>-<sp/>y_pre,<sp/>(1.0<sp/>-<sp/>this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref>)<sp/>/<sp/>this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref>)<sp/>*<sp/>y_pre<sp/>*<sp/>this-&gt;<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref><sp/>*<sp/>this-&gt;<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref><sp/>/<sp/>(this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref><sp/>*<sp/>y_val);</highlight></codeline>
-<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
-<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="263"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="264"><highlight class="normal"></highlight></codeline>
-<codeline lineno="265"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="266"><highlight class="normal"></highlight></codeline>
-<codeline lineno="267"><highlight class="normal"><sp/><sp/>real</highlight></codeline>
-<codeline lineno="268" refid="a00066_1a6e4acd6863557e72a63a921322d2c504" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a6e4acd6863557e72a63a921322d2c504" kindref="member">shape::surfaceAngle</ref>(</highlight></codeline>
-<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>y,</highlight></codeline>
-<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/>tolerance</highlight></codeline>
-<codeline lineno="271"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="272"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="273"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::atan(this-&gt;<ref refid="a00066_1ab5954b74fc6995de02be1986765b179d" kindref="member">surfaceDerivative</ref>(y,<sp/>tolerance));</highlight></codeline>
-<codeline lineno="275"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="276"><highlight class="normal"></highlight></codeline>
-<codeline lineno="277"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="278"><highlight class="normal"></highlight></codeline>
-<codeline lineno="279"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="280" refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00066_1a25fb65951d112f9f4595b07c8c8b3630" kindref="member">shape::print</ref>(</highlight></codeline>
-<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>out_stream<sp/>&amp;os</highlight></codeline>
-<codeline lineno="282"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
-<codeline lineno="283"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
-<codeline lineno="284"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>os<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Shell<sp/>shape<sp/>parameters:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
-<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;R_x<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="a00066_1aa6007032a4fa8b98b434bcd6ccebd872" kindref="member">m_r_x</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>m&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
-<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;m_x<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="a00066_1a5a66e7271b073cb0553cffd10baca4b4" kindref="member">m_m_x</ref><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
-<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;R_y<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kindref="member">m_r_y</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>m&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
-<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;m_y<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="a00066_1a51b0e2e889ad496958b093d711664fac" kindref="member">m_m_y</ref><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
-<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;L_y<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kindref="member">m_l_y</ref><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
-<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="292"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="293"><highlight class="normal"></highlight></codeline>
-<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="295"><highlight class="normal"></highlight></codeline>
-<codeline lineno="296"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>enve</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="297"><highlight class="normal"></highlight></codeline>
-<codeline lineno="300"></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="a00074_1aa6e73b7187a8e8457ff3ebc3db875030" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1aa6e73b7187a8e8457ff3ebc3db875030" kindref="member">triangleground::print</ref>(</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>out_stream<sp/>&amp;<sp/>os</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>)</highlight><highlight class="keyword"></highlight></codeline>
+<codeline lineno="201"><highlight class="keyword"><sp/><sp/><sp/><sp/>const</highlight></codeline>
+<codeline lineno="202"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>integer<sp/>ID<sp/>=<sp/>this-&gt;<ref refid="a00074_1a60f6b9459153f7eb983b9f2a903c0046" kindref="member">m_id</ref>;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>real<sp/><sp/><sp/><sp/>F<sp/><sp/>=<sp/>this-&gt;<ref refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" kindref="member">m_friction</ref>;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/>V0(this-&gt;<ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>(0));</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/>V1(this-&gt;<ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>(1));</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/>V2(this-&gt;<ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>(2));</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>vec3<sp/><sp/><sp/><sp/>N(this-&gt;<ref refid="a00074_1acfb42f59e8569d9037dd5df03e9eb456" kindref="member">normal</ref>());</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/>Max(this-&gt;<ref refid="a00074_1a66ea972ef13e8faa90cf90285b07870d" kindref="member">bbox</ref>().max());</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>point<sp/><sp/><sp/>Min(this-&gt;<ref refid="a00074_1a66ea972ef13e8faa90cf90285b07870d" kindref="member">bbox</ref>().min());</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>os</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;TRINGLEGROUND<sp/>DATA&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>ID<sp/><sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ID<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>:<sp/>integer<sp/>-<sp/>ID<sp/>(-)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>F<sp/><sp/><sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>F<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>:<sp/>real<sp/>-<sp/>Friction<sp/>coefficient<sp/>scaling<sp/>factor<sp/>(-)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>V0<sp/><sp/>=<sp/>[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V0.x()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V0.y()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V0.z()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&apos;\t<sp/>:<sp/>point<sp/>-<sp/>Vertex<sp/>0<sp/>(m)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>V1<sp/><sp/>=<sp/>[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V1.x()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V1.y()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V1.z()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&apos;\t<sp/>:<sp/>point<sp/>-<sp/>Vertex<sp/>1<sp/>(m)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>V2<sp/><sp/>=<sp/>[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V2.x()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V2.y()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>V2.z()<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&apos;\t<sp/>:<sp/>point<sp/>-<sp/>Vertex<sp/>2<sp/>(m)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>N<sp/><sp/><sp/>=<sp/>[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>N.x()<sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>N.y()<sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>N.z()<sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&apos;\t<sp/>:<sp/>vec3<sp/>-<sp/>Unit<sp/>normal<sp/>(-)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>Max<sp/>=<sp/>[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Max.x()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Max.y()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Max.z()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&apos;\t<sp/>:<sp/>point<sp/>-<sp/>Aabb<sp/>maximum<sp/>point<sp/>(m)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>Min<sp/>=<sp/>[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Min.x()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Min.y()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>Min.z()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&apos;\t<sp/>:<sp/>point<sp/>-<sp/>Aabb<sp/>minimum<sp/>point<sp/>(m)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="a00074_1a518c0f69871ecb8bbe6403595594e609" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1a518c0f69871ecb8bbe6403595594e609" kindref="member">triangleground::updateNormal</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" kindref="member">m_normal</ref><sp/>=<sp/>this-&gt;triangle::normal();</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;<ref refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" kindref="member">m_normal</ref>.z()<sp/>&lt;<sp/>real(0.0))</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{this-&gt;<ref refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" kindref="member">m_normal</ref><sp/>*=<sp/>real(-1.0);}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236" refid="a00074_1aa5608517e6220b1169f24f4e24ebee09" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1aa5608517e6220b1169f24f4e24ebee09" kindref="member">triangleground::updateBbox</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1a8f92c7338841df34a838f03d967480cb" kindref="member">m_bbox</ref>.id()<sp/>=<sp/>this-&gt;<ref refid="a00074_1a60f6b9459153f7eb983b9f2a903c0046" kindref="member">m_id</ref>;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="a00074_1a8f92c7338841df34a838f03d967480cb" kindref="member">m_bbox</ref>.clamp(this-&gt;<ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>(0),<sp/>this-&gt;<ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>(1),<sp/>this-&gt;<ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">vertex</ref>(2));</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>point<sp/>&amp;</highlight></codeline>
+<codeline lineno="245" refid="a00074_1adfab876d1b2df479b59774f561e37e35" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1aca9199ed0180a4fa171860ae125b1cde" kindref="member">triangleground::operator[]</ref>(</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>triangle::vertex(i);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>point<sp/>&amp;</highlight></codeline>
+<codeline lineno="255" refid="a00074_1a05a1f6f217348562e7f6e825ff77f5fd" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="a00074_1ac72a0b906deb096694697de281c49671" kindref="member">triangleground::vertex</ref>(</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/>)</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>triangle::vertex(i);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>enve</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="src/enve_shape.cc"/>
+    <location file="src/triangleground.cc"/>
   </compounddef>
 </doxygen>

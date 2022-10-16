@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File triangleground.cc &#8212; ENVE v2.0
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-triangleground-cc">
+<span id="program-listing-file-src-triangleground-cc"></span><h1>Program Listing for File triangleground.cc<a class="headerlink" href="#program-listing-for-file-triangleground-cc" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_src_triangleground.cc.html#file-src-triangleground-cc"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/triangleground.cc</span></code>)</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * This file is part of the ENVE project.                              *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * Copyright (c) 2022, Davide Stocco. All rights reserved.             *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * The ENVE project can not be copied and/or distributed without       *</span>
+<span class="cm"> * the express permission of Davide Stocco.                            *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> *    Davide Stocco                                                    *</span>
+<span class="cm"> *    Department of Industrial Engineering                             *</span>
+<span class="cm"> *    University of Trento                                             *</span>
+<span class="cm"> *    e-mail: davide.stocco@unitn.it                                   *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#include</span> <span class="cpf">"enve.hh"</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">enve</span>
+<span class="p">{</span>
+
+  <span class="cm">/*\</span>
+<span class="cm">   |   _        _                   _                          _</span>
+<span class="cm">   |  | |_ _ __(_) __ _ _ __   __ _| | ___ _ __ ___   __ _  __| |</span>
+<span class="cm">   |  | __| '__| |/ _` | '_ \ / _` | |/ _ \ '__/ _ \ / _` |/ _` |</span>
+<span class="cm">   |  | |_| |  | | (_| | | | | (_| | |  __/ | | (_) | (_| | (_| |</span>
+<span class="cm">   |   \__|_|  |_|\__,_|_| |_|\__, |_|\___|_|  \___/ \__,_|\__,_|</span>
+<span class="cm">   |                          |___/</span>
+<span class="cm">  \*/</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">triangleground</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">triangle</span><span class="p">(</span><span class="n">NAN_TRIANGLE</span><span class="p">),</span>
+      <span class="n">m_id</span><span class="p">(</span><span class="n">integer</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span>
+      <span class="n">m_friction</span><span class="p">(</span><span class="n">QUIET_NAN</span><span class="p">),</span>
+      <span class="n">m_normal</span><span class="p">(</span><span class="n">NAN_VEC3</span><span class="p">),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">NAN_AABB</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">triangleground</span><span class="p">(</span>
+    <span class="n">integer</span> <span class="n">id</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">friction</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_0_x</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_0_y</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_0_z</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_1_x</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_1_y</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_1_z</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_2_x</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_2_y</span><span class="p">,</span>
+    <span class="n">real</span>    <span class="n">vertex_2_z</span>
+  <span class="p">)</span>
+    <span class="o">:</span> <span class="n">triangle</span><span class="p">(</span><span class="n">vertex_0_x</span><span class="p">,</span> <span class="n">vertex_0_y</span><span class="p">,</span> <span class="n">vertex_0_z</span><span class="p">,</span>
+               <span class="n">vertex_1_x</span><span class="p">,</span> <span class="n">vertex_1_y</span><span class="p">,</span> <span class="n">vertex_1_z</span><span class="p">,</span>
+               <span class="n">vertex_2_x</span><span class="p">,</span> <span class="n">vertex_2_y</span><span class="p">,</span> <span class="n">vertex_2_z</span><span class="p">),</span>
+      <span class="n">m_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+      <span class="n">m_friction</span><span class="p">(</span><span class="n">friction</span><span class="p">),</span>
+      <span class="n">m_normal</span><span class="p">(</span><span class="n">NAN_VEC3</span><span class="p">),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">NAN_AABB</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateNormal</span><span class="p">();</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBbox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">triangleground</span><span class="p">(</span>
+    <span class="n">integer</span>         <span class="n">id</span><span class="p">,</span>
+    <span class="n">real</span>            <span class="n">friction</span><span class="p">,</span>
+    <span class="n">point</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_0</span><span class="p">,</span>
+    <span class="n">point</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_1</span><span class="p">,</span>
+    <span class="n">point</span>   <span class="k">const</span> <span class="o">&amp;</span> <span class="n">point_2</span>
+  <span class="p">)</span>
+    <span class="o">:</span> <span class="n">triangle</span><span class="p">(</span><span class="n">point_0</span><span class="p">,</span> <span class="n">point_1</span><span class="p">,</span> <span class="n">point_2</span><span class="p">),</span>
+      <span class="n">m_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+      <span class="n">m_friction</span><span class="p">(</span><span class="n">friction</span><span class="p">),</span>
+      <span class="n">m_normal</span><span class="p">(</span><span class="n">NAN_VEC3</span><span class="p">),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">NAN_AABB</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateNormal</span><span class="p">();</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBbox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">triangleground</span><span class="p">(</span>
+    <span class="n">integer</span>       <span class="n">id</span><span class="p">,</span>
+    <span class="n">real</span>          <span class="n">friction</span><span class="p">,</span>
+    <span class="n">point</span>   <span class="k">const</span> <span class="n">vertex</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+  <span class="p">)</span>
+    <span class="o">:</span> <span class="n">triangle</span><span class="p">(</span><span class="n">vertex</span><span class="p">),</span>
+      <span class="n">m_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+      <span class="n">m_friction</span><span class="p">(</span><span class="n">friction</span><span class="p">),</span>
+      <span class="n">m_normal</span><span class="p">(</span><span class="n">NAN_VEC3</span><span class="p">),</span>
+      <span class="n">m_bbox</span><span class="p">(</span><span class="n">NAN_AABB</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateNormal</span><span class="p">();</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBbox</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span>
+    <span class="n">triangleground</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangleground_obj</span>
+  <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">triangle</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">triangleground_obj</span><span class="p">);</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span> <span class="o">=</span> <span class="n">triangleground_obj</span><span class="p">.</span><span class="n">m_friction</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span>   <span class="o">=</span> <span class="n">triangleground_obj</span><span class="p">.</span><span class="n">m_normal</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span>     <span class="o">=</span> <span class="n">triangleground_obj</span><span class="p">.</span><span class="n">m_bbox</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">bool</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span>
+    <span class="n">triangleground</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangleground_obj</span><span class="p">,</span>
+    <span class="n">real</span>                   <span class="n">tolerance</span>
+  <span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">triangle</span><span class="o">::</span><span class="n">isApprox</span><span class="p">(</span><span class="n">triangleground_obj</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">IsApprox</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">,</span> <span class="n">triangleground_obj</span><span class="p">.</span><span class="n">m_friction</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">real</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">friction</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">integer</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">id</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_id</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">aabb</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">bbox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">vec3</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">normal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span>
+    <span class="kt">size_t</span> <span class="n">i</span>
+  <span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">point</span> <span class="k">const</span> <span class="o">&amp;</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span>
+  <span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">print</span><span class="p">(</span>
+    <span class="n">out_stream</span> <span class="o">&amp;</span> <span class="n">os</span>
+  <span class="p">)</span>
+    <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="n">integer</span> <span class="n">ID</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_id</span><span class="p">;</span>
+    <span class="n">real</span>    <span class="n">F</span>  <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span><span class="p">;</span>
+    <span class="n">point</span>   <span class="nf">V0</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="n">point</span>   <span class="nf">V1</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+    <span class="n">point</span>   <span class="nf">V2</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+    <span class="n">vec3</span>    <span class="nf">N</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">normal</span><span class="p">());</span>
+    <span class="n">point</span>   <span class="nf">Max</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">bbox</span><span class="p">().</span><span class="n">max</span><span class="p">());</span>
+    <span class="n">point</span>   <span class="nf">Min</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">bbox</span><span class="p">().</span><span class="n">min</span><span class="p">());</span>
+    <span class="n">os</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"TRINGLEGROUND DATA"</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> ID  = "</span> <span class="o">&lt;&lt;</span> <span class="n">ID</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> : integer - ID (-)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> F   = "</span> <span class="o">&lt;&lt;</span> <span class="n">F</span>  <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> : real - Friction coefficient scaling factor (-)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> V0  = ["</span> <span class="o">&lt;&lt;</span> <span class="n">V0</span><span class="p">.</span><span class="n">x</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">V0</span><span class="p">.</span><span class="n">y</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">V0</span><span class="p">.</span><span class="n">z</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">"]'</span><span class="se">\t</span><span class="s"> : point - Vertex 0 (m)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> V1  = ["</span> <span class="o">&lt;&lt;</span> <span class="n">V1</span><span class="p">.</span><span class="n">x</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">V1</span><span class="p">.</span><span class="n">y</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">V1</span><span class="p">.</span><span class="n">z</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">"]'</span><span class="se">\t</span><span class="s"> : point - Vertex 1 (m)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> V2  = ["</span> <span class="o">&lt;&lt;</span> <span class="n">V2</span><span class="p">.</span><span class="n">x</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">V2</span><span class="p">.</span><span class="n">y</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">V2</span><span class="p">.</span><span class="n">z</span><span class="p">()</span>  <span class="o">&lt;&lt;</span> <span class="s">"]'</span><span class="se">\t</span><span class="s"> : point - Vertex 2 (m)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> N   = ["</span> <span class="o">&lt;&lt;</span> <span class="n">N</span><span class="p">.</span><span class="n">x</span><span class="p">()</span>   <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">N</span><span class="p">.</span><span class="n">y</span><span class="p">()</span>   <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">N</span><span class="p">.</span><span class="n">z</span><span class="p">()</span>   <span class="o">&lt;&lt;</span> <span class="s">"]'</span><span class="se">\t</span><span class="s"> : vec3 - Unit normal (-)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> Max = ["</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">.</span><span class="n">x</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">.</span><span class="n">y</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">Max</span><span class="p">.</span><span class="n">z</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"]'</span><span class="se">\t</span><span class="s"> : point - Aabb maximum point (m)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+      <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s"> Min = ["</span> <span class="o">&lt;&lt;</span> <span class="n">Min</span><span class="p">.</span><span class="n">x</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">Min</span><span class="p">.</span><span class="n">y</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">Min</span><span class="p">.</span><span class="n">z</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"]'</span><span class="se">\t</span><span class="s"> : point - Aabb minimum point (m)"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">updateNormal</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">triangle</span><span class="o">::</span><span class="n">normal</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span><span class="p">.</span><span class="n">z</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
+      <span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_normal</span> <span class="o">*=</span> <span class="n">real</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">);}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="kt">void</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">updateBbox</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span><span class="p">.</span><span class="n">id</span><span class="p">()</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_id</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bbox</span><span class="p">.</span><span class="n">clamp</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">vertex</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">point</span> <span class="o">&amp;</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="k">operator</span><span class="p">[](</span>
+    <span class="kt">size_t</span> <span class="n">i</span>
+  <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="n">point</span> <span class="o">&amp;</span>
+  <span class="n">triangleground</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span>
+    <span class="kt">size_t</span> <span class="n">i</span>
+  <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+<span class="p">}</span> <span class="c1">// namespace enve</span>
+</pre></div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">The ENVE library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">How to use ENVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

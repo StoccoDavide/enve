@@ -1,21 +1,25 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.4" xml:lang="en-US">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.5" xml:lang="en-US">
   <compound refid="a00050" kind="class"><name>enve::ground::flat</name>
     <member refid="a00050_1a159c72538bd75b2f02a2744efb9bf442" kind="typedef"><name>ptr</name></member>
     <member refid="a00050_1ab9e0ffcbf413e6ac215b2789baa27a0e" kind="typedef"><name>vecptr</name></member>
     <member refid="a00050_1a6dcb07abaaffbc53a23a8a36e36df4a2" kind="variable"><name>m_friction</name></member>
     <member refid="a00050_1a60478551b305fec4965412043387f3e4" kind="function"><name>flat</name></member>
-    <member refid="a00050_1a96da72a7116b7eee5ee06c3205e327c1" kind="function"><name>~flat</name></member>
+    <member refid="a00050_1a38be57b42ea072f1f0b6fb34e3d634e4" kind="function"><name>flat</name></member>
+    <member refid="a00050_1ad6b562024cb884de0684e98999c5191e" kind="function"><name>operator=</name></member>
+    <member refid="a00050_1a9bbe16a6c73df54180c1a1f8112e6c0b" kind="function"><name>operator=</name></member>
+    <member refid="a00050_1a7c366c906c32272999e2ccc61bc6f097" kind="function"><name>~flat</name></member>
     <member refid="a00050_1a4f727a921ba073396a3af587afe33706" kind="function"><name>flat</name></member>
-    <member refid="a00050_1ad1ab2fdca3aab1cdd7bc152d7ca7714d" kind="function"><name>flat</name></member>
-    <member refid="a00050_1aff61b12a4d7daaa6a81d85074ff3fd90" kind="function"><name>flat</name></member>
-    <member refid="a00050_1a3b71551fd97ddf109887297f70929ab1" kind="function"><name>flat</name></member>
-    <member refid="a00050_1af26cbffc1ad6fd269acc832cf8226ccf" kind="function"><name>copy</name></member>
-    <member refid="a00050_1adc60c85f9402159fb9409c9145a40965" kind="function"><name>isApprox</name></member>
+    <member refid="a00050_1a59ac76d3d3bf7282c6f87e37198d1527" kind="function"><name>flat</name></member>
+    <member refid="a00050_1ac33f136196ae4b0f6754c25f456e21ad" kind="function"><name>flat</name></member>
+    <member refid="a00050_1a5745a3c5171a07dc07882f793c8d8078" kind="function"><name>flat</name></member>
+    <member refid="a00050_1a857133c2c466f69c372d6328c64ff2df" kind="function"><name>copy</name></member>
+    <member refid="a00050_1af8d4e5071955fa5b4eb418de41a18ed4" kind="function"><name>isApprox</name></member>
     <member refid="a00050_1ab696dc901373db2dcc49028eea16bb69" kind="function"><name>friction</name></member>
     <member refid="a00050_1a0f78e2cb0f14de2fe9010275dd3a9789" kind="function"><name>friction</name></member>
     <member refid="a00050_1abef0bcad25ee073aaa889a58760a4cbc" kind="function"><name>layingPlane</name></member>
     <member refid="a00050_1aa107e521521875bdf184d482d9c00825" kind="function"><name>layingPlane</name></member>
+    <member refid="a00050_1afecd92e570f128c1059ac0fb04615531" kind="function"><name>print</name></member>
   </compound>
   <compound refid="a00054" kind="class"><name>enve::ground::mesh</name>
     <member refid="a00054_1ab4e5368963810591e646ef48e9de351e" kind="typedef"><name>ptr</name></member>
@@ -23,14 +27,16 @@
     <member refid="a00054_1a509271e206dd324be426e67ae616e05f" kind="variable"><name>m_triangles</name></member>
     <member refid="a00054_1a962407fcf5907c500a3f0f07a5798906" kind="variable"><name>m_bboxes</name></member>
     <member refid="a00054_1ac543976bee2bebc3829416fa14024390" kind="variable"><name>m_AABBtree</name></member>
-    <member refid="a00054_1a03f45d115d115e6391426eacf3a85625" kind="function"><name>~mesh</name></member>
     <member refid="a00054_1ad2400d16afd81a390481c38751f84599" kind="function"><name>mesh</name></member>
-    <member refid="a00054_1abca52061423e0722324997d154d18bd0" kind="function"><name>mesh</name></member>
+    <member refid="a00054_1a5dd413983d0e4c6af600d692bd555e75" kind="function"><name>mesh</name></member>
+    <member refid="a00054_1a9597eee2b0ad2680557bccfa8da8f872" kind="function"><name>operator=</name></member>
+    <member refid="a00054_1afec9532d4b95f5a1b58621e88896776d" kind="function"><name>operator=</name></member>
+    <member refid="a00054_1a47386eb746ffebe1e260d23f89b00a6c" kind="function"><name>~mesh</name></member>
     <member refid="a00054_1aabc8dfb47aaa2c8994e67c096c47b4e9" kind="function"><name>mesh</name></member>
     <member refid="a00054_1a0549956287b5fb8e228b6eabb5b33c2e" kind="function"><name>mesh</name></member>
     <member refid="a00054_1a6d98aea4d8fa88866d8c86805be092d5" kind="function"><name>mesh</name></member>
     <member refid="a00054_1a772bfe280e2d1c66a446820bc91f892b" kind="function"><name>mesh</name></member>
-    <member refid="a00054_1aea5c6e6e730d7b464bee433b81ed1f42" kind="function"><name>copy</name></member>
+    <member refid="a00054_1a35e2da751bcb8a39298c4b192131a465" kind="function"><name>copy</name></member>
     <member refid="a00054_1a127dbfd0bb99404e0f3e0d4023276d18" kind="function"><name>clear</name></member>
     <member refid="a00054_1a55d3ec4a6bcabb19c38cedc1ba17cc28" kind="function"><name>vecptrTriangleground</name></member>
     <member refid="a00054_1a64db833f07e0e1f7b663f478c6f80ced" kind="function"><name>ptrTriangleground</name></member>
@@ -49,44 +55,44 @@
     <member refid="a00054_1aea68871e91b61586560848ed2428dcd9" kind="function"><name>firstToken</name></member>
   </compound>
   <compound refid="a00058" kind="struct"><name>enve::output</name>
-    <member refid="a00058_1af837ad25131da4cb4e19347ec8dde425" kind="variable"><name>point</name></member>
-    <member refid="a00058_1ad3600294ac2beb33fadfb3488f604967" kind="variable"><name>normal</name></member>
-    <member refid="a00058_1abfb93c7838b3decda3fede1dd14b0e80" kind="variable"><name>friction</name></member>
-    <member refid="a00058_1a858ebcf8a5dc2004c55df908ebf9eec1" kind="variable"><name>depth</name></member>
-    <member refid="a00058_1af5ab7b574218c1b899d3f1630ba293de" kind="variable"><name>area</name></member>
-    <member refid="a00058_1a96825ad48818cf04cb9df013b7b95bb2" kind="variable"><name>volume</name></member>
+    <member refid="a00058_1a10861f23b47b771fa0ad3e3f3a9f496d" kind="variable"><name>point</name></member>
+    <member refid="a00058_1a86b9f8f045012e9b431ee236e74bc3cc" kind="variable"><name>normal</name></member>
+    <member refid="a00058_1a36868226b72abde95c19fe9c9af99101" kind="variable"><name>friction</name></member>
+    <member refid="a00058_1a57ca0dac1335fa3801b6c2be24ebcc5d" kind="variable"><name>depth</name></member>
+    <member refid="a00058_1adac29223172de5fec03fe29c1a89e924" kind="variable"><name>area</name></member>
+    <member refid="a00058_1a7b02cda7b7415344063c4cb000e2f75a" kind="variable"><name>volume</name></member>
   </compound>
   <compound refid="a00062" kind="class"><name>enve::rib</name>
     <member refid="a00062_1aaa9b09748c9ba3b5474eebaa2e847e4c" kind="typedef"><name>ptr</name></member>
     <member refid="a00062_1a51fe2388da331c3079f45f1655e86c6e" kind="typedef"><name>vecptr</name></member>
+    <member refid="a00062_1ae183581c6b8c47117a5b3062277832c8" kind="variable"><name>m_id</name></member>
+    <member refid="a00062_1a6a0a95e191fd3ae417e0102a6df0ed34" kind="variable"><name>m_y</name></member>
     <member refid="a00062_1a3ea19f42a9f1d36df36216bb8829b910" kind="variable"><name>m_width</name></member>
     <member refid="a00062_1a21be5d0b7ed69dfe64f6aa1f1a3e6703" kind="variable"><name>m_angle</name></member>
-    <member refid="a00062_1a9ae65f0bc0662f1856db0bb093991582" kind="function"><name>~rib</name></member>
     <member refid="a00062_1a1fcb2181e9529078fd9a602be72ecbf9" kind="function"><name>rib</name></member>
     <member refid="a00062_1a99e24d063ed6fa8bb4ec40bef6b1fff4" kind="function"><name>rib</name></member>
+    <member refid="a00062_1a1562903aea9ae0d8f146c8dc825ad9e6" kind="function"><name>operator=</name></member>
+    <member refid="a00062_1ad49469738126307166c822eada5d40a4" kind="function"><name>operator=</name></member>
+    <member refid="a00062_1a0b78477444d94f8f402bafd21d25275c" kind="function"><name>~rib</name></member>
     <member refid="a00062_1a9b3bdb39690f8a07228dcfecd1d4948f" kind="function"><name>rib</name></member>
-    <member refid="a00062_1acb5c230e80aedd3d6c20ac00075b9d44" kind="function"><name>rib</name></member>
-    <member refid="a00062_1a709ecc6a1c0f7f3f3af0a08b0a83cac5" kind="function"><name>rib</name></member>
-    <member refid="a00062_1a3eabe1238dd592e07cb8db78bd8b41b5" kind="function"><name>rib</name></member>
-    <member refid="a00062_1ae838df721115c71e1355c92081eca8a6" kind="function"><name>rib</name></member>
-    <member refid="a00062_1ae0cfc81388fe110c9e9776bdd448eb3d" kind="function"><name>rib</name></member>
-    <member refid="a00062_1a2d8ac0496517c3b9febd64ec962368bf" kind="function"><name>operator=</name></member>
-    <member refid="a00062_1a517c9a544cb726f5c510e466e332a44b" kind="function"><name>copy</name></member>
-    <member refid="a00062_1ad858355272ad73057208b4052ddef9f2" kind="function"><name>width</name></member>
-    <member refid="a00062_1aed5c4d8fd8ef8bf886fd0f6104a04856" kind="function"><name>angle</name></member>
+    <member refid="a00062_1ada4ea5a519f287ae6888d6fe7e845d7e" kind="function"><name>rib</name></member>
+    <member refid="a00062_1a470f3b6fe33d31947be93bc27e0c61ce" kind="function"><name>copy</name></member>
+    <member refid="a00062_1ac0d6905715c5f1c07b29a165a04fcf4a" kind="function"><name>isApprox</name></member>
+    <member refid="a00062_1a93f47710d48a551ff9290ab215d9cee5" kind="function"><name>id</name></member>
+    <member refid="a00062_1a31571ada460d860edf87bc9c82151084" kind="function"><name>id</name></member>
     <member refid="a00062_1a64c18ecdbd65aef499aa5d03353cb745" kind="function"><name>width</name></member>
+    <member refid="a00062_1ad858355272ad73057208b4052ddef9f2" kind="function"><name>width</name></member>
     <member refid="a00062_1a1d751f7fdfed182a58cf4f65db85e9d1" kind="function"><name>angle</name></member>
-    <member refid="a00062_1aefecf30015022cd81b3fec1b109c1d3e" kind="function"><name>isApprox</name></member>
-    <member refid="a00062_1a7cc299985f5a98e68de6df64937b5af2" kind="function"><name>envelop</name></member>
-    <member refid="a00062_1adb63785090cac3b4cf046c214ca2dc82" kind="function"><name>envelop</name></member>
-    <member refid="a00062_1a15189b302c5116518072ddb6e52069fb" kind="function"><name>envelop</name></member>
-    <member refid="a00062_1a55e55d35bce1a9ae6bc37c26ee644884" kind="function"><name>envelopGeometric</name></member>
-    <member refid="a00062_1aab9a96fab4f1267b9433ec1f56b2ede8" kind="function"><name>envelopGeometric</name></member>
-    <member refid="a00062_1a32692f0230cff42f6e6197a8871d1a99" kind="function"><name>envelopSampling</name></member>
-    <member refid="a00062_1aa352329d282547ef8d1298cff8089db5" kind="function"><name>envelopSampling</name></member>
-    <member refid="a00062_1a66b6099b1c7f6d5bb96108cf5d2276b9" kind="function"><name>samplingLine</name></member>
-    <member refid="a00062_1ad3141e45ab81272c1bfa2de2a2b04e12" kind="function"><name>samplingLine</name></member>
-    <member refid="a00062_1a0d3c4fc55421420518ef57b612c5d42c" kind="function"><name>intersection</name></member>
+    <member refid="a00062_1aed5c4d8fd8ef8bf886fd0f6104a04856" kind="function"><name>angle</name></member>
+    <member refid="a00062_1a4b11fa74ab70a387864d8120234dd059" kind="function"><name>envelop</name></member>
+    <member refid="a00062_1a68e3721d3e250a1106d0ae1dbc34dc29" kind="function"><name>envelop</name></member>
+    <member refid="a00062_1aa232cf3d6903a9d95b4db6b48389dadd" kind="function"><name>envelop</name></member>
+    <member refid="a00062_1a663d27b7262157bb9b68ab6df9937daf" kind="function"><name>envelopGeometric</name></member>
+    <member refid="a00062_1ade819ddc7d9c84dda92570948e8f6886" kind="function"><name>envelopGeometric</name></member>
+    <member refid="a00062_1af64457341d85970f76d522f1af0e5d33" kind="function"><name>envelopSampling</name></member>
+    <member refid="a00062_1ad383b675fe2a65b36875961d716b0d4e" kind="function"><name>envelopSampling</name></member>
+    <member refid="a00062_1aa8950c06a7767305b147516e6a4a3fbf" kind="function"><name>samplingLine</name></member>
+    <member refid="a00062_1afa291da78999d0064e66fa5b565d6f75" kind="function"><name>samplingLine</name></member>
   </compound>
   <compound refid="a00066" kind="class"><name>enve::shape</name>
     <member refid="a00066_1a3ce2310bdfbf3557035dc8133d0b0f88" kind="typedef"><name>ptr</name></member>
@@ -96,13 +102,15 @@
     <member refid="a00066_1a6226a6f978092fd507c9e422b01c8347" kind="variable"><name>m_r_y</name></member>
     <member refid="a00066_1a51b0e2e889ad496958b093d711664fac" kind="variable"><name>m_m_y</name></member>
     <member refid="a00066_1a6a7daaee277c701a23a9624a3a5d3049" kind="variable"><name>m_l_y</name></member>
-    <member refid="a00066_1a734bbb48f26f4de73d5e1aeeda011e8a" kind="function"><name>~shape</name></member>
     <member refid="a00066_1a04b2620eb53b31cf26087c208fd21027" kind="function"><name>shape</name></member>
     <member refid="a00066_1a6cb567b938b38b63281a46ea669bcf21" kind="function"><name>shape</name></member>
+    <member refid="a00066_1af49b3167b476e739d1d8f263cdd01370" kind="function"><name>operator=</name></member>
+    <member refid="a00066_1a8c9728f96d3ffe39f15dce762897d208" kind="function"><name>operator=</name></member>
+    <member refid="a00066_1a55428295c3f4fbe0c2cf85c891e66002" kind="function"><name>~shape</name></member>
     <member refid="a00066_1ad73f91566c660897b63fa840f9a78412" kind="function"><name>shape</name></member>
     <member refid="a00066_1a504197004c4522d009221b0d9918624d" kind="function"><name>shape</name></member>
-    <member refid="a00066_1a01bf679dac42a6a354f3ec1327402bef" kind="function"><name>copy</name></member>
-    <member refid="a00066_1aa509c8fa017ef7500110beae8289b514" kind="function"><name>isApprox</name></member>
+    <member refid="a00066_1a79c1a48441d3ca1e6db2c3dc298a0f27" kind="function"><name>copy</name></member>
+    <member refid="a00066_1a9d98cf2f2b743d69926f5f1873094090" kind="function"><name>isApprox</name></member>
     <member refid="a00066_1a362ae4ce951c9a6da83819f58b909c8b" kind="function"><name>Rx</name></member>
     <member refid="a00066_1aef07a6a7d0f3ebccf234c058c974b50f" kind="function"><name>Mx</name></member>
     <member refid="a00066_1a36675badf724540b2f6c6d9b801fd87b" kind="function"><name>Ry</name></member>
@@ -130,12 +138,14 @@
     <member refid="a00070_1a442a1c35765c1b3c01a4e20772fddef9" kind="variable"><name>m_shape</name></member>
     <member refid="a00070_1a1950f8b6966e0277bf7b9266bb8929af" kind="variable"><name>m_aabb</name></member>
     <member refid="a00070_1a9bd07491e1b481f02a5d7206b34cf346" kind="variable"><name>m_out</name></member>
-    <member refid="a00070_1a0b5749ee6bdd624106639a620a87076d" kind="variable"><name>m_tris</name></member>
-    <member refid="a00070_1a9e3dfd623bc883cb0dbab5fdad026a26" kind="function"><name>~shell</name></member>
+    <member refid="a00070_1ae0b076c6c3e3fcb5a8857ee32d271012" kind="variable"><name>m_candidates</name></member>
     <member refid="a00070_1a7840e1d408713ab4eb4b91e5c3912e07" kind="function"><name>shell</name></member>
-    <member refid="a00070_1afda23b623e717fdd16126eb5de7685e0" kind="function"><name>shell</name></member>
+    <member refid="a00070_1a357daba48d94b16c8158af6bd5f2e8bb" kind="function"><name>shell</name></member>
+    <member refid="a00070_1a297a8edd6d4b0976c988632c17fe3a9f" kind="function"><name>operator=</name></member>
+    <member refid="a00070_1a2d08f242d26599ce1369d965bf670270" kind="function"><name>operator=</name></member>
+    <member refid="a00070_1a523401b2c365390fca0a8a42a6c25be4" kind="function"><name>~shell</name></member>
     <member refid="a00070_1a6bb8ab8ef49bb6a0f1ca29e0314c974c" kind="function"><name>shell</name></member>
-    <member refid="a00070_1af45510d7118c1f0aea21c2dc7bfcbeff" kind="function"><name>shell</name></member>
+    <member refid="a00070_1ac3701a314a6491753133bdd9e36f54b9" kind="function"><name>shell</name></member>
     <member refid="a00070_1a6cc65cd4e09e7a33148e16e9a0971b20" kind="function"><name>resize</name></member>
     <member refid="a00070_1aaeafa8ac9f588ebdf3f2b8722dde9290" kind="function"><name>size</name></member>
     <member refid="a00070_1ae545ab83f69df117efd3aefc98905b58" kind="function"><name>surfaceMaxRadius</name></member>
@@ -149,25 +159,25 @@
     <member refid="a00070_1ad8a3d3f336041aae315b43022a7dbc3c" kind="function"><name>ribCenter</name></member>
     <member refid="a00070_1a43a508efabf7462e0fd13262a39a47b4" kind="function"><name>ribWidth</name></member>
     <member refid="a00070_1af3b256c4d6bb48cc12142e9e940d1b81" kind="function"><name>ribAngle</name></member>
-    <member refid="a00070_1a812b5a7947d74eff88e5b9cfe24c9ef0" kind="function"><name>translate</name></member>
+    <member refid="a00070_1aa251db96c6db18b89408028c070426bf" kind="function"><name>translate</name></member>
     <member refid="a00070_1a3d0282a1133a19e3e1ae06f91b35b194" kind="function"><name>translation</name></member>
     <member refid="a00070_1a25ad9b63a2daea89ab6b17e949028d8d" kind="function"><name>rotate</name></member>
     <member refid="a00070_1a5ac7dbea127c06ee266b08053d775387" kind="function"><name>rotate</name></member>
     <member refid="a00070_1acd3e5c07070586785043b991f4ebcd3b" kind="function"><name>rotation</name></member>
     <member refid="a00070_1ad49487850eb0510d7b068f91501ca836" kind="function"><name>linear</name></member>
-    <member refid="a00070_1af5191a07e4f5385296139baf44c74caa" kind="function"><name>transform</name></member>
-    <member refid="a00070_1a5ea27e946e4bae2651823ff03a605665" kind="function"><name>transform</name></member>
+    <member refid="a00070_1aa0639ac180bf0d51fdbd254e4494db3e" kind="function"><name>transform</name></member>
+    <member refid="a00070_1aa9e3499b27a48163cf2c3ec44f930813" kind="function"><name>transform</name></member>
     <member refid="a00070_1ab8206d37a830c82ad372d3276556630a" kind="function"><name>transformation</name></member>
-    <member refid="a00070_1a64761619387af085656a4d5c3bf77cd2" kind="function"><name>checkTransformation</name></member>
-    <member refid="a00070_1abc165d9d4d52d4394f42018b6e901d5c" kind="function"><name>checkTransformation</name></member>
+    <member refid="a00070_1a9dfbf114a6470507835525791f1e98c3" kind="function"><name>checkTransformation</name></member>
+    <member refid="a00070_1a5330f87f27d94320663c28136796bf11" kind="function"><name>checkTransformation</name></member>
     <member refid="a00070_1ad7868ccdd90b807c75684cb51c256d03" kind="function"><name>x</name></member>
     <member refid="a00070_1a1de4c83db18282e37892c7adb0224232" kind="function"><name>y</name></member>
     <member refid="a00070_1a79039f854236a5ae427da3f0868f988a" kind="function"><name>z</name></member>
     <member refid="a00070_1a3758f1248a4e9a9487682560d75ae823" kind="function"><name>eulerAngles</name></member>
     <member refid="a00070_1ac9d1d2c263ae78a9b221120262cd9454" kind="function"><name>BBox</name></member>
     <member refid="a00070_1a2752d2f553b89f2b722c14f98380b025" kind="function"><name>updateBBox</name></member>
-    <member refid="a00070_1ad9280ec1aea116a96674f6a1f9df7fe6" kind="function"><name>setup</name></member>
-    <member refid="a00070_1a3246315053841cddc5aabdd01e2a66d4" kind="function"><name>setup</name></member>
+    <member refid="a00070_1ad38f267f9406df88069c28969d52eef8" kind="function"><name>setup</name></member>
+    <member refid="a00070_1a82dfe49dcfa0f331affb18576f2a3246" kind="function"><name>setup</name></member>
     <member refid="a00070_1a1117628a990224ce2537e5bcea64ce0f" kind="function"><name>contactPoint</name></member>
     <member refid="a00070_1a89109d80eb8c4365b5c7c3cc2a3946f8" kind="function"><name>contactPoint</name></member>
     <member refid="a00070_1a5e7cd77d99b01e92288fd0e5ed884bb6" kind="function"><name>contactPoint</name></member>
@@ -186,38 +196,42 @@
     <member refid="a00070_1af3f7914461cc4e806fe52ed6701a0f00" kind="function"><name>contactVolume</name></member>
     <member refid="a00070_1ae37a629eec2a9160404bcc922bedf850" kind="function"><name>contactVolume</name></member>
     <member refid="a00070_1aa31fb1eae3e748a610af52ab9421c65f" kind="function"><name>contactVolume</name></member>
-    <member refid="a00070_1a9a42f5bfd1ee3bd424afd900d48cc2ba" kind="function"><name>contactPointAffine</name></member>
-    <member refid="a00070_1a927d071289063cf3e734dea433313a41" kind="function"><name>contactPointAffine</name></member>
-    <member refid="a00070_1aa74194b2f8d72799adeb8a061edff043" kind="function"><name>contactPointAffine</name></member>
+    <member refid="a00070_1aaf965391008cf6ff7d7e92502377e72b" kind="function"><name>contactPointAffine</name></member>
+    <member refid="a00070_1a81452c44502522b33b842665a34cd351" kind="function"><name>contactPointAffine</name></member>
+    <member refid="a00070_1a6116bf00919b1d950827b0458de414cd" kind="function"><name>contactPointAffine</name></member>
     <member refid="a00070_1a34d0cda62f4f3f5ad7057222eed05fcf" kind="function"><name>relativeAngles</name></member>
     <member refid="a00070_1ae48557597d39b647eac55a03704bdfc3" kind="function"><name>relativeAngles</name></member>
     <member refid="a00070_1a23d2a9c7d4bc4b10558e05941582df2d" kind="function"><name>relativeAngles</name></member>
     <member refid="a00070_1a1a425eec93c459c7542b22b1c28c5417" kind="function"><name>print</name></member>
-    <member refid="a00070_1a1eaaa97bbc0fd4bb414b3945857ac421" kind="function"><name>updateRibsCandidates</name></member>
+    <member refid="a00070_1a478059b1c43cfd0988ac3de656cb382b" kind="function"><name>updateRibsCandidates</name></member>
   </compound>
   <compound refid="a00074" kind="class"><name>enve::triangleground</name>
     <member refid="a00074_1a3e14a04aa4f4e4db9097e821f546ce61" kind="typedef"><name>ptr</name></member>
     <member refid="a00074_1a1f4cea2747925d4b294879cdf2f50711" kind="typedef"><name>vecptr</name></member>
+    <member refid="a00074_1a60f6b9459153f7eb983b9f2a903c0046" kind="variable"><name>m_id</name></member>
     <member refid="a00074_1a04a9fde48e29bfd36942781c49ce7bfc" kind="variable"><name>m_friction</name></member>
     <member refid="a00074_1af2c5a4e0f6d455292d960da514f32eec" kind="variable"><name>m_normal</name></member>
     <member refid="a00074_1a8f92c7338841df34a838f03d967480cb" kind="variable"><name>m_bbox</name></member>
-    <member refid="a00074_1af4cdb8cd92b66cf8a8c018e9f1f7e10a" kind="function"><name>~triangleground</name></member>
     <member refid="a00074_1aa958ca7bba11b5354e06ca1b126c422e" kind="function"><name>triangleground</name></member>
     <member refid="a00074_1a5780c978c4945f1aaa915a65720648b7" kind="function"><name>triangleground</name></member>
+    <member refid="a00074_1a824ad6adcf919c4e77239241f609b4a9" kind="function"><name>operator=</name></member>
+    <member refid="a00074_1a1641ab5cac1ca0d50767739bc3f17ad1" kind="function"><name>operator=</name></member>
+    <member refid="a00074_1adcb31e90bd5b441f21f7d23e09dbf304" kind="function"><name>~triangleground</name></member>
     <member refid="a00074_1a4d07f73f05d1210ca05dce0d509ca9fd" kind="function"><name>triangleground</name></member>
-    <member refid="a00074_1a0a903dcb0793d1445dfaee4777b166a9" kind="function"><name>triangleground</name></member>
-    <member refid="a00074_1ac8937e6c458ba731195fb86bf47250cd" kind="function"><name>triangleground</name></member>
-    <member refid="a00074_1a7e6a923ca3ecd56784ff6dbfe46b0624" kind="function"><name>triangleground</name></member>
-    <member refid="a00074_1a421c9036dbcb4b801e9cd38045d1ac61" kind="function"><name>copy</name></member>
-    <member refid="a00074_1a48b7f38136b64e4af9ba1961fa8ea214" kind="function"><name>isApprox</name></member>
-    <member refid="a00074_1a653640fc3a7f3f01e2c71c10f19ac9af" kind="function"><name>operator=</name></member>
-    <member refid="a00074_1a0355bf9eb73a9eceb5c26316bb195450" kind="function"><name>friction</name></member>
+    <member refid="a00074_1a99553b500eed195d8bde2279facd7e2b" kind="function"><name>triangleground</name></member>
+    <member refid="a00074_1aaaf1e395cb22955794583b69ffa07873" kind="function"><name>triangleground</name></member>
+    <member refid="a00074_1a07c7a4d1df0c6268e2e57c0661cc2d8a" kind="function"><name>triangleground</name></member>
+    <member refid="a00074_1a665a7b1562ad6cf88d47266201b3542a" kind="function"><name>copy</name></member>
+    <member refid="a00074_1a70c938d5aa283c0cf8d040d1be88101d" kind="function"><name>isApprox</name></member>
+    <member refid="a00074_1a9372b2d1bfa438611dff6b6c3e29e649" kind="function"><name>id</name></member>
     <member refid="a00074_1a26ce64776ae666ab0ec05bf6e7cd4164" kind="function"><name>friction</name></member>
     <member refid="a00074_1a66ea972ef13e8faa90cf90285b07870d" kind="function"><name>bbox</name></member>
     <member refid="a00074_1acfb42f59e8569d9037dd5df03e9eb456" kind="function"><name>normal</name></member>
-    <member refid="a00074_1a518c0f69871ecb8bbe6403595594e609" kind="function"><name>updateNormal</name></member>
     <member refid="a00074_1aca9199ed0180a4fa171860ae125b1cde" kind="function"><name>operator[]</name></member>
     <member refid="a00074_1ac72a0b906deb096694697de281c49671" kind="function"><name>vertex</name></member>
+    <member refid="a00074_1aa6e73b7187a8e8457ff3ebc3db875030" kind="function"><name>print</name></member>
+    <member refid="a00074_1a518c0f69871ecb8bbe6403595594e609" kind="function"><name>updateNormal</name></member>
+    <member refid="a00074_1aa5608517e6220b1169f24f4e24ebee09" kind="function"><name>updateBbox</name></member>
     <member refid="a00074_1adfab876d1b2df479b59774f561e37e35" kind="function"><name>operator[]</name></member>
     <member refid="a00074_1a05a1f6f217348562e7f6e825ff77f5fd" kind="function"><name>vertex</name></member>
   </compound>
@@ -227,45 +241,52 @@
   </compound>
   <compound refid="a00045" kind="namespace"><name>enve::ground</name>
   </compound>
-  <compound refid="a00023" kind="file"><name>enve.hh</name>
-    <member refid="a00023_1affe82b13a1de8c8d8065e012f07ec368" kind="define"><name>INCLUDE_ENVE</name></member>
-    <member refid="a00023_1ab0edbe7c1d942bd0ad4f1542bb13a8de" kind="define"><name>ENVE_ERROR</name></member>
-    <member refid="a00023_1a175c00fd075c34fe6fbae0df416ee273" kind="define"><name>ENVE_ASSERT</name></member>
+  <compound refid="a00041" kind="file"><name>enve.hh</name>
+    <member refid="a00041_1ab0edbe7c1d942bd0ad4f1542bb13a8de" kind="define"><name>ENVE_ERROR</name></member>
+    <member refid="a00041_1a175c00fd075c34fe6fbae0df416ee273" kind="define"><name>ENVE_ASSERT</name></member>
   </compound>
-  <compound refid="a00014" kind="file"><name>enve_flat.hh</name>
-    <member refid="a00014_1ae09deb9cd2b9f9be1d0cd37065010b78" kind="define"><name>INCLUDE_ENVE_FLAT</name></member>
+  <compound refid="a00017" kind="file"><name>flat.hxx</name>
   </compound>
-  <compound refid="a00011" kind="file"><name>enve_mesh.hh</name>
-    <member refid="a00011_1ad517377dad23671ba7ebf182d3dc81b7" kind="define"><name>INCLUDE_ENVE_MESH</name></member>
+  <compound refid="a00002" kind="file"><name>mesh.hxx</name>
   </compound>
-  <compound refid="a00005" kind="file"><name>enve_output.hh</name>
-    <member refid="a00005_1a7aae512d7783170d5e417747fc4893b0" kind="define"><name>INCLUDE_ENVE_OUTPUT</name></member>
+  <compound refid="a00008" kind="file"><name>output.hxx</name>
   </compound>
-  <compound refid="a00002" kind="file"><name>enve_rib.hh</name>
-    <member refid="a00002_1adb141fde3426bd65cb33b8c908f5c66c" kind="define"><name>INCLUDE_ENVE_RIB</name></member>
+  <compound refid="a00005" kind="file"><name>rib.hxx</name>
   </compound>
-  <compound refid="a00020" kind="file"><name>enve_shape.hh</name>
-    <member refid="a00020_1ac1737af928424643ca13b119b609a4b3" kind="define"><name>INCLUDE_ENVE_SHAPE</name></member>
+  <compound refid="a00011" kind="file"><name>shape.hxx</name>
   </compound>
-  <compound refid="a00008" kind="file"><name>enve_shell.hh</name>
-    <member refid="a00008_1ae58de9cc4b7136d0047938da6c4d84f7" kind="define"><name>INCLUDE_ENVE_SHELL</name></member>
+  <compound refid="a00020" kind="file"><name>shell.hxx</name>
   </compound>
-  <compound refid="a00017" kind="file"><name>enve_triangleground.hh</name>
-    <member refid="a00017_1a1b082fb2682100918fcb9989677f4910" kind="define"><name>INCLUDE_ENVE_TRIANGLEGROUND</name></member>
+  <compound refid="a00014" kind="file"><name>triangleground.hxx</name>
   </compound>
-  <compound refid="a00041" kind="file"><name>enve_flat.cc</name>
+  <compound refid="a00038" kind="file"><name>flat.cc</name>
+    <member refid="a00038_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00038_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00038_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
   </compound>
-  <compound refid="a00038" kind="file"><name>enve_mesh.cc</name>
+  <compound refid="a00032" kind="file"><name>mesh.cc</name>
+    <member refid="a00032_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00032_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00032_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00032_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
   </compound>
-  <compound refid="a00029" kind="file"><name>enve_rib.cc</name>
+  <compound refid="a00029" kind="file"><name>rib.cc</name>
+    <member refid="a00029_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00029_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00029_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
   </compound>
-  <compound refid="a00035" kind="file"><name>enve_shape.cc</name>
+  <compound refid="a00023" kind="file"><name>shape.cc</name>
+    <member refid="a00023_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00023_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
   </compound>
-  <compound refid="a00026" kind="file"><name>enve_shell.cc</name>
+  <compound refid="a00026" kind="file"><name>shell.cc</name>
+    <member refid="a00026_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00026_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
+    <member refid="a00026_1a0a5ceb9ceb914e08d345410b561cb37a" kind="define"><name>CMD</name></member>
   </compound>
-  <compound refid="a00032" kind="file"><name>enve_triangleground.cc</name>
+  <compound refid="a00035" kind="file"><name>triangleground.cc</name>
   </compound>
-  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  <compound refid="dir_836c3a103813e8024b005f25de67dd41" kind="dir"><name>src/enve</name>
   </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
   </compound>

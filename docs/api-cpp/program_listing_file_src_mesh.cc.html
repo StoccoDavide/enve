@@ -1,0 +1,700 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File mesh.cc &#8212; ENVE v2.0
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-mesh-cc">
+<span id="program-listing-file-src-mesh-cc"></span><h1>Program Listing for File mesh.cc<a class="headerlink" href="#program-listing-for-file-mesh-cc" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_src_mesh.cc.html#file-src-mesh-cc"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/mesh.cc</span></code>)</p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * This file is part of the ENVE project.                              *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * Copyright (c) 2022, Davide Stocco. All rights reserved.             *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * The ENVE project can not be copied and/or distributed without       *</span>
+<span class="cm"> * the express permission of Davide Stocco.                            *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> *    Davide Stocco                                                    *</span>
+<span class="cm"> *    Department of Industrial Engineering                             *</span>
+<span class="cm"> *    University of Trento                                             *</span>
+<span class="cm"> *    e-mail: davide.stocco@unitn.it                                   *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
+<span class="cm">*/</span>
+
+
+<span class="cp">#include</span> <span class="cpf">"enve.hh"</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">enve</span>
+<span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">ground</span>
+  <span class="p">{</span>
+
+    <span class="cm">/*\</span>
+<span class="cm">     |                       _</span>
+<span class="cm">     |   _ __ ___   ___  ___| |__</span>
+<span class="cm">     |  | '_ ` _ \ / _ \/ __| '_ \</span>
+<span class="cm">     |  | | | | | |  __/\__ \ | | |</span>
+<span class="cm">     |  |_| |_| |_|\___||___/_| |_|</span>
+<span class="cm">     |</span>
+<span class="cm">    \*/</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">mesh</span><span class="o">::</span><span class="n">mesh</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">m_AABBtree</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">&gt;</span><span class="p">())</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">mesh</span><span class="o">::</span><span class="n">mesh</span><span class="p">(</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangles</span>
+    <span class="p">)</span>
+      <span class="o">:</span> <span class="n">mesh</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span> <span class="o">=</span> <span class="n">triangles</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBoxes</span><span class="p">();</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_AABBtree</span><span class="o">-&gt;</span><span class="n">build</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">mesh</span><span class="o">::</span><span class="n">mesh</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">path</span>
+    <span class="p">)</span>
+      <span class="o">:</span> <span class="n">mesh</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="cp">#define CMD "enve::mesh::mesh(...): "</span>
+
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">),</span>
+        <span class="n">CMD</span> <span class="s">"error while reading file."</span><span class="p">);</span>
+
+      <span class="cp">#undef CMD</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">mesh</span><span class="o">::</span><span class="n">mesh</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">path</span><span class="p">,</span>
+      <span class="n">real</span>                <span class="n">friction</span>
+    <span class="p">)</span>
+      <span class="o">:</span> <span class="n">mesh</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="cp">#define CMD "enve::mesh::mesh(...): "</span>
+
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">friction</span><span class="p">),</span>
+        <span class="n">CMD</span> <span class="s">"error while reading file."</span><span class="p">);</span>
+
+      <span class="cp">#undef CMD</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">void</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span>
+      <span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">mesh_obj</span>
+    <span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span> <span class="o">=</span> <span class="n">mesh_obj</span><span class="p">.</span><span class="n">m_triangles</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span>    <span class="o">=</span> <span class="n">mesh_obj</span><span class="p">.</span><span class="n">m_bboxes</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_AABBtree</span>  <span class="o">=</span> <span class="n">mesh_obj</span><span class="p">.</span><span class="n">m_AABBtree</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">void</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">clear</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+      <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+          <span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">reset</span><span class="p">();}</span>
+      <span class="p">}</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">vecptrTriangleground</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">triangleground</span><span class="o">::</span><span class="n">ptr</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">ptrTriangleground</span><span class="p">(</span>
+      <span class="kt">size_t</span> <span class="n">i</span>
+    <span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">ptrAABBtree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_AABBtree</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">void</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">print</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">path</span>
+    <span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="c1">// Create Out.txt</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">file</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+      <span class="c1">// Print introduction</span>
+      <span class="n">file</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"MESH DATA"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"Legend:"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"T  : i-th triangle position"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"V0 : triangle vertex 0"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"V1 : triangle vertex 1"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"V2 : triangle vertex 2"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"N  : normal to the face"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"F  : friction coefficient"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">triangleground</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">Ti</span> <span class="o">=</span> <span class="o">*</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">point</span>          <span class="k">const</span> <span class="o">&amp;</span> <span class="n">V0</span> <span class="o">=</span> <span class="n">Ti</span><span class="p">.</span><span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">point</span>          <span class="k">const</span> <span class="o">&amp;</span> <span class="n">V1</span> <span class="o">=</span> <span class="n">Ti</span><span class="p">.</span><span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">point</span>          <span class="k">const</span> <span class="o">&amp;</span> <span class="n">V2</span> <span class="o">=</span> <span class="n">Ti</span><span class="p">.</span><span class="n">triangle</span><span class="o">::</span><span class="n">vertex</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">vec3</span>           <span class="k">const</span> <span class="o">&amp;</span> <span class="n">N</span>  <span class="o">=</span> <span class="n">Ti</span><span class="p">.</span><span class="n">normal</span><span class="p">();</span>
+        <span class="n">real</span>           <span class="k">const</span> <span class="o">&amp;</span> <span class="n">F</span>  <span class="o">=</span> <span class="n">Ti</span><span class="p">.</span><span class="n">friction</span><span class="p">();</span>
+        <span class="c1">// Print vertices, normal and friction</span>
+        <span class="n">file</span>
+          <span class="o">&lt;&lt;</span> <span class="s">"T  = "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span>  <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+          <span class="o">&lt;&lt;</span> <span class="s">"V0 = "</span> <span class="o">&lt;&lt;</span> <span class="n">V0</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+          <span class="o">&lt;&lt;</span> <span class="s">"V1 = "</span> <span class="o">&lt;&lt;</span> <span class="n">V1</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+          <span class="o">&lt;&lt;</span> <span class="s">"V2 = "</span> <span class="o">&lt;&lt;</span> <span class="n">V2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+          <span class="o">&lt;&lt;</span> <span class="s">"N  = "</span> <span class="o">&lt;&lt;</span> <span class="n">N</span>  <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+          <span class="o">&lt;&lt;</span> <span class="s">"F  = "</span> <span class="o">&lt;&lt;</span> <span class="n">F</span>  <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+          <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// Close File</span>
+      <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">bboxes</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">size_t</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">bool</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">load</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">path</span>
+    <span class="p">)</span>
+    <span class="p">{</span>
+      <span class="cp">#define CMD "enve::ground::load(...): "</span>
+
+      <span class="c1">// Start loading mesh</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Loading *.rdf mesh... "</span><span class="p">;</span>
+
+      <span class="c1">// Check if the file is an ".rdf" file</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">!=</span> <span class="s">".rdf"</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="n">CMD</span> <span class="s">"not a *.rdf file."</span><span class="p">);</span>
+        <span class="c1">//return false;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Check if the file had been correctly open</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span>
+      <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="n">CMD</span> <span class="s">"*.rdf file not opened."</span><span class="p">);</span>
+        <span class="c1">//return false;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Vector for nodes coordinates</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">nodes</span><span class="p">;</span>
+      <span class="n">nodes</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">25000</span><span class="p">);</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>
+      <span class="kt">size_t</span> <span class="n">nodes_count</span>    <span class="o">=</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+      <span class="kt">size_t</span> <span class="n">elements_count</span> <span class="o">=</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+      <span class="kt">bool</span>   <span class="n">nodes_parse</span>    <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+      <span class="kt">bool</span>   <span class="n">elements_parse</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+      <span class="c1">// Instantiate temporaries</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">curline</span><span class="p">,</span> <span class="n">token</span><span class="p">;</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">s_node</span><span class="p">;</span>
+      <span class="n">s_node</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+      <span class="n">point</span> <span class="n">p_node</span><span class="p">;</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">integer</span><span class="o">&gt;</span> <span class="n">i_element</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+      <span class="n">real</span> <span class="n">i_friction</span><span class="p">;</span>
+      <span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">curline</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">firstToken</span><span class="p">(</span><span class="n">curline</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">token</span> <span class="o">==</span> <span class="s">"[NODES]"</span> <span class="o">||</span> <span class="n">token</span> <span class="o">==</span> <span class="s">"NODES"</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="n">nodes_parse</span>    <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+          <span class="n">elements_parse</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">token</span> <span class="o">==</span> <span class="s">"[ELEMENTS]"</span> <span class="o">||</span> <span class="n">token</span> <span class="o">==</span> <span class="s">"ELEMENTS"</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="n">nodes_parse</span>    <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+          <span class="n">elements_parse</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'{'</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="c1">// Multi-line comment, should read until '}' - NOT IMPLEMENTED</span>
+          <span class="c1">// Treated as a sigle-line comment</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'%'</span> <span class="o">||</span> <span class="n">token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'#'</span> <span class="o">||</span> <span class="n">token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'\r'</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="c1">// Check comments or empty lines</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Generate a vertex position</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nodes_parse</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">split</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">tail</span><span class="p">(</span><span class="n">curline</span><span class="p">),</span> <span class="n">s_node</span><span class="p">,</span> <span class="s">" "</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">s_node</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"wrong numbder of elements detected."</span><span class="p">);</span>
+          <span class="n">p_node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+          <span class="n">p_node</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+          <span class="n">p_node</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span>
+          <span class="n">nodes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">p_node</span><span class="p">);</span>
+          <span class="o">++</span><span class="n">nodes_count</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Generate a face (vertices &amp; indices)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">elements_parse</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="c1">// Generate the triangle vertices from the element</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">split</span><span class="p">(</span><span class="n">curline</span><span class="p">,</span> <span class="n">s_node</span><span class="p">,</span> <span class="s">" "</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">s_node</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"wrong numbder of elements detected."</span><span class="p">);</span>
+          <span class="n">i_element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">integer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+          <span class="n">i_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">integer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">1</span><span class="p">]));</span>
+          <span class="n">i_element</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">integer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span>
+          <span class="n">i_friction</span>   <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">3</span><span class="p">]));</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">i_element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">integer</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"element 0 index cannot be negative."</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">i_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">integer</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"element 1 index cannot be negative."</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">i_element</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">integer</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"element 2 index cannot be negative."</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">i_friction</span> <span class="o">&gt;=</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"element friction cannot be negative."</span><span class="p">);</span>
+
+          <span class="c1">// Create a shared pointer for the last triangle</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">triangleground</span> <span class="k">const</span><span class="o">&gt;</span><span class="p">(</span>
+              <span class="n">elements_count</span><span class="p">,</span> <span class="n">i_friction</span><span class="p">,</span>
+              <span class="n">nodes</span><span class="p">[</span><span class="n">i_element</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i_element</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+            <span class="p">));</span>
+            <span class="o">++</span><span class="n">elements_count</span><span class="p">;</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"Done"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+      <span class="c1">// Perform safety check</span>
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">nodes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="n">nodes_count</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="n">elements_count</span><span class="p">,</span>
+        <span class="n">CMD</span> <span class="s">"safety check not passed."</span><span class="p">);</span>
+
+      <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+      <span class="p">{</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="n">CMD</span> <span class="s">"*.rdf loaded mesh is empty."</span><span class="p">);</span>
+        <span class="c1">//return false;</span>
+      <span class="p">}</span>
+      <span class="k">else</span>
+      <span class="p">{</span>
+        <span class="c1">// Update the local intersected triangles list</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Building AABB tree... "</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBoxes</span><span class="p">();</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_AABBtree</span><span class="o">-&gt;</span><span class="n">build</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span>
+          <span class="o">&lt;&lt;</span> <span class="s">"Done"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+          <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="cp">#undef CMD</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">bool</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">load</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">path</span><span class="p">,</span>
+      <span class="n">real</span>                <span class="n">friction</span>
+    <span class="p">)</span>
+    <span class="p">{</span>
+      <span class="cp">#define CMD "enve::ground::load(...): "</span>
+
+      <span class="c1">// Start loading mesh</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Loading *.obj mesh... "</span><span class="p">;</span>
+
+      <span class="c1">// Check if the file is an ".obj" file</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">!=</span> <span class="s">".obj"</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="n">CMD</span> <span class="s">"not a *.obj file."</span><span class="p">);</span>
+        <span class="c1">//return false;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Check if the file had been correctly open</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span>
+      <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="n">CMD</span> <span class="s">"*.obj file not opened."</span><span class="p">);</span>
+        <span class="c1">//return false;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Vector for nodes coordinates</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">point</span><span class="o">&gt;</span> <span class="n">nodes</span><span class="p">;</span>
+      <span class="n">nodes</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">25000</span><span class="p">);</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>
+      <span class="kt">size_t</span> <span class="n">nodes_count</span>    <span class="o">=</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+      <span class="kt">size_t</span> <span class="n">elements_count</span> <span class="o">=</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+      <span class="c1">// Instantiate temporaries</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">curline</span><span class="p">,</span> <span class="n">token</span><span class="p">;</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">s_node</span><span class="p">;</span>
+      <span class="n">s_node</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">integer</span><span class="o">&gt;</span> <span class="n">i_element</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+      <span class="n">point</span> <span class="n">p_node</span><span class="p">;</span>
+      <span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">curline</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">firstToken</span><span class="p">(</span><span class="n">curline</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">token</span> <span class="o">==</span> <span class="s">"v"</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="c1">// Generate a vertex position</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">split</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">tail</span><span class="p">(</span><span class="n">curline</span><span class="p">),</span> <span class="n">s_node</span><span class="p">,</span> <span class="s">" "</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">s_node</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"wrong numbder of elements detected."</span><span class="p">);</span>
+          <span class="n">p_node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+          <span class="n">p_node</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+          <span class="n">p_node</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+          <span class="n">nodes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">p_node</span><span class="p">);</span>
+          <span class="o">++</span><span class="n">nodes_count</span><span class="p">;</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">token</span> <span class="o">==</span> <span class="s">"f"</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="c1">// Generate the triangle vertices from the element</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">split</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">tail</span><span class="p">(</span><span class="n">curline</span><span class="p">),</span> <span class="n">s_node</span><span class="p">,</span> <span class="s">" "</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">s_node</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"wrong numbder of elements detected."</span><span class="p">);</span>
+          <span class="n">i_element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="n">i_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="n">i_element</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stoi</span><span class="p">(</span><span class="n">s_node</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">i_element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">integer</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"element 0 index cannot be negative."</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">i_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">integer</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"element 1 index cannot be negative."</span><span class="p">);</span>
+          <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">i_element</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">integer</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">CMD</span> <span class="s">"element 2 index cannot be negative."</span><span class="p">);</span>
+
+          <span class="c1">// Create a shared pointer for the last triangle</span>
+          <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">triangleground</span> <span class="k">const</span><span class="o">&gt;</span><span class="p">(</span>
+              <span class="n">elements_count</span><span class="p">,</span> <span class="n">friction</span><span class="p">,</span>
+              <span class="n">nodes</span><span class="p">[</span><span class="n">i_element</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">i_element</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+            <span class="p">));</span>
+            <span class="o">++</span><span class="n">elements_count</span><span class="p">;</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'%'</span> <span class="o">||</span> <span class="n">token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'#'</span> <span class="o">||</span> <span class="n">token</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'\r'</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="c1">// Check comments or empty lines</span>
+          <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">cout</span>
+        <span class="o">&lt;&lt;</span> <span class="s">"Done"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+      <span class="c1">// Perform safety check</span>
+      <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">nodes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="n">nodes_count</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="n">elements_count</span><span class="p">,</span>
+        <span class="n">CMD</span> <span class="s">"safety check not passed."</span><span class="p">);</span>
+
+      <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+      <span class="p">{</span>
+        <span class="n">ENVE_ERROR</span><span class="p">(</span><span class="n">CMD</span> <span class="s">"*.obj loaded mesh is empty."</span><span class="p">);</span>
+        <span class="c1">//return false;</span>
+      <span class="p">}</span>
+      <span class="k">else</span>
+      <span class="p">{</span>
+        <span class="c1">// Update the local intersected triangles list</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Building AABB tree... "</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">updateBBoxes</span><span class="p">();</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_AABBtree</span><span class="o">-&gt;</span><span class="n">build</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span>
+          <span class="o">&lt;&lt;</span> <span class="s">"Done"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span>
+          <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="cp">#undef CMD</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">bool</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span>
+      <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span>          <span class="k">const</span>   <span class="n">ptrAABBtree</span><span class="p">,</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span> <span class="n">triangles</span>
+    <span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="n">triangles</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+      <span class="n">aabb</span><span class="o">::</span><span class="n">vecpairptr</span> <span class="n">intersection_list</span><span class="p">;</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_AABBtree</span><span class="o">-&gt;</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="n">ptrAABBtree</span><span class="p">,</span> <span class="n">intersection_list</span><span class="p">);</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">intersection_list</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">{</span><span class="n">triangles</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">ptrTriangleground</span><span class="p">((</span><span class="n">intersection_list</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">()));}</span>
+      <span class="k">return</span> <span class="n">triangles</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="kt">size_t</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">bool</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span>
+      <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span>           <span class="k">const</span> <span class="o">&amp;</span> <span class="n">ptrVecbox</span><span class="p">,</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span> <span class="n">triangles</span>
+    <span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">ptrAABBtree</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">AABBtree</span><span class="o">&gt;</span><span class="p">());</span>
+      <span class="n">ptrAABBtree</span><span class="o">-&gt;</span><span class="n">build</span><span class="p">(</span><span class="n">ptrVecbox</span><span class="p">);</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">intersection</span><span class="p">(</span><span class="n">ptrAABBtree</span><span class="p">,</span> <span class="n">triangles</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">bool</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span>
+      <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span>              <span class="k">const</span>   <span class="n">ptrbox</span><span class="p">,</span>
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span> <span class="n">triangles</span>
+    <span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="n">ptrVecbox</span><span class="p">;</span>
+      <span class="n">ptrVecbox</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">ptrbox</span><span class="p">);</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">intersection</span><span class="p">(</span><span class="n">ptrVecbox</span><span class="p">,</span> <span class="n">triangles</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">void</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">updateBBoxes</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">m_bboxes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span>
+          <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">aabb</span> <span class="k">const</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_triangles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">bbox</span><span class="p">())</span>
+        <span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="kt">void</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">split</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span>              <span class="k">const</span> <span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span>       <span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span>              <span class="k">const</span> <span class="o">&amp;</span> <span class="n">token</span>
+    <span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">test</span><span class="p">;</span>
+      <span class="n">out</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">in</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">test</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">token</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">test</span> <span class="o">==</span> <span class="n">token</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">tmp</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+          <span class="p">{</span>
+            <span class="n">out</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+            <span class="n">tmp</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="n">token</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">token</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">in</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="p">{</span>
+          <span class="n">tmp</span> <span class="o">+=</span> <span class="n">in</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">token</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+          <span class="n">out</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+          <span class="n">tmp</span> <span class="o">+=</span> <span class="n">in</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">tail</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">in</span>
+    <span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="kt">size_t</span> <span class="n">token_start</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">find_first_not_of</span><span class="p">(</span><span class="s">" </span><span class="se">\t</span><span class="s">"</span><span class="p">);</span>
+      <span class="kt">size_t</span> <span class="n">space_start</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">find_first_of</span><span class="p">(</span><span class="s">" </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">token_start</span><span class="p">);</span>
+      <span class="kt">size_t</span> <span class="n">tail_start</span>  <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">find_first_not_of</span><span class="p">(</span><span class="s">" </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="n">space_start</span><span class="p">);</span>
+      <span class="kt">size_t</span> <span class="n">tail_end</span>    <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">find_last_not_of</span><span class="p">(</span><span class="s">" </span><span class="se">\t</span><span class="s">"</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">tail_start</span> <span class="o">!=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span> <span class="o">&amp;&amp;</span> <span class="n">tail_end</span> <span class="o">!=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
+        <span class="p">{</span><span class="k">return</span> <span class="n">in</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">tail_start</span><span class="p">,</span> <span class="n">tail_end</span> <span class="o">-</span> <span class="n">tail_start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);}</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">tail_start</span> <span class="o">!=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
+        <span class="p">{</span><span class="k">return</span> <span class="n">in</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">tail_start</span><span class="p">);}</span>
+      <span class="k">return</span> <span class="s">""</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span>
+    <span class="n">mesh</span><span class="o">::</span><span class="n">firstToken</span><span class="p">(</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">in</span>
+    <span class="p">)</span>
+      <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">in</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+      <span class="p">{</span>
+        <span class="kt">size_t</span> <span class="n">token_start</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">find_first_not_of</span><span class="p">(</span><span class="s">" </span><span class="se">\t\r\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">token_start</span> <span class="o">!=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="kt">size_t</span> <span class="n">token_end</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">find_first_of</span><span class="p">(</span><span class="s">" </span><span class="se">\t\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">token_start</span><span class="p">);</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">token_end</span> <span class="o">!=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">npos</span><span class="p">)</span>
+            <span class="p">{</span><span class="k">return</span> <span class="n">in</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">token_start</span><span class="p">,</span> <span class="n">token_end</span> <span class="o">-</span> <span class="n">token_start</span><span class="p">);}</span>
+          <span class="k">else</span>
+            <span class="p">{</span><span class="k">return</span> <span class="n">in</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">token_start</span><span class="p">);}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="s">""</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+
+  <span class="p">}</span> <span class="c1">// namespace rdf</span>
+
+<span class="p">}</span> <span class="c1">// namespace enve</span>
+</pre></div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">The ENVE library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">How to use ENVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

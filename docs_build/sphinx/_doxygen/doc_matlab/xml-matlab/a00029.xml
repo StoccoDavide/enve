@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.5" xml:lang="en-US">
   <compounddef id="a00029" kind="class" language="C++" prot="public">
     <compoundname>enve_triangleground</compoundname>
     <basecompoundref prot="public" virt="non-virtual">acme_entity</basecompoundref>
@@ -23,12 +23,12 @@
         </inbodydescription>
         <location file="enve_triangleground.m" line="34" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00029_1af80d972dbea8e624fcef1dc5d72f8482" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="a00029_1a6464f16b5374be8a4973678e9a8ab5f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
-        <definition>function enve_triangleground::normal</definition>
+        <definition>function enve_triangleground::getID</definition>
         <argsstring>(in this, in ignoredArg)</argsstring>
-        <name>normal</name>
-        <qualifiedname>enve_triangleground::normal</qualifiedname>
+        <name>getID</name>
+        <qualifiedname>enve_triangleground::getID</qualifiedname>
         <param>
           <type>in</type>
           <declname>this</declname>
@@ -41,7 +41,7 @@
 <para>Create a new C++ pointer to ENVE triangleground object instance. </para>
         </briefdescription>
         <detaileddescription>
-<para>Create C++ pointer to ENVE triangleground object instance Get friction coefficent scaling factor </para>
+<para>Create C++ pointer to ENVE triangleground object instance Get ID </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
@@ -70,33 +70,6 @@
         </inbodydescription>
         <location file="enve_triangleground.m" line="58" column="15"/>
       </memberdef>
-      <memberdef kind="function" id="a00029_1a86a094f047fb3bc2e7f307bb0bd1e7c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>function</type>
-        <definition>function enve_triangleground::setFriction</definition>
-        <argsstring>(in this, in friction, in ignoredArg)</argsstring>
-        <name>setFriction</name>
-        <qualifiedname>enve_triangleground::setFriction</qualifiedname>
-        <param>
-          <type>in</type>
-          <declname>this</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>friction</declname>
-        </param>
-        <param>
-          <type>in</type>
-          <declname>ignoredArg</declname>
-        </param>
-        <briefdescription>
-<para>Set friction coefficent scaling factor. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="enve_triangleground.m" line="66" column="15"/>
-      </memberdef>
       <memberdef kind="function" id="a00029_1a51e60df2c15caba52fa29c5f7e995ae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
         <definition>function enve_triangleground::getVertex1</definition>
@@ -118,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_triangleground.m" line="74" column="15"/>
+        <location file="enve_triangleground.m" line="66" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00029_1a877b126b496ff10fffe8f87627256dac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -141,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_triangleground.m" line="83" column="15"/>
+        <location file="enve_triangleground.m" line="75" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00029_1a8ba141d7c6d24ca07183cff8f666c2bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -164,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_triangleground.m" line="92" column="15"/>
+        <location file="enve_triangleground.m" line="84" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00029_1a2bf237e556a5df9948487f4513c15837" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -191,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_triangleground.m" line="101" column="15"/>
+        <location file="enve_triangleground.m" line="93" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00029_1a1c68cdd53deaa2b69ed428c699e3086e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -218,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_triangleground.m" line="109" column="15"/>
+        <location file="enve_triangleground.m" line="101" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00029_1a8bebceb15d8e99f360d1e6c3d9f0fe32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -245,7 +218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_triangleground.m" line="117" column="15"/>
+        <location file="enve_triangleground.m" line="109" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00029_1aec339d78bbc35f22bcd20feb757c529b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -272,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="enve_triangleground.m" line="125" column="15"/>
+        <location file="enve_triangleground.m" line="117" column="15"/>
       </memberdef>
       <memberdef kind="function" id="a00029_1aaa5ce2b8742590c18f30f8a43c89e500" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>function</type>
@@ -294,6 +267,29 @@
         </param>
         <briefdescription>
 <para>Copy triangleground object from another triangleground shape. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="enve_triangleground.m" line="129" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="a00029_1af80d972dbea8e624fcef1dc5d72f8482" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function enve_triangleground::normal</definition>
+        <argsstring>(in this, in ignoredArg)</argsstring>
+        <name>normal</name>
+        <qualifiedname>enve_triangleground::normal</qualifiedname>
+        <param>
+          <type>in</type>
+          <declname>this</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ignoredArg</declname>
+        </param>
+        <briefdescription>
+<para>Get normal. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -435,12 +431,12 @@
       <member refid="a00029_1a8d9b94627dec7f03dd15c259f1114d0d" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>disp</name></member>
       <member refid="a00029_1ae8cc84feb70631c0d80dd6439cafb5de" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>enve_triangleground</name></member>
       <member refid="a00029_1ad2d2103782d6807c5c3cb0bd3c444d7b" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>getFriction</name></member>
+      <member refid="a00029_1a6464f16b5374be8a4973678e9a8ab5f3" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>getID</name></member>
       <member refid="a00029_1a51e60df2c15caba52fa29c5f7e995ae6" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>getVertex1</name></member>
       <member refid="a00029_1a877b126b496ff10fffe8f87627256dac" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>getVertex2</name></member>
       <member refid="a00029_1a8ba141d7c6d24ca07183cff8f666c2bc" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>getVertex3</name></member>
       <member refid="a00029_1af80d972dbea8e624fcef1dc5d72f8482" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>normal</name></member>
       <member refid="a00029_1ab1b8bc55d4ac80478c28044513705a66" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>plot</name></member>
-      <member refid="a00029_1a86a094f047fb3bc2e7f307bb0bd1e7c8" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>setFriction</name></member>
       <member refid="a00029_1a2bf237e556a5df9948487f4513c15837" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>setVertex1</name></member>
       <member refid="a00029_1a1c68cdd53deaa2b69ed428c699e3086e" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>setVertex2</name></member>
       <member refid="a00029_1a8bebceb15d8e99f360d1e6c3d9f0fe32" prot="public" virt="non-virtual"><scope>enve_triangleground</scope><name>setVertex3</name></member>
