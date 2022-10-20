@@ -22,34 +22,51 @@
 */
 
 ///
-/// file: sfun_types.h
+/// file: c.h
 ///
 
-#ifndef INCLUDE_SFUN_TYPES
-#define INCLUDE_SFUN_TYPES
+#ifndef INCLUDE_ENVE_SFUN_INTEREFACE_H
+#define INCLUDE_ENVE_SFUN_INTEREFACE_H
 
-#include "sfun_settings.h"
+#include "enve_sfun_types.h"
 
-// Structure containing the input of ENVE
-typedef struct
+#ifdef __cplusplus
+extern "C"
 {
-  double hub_affine[16]; // Shell hub affine transformation matrix
-} ShellAffine;
+#endif
 
-// Structure containing the output of ENVE
-typedef struct
-{
-  double shell_affine[16];         // Shell contact point affine transformation matrix
-  double shell_rho;                // Shell contact depth
-  double shell_friction;           // Shell friction coefficient scaling factor
-  double ribs_affine[16*MAX_RIBS]; // Ribs contact point affine transformation matrix
-  double ribs_rho[MAX_RIBS];       // Ribs contact depth
-  double ribs_friction[MAX_RIBS];  // Ribs friction coefficient scaling factor
-  double in_mesh;                  // Flag to detect if the wheel is outside the ground mesh. (0: at least one wheel is out of ground, 1: every wheels are in the ground)
-} GroundContact;
+  // S-function entry point for initialization
+  void
+  sfun_init(
+    const double *size,         // Ribs number (-)
+    const double *r_x,          // Shell radius on x-axis (m)
+    const double *m_x,          // Shell curve degree for x-axis (-)
+    const double *r_y,          // Shell radius on y-axis (m)
+    const double *m_y,          // Shell curve degree for y-axis (-)
+    const double *l_y,          // Surface half width on y-axis (m)
+    const double *flat_height,  // Flat ground surface height (m)
+    const double *flat_friction // Flat ground surface friction scaling coefficient (-)
+  );
+
+  // S-function entry point for step update
+  void
+  sfun_out(
+    const ShellAffine *input,      // Input bus containing the shell hub affine transformation matrix
+    GroundContact     *output,     // Output bus containing the contact data
+    const double      *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    const double      *flat_enable // flat_enable 0: ENVE use ground::mesh, 1: ENVE use ground::flat
+  );
+
+  // S-function entry point for deletion of allocated memory
+  void
+  sfun_end(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
 ///
-/// eof: sfun_types.h
+/// eof: enve_sfun_interface.h
 ///

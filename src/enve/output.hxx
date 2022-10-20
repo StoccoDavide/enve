@@ -20,8 +20,8 @@
 /// file: output.hxx
 ///
 
-#ifndef INCLUDE_ENVE_OUTPUT
-#define INCLUDE_ENVE_OUTPUT
+#ifndef INCLUDE_ENVE_OUTPUT_HXX
+#define INCLUDE_ENVE_OUTPUT_HXX
 
 namespace enve
 {

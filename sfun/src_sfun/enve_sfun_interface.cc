@@ -22,11 +22,11 @@
 */
 
 ///
-/// file: sfun_interface.cc
+/// file: enve_sfun_interface.cc
 ///
 
-#include "sfun_interface.h"
-#include "sfun_wrapper.hh"
+#include "enve_sfun_interface.h"
+#include "enve_sfun_wrapper.hh"
 
 #ifdef __cplusplus
 extern "C"
@@ -110,5 +110,5 @@ extern "C"
 #endif
 
 ///
-/// eof: sfun_interface.cc
+/// eof: enve_sfun_interface.cc
 ///

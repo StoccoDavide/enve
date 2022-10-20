@@ -85,7 +85,7 @@ if (~contains(getenv('LD_RUN_PATH'), lib_dir))
 end
 
 def.IncPaths    = {'../lib/include'};
-def.HeaderFiles = {'sfun_types.h', 'sfun_interface.h'};
+def.HeaderFiles = {'enve_sfun_types.h', 'enve_sfun_interface.h'};
 
 def.LibPaths = {lib_dir};
 if ismac

@@ -22,10 +22,10 @@
 */
 
 ///
-/// file: sfun_wrapper.cc
+/// file: enve_sfun_wrapper.cc
 ///
 
-#include "sfun_wrapper.hh"
+#include "enve_sfun_wrapper.hh"
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -169,5 +169,5 @@ ShellVehicle::out(
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ///
-/// eof: sfun_wrapper.cc
+/// eof: enve_sfun_wrapper.cc
 ///

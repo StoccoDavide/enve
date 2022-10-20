@@ -20,8 +20,8 @@
 /// file: mesh.hxx
 ///
 
-#ifndef INCLUDE_ENVE_MESH
-#define INCLUDE_ENVE_MESH
+#ifndef INCLUDE_ENVE_MESH_HXX
+#define INCLUDE_ENVE_MESH_HXX
 
 #include "triangleground.hxx"
 

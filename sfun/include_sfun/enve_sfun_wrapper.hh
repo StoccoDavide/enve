@@ -22,11 +22,11 @@
 */
 
 ///
-/// file: sfun_shell_vehicle.hh
+/// file: enve_sfun_wrapper.hh
 ///
 
-#ifndef INCLUDE_SFUN_SHELL_VEHICLE
-#define INCLUDE_SFUN_SHELL_VEHICLE
+#ifndef INCLUDE_ENVE_SFUN_WRAPPER_HH
+#define INCLUDE_ENVE_SFUN_WRAPPER_HH
 
 #include "enve.hh"
 #include "sfun_settings.h"
@@ -66,7 +66,7 @@ public:
     double            (&ribs_affine)[16*MAX_RIBS], // Ribs contact point reference frames
     double            (&ribs_rho)[MAX_RIBS],       // Ribs contact depths (m)
     double            (&ribs_friction)[MAX_RIBS],  // Ribs scaling friction coefficient (-)
-    const double       *flat_enable                // Back-up plane enable = 0: use enve::ground::mesh (RDF), 1: use enve::ground::flat
+    const double       *flat_enable                // Back-up plane enable = 0: use enve::ground::mesh, 1: use enve::ground::flat
   );
 
 };
@@ -74,5 +74,5 @@ public:
 #endif
 
 ///
-/// eof: sfun_shell_vehicle.hh
+/// eof: enve_sfun_shell_vehicle.hh
 ///

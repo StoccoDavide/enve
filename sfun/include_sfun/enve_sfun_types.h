@@ -22,18 +22,34 @@
 */
 
 ///
-/// file: sfun_settings.h
+/// file: enve_sfun_types.h
 ///
 
-#ifndef INCLUDE_SFUN_SETTINGS
-#define INCLUDE_SFUN_SETTINGS
+#ifndef INCLUDE_ENVE_SFUN_TYPES_H
+#define INCLUDE_ENVE_SFUN_TYPES_H
 
-#ifndef MAX_RIBS
-#define MAX_RIBS 20
-#endif
+#include "enve_sfun_settings.h"
+
+// Structure containing the input of ENVE
+typedef struct
+{
+  double hub_affine[16]; // Shell hub affine transformation matrix
+} ShellAffine;
+
+// Structure containing the output of ENVE
+typedef struct
+{
+  double shell_affine[16];         // Shell contact point affine transformation matrix
+  double shell_rho;                // Shell contact depth
+  double shell_friction;           // Shell friction coefficient scaling factor
+  double ribs_affine[16*MAX_RIBS]; // Ribs contact point affine transformation matrix
+  double ribs_rho[MAX_RIBS];       // Ribs contact depth
+  double ribs_friction[MAX_RIBS];  // Ribs friction coefficient scaling factor
+  double in_mesh;                  // Flag to detect if the wheel is outside the ground mesh. (0: at least one wheel is out of ground, 1: every wheels are in the ground)
+} GroundContact;
 
 #endif
 
 ///
-/// eof: sfun_settings.h
+/// eof: enve_sfun_types.h
 ///

@@ -22,51 +22,18 @@
 */
 
 ///
-/// file: sfun_interface.h
+/// file: enve_sfun_settings.h
 ///
 
-#ifndef INCLUDE_SFUN_INTEREFACE
-#define INCLUDE_SFUN_INTEREFACE
+#ifndef INCLUDE_ENVE_SFUN_SETTINGS_H
+#define INCLUDE_ENVE_SFUN_SETTINGS_H
 
-#include "sfun_types.h"
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-  // S-function entry point for initialization
-  void
-  sfun_init(
-    const double *size,         // Ribs number (-)
-    const double *r_x,          // Shell radius on x-axis (m)
-    const double *m_x,          // Shell curve degree for x-axis (-)
-    const double *r_y,          // Shell radius on y-axis (m)
-    const double *m_y,          // Shell curve degree for y-axis (-)
-    const double *l_y,          // Surface half width on y-axis (m)
-    const double *flat_height,  // Flat ground surface height (m)
-    const double *flat_friction // Flat ground surface friction scaling coefficient (-)
-  );
-
-  // S-function entry point for step update
-  void
-  sfun_out(
-    const ShellAffine *input,      // Input bus containing the shell hub affine transformation matrix
-    GroundContact     *output,     // Output bus containing the contact data
-    const double      *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
-    const double      *flat_enable // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
-  );
-
-  // S-function entry point for deletion of allocated memory
-  void
-  sfun_end(void);
-
-#ifdef __cplusplus
-}
+#ifndef MAX_RIBS
+#define MAX_RIBS 20
 #endif
 
 #endif
 
 ///
-/// eof: sfun_interface.h
+/// eof: enve_sfun_settings.h
 ///

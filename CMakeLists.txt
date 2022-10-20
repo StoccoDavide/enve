@@ -104,8 +104,8 @@ if( ENVE_BUILD_SFUN )
     list( APPEND SFUN_HEADERS ${RF} )
   endforeach( F ${S} )
 
-  install(FILES ${SFUN_HEADERS} DESTINATION ${PROJECT_PUBLIC_HEADER_DESTINATION} )
-  include_directories( ./sfun/include_sfun ./src )
+  install( FILES ${SFUN_HEADERS} DESTINATION ${PROJECT_PUBLIC_HEADER_DESTINATION} )
+  include_directories( ./sfun/include_sfun )
 endif()
 
 #   ____                            _                 _
@@ -252,6 +252,7 @@ if( UTILS_ENABLE_TESTS )
     enve_test_04
     enve_test_05
     enve_test_06
+    enve_test_sfun_00
     enve_timing_00
     enve_timing_01
   )

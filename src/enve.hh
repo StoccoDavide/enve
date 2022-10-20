@@ -20,8 +20,8 @@
 /// file: enve.hh
 ///
 
-#ifndef INCLUDE_ENVE
-#define INCLUDE_ENVE
+#ifndef INCLUDE_ENVE_HH
+#define INCLUDE_ENVE_HH
 
 // Print enve errors
 #ifndef ENVE_ERROR

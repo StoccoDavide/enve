@@ -20,8 +20,8 @@
 /// file: rib.hxx
 ///
 
-#ifndef INCLUDE_ENVE_RIB
-#define INCLUDE_ENVE_RIB
+#ifndef INCLUDE_ENVE_RIB_HXX
+#define INCLUDE_ENVE_RIB_HXX
 
 #include "triangleground.hxx"
 #include "mesh.hxx"
