@@ -39,8 +39,11 @@ namespace enve
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     mesh::mesh(void)
-      : m_AABBtree(std::make_shared<AABBtree>())
     {
+      #ifdef ENVE_USE_UTILS_AABBTREE
+      #else
+      this->m_AABBtree = std::make_shared<AABBtree>();
+      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -50,9 +53,7 @@ namespace enve
     )
       : mesh()
     {
-      this->m_triangles = triangles;
-      this->updateBBoxes();
-      this->m_AABBtree->build(this->m_bboxes);
+      this->buildAABBtree(triangles);
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -95,7 +96,6 @@ namespace enve
     {
       this->m_triangles = mesh_obj.m_triangles;
       this->m_bboxes    = mesh_obj.m_bboxes;
-      this->m_AABBtree  = mesh_obj.m_AABBtree;
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -129,15 +129,6 @@ namespace enve
       const
     {
       return this->m_triangles[i];
-    }
-
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    AABBtree::ptr const
-    mesh::ptrAABBtree(void)
-      const
-    {
-      return this->m_AABBtree;
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -333,8 +324,7 @@ namespace enve
       {
         // Update the local intersected triangles list
         std::cout << "Building AABB tree... ";
-        this->updateBBoxes();
-        this->m_AABBtree->build(this->m_bboxes);
+        this->buildAABBtree(this->m_triangles);
         std::cout
           << "Done" << std::endl
           << std::endl;
@@ -451,8 +441,7 @@ namespace enve
       {
         // Update the local intersected triangles list
         std::cout << "Building AABB tree... ";
-        this->updateBBoxes();
-        this->m_AABBtree->build(this->m_bboxes);
+        this->buildAABBtree(this->m_triangles);
         std::cout
           << "Done" << std::endl
           << std::endl;
@@ -466,45 +455,78 @@ namespace enve
 
     bool
     mesh::intersection(
-      AABBtree::ptr          const   ptrAABBtree,
+      aabb::ptr              const   box,
       triangleground::vecptr       & triangles
     )
       const
     {
+
+      #ifdef ENVE_USE_UTILS_AABBTREE
+
+      AABBset intersectList;
+      real bbox[6];
+      bbox[0] = box->min(0);
+      bbox[1] = box->min(1);
+      bbox[2] = box->min(2);
+      bbox[3] = box->max(0);
+      bbox[4] = box->max(1);
+      bbox[5] = box->max(2);
+      this->m_AABBtree.intersect_with_one_bbox_and_refine( bbox, intersectList );
+      triangles.resize(intersectList.size());
+      integer list = 0;
+      for ( integer const & i : intersectList )
+      {
+        triangles[list] = this->m_triangles[i];
+        ++list;
+      }
+      return list > integer(0);
+
+      #else
+      
+      aabb::vecptr ptrVecbox{box};
+      AABBtree::ptr ptrAABBtree(std::make_shared<AABBtree>());
+      ptrAABBtree->build(ptrVecbox);
       triangles.clear();
       aabb::vecpairptr intersection_list;
       this->m_AABBtree->intersection(*ptrAABBtree, intersection_list);
       for (size_t i = 0; i < intersection_list.size(); ++i)
         {triangles.emplace_back(this->ptrTriangleground((intersection_list[i].first)->id()));}
       return triangles.size() > size_t(0);
+
+      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    bool
-    mesh::intersection(
-      aabb::vecptr           const & ptrVecbox,
-      triangleground::vecptr       & triangles
+    void
+    mesh::buildAABBtree(
+      triangleground::vecptr const & triangles
     )
-      const
     {
-      AABBtree::ptr ptrAABBtree(std::make_shared<AABBtree>());
-      ptrAABBtree->build(ptrVecbox);
-      return this->intersection(ptrAABBtree, triangles);
-    }
+      this->m_triangles = triangles;
+      this->updateBBoxes();
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      #ifdef ENVE_USE_UTILS_AABBTREE
+      
+      this->m_AABBtree.set_max_num_objects_per_node( ENVE_AABBTREE_NODE_SIZE );
+      this->m_AABBtree.allocate( triangles.size(), integer(3) );
+      integer aabb_pos = 0;
+      for ( triangleground::ptr tri : triangles )
+      {
+        this->m_AABBtree.replace_bbox(
+          tri->bbox().min().data(),
+          tri->bbox().max().data(),
+          aabb_pos
+        );
+        ++aabb_pos;
+      }
+      this->m_AABBtree.build();
 
-    bool
-    mesh::intersection(
-      aabb::ptr              const   ptrbox,
-      triangleground::vecptr       & triangles
-    )
-      const
-    {
-      aabb::vecptr ptrVecbox;
-      ptrVecbox.push_back(ptrbox);
-      return this->intersection(ptrVecbox, triangles);
+      #else
+      
+      this->m_AABBtree->build(this->m_bboxes);
+
+      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

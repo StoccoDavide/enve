@@ -1,16 +1,11 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 %                                                                     %
-% The ENVE project                                                    %
+% This file is part of the ENVE project.                              %
 %                                                                     %
-% Copyright (c) 2020, Davide Stocco, Matteo Larcher and Enrico        %
-% Bertolazzi.                                                         %
+% Copyright (c) 2022, Davide Stocco. All rights reserved.             %
 %                                                                     %
-% The ENVE project and its components are supplied under the terms of %
-% the open source BSD 2-Clause License. The contents of the ENVE      %
-% project and its components may not be copied or disclosed except in %
-% accordance with the terms of the BSD 2-Clause License.              %
-%                                                                     %
-% URL: https://opensource.org/licenses/BSD-2-Clause                   %
+% The ENVE project can not be copied and/or distributed without       %
+% the express permission of Davide Stocco.                            %
 %                                                                     %
 %    Davide Stocco                                                    %
 %    Department of Industrial Engineering                             %

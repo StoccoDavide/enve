@@ -17,7 +17,7 @@
 */
 
 ///
-/// file: test_05.cc
+/// file: enve_test_05.cc
 ///
 
 #include "enve.hh"
@@ -124,5 +124,5 @@ main(void)
 }
 
 ///
-/// eof: test_05.cc
+/// eof: enve_test_05.cc
 ///

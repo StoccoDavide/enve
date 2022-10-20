@@ -239,15 +239,15 @@ if( UTILS_ENABLE_TESTS )
   set(
     # List of tests to be executed
     EXELISTCPP
-    test_00
-    test_01
-    test_02
-    test_03
-    test_04
-    test_05
-    test_06
-    timing_00
-    timing_01
+    enve_test_00
+    enve_test_01
+    enve_test_02
+    enve_test_03
+    enve_test_04
+    enve_test_05
+    enve_test_06
+    enve_timing_00
+    enve_timing_01
   )
 
   add_custom_target( "${PROJECT_NAME}_all_tests" ALL )

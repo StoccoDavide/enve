@@ -17,7 +17,7 @@
 */
 
 ///
-/// file: test_01.cc
+/// file: enve_test_04.cc
 ///
 
 #include "enve.hh"
@@ -36,39 +36,38 @@ main(void)
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
-      << "TEST 03 - ENVE MESH INTERSECTION" << std::endl
+      << "TEST 04 - ENVE FLAT INTERSECTION" << std::endl
       << std::endl;
-
 
     // Instantiate a TicToc object
     Utils::TicToc tictoc;
 
-    // Load .rdf File
-    ground::mesh road("./files_rdf/sample.rdf");
-
-    // Print OutMesh.txt file
-    //road.print("bin/OutMesh.txt");
+    // Plane data
+    vec3  plane_normal(0.0, 0.0, 1.0);
+    point plane_point(0.0, 0.0, 0.0);
+    real  plane_friction = 1.0;
+    ground::flat road(plane_friction, plane_point, plane_normal);
 
     // Initialize the tire shell
     shell tire_shell(
-      10,    // n_r
-      0.327, // r_x
-      4.000, // m_x
-      0.195, // r_y
-      4.000, // m_y
-      0.188  // l_y
+      11,     // n_r
+      0.3270, // r_x
+      4.0,    // m_x
+      0.1950, // r_y
+      4.0,    // m_y
+      0.1690  // l_y
     );
 
     // Orient the tire in the space
-    real yaw_angle    = 0.0 * PI;
-    real camber_angle = 0.0 * PI;
-    real pitch_angle  = 0.0 * PI;
+    real yaw_angle    = -0.5 * PI;
+    real camber_angle =  0.0 * PI;
+    real pitch_angle  =  0.0 * PI;
 
     // Create frame object
     affine pose;
-    pose = translate(1.0, 1.0, 0.3) * angleaxis(yaw_angle,    UNITZ_VEC3)
-                                    * angleaxis(camber_angle, UNITX_VEC3)
-                                    * angleaxis(pitch_angle,  UNITY_VEC3);
+    pose = translate(0.0, 0.0, 0.31) * angleaxis(yaw_angle,    UNITZ_VEC3)
+                                     * angleaxis(camber_angle, UNITX_VEC3)
+                                     * angleaxis(pitch_angle,  UNITY_VEC3);
     // Start chronometer
     tictoc.tic();
 
@@ -125,5 +124,5 @@ main(void)
 }
 
 ///
-/// eof: test_01.cc
+/// eof: enve_test_04.cc
 ///

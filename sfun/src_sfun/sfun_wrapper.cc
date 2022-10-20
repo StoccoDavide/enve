@@ -82,7 +82,7 @@ ShellVehicle::out(
   {
     for (int m = 0; m < 4; ++m)
     {
-      (tmp_affine.matrix())(m, n) = hub_affine[4*n + m];
+      (tmp_affine.matrix())(n,m) = hub_affine[m+4*n];
     }
   }
 
@@ -107,12 +107,10 @@ ShellVehicle::out(
     // Update and check if shell is in mesh
     in_mesh = this->m_shell->setup(*ground, tmp_affine, method_in);
 
+    // If no elements are detected under the tire shadows 'in_mesh = 0'
+    // and a setup with the back-up plane is called
     if (!in_mesh)
-    {
-      // If no elements are detected under the tire shadows 'in_mesh = 0'
-      // and a setup with the back-up plane is called
-      this->m_shell->setup(this->m_flat, tmp_affine, method_in);
-    }
+      {this->m_shell->setup(this->m_flat, tmp_affine, method_in);}
   }
 
   // Update shell outputs
@@ -124,7 +122,7 @@ ShellVehicle::out(
   {
     for (int m = 0; m < 4; ++m)
     {
-      shell_affine[4*n + m] = (tmp_affine.matrix())(m, n);
+      shell_affine[m+4*n] = (tmp_affine.matrix())(n,m);
     }
   }
 
@@ -145,7 +143,7 @@ ShellVehicle::out(
       {
         for (int m = 0; m < 4; ++m)
         {
-          ribs_affine[16*i + 4*n + m] = (tmp_affine.matrix())(m, n);
+          ribs_affine[m+4*n+16*i] = (tmp_affine.matrix())(n,m);
         }
       }
     }
@@ -158,7 +156,7 @@ ShellVehicle::out(
       {
         for (int m = 0; m < 4; ++m)
         {
-          ribs_affine[16*i + 4*n + m] = (tmp_affine.matrix())(m, n);
+          ribs_affine[m+4*n+16*i] = (tmp_affine.matrix())(n,m);
         }
       }
     }

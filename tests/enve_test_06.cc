@@ -17,7 +17,7 @@
 */
 
 ///
-/// file: test_02.cc
+/// file: enve_test_06.cc
 ///
 
 #include "enve.hh"
@@ -36,41 +36,26 @@ main(void)
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
-      << "TEST 03 - ENVE MESH INTERSECTION" << std::endl
+      << "TEST 06 - ENVE OBJ MESH INTERSECTION" << std::endl
       << std::endl;
-
 
     // Instantiate a TicToc object
     Utils::TicToc tictoc;
 
-    // Initialize a quite big triangle
-    point vertex[3];
-    vertex[0] = point(0.0,    100.0, 0.0);
-    vertex[1] = point(100.0,    0.0, 0.0);
-    vertex[2] = point(0.0,   -100.0, 0.0);
-    triangleground::vecptr triangle_prtVec;
-    triangle_prtVec.push_back(
-      triangleground::ptr(new triangleground(0, 1.0, vertex))
-    );
+    // Load .rdf File
+    ground::mesh road("./files_obj/HalfStep.obj", 1.0);
 
-    vertex[0] = point(0.0,    100.0, 0.0);
-    vertex[1] = point(-100.0,   0.0, 0.0);
-    vertex[2] = point(0.0,    -100.0, 0.0);
-    triangle_prtVec.push_back(
-      triangleground::ptr(new triangleground(0, 0.5, vertex))
-    );
-
-    // Build the mesh
-    ground::mesh road(triangle_prtVec);
+    // Print OutMesh.txt file
+    //road.print("bin/OutMesh.txt");
 
     // Initialize the tire shell
     shell tire_shell(
-      5,      // n_r
+      11,     // n_r
       0.3130, // r_x
       9.0,    // m_x
-      0.12,   // r_y
+      0.11,   // r_y
       6.0,    // m_y
-      0.1     // l_y
+      0.1025  // l_y
     );
 
     // Orient the tire in the space
@@ -80,15 +65,15 @@ main(void)
 
     // Create frame object
     affine pose;
-    pose = translate(0.0, 0.0, 0.3) * angleaxis(yaw_angle,    UNITZ_VEC3)
-                                    * angleaxis(camber_angle, UNITX_VEC3)
-                                    * angleaxis(pitch_angle,  UNITY_VEC3);
+    pose = translate(0.2, 0.0, 0.32) * angleaxis(yaw_angle,    UNITZ_VEC3)
+                                     * angleaxis(camber_angle, UNITX_VEC3)
+                                     * angleaxis(pitch_angle,  UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();
 
     // Set an orientation and calculate parameters
-    tire_shell.setup(road, pose, "sampling");
+    tire_shell.setup(road, pose, "geometric");
 
     // Stop chronometer
     tictoc.toc();
@@ -111,7 +96,7 @@ main(void)
       << "Execution time = " << tictoc.elapsed_ms() * 1000 << " us" << std::endl
       << std::endl
       << "Check the results..." << std::endl;
- 
+  
     // End of test
     std::cout
       << std::endl
@@ -139,5 +124,5 @@ main(void)
 }
 
 ///
-/// eof: test_02.cc
+/// eof: enve_test_06.cc
 ///

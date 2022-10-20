@@ -1,33 +1,52 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%                                                                     %
+% This file is part of the ENVE project.                              %
+%                                                                     %
+% Copyright (c) 2022, Davide Stocco. All rights reserved.             %
+%                                                                     %
+% The ENVE project can not be copied and/or distributed without       %
+% the express permission of Davide Stocco.                            %
+%                                                                     %
+%    Davide Stocco                                                    %
+%    Department of Industrial Engineering                             %
+%    University of Trento                                             %
+%    e-mail: davide.stocco@unitn.it                                   %
+%                                                                     %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
+% Clean workspace
 clc;
 clear all;
 close all;
 
 % Create shape and shell variables
-
-Nr  = 5;       
+Nr = 5;       
 Rx = 0.327;    
 Mx = 4.000;    
 Ry = 0.195;    
 My = 4.000;    
 Ly = 0.188*0.9;
 
-%% Instantiate shape object
+Nr = 11;       
+Rx = 0.327;    
+Mx = 9.000;    
+Ry = 0.11;    
+My = 6.000;    
+Ly = 0.205/2;
 
+% Instantiate shape object
 obj = enve_shell(Nr, Rx, Mx, Ry, My, Ly);
 
 % Test getters
-
 obj.surfaceMaxRadius()
 obj.surfaceMaxWidth()
 obj.size()
 
-% Test delete
+% Test resize
+%obj.resize(11);
+%obj
 
-obj.resize(5);
-
-obj
-
+% Test transform
 T = [ 1, 0, 0, 1.0;  ...
       0, 1, 0, 1.0;  ...
       0, 0, 1, 0.3; ...
@@ -42,18 +61,15 @@ T = obj.transformation();
 obj.transform(T);
 
 % Set Color
-
 rubber_color = [0.4 0.4 0.4];
 road_color   = [0.863 0.863 0.863];
 scale        = 0.2;
 
 % Test profile plot
-
 out1 = figure;
 obj.profile(out1, rubber_color, scale);
 
-%% Test 3D shell shape
-
+% Test 3D shell shape
 out2 = figure;
 subplot(1,2,1);
 obj.shellShape(out2, rubber_color, scale);
@@ -68,7 +84,6 @@ ylabel('y');
 zlabel('z');
 
 % Test 3D shell
-
 out3 = figure;
 subplot(1,2,1);
 obj.shellEnve(out3, rubber_color, scale);
@@ -83,7 +98,6 @@ ylabel('y');
 zlabel('z');
 
 % Test 3D shell ribs
-
 out4 = figure;
 subplot(1,2,1);
 obj.shellRibs(out4, rubber_color, scale);
@@ -98,7 +112,6 @@ ylabel('y');
 zlabel('z');
 
 % Test setup
-
 mesh = enve_mesh('../../files_rdf/sample.rdf');
 
 tic

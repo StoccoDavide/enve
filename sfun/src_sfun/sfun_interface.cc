@@ -85,7 +85,7 @@ extern "C"
   )
   {
     enve::ground::mesh *ground = reinterpret_cast<enve::ground::mesh *>(ground_ptr);
-    ShellVehicle      *shell   = reinterpret_cast<ShellVehicle *>(shell_ptr);
+    ShellVehicle       *shell  = reinterpret_cast<ShellVehicle *>(shell_ptr);
     output->in_mesh = shell->out(
       ground, 
       input->hub_affine,
@@ -96,7 +96,8 @@ extern "C"
       output->ribs_affine,
       output->ribs_rho,
       output->ribs_friction,
-      flat_enable);
+      flat_enable
+    );
   }
 
   void

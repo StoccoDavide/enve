@@ -48,9 +48,14 @@ namespace enve
       typedef std::vector<mesh::ptr>      vecptr; //!< Vector of pointers to mesh objects
 
     private:
-      triangleground::vecptr m_triangles; //!< Ground triangles pointer vector
-      aabb::vecptr           m_bboxes;    //!< Bounding boxes pointers vector
-      AABBtree::ptr          m_AABBtree;  //!< Mesh tree pointer
+      triangleground::vecptr m_triangles;    //!< Ground triangles pointer vector
+      aabb::vecptr           m_bboxes;       //!< Bounding boxes pointers vector
+
+      #ifdef ENVE_USE_UTILS_AABBTREE
+      AABBtreeUtils m_AABBtree; //!< Utils mesh tree pointer
+      #else
+      AABBtree::ptr m_AABBtree;      //!< Acme mesh tree pointer
+      #endif
 
     public:
       //! Mesh copy constructor
@@ -108,11 +113,6 @@ namespace enve
         size_t i //!< Triangle index
       ) const;
 
-      //! Get AABBtree object
-      AABBtree::ptr const
-      ptrAABBtree(void)
-      const;
-
       //! Print data in file
       void
       print(
@@ -142,26 +142,18 @@ namespace enve
         real                friction //!< Friction coefficient scaling factor
       );
 
-      //! Intersect the mesh AABB tree with an external AABB tree
-      bool
-      intersection(
-        AABBtree::ptr          const   AABBtree, //!< External AABBtree object pointer
-        triangleground::vecptr       & triangles //!< Intersected triangleground vector list
-      ) const;
-
-      //! Update the mesh AABBtree with an external aabb object pointer vector
-      bool
-      intersection(
-        aabb::vecptr           const & boxes,    //!< External aabb object pointer vector
-        triangleground::vecptr       & triangles //!< Intersected triangleground vector list
-      ) const;
-
-      //! Update the mesh AABBtree with an external aabb object pointer
+      //! Intersect the mesh AABBtree with an external aabb object pointer
       bool
       intersection(
         aabb::ptr              const   box,      //!< External aabb object pointer
         triangleground::vecptr       & triangles //!< Intersected triangleground vector list
       ) const;
+
+      //! Build mesh AABBtree
+      void
+      buildAABBtree(
+        triangleground::vecptr const & triangles //!< Ground triangles pointer vector list
+      );
 
     private:
       //! Update the mesh bounding boxes pointers

@@ -17,7 +17,7 @@
 */
 
 ///
-/// file: timing_00.cc
+/// file: enve_timing_01.cc
 ///
 
 #include "enve.hh"
@@ -36,21 +36,21 @@ main(void)
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
-      << "TIMING 00 - ENVE TIMING 0" << std::endl
+      << "TIMING 01 - ENVE TIMING 1" << std::endl
       << std::endl;
 
     // Instantiate a TicToc object
     Utils::TicToc tictoc;
 
     // Load *.rdf File
-    ground::mesh road("./files_rdf/Eight.rdf");
+    ground::mesh road("./files_rdf/LakeTown.rdf");
 
     // Tire Parameters
     std::string method = "geometric";
 
     // Initialize the tire shell
     shell tire_shell(
-      20,  // n_r
+      10,  // n_r
       0.3, // r_x
       4.0, // m_x
       0.3, // r_y
@@ -65,15 +65,15 @@ main(void)
 
     // Set frequency and speed
     real frequency = 1000; // Hz
-    real speed     = 10;   // m/s
+    real speed     = 0.01;   // m/s
 
     // Set starting and arrival positions
-    //point start(1.7, -140.0, 0.3);   // 24.13 triangles (22.0% of duty cycle - 20 ribs)
-    //point arrival(0.4, +140.0, 0.3); // 24.13 triangles
-    //point start(5.0, -140.0, 0.3);   // 5.52 triangles (4.8% of duty cycle - 20 ribs)
-    //point arrival(5.0, +140.0, 0.3); // 5.52 triangles
-    point start(2.0, -140.0, 0.26);   // 20.39 triangles (18.0% of duty cycle - 20 ribs) (4.8% of duty cycle - 5 ribs)
-    point arrival(2.0, +140.0, 0.26); // 20.39 triangles
+    // Geometric
+    // 198.09 triangles (14.2% of duty cycle - 20 ribs)  (8.8% of duty cycle - 10 ribs) (5.6% of duty cycle - 5 ribs)
+    // Sampling
+    // 198.09 triangles (92.4% of duty cycle - 20 ribs)  (47.3% of duty cycle - 10 ribs) (24.3% of duty cycle - 5 ribs)
+    point start(45.0, 175.6, 0.26);   
+    point arrival(46.0, 175.6, 0.26);
 
     // Compute parameters
     real  step_size = (arrival - start).norm() / speed * frequency;
@@ -105,7 +105,7 @@ main(void)
 
       // Set an orientation and calculate parameters
       tire_shell.setup(road, pose, method);
-
+      
       // Data extraction (for real numbers)
       tire_shell.contactPoint(contact_point);
       tire_shell.contactNormal(contact_normal);
@@ -143,7 +143,7 @@ main(void)
       << "Std. dev.      = " << std_dev << " ms" << std::endl
       << "Samples        = " << time_vec.size() << std::endl
       << "Avg. triangles = " << triangles_list_size << std::endl;
- 
+  
     // End of test
     std::cout
       << std::endl
@@ -171,5 +171,5 @@ main(void)
 }
 
 ///
-/// eof: timing_00.cc
+/// eof: enve_timing_01.cc
 ///
