@@ -29,10 +29,10 @@ using namespace enve;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
-    
+
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
@@ -72,7 +72,7 @@ main(void)
     // 198.09 triangles (14.2% of duty cycle - 20 ribs)  (8.8% of duty cycle - 10 ribs) (5.6% of duty cycle - 5 ribs)
     // Sampling
     // 198.09 triangles (92.4% of duty cycle - 20 ribs)  (47.3% of duty cycle - 10 ribs) (24.3% of duty cycle - 5 ribs)
-    point start(45.0, 175.6, 0.26);   
+    point start(45.0, 175.6, 0.26);
     point arrival(46.0, 175.6, 0.26);
 
     // Compute parameters
@@ -105,7 +105,7 @@ main(void)
 
       // Set an orientation and calculate parameters
       tire_shell.setup(road, pose, method);
-      
+
       // Data extraction (for real numbers)
       tire_shell.contactPoint(contact_point);
       tire_shell.contactNormal(contact_normal);
@@ -143,7 +143,7 @@ main(void)
       << "Std. dev.      = " << std_dev << " ms" << std::endl
       << "Samples        = " << time_vec.size() << std::endl
       << "Avg. triangles = " << triangles_list_size << std::endl;
-  
+
     // End of test
     std::cout
       << std::endl

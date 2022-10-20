@@ -74,3 +74,4 @@ docs_build/xml-cpp
 docs_build/sphinx/api-cpp
 docs_build/sphinx/api-matlab
 license.txt
+src/.vscode

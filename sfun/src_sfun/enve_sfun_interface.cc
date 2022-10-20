@@ -56,7 +56,7 @@ extern "C"
       {ENVE_ERROR(CMD "environment variable ENVE_GROUND_PATH does not exist.");}
     std::string ground_path(reinterpret_cast<char const *>(envar_ground_path));
     std::cout << "ENVE_GROUND_PATH: " << ground_path << std::endl;
-    
+
     // Load mesh
     std::string extension      = ground_path.substr(ground_path.size() - 4, 4);
     enve::ground::mesh *ground = nullptr;
@@ -87,7 +87,7 @@ extern "C"
     enve::ground::mesh *ground = reinterpret_cast<enve::ground::mesh *>(ground_ptr);
     ShellVehicle       *shell  = reinterpret_cast<ShellVehicle *>(shell_ptr);
     output->in_mesh = shell->out(
-      ground, 
+      ground,
       input->hub_affine,
       method,
       output->shell_affine,

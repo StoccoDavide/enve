@@ -30,10 +30,10 @@ using namespace enve;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
-    
+
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
@@ -123,7 +123,7 @@ main(void)
       << "ENVE S-FUN REPORT" << std::endl
       << output1.shell_affine
       << output2.shell_affine << std::endl;
-  
+
     // End of test
     std::cout
       << std::endl

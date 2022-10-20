@@ -74,6 +74,7 @@ endforeach(F ${S})
 
 # Extra include directory for compilation
 include_directories( ./lib3rd/include )
+include_directories( ./sfun/include_sfun )
 
 #   ____   __
 #  / ___| / _|_   _ _ __
@@ -88,10 +89,11 @@ if( ENVE_BUILD_SFUN )
   # S-function sources
   set( SFUN_SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/sfun/src_sfun" )
   file( GLOB S ${SFUN_SOURCES_DIR}/*.cc )
+
   foreach( F ${S} )
     # Build relative path with respect to source directory
-    file( REAL_PATH RF "${F}" )
-    list( APPEND SOURCES ${RF} )
+    file( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
+    list( APPEND SOURCES "../${RF}" )
   endforeach( F ${S} )
 
   # S-function headers
@@ -105,7 +107,6 @@ if( ENVE_BUILD_SFUN )
   endforeach( F ${S} )
 
   install( FILES ${SFUN_HEADERS} DESTINATION ${PROJECT_PUBLIC_HEADER_DESTINATION} )
-  include_directories( ./sfun/include_sfun )
 endif()
 
 #   ____                            _                 _

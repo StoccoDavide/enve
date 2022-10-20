@@ -23,7 +23,7 @@
 #include "enve.hh"
 #include "Utils.hh"
 
-#define ENVE_DEBUG
+//#define ENVE_DEBUG
 
 #ifdef ENVE_DEBUG
   #define ENVE_DEBUG_TICTOC      Utils::TicToc tictoc

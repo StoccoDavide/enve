@@ -29,7 +29,7 @@
 #define INCLUDE_ENVE_SFUN_WRAPPER_HH
 
 #include "enve.hh"
-#include "sfun_settings.h"
+#include "enve_sfun_settings.h"
 
 class ShellVehicle
 {
