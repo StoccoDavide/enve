@@ -1,10 +1,10 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                     #
-# This file is part of the TIREX project.                             #
+# This file is part of the ENVE project.                              #
 #                                                                     #
 # Copyright (c) 2022, Davide Stocco. All rights reserved.             #
 #                                                                     #
-# The TIREX project can not be copied and/or distributed without      #
+# The ENVE project can not be copied and/or distributed without       #
 # the express permission of Davide Stocco.                            #
 #                                                                     #
 #    Davide Stocco                                                    #
@@ -37,12 +37,12 @@ endif()
 message( STATUS "Compiler used: ${CMAKE_CXX_COMPILER_ID}" )
 message( STATUS "BASE SUFFIXES = ${ARTIFACTS_STATIC_SUFFIX} ${ARTIFACTS_DYNAMIC_SUFFIX}" )
 
-#   ____                                
-#  / ___|  ___  _   _ _ __ ___ ___  ___ 
+#   ____
+#  / ___|  ___  _   _ _ __ ___ ___  ___
 #  \___ \ / _ \| | | | '__/ __/ _ \/ __|
 #   ___) | (_) | |_| | | | (_|  __/\__ \
 #  |____/ \___/ \__,_|_|  \___\___||___/
-#                                       
+#
 
 set( SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src" )
 
@@ -54,15 +54,15 @@ foreach(F ${S})
   list( APPEND SOURCES ${RF} )
 endforeach(F ${S})
 
-#   _   _                _               
-#  | | | | ___  __ _  __| | ___ _ __ ___ 
+#   _   _                _
+#  | | | | ___  __ _  __| | ___ _ __ ___
 #  | |_| |/ _ \/ _` |/ _` |/ _ \ '__/ __|
 #  |  _  |  __/ (_| | (_| |  __/ |  \__ \
 #  |_| |_|\___|\__,_|\__,_|\___|_|  |___/
-#                                        
+#
 
 set( HEADERS )
-file( GLOB S 
+file( GLOB S
   ${SOURCES_DIR}/*.h*
   ${SOURCES_DIR}/enve/*.h*
 )
@@ -75,12 +75,12 @@ endforeach(F ${S})
 # Extra include directory for compilation
 include_directories( ./lib3rd/include )
 
-#   ____   __             
-#  / ___| / _|_   _ _ __  
-#  \___ \| |_| | | | '_ \ 
+#   ____   __
+#  / ___| / _|_   _ _ __
+#  \___ \| |_| | | | '_ \
 #   ___) |  _| |_| | | | |
 #  |____/|_|  \__,_|_| |_|
-#                         
+#
 
 set( ENVE_BUILD_SFUN TRUE )
 
@@ -90,28 +90,30 @@ if( ENVE_BUILD_SFUN )
   file( GLOB S ${SFUN_SOURCES_DIR}/*.cc )
   foreach( F ${S} )
     # Build relative path with respect to source directory
-    file( RELATIVE_PATH RF ${SOURCES_DIR} "${F}" )
+    file( REAL_PATH RF "${F}" )
     list( APPEND SOURCES ${RF} )
   endforeach( F ${S} )
 
   # S-function headers
   set( SFUN_HEADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/sfun/include_sfun" )
-  file( GLOB F ${SFUN_HEADERS_DIR}/*.h ${SFUN_HEADERS_DIR}/*.hh )
+  set( SFUN_HEADERS )
+  file( GLOB S ${SFUN_HEADERS_DIR}/*.h ${SFUN_HEADERS_DIR}/*.hh )
   foreach( F ${S} )
     # Build relative path with respect to source directory
-    file( RELATIVE_PATH RF ${SOURCES_DIR} "${F}" )
-    list( APPEND HEADERS ${RF} )
+    file( RELATIVE_PATH RF ${CMAKE_CURRENT_SOURCE_DIR} "${F}" )
+    list( APPEND SFUN_HEADERS ${RF} )
   endforeach( F ${S} )
 
-  include_directories( ./sfun/include_sfun )
+  install(FILES ${SFUN_HEADERS} DESTINATION ${PROJECT_PUBLIC_HEADER_DESTINATION} )
+  include_directories( ./sfun/include_sfun ./src )
 endif()
 
-#   ____                            _                 _           
-#  |  _ \  ___ _ __   ___ _ __   __| | ___ _ __   ___(_) ___  ___ 
+#   ____                            _                 _
+#  |  _ \  ___ _ __   ___ _ __   __| | ___ _ __   ___(_) ___  ___
 #  | | | |/ _ \ '_ \ / _ \ '_ \ / _` |/ _ \ '_ \ / __| |/ _ \/ __|
 #  | |_| |  __/ |_) |  __/ | | | (_| |  __/ | | | (__| |  __/\__ \
 #  |____/ \___| .__/ \___|_| |_|\__,_|\___|_| |_|\___|_|\___||___/
-#             |_|                                                 
+#             |_|
 
 set( DEPEND_TARGETS )
 
@@ -160,12 +162,16 @@ else()
   set( DEPEND_TARGETS ${DEPEND_TARGETS} ${ACME} )
 endif()
 
-#   _____                    _       
-#  |_   _|_ _ _ __ __ _  ___| |_ ___ 
+message( STATUS "SOURCES = ${SOURCES}" )
+message( STATUS "HEADERS = ${HEADERS}" )
+
+
+#   _____                    _
+#  |_   _|_ _ _ __ __ _  ___| |_ ___
 #    | |/ _` | '__/ _` |/ _ \ __/ __|
 #    | | (_| | | | (_| |  __/ |_\__ \
 #    |_|\__,_|_|  \__, |\___|\__|___/
-#                 |___/              
+#                 |___/
 
 # Define target
 utils_setup_target(
@@ -192,12 +198,12 @@ if( DEPEND_TARGETS )
   add_dependencies( ${UTILS_NAMESPACE}_${PROJECT_NAME}_Static ${DEPEND_TARGETS} )
 endif()
 
-#   _____         _       
-#  |_   _|__  ___| |_ ___ 
+#   _____         _
+#  |_   _|__  ___| |_ ___
 #    | |/ _ \/ __| __/ __|
 #    | |  __/\__ \ |_\__ \
 #    |_|\___||___/\__|___/
-#                         
+#
 
 if( UTILS_ENABLE_TESTS )
 
@@ -266,12 +272,12 @@ if( UTILS_ENABLE_TESTS )
 
 endif()
 
-#   ___           _        _ _ 
+#   ___           _        _ _
 #  |_ _|_ __  ___| |_ __ _| | |
 #   | || '_ \/ __| __/ _` | | |
 #   | || | | \__ \ || (_| | | |
 #  |___|_| |_|___/\__\__,_|_|_|
-#                              
+#
 
 install(
   TARGETS ${TARGETS_TO_BE_INSTALLED}
@@ -282,12 +288,12 @@ install(
   PUBLIC_HEADER DESTINATION ${PROJECT_PUBLIC_HEADER_DESTINATION}
 )
 
-#   ____            _                    
-#  |  _ \ __ _  ___| | ____ _  __ _  ___ 
+#   ____            _
+#  |  _ \ __ _  ___| | ____ _  __ _  ___
 #  | |_) / _` |/ __| |/ / _` |/ _` |/ _ \
 #  |  __/ (_| | (__|   < (_| | (_| |  __/
 #  |_|   \__,_|\___|_|\_\__,_|\__, |\___|
-#                             |___/      
+#                             |___/
 
 include( ./cmake_utils/CMakeLists-cpack.txt )
 

@@ -4,10 +4,10 @@ CLEAN.include   ["./**/*.o", "./**/*.obj", "./bin", "./build"]
 CLEAN.clear_exclude.exclude { |fn| fn.pathmap("%f").downcase == "core" }
 CLOBBER.include []
 
-desc "default task --> build"
+#desc "default task --> build"
 task :default => :build
 
-desc "compile for Visual Studio"
+#desc "compile for Visual Studio"
 task :build_win do
   # check architecture
   case `where cl.exe`.chop
@@ -38,7 +38,7 @@ task :build_win do
   FileUtils.cd '..'
 end
 
-desc "compile for OSX/LINUX/MINGW"
+#desc "compile for OSX/LINUX/MINGW"
 task :build_osx_linux_mingw do
 
   dir = "build"
@@ -70,6 +70,7 @@ task :build_osx   => :build_osx_linux_mingw do end
 task :build_linux => :build_osx_linux_mingw do end
 task :build_mingw => :build_osx_linux_mingw do end
 
+desc "Build submodules for library compilation OSX/LINUX/MINGW"
 task :build_submodules do
   FileUtils.cd 'submodules/acme/submodules'
   case OS

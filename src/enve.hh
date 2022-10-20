@@ -41,9 +41,9 @@
 #endif
 
 // Switch from Utils to acme AABB tree
-//#define ENVE_USE_UTILS_AABBTREE
+#define ENVE_USE_UTILS_AABBTREE
 #ifdef ENVE_USE_UTILS_AABBTREE
-#define ENVE_AABBTREE_NODE_SIZE 8
+#define ENVE_AABBTREE_NODE_SIZE 1
 #endif
 
 #include <fstream>
