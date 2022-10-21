@@ -41,10 +41,10 @@ main(void)
       << std::endl;
 
     // Set environment variable
-    setenv("ENVE_GROUND_PATH", "./files_rdf/sample.rdf", 1);
+    setenv("ENVE_GROUND_PATH", "../files_rdf/sample.rdf", 1);
 
     // Set data for S-function entry point for initialization
-    double size          = 10;  // Ribs number (-)
+    double size          = 1;  // Ribs number (-)
     double r_x           = 0.3; // Shell radius on x-axis (m)
     double m_x           = 4.0; // Shell curve degree for x-axis (-)
     double r_y           = 0.3; // Shell radius on y-axis (m)
@@ -73,11 +73,11 @@ main(void)
     real pitch_angle  = 0.0 * PI;
     affine pose1, pose2;
     pose1 = translate(1.0, 1.0, 0.8) * angleaxis(yaw_angle,    UNITZ_VEC3)
-                                    * angleaxis(camber_angle, UNITX_VEC3)
-                                    * angleaxis(pitch_angle,  UNITY_VEC3);
-    pose2 = translate(1.0, 1.0, 0.5) * angleaxis(yaw_angle,    UNITZ_VEC3)
-                                    * angleaxis(camber_angle, UNITX_VEC3)
-                                    * angleaxis(pitch_angle,  UNITY_VEC3);
+                                     * angleaxis(camber_angle, UNITX_VEC3)
+                                     * angleaxis(pitch_angle,  UNITY_VEC3);
+    pose2 = translate(1.0, 1.0, 0.4) * angleaxis(yaw_angle,    UNITZ_VEC3)
+                                     * angleaxis(camber_angle, UNITX_VEC3)
+                                     * angleaxis(pitch_angle,  UNITY_VEC3);
     ShellAffine input1, input2;
     for (int i = 0; i < 16; ++i)
     {
@@ -91,38 +91,64 @@ main(void)
       << pose1
       << pose2 << std::endl;
     std::cout
-      << "Input arrays" << std::endl;
+      << "Input arrays" << std::endl
+      << "Array = [ ";
     for (int i = 0; i < 16; ++i)
-      {std::cout << *(input1.hub_affine + i) << "  ";}
-    std::cout << std::endl;
+      {std::cout << *(input1.hub_affine + i) << ", ";}
+    std::cout
+      << "\b\b ]"
+      << std::endl
+      << "Array = [ ";
     for (int i = 0; i < 16; ++i)
-      {std::cout << *(input2.hub_affine + i) << "  ";}
+      {std::cout << *(input2.hub_affine + i) << ", ";}
+    std::cout << "\b\b ]" << std::endl;
 
     // Output bus containing the contact data
     GroundContact output1, output2;
 
-    double flat_enable = 0; // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    double flat_enable = 1; // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
     double method      = 0; // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
 
     // S-function entry point for step update
     sfun_out(
-      &input1,      // Input bus containing the shell hub affine transformation matrix
-      &output1,     // Output bus containing the contact data
+      &input1,     // Input bus containing the shell hub affine transformation matrix
+      &output1,    // Output bus containing the contact data
       &method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
       &flat_enable // flat_enable 0: ENVE use ground::mesh, 1: ENVE use ground::flat
     );
     sfun_out(
-      &input2,      // Input bus containing the shell hub affine transformation matrix
-      &output2,     // Output bus containing the contact data
+      &input2,     // Input bus containing the shell hub affine transformation matrix
+      &output2,    // Output bus containing the contact data
       &method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
       &flat_enable // flat_enable 0: ENVE use ground::mesh, 1: ENVE use ground::flat
     );
 
     // Output performance data
     std::cout
-      << "ENVE S-FUN REPORT" << std::endl
-      << output1.shell_affine
-      << output2.shell_affine << std::endl;
+      << std::endl
+      << "Output affines" << std::endl
+      << "Array = [ ";
+    for (int i = 0; i < 16; ++i)
+      {std::cout << *(output1.shell_affine + i) << ", ";}
+    std::cout
+      << "\b\b ]"
+      << std::endl
+      << "Array = [ ";
+    for (int i = 0; i < 16; ++i)
+      {std::cout << *(output2.shell_affine + i) << ", ";}
+    std::cout << "\b\b ]" << std::endl
+      << std::endl;
+
+    affine pose3, pose4;
+    for (int i = 0; i < 16; ++i)
+    {
+      pose3.matrix() = Eigen::Map<mat4>(output1.shell_affine, 4, 4);
+      pose4.matrix() = Eigen::Map<mat4>(output2.shell_affine, 4, 4);
+    }
+    std::cout
+      << "Output affines" << std::endl
+      << pose3
+      << pose4 << std::endl;
 
     // End of test
     std::cout

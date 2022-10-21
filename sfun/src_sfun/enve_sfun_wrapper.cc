@@ -78,11 +78,11 @@ ShellVehicle::out(
 
   // Copy input shell hub reference frame
   acme::affine tmp_affine;
-  for (int n = 0; n < 4; ++n)
+  for (int r = 0; r < 4; ++r)
   {
-    for (int m = 0; m < 4; ++m)
+    for (int c = 0; c < 4; ++c)
     {
-      (tmp_affine.matrix())(n,m) = hub_affine[m+4*n];
+      (tmp_affine.matrix())(r,c) = hub_affine[r+4*c];
     }
   }
 
@@ -118,18 +118,13 @@ ShellVehicle::out(
   this->m_shell->contactDepth(shell_rho);
   this->m_shell->contactFriction(shell_friction);
 
-  for (int n = 0; n < 4; ++n)
+  for (int r = 0; r < 4; ++r)
   {
-    for (int m = 0; m < 4; ++m)
+    for (int c = 0; c < 4; ++c)
     {
-      shell_affine[m+4*n] = (tmp_affine.matrix())(n,m);
+      shell_affine[r+4*c] = (tmp_affine.matrix())(r,c);
     }
   }
-
-  // Update of internal class memebers
-  this->m_flat.normal()   = tmp_affine.linear().col(2);
-  this->m_flat.origin()   = tmp_affine.translation();
-  this->m_flat.friction() = shell_friction;
 
   // Update ribs outputs
   for (int i = 0; i < MAX_RIBS; ++i)
@@ -139,11 +134,11 @@ ShellVehicle::out(
       this->m_shell->contactPointAffine(i, tmp_affine);
       this->m_shell->contactDepth(i, ribs_rho[i]);
       this->m_shell->contactFriction(i, ribs_friction[i]);
-      for (int n = 0; n < 4; ++n)
+      for (int r = 0; r < 4; ++r)
       {
-        for (int m = 0; m < 4; ++m)
+        for (int c = 0; c < 4; ++c)
         {
-          ribs_affine[m+4*n+16*i] = (tmp_affine.matrix())(n,m);
+          ribs_affine[r+4*c+16*i] = (tmp_affine.matrix())(r,c);
         }
       }
     }
@@ -152,11 +147,11 @@ ShellVehicle::out(
       tmp_affine.matrix() = acme::NAN_MAT4;
       ribs_rho[i]         = acme::QUIET_NAN;
       ribs_friction[i]    = acme::QUIET_NAN;
-      for (int n = 0; n < 4; ++n)
+      for (int r = 0; r < 4; ++r)
       {
-        for (int m = 0; m < 4; ++m)
+        for (int c = 0; c < 4; ++c)
         {
-          ribs_affine[m+4*n+16*i] = (tmp_affine.matrix())(n,m);
+          ribs_affine[r+4*c+16*i] = (tmp_affine.matrix())(r,c);
         }
       }
     }
