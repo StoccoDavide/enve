@@ -21,6 +21,21 @@
 ///
 
 #include "enve.hh"
+#include "Utils.hh"
+
+//#define ENVE_DEBUG
+
+#ifdef ENVE_DEBUG
+  #define ENVE_DEBUG_TICTOC      Utils::TicToc tictoc
+  #define ENVE_DEBUG_TIC         tictoc.tic()
+  #define ENVE_DEBUG_TOC         tictoc.toc()
+  #define ENVE_MESSAGE_DEBUG(...) std::cout << fmt::format(__VA_ARGS__) << std::flush
+#else
+  #define ENVE_DEBUG_TICTOC
+  #define ENVE_DEBUG_TIC
+  #define ENVE_DEBUG_TOC
+  #define ENVE_MESSAGE_DEBUG(...)
+#endif
 
 namespace enve
 {
@@ -39,8 +54,11 @@ namespace enve
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     mesh::mesh(void)
-      : m_AABBtree(std::make_shared<AABBtree>())
     {
+      #ifdef ENVE_USE_UTILS_AABBTREE
+      #else
+      this->m_AABBtree = std::make_shared<AABBtree>();
+      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -50,9 +68,7 @@ namespace enve
     )
       : mesh()
     {
-      this->m_triangles = triangles;
-      this->updateBBoxes();
-      this->m_AABBtree->build(this->m_bboxes);
+      this->buildAABBtree(triangles);
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -95,7 +111,6 @@ namespace enve
     {
       this->m_triangles = mesh_obj.m_triangles;
       this->m_bboxes    = mesh_obj.m_bboxes;
-      this->m_AABBtree  = mesh_obj.m_AABBtree;
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -129,15 +144,6 @@ namespace enve
       const
     {
       return this->m_triangles[i];
-    }
-
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    AABBtree::ptr const
-    mesh::ptrAABBtree(void)
-      const
-    {
-      return this->m_AABBtree;
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -213,7 +219,7 @@ namespace enve
 
       // Start loading mesh
       std::cout << "Loading *.rdf mesh... ";
-    
+
       // Check if the file is an ".rdf" file
       if (path.substr(path.size() - 4, 4) != ".rdf")
       {
@@ -318,7 +324,7 @@ namespace enve
       }
       std::cout
         << "Done" << std::endl;
-      
+
       // Perform safety check
       ENVE_ASSERT(nodes.size() == nodes_count && this->m_triangles.size() == elements_count,
         CMD "safety check not passed.");
@@ -333,17 +339,16 @@ namespace enve
       {
         // Update the local intersected triangles list
         std::cout << "Building AABB tree... ";
-        this->updateBBoxes();
-        this->m_AABBtree->build(this->m_bboxes);
+        this->buildAABBtree(this->m_triangles);
         std::cout
           << "Done" << std::endl
           << std::endl;
         return true;
       }
 
-      #undef CMD 
+      #undef CMD
     }
-    
+
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     bool
@@ -436,7 +441,7 @@ namespace enve
       }
       std::cout
         << "Done" << std::endl;
-      
+
       // Perform safety check
       ENVE_ASSERT(nodes.size() == nodes_count && this->m_triangles.size() == elements_count,
         CMD "safety check not passed.");
@@ -451,8 +456,7 @@ namespace enve
       {
         // Update the local intersected triangles list
         std::cout << "Building AABB tree... ";
-        this->updateBBoxes();
-        this->m_AABBtree->build(this->m_bboxes);
+        this->buildAABBtree(this->m_triangles);
         std::cout
           << "Done" << std::endl
           << std::endl;
@@ -466,45 +470,114 @@ namespace enve
 
     bool
     mesh::intersection(
-      AABBtree::ptr          const   ptrAABBtree,
-      triangleground::vecptr       & triangles
+      aabb::ptr const          box,
+      triangleground::vecptr & triangles
     )
       const
     {
+      ENVE_DEBUG_TICTOC;
+
+      #ifdef ENVE_USE_UTILS_AABBTREE
+
+      ENVE_DEBUG_TIC;
+      AABBset intersectList;
+      real bbox[6];
+      bbox[0] = box->min(0);
+      bbox[1] = box->min(1);
+      bbox[2] = box->min(2);
+      bbox[3] = box->max(0);
+      bbox[4] = box->max(1);
+      bbox[5] = box->max(2);
+      this->m_AABBtree.intersect_with_one_bbox( bbox, intersectList );
+      ENVE_DEBUG_TOC;
+      ENVE_MESSAGE_DEBUG(
+        "mesh::intersection, intersect_with_one_bbox_and_refine, elapsed {}ms\n",
+        tictoc.elapsed_ms()
+      );
+
+      ENVE_DEBUG_TIC;
+      triangles.resize(intersectList.size());
+      integer list = 0;
+      for ( integer const & i : intersectList )
+      {
+        triangles[list] = this->m_triangles[i];
+        ++list;
+      }
+      ENVE_DEBUG_TOC;
+      ENVE_MESSAGE_DEBUG(
+        "mesh::intersection, resize, elapsed {}ms\n",
+        tictoc.elapsed_ms()
+      );
+      return list > integer(0);
+
+      #else
+
+      ENVE_DEBUG_TIC;
+      aabb::vecptr ptrVecbox{box};
+      AABBtree::ptr ptrAABBtree(std::make_shared<AABBtree>());
+      ptrAABBtree->build(ptrVecbox);
       triangles.clear();
       aabb::vecpairptr intersection_list;
       this->m_AABBtree->intersection(*ptrAABBtree, intersection_list);
       for (size_t i = 0; i < intersection_list.size(); ++i)
         {triangles.emplace_back(this->ptrTriangleground((intersection_list[i].first)->id()));}
+      ENVE_DEBUG_TOC;
+      ENVE_MESSAGE_DEBUG(
+        "mesh::intersection, intersect, elapsed {}ms (old)\n",
+        tictoc.elapsed_ms()
+      );
+
       return triangles.size() > size_t(0);
+
+      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    bool
-    mesh::intersection(
-      aabb::vecptr           const & ptrVecbox,
-      triangleground::vecptr       & triangles
+    void
+    mesh::buildAABBtree(
+      triangleground::vecptr const & triangles
     )
-      const
     {
-      AABBtree::ptr ptrAABBtree(std::make_shared<AABBtree>());
-      ptrAABBtree->build(ptrVecbox);
-      return this->intersection(ptrAABBtree, triangles);
-    }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      ENVE_DEBUG_TICTOC;
 
-    bool
-    mesh::intersection(
-      aabb::ptr              const   ptrbox,
-      triangleground::vecptr       & triangles
-    )
-      const
-    {
-      aabb::vecptr ptrVecbox;
-      ptrVecbox.push_back(ptrbox);
-      return this->intersection(ptrVecbox, triangles);
+      this->m_triangles = triangles;
+      this->updateBBoxes();
+
+      #ifdef ENVE_USE_UTILS_AABBTREE
+
+      ENVE_DEBUG_TIC;
+      this->m_AABBtree.set_max_num_objects_per_node( ENVE_AABBTREE_NODE_SIZE );
+      this->m_AABBtree.allocate( triangles.size(), integer(3) );
+      integer aabb_pos = 0;
+      for ( triangleground::ptr tri : triangles )
+      {
+        this->m_AABBtree.replace_bbox(
+          tri->bbox().min().data(),
+          tri->bbox().max().data(),
+          aabb_pos
+        );
+        ++aabb_pos;
+      }
+      this->m_AABBtree.build();
+      ENVE_DEBUG_TOC;
+      ENVE_MESSAGE_DEBUG(
+        "mesh::buildAABBtree, build, elapsed {}ms\n",
+        tictoc.elapsed_ms()
+      );
+
+      #else
+
+      ENVE_DEBUG_TIC;
+      this->m_AABBtree->build(this->m_bboxes);
+      ENVE_DEBUG_TOC;
+      ENVE_MESSAGE_DEBUG(
+        "mesh::buildAABBtree, build, elapsed {}ms AABB old\n",
+        tictoc.elapsed_ms()
+      );
+
+      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

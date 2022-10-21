@@ -29,8 +29,10 @@
 /// file: aabb.hxx
 ///
 
-#ifndef INCLUDE_ACME_AABB
-#define INCLUDE_ACME_AABB
+#pragma once
+
+#ifndef INCLUDE_ACME_AABB_HXX
+#define INCLUDE_ACME_AABB_HXX
 
 #include "point.hxx"
 
@@ -71,12 +73,12 @@ namespace acme
     //! Box move constructor
     aabb(aabb &&) = default;
 
-    //! Box assignment operator    
+    //! Box assignment operator
     aabb & operator=(const aabb &) = default;
 
-    //! Box move assignment operator    
+    //! Box move assignment operator
     aabb & operator=(aabb &&) = default;
- 
+
     //! Box class constructor
     aabb(void);
 

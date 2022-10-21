@@ -29,8 +29,9 @@
 /// file: orthogonal.hxx
 ///
 
-#ifndef INCLUDE_ACME_ORTHOGONAL
-#define INCLUDE_ACME_ORTHOGONAL
+#pragma once
+#ifndef INCLUDE_ACME_ORTHOGONAL_HXX
+#define INCLUDE_ACME_ORTHOGONAL_HXX
 
 #include "aabb.hxx"
 #include "disk.hxx"

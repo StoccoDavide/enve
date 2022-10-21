@@ -316,7 +316,7 @@ namespace Utils {
   template <typename Real>
   Poly<Real>
   operator + ( Poly<Real> const & a, Poly<Real> const & b ) {
-    typedef typename Poly<Real>::Integer Integer;
+    using Integer = typename Poly<Real>::Integer;
     Integer max_order = std::max( a.order(), b.order() );
     Integer min_order = std::min( a.order(), b.order() );
     Poly<Real> sum( max_order ); // nuovo polinomio contenente la somma
@@ -337,7 +337,7 @@ namespace Utils {
   template <typename Real>
   Poly<Real>
   operator + ( Poly<Real> const & a, Real b ) {
-    typedef typename Poly<Real>::Integer Integer;
+    using Integer = typename Poly<Real>::Integer;
     Integer max_order = std::max( a.order(), 1 );
     Poly<Real> sum( max_order ); // nuovo polinomio contenente la somma
 
@@ -357,7 +357,7 @@ namespace Utils {
   template <typename Real>
   Poly<Real>
   operator + ( Real a, Poly<Real> const & b ) {
-    typedef typename Poly<Real>::Integer Integer;
+    using Integer = typename Poly<Real>::Integer;
     Integer max_order = std::max( b.order(), 1 );
     Poly<Real> sum( max_order ); // nuovo polinomio contenente la somma
 
@@ -377,7 +377,7 @@ namespace Utils {
   template <typename Real>
   Poly<Real>
   operator - ( Poly<Real> const & a, Poly<Real> const & b ) {
-    typedef typename Poly<Real>::Integer Integer;
+    using Integer = typename Poly<Real>::Integer;
     Integer max_order = std::max( a.order(), b.order() );
     Integer min_order = std::min( a.order(), b.order() );
     Poly<Real> sum( max_order ); // nuovo polinomio contenente la somma
@@ -398,7 +398,7 @@ namespace Utils {
   template <typename Real>
   Poly<Real>
   operator - ( Poly<Real> const & a, Real b ) {
-    typedef typename Poly<Real>::Integer Integer;
+    using Integer = typename Poly<Real>::Integer;
     Integer max_order = std::max( a.order(), 1 );
     Poly<Real> sum( max_order ); // nuovo polinomio contenente la somma
 
@@ -418,7 +418,7 @@ namespace Utils {
   template <typename Real>
   Poly<Real>
   operator - ( Real a, Poly<Real> const & b ) {
-    typedef typename Poly<Real>::Integer Integer;
+    using Integer = typename Poly<Real>::Integer;
     Integer max_order = std::max( b.order(), 1 );
     Poly<Real> sum( max_order ); // nuovo polinomio contenente la somma
 
@@ -438,7 +438,7 @@ namespace Utils {
   template <typename Real>
   Poly<Real>
   operator * ( Poly<Real> const & a, Poly<Real> const & b ) {
-    typedef typename Poly<Real>::Integer Integer;
+    using Integer = typename Poly<Real>::Integer;
     Poly<Real> prd( a.order() + b.order() - 1 ); // nuovo polinomio contenente il risultato
     for( Integer i = 0; i < a.order(); ++i )
       for( Integer j = 0; j < b.order(); ++j )
@@ -487,7 +487,7 @@ namespace Utils {
 
     static Real epsi = pow(std::numeric_limits<Real>::epsilon(),Real(0.75));
 
-    typedef typename Poly<Real>::Integer Integer;
+    using Integer = typename Poly<Real>::Integer;
 
     Poly<Real> P(p), Q(q);
     //
@@ -725,7 +725,7 @@ namespace Utils {
     m_roots.resize( m_intervals.size() );
     Integer n = 0;
     for ( auto & I : m_intervals ) {
-      m_roots.coeffRef(n++) = m_solver.eval( I.a, I.b, m_fun );
+      m_roots.coeffRef(n++) = m_solver.eval( I.a, I.b, &m_fun );
       if ( !m_solver.converged() )
         fmt::print( "Warning: Sturm<Real>::refine_roots failed at interval N.{}\n", n );
     }

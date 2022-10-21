@@ -358,11 +358,11 @@ namespace enve
   bool
   shell::checkTransformation(
     affine const & pose,
-    real           /*tolerance*/
+    real           tolerance
   )
     const
   {
-    return this->checkTransformation(pose.matrix());
+    return this->checkTransformation(pose.matrix(), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1019,10 +1019,7 @@ namespace enve
     triangleground::vecptr const & local_ground
   )
   {
-    real d0, d1, d2;
-    int  sum;
     size_t size = this->size();
-
     std::vector<real> y(size);
     for (size_t i = 0; i < size; ++i)
     {
@@ -1036,8 +1033,14 @@ namespace enve
     mid_plane.normalize();
 
     // Iterate on triangles
+    real d0, d1, d2;
+    integer sum;
     for (size_t i = 0; i < local_ground.size(); ++i)
     {
+      // Check for aabb collisions
+      if (!this->m_aabb->intersects(local_ground[i]->bbox()))
+        {break;}   
+
       // Calculate distance of i-th triangle
       d0 = mid_plane.signedDistance(local_ground[i]->vertex(0));
       d1 = mid_plane.signedDistance(local_ground[i]->vertex(1));

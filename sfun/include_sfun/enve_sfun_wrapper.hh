@@ -29,14 +29,13 @@
 #define INCLUDE_ENVE_SFUN_WRAPPER_HH
 
 #include "enve.hh"
-#include "acme.hh"
 #include "enve_sfun_settings.h"
 
 class ShellVehicle
 {
 private:
-  enve::shell        * m_shell; // Shell object pointer
-  enve::ground::flat   m_flat;  // Flat object
+  enve::shell        *m_shell; // Shell object pointer
+  enve::ground::flat  m_flat;  // Flat object pointer
 
 public:
   // Default class constructor

@@ -29,8 +29,9 @@
 /// file: collection.hxx
 ///
 
-#ifndef INCLUDE_ACME_COLLECTION
-#define INCLUDE_ACME_COLLECTION
+#pragma once
+#ifndef INCLUDE_ACME_COLLECTION_HXX
+#define INCLUDE_ACME_COLLECTION_HXX
 
 #include "AABBtree.hxx"
 #include "entity.hxx"

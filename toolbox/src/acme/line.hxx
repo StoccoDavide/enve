@@ -29,8 +29,9 @@
 /// file: line.hxx
 ///
 
-#ifndef INCLUDE_ACME_LINE
-#define INCLUDE_ACME_LINE
+#pragma once
+#ifndef INCLUDE_ACME_LINE_HXX
+#define INCLUDE_ACME_LINE_HXX
 
 #include "point.hxx"
 
@@ -64,12 +65,12 @@ namespace acme
     //! Line move constructor
     line(line &&) = default;
 
-    //! Line assignment operator    
+    //! Line assignment operator
     line & operator=(const line &) = default;
 
-    //! Line move assignment operator    
+    //! Line move assignment operator
     line & operator=(line &&) = default;
-    
+
     //! Line class destructor
     ~line(void) override = default;
 

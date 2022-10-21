@@ -29,8 +29,9 @@
 /// file: collinear.hxx
 ///
 
-#ifndef INCLUDE_ACME_COLLINEAR
-#define INCLUDE_ACME_COLLINEAR
+#pragma once
+#ifndef INCLUDE_ACME_COLLINEAR_HXX
+#define INCLUDE_ACME_COLLINEAR_HXX
 
 #include "line.hxx"
 #include "parallel.hxx"

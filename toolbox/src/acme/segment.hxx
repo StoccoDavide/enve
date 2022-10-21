@@ -29,8 +29,9 @@
 /// file: segment.hxx
 ///
 
-#ifndef INCLUDE_ACME_SEGMENT
-#define INCLUDE_ACME_SEGMENT
+#pragma once
+#ifndef INCLUDE_ACME_SEGMENT_HXX
+#define INCLUDE_ACME_SEGMENT_HXX
 
 #include "aabb.hxx"
 #include "point.hxx"
@@ -63,12 +64,12 @@ namespace acme
     //! Segment move constructor
     segment(segment &&) = default;
 
-    //! Segment assignment operator    
+    //! Segment assignment operator
     segment & operator=(const segment &) = default;
 
-    //! Segment move assignment operator    
+    //! Segment move assignment operator
     segment & operator=(segment &&) = default;
-    
+
     //! Segment class destructor
     ~segment(void) override = default;
 

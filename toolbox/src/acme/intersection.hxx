@@ -29,8 +29,9 @@
 /// file: intersection.hxx
 ///
 
-#ifndef INCLUDE_ACME_Intersection
-#define INCLUDE_ACME_Intersection
+#pragma once
+#ifndef INCLUDE_ACME_Intersection_HXX
+#define INCLUDE_ACME_Intersection_HXX
 
 #include "aabb.hxx"
 #include "ball.hxx"

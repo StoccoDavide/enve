@@ -39,7 +39,7 @@ namespace Utils {
 
   template <typename Real>
   class Point2D : public Eigen::Matrix<Real,2,1> {
-    typedef Eigen::Matrix<Real,2,1> P2D;
+    using P2D = Eigen::Matrix<Real,2,1>;
   public:
     Point2D() = default;
     //~Point2D() = default;
@@ -93,7 +93,7 @@ namespace Utils {
     }
 
     void
-    setup( Real const * A, Real const * B ) {
+    setup( Real const A[], Real const B[] ) {
       m_Pa.coeffRef(0) = A[0]; m_Pa.coeffRef(1) = A[1];
       m_Pb.coeffRef(0) = B[0]; m_Pb.coeffRef(1) = B[1];
     }

@@ -20,9 +20,9 @@
 /// file: mex_flat.cc
 ///
 
+#include "Utils_mex.hh"
 #include "acme.hh"
 #include "enve.hh"
-#include "mex_utils.hh"
 
 #define ASSERT(COND, MSG)               \
   if (!(COND))                          \
@@ -85,21 +85,21 @@ DATA_NEW(
   mxArray           *&mx_id,
   enve::ground::flat *ptr)
 {
-  mx_id = convertPtr2Mat<enve::ground::flat>(ptr);
+  mx_id = Utils::mex_convert_ptr_to_mx<enve::ground::flat>(ptr);
 }
 
 static inline enve::ground::flat *
 DATA_GET(
   mxArray const *&mx_id)
 {
-  return convertMat2Ptr<enve::ground::flat>(mx_id);
+  return Utils::mex_convert_mx_to_ptr<enve::ground::flat>(mx_id);
 }
 
 static void
 DATA_DELETE(
   mxArray const *&mx_id)
 {
-  destroyObject<enve::ground::flat>(mx_id);
+  Utils::mex_destroy_object<enve::ground::flat>(mx_id);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -108,12 +108,12 @@ static void
 do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 1 || nrhs == 4 || nrhs == 8, CMD "expected 1 or 4 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 4 || nrhs == 8, CMD "expected 1 or 4 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
-  MEX_ASSERT(
+  UTILS_MEX_ASSERT(
     mxIsChar(arg_in_0),
-    CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
+    CMD "first argument must be a string, found ``{}''\n", mxGetClassName(arg_in_0));
 
   real_type mu = acme::QUIET_NAN;
   real_type ox = acme::QUIET_NAN;
@@ -125,18 +125,18 @@ do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 
   if (nrhs == 4)
   {
-    mu = getScalarValue(arg_in_1, CMD "error in reading input friction value");
+    mu = Utils::mex_get_scalar_value(arg_in_1, CMD "error in reading input friction value");
     real_type const *matrix1_ptr;
     mwSize           rows1, cols1;
-    matrix1_ptr = getMatrixPointer(arg_in_2, rows1, cols1, CMD "error in first input matrix");
-    MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows1 << ", cols = " << cols1 << "\n");
+    matrix1_ptr = Utils::mex_matrix_pointer(arg_in_2, rows1, cols1, CMD "error in first input matrix");
+    UTILS_MEX_ASSERT(rows1 == 3 || cols1 == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows1, cols1);
     ox = matrix1_ptr[0];
     oy = matrix1_ptr[1];
     oz = matrix1_ptr[2];
     real_type const *matrix2_ptr;
     mwSize           rows2, cols2;
-    matrix2_ptr = getMatrixPointer(arg_in_3, rows2, cols2, CMD "error in second input matrix");
-    MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows2 << ", cols = " << cols2 << "\n");
+    matrix2_ptr = Utils::mex_matrix_pointer(arg_in_3, rows2, cols2, CMD "error in second input matrix");
+    UTILS_MEX_ASSERT(rows2 == 3 || cols2 == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows2, cols2);
     nx = matrix2_ptr[0];
     ny = matrix2_ptr[1];
     nz = matrix2_ptr[2];
@@ -154,8 +154,8 @@ static void
 do_delete(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'delete', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   DATA_DELETE(arg_in_1);
 #undef CMD
@@ -167,12 +167,12 @@ static void
 do_getOrigin(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'getOrigin', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
   acme::point        *out  = new acme::point(self->origin());
-  arg_out_0                = convertPtr2Mat<acme::point>(out);
+  arg_out_0                = Utils::mex_convert_ptr_to_mx<acme::point>(out);
 #undef CMD
 }
 
@@ -185,8 +185,8 @@ do_setOrigin(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   enve::ground::flat *self = DATA_GET(arg_in_1);
   real_type const    *matrix_ptr;
   mwSize              rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "error in first input matrix");
-  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << "\n");
+  matrix_ptr = Utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "error in first input matrix");
+  UTILS_MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows, cols);
   self->origin() = acme::point(matrix_ptr[0], matrix_ptr[1], matrix_ptr[2]);
 #undef CMD
 }
@@ -197,11 +197,11 @@ static void
 do_getNormal(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'getNormal', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self   = DATA_GET(arg_in_1);
-  real_type          *output = createMatrixValue(arg_out_0, 3, 1);
+  real_type          *output = Utils::mex_create_matrix_value(arg_out_0, 3, 1);
   acme::vec3          outvec(self->acme::plane::normal());
   output[0] = outvec.x();
   output[1] = outvec.y();
@@ -215,14 +215,14 @@ static void
 do_setNormal(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'setNormal', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
   real_type const    *matrix_ptr;
   mwSize              rows, cols;
-  matrix_ptr = getMatrixPointer(arg_in_2, rows, cols, CMD "error in first input matrix");
-  MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = " << rows << ", cols = " << cols << "\n");
+  matrix_ptr = Utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "error in first input matrix");
+  UTILS_MEX_ASSERT(rows == 3 || cols == 1, CMD "expected rows = 3 and cols = 1 found, rows = {}, cols = {}\n", rows, cols);
   self->normal() = acme::vec3(matrix_ptr[0], matrix_ptr[1], matrix_ptr[2]);
 #undef CMD
 }
@@ -233,12 +233,12 @@ static void
 do_getPlane(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'getPlane', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
   acme::plane        *out  = new acme::plane(self->layingPlane());
-  arg_out_0                = convertPtr2Mat<acme::plane>(out);
+  arg_out_0                = Utils::mex_convert_ptr_to_mx<acme::plane>(out);
 #undef CMD
 }
 
@@ -248,8 +248,8 @@ static void
 do_setPlane(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'setPlane', OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self  = DATA_GET(arg_in_1);
   acme::plane        *other = DATA_GET(arg_in_2);
@@ -264,11 +264,11 @@ do_getFriction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 
 #define CMD "mex_flat( 'getFriction', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
-  setScalarValue(arg_out_0, self->friction());
+  Utils::mex_set_scalar_value(arg_out_0, self->friction());
 #undef CMD
 }
 
@@ -279,11 +279,11 @@ do_setFriction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 
 #define CMD "mex_flat( 'setFriction', OBJ, FRICTION ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self  = DATA_GET(arg_in_1);
-  real_type           other = getScalarValue(arg_in_2, CMD "error in reading input value");
+  real_type           other = Utils::mex_get_scalar_value(arg_in_2, CMD "error in reading input value");
   self->friction()          = other;
 #undef CMD
 }
@@ -294,11 +294,11 @@ static void
 do_isDegenerated(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'isDegenerated', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self = DATA_GET(arg_in_1);
-  setScalarBool(arg_out_0, self->isDegenerated());
+  Utils::mex_set_scalar_bool(arg_out_0, self->isDegenerated());
 #undef CMD
 }
 
@@ -308,12 +308,12 @@ static void
 do_isApprox(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'isApprox', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self  = DATA_GET(arg_in_1);
   enve::ground::flat *other = DATA_GET(arg_in_2);
-  setScalarBool(arg_out_0, self->isApprox(*other));
+  Utils::mex_set_scalar_bool(arg_out_0, self->isApprox(*other));
 #undef CMD
 }
 
@@ -323,8 +323,8 @@ static void
 do_copy(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_flat( 'copy', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   enve::ground::flat *self  = DATA_GET(arg_in_1);
   enve::ground::flat *other = DATA_GET(arg_in_2);
@@ -365,7 +365,7 @@ mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
 
   try
   {
-    MEX_ASSERT(mxIsChar(arg_in_0), "first argument must be a string\n");
+    UTILS_MEX_ASSERT0(mxIsChar(arg_in_0), "first argument must be a string\n");
     string cmd  = mxArrayToString(arg_in_0);
     DO_CMD pfun = cmd_to_fun.at(cmd);
     pfun(nlhs, plhs, nrhs, prhs);

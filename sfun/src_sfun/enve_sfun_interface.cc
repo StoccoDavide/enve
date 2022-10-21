@@ -72,8 +72,8 @@ extern "C"
     shell->init(size, r_x, m_x, r_y, m_y, l_y, flat_height, flat_friction);
 
     // Store pointers
-    ground_ptr = reinterpret_cast<void *>(ground);
-    shell_ptr  = reinterpret_cast<void *>(shell);
+    ground_ptr = static_cast<void *>(ground);
+    shell_ptr  = static_cast<void *>(shell);
   }
 
   void
@@ -84,8 +84,8 @@ extern "C"
     const double      *flat_enable
   )
   {
-    enve::ground::mesh *ground = reinterpret_cast<enve::ground::mesh *>(ground_ptr);
-    ShellVehicle       *shell  = reinterpret_cast<ShellVehicle *>(shell_ptr);
+    enve::ground::mesh *ground = static_cast<enve::ground::mesh *>(ground_ptr);
+    ShellVehicle       *shell  = static_cast<ShellVehicle *>(shell_ptr);
     output->in_mesh = shell->out(
       ground,
       input->hub_affine,
@@ -103,6 +103,8 @@ extern "C"
   void
   sfun_end(void)
   {
+    delete static_cast<enve::ground::mesh *>(ground_ptr);
+    delete static_cast<ShellVehicle *>(shell_ptr);
   }
 
 #ifdef __cplusplus

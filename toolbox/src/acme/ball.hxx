@@ -29,8 +29,9 @@
 /// file: ball.hxx
 ///
 
-#ifndef INCLUDE_ACME_BALL 
-#define INCLUDE_ACME_BALL 
+#pragma once
+#ifndef INCLUDE_ACME_BALL_HXX
+#define INCLUDE_ACME_BALL_HXX
 
 #include "aabb.hxx"
 #include "point.hxx"
@@ -64,10 +65,10 @@ namespace acme
     //! Ball move constructor
     ball(ball &&) = default;
 
-    //! Ball assignment operator    
+    //! Ball assignment operator
     ball & operator=(const ball &) = default;
 
-    //! Ball move assignment operator    
+    //! Ball move assignment operator
     ball & operator=(ball &&) = default;
 
     //! Ball class deconstructor

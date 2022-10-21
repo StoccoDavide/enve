@@ -20,8 +20,8 @@
 /// file: triangleground.hxx
 ///
 
-#ifndef INCLUDE_ENVE_TRIANGLEGROUND
-#define INCLUDE_ENVE_TRIANGLEGROUND
+#ifndef INCLUDE_ENVE_TRIANGLEGROUND_HXX
+#define INCLUDE_ENVE_TRIANGLEGROUND_HXX
 
 namespace enve
 {

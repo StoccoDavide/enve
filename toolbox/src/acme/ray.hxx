@@ -29,8 +29,9 @@
 /// file: ray.hxx
 ///
 
-#ifndef INCLUDE_ACME_RAY
-#define INCLUDE_ACME_RAY
+#pragma once
+#ifndef INCLUDE_ACME_RAY_HXX
+#define INCLUDE_ACME_RAY_HXX
 
 #include "point.hxx"
 
@@ -64,12 +65,12 @@ namespace acme
     //! Ray move constructor
     ray(ray &&) = default;
 
-    //! Ray assignment operator    
+    //! Ray assignment operator
     ray & operator=(const ray &) = default;
 
-    //! Ray move assignment operator    
+    //! Ray move assignment operator
     ray & operator=(ray &&) = default;
-    
+
     //! Ray class destructor
     ~ray(void) override = default;
 

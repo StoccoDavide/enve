@@ -29,8 +29,9 @@
 /// file: disk.hxx
 ///
 
-#ifndef INCLUDE_ACME_DISK
-#define INCLUDE_ACME_DISK
+#pragma once
+#ifndef INCLUDE_ACME_DISK_HXX
+#define INCLUDE_ACME_DISK_HXX
 
 #include "point.hxx"
 #include "plane.hxx"
@@ -65,10 +66,10 @@ namespace acme
     //! Disk move constructor
     disk(disk &&) = default;
 
-    //! Disk assignment operator    
+    //! Disk assignment operator
     disk & operator=(const disk &) = default;
 
-    //! Disk move assignment operator    
+    //! Disk move assignment operator
     disk & operator=(disk &&) = default;
 
     //! Disk class deconstructor

@@ -29,8 +29,9 @@
 /// file: triangle.hxx
 ///
 
-#ifndef INCLUDE_ACME_TRIANGLE
-#define INCLUDE_ACME_TRIANGLE
+#pragma once
+#ifndef INCLUDE_ACME_TRIANGLE_HXX
+#define INCLUDE_ACME_TRIANGLE_HXX
 
 #include "aabb.hxx"
 #include "point.hxx"
@@ -65,12 +66,12 @@ namespace acme
     //! Triangle move constructor
     triangle(triangle &&) = default;
 
-    //! Triangle assignment operator    
+    //! Triangle assignment operator
     triangle & operator=(const triangle &) = default;
 
-    //! Triangle move assignment operator    
+    //! Triangle move assignment operator
     triangle & operator=(triangle &&) = default;
-    
+
     //! Triangle class destructor
     ~triangle(void) override = default;
 

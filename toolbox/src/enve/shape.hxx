@@ -20,8 +20,8 @@
 /// file: shape.hxx
 ///
 
-#ifndef INCLUDE_ENVE_SHAPE
-#define INCLUDE_ENVE_SHAPE
+#ifndef INCLUDE_ENVE_SHAPE_HXX
+#define INCLUDE_ENVE_SHAPE_HXX
 
 namespace enve
 {

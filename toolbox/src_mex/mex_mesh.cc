@@ -20,9 +20,9 @@
 /// file: mex_mesh.cc
 ///
 
+#include "Utils_mex.hh"
 #include "acme.hh"
 #include "enve.hh"
-#include "mex_utils.hh"
 
 #define ASSERT(COND, MSG)               \
   if (!(COND))                          \
@@ -76,21 +76,21 @@ DATA_NEW(
     mxArray *&mx_id,
     enve::ground::mesh *ptr)
 {
-  mx_id = convertPtr2Mat<enve::ground::mesh>(ptr);
+  mx_id = Utils::mex_convert_ptr_to_mx<enve::ground::mesh>(ptr);
 }
 
 static inline enve::ground::mesh *
 DATA_GET(
     mxArray const *&mx_id)
 {
-  return convertMat2Ptr<enve::ground::mesh>(mx_id);
+  return Utils::mex_convert_mx_to_ptr<enve::ground::mesh>(mx_id);
 }
 
 static void
 DATA_DELETE(
     mxArray const *&mx_id)
 {
-  destroyObject<enve::ground::mesh>(mx_id);
+  Utils::mex_destroy_object<enve::ground::mesh>(mx_id);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -100,12 +100,12 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'new', [, args] ): "
-  MEX_ASSERT(nrhs == 1 || nrhs == 2 || nrhs == 3, CMD "expected 1, 2 or 3 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 2 || nrhs == 3, CMD "expected 1, 2 or 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
-  MEX_ASSERT(
+  UTILS_MEX_ASSERT(
       mxIsChar(arg_in_0),
-      CMD << "first argument must be a string, found ``" << mxGetClassName(arg_in_0) << "''\n");
+      CMD "first argument must be a string, found ``{}''\n", mxGetClassName(arg_in_0));
 
   enve::ground::mesh *self = new enve::ground::mesh();
 
@@ -126,7 +126,7 @@ do_new(int nlhs, mxArray *plhs[],
     }
     else
     {
-      real_type friction = getScalarValue(arg_in_2, CMD "error in reading input value");
+      real_type friction = Utils::mex_get_scalar_value(arg_in_2, CMD "error in reading input value");
       self->load(path, friction);
     }
   }
@@ -142,8 +142,8 @@ do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'delete', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   DATA_DELETE(arg_in_1);
 #undef CMD
@@ -156,14 +156,14 @@ do_getTriangleground(int nlhs, mxArray *plhs[],
                    int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'getTriangleground', OBJ, I ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::mesh *self = DATA_GET(arg_in_1);
-  int i = getInt(arg_in_2, CMD "error in reading input value");
+  int i = Utils::mex_get_int64(arg_in_2, CMD "error in reading input value");
   enve::triangleground *out = new enve::triangleground();
   out->copy(*self->ptrTriangleground(i - 1));
-  arg_out_0 = convertPtr2Mat<enve::triangleground>(out);
+  arg_out_0 = Utils::mex_convert_ptr_to_mx<enve::triangleground>(out);
 #undef CMD
 }
 
@@ -174,11 +174,11 @@ do_size(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'size', OBJ ): "
-  MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::mesh *self = DATA_GET(arg_in_1);
-  setScalarInt(arg_out_0, self->size());
+  Utils::mex_set_scalar_int64(arg_out_0, self->size());
 #undef CMD
 }
 
@@ -189,8 +189,8 @@ do_copy(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'copy', OBJ, OTHER_OBJ ): "
-  MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
 
   enve::ground::mesh *self = DATA_GET(arg_in_1);
   enve::ground::mesh *other = DATA_GET(arg_in_2);
@@ -205,8 +205,8 @@ do_load(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'load', OBJ, PATH, [, FRICTION] ): "
-  MEX_ASSERT(nrhs == 3 || nrhs == 4, CMD "expected 3 or 4 inputs, nrhs = " << nrhs << "\n");
-  MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 3 || nrhs == 4, CMD "expected 3 or 4 inputs, nrhs = {}\n", nrhs);
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
 
   enve::ground::mesh *self = DATA_GET(arg_in_1);
   string path = mxArrayToString(arg_in_2);
@@ -226,7 +226,7 @@ do_load(int nlhs, mxArray *plhs[],
     }
     else
     {
-      real_type friction = getScalarValue(arg_in_3, CMD "error in reading input value");
+      real_type friction = Utils::mex_get_scalar_value(arg_in_3, CMD "error in reading input value");
       self->load(path, friction);
     }
   }
@@ -261,7 +261,7 @@ mexFunction(int nlhs, mxArray *plhs[],
 
   try
   {
-    MEX_ASSERT(mxIsChar(arg_in_0), "first argument must be a string\n");
+    UTILS_MEX_ASSERT0(mxIsChar(arg_in_0), "first argument must be a string\n");
     string cmd = mxArrayToString(arg_in_0);
     DO_CMD pfun = cmd_to_fun.at(cmd);
     pfun(nlhs, plhs, nrhs, prhs);

@@ -29,8 +29,9 @@
 /// file: utils.hxx
 ///
 
-#ifndef INCLUDE_ACME_UTILS
-#define INCLUDE_ACME_UTILS
+#pragma once
+#ifndef INCLUDE_ACME_UTILS_HXX
+#define INCLUDE_ACME_UTILS_HXX
 
 #include "aabb.hxx"
 #include "ball.hxx"

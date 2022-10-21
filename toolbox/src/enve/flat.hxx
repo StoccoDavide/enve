@@ -20,8 +20,8 @@
 /// file: flat.hxx
 ///
 
-#ifndef INCLUDE_ENVE_FLAT
-#define INCLUDE_ENVE_FLAT
+#ifndef INCLUDE_ENVE_FLAT_HXX
+#define INCLUDE_ENVE_FLAT_HXX
 
 namespace enve
 {

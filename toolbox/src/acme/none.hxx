@@ -29,8 +29,9 @@
 /// file: none.hxx
 ///
 
-#ifndef INCLUDE_ACME_NONE
-#define INCLUDE_ACME_NONE
+#pragma once
+#ifndef INCLUDE_ACME_NONE_HXX
+#define INCLUDE_ACME_NONE_HXX
 
 #include "point.hxx"
 
@@ -59,12 +60,12 @@ namespace acme
     //! None move constructor
     none(none &&) = default;
 
-    //! None assignment operator    
+    //! None assignment operator
     none & operator=(const none &) = default;
 
-    //! None move assignment operator    
+    //! None move assignment operator
     none & operator=(none &&) = default;
-    
+
     //! None class destructor
     ~none(void) override = default;
 

@@ -1,3 +1,19 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%                                                                     %
+% This file is part of the ENVE project.                              %
+%                                                                     %
+% Copyright (c) 2022, Davide Stocco. All rights reserved.             %
+%                                                                     %
+% The ENVE project can not be copied and/or distributed without       %
+% the express permission of Davide Stocco.                            %
+%                                                                     %
+%    Davide Stocco                                                    %
+%    Department of Industrial Engineering                             %
+%    University of Trento                                             %
+%    e-mail: davide.stocco@unitn.it                                   %
+%                                                                     %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
 clc;
 clear functions;
 [~,mexLoaded] = inmem('-completenames');

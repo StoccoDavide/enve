@@ -29,8 +29,9 @@
 /// file: plane.hxx
 ///
 
-#ifndef INCLUDE_ACME_PLANE
-#define INCLUDE_ACME_PLANE
+#pragma once
+#ifndef INCLUDE_ACME_PLANE_HXX
+#define INCLUDE_ACME_PLANE_HXX
 
 #include "point.hxx"
 
@@ -63,10 +64,10 @@ namespace acme
     //! Plane move constructor
     plane(plane &&) = default;
 
-    //! Plane assignment operator    
+    //! Plane assignment operator
     plane & operator=(const plane &) = default;
 
-    //! Plane move assignment operator    
+    //! Plane move assignment operator
     plane & operator=(plane &&) = default;
 
     //! Plane class destructor

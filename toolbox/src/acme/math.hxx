@@ -29,8 +29,9 @@
 /// file: math.hxx
 ///
 
-#ifndef INCLUDE_ACME_MATH
-#define INCLUDE_ACME_MATH
+#pragma once
+#ifndef INCLUDE_ACME_MATH_HXX
+#define INCLUDE_ACME_MATH_HXX
 
 #include <cmath>
 

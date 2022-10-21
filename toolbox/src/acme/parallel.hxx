@@ -29,8 +29,9 @@
 /// file: parallel.hxx
 ///
 
-#ifndef INCLUDE_ACME_PARALLEL
-#define INCLUDE_ACME_PARALLEL
+#pragma once
+#ifndef INCLUDE_ACME_PARALLEL_HXX
+#define INCLUDE_ACME_PARALLEL_HXX
 
 #include "aabb.hxx"
 #include "disk.hxx"

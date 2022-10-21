@@ -88,16 +88,18 @@ ShellVehicle::out(
 
   // Extract enveloping method
   std::string method_in;
-  if (*method == 0)
+  int method_int = int(*method);
+  if (method_int == 0)
     {method_in = "geometric";}
-  else if (*method == 1)
+  else if (method_int == 1)
     {method_in = "sampling";}
   else
     {method_in = "none";}
 
   // Use back-up plane for setup routine
   bool in_mesh;
-  if (*flat_enable != 0)
+  int flat_enable_int = int(*flat_enable);
+  if (flat_enable_int != 0)
   {
     this->m_shell->setup(this->m_flat, tmp_affine, method_in);
     in_mesh = true;

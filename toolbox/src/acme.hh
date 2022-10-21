@@ -30,9 +30,8 @@
 ///
 
 #pragma once
-
-#ifndef INCLUDE_ACME
-#define INCLUDE_ACME
+#ifndef INCLUDE_ACME_HH
+#define INCLUDE_ACME_HH
 
 // Print acme errors
 #ifndef ACME_ERROR

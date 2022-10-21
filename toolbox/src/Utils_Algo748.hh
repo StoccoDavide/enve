@@ -76,7 +76,7 @@ namespace Utils {
   template <typename Real>
   class Algo748 {
 
-    typedef int Integer;
+    using Integer = int;
 
     Integer m_num_iter_done = 0;
     Integer m_num_fun_eval  = 0;
@@ -122,7 +122,7 @@ namespace Utils {
 
     template <typename PFUN>
     Real
-    eval( Real a, Real b, PFUN pfun ) {
+    eval2( Real a, Real b, PFUN pfun ) {
       Algo748_fun<Real,PFUN> fun( pfun );
       m_function = &fun;
       return this->eval(a,b);

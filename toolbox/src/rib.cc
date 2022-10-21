@@ -189,7 +189,6 @@ namespace enve
     out.depth    = real(0.0);
     out.area     = real(0.0);
     out.volume   = real(0.0);
-
     return false;
   }
 

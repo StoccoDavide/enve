@@ -29,8 +29,9 @@
 /// file: point.hxx
 ///
 
-#ifndef INCLUDE_ACME_POINT
-#define INCLUDE_ACME_POINT
+#pragma once
+#ifndef INCLUDE_ACME_POINT_HXX
+#define INCLUDE_ACME_POINT_HXX
 
 #include "entity.hxx"
 #include "math.hxx"
@@ -62,10 +63,10 @@ namespace acme
     //! Point move constructor
     point(point &&) = default;
 
-    //! Point assignment operator    
+    //! Point assignment operator
     point & operator=(const point &) = default;
 
-    //! Point move assignment operator    
+    //! Point move assignment operator
     point & operator=(point &&) = default;
 
     //! Point class destructor

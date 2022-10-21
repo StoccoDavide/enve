@@ -20,8 +20,8 @@
 /// file: shell.hxx
 ///
 
-#ifndef INCLUDE_ENVE_SHELL
-#define INCLUDE_ENVE_SHELL
+#ifndef INCLUDE_ENVE_SHELL_HXX
+#define INCLUDE_ENVE_SHELL_HXX
 
 #include "flat.hxx"
 #include "mesh.hxx"
