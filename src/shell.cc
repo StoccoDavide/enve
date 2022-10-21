@@ -1028,6 +1028,14 @@ namespace enve
         {this->m_candidates[i].clear();}
     }
 
+    // Workaround
+    //for (size_t i = 0; i < size; ++i)
+    //{
+    //  this->m_candidates[i].resize(local_ground.size());
+    //  this->m_candidates[i] = local_ground;
+    //}
+    //return;
+
     // Create shell middle plane
     plane mid_plane(this->translation(), this->y());
     mid_plane.normalize();

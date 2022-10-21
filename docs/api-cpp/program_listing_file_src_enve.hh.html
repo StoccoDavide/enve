@@ -62,8 +62,8 @@
 <span class="cm">*/</span>
 
 
-<span class="cp">#ifndef INCLUDE_ENVE</span>
-<span class="cp">#define INCLUDE_ENVE</span>
+<span class="cp">#ifndef INCLUDE_ENVE_HH</span>
+<span class="cp">#define INCLUDE_ENVE_HH</span>
 
 <span class="c1">// Print enve errors</span>
 <span class="cp">#ifndef ENVE_ERROR</span>
@@ -82,9 +82,30 @@
 <span class="cp">  ENVE_ERROR(MSG)</span>
 <span class="cp">#endif</span>
 
+<span class="c1">// Switch from Utils to acme AABB tree</span>
+<span class="cp">#define ENVE_USE_UTILS_AABBTREE</span>
+<span class="cp">#ifdef ENVE_USE_UTILS_AABBTREE</span>
+<span class="cp">#define ENVE_AABBTREE_NODE_SIZE 1</span>
+<span class="cp">#endif</span>
+
+<span class="c1">// Define enve debug timing and messaging</span>
+<span class="c1">//#define ENVE_DEBUG</span>
+<span class="cp">#ifdef ENVE_DEBUG</span>
+  <span class="cp">#define ENVE_DEBUG_TICTOC      Utils::TicToc tictoc</span>
+  <span class="cp">#define ENVE_DEBUG_TIC         tictoc.tic()</span>
+  <span class="cp">#define ENVE_DEBUG_TOC         tictoc.toc()</span>
+  <span class="cp">#define ENVE_MESSAGE_DEBUG(...) std::cout &lt;&lt; fmt::format(__VA_ARGS__) &lt;&lt; std::flush</span>
+<span class="cp">#else</span>
+  <span class="cp">#define ENVE_DEBUG_TICTOC</span>
+  <span class="cp">#define ENVE_DEBUG_TIC</span>
+  <span class="cp">#define ENVE_DEBUG_TOC</span>
+  <span class="cp">#define ENVE_MESSAGE_DEBUG(...)</span>
+<span class="cp">#endif</span>
+
 <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
 
 <span class="cp">#include</span> <span class="cpf">"acme.hh"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">"Utils_AABB_tree.hh"</span><span class="cp"></span>
 
 <span class="k">using</span> <span class="n">acme</span><span class="o">::</span><span class="n">real</span><span class="p">;</span>
 <span class="k">using</span> <span class="n">acme</span><span class="o">::</span><span class="n">integer</span><span class="p">;</span>
@@ -115,6 +136,10 @@
 <span class="k">using</span> <span class="n">acme</span><span class="o">::</span><span class="n">NAN_AABB</span><span class="p">;</span>
 
 <span class="k">using</span> <span class="n">acme</span><span class="o">::</span><span class="n">IsApprox</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="n">Utils</span><span class="o">::</span><span class="n">AABBtree</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;</span>           <span class="n">AABBtreeUtils</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Utils</span><span class="o">::</span><span class="n">AABBtree</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">AABB_SET</span> <span class="n">AABBset</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">Utils</span><span class="o">::</span><span class="n">AABBtree</span><span class="o">&lt;</span><span class="n">real</span><span class="o">&gt;::</span><span class="n">AABB_MAP</span> <span class="n">AABBmap</span><span class="p">;</span>
 
 <span class="cp">#include</span> <span class="cpf">"enve/flat.hxx"</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">"enve/mesh.hxx"</span><span class="cp"></span>

@@ -41,7 +41,7 @@ main(void)
       << std::endl;
 
     // Set environment variable
-    setenv("ENVE_GROUND_PATH", "../files_rdf/sample.rdf", 1);
+    setenv("ENVE_GROUND_PATH", "./files_rdf/sample.rdf", 1);
 
     // Set data for S-function entry point for initialization
     double size          = 10;  // Ribs number (-)
@@ -54,7 +54,7 @@ main(void)
     double flat_friction = -1.0; // Flat ground surface friction scaling coefficient (-)
 
     // S-function entry point for initialization
-    sfun_init(
+    enve_sfun_init(
        &size,         // Ribs number (-)
        &r_x,          // Shell radius on x-axis (m)
        &m_x,          // Shell curve degree for x-axis (-)
@@ -110,13 +110,13 @@ main(void)
     double method      = 0; // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
 
     // S-function entry point for step update
-    sfun_out(
+    enve_sfun_out(
       &input1,     // Input bus containing the shell hub affine transformation matrix
       &output1,    // Output bus containing the contact data
       &method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
       &flat_enable // flat_enable 0: ENVE use ground::mesh, 1: ENVE use ground::flat
     );
-    sfun_out(
+    enve_sfun_out(
       &input2,     // Input bus containing the shell hub affine transformation matrix
       &output2,    // Output bus containing the contact data
       &method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping

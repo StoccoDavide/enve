@@ -63,10 +63,6 @@ main(void)
     real camber_angle = 0.0 * PI;
     real pitch_angle  = 0.0 * PI;
 
-    // Set frequency and speed
-    real frequency = 1000; // Hz
-    real speed     = 0.01;   // m/s
-
     // Set starting and arrival positions
     // Geometric
     // 198.09 triangles (14.2% of duty cycle - 20 ribs)  (8.8% of duty cycle - 10 ribs) (5.6% of duty cycle - 5 ribs)
@@ -76,11 +72,10 @@ main(void)
     point arrival(46.0, 175.6, 0.26);
 
     // Compute parameters
-    real  step_size = (arrival - start).norm() / speed * frequency;
-    point step((arrival - start) / step_size);
-    point origin(start);
-    vecN  time_vec(static_cast<size_t>(step_size) + 1);
-
+    size_t steps = 1e3;
+    point  step((arrival - start) / steps);
+    point  origin(start);
+    vecN   time_vec(static_cast<size_t>(steps) + 1);
 
     // Create frame object
     affine pose;
@@ -98,7 +93,7 @@ main(void)
     // Perform timing
     triangleground::vecptr triangles_list;
     real triangles_list_size = 0.0;
-    for (size_t i = 0; i < step_size; ++i)
+    for (size_t i = 0; i < steps; ++i)
     {
       // Start chronometer
       tictoc.tic();
@@ -127,7 +122,7 @@ main(void)
 
     real mean     = time_vec.mean();
     real variance = 0.0;
-    triangles_list_size /= step_size;
+    triangles_list_size /= steps;
     for (integer i = 0; i < time_vec.size(); ++i)
       {variance += (time_vec[i] - mean) * (time_vec[i] - mean);}
     variance /= time_vec.size();

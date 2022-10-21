@@ -37,7 +37,7 @@ extern "C"
   void *shell_ptr;
 
   void
-  sfun_init(
+  enve_sfun_init(
     const double *size,
     const double *r_x,
     const double *m_x,
@@ -77,7 +77,7 @@ extern "C"
   }
 
   void
-  sfun_out(
+  enve_sfun_out(
     const ShellAffine *input,
     GroundContact     *output,
     const double      *method,
@@ -101,10 +101,10 @@ extern "C"
   }
 
   void
-  sfun_end(void)
+  enve_sfun_end(void)
   {
-    delete static_cast<enve::ground::mesh *>(ground_ptr);
-    delete static_cast<ShellVehicle *>(shell_ptr);
+    //delete static_cast<enve::ground::mesh *>(ground_ptr);
+    //delete static_cast<ShellVehicle *>(shell_ptr);
   }
 
 #ifdef __cplusplus

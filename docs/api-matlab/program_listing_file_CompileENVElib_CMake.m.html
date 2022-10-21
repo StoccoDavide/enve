@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Listing for File CompileENVElib_CMake.m &#8212; ENVE v2.0
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="program-listing-for-file-compileenvelib-cmake-m">
+<span id="program-listing-file-compileenvelib-cmake-m"></span><h1>Program Listing for File CompileENVElib_CMake.m<a class="headerlink" href="#program-listing-for-file-compileenvelib-cmake-m" title="Permalink to this headline">¶</a>
+</h1>
+<p>↰ <a class="reference internal" href="file_CompileENVElib_CMake.m.html#file-compileenvelib-cmake-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">CompileENVElib_CMake.m</span></code>)</p>
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %</span><span class="w"></span>
+<span class="c">%                                                                     %</span><span class="w"></span>
+<span class="c">% This file is part of the ENVE project.                              %</span><span class="w"></span>
+<span class="c">%                                                                     %</span><span class="w"></span>
+<span class="c">% Copyright (c) 2022, Davide Stocco. All rights reserved.             %</span><span class="w"></span>
+<span class="c">%                                                                     %</span><span class="w"></span>
+<span class="c">% The ENVE project can not be copied and/or distributed without       %</span><span class="w"></span>
+<span class="c">% the express permission of Davide Stocco.                            %</span><span class="w"></span>
+<span class="c">%                                                                     %</span><span class="w"></span>
+<span class="c">%    Davide Stocco                                                    %</span><span class="w"></span>
+<span class="c">%    Department of Industrial Engineering                             %</span><span class="w"></span>
+<span class="c">%    University of Trento                                             %</span><span class="w"></span>
+<span class="c">%    e-mail: davide.stocco@unitn.it                                   %</span><span class="w"></span>
+<span class="c">%                                                                     %</span><span class="w"></span>
+<span class="c">% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %</span><span class="w"></span>
+
+<span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="w"></span>
+<span class="n">clear</span><span class="w"> </span><span class="s">functions</span><span class="p">;</span><span class="w"></span>
+<span class="n">clear</span><span class="w"> </span><span class="s">mex</span><span class="p">;</span><span class="w"></span>
+<span class="nb">clc</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="nb">ismac</span><span class="w"></span>
+<span class="w">  </span><span class="n">oldPath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getenv</span><span class="p">(</span><span class="s">'PATH'</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">newPath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">strcat</span><span class="p">(</span><span class="n">oldPath</span><span class="p">,</span><span class="w"> </span><span class="nb">pathsep</span><span class="p">,</span><span class="w"> </span><span class="s">'/usr/local/bin'</span><span class="p">);</span><span class="w"> </span><span class="c">% on MAC</span><span class="w"></span>
+<span class="w">  </span><span class="nb">setenv</span><span class="p">(</span><span class="s">'PATH'</span><span class="p">,</span><span class="w"> </span><span class="n">newPath</span><span class="p">);</span><span class="w"></span>
+<span class="k">elseif</span><span class="w"> </span><span class="nb">isunix</span><span class="w"></span>
+<span class="k">elseif</span><span class="w"> </span><span class="nb">ispc</span><span class="w"></span>
+<span class="w">  </span><span class="n">oldPath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getenv</span><span class="p">(</span><span class="s">'PATH'</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">newPath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">strcat</span><span class="p">(</span><span class="n">oldPath</span><span class="p">,</span><span class="w"> </span><span class="nb">pathsep</span><span class="p">,</span><span class="w"> </span><span class="s">'C:\Program Files\CMake\bin'</span><span class="p">);</span><span class="w"> </span><span class="c">% on Windows</span><span class="w"></span>
+<span class="w">  </span><span class="nb">setenv</span><span class="p">(</span><span class="s">'PATH'</span><span class="p">,</span><span class="w"> </span><span class="n">newPath</span><span class="p">);</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="n">old_dir</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cd</span><span class="p">(</span><span class="nb">fileparts</span><span class="p">(</span><span class="nb">which</span><span class="p">(</span><span class="nb">mfilename</span><span class="p">)));</span><span class="w"></span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">'..'</span><span class="p">);</span><span class="w"></span>
+<span class="c">%system('rmdir /S build');</span><span class="w"></span>
+<span class="n">numcores</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">feature</span><span class="p">(</span><span class="s">'numcores'</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="nb">isfolder</span><span class="p">(</span><span class="s">'build'</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="nb">rmdir</span><span class="p">(</span><span class="s">'build'</span><span class="p">,</span><span class="s">'s'</span><span class="p">)</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="nb">false</span><span class="w"></span>
+<span class="w">  </span><span class="n">CMD1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'cmake -G "Ninja" -DCMAKE_BUILD_TYPE:STRING=Debug -Bbuild -S .'</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CMD2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'ninja -C build'</span><span class="p">;</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">  </span><span class="n">CMD1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'cmake -G "Ninja" -DCMAKE_BUILD_TYPE:STRING=Release -Bbuild -S .'</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CMD2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'ninja -C build'</span><span class="p">;</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="nb">fprintf</span><span class="p">(</span><span class="w"> </span><span class="s">'%s\n%s\n'</span><span class="p">,</span><span class="w"> </span><span class="n">CMD1</span><span class="p">,</span><span class="w"> </span><span class="n">CMD2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="nb">system</span><span class="p">(</span><span class="n">CMD1</span><span class="p">);</span><span class="w"></span>
+<span class="nb">system</span><span class="p">(</span><span class="n">CMD2</span><span class="p">);</span><span class="w"></span>
+
+<span class="nb">cd</span><span class="p">(</span><span class="n">old_dir</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">The ENVE library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">How to use ENVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-cpp/root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">MATLAB API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

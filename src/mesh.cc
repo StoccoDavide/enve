@@ -21,21 +21,6 @@
 ///
 
 #include "enve.hh"
-#include "Utils.hh"
-
-//#define ENVE_DEBUG
-
-#ifdef ENVE_DEBUG
-  #define ENVE_DEBUG_TICTOC      Utils::TicToc tictoc
-  #define ENVE_DEBUG_TIC         tictoc.tic()
-  #define ENVE_DEBUG_TOC         tictoc.toc()
-  #define ENVE_MESSAGE_DEBUG(...) std::cout << fmt::format(__VA_ARGS__) << std::flush
-#else
-  #define ENVE_DEBUG_TICTOC
-  #define ENVE_DEBUG_TIC
-  #define ENVE_DEBUG_TOC
-  #define ENVE_MESSAGE_DEBUG(...)
-#endif
 
 namespace enve
 {
@@ -491,7 +476,7 @@ namespace enve
       this->m_AABBtree.intersect_with_one_bbox( bbox, intersectList );
       ENVE_DEBUG_TOC;
       ENVE_MESSAGE_DEBUG(
-        "mesh::intersection, intersect_with_one_bbox_and_refine, elapsed {}ms\n",
+        "enve::mesh::intersection(Utils): intersect_with_one_bbox task, elapsed time {}ms\n",
         tictoc.elapsed_ms()
       );
 
@@ -505,7 +490,7 @@ namespace enve
       }
       ENVE_DEBUG_TOC;
       ENVE_MESSAGE_DEBUG(
-        "mesh::intersection, resize, elapsed {}ms\n",
+        "enve::mesh::intersection(Utils):  resize task, elapsed time {}ms\n",
         tictoc.elapsed_ms()
       );
       return list > integer(0);
@@ -523,7 +508,7 @@ namespace enve
         {triangles.emplace_back(this->ptrTriangleground((intersection_list[i].first)->id()));}
       ENVE_DEBUG_TOC;
       ENVE_MESSAGE_DEBUG(
-        "mesh::intersection, intersect, elapsed {}ms (old)\n",
+        "enve::mesh::intersection(acme): intersection task, elapsed time {}ms\n",
         tictoc.elapsed_ms()
       );
 
@@ -563,7 +548,7 @@ namespace enve
       this->m_AABBtree.build();
       ENVE_DEBUG_TOC;
       ENVE_MESSAGE_DEBUG(
-        "mesh::buildAABBtree, build, elapsed {}ms\n",
+        "enve::mesh::buildAABBtree(Utils): build task, elapsed time {}ms\n",
         tictoc.elapsed_ms()
       );
 
@@ -573,7 +558,7 @@ namespace enve
       this->m_AABBtree->build(this->m_bboxes);
       ENVE_DEBUG_TOC;
       ENVE_MESSAGE_DEBUG(
-        "mesh::buildAABBtree, build, elapsed {}ms AABB old\n",
+        "enve::mesh::buildAABBtree(acme): build task, elapsed time {}ms\n",
         tictoc.elapsed_ms()
       );
 

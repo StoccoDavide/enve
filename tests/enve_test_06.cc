@@ -43,7 +43,7 @@ main(void)
     Utils::TicToc tictoc;
 
     // Load .rdf File
-    ground::mesh road("./files_obj/HalfStep.obj", 1.0);
+    ground::mesh road("./files_obj/sample.obj", 1.0);
 
     // Print OutMesh.txt file
     //road.print("bin/OutMesh.txt");

@@ -62,8 +62,8 @@
 <span class="cm">*/</span>
 
 
-<span class="cp">#ifndef INCLUDE_ENVE_MESH</span>
-<span class="cp">#define INCLUDE_ENVE_MESH</span>
+<span class="cp">#ifndef INCLUDE_ENVE_MESH_HXX</span>
+<span class="cp">#define INCLUDE_ENVE_MESH_HXX</span>
 
 <span class="cp">#include</span> <span class="cpf">"triangleground.hxx"</span><span class="cp"></span>
 
@@ -91,7 +91,12 @@
     <span class="k">private</span><span class="o">:</span>
       <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="n">m_triangles</span><span class="p">;</span>
       <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span>           <span class="n">m_bboxes</span><span class="p">;</span>
-      <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span>          <span class="n">m_AABBtree</span><span class="p">;</span>
+
+      <span class="cp">#ifdef ENVE_USE_UTILS_AABBTREE</span>
+      <span class="n">AABBtreeUtils</span> <span class="n">m_AABBtree</span><span class="p">;</span>
+      <span class="cp">#else</span>
+      <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">m_AABBtree</span><span class="p">;</span>
+      <span class="cp">#endif</span>
 
     <span class="k">public</span><span class="o">:</span>
       <span class="n">mesh</span><span class="p">(</span><span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
@@ -136,10 +141,6 @@
         <span class="kt">size_t</span> <span class="n">i</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-      <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="k">const</span>
-      <span class="n">ptrAABBtree</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-      <span class="k">const</span><span class="p">;</span>
-
       <span class="kt">void</span>
       <span class="nf">print</span><span class="p">(</span>
         <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">path</span>
@@ -166,21 +167,14 @@
 
       <span class="kt">bool</span>
       <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span>          <span class="k">const</span>   <span class="n">AABBtree</span><span class="p">,</span>
-        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span> <span class="n">triangles</span>
-      <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-      <span class="kt">bool</span>
-      <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span>           <span class="k">const</span> <span class="o">&amp;</span> <span class="n">boxes</span><span class="p">,</span>
-        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span> <span class="n">triangles</span>
-      <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-      <span class="kt">bool</span>
-      <span class="nf">intersection</span><span class="p">(</span>
         <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span>              <span class="k">const</span>   <span class="n">box</span><span class="p">,</span>
         <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span> <span class="n">triangles</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+      <span class="kt">void</span>
+      <span class="nf">buildAABBtree</span><span class="p">(</span>
+        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangles</span>
+      <span class="p">);</span>
 
     <span class="k">private</span><span class="o">:</span>
       <span class="kt">void</span>

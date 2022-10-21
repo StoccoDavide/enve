@@ -22,7 +22,7 @@
 */
 
 ///
-/// file: c.h
+/// file: enve_sfun_interface.h
 ///
 
 #ifndef INCLUDE_ENVE_SFUN_INTEREFACE_H
@@ -37,7 +37,7 @@ extern "C"
 
   // S-function entry point for initialization
   void
-  sfun_init(
+  enve_sfun_init(
     const double *size,         // Ribs number (-)
     const double *r_x,          // Shell radius on x-axis (m)
     const double *m_x,          // Shell curve degree for x-axis (-)
@@ -50,7 +50,7 @@ extern "C"
 
   // S-function entry point for step update
   void
-  sfun_out(
+  enve_sfun_out(
     const ShellAffine *input,      // Input bus containing the shell hub affine transformation matrix
     GroundContact     *output,     // Output bus containing the contact data
     const double      *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
@@ -59,7 +59,7 @@ extern "C"
 
   // S-function entry point for deletion of allocated memory
   void
-  sfun_end(void);
+  enve_sfun_end(void);
 
 #ifdef __cplusplus
 }
