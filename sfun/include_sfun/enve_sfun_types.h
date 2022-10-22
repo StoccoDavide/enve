@@ -38,19 +38,19 @@ typedef double EnveRealPar;
 // Structure containing the input enve S-function bus
 typedef struct
 {
-  EnveRealPar hub_affine[16]; // Shell hub affine transformation matrix
+  EnveRealPar HubAffine[16]; // Shell hub affine transformation matrix
 } EnveInputBus;
 
 // Structure containing the output enve S-function bus
 typedef struct
 {
-  EnveRealPar shell_affine[16];              // Shell contact point affine transformation matrix
-  EnveRealPar shell_rho;                     // Shell contact depth
-  EnveRealPar shell_friction;                // Shell friction coefficient scaling factor
-  EnveRealPar ribs_affine[16*ENVE_MAX_RIBS]; // Ribs contact point affine transformation matrix
-  EnveRealPar ribs_rho[ENVE_MAX_RIBS];       // Ribs contact depth
-  EnveRealPar ribs_friction[ENVE_MAX_RIBS];  // Ribs friction coefficient scaling factor
-  EnveRealPar in_mesh;                       // Flag to detect if the wheel is outside the ground mesh. (0: at least one wheel is out of ground, 1: every wheels are in the ground)
+  EnveRealPar ShellAffine[16];              // Shell contact point affine transformation matrix
+  EnveRealPar ShellRho;                     // Shell contact depth
+  EnveRealPar ShellFriction;                // Shell friction coefficient scaling factor
+  EnveRealPar RibsAffine[16*ENVE_MAX_RIBS]; // Ribs contact point affine transformation matrix
+  EnveRealPar RibsRho[ENVE_MAX_RIBS];       // Ribs contact depth
+  EnveRealPar RibsFriction[ENVE_MAX_RIBS];  // Ribs friction coefficient scaling factor
+  EnveRealPar InMesh;                       // Flag to detect if the wheel is outside the ground mesh. (0: at least one wheel is out of ground, 1: every wheels are in the ground)
 } EnveOutputBus;
 
 #endif

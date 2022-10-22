@@ -81,8 +81,8 @@ main(void)
     EnveInputBus input1, input2;
     for (integer i = 0; i < 16; ++i)
     {
-      input1.hub_affine[i] = *(pose1.data() + i);
-      input2.hub_affine[i] = *(pose2.data() + i);
+      input1.HubAffine[i] = *(pose1.data() + i);
+      input2.HubAffine[i] = *(pose2.data() + i);
     }
 
     // Print inputs affines
@@ -94,13 +94,13 @@ main(void)
       << "Input arrays" << std::endl
       << "Array = [ ";
     for (integer i = 0; i < 16; ++i)
-      {std::cout << *(input1.hub_affine + i) << ", ";}
+      {std::cout << *(input1.HubAffine + i) << ", ";}
     std::cout
       << "\b\b ]"
       << std::endl
       << "Array = [ ";
     for (int i = 0; i < 16; ++i)
-      {std::cout << *(input2.hub_affine + i) << ", ";}
+      {std::cout << *(input2.HubAffine + i) << ", ";}
     std::cout << "\b\b ]" << std::endl;
 
     // Output bus containing the contact data
@@ -127,25 +127,25 @@ main(void)
     std::cout
       << std::endl
       << "Output affines" << std::endl
-      << "output1.in_mesh = " << output1.in_mesh << std::endl
-      << "output2.in_mesh = " << output2.in_mesh << std::endl
+      << "output1.in_mesh = " << output1.InMesh << std::endl
+      << "output2.in_mesh = " << output2.InMesh << std::endl
       << "Array = [ ";
     for (integer i = 0; i < 16; ++i)
-      {std::cout << *(output1.shell_affine + i) << ", ";}
+      {std::cout << *(output1.ShellAffine + i) << ", ";}
     std::cout
       << "\b\b ]"
       << std::endl
       << "Array = [ ";
     for (integer i = 0; i < 16; ++i)
-      {std::cout << *(output2.shell_affine + i) << ", ";}
+      {std::cout << *(output2.ShellAffine + i) << ", ";}
     std::cout << "\b\b ]" << std::endl
       << std::endl;
 
     affine pose3, pose4;
     for (integer i = 0; i < 16; ++i)
     {
-      pose3.matrix() = Eigen::Map<mat4>(output1.shell_affine, 4, 4);
-      pose4.matrix() = Eigen::Map<mat4>(output2.shell_affine, 4, 4);
+      pose3.matrix() = Eigen::Map<mat4>(output1.ShellAffine, 4, 4);
+      pose4.matrix() = Eigen::Map<mat4>(output2.ShellAffine, 4, 4);
     }
     std::cout
       << "Output affines" << std::endl

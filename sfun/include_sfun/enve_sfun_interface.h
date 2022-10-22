@@ -38,23 +38,23 @@ extern "C"
   // S-function entry point for initialization
   void
   enve_sfun_init(
-    const EnveRealPar *size,         // Ribs number (-)
-    const EnveRealPar *r_x,          // Shell radius on x-axis (m)
-    const EnveRealPar *m_x,          // Shell curve degree for x-axis (-)
-    const EnveRealPar *r_y,          // Shell radius on y-axis (m)
-    const EnveRealPar *m_y,          // Shell curve degree for y-axis (-)
-    const EnveRealPar *l_y,          // Surface half width on y-axis (m)
-    const EnveRealPar *flat_height,  // Flat ground surface height (m)
-    const EnveRealPar *flat_friction // Flat ground surface friction scaling coefficient (-)
+    const EnveRealPar *SizePar,        // Ribs number (-)
+    const EnveRealPar *RxPar,          // Shell radius on x-axis (m)
+    const EnveRealPar *MxPar,          // Shell curve degree for x-axis (-)
+    const EnveRealPar *RyPar,          // Shell radius on y-axis (m)
+    const EnveRealPar *MyPar,          // Shell curve degree for y-axis (-)
+    const EnveRealPar *LyPar,          // Surface half width on y-axis (m)
+    const EnveRealPar *FlatHeightPar,  // Flat ground surface height (m)
+    const EnveRealPar *FlatFrictionPar // Flat ground surface friction scaling coefficient (-)
   );
 
   // S-function entry point for step update
   void
   enve_sfun_out(
-    const EnveInputBus  *input,      // Input bus containing the shell hub affine transformation matrix
-          EnveOutputBus *output,     // Output bus containing the contact data
-    const EnveRealPar   *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
-    const EnveRealPar   *flat_enable // flat_enable 0: ENVE use ground::mesh, 1: ENVE use ground::flat
+    const EnveInputBus  *InputBus,     // Input bus containing the shell hub affine transformation matrix
+          EnveOutputBus *OutputBus,    // Output bus containing the contact data
+    const EnveRealPar   *MethodPar,    // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    const EnveRealPar   *FlatEnablePar // flat_enable 0: ENVE use ground::mesh, 1: ENVE use ground::flat
   );
 
   // S-function entry point for deletion of allocated memory
