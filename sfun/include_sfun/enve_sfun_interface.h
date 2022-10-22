@@ -38,23 +38,23 @@ extern "C"
   // S-function entry point for initialization
   void
   enve_sfun_init(
-    const double *size,         // Ribs number (-)
-    const double *r_x,          // Shell radius on x-axis (m)
-    const double *m_x,          // Shell curve degree for x-axis (-)
-    const double *r_y,          // Shell radius on y-axis (m)
-    const double *m_y,          // Shell curve degree for y-axis (-)
-    const double *l_y,          // Surface half width on y-axis (m)
-    const double *flat_height,  // Flat ground surface height (m)
-    const double *flat_friction // Flat ground surface friction scaling coefficient (-)
+    const EnveRealPar *size,         // Ribs number (-)
+    const EnveRealPar *r_x,          // Shell radius on x-axis (m)
+    const EnveRealPar *m_x,          // Shell curve degree for x-axis (-)
+    const EnveRealPar *r_y,          // Shell radius on y-axis (m)
+    const EnveRealPar *m_y,          // Shell curve degree for y-axis (-)
+    const EnveRealPar *l_y,          // Surface half width on y-axis (m)
+    const EnveRealPar *flat_height,  // Flat ground surface height (m)
+    const EnveRealPar *flat_friction // Flat ground surface friction scaling coefficient (-)
   );
 
   // S-function entry point for step update
   void
   enve_sfun_out(
-    const ShellAffine *input,      // Input bus containing the shell hub affine transformation matrix
-    GroundContact     *output,     // Output bus containing the contact data
-    const double      *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
-    const double      *flat_enable // flat_enable 0: ENVE use ground::mesh, 1: ENVE use ground::flat
+    const EnveInputBus  *input,      // Input bus containing the shell hub affine transformation matrix
+          EnveOutputBus *output,     // Output bus containing the contact data
+    const EnveRealPar   *method,     // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    const EnveRealPar   *flat_enable // flat_enable 0: ENVE use ground::mesh, 1: ENVE use ground::flat
   );
 
   // S-function entry point for deletion of allocated memory

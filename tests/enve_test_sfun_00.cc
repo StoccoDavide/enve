@@ -44,14 +44,14 @@ main(void)
     setenv("ENVE_GROUND_PATH", "./files_rdf/sample.rdf", 1);
 
     // Set data for S-function entry point for initialization
-    double size          = 10;  // Ribs number (-)
-    double r_x           = 0.3; // Shell radius on x-axis (m)
-    double m_x           = 4.0; // Shell curve degree for x-axis (-)
-    double r_y           = 0.3; // Shell radius on y-axis (m)
-    double m_y           = 4.0; // Shell curve degree for y-axis (-)
-    double l_y           = 0.1; // Surface half width on y-axis (m)
-    double flat_height   = 0.0; // Flat ground surface height (m)
-    double flat_friction = -1.0; // Flat ground surface friction scaling coefficient (-)
+    EnveRealPar size          = 10;  // Ribs number (-)
+    EnveRealPar r_x           = 0.3; // Shell radius on x-axis (m)
+    EnveRealPar m_x           = 4.0; // Shell curve degree for x-axis (-)
+    EnveRealPar r_y           = 0.3; // Shell radius on y-axis (m)
+    EnveRealPar m_y           = 4.0; // Shell curve degree for y-axis (-)
+    EnveRealPar l_y           = 0.1; // Surface half width on y-axis (m)
+    EnveRealPar flat_height   = 0.0; // Flat ground surface height (m)
+    EnveRealPar flat_friction = 1.0; // Flat ground surface friction scaling coefficient (-)
 
     // S-function entry point for initialization
     enve_sfun_init(
@@ -78,8 +78,8 @@ main(void)
     pose2 = translate(1.0, 1.0, 0.2) * angleaxis(yaw_angle,    UNITZ_VEC3)
                                      * angleaxis(camber_angle, UNITX_VEC3)
                                      * angleaxis(pitch_angle,  UNITY_VEC3);
-    ShellAffine input1, input2;
-    for (int i = 0; i < 16; ++i)
+    EnveInputBus input1, input2;
+    for (integer i = 0; i < 16; ++i)
     {
       input1.hub_affine[i] = *(pose1.data() + i);
       input2.hub_affine[i] = *(pose2.data() + i);
@@ -93,7 +93,7 @@ main(void)
     std::cout
       << "Input arrays" << std::endl
       << "Array = [ ";
-    for (int i = 0; i < 16; ++i)
+    for (integer i = 0; i < 16; ++i)
       {std::cout << *(input1.hub_affine + i) << ", ";}
     std::cout
       << "\b\b ]"
@@ -104,10 +104,10 @@ main(void)
     std::cout << "\b\b ]" << std::endl;
 
     // Output bus containing the contact data
-    GroundContact output1, output2;
+    EnveOutputBus output1, output2;
 
-    double flat_enable = 0; // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
-    double method      = 0; // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
+    EnveRealPar flat_enable = 0; // method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+    EnveRealPar method      = 0; // flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
 
     // S-function entry point for step update
     enve_sfun_out(
@@ -130,19 +130,19 @@ main(void)
       << "output1.in_mesh = " << output1.in_mesh << std::endl
       << "output2.in_mesh = " << output2.in_mesh << std::endl
       << "Array = [ ";
-    for (int i = 0; i < 16; ++i)
+    for (integer i = 0; i < 16; ++i)
       {std::cout << *(output1.shell_affine + i) << ", ";}
     std::cout
       << "\b\b ]"
       << std::endl
       << "Array = [ ";
-    for (int i = 0; i < 16; ++i)
+    for (integer i = 0; i < 16; ++i)
       {std::cout << *(output2.shell_affine + i) << ", ";}
     std::cout << "\b\b ]" << std::endl
       << std::endl;
 
     affine pose3, pose4;
-    for (int i = 0; i < 16; ++i)
+    for (integer i = 0; i < 16; ++i)
     {
       pose3.matrix() = Eigen::Map<mat4>(output1.shell_affine, 4, 4);
       pose4.matrix() = Eigen::Map<mat4>(output2.shell_affine, 4, 4);

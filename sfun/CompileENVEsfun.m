@@ -105,22 +105,22 @@ def.HostLibFiles = {lib_name};
 
 def.StartFcnSpec = [ ...
   'void enve_sfun_init(', ...
-  'double p1[1], ',  ... % Ribs number (-)
-  'double p2[1], ',  ... % Shell radius on x-axis (m)
-  'double p3[1], ',  ... % Shell curve degree for x-axis (-)
-  'double p4[1], ',  ... % Shell radius on y axis (m)
-  'double p5[1], ',  ... % Shell curve degree for y-axis (-)
-  'double p6[1], ',  ... % Shell half width on y-axis (m)
-  'double p7[1], ',  ... % Flat ground surface height (m)
-  'double p8[1]) ',  ... % Flat ground surface friction scaling coefficient (-)
+  'EnveRealPar p1[1], ',  ... % Ribs number (-)
+  'EnveRealPar p2[1], ',  ... % Shell radius on x-axis (m)
+  'EnveRealPar p3[1], ',  ... % Shell curve degree for x-axis (-)
+  'EnveRealPar p4[1], ',  ... % Shell radius on y axis (m)
+  'EnveRealPar p5[1], ',  ... % Shell curve degree for y-axis (-)
+  'EnveRealPar p6[1], ',  ... % Shell half width on y-axis (m)
+  'EnveRealPar p7[1], ',  ... % Flat ground surface height (m)
+  'EnveRealPar p8[1]) ',  ... % Flat ground surface friction scaling coefficient (-)
   ];
 
 def.OutputFcnSpec = [ ...
   'void enve_sfun_out(', ...
-  'ShellAffine   u1[1], ',  ... % Input bus containing the shell hub affine transformation matrix
-  'GroundContact y1[1], ',  ... % Output bus containing the contact data
-  'double        p9[1], ',  ... % method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
-  'double        p10[1]) ', ... % flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
+  'EnveInputBus  u1[1], ',  ... % Input bus containing the shell hub affine transformation matrix
+  'EnveOutputBus y1[1], ',  ... % Output bus containing the contact data
+  'EnveRealPar   p9[1], ',  ... % method 0: ENVE use geometric enveloping, 1: ENVE use sampling enveloping
+  'EnveRealPar   p10[1]) ', ... % flat_enable 0: ENVE use ground::mesh (RDF), 1: ENVE use ground::flat
   ];
 
 def.TerminateFcnSpec = [...

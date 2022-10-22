@@ -26,85 +26,176 @@
 ///
 
 #include "enve_sfun_interface.h"
-#include "enve_sfun_wrapper.hh"
+#include "enve.hh"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-  void *ground_ptr;
+  void *mesh_ptr;
+  void *flat_ptr;
   void *shell_ptr;
 
   void
   enve_sfun_init(
-    const double *size,
-    const double *r_x,
-    const double *m_x,
-    const double *r_y,
-    const double *m_y,
-    const double *l_y,
-    const double *flat_height,
-    const double *flat_friction
+    const EnveRealPar *size,
+    const EnveRealPar *r_x,
+    const EnveRealPar *m_x,
+    const EnveRealPar *r_y,
+    const EnveRealPar *m_y,
+    const EnveRealPar *l_y,
+    const EnveRealPar *flat_height,
+    const EnveRealPar *flat_friction
   )
   {
-    #define CMD "enve::sfun_init(...): "
+    #define CMD "enve_sfun_init(...): "
 
-    // Load environment variable
-    char *envar_ground_path = getenv("ENVE_GROUND_PATH");
-    if (envar_ground_path == NULL)
+    // Get environment variable
+    char *mesh_path_env = getenv("ENVE_GROUND_PATH");
+    if (mesh_path_env == NULL)
       {ENVE_ERROR(CMD "environment variable ENVE_GROUND_PATH does not exist.");}
-    std::string ground_path(reinterpret_cast<char const *>(envar_ground_path));
-    std::cout << "ENVE_GROUND_PATH: " << ground_path << std::endl;
+    std::string mesh_path(mesh_path_env);
+    std::cout << "ENVE_GROUND_PATH: " << mesh_path << std::endl;
 
-    // Load mesh
-    std::string extension      = ground_path.substr(ground_path.size() - 4, 4);
-    enve::ground::mesh *ground = nullptr;
+    // Build mesh
+    std::string extension = mesh_path.substr(mesh_path.size() - 4, 4);
+    enve::ground::mesh *mesh = nullptr;
     if (extension == ".rdf")
-      {ground = new enve::ground::mesh(ground_path);}
+      {mesh = new enve::ground::mesh(mesh_path);}
     else if (extension == ".obj")
-      {ground = new enve::ground::mesh(ground_path, 1.0);}
+      {mesh = new enve::ground::mesh(mesh_path, 1.0);}
     else
       {ENVE_ERROR(CMD "not a *.rdf or *.obj file.");}
 
+    // Build flat
+    enve::ground::flat *flat = new enve::ground::flat(
+      *flat_friction, acme::point(0.0, 0.0, *flat_height), acme::vec3(0.0, 0.0, 1.0)
+    );
+    
     // Build shell
-    ShellVehicle *shell = new ShellVehicle();
-    shell->init(size, r_x, m_x, r_y, m_y, l_y, flat_height, flat_friction);
+    enve::shell *shell = new enve::shell(
+      *size, *r_x, *m_x, *r_y, *m_y, *l_y
+    );
 
     // Store pointers
-    ground_ptr = static_cast<void *>(ground);
-    shell_ptr  = static_cast<void *>(shell);
+    mesh_ptr  = static_cast<void *>(mesh);
+    flat_ptr  = static_cast<void *>(flat);
+    shell_ptr = static_cast<void *>(shell);
+
+    #undef CMD
   }
 
   void
   enve_sfun_out(
-    const ShellAffine *input,
-    GroundContact     *output,
-    const double      *method,
-    const double      *flat_enable
+    const EnveInputBus  *input,
+          EnveOutputBus *output,
+    const EnveRealPar   *method,
+    const EnveRealPar   *flat_enable
   )
   {
-    enve::ground::mesh *ground = static_cast<enve::ground::mesh *>(ground_ptr);
-    ShellVehicle       *shell  = static_cast<ShellVehicle *>(shell_ptr);
-    output->in_mesh = shell->out(
-      ground,
-      input->hub_affine,
-      method,
-      output->shell_affine,
-      output->shell_rho,
-      output->shell_friction,
-      output->ribs_affine,
-      output->ribs_rho,
-      output->ribs_friction,
-      flat_enable
-    );
+    #define CMD "enve_sfun_out(...): "
+
+    enve::ground::mesh *mesh  = static_cast<enve::ground::mesh *>(mesh_ptr);
+    enve::ground::flat *flat  = static_cast<enve::ground::flat *>(flat_ptr);
+    enve::shell        *shell = static_cast<enve::shell *>(shell_ptr);
+
+    // Store temporaries
+    int size = shell->size();
+
+    // Copy input shell hub reference frame
+    acme::affine tmp_affine;
+    for (int r = 0; r < 4; ++r)
+    {
+      for (int c = 0; c < 4; ++c)
+      {
+        (tmp_affine.matrix())(r,c) = input->hub_affine[r+4*c];
+      }
+    }
+
+    // Extract enveloping method
+    std::string method_in;
+    if (*method == 0)
+      {method_in = "geometric";}
+    else if (*method == 1)
+      {method_in = "sampling";}
+    else
+      {ENVE_ERROR(CMD "not a ''geometric'' or ''sampling'' method.")}
+
+    // Use back-up plane for setup routine
+    if (*flat_enable != 0)
+    {
+      shell->setup(*flat, tmp_affine, method_in);
+      output->in_mesh = true;
+    }
+    else
+    {
+      // Update and check if shell is in mesh
+      output->in_mesh = shell->setup(*mesh, tmp_affine, method_in);
+
+      // If no elements are detected under the tire shadows 'in_mesh = 0'
+      // and a setup with the back-up plane is called
+      if (!output->in_mesh)
+        {shell->setup(*flat, tmp_affine, method_in);}
+    }
+
+    // Update shell outputs
+    shell->contactPointAffine(tmp_affine);
+    shell->contactDepth(output->shell_rho);
+    shell->contactFriction(output->shell_friction);
+
+    for (int r = 0; r < 4; ++r)
+    {
+      for (int c = 0; c < 4; ++c)
+      {
+        output->shell_affine[r+4*c] = (tmp_affine.matrix())(r,c);
+      }
+    }
+
+    // Update ribs outputs
+    for (int i = 0; i < ENVE_MAX_RIBS; ++i)
+    {
+      if (i < size)
+      {
+        shell->contactPointAffine(i, tmp_affine);
+        shell->contactDepth(i, output->ribs_rho[i]);
+        shell->contactFriction(i, output->ribs_friction[i]);
+        for (int r = 0; r < 4; ++r)
+        {
+          for (int c = 0; c < 4; ++c)
+          {
+            output->ribs_affine[r+4*c+16*i] = (tmp_affine.matrix())(r,c);
+          }
+        }
+      }
+      else
+      {
+        tmp_affine.matrix() = acme::NAN_MAT4;
+        output->ribs_rho[i]         = acme::QUIET_NAN;
+        output->ribs_friction[i]    = acme::QUIET_NAN;
+        for (int r = 0; r < 4; ++r)
+        {
+          for (int c = 0; c < 4; ++c)
+          {
+            output->ribs_affine[r+4*c+16*i] = (tmp_affine.matrix())(r,c);
+          }
+        }
+      }
+    }
+
+    #undef CMD
   }
 
   void
   enve_sfun_end(void)
   {
-    //delete static_cast<enve::ground::mesh *>(ground_ptr);
-    //delete static_cast<ShellVehicle *>(shell_ptr);
+    #define CMD "enve_sfun_end(...): "
+
+    //delete static_cast<enve::mesh::mesh *>(mesh_ptr);
+    //delete static_cast<enve::mesh::flat *>(flat_ptr);
+    //delete static_cast<enve::flat *>(shell_ptr);
+
+    #undef CMD
   }
 
 #ifdef __cplusplus

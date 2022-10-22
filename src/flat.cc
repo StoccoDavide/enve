@@ -65,7 +65,7 @@ namespace enve
       #define CMD "enve::ground::flat::flat(...): "
 
       ENVE_ASSERT(this->m_friction >= real(0.0),
-        CMD "friction coefficient scaling factor detected.");
+        CMD "negative friction coefficient scaling factor detected.");
       ENVE_ASSERT(normal_z > real(0.0),
         CMD "negative normal z-axis detected.");
       this->plane::normalize();

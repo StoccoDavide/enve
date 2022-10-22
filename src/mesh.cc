@@ -455,8 +455,8 @@ namespace enve
 
     bool
     mesh::intersection(
-      aabb::ptr const          box,
-      triangleground::vecptr & triangles
+      aabb::ptr              const   box,
+      triangleground::vecptr       & triangles
     )
       const
     {
