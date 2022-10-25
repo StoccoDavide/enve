@@ -293,13 +293,14 @@ namespace enve
       }
     }
 
-    // Check intersection area and volume
-    if (segment_area_tot < EPSILON_MEDIUM || segment_volume_tot < EPSILON_MEDIUM)
-      {int_bool = false;}
-
     // Store output
-    if (int_bool)
+    if (int_bool && (segment_area_tot > EPSILON_MEDIUM || segment_volume_tot > EPSILON_MEDIUM))
     {
+      #ifdef ENVE_DEBUG
+        inter += 1;
+        std::cout << "inter: " << inter << std::endl;
+      #endif
+
       out.point    = contact_point_tot    / segment_volume_tot;
       out.normal   = (contact_normal_tot  / segment_volume_tot).normalized();
       out.friction = contact_friction_tot / segment_volume_tot;
@@ -346,6 +347,11 @@ namespace enve
     // Compute remaining contact parameters
     if (int_bool && segment_tmp.length() > EPSILON_LOW)
     {
+      #ifdef ENVE_DEBUG
+        inter += 1;
+        std::cout << "inter: " << inter << std::endl;
+      #endif
+
       out.point    = segment_tmp.centroid();
       normal_tmp   = (normal_grd.cross(center_grd - out.point)).normalized();
       out.normal   = (ground.normal() - normal_tmp * ground.normal().dot(normal_tmp)).normalized();
@@ -410,16 +416,21 @@ namespace enve
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
 
     // Compute contact pose
-    vec3 e_y = pose.linear().col(1).normalized();
+    vec3 e_y = rotation.col(1).normalized();
     vec3 e_x = (out.normal.cross(e_y)).normalized();
     vec3 e_z = (e_y.cross(e_x)).normalized();
     
     // Compute contact depth
-    out.depth = radius * std::abs(out.normal.dot(e_z)) - (out.point - center).norm();
+    out.depth = radius * std::abs(out.normal.dot(e_z)) - (out.point - center_grd).norm();
 
     // Compute remaining contact parameters
-    if ( sampling && out.depth > real(0.0) )
+    if (sampling && out.depth > real(0.0))
     {
+      #ifdef ENVE_DEBUG
+        inter += 1;
+        std::cout << "inter: " << inter << std::endl;
+      #endif
+
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / real(4.0);
       out.area     = real(2.0) * std::sqrt(out.depth * (real(2.0) * radius - out.depth)) * width;
       out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) - 
@@ -480,16 +491,21 @@ namespace enve
     out.normal = ((point_vec[0] - point_vec[1]).cross(point_vec[2] - point_vec[3])).normalized();
 
     // Compute contact pose
-    vec3 e_y = pose.linear().col(1).normalized();
+    vec3 e_y = rotation.col(1).normalized();
     vec3 e_x = (out.normal.cross(e_y)).normalized();
     vec3 e_z = (e_y.cross(e_x)).normalized();
     
     // Compute contact depth
-    out.depth = radius * std::abs(out.normal.dot(e_z)) - (out.point - center).norm();
+    out.depth = radius * std::abs(out.normal.dot(e_z)) - (out.point - center_grd).norm();
 
     // Compute remaining contact parameters
     if (sampling && out.depth > real(0.0))
     {
+      #ifdef ENVE_DEBUG
+        inter += 1;
+        std::cout << "inter: " << inter << std::endl;
+      #endif
+
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / real(4.0);
       out.area     = real(2.0) * std::sqrt(out.depth * (real(2.0) * radius - out.depth)) * width;
       out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) - 

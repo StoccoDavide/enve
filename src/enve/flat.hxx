@@ -41,10 +41,6 @@ namespace enve
     //! Triangular flat class
     class flat : public plane
     {
-    public:
-      typedef std::shared_ptr<flat const> ptr;    //!< Shared pointer to flat object
-      typedef std::vector<flat::ptr>      vecptr; //!< Vector of shared pointers to flat objects
-
     private:
       real m_friction; //!< Friction coefficient scaling factor
 

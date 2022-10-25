@@ -44,14 +44,14 @@ main(void)
     Utils::TicToc tictoc;
 
     // Load .rdf File
-    ground::mesh road("./files_rdf/sample.rdf");
+    ground::mesh road("./files_rdf/LakeTown.rdf");
 
     // Print OutMesh.txt file
     //road.print("bin/OutMesh.txt");
 
     // Initialize the tire shell
     shell tire_shell(
-      10,    // n_r
+      30,    // n_r
       0.327, // r_x
       4.000, // m_x
       0.195, // r_y
@@ -66,9 +66,9 @@ main(void)
 
     // Create frame object
     affine pose;
-    pose = translate(1.0, 1.0, 0.3) * angleaxis(yaw_angle,    UNITZ_VEC3)
-                                    * angleaxis(camber_angle, UNITX_VEC3)
-                                    * angleaxis(pitch_angle,  UNITY_VEC3);
+    pose = translate(45.0, 175.6, 0.26) * angleaxis(yaw_angle,    UNITZ_VEC3)
+                                        * angleaxis(camber_angle, UNITX_VEC3)
+                                        * angleaxis(pitch_angle,  UNITY_VEC3);
     // Start chronometer
     tictoc.tic();
 
@@ -79,18 +79,18 @@ main(void)
     tictoc.toc();
 
     // Display current tire data on command line
-    if (out)
-      tire_shell.print(std::cout);
+    //if (out)
+    //  tire_shell.print(std::cout);
 
-    affine cp_rib;
-    for (size_t i = 0; i < tire_shell.size(); ++i)
-    {
-      tire_shell.contactPointAffine(i, cp_rib);
-      std::cout
-        << "Rib " << i << ":" << std::endl
-        << cp_rib
-        << std::endl;
-    }
+    //affine cp_rib;
+    //for (size_t i = 0; i < tire_shell.size(); ++i)
+    //{
+    //  tire_shell.contactPointAffine(i, cp_rib);
+    //  std::cout
+    //    << "Rib " << i << ":" << std::endl
+    //    << cp_rib
+    //    << std::endl;
+    //}
 
     // Output performance data
     std::cout

@@ -46,21 +46,7 @@ namespace enve
     real   My,
     real   Ly
   )
-    : m_shape(std::make_shared<shape>(Rx, Mx, Ry, My, Ly)),
-      m_aabb(std::make_shared<aabb>())
-  {
-    this->m_affine.matrix() = IDENTITY_MAT4;
-    this->resize(size);
-    this->updateBBox();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  shell::shell(
-    size_t         size,
-    shape  const & shape_obj
-  )
-    : m_shape(std::make_shared<shape>(shape_obj)),
+    : m_shape(Rx, Mx, Ry, My, Ly),
       m_aabb(std::make_shared<aabb>())
   {
     this->m_affine.matrix() = IDENTITY_MAT4;
@@ -81,41 +67,35 @@ namespace enve
       CMD "negative ribs number detected.");
 
     // Resize the contact point, friction and normal vectors
-    this->m_ribs.clear(); this->m_ribs.reserve(20);
-    this->m_out.clear();  this->m_out.resize(size);
-
-    if (!this->m_candidates.empty())
-    {
-      for (size_t i = 0; i < size; ++i)
-      {
-        if (!this->m_candidates[i].empty())
-          {this->m_candidates[i].clear();}
-      }
-      this->m_candidates.clear();
-    }
+    for (size_t i = 0; i < this->m_candidates.size(); ++i)
+      {this->m_candidates[i].clear();}
+    this->m_ribs.clear();       this->m_ribs.reserve(200);
+    this->m_out.clear();        this->m_out.reserve(200);
+    this->m_candidates.clear(); this->m_candidates.reserve(200);
 
     this->m_candidates.resize(size);
     for (size_t i = 0; i < size; ++i)
       {this->m_candidates[i].reserve(200);}
 
     // Locate the disks
-    real shellWidth = this->m_shape->surfaceWidth();
+    real shellWidth = this->m_shape.surfaceWidth();
     real ribW = real(2.0) * shellWidth / size;
     real ribR, ribA;
     real ribY = -shellWidth - ribW / real(2.0);
     for (size_t i = 0; i < size; ++i)
     {
       ribY += ribW;
-      ribR  = this->m_shape->surfaceRadius(ribY);
-      ribA  = this->m_shape->surfaceAngle(ribY);
+      ribR  = this->m_shape.surfaceRadius(ribY);
+      ribA  = this->m_shape.surfaceAngle(ribY);
       ENVE_ASSERT(ribR > size_t(0),
         CMD "negative rib radius detected.");
       ENVE_ASSERT(ribR == ribR,
         CMD "NaN rib radius detected.");
       ENVE_ASSERT(ribA == ribA,
         CMD "NaN rib angle detected.");
-      this->m_ribs.push_back(rib(i, ribR, ribY, ribW, ribA));
+      this->m_ribs.emplace_back(i, ribR, ribY, ribW, ribA);
     }
+
     // Update bounding aabb
     this->updateBBox();
   
@@ -148,7 +128,7 @@ namespace enve
   shell::surfaceMaxRadius(void)
     const
   {
-    return this->m_shape->surfaceMaxRadius();
+    return this->m_shape.surfaceMaxRadius();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -157,7 +137,7 @@ namespace enve
   shell::surfaceMaxWidth(void)
     const
   {
-    return this->m_shape->surfaceMaxWidth();
+    return this->m_shape.surfaceMaxWidth();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -166,7 +146,7 @@ namespace enve
   shell::surfaceWidth(void)
     const
   {
-    return this->m_shape->surfaceWidth();
+    return this->m_shape.surfaceWidth();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -177,7 +157,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape->checkWidthBound(y);
+    return this->m_shape.checkWidthBound(y);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -188,7 +168,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape->surfaceRadius(y);
+    return this->m_shape.surfaceRadius(y);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -200,7 +180,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape->surfaceDerivative(y, tolerance);
+    return this->m_shape.surfaceDerivative(y, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -212,7 +192,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape->surfaceAngle(y, tolerance);
+    return this->m_shape.surfaceAngle(y, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -428,7 +408,7 @@ namespace enve
   void
   shell::updateBBox(void)
   {
-    real  radius = this->m_shape->surfaceMaxRadius();
+    real  radius = this->m_shape.surfaceMaxRadius();
     point origin(this->m_affine.translation());
     point extrema(radius, radius, radius);
     this->m_aabb->min() = origin - extrema;
@@ -947,7 +927,7 @@ namespace enve
 
     os << " ------------ SHELL PRINT ------------" << std::endl
     << std::endl;
-    this->m_shape->print(os);
+    this->m_shape.print(os);
 
     os << "Ribs info:" << std::endl;
     for (size_t i = 0; i < relative_angles_vec.size(); ++i)
@@ -960,7 +940,7 @@ namespace enve
                    
     os << "Contact parameters:" << std::endl
        << "Shell maximum radius" << std::endl
-       << "R = " << this->m_shape->surfaceMaxRadius() << " m" << std::endl
+       << "R = " << this->m_shape.surfaceMaxRadius() << " m" << std::endl
        << "Camber angle" << std::endl
        << "Γ = " << euler_angles.y() / PI << "pi rad" << std::endl
        << "Rotation angle" << std::endl
@@ -1028,7 +1008,7 @@ namespace enve
         {this->m_candidates[i].clear();}
     }
 
-    // Workaround
+    // Workaround for skip this function
     //for (size_t i = 0; i < size; ++i)
     //{
     //  this->m_candidates[i].resize(local_ground.size());

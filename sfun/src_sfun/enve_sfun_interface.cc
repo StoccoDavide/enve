@@ -39,14 +39,10 @@ extern "C"
 
   void
   enve_sfun_init(
-    const EnveRealPar *SizePar,
-    const EnveRealPar *RxPar,
-    const EnveRealPar *MxPar,
-    const EnveRealPar *RyPar,
-    const EnveRealPar *MyPar,
-    const EnveRealPar *LyPar,
-    const EnveRealPar *FlatHeightPar,
-    const EnveRealPar *FlatFrictionPar 
+    const EnveRealPar  *SizePar,
+    const EnveShapeBus *ShapeBus,
+    const EnveRealPar  *FlatHeightPar,
+    const EnveRealPar  *FlatFrictionPar 
   )
   {
     #define CMD "enve_sfun_init(...): "
@@ -75,7 +71,12 @@ extern "C"
     
     // Build shell
     enve::shell *shell = new enve::shell(
-      *SizePar, *RxPar, *MxPar, *RyPar, *MyPar, *LyPar
+      *SizePar,
+      ShapeBus->Rx,
+      ShapeBus->Mx,
+      ShapeBus->Ry,
+      ShapeBus->My,
+      ShapeBus->Ly
     );
 
     // Store pointers
@@ -123,12 +124,7 @@ extern "C"
       {ENVE_ERROR(CMD "not a ''geometric'' or ''sampling'' method.")}
 
     // Use back-up plane for setup routine
-    if (*FlatEnablePar != 0)
-    {
-      shell->setup(*flat, tmp_affine, method_in);
-      OutputBus->InMesh = true;
-    }
-    else
+    if (*FlatEnablePar == 0)
     {
       // Update and check if shell is in mesh
       OutputBus->InMesh = shell->setup(*mesh, tmp_affine, method_in);
@@ -136,7 +132,18 @@ extern "C"
       // If no elements are detected under the tire shadows 'in_mesh = 0'
       // and a setup with the back-up plane is called
       if (!OutputBus->InMesh)
-        {shell->setup(*flat, tmp_affine, method_in);}
+      {
+        shell->setup(*flat, tmp_affine, method_in);
+      }
+    }
+    else if (*FlatEnablePar == 1)
+    {
+      shell->setup(*flat, tmp_affine, method_in);
+      OutputBus->InMesh = true;
+    }
+    else
+    {
+      ENVE_ERROR(CMD "invalid mesh/flat selector.");
     }
 
     // Update shell OutputBuss

@@ -138,7 +138,7 @@ main(void)
       << "Std. dev.      = " << std_dev << " ms" << std::endl
       << "Samples        = " << time_vec.size() << std::endl
       << "Avg. triangles = " << triangles_list_size << std::endl;
- 
+
     // End of test
     std::cout
       << std::endl

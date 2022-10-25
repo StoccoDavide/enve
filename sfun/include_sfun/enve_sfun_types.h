@@ -35,6 +35,16 @@
 // Typedefs for enve S-function double
 typedef double EnveRealPar;
 
+// Structure containing the shape enve S-function bus
+typedef struct
+{
+  EnveRealPar Rx; // Shell radius on x-axis (m)
+  EnveRealPar Mx; // Shell curve degree for x-axis (-)
+  EnveRealPar Ry; // Shell radius on y-axis (m)
+  EnveRealPar My; // Shell curve degree for y-axis (-)
+  EnveRealPar Ly; // Surface half width on y-axis (m)
+} EnveShapeBus;
+
 // Structure containing the input enve S-function bus
 typedef struct
 {

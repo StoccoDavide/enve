@@ -38,14 +38,10 @@ extern "C"
   // S-function entry point for initialization
   void
   enve_sfun_init(
-    const EnveRealPar *SizePar,        // Ribs number (-)
-    const EnveRealPar *RxPar,          // Shell radius on x-axis (m)
-    const EnveRealPar *MxPar,          // Shell curve degree for x-axis (-)
-    const EnveRealPar *RyPar,          // Shell radius on y-axis (m)
-    const EnveRealPar *MyPar,          // Shell curve degree for y-axis (-)
-    const EnveRealPar *LyPar,          // Surface half width on y-axis (m)
-    const EnveRealPar *FlatHeightPar,  // Flat ground surface height (m)
-    const EnveRealPar *FlatFrictionPar // Flat ground surface friction scaling coefficient (-)
+    const EnveRealPar  *SizePar,        // Ribs number (-)
+    const EnveShapeBus *ShapeBus,       // Shape bus containing the shell morphology
+    const EnveRealPar  *FlatHeightPar,  // Flat ground surface height (m)
+    const EnveRealPar  *FlatFrictionPar // Flat ground surface friction scaling coefficient (-)
   );
 
   // S-function entry point for step update

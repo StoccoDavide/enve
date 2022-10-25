@@ -135,7 +135,6 @@ if isfile(lib_name)
   legacy_code('sfcn_cmex_generate', def);
   legacy_code('sfcn_tlc_generate', def);
   legacy_code('sfcn_makecfg_generate', def);
-  legacy_code('compile', def, {} );
   if block_generate
       legacy_code('slblock_generate', def, def.SFunctionName);
   end

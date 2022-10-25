@@ -32,7 +32,6 @@ main(void)
   // Try block 
   try
   {
-    
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
@@ -65,9 +64,9 @@ main(void)
 
     // Create frame object
     affine pose;
-    pose = translate(1.0, 1.0, 0.3) * angleaxis(yaw_angle,     UNITZ_VEC3)
-                                    * (angleaxis(camber_angle, UNITX_VEC3)
-                                    * angleaxis(pitch_angle,   UNITY_VEC3));
+    pose = translate(2.0, 5.0, 0.25) * angleaxis(yaw_angle,     UNITZ_VEC3)
+                                     * (angleaxis(camber_angle, UNITX_VEC3)
+                                     * angleaxis(pitch_angle,   UNITY_VEC3));
 
     tire_shell.resize(20);
     
@@ -83,7 +82,7 @@ main(void)
     // Display current tire data on command line
     if (out)
       tire_shell.print(std::cout);
-
+    
     // Output performance data
     std::cout
       << "Execution time = " << tictoc.elapsed_ms() * 1000 << " us" << std::endl

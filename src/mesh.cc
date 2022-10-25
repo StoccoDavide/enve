@@ -473,6 +473,7 @@ namespace enve
       bbox[3] = box->max(0);
       bbox[4] = box->max(1);
       bbox[5] = box->max(2);
+
       this->m_AABBtree.intersect_with_one_bbox( bbox, intersectList );
       ENVE_DEBUG_TOC;
       ENVE_MESSAGE_DEBUG(
@@ -490,7 +491,7 @@ namespace enve
       }
       ENVE_DEBUG_TOC;
       ENVE_MESSAGE_DEBUG(
-        "enve::mesh::intersection(Utils):  resize task, elapsed time {}ms\n",
+        "enve::mesh::intersection(Utils): resize task, elapsed time {}ms\n",
         tictoc.elapsed_ms()
       );
       return list > integer(0);

@@ -41,7 +41,7 @@
 #endif
 
 // Switch from Utils to acme AABB tree
-#define ENVE_USE_UTILS_AABBTREE
+//#define ENVE_USE_UTILS_AABBTREE
 #ifdef ENVE_USE_UTILS_AABBTREE
 #define ENVE_AABBTREE_NODE_SIZE 1
 #endif
@@ -49,6 +49,7 @@
 // Define enve debug timing and messaging
 //#define ENVE_DEBUG
 #ifdef ENVE_DEBUG
+  static int inter = 0;
   #define ENVE_DEBUG_TICTOC      Utils::TicToc tictoc
   #define ENVE_DEBUG_TIC         tictoc.tic()
   #define ENVE_DEBUG_TOC         tictoc.toc()

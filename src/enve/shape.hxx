@@ -38,10 +38,6 @@ namespace enve
   //! Shell surface geometry
   class shape
   {
-  public:
-    typedef std::shared_ptr<shape const> ptr;    //!< Pointer to shape object
-    typedef std::vector<shape::ptr>      vecptr; //!< Vector of pointers to shape objects
-
   private:
     real m_r_x; //!< Section radius on x axis (m)
     real m_m_x; //!< Section curve degree for x axis (-)

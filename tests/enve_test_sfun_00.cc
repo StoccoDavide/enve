@@ -44,25 +44,22 @@ main(void)
     setenv("ENVE_GROUND_PATH", "./files_rdf/sample.rdf", 1);
 
     // Set data for S-function entry point for initialization
-    EnveRealPar size          = 10;  // Ribs number (-)
-    EnveRealPar r_x           = 0.3; // Shell radius on x-axis (m)
-    EnveRealPar m_x           = 4.0; // Shell curve degree for x-axis (-)
-    EnveRealPar r_y           = 0.3; // Shell radius on y-axis (m)
-    EnveRealPar m_y           = 4.0; // Shell curve degree for y-axis (-)
-    EnveRealPar l_y           = 0.1; // Surface half width on y-axis (m)
-    EnveRealPar flat_height   = 0.0; // Flat ground surface height (m)
-    EnveRealPar flat_friction = 1.0; // Flat ground surface friction scaling coefficient (-)
+    EnveRealPar  SizePar = 10;  // Ribs number (-)
+    EnveShapeBus ShapeBus;
+    ShapeBus.Rx = 0.3; // Shell radius on x-axis (m)
+    ShapeBus.Mx = 4.0; // Shell curve degree for x-axis (-)
+    ShapeBus.Ry = 0.3; // Shell radius on y-axis (m)
+    ShapeBus.My = 4.0; // Shell curve degree for y-axis (-)
+    ShapeBus.Ly = 0.1; // Surface half width on y-axis (m)
+    EnveRealPar FlatHeightPar   = 0.0; // Flat ground surface height (m)
+    EnveRealPar FlatFrictionPar = 1.0; // Flat ground surface friction scaling coefficient (-)
 
     // S-function entry point for initialization
     enve_sfun_init(
-       &size,         // Ribs number (-)
-       &r_x,          // Shell radius on x-axis (m)
-       &m_x,          // Shell curve degree for x-axis (-)
-       &r_y,          // Shell radius on y-axis (m)
-       &m_y,          // Shell curve degree for y-axis (-)
-       &l_y,          // Surface half width on y-axis (m)
-       &flat_height,  // Flat ground surface height (m)
-       &flat_friction // Flat ground surface friction scaling coefficient (-)
+       &SizePar,        // Ribs number (-)
+       &ShapeBus,       // Shape bus containing the shell morphology
+       &FlatHeightPar,  // Flat ground surface height (m)
+       &FlatFrictionPar // Flat ground surface friction scaling coefficient (-)
     );
 
     // Set data for S-function entry point for step update

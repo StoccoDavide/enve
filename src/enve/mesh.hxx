@@ -43,10 +43,6 @@ namespace enve
     //! Triangular mesh class
     class mesh
     {
-    public:
-      typedef std::shared_ptr<mesh const> ptr;    //!< Pointer to mesh object
-      typedef std::vector<mesh::ptr>      vecptr; //!< Vector of pointers to mesh objects
-
     private:
       triangleground::vecptr m_triangles;    //!< Ground triangles pointer vector
       aabb::vecptr           m_bboxes;       //!< Bounding boxes pointers vector
@@ -54,7 +50,7 @@ namespace enve
       #ifdef ENVE_USE_UTILS_AABBTREE
       AABBtreeUtils m_AABBtree; //!< Utils mesh tree pointer
       #else
-      AABBtree::ptr m_AABBtree;      //!< Acme mesh tree pointer
+      AABBtree::ptr m_AABBtree; //!< Acme mesh tree pointer
       #endif
 
     public:

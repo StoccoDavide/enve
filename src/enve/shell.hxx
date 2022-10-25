@@ -44,15 +44,11 @@ namespace enve
   //! Base class for ENVE shell
   class shell
   {
-  public:
-    typedef std::shared_ptr<shell const> ptr;    //!< Pointer to shell object
-    typedef std::vector<shell::ptr>      vecptr; //!< Vector of pointers to shell objects
-
   private:
     affine                              m_affine;     //!< Shell reference frame (ISO)
-    std::vector<rib>                    m_ribs;       //!< Shell ribs vector
-    std::shared_ptr<shape>              m_shape;      //!< Shell shape
+    shape                               m_shape;      //!< Shell shape
     std::shared_ptr<aabb>               m_aabb;       //!< Shell bounding aabb (must be transformed in the mesh reference frame before intersection!)
+    std::vector<rib>                    m_ribs;       //!< Shell ribs vector
     std::vector<output>                 m_out;        //!< Contact parameters output vector
     std::vector<triangleground::vecptr> m_candidates; //!< Candidates triangle vector
 
