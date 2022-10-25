@@ -135,7 +135,7 @@ namespace enve
     affine                 const & pose,
     std::string            const   method,
     output                       & out
-  ) 
+  )
     const
   {
     #define CMD "enve::rib::envelop(...): "
@@ -158,7 +158,7 @@ namespace enve
     affine       const & pose,
     std::string  const   method,
     output             & out
-  ) 
+  )
     const
   {
     #define CMD "enve::rib::envelop(...): "
@@ -179,10 +179,10 @@ namespace enve
   rib::envelop(
     affine const & pose,
     output       & out
-  ) 
+  )
     const
   {
-    out.point    = pose.translation() + pose.linear() * 
+    out.point    = pose.translation() + pose.linear() *
                    (this->center() - this->radius() * UNITZ_VEC3);
     out.normal   = pose.linear() * UNITZ_VEC3;
     out.friction = real(0.0);
@@ -199,7 +199,7 @@ namespace enve
     triangleground::vecptr const & ground,
     affine                 const & pose,
     output                       & out
-  ) 
+  )
     const
   {
     // Rib alias variables
@@ -218,7 +218,7 @@ namespace enve
     vec3  normal_tmp;
     point p_a, p_b;
     real  t_a, t_b, t_c, t_d, r_a, r_b, r_c, cos_t_c, sin_t_c,
-          section_area, segment_length_tmp, segment_area_tmp, 
+          section_area, segment_length_tmp, segment_area_tmp,
           segment_area_tot, segment_volume_tmp, segment_volume_tot;
     segment_area_tot   = real(0.0);
     segment_volume_tot = real(0.0);
@@ -280,7 +280,7 @@ namespace enve
         segment_area_tmp     = segment_length_tmp * width;
         segment_volume_tmp   = section_area * width;
         contact_point_tmp    = origin + rotation * (center + r_c * point(cos_t_c, real(0.0), sin_t_c));
-        normal_tmp           = rotation * vec3(-cos_t_c, real(0.0), -sin_t_c);      
+        normal_tmp           = rotation * vec3(-cos_t_c, real(0.0), -sin_t_c);
         contact_normal_tmp   = (normal_tmp + normal_grd * (ground[i]->normal() - normal_tmp).dot(normal_grd)).normalized();
         contact_friction_tmp = ground[i]->friction();
 
@@ -324,7 +324,7 @@ namespace enve
     ground::flat const & ground,
     affine       const & pose,
     output             & out
-  ) 
+  )
     const
   {
     // Rib alias variables
@@ -358,7 +358,7 @@ namespace enve
       out.friction = ground.friction();
       out.depth    = radius - (out.point - center_grd).norm();
       out.area     = real(2.0) * std::sqrt(out.depth * (real(2.0) * radius - out.depth)) * width;
-      out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) - 
+      out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) -
                      (radius - out.depth) * std::sqrt(out.depth * (real(2.0) * radius - out.depth))) * width;
       return true;
     }
@@ -377,7 +377,7 @@ namespace enve
     triangleground::vecptr const & ground,
     affine                 const & pose,
     output                       & out
-  ) 
+  )
     const
   {
     // Rib alias variables
@@ -419,7 +419,7 @@ namespace enve
     vec3 e_y = rotation.col(1).normalized();
     vec3 e_x = (out.normal.cross(e_y)).normalized();
     vec3 e_z = (e_y.cross(e_x)).normalized();
-    
+
     // Compute contact depth
     out.depth = radius * std::abs(out.normal.dot(e_z)) - (out.point - center_grd).norm();
 
@@ -433,7 +433,7 @@ namespace enve
 
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / real(4.0);
       out.area     = real(2.0) * std::sqrt(out.depth * (real(2.0) * radius - out.depth)) * width;
-      out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) - 
+      out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) -
                      (radius - out.depth) * std::sqrt(out.depth * (real(2.0) * radius - out.depth))) * width;
       return true;
     }
@@ -452,7 +452,7 @@ namespace enve
     ground::flat const & ground,
     affine       const & pose,
     output             & out
-  ) 
+  )
     const
   {
     // Rib alias variables
@@ -494,7 +494,7 @@ namespace enve
     vec3 e_y = rotation.col(1).normalized();
     vec3 e_x = (out.normal.cross(e_y)).normalized();
     vec3 e_z = (e_y.cross(e_x)).normalized();
-    
+
     // Compute contact depth
     out.depth = radius * std::abs(out.normal.dot(e_z)) - (out.point - center_grd).norm();
 
@@ -508,7 +508,7 @@ namespace enve
 
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / real(4.0);
       out.area     = real(2.0) * std::sqrt(out.depth * (real(2.0) * radius - out.depth)) * width;
-      out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) - 
+      out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) -
                      (radius - out.depth) * std::sqrt(out.depth * (real(2.0) * radius - out.depth))) * width;
       return true;
     }
@@ -528,7 +528,7 @@ namespace enve
     line                   const & sampling_line,
     point                        & contact_point,
     real                         & contact_friction
-  ) 
+  )
     const
   {
     #define CMD "enve::rib::samplingLine(...): "
@@ -597,7 +597,7 @@ namespace enve
     line         const & sampling_line,
     point              & contact_point,
     real               & contact_friction
-  ) 
+  )
     const
   {
     if (Intersection(sampling_line, ground, contact_point, EPSILON_HIGH))

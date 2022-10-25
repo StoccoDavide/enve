@@ -52,7 +52,7 @@ namespace enve
       aabb::vecptr           m_bboxes;       //!< Bounding boxes pointers vector
 
       #ifdef ENVE_USE_UTILS_AABBTREE
-      AABBtreeUtils m_AABBtree; //!< Utils mesh tree pointer
+      AABB_TREE m_AABB_tree; //!< Utils mesh tree pointer
       #else
       AABBtree::ptr m_AABBtree;      //!< Acme mesh tree pointer
       #endif
@@ -64,12 +64,12 @@ namespace enve
       //! Mesh move constructor
       mesh(mesh &&) = delete;
 
-      //! Mesh assignment operator    
+      //! Mesh assignment operator
       mesh & operator=(const mesh &) = delete;
 
-      //! Mesh move assignment operator    
+      //! Mesh move assignment operator
       mesh & operator=(mesh &&) = delete;
-      
+
       //! Mesh class destructor
       ~mesh(void) = default;
 

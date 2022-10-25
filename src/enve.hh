@@ -23,6 +23,8 @@
 #ifndef INCLUDE_ENVE_HH
 #define INCLUDE_ENVE_HH
 
+#define ENVE_DEBUG
+
 // Print enve errors
 #ifndef ENVE_ERROR
 #define ENVE_ERROR(MSG)                 \
@@ -41,7 +43,7 @@
 #endif
 
 // Switch from Utils to acme AABB tree
-//#define ENVE_USE_UTILS_AABBTREE
+#define ENVE_USE_UTILS_AABBTREE
 #ifdef ENVE_USE_UTILS_AABBTREE
 #define ENVE_AABBTREE_NODE_SIZE 1
 #endif
@@ -96,9 +98,9 @@ using acme::NAN_AABB;
 
 using acme::IsApprox;
 
-typedef Utils::AABBtree<real>           AABBtreeUtils;
-typedef Utils::AABBtree<real>::AABB_SET AABBset;
-typedef Utils::AABBtree<real>::AABB_MAP AABBmap;
+using AABB_TREE = Utils::AABBtree<real>;
+using AABB_SET  = Utils::AABBtree<real>::AABB_SET;
+using AABB_MAP  = Utils::AABBtree<real>::AABB_MAP;
 
 #include "enve/flat.hxx"
 #include "enve/mesh.hxx"

@@ -81,9 +81,9 @@ using acme::NAN_AABB;
 
 using acme::IsApprox;
 
-typedef Utils::AABBtree<real>           AABBtreeUtils;
-typedef Utils::AABBtree<real>::AABB_SET AABBset;
-typedef Utils::AABBtree<real>::AABB_MAP AABBmap;
+using AABB_TREE = Utils::AABBtree<real>;
+using AABB_SET  = Utils::AABBtree<real>::AABB_SET;
+using AABB_MAP  = Utils::AABBtree<real>::AABB_MAP;
 
 #include "enve/flat.hxx"
 #include "enve/mesh.hxx"

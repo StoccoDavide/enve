@@ -22,6 +22,8 @@
 
 #include "enve.hh"
 
+static bool USE_UTILS_AABB_TREE = true;
+
 namespace enve
 {
   namespace ground
@@ -40,10 +42,7 @@ namespace enve
 
     mesh::mesh(void)
     {
-      #ifdef ENVE_USE_UTILS_AABBTREE
-      #else
       this->m_AABBtree = std::make_shared<AABBtree>();
-      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -462,60 +461,83 @@ namespace enve
     {
       ENVE_DEBUG_TICTOC;
 
-      #ifdef ENVE_USE_UTILS_AABBTREE
+      if ( USE_UTILS_AABB_TREE ) {
 
-      ENVE_DEBUG_TIC;
-      AABBset intersectList;
-      real bbox[6];
-      bbox[0] = box->min(0);
-      bbox[1] = box->min(1);
-      bbox[2] = box->min(2);
-      bbox[3] = box->max(0);
-      bbox[4] = box->max(1);
-      bbox[5] = box->max(2);
+        ENVE_DEBUG_TIC;
+        AABB_SET intersectList;
+        real bbox[6];
+        bbox[0] = box->min(0);
+        bbox[1] = box->min(1);
+        bbox[2] = box->min(2);
+        bbox[3] = box->max(0);
+        bbox[4] = box->max(1);
+        bbox[5] = box->max(2);
 
-      this->m_AABBtree.intersect_with_one_bbox( bbox, intersectList );
-      ENVE_DEBUG_TOC;
-      ENVE_MESSAGE_DEBUG(
-        "enve::mesh::intersection(Utils): intersect_with_one_bbox task, elapsed time {}ms\n",
-        tictoc.elapsed_ms()
-      );
+        // se usi questa da candidati extra che non si intersecano
+        //this->m_AABB_tree.intersect_with_one_bbox( bbox, intersectList );
+        this->m_AABB_tree.intersect_with_one_bbox_and_refine( bbox, intersectList );
 
-      ENVE_DEBUG_TIC;
-      triangles.resize(intersectList.size());
-      integer list = 0;
-      for ( integer const & i : intersectList )
-      {
-        triangles[list] = this->m_triangles[i];
-        ++list;
+        ENVE_DEBUG_TOC;
+        ENVE_MESSAGE_DEBUG(
+          "enve::mesh::intersection(Utils): intersect_with_one_bbox task\n"
+          "elapsed time {}ms\n"
+          "#intersectList {}\n",
+          tictoc.elapsed_ms(), intersectList.size()
+        );
+
+        ENVE_DEBUG_TIC;
+        triangles.resize(intersectList.size());
+        integer list = 0;
+
+        //std::vector<int> llist;
+        for ( integer const & i : intersectList )
+        {
+          //llist.push_back( i );
+          triangles[list] = this->m_triangles[i];
+          ++list;
+        }
+        ENVE_DEBUG_TOC;
+        ENVE_MESSAGE_DEBUG(
+          "enve::mesh::intersection(Utils): resize task, elapsed time {}ms\n",
+          tictoc.elapsed_ms()
+        );
+
+        //std::sort( llist.begin(), llist.end() );
+        //for ( auto const & ii : llist ) std::cout << ii << ",";
+        //std::cout << "\n";
+
+        return list > integer(0);
+
+      } else {
+
+        ENVE_DEBUG_TIC;
+        aabb::vecptr ptrVecbox{box};
+        AABBtree::ptr ptrAABBtree(std::make_shared<AABBtree>());
+        ptrAABBtree->build(ptrVecbox);
+        triangles.clear();
+        aabb::vecpairptr intersection_list;
+        this->m_AABBtree->intersection(*ptrAABBtree, intersection_list);
+
+        //std::vector<int> list;
+        for ( auto const & il : intersection_list ) {
+          //list.push_back( (il.first)->id() );
+          triangles.emplace_back(this->ptrTriangleground((il.first)->id()));
+        }
+
+        //std::sort( list.begin(), list.end() );
+        //for ( auto const & ii : list ) std::cout << ii << ",";
+        //std::cout << "\n";
+
+        ENVE_DEBUG_TOC;
+        ENVE_MESSAGE_DEBUG(
+          "enve::mesh::intersection(acme):  intersection task\n"
+          "elapsed time {}ms\n"
+          "#intersectList {}\n",
+          tictoc.elapsed_ms(), intersection_list.size()
+        );
+
+        return triangles.size() > size_t(0);
       }
-      ENVE_DEBUG_TOC;
-      ENVE_MESSAGE_DEBUG(
-        "enve::mesh::intersection(Utils): resize task, elapsed time {}ms\n",
-        tictoc.elapsed_ms()
-      );
-      return list > integer(0);
-
-      #else
-
-      ENVE_DEBUG_TIC;
-      aabb::vecptr ptrVecbox{box};
-      AABBtree::ptr ptrAABBtree(std::make_shared<AABBtree>());
-      ptrAABBtree->build(ptrVecbox);
-      triangles.clear();
-      aabb::vecpairptr intersection_list;
-      this->m_AABBtree->intersection(*ptrAABBtree, intersection_list);
-      for (size_t i = 0; i < intersection_list.size(); ++i)
-        {triangles.emplace_back(this->ptrTriangleground((intersection_list[i].first)->id()));}
-      ENVE_DEBUG_TOC;
-      ENVE_MESSAGE_DEBUG(
-        "enve::mesh::intersection(acme): intersection task, elapsed time {}ms\n",
-        tictoc.elapsed_ms()
-      );
-
-      return triangles.size() > size_t(0);
-
-      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -531,39 +553,37 @@ namespace enve
       this->m_triangles = triangles;
       this->updateBBoxes();
 
-      #ifdef ENVE_USE_UTILS_AABBTREE
+      if ( USE_UTILS_AABB_TREE ) {
 
-      ENVE_DEBUG_TIC;
-      this->m_AABBtree.set_max_num_objects_per_node( ENVE_AABBTREE_NODE_SIZE );
-      this->m_AABBtree.allocate( triangles.size(), integer(3) );
-      integer aabb_pos = 0;
-      for ( triangleground::ptr tri : triangles )
-      {
-        this->m_AABBtree.replace_bbox(
-          tri->bbox().min().data(),
-          tri->bbox().max().data(),
-          aabb_pos
+        ENVE_DEBUG_TIC;
+        this->m_AABB_tree.set_max_num_objects_per_node( ENVE_AABBTREE_NODE_SIZE );
+        this->m_AABB_tree.allocate( triangles.size(), integer(3) );
+        integer aabb_pos = 0;
+        for ( triangleground::ptr tri : triangles ) {
+          this->m_AABB_tree.replace_bbox(
+            tri->bbox().min().data(),
+            tri->bbox().max().data(),
+            aabb_pos
+          );
+          ++aabb_pos;
+        }
+        this->m_AABB_tree.build();
+        ENVE_DEBUG_TOC;
+        ENVE_MESSAGE_DEBUG(
+          "enve::mesh::buildAABBtree(Utils): build task, elapsed time {}ms\n",
+          tictoc.elapsed_ms()
         );
-        ++aabb_pos;
+
+      } else {
+
+        ENVE_DEBUG_TIC;
+        this->m_AABBtree->build(this->m_bboxes);
+        ENVE_DEBUG_TOC;
+        ENVE_MESSAGE_DEBUG(
+          "enve::mesh::buildAABBtree(acme): build task, elapsed time {}ms\n",
+          tictoc.elapsed_ms()
+        );
       }
-      this->m_AABBtree.build();
-      ENVE_DEBUG_TOC;
-      ENVE_MESSAGE_DEBUG(
-        "enve::mesh::buildAABBtree(Utils): build task, elapsed time {}ms\n",
-        tictoc.elapsed_ms()
-      );
-
-      #else
-
-      ENVE_DEBUG_TIC;
-      this->m_AABBtree->build(this->m_bboxes);
-      ENVE_DEBUG_TOC;
-      ENVE_MESSAGE_DEBUG(
-        "enve::mesh::buildAABBtree(acme): build task, elapsed time {}ms\n",
-        tictoc.elapsed_ms()
-      );
-
-      #endif
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
