@@ -46,26 +46,10 @@ namespace enve
     real   My,
     real   Ly
   )
-    : m_shape(std::make_shared<shape>(Rx, Mx, Ry, My, Ly)),
-      m_aabb(std::make_shared<aabb>())
+    : m_shape(Rx, Mx, Ry, My, Ly)
   {
     this->m_affine.matrix() = IDENTITY_MAT4;
     this->resize(size);
-    this->updateBBox();
-  }
-
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  shell::shell(
-    size_t         size,
-    shape  const & shape_obj
-  )
-    : m_shape(std::make_shared<shape>(shape_obj)),
-      m_aabb(std::make_shared<aabb>())
-  {
-    this->m_affine.matrix() = IDENTITY_MAT4;
-    this->resize(size);
-    this->updateBBox();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -81,44 +65,35 @@ namespace enve
       CMD "negative ribs number detected.");
 
     // Resize the contact point, friction and normal vectors
-    this->m_ribs.clear(); this->m_ribs.reserve(20);
-    this->m_out.clear();  this->m_out.resize(size);
-
-    if (!this->m_candidates.empty())
-    {
-      for (size_t i = 0; i < size; ++i)
-      {
-        if (!this->m_candidates[i].empty())
-          {this->m_candidates[i].clear();}
-      }
-      this->m_candidates.clear();
-    }
+    for (size_t i = 0; i < this->m_candidates.size(); ++i)
+      {this->m_candidates[i].clear();}
+    this->m_ribs.clear();       this->m_ribs.reserve(200);
+    this->m_out.clear();        this->m_out.reserve(200);
+    this->m_candidates.clear(); this->m_candidates.reserve(200);
 
     this->m_candidates.resize(size);
     for (size_t i = 0; i < size; ++i)
       {this->m_candidates[i].reserve(200);}
 
     // Locate the disks
-    real shellWidth = this->m_shape->surfaceWidth();
+    real shellWidth = this->m_shape.surfaceWidth();
     real ribW = real(2.0) * shellWidth / size;
     real ribR, ribA;
     real ribY = -shellWidth - ribW / real(2.0);
     for (size_t i = 0; i < size; ++i)
     {
       ribY += ribW;
-      ribR  = this->m_shape->surfaceRadius(ribY);
-      ribA  = this->m_shape->surfaceAngle(ribY);
+      ribR  = this->m_shape.surfaceRadius(ribY);
+      ribA  = this->m_shape.surfaceAngle(ribY);
       ENVE_ASSERT(ribR > size_t(0),
         CMD "negative rib radius detected.");
       ENVE_ASSERT(ribR == ribR,
         CMD "NaN rib radius detected.");
       ENVE_ASSERT(ribA == ribA,
         CMD "NaN rib angle detected.");
-      this->m_ribs.push_back(rib(i, ribR, ribY, ribW, ribA));
+      this->m_ribs.emplace_back(i, ribR, ribY, ribW, ribA);
     }
-    // Update bounding aabb
-    this->updateBBox();
-  
+
     #undef CMD
   }
 
@@ -148,7 +123,7 @@ namespace enve
   shell::surfaceMaxRadius(void)
     const
   {
-    return this->m_shape->surfaceMaxRadius();
+    return this->m_shape.surfaceMaxRadius();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -157,7 +132,7 @@ namespace enve
   shell::surfaceMaxWidth(void)
     const
   {
-    return this->m_shape->surfaceMaxWidth();
+    return this->m_shape.surfaceMaxWidth();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -166,7 +141,7 @@ namespace enve
   shell::surfaceWidth(void)
     const
   {
-    return this->m_shape->surfaceWidth();
+    return this->m_shape.surfaceWidth();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -177,7 +152,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape->checkWidthBound(y);
+    return this->m_shape.checkWidthBound(y);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -188,7 +163,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape->surfaceRadius(y);
+    return this->m_shape.surfaceRadius(y);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -200,7 +175,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape->surfaceDerivative(y, tolerance);
+    return this->m_shape.surfaceDerivative(y, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -212,7 +187,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape->surfaceAngle(y, tolerance);
+    return this->m_shape.surfaceAngle(y, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -416,11 +391,11 @@ namespace enve
   
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   
-  std::shared_ptr<aabb>
-  shell::BBox(void)
+  aabb const &
+  shell::bbox(void)
     const
   {
-    return this->m_aabb;
+    return this->m_bbox;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -428,12 +403,12 @@ namespace enve
   void
   shell::updateBBox(void)
   {
-    real  radius = this->m_shape->surfaceMaxRadius();
+    real  radius = this->m_shape.surfaceMaxRadius();
     point origin(this->m_affine.translation());
     point extrema(radius, radius, radius);
-    this->m_aabb->min() = origin - extrema;
-    this->m_aabb->max() = origin + extrema;
-    this->m_aabb->updateMaxMin();
+    this->m_bbox.min() = origin - extrema;
+    this->m_bbox.max() = origin + extrema;
+    this->m_bbox.updateMaxMin();
   }
   
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -463,9 +438,8 @@ namespace enve
     this->updateBBox();
 
     // Local intersected triangles vector
-    triangleground::vecptr local_ground;
-    local_ground.reserve(200);
-    ground.intersection(this->m_aabb, local_ground);
+    AABB_SET local_ground;
+    ground.intersection(this->m_bbox, local_ground);
 
     // End setup if there are no intersections
     if (local_ground.size() < size_t(1))
@@ -478,7 +452,13 @@ namespace enve
     {
       // Calculate ribs candidates to speed up calculations
       if (method == "geometric")
-        {this->updateRibsCandidates(local_ground);}
+      {
+        this->refineIntersection(
+          ground,
+          local_ground,
+          local_ground.size() > integer(3)
+        );
+      }
 
       // Perform intersection on all ribs
       bool out = false;
@@ -947,7 +927,7 @@ namespace enve
 
     os << " ------------ SHELL PRINT ------------" << std::endl
     << std::endl;
-    this->m_shape->print(os);
+    this->m_shape.print(os);
 
     os << "Ribs info:" << std::endl;
     for (size_t i = 0; i < relative_angles_vec.size(); ++i)
@@ -960,7 +940,7 @@ namespace enve
                    
     os << "Contact parameters:" << std::endl
        << "Shell maximum radius" << std::endl
-       << "R = " << this->m_shape->surfaceMaxRadius() << " m" << std::endl
+       << "R = " << this->m_shape.surfaceMaxRadius() << " m" << std::endl
        << "Camber angle" << std::endl
        << "Γ = " << euler_angles.y() / PI << "pi rad" << std::endl
        << "Rotation angle" << std::endl
@@ -1015,17 +995,19 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  shell::updateRibsCandidates(
-    triangleground::vecptr const & local_ground
+  shell::refineIntersection(
+    ground::mesh const & ground,
+    AABB_SET     const & local_ground,
+    bool                 refine
   )
   {
     size_t size = this->size();
     std::vector<real> y(size);
     for (size_t i = 0; i < size; ++i)
     {
-      y[i] = this->m_ribs[i].center().y();
       if (!this->m_candidates[i].empty())
         {this->m_candidates[i].clear();}
+      y[i] = this->m_ribs[i].center().y();
     }
 
     // Create shell middle plane
@@ -1033,30 +1015,32 @@ namespace enve
     mid_plane.normalize();
 
     // Iterate on triangles
-    real d0, d1, d2;
-    integer sum;
-    for (size_t i = 0; i < local_ground.size(); ++i)
+    real d0, d1, d2, sum;
+    for (integer i : local_ground)
     {
-      // Check for aabb collisions
-      if (!this->m_aabb->intersects(local_ground[i]->bbox()))
-        {break;}   
-
       // Calculate distance of i-th triangle
-      d0 = mid_plane.signedDistance(local_ground[i]->vertex(0));
-      d1 = mid_plane.signedDistance(local_ground[i]->vertex(1));
-      d2 = mid_plane.signedDistance(local_ground[i]->vertex(2));
+      d0 = mid_plane.signedDistance(ground[i]->vertex(0));
+      d1 = mid_plane.signedDistance(ground[i]->vertex(1));
+      d2 = mid_plane.signedDistance(ground[i]->vertex(2));
 
       // Iterate on ribs
       for (size_t j = 0; j < size; ++j)
       {
+        // Workaround for skip advanced ribs refinement
+        if (!refine)
+        {
+          this->m_candidates[j].push_back(ground[i]);
+          continue;
+        }
+
         // Calculate sign of j-th rib distance
-        sum = integer((real(0.0) < (d0-y[j])) - ((d0-y[j]) < real(0.0))) +
-              integer((real(0.0) < (d1-y[j])) - ((d1-y[j]) < real(0.0))) +
-              integer((real(0.0) < (d2-y[j])) - ((d2-y[j]) < real(0.0)));
+        sum = real((real(0.0) < (d0-y[j])) - ((d0-y[j]) < real(0.0))) +
+              real((real(0.0) < (d1-y[j])) - ((d1-y[j]) < real(0.0))) +
+              real((real(0.0) < (d2-y[j])) - ((d2-y[j]) < real(0.0)));
 
         // Fill candidates list
-        if (integer(-3) < sum && sum < integer(3))
-          {this->m_candidates[j].push_back(local_ground[i]);}
+        if (real(-3.0) < sum && sum < real(3.0))
+          {this->m_candidates[j].push_back(ground[i]);}
       }
     }
   }

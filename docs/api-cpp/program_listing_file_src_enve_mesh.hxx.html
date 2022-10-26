@@ -84,19 +84,9 @@
 
     <span class="k">class</span> <span class="nc">mesh</span>
     <span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-      <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">mesh</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">ptr</span><span class="p">;</span>
-      <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">mesh</span><span class="o">::</span><span class="n">ptr</span><span class="o">&gt;</span>      <span class="n">vecptr</span><span class="p">;</span>
-
     <span class="k">private</span><span class="o">:</span>
       <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="n">m_triangles</span><span class="p">;</span>
-      <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span>           <span class="n">m_bboxes</span><span class="p">;</span>
-
-      <span class="cp">#ifdef ENVE_USE_UTILS_AABBTREE</span>
-      <span class="n">AABBtreeUtils</span> <span class="n">m_AABBtree</span><span class="p">;</span>
-      <span class="cp">#else</span>
-      <span class="n">AABBtree</span><span class="o">::</span><span class="n">ptr</span> <span class="n">m_AABBtree</span><span class="p">;</span>
-      <span class="cp">#endif</span>
+      <span class="n">AABB_TREE</span>              <span class="n">m_AABBtree</span><span class="p">;</span>
 
     <span class="k">public</span><span class="o">:</span>
       <span class="n">mesh</span><span class="p">(</span><span class="n">mesh</span> <span class="k">const</span> <span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
@@ -141,14 +131,15 @@
         <span class="kt">size_t</span> <span class="n">i</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
+      <span class="n">triangleground</span><span class="o">::</span><span class="n">ptr</span>
+      <span class="k">operator</span><span class="p">[](</span>
+        <span class="kt">size_t</span> <span class="n">i</span>
+      <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
       <span class="kt">void</span>
       <span class="nf">print</span><span class="p">(</span>
         <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">path</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-      <span class="n">aabb</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span>
-      <span class="n">bboxes</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-      <span class="k">const</span><span class="p">;</span>
 
       <span class="kt">size_t</span>
       <span class="nf">size</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -167,21 +158,16 @@
 
       <span class="kt">bool</span>
       <span class="nf">intersection</span><span class="p">(</span>
-        <span class="n">aabb</span><span class="o">::</span><span class="n">ptr</span>              <span class="k">const</span>   <span class="n">box</span><span class="p">,</span>
-        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span>       <span class="o">&amp;</span> <span class="n">triangles</span>
+        <span class="n">aabb</span>     <span class="k">const</span> <span class="o">&amp;</span> <span class="n">box</span><span class="p">,</span>
+        <span class="n">AABB_SET</span>       <span class="o">&amp;</span> <span class="n">triangles</span>
       <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
       <span class="kt">void</span>
-      <span class="nf">buildAABBtree</span><span class="p">(</span>
-        <span class="n">triangleground</span><span class="o">::</span><span class="n">vecptr</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">triangles</span>
-      <span class="p">);</span>
+      <span class="nf">buildAABBtree</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
     <span class="k">private</span><span class="o">:</span>
       <span class="kt">void</span>
-      <span class="n">updateBBoxes</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-      <span class="kt">void</span>
-      <span class="nf">split</span><span class="p">(</span>
+      <span class="n">split</span><span class="p">(</span>
         <span class="n">std</span><span class="o">::</span><span class="n">string</span>              <span class="k">const</span> <span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span>
         <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span>       <span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span>
         <span class="n">std</span><span class="o">::</span><span class="n">string</span>              <span class="k">const</span> <span class="o">&amp;</span> <span class="n">token</span>

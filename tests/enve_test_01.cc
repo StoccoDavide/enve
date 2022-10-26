@@ -51,7 +51,7 @@ main(void)
 
     // Initialize the tire shell
     shell tire_shell(
-      30,    // n_r
+      10,    // n_r
       0.327, // r_x
       4.000, // m_x
       0.195, // r_y
@@ -79,8 +79,8 @@ main(void)
     tictoc.toc();
 
     // Display current tire data on command line
-    //if (out)
-    //  tire_shell.print(std::cout);
+    if (out)
+      tire_shell.print(std::cout);
 
     //affine cp_rib;
     //for (size_t i = 0; i < tire_shell.size(); ++i)

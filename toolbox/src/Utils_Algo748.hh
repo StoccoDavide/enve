@@ -78,35 +78,33 @@ namespace Utils {
 
     using Integer = int;
 
-    Integer m_num_iter_done = 0;
-    Integer m_num_fun_eval  = 0;
-    Real    m_mu            = Real(0.5);
-    Real    m_tolerance     = pow(machine_eps<Real>(),Real(2./3.));
+    Integer m_num_iter_done{0};
+    Integer m_num_fun_eval{0};
+    Real    m_mu{Real(0.5)};
+    Real    m_tolerance{pow(machine_eps<Real>(),Real(2./3.))};
+    Real    m_interval_shink{Real(0.025)};
 
-    bool m_converged     = false;
+    bool m_converged{false};
 
-    Real m_a  = 0;
-    Real m_b  = 0;
-    Real m_c  = 0;
-    Real m_d  = 0;
-    Real m_e  = 0;
-    Real m_fa = 0;
-    Real m_fb = 0;
-    Real m_fc = 0;
-    Real m_fd = 0;
-    Real m_fe = 0;
+    Real m_a{0};
+    Real m_b{0};
+    Real m_c{0};
+    Real m_d{0};
+    Real m_e{0};
+    Real m_fa{0};
+    Real m_fb{0};
+    Real m_fc{0};
+    Real m_fd{0};
+    Real m_fe{0};
 
-    Algo748_base_fun<Real> * m_function = nullptr;
+    Algo748_base_fun<Real> * m_function{nullptr};
 
     bool bracketing();
     void set_tolerance( Real tol );
     Real pzero();
     Real newton_quadratic( Integer niter );
-
     Real evaluate( Real x ) { ++m_num_fun_eval; return m_function->eval(x); };
-
     bool all_different( Real a, Real b, Real c, Real d ) const;
-
     Real eval( Real a, Real b );
 
   public:
@@ -130,7 +128,8 @@ namespace Utils {
 
     Integer used_iter()    const { return m_num_iter_done; }
     Integer num_fun_eval() const { return m_num_fun_eval; }
-    bool converged() const { return m_converged; }
+    Real    tolerance()    const { return m_tolerance; }
+    bool    converged()    const { return m_converged; }
 
   };
 

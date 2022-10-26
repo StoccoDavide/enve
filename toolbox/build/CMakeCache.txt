@@ -222,25 +222,25 @@ CMAKE_STRIP:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/Xcode
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //MatlabDataArray Library
-Matlab_DATAARRAY_LIBRARY:FILEPATH=/Applications/MATLAB_R2021b.app/bin/maci64/libMatlabDataArray.dylib
+Matlab_DATAARRAY_LIBRARY:FILEPATH=/Applications/MATLAB_R2022a.app/bin/maci64/libMatlabDataArray.dylib
 
 //MatlabEngine Library
-Matlab_ENGINE_LIBRARY:FILEPATH=/Applications/MATLAB_R2021b.app/extern/bin/maci64/libMatlabEngine.dylib
+Matlab_ENGINE_LIBRARY:FILEPATH=/Applications/MATLAB_R2022a.app/extern/bin/maci64/libMatlabEngine.dylib
 
 //Path to a file.
-Matlab_INCLUDE_DIRS:PATH=/Applications/MATLAB_R2021b.app/extern/include
+Matlab_INCLUDE_DIRS:PATH=/Applications/MATLAB_R2022a.app/extern/include
 
 //Extensions for the mex targets (automatically given by Matlab)
 Matlab_MEX_EXTENSION:STRING=mexmaci64
 
 //Path to a library.
-Matlab_MEX_LIBRARY:FILEPATH=/Applications/MATLAB_R2021b.app/bin/maci64/libmex.dylib
+Matlab_MEX_LIBRARY:FILEPATH=/Applications/MATLAB_R2022a.app/bin/maci64/libmex.dylib
 
 //Path to a library.
-Matlab_MX_LIBRARY:FILEPATH=/Applications/MATLAB_R2021b.app/bin/maci64/libmx.dylib
+Matlab_MX_LIBRARY:FILEPATH=/Applications/MATLAB_R2022a.app/bin/maci64/libmx.dylib
 
 //Matlab installation root path
-Matlab_ROOT_DIR:PATH=/Applications/MATLAB_R2021b.app
+Matlab_ROOT_DIR:PATH=/Applications/MATLAB_R2022a.app
 
 //Enable shared option compilation
 UTILS_BUILD_SHARED:BOOL=ON
@@ -413,7 +413,7 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Matlab
-FIND_PACKAGE_MESSAGE_DETAILS_Matlab:INTERNAL=[/Applications/MATLAB_R2021b.app/extern/include][/Applications/MATLAB_R2021b.app/bin/maci64/libmex.dylib][mexmaci64][/Applications/MATLAB_R2021b.app][/Applications/MATLAB_R2021b.app/bin/maci64/libmx.dylib][c ][v9.11()]
+FIND_PACKAGE_MESSAGE_DETAILS_Matlab:INTERNAL=[/Applications/MATLAB_R2022a.app/extern/include][/Applications/MATLAB_R2022a.app/bin/maci64/libmex.dylib][mexmaci64][/Applications/MATLAB_R2022a.app][/Applications/MATLAB_R2022a.app/bin/maci64/libmx.dylib][c ][v9.12()]
 //Test HAS_MINUS_PTHREAD
 HAS_MINUS_PTHREAD:INTERNAL=1
 //ADVANCED property for variable: Matlab_DATAARRAY_LIBRARY
@@ -429,7 +429,7 @@ Matlab_MEX_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Matlab_MX_LIBRARY
 Matlab_MX_LIBRARY-ADVANCED:INTERNAL=1
 //last Matlab root dir location
-Matlab_ROOT_DIR_LAST_CACHED:INTERNAL=/Applications/MATLAB_R2021b.app
+Matlab_ROOT_DIR_LAST_CACHED:INTERNAL=/Applications/MATLAB_R2022a.app
 //Matlab version (automatically determined)
-Matlab_VERSION_STRING_INTERNAL:INTERNAL=9.11
+Matlab_VERSION_STRING_INTERNAL:INTERNAL=9.12
 

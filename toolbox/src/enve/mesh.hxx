@@ -43,19 +43,9 @@ namespace enve
     //! Triangular mesh class
     class mesh
     {
-    public:
-      typedef std::shared_ptr<mesh const> ptr;    //!< Pointer to mesh object
-      typedef std::vector<mesh::ptr>      vecptr; //!< Vector of pointers to mesh objects
-
     private:
-      triangleground::vecptr m_triangles;    //!< Ground triangles pointer vector
-      aabb::vecptr           m_bboxes;       //!< Bounding boxes pointers vector
-
-      #ifdef ENVE_USE_UTILS_AABBTREE
-      AABB_TREE m_AABB_tree; //!< Utils mesh tree pointer
-      #else
-      AABBtree::ptr m_AABBtree;      //!< Acme mesh tree pointer
-      #endif
+      triangleground::vecptr m_triangles; //!< Ground triangles pointers vector
+      AABB_TREE              m_AABBtree;  //!< Utils mesh AABB tree
 
     public:
       //! Mesh copy constructor
@@ -113,16 +103,17 @@ namespace enve
         size_t i //!< Triangle index
       ) const;
 
+      //! Get i-th triangleground pointer
+      triangleground::ptr
+      operator[](
+        size_t i //!< Triangle index
+      ) const;
+
       //! Print data in file
       void
       print(
         std::string const & path //!< File name in which print data
       ) const;
-
-      //! Get the mesh bounding boxes pointers vector
-      aabb::vecptr const &
-      bboxes(void)
-      const;
 
       //! Return number of triangles in the mesh
       size_t
@@ -145,21 +136,15 @@ namespace enve
       //! Intersect the mesh AABBtree with an external aabb object pointer
       bool
       intersection(
-        aabb::ptr              const   box,      //!< External aabb object pointer
-        triangleground::vecptr       & triangles //!< Intersected triangleground vector list
+        aabb     const & box,      //!< External aabb object pointer
+        AABB_SET       & triangles //!< Intersected triangles list
       ) const;
 
       //! Build mesh AABBtree
       void
-      buildAABBtree(
-        triangleground::vecptr const & triangles //!< Ground triangles pointer vector list
-      );
+      buildAABBtree(void);
 
     private:
-      //! Update the mesh bounding boxes pointers
-      void
-      updateBBoxes(void);
-
       //! Split a string into a string array at a given token
       void
       split(

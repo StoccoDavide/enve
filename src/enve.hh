@@ -23,8 +23,6 @@
 #ifndef INCLUDE_ENVE_HH
 #define INCLUDE_ENVE_HH
 
-#define ENVE_DEBUG
-
 // Print enve errors
 #ifndef ENVE_ERROR
 #define ENVE_ERROR(MSG)                 \
@@ -43,8 +41,7 @@
 #endif
 
 // Switch from Utils to acme AABB tree
-#define ENVE_USE_UTILS_AABBTREE
-#ifdef ENVE_USE_UTILS_AABBTREE
+#ifndef ENVE_AABBTREE_NODE_SIZE
 #define ENVE_AABBTREE_NODE_SIZE 1
 #endif
 
@@ -55,12 +52,12 @@
   #define ENVE_DEBUG_TICTOC      Utils::TicToc tictoc
   #define ENVE_DEBUG_TIC         tictoc.tic()
   #define ENVE_DEBUG_TOC         tictoc.toc()
-  #define ENVE_MESSAGE_DEBUG(...) std::cout << fmt::format(__VA_ARGS__) << std::flush
+  #define ENVE_DEBUG_MESSAGE(...) std::cout << fmt::format(__VA_ARGS__) << std::flush
 #else
   #define ENVE_DEBUG_TICTOC
   #define ENVE_DEBUG_TIC
   #define ENVE_DEBUG_TOC
-  #define ENVE_MESSAGE_DEBUG(...)
+  #define ENVE_DEBUG_MESSAGE(...)
 #endif
 
 #include <fstream>

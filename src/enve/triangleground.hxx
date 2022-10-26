@@ -156,7 +156,7 @@ namespace enve
 
     //! Update axis-aligned bounding box
     void
-    updateBbox(void);
+    updateBBox(void);
 
     //! Get i-th vertex reference (m)
     point &

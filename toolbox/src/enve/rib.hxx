@@ -43,10 +43,6 @@ namespace enve
   //! Rib for wheel representation
   class rib : public disk
   {
-  public:
-    typedef std::shared_ptr<rib const> ptr;    //!< Pointer to rib object
-    typedef std::vector<rib::ptr>      vecptr; //!< Vector of pointers to rib objects
-
   private:
     integer m_id;    //!< ID (-)
     real    m_y;     //!< Y-axis component  (m)

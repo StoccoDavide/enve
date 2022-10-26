@@ -50,11 +50,11 @@ main(void)
 
     // Initialize the tire shell
     shell tire_shell(
-      10,  // n_r
+      6,  // n_r
       0.3, // r_x
-      4.0, // m_x
+      6.0, // m_x
       0.3, // r_y
-      4.0, // m_y
+      6.0, // m_y
       0.1  // l_y
     );
 
@@ -91,7 +91,7 @@ main(void)
     vec3  relative_angles;
 
     // Perform timing
-    triangleground::vecptr triangles_list;
+    AABB_SET triangles_list;
     real triangles_list_size = 0.0;
     for (size_t i = 0; i < steps; ++i)
     {
@@ -115,8 +115,9 @@ main(void)
       time_vec[i] = tictoc.elapsed_ms();
 
       // Update common variables
-      road.intersection(tire_shell.BBox(), triangles_list);
+      road.intersection(tire_shell.bbox(), triangles_list);
       triangles_list_size += triangles_list.size();
+      triangles_list.clear();
       pose.translate(step);
     }
 

@@ -54,13 +54,12 @@ namespace Utils {
   template <typename Real>
   bool
   Algo748<Real>::all_different( Real a, Real b, Real c, Real d ) const {
-    if ( a == b ) return false;
-    if ( a == c ) return false;
-    if ( a == d ) return false;
-    if ( b == c ) return false;
-    if ( b == d ) return false;
-    if ( c == d ) return false;
-    return true;
+    return a != b &&
+           a != c &&
+           a != d &&
+           b != c &&
+           b != d &&
+           c != d;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -79,10 +78,10 @@ namespace Utils {
     // Adjust c if (b-a) is very small or if c is very close to a or b.
     {
       Real tol = Real(0.7)*m_tolerance;
-      Real ba  = m_b - m_a;
-      if      ( ba  <= 2*tol   ) m_c = m_a+Real(0.5)*ba;
-      else if ( m_c <= m_a+tol ) m_c = m_a+tol;
-      else if ( m_c >= m_b-tol ) m_c = m_b-tol;
+      Real hba = (m_b - m_a)/2;
+      if      ( hba <= tol     ) m_c = m_a + hba;
+      else if ( m_c <= m_a+tol ) m_c = m_a + tol;
+      else if ( m_c >= m_b-tol ) m_c = m_b - tol;
     }
 
     m_fc = this->evaluate( m_c );
@@ -106,11 +105,8 @@ namespace Utils {
         m_a = m_c; m_fa = m_fc;
       }
       // update the termination criterion according to the new enclosing interval.
-      if ( abs(m_fb) <= abs(m_fa) ) {
-        this->set_tolerance(m_b);
-      } else {
-        this->set_tolerance(m_a);
-      }
+      if ( abs(m_fb) <= abs(m_fa) ) this->set_tolerance(m_b);
+      else                          this->set_tolerance(m_a);
       return false;
     }
   }
@@ -195,10 +191,8 @@ namespace Utils {
     m_b = b; m_fb = this->evaluate(m_b);
 
     // check for trivial solution
-    m_converged = m_fa == 0;
-    if ( m_converged ) return m_a;
-    m_converged = m_fb == 0;
-    if ( m_converged ) return m_b;
+    m_converged = m_fa == 0; if ( m_converged ) return m_a;
+    m_converged = m_fb == 0; if ( m_converged ) return m_b;
 
     // check if solution can exists
     if ( m_fa*m_fb > 0 ) return 0;
@@ -219,7 +213,9 @@ namespace Utils {
     m_e  = NaN<Real>();
     m_fe = NaN<Real>(); // Dumb values
 
-    // Until f(left) or f(right) are infinite perform bisection
+    //
+    // While f(left) or f(right) are infinite perform bisection
+    //
     while ( !( isfinite(m_fa) && isfinite(m_fb) ) ) {
       ++m_num_iter_done;
       m_c  = (m_a+m_b)/2;
@@ -242,22 +238,23 @@ namespace Utils {
         if ( m_converged ) return m_a;
       }
     }
-    Real ba  = m_b-m_a;
-    Real fba = m_fb-m_fa;
-    Real R   = ba/fba;
-    m_c = abs(m_fb) < abs(m_fa) ? m_b+m_fb*R : m_a-m_fa*R;
-    // impedisce m_c troppo vicino ad m_a o m_b
-    Real bmax = m_b-Real(0.1)*ba;
-    Real amin = m_a+Real(0.1)*ba;
-    if      ( m_c < amin ) m_c = amin;
-    else if ( m_c > bmax ) m_c = bmax;
+    {
+      Real ba  = m_b  - m_a;
+      Real R   = ba/(m_fb - m_fa);
+      m_c = abs(m_fb) < abs(m_fa) ? m_b+m_fb*R : m_a-m_fa*R;
+      // impedisce m_c troppo vicino ad m_a o m_b
+      Real delta = m_interval_shink*ba, amin, bmax;
+      if      ( m_c < (amin=m_a+delta) ) m_c = amin;
+      else if ( m_c > (bmax=m_b-delta) ) m_c = bmax;
+    }
     //
     // Call "bracketing" to get a shrinked enclosing interval as
     // well as to update the termination criterion.
     // Stop the procedure if the criterion is satisfied or the
     // exact solution is obtained.
     //
-    if ( bracketing() ) return m_a;
+    m_converged = bracketing();
+    if ( m_converged ) return m_a;
     // Iteration starts.
     // The enclosing interval before executing the iteration is recorded as [a0, b0].
     m_converged = false;
@@ -266,17 +263,19 @@ namespace Utils {
     // ITERATION IS RECORDED AS [A0, B0].
     while ( !m_converged ) {
       ++m_num_iter_done;
-      Real A0 = m_a;
-      Real B0 = m_b;
+      Real BA0 = m_b-m_a;
 
       // Calculates the termination criterion.
       // Stops the procedure if the criterion is satisfied.
 
-      if ( abs(m_fb) <= abs(m_fa) ) this->set_tolerance(m_b);
-      else                          this->set_tolerance(m_a);
-
-      m_converged = (m_b-m_a) <= m_tolerance;
-      if ( m_converged ) return (m_a+m_b)/2;
+      {
+        Real abs_fa = abs(m_fa);
+        Real abs_fb = abs(m_fb);
+        Real c      = abs_fb <= abs_fa ? m_b : m_a;
+        this->set_tolerance( c );
+        m_converged = BA0 <= m_tolerance;
+        if ( m_converged ) return c;
+      }
 
       //
       // Starting with the second iteration, in the first two steps, either
@@ -307,7 +306,7 @@ namespace Utils {
       // if the criterion is satisfied or the exact solution is obtained.
       //
       m_converged = this->bracketing() || (m_b-m_a) <= m_tolerance;
-      if ( m_converged ) return m_a;
+      if ( m_converged ) return abs(m_fa) < abs(m_fb) ? m_a : m_b;
       if ( !this->all_different( m_fa, m_fb, m_fd, m_fe ) ) {
         do_newton_quadratic = true;
       } else {
@@ -321,19 +320,22 @@ namespace Utils {
       // well as to update the termination criterion. stop the procedure
       // if the criterion is satisfied or the exact solution is obtained.
       //
-      m_converged = this->bracketing() || (m_b-m_a) <= m_tolerance;
-      if ( m_converged ) return m_a;
 
-      m_e  = m_d;
-      m_fe = m_fd;
-      // Takes the double-size secant step.
-      Real u, fu;
-      if ( abs(m_fa) < abs(m_fb) ) { u = m_a; fu = m_fa; }
-      else                         { u = m_b; fu = m_fb; }
       {
+        m_converged = this->bracketing() || (m_b-m_a) <= m_tolerance;
+        Real abs_fa = abs(m_fa);
+        Real abs_fb = abs(m_fb);
+        if ( m_converged ) return abs_fa < abs_fb ? m_a : m_b;
+
+        m_e  = m_d;
+        m_fe = m_fd;
+        // Takes the double-size secant step.
+        Real u, fu;
+        if ( abs_fa < abs_fb ) { u = m_a; fu = m_fa; }
+        else                   { u = m_b; fu = m_fb; }
         Real hba = (m_b-m_a)/2;
         m_c = u-4*(fu/(m_fb-m_fa))*hba;
-        if ( abs(m_c-u) > hba ) m_c = m_a+hba;
+        if ( abs(m_c-u) > hba ) m_c = m_a + hba;
       }
 
       //
@@ -342,12 +344,12 @@ namespace Utils {
       // if the criterion is satisfied or the exact solution is obtained.
       //
       m_converged = this->bracketing() || (m_b-m_a) <= m_tolerance;
-      if ( m_converged ) return m_a;
+      if ( m_converged ) return abs(m_fa) < abs(m_fb) ? m_a : m_b;
       //
       // Determines whether an additional bisection step is needed.
       // Takes it if necessary.
       //
-      if ( (m_b-m_a) < m_mu*(B0-A0) ) continue;
+      if ( (m_b-m_a) < m_mu*BA0 ) continue;
 
       m_e  = m_d;
       m_fe = m_fd;
@@ -356,14 +358,16 @@ namespace Utils {
       // well as to update the termination criterion. stop the procedure
       // if the criterion is satisfied or the exact solution is obtained.
       //
-      m_c = m_a+Real(0.5)*(m_b-m_a);
-      m_converged = this->bracketing() || (m_b-m_a) <= m_tolerance;
+      {
+        Real ba = m_b-m_a;
+        m_c = m_a + ba/2;
+        m_converged = this->bracketing() || ba <= m_tolerance;
+      }
     }
     // TERMINATES THE PROCEDURE AND RETURN THE "ROOT".
-    return m_a;
+    return abs(m_fa) < abs(m_fb) ? m_a : m_b;
   }
 
   template class Algo748<float>;
   template class Algo748<double>;
-
 }

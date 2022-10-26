@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="347921062" file="/Users/davide/Documents/Git/enve/ENVE.prj" location="/Users/davide/Documents/Git/enve" name="ENVE" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="1238641934" file="/Users/davide/Documents/Git/enve/ENVE.prj" location="/Users/davide/Documents/Git/enve" name="ENVE" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>ENVE</param.appname>
     <param.authnamewatermark>D. Stocco, M. Larcher, E. Bertolazzi</param.authnamewatermark>
     <param.email>davide.stocco@unitn.it</param.email>
@@ -100,8 +100,11 @@ populate_toolbox.rb</param.exclude.filters>
       <file>${PROJECT_ROOT}/toolbox</file>
     </fileset.rootdir>
     <fileset.rootfiles>
+      <file>${PROJECT_ROOT}/toolbox/CMakeLists.txt</file>
       <file>${PROJECT_ROOT}/toolbox/CompileENVElib.m</file>
       <file>${PROJECT_ROOT}/toolbox/bin</file>
+      <file>${PROJECT_ROOT}/toolbox/build</file>
+      <file>${PROJECT_ROOT}/toolbox/cmake_utils</file>
       <file>${PROJECT_ROOT}/toolbox/doc</file>
       <file>${PROJECT_ROOT}/toolbox/lib</file>
       <file>${PROJECT_ROOT}/toolbox/license.txt</file>
@@ -124,38 +127,14 @@ populate_toolbox.rb</param.exclude.filters>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/Applications/MATLAB_R2021b.app</root>
+      <root>/Applications/MATLAB_R2022a.app</root>
       <toolboxes>
-        <toolbox name="matlabcoder" />
-        <toolbox name="embeddedcoder" />
         <toolbox name="fixedpoint" />
-        <toolbox name="matlabhdlcoder" />
-        <toolbox name="neuralnetwork" />
       </toolboxes>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
       <toolbox>
         <fixedpoint>
           <enabled>true</enabled>
         </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <matlabhdlcoder>
-          <enabled>true</enabled>
-        </matlabhdlcoder>
-      </toolbox>
-      <toolbox>
-        <neuralnetwork>
-          <enabled>true</enabled>
-        </neuralnetwork>
       </toolbox>
     </matlab>
     <platform>

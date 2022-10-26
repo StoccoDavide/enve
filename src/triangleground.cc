@@ -69,7 +69,7 @@ namespace enve
       m_bbox(NAN_AABB)
   {
     this->updateNormal();
-    this->updateBbox();
+    this->updateBBox();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -88,7 +88,7 @@ namespace enve
       m_bbox(NAN_AABB)
   {
     this->updateNormal();
-    this->updateBbox();
+    this->updateBBox();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -105,7 +105,7 @@ namespace enve
       m_bbox(NAN_AABB)
   {
     this->updateNormal();
-    this->updateBbox();
+    this->updateBBox();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -233,7 +233,7 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   void
-  triangleground::updateBbox(void)
+  triangleground::updateBBox(void)
   {
     this->m_bbox.id() = this->m_id;
     this->m_bbox.clamp(this->vertex(0), this->vertex(1), this->vertex(2));

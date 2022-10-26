@@ -47,7 +47,7 @@ namespace enve
   private:
     affine                              m_affine;     //!< Shell reference frame (ISO)
     shape                               m_shape;      //!< Shell shape
-    std::shared_ptr<aabb>               m_aabb;       //!< Shell bounding aabb (must be transformed in the mesh reference frame before intersection!)
+    aabb                                m_bbox;       //!< Shell bounding box (must be transformed in the mesh reference frame before intersection!)
     std::vector<rib>                    m_ribs;       //!< Shell ribs vector
     std::vector<output>                 m_out;        //!< Contact parameters output vector
     std::vector<triangleground::vecptr> m_candidates; //!< Candidates triangle vector
@@ -277,8 +277,8 @@ namespace enve
     \*/
 
     //! Get shell bonding aabb as object pointer vector
-    std::shared_ptr<aabb>
-    BBox(void) const;
+    aabb const &
+    bbox(void) const;
 
     //! Update shell bonding aabb
     void
@@ -482,8 +482,10 @@ namespace enve
   private:
     //! Update the list of ribs candidates
     void
-    updateRibsCandidates(
-      triangleground::vecptr const & local_ground //!< Local triangles candidate list
+    refineIntersection(
+      ground::mesh const & ground,       //!< Mesh ground object
+      AABB_SET     const & local_ground, //!< Local triangles candidate list
+      bool                 refine        //!< Enable advanced ribs refinement
     );
 
   }; // class shell

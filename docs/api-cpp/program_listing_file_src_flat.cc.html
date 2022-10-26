@@ -107,7 +107,7 @@
       <span class="cp">#define CMD "enve::ground::flat::flat(...): "</span>
 
       <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span> <span class="o">&gt;=</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
-        <span class="n">CMD</span> <span class="s">"friction coefficient scaling factor detected."</span><span class="p">);</span>
+        <span class="n">CMD</span> <span class="s">"negative friction coefficient scaling factor detected."</span><span class="p">);</span>
       <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">normal_z</span> <span class="o">&gt;</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
         <span class="n">CMD</span> <span class="s">"negative normal z-axis detected."</span><span class="p">);</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">plane</span><span class="o">::</span><span class="n">normalize</span><span class="p">();</span>
