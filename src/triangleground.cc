@@ -68,8 +68,15 @@ namespace enve
       m_normal(NAN_VEC3),
       m_bbox(NAN_AABB)
   {
+    #define CMD "enve::ground::triangleground::triangleground(...): "
+
+    ENVE_ASSERT(this->m_friction >= real(0.0),
+      CMD "negative friction coefficient scaling factor detected.");
+    
     this->updateNormal();
     this->updateBBox();
+    
+    #undef CMD
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -87,8 +94,15 @@ namespace enve
       m_normal(NAN_VEC3),
       m_bbox(NAN_AABB)
   {
+    #define CMD "enve::ground::triangleground::triangleground(...): "
+
+    ENVE_ASSERT(this->m_friction >= real(0.0),
+      CMD "negative friction coefficient scaling factor detected.");
+
     this->updateNormal();
     this->updateBBox();
+    
+    #undef CMD
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -104,8 +118,15 @@ namespace enve
       m_normal(NAN_VEC3),
       m_bbox(NAN_AABB)
   {
+    #define CMD "enve::ground::triangleground::triangleground(...): "
+
+    ENVE_ASSERT(this->m_friction >= real(0.0),
+      CMD "negative friction coefficient scaling factor detected.");
+    
     this->updateNormal();
     this->updateBBox();
+  
+    #undef CMD
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

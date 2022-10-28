@@ -37,12 +37,12 @@ namespace enve
 
   //! Output data class
   struct output {
-    point point    = NAN_POINT; //!< Contact points vector
-    vec3  normal   = NAN_VEC3;  //!< Contact normal unit vectors
-    real  friction = QUIET_NAN; //!< Contact friction
-    real  depth    = QUIET_NAN; //!< Contact depth 
-    real  area     = QUIET_NAN; //!< Contact area
-    real  volume   = QUIET_NAN; //!< Contact volume
+    acme::point point    = NAN_POINT; //!< Output contact point
+    acme::vec3  normal   = NAN_VEC3;  //!< Output contact normal
+    acme::real  friction = QUIET_NAN; //!< Output contact friction
+    acme::real  depth    = QUIET_NAN; //!< Output contact depth 
+    acme::real  area     = QUIET_NAN; //!< Output contact area
+    acme::real  volume   = QUIET_NAN; //!< Output contact volume
   }; // struct output
 
 } // namespace enve
