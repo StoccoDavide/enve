@@ -39,10 +39,14 @@ extern "C"
 
   void
   enve_sfun_init(
-    const EnveRealPar  *SizePar,
-    const EnveShapeBus *ShapeBus,
-    const EnveRealPar  *FlatHeightPar,
-    const EnveRealPar  *FlatFrictionPar 
+    const EnveRealPar *SizePar,
+    const EnveRealPar *Rx,
+    const EnveRealPar *Mx,
+    const EnveRealPar *Ry,
+    const EnveRealPar *My,
+    const EnveRealPar *Ly,
+    const EnveRealPar *FlatHeightPar,
+    const EnveRealPar *FlatFrictionPar
   )
   {
     #define CMD "enve_sfun_init(...): "
@@ -68,15 +72,15 @@ extern "C"
     enve::ground::flat *flat = new enve::ground::flat(
       *FlatFrictionPar, acme::point(0.0, 0.0, *FlatHeightPar), acme::vec3(0.0, 0.0, 1.0)
     );
-    
+
     // Build shell
     enve::shell *shell = new enve::shell(
       *SizePar,
-      ShapeBus->Rx,
-      ShapeBus->Mx,
-      ShapeBus->Ry,
-      ShapeBus->My,
-      ShapeBus->Ly
+      *Rx,
+      *Mx,
+      *Ry,
+      *My,
+      *Ly
     );
 
     // Store pointers

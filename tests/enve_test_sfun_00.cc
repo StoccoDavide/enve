@@ -44,20 +44,23 @@ main(void)
     setenv("ENVE_GROUND_PATH", "./files_rdf/sample.rdf", 1);
 
     // Set data for S-function entry point for initialization
-    EnveRealPar  SizePar = 10;  // Ribs number (-)
-    EnveShapeBus ShapeBus;
-    ShapeBus.Rx = 0.3; // Shell radius on x-axis (m)
-    ShapeBus.Mx = 6.0; // Shell curve degree for x-axis (-)
-    ShapeBus.Ry = 0.3; // Shell radius on y-axis (m)
-    ShapeBus.My = 6.0; // Shell curve degree for y-axis (-)
-    ShapeBus.Ly = 0.1; // Surface half width on y-axis (m)
+    EnveRealPar SizePar = 10;  // Ribs number (-)
+    EnveRealPar Rx = 0.3; // Shell radius on x-axis (m)
+    EnveRealPar Mx = 6.0; // Shell curve degree for x-axis (-)
+    EnveRealPar Ry = 0.3; // Shell radius on y-axis (m)
+    EnveRealPar My = 6.0; // Shell curve degree for y-axis (-)
+    EnveRealPar Ly = 0.1; // Surface half width on y-axis (m)
     EnveRealPar FlatHeightPar   = 0.0; // Flat ground surface height (m)
     EnveRealPar FlatFrictionPar = 1.0; // Flat ground surface friction scaling coefficient (-)
 
     // S-function entry point for initialization
     enve_sfun_init(
        &SizePar,        // Ribs number (-)
-       &ShapeBus,       // Shape bus containing the shell morphology
+       &Rx,             // Shell radius on x-axis (m)
+       &Mx,             // Shell curve degree for x-axis (-)
+       &Ry,             // Shell radius on y-axis (m)
+       &My,             // Shell curve degree for y-axis (-)
+       &Ly,             // Surface half width on y-axis (m)
        &FlatHeightPar,  // Flat ground surface height (m)
        &FlatFrictionPar // Flat ground surface friction scaling coefficient (-)
     );
