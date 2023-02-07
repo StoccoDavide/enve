@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -45,7 +54,8 @@ namespace enve
     {
     private:
       triangleground::vecptr m_triangles; //!< Ground triangles pointers vector
-      AABB_TREE              m_AABBtree;  //!< Utils mesh AABB tree
+      aabb::vecptr           m_bboxes;    //!< Bounding boxes pointers vector
+      AABBtree::ptr          m_AABBtree;  //!< Mesh AABB tree
 
     public:
       //! Mesh copy constructor
@@ -136,8 +146,8 @@ namespace enve
       //! Intersect the mesh AABBtree with an external aabb object pointer
       bool
       intersection(
-        aabb     const & box,      //!< External aabb object pointer
-        AABB_SET       & triangles //!< Intersected triangles list
+        aabb::ptr              const   box,      //!< External aabb object pointer
+        triangleground::vecptr       & triangles //!< Intersected triangleground vector list
       ) const;
 
       //! Build mesh AABBtree
@@ -145,6 +155,10 @@ namespace enve
       buildAABBtree(void);
 
     private:
+      //! Update the mesh bounding boxes pointers
+      void
+      updateBBoxes(void);
+
       //! Split a string into a string array at a given token
       void
       split(

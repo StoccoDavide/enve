@@ -1,15 +1,15 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                     #
-# The ACME project                                                    #
+# The ENVE project                                                    #
 #                                                                     #
 # Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            #
 #                                                                     #
-# The ACME project and its components are supplied under the terms of #
-# the open source BSD 2-Clause License. The contents of the ACME      #
+# The ENVE project and its components are supplied under the terms of #
+# the open source BSD 3-Clause License. The contents of the ENVE      #
 # project and its components may not be copied or disclosed except in #
-# accordance with the terms of the BSD 2-Clause License.              #
+# accordance with the terms of the BSD 3-Clause License.              #
 #                                                                     #
-# URL: https://opensource.org/licenses/BSD-2-Clause                   #
+# URL: https://opensource.org/licenses/BSD-3-Clause                   #
 #                                                                     #
 #    Davide Stocco                                                    #
 #    Department of Industrial Engineering                             #
@@ -25,7 +25,7 @@
 
 cmake_minimum_required( VERSION 3.14 )
 
-project( acme )
+project( enve )
 
 include(./cmake_utils/CMakeLists-common.txt)
 
@@ -46,7 +46,7 @@ if ( (UNIX OR LINUX) AND NOT APPLE )
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -static-libstdc++ -static-libgcc -Wl,--no-undefined")
 endif()
 
-include(./cmake_utils/CMakeLists-cflags.txt)
+include(./../CMakeLists-cflags.txt)
 include(./cmake_utils/CMakeLists-utilities.txt)
 
 # Evaluating the suffix to append to target built by this CMake file
@@ -112,6 +112,18 @@ include_directories( src src/Utils ${Matlab_INCLUDE_DIRS} )
 
 message( STATUS "SOURCES = ${SOURCES}" )
 
+#   _____ _
+#  | ____(_) __ _  ___ _ __
+#  |  _| | |/ _` |/ _ \ '_ \
+#  | |___| | (_| |  __/ | | |
+#  |_____|_|\__, |\___|_| |_|
+#           |___/
+
+find_package(Eigen3 REQUIRED)
+include_directories( ${EIGEN3_INCLUDE_DIR} )
+message("Eigen include directories: ${EIGEN3_INCLUDE_DIR}")
+message("Eigen include directories: ${EIGEN3_FOUND}")
+
 #   _____                    _
 #  |_   _|_ _ _ __ __ _  ___| |_ ___
 #    | |/ _` | '__/ _` |/ _ \ __/ __|
@@ -121,7 +133,7 @@ message( STATUS "SOURCES = ${SOURCES}" )
 
 utils_final_messages()
 
-add_library( acme STATIC ${SOURCES} )
+add_library( enve STATIC ${SOURCES} )
 
 set(
   MEX_LIST
@@ -144,7 +156,7 @@ foreach( MEX ${MEX_LIST} )
   matlab_add_mex(
     NAME ${MEX}
     SRC src_mex/${MEX}.cc
-    LINK_TO acme
+    LINK_TO enve
     OUTPUT_NAME ${MEX}
   )
   add_custom_command(

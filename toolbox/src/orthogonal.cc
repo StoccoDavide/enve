@@ -29,6 +29,8 @@
 /// file: orthogonal.cc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -53,7 +55,7 @@ namespace acme
   )
   {
     #define CMD "acme::IsOrthogonal(entity, entity): "
-    
+
     integer slide = entity0_in->level() * integer(100) + entity1_in->level();
     switch (slide)
     {
@@ -672,6 +674,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: orthogonal.cc

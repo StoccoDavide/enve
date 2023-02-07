@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -21,6 +30,7 @@
 ///
 
 #include "enve.hh"
+#include "TicToc.hh"
 
 using namespace acme;
 using namespace enve;
@@ -29,10 +39,10 @@ using namespace enve;
 int
 main(void)
 {
-  // Try block 
+  // Try block
   try
   {
-    
+
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
@@ -41,7 +51,7 @@ main(void)
 
 
     // Instantiate a TicToc object
-    Utils::TicToc tictoc;
+    TicToc tictoc;
 
     // Initialize a quite big triangle
     point vertex[3];
@@ -111,7 +121,7 @@ main(void)
       << "Execution time = " << tictoc.elapsed_ms() * 1000 << " us" << std::endl
       << std::endl
       << "Check the results..." << std::endl;
- 
+
     // End of test
     std::cout
       << std::endl

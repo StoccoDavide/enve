@@ -148,7 +148,7 @@ namespace acme
       affine const & affine_in //!< 4x4 affine transformation matrix
     ) override;
 
-    // Check whether the point is inside the line
+    //! Check whether the point is inside the line
     bool
     isInside(
       point const & point_in,           //!< Query point

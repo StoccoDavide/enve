@@ -13,7 +13,7 @@ body {
 
 
 div.document {
-    width: 940px;
+    width: 65em;
     margin: 30px auto 0 auto;
 }
 
@@ -38,7 +38,7 @@ hr {
 
 div.body {
     background-color: #fff;
-    color: #3E4349;
+    color: #000000;
     padding: 0 30px 0 30px;
 }
 
@@ -47,7 +47,7 @@ div.body > .section {
 }
 
 div.footer {
-    width: 940px;
+    width: 65em;
     margin: 20px auto 30px auto;
     font-size: 14px;
     color: #888;
@@ -70,7 +70,7 @@ div.relations {
 
 
 div.sphinxsidebar a {
-    color: #444;
+    color: #000000;
     text-decoration: none;
     border-bottom: 1px dotted #999;
 }
@@ -108,7 +108,7 @@ div.sphinxsidebarwrapper p.blurb {
 div.sphinxsidebar h3,
 div.sphinxsidebar h4 {
     font-family: Georgia, serif;
-    color: #444;
+    color: #000000;
     font-size: 24px;
     font-weight: normal;
     margin: 0 0 5px 0;
@@ -120,7 +120,7 @@ div.sphinxsidebar h4 {
 }
 
 div.sphinxsidebar h3 a {
-    color: #444;
+    color: #000000;
 }
 
 div.sphinxsidebar p.logo a,
@@ -182,12 +182,12 @@ div.sphinxsidebar h3.donation {
 /* -- body styles ----------------------------------------------------------- */
 
 a {
-    color: #004B6B;
+    color: #000000;
     text-decoration: underline;
 }
 
 a:hover {
-    color: #6D4100;
+    color: #D95319;
     text-decoration: underline;
 }
 
@@ -217,7 +217,7 @@ a.headerlink {
 }
 
 a.headerlink:hover {
-    color: #444;
+    color: #D95319;
     background: #EAEAEA;
 }
 
@@ -327,12 +327,12 @@ p.admonition-title:after {
 }
 
 pre, tt, code {
-    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-family: Menlo;
     font-size: 0.9em;
 }
 
 .hll {
-    background-color: #FFC;
+    background-color: #D95319;
     margin: 0 -12px;
     padding: 0 12px;
     display: block;
@@ -467,7 +467,7 @@ tt.xref, code.xref, a tt {
 
 a.reference {
     text-decoration: none;
-    border-bottom: 1px dotted #004B6B;
+    border-bottom: 1px dotted #000000;
 }
 
 /* Don't put an underline on images */
@@ -476,18 +476,18 @@ a.image-reference, a.image-reference:hover {
 }
 
 a.reference:hover {
-    border-bottom: 1px solid #6D4100;
+    border-bottom: 1px solid #D95319;
 }
 
 a.footnote-reference {
     text-decoration: none;
     font-size: 0.7em;
     vertical-align: top;
-    border-bottom: 1px dotted #004B6B;
+    border-bottom: 1px dotted #000000;
 }
 
 a.footnote-reference:hover {
-    border-bottom: 1px solid #6D4100;
+    border-bottom: 1px solid #D95319;
 }
 
 a:hover tt, a:hover code {

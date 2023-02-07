@@ -175,7 +175,7 @@ namespace acme
       affine const & affine_in //!< 4x4 affine transformation matrix
     ) override;
 
-    // Check whether the point is inside the disk
+    //! Check whether the point is inside the disk
     bool
     isInside(
       point const & point_in,           //!< Query point

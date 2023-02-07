@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Program Listing for File flat.cc &#8212; ENVE v2.0
+    <title>Program Listing for File flat.cc &#8212; ENVE v3.0
 </title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -46,21 +46,32 @@
 <div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
 <span class="cm"> *                                                                     *</span>
-<span class="cm"> * This file is part of the ENVE project.                              *</span>
+<span class="cm"> * The ENVE project                                                    *</span>
 <span class="cm"> *                                                                     *</span>
-<span class="cm"> * Copyright (c) 2022, Davide Stocco. All rights reserved.             *</span>
+<span class="cm"> * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *</span>
 <span class="cm"> *                                                                     *</span>
-<span class="cm"> * The ENVE project can not be copied and/or distributed without       *</span>
-<span class="cm"> * the express permission of Davide Stocco.                            *</span>
+<span class="cm"> * The ENVE project and its components are supplied under the terms of *</span>
+<span class="cm"> * the open source BSD 3-Clause License. The contents of the ENVE      *</span>
+<span class="cm"> * project and its components may not be copied or disclosed except in *</span>
+<span class="cm"> * accordance with the terms of the BSD 3-Clause License.              *</span>
+<span class="cm"> *                                                                     *</span>
+<span class="cm"> * URL: https://opensource.org/licenses/BSD-3-Clause                   *</span>
 <span class="cm"> *                                                                     *</span>
 <span class="cm"> *    Davide Stocco                                                    *</span>
 <span class="cm"> *    Department of Industrial Engineering                             *</span>
 <span class="cm"> *    University of Trento                                             *</span>
 <span class="cm"> *    e-mail: davide.stocco@unitn.it                                   *</span>
 <span class="cm"> *                                                                     *</span>
+<span class="cm"> *    Enrico Bertolazzi                                                *</span>
+<span class="cm"> *    Department of Industrial Engineering                             *</span>
+<span class="cm"> *    University of Trento                                             *</span>
+<span class="cm"> *    e-mail: enrico.bertolazzi@unitn.it                               *</span>
+<span class="cm"> *                                                                     *</span>
 <span class="cm"> * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
 <span class="cm">*/</span>
 
+
+<span class="cp">#ifndef DOXYGEN_SHOULD_SKIP_THIS</span>
 
 <span class="cp">#include</span> <span class="cpf">"enve.hh"</span><span class="cp"></span>
 
@@ -128,7 +139,7 @@
       <span class="cp">#define CMD "enve::ground::flat::flat(...): "</span>
 
       <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span> <span class="o">&gt;=</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
-        <span class="n">CMD</span> <span class="s">"friction coefficient scaling factor detected."</span><span class="p">);</span>
+        <span class="n">CMD</span> <span class="s">"negative friction coefficient scaling factor detected."</span><span class="p">);</span>
       <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="n">normal</span><span class="p">.</span><span class="n">z</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
         <span class="n">CMD</span> <span class="s">"negative normal z-axis detected."</span><span class="p">);</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">plane</span><span class="o">::</span><span class="n">normalize</span><span class="p">();</span>
@@ -148,7 +159,7 @@
       <span class="cp">#define CMD "enve::ground::flat::flat(...): "</span>
 
       <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">m_friction</span> <span class="o">&gt;=</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
-        <span class="n">CMD</span> <span class="s">"friction coefficient scaling factor detected."</span><span class="p">);</span>
+        <span class="n">CMD</span> <span class="s">"negative friction coefficient scaling factor detected."</span><span class="p">);</span>
       <span class="n">ENVE_ASSERT</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">plane</span><span class="o">::</span><span class="n">normal</span><span class="p">().</span><span class="n">z</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">real</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
         <span class="n">CMD</span> <span class="s">"negative normal z-axis detected."</span><span class="p">);</span>
       <span class="k">this</span><span class="o">-&gt;</span><span class="n">plane</span><span class="o">::</span><span class="n">normalize</span><span class="p">();</span>
@@ -238,6 +249,8 @@
   <span class="p">}</span> <span class="c1">// namespace ground</span>
 
 <span class="p">}</span> <span class="c1">// namespace enve</span>
+
+<span class="cp">#endif</span>
 </pre></div>
 </div>
 </div>
@@ -265,8 +278,8 @@
 <script>$('#searchbox').show(0);</script>
 <h3><a href="../index.html">Table of Contents</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">The ENVE library</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples.html">How to use ENVE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_Introduction.html">The Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_Usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root.html">C++ API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api-matlab/root.html">MATLAB API</a></li>
 </ul>

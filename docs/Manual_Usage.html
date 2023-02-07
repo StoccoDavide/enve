@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usage &#8212; ENVE v3.0
+</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C++ API" href="api-cpp/root.html" />
+    <link rel="prev" title="The Library" href="Manual_Introduction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a>
+</h1>
+<p>In this section we will show how to use the ENVE library to evaluate the contact
+between a tire (modelled as a rigid shell) and the ground (modelled as a mesh
+or a flat surface).</p>
+<div class="section" id="load-a-mesh">
+<h2>Load a Mesh<a class="headerlink" href="#load-a-mesh" title="Permalink to this headline">¶</a>
+</h2>
+<p>With ENVE the ground mesh can be loaded from a Road Data Format (<code class="docutils literal notranslate"><span class="pre">*.rdf</span></code>) file
+or from a Wavefront OBJ (<code class="docutils literal notranslate"><span class="pre">*.obj</span></code>) file. An example could be one of the following:</p>
+<p>C++</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>enve::ground::mesh mesh_rdf(
+  std::string "./sample.rdf" // Path to the *.rdf file
+);
+</pre></div>
+</div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>enve::ground::mesh mesh_obj(
+  std::string "./sample.obj", // Path to the *.obj file
+  acme::real  lambda          // Friction coefficient scaling factor
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>MATLAB</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>mesh_rdf = enve_mesh( ...
+  './sample.rdf' ... % Path to the *.rdf file
+);
+</pre></div>
+</div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>mesh_obj = enve_mesh( ...
+  './sample.obj', ... % Path to the *.obj file
+  lambda          ... % Friction coefficient scaling factor
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+</div>
+<div class="section" id="build-a-flat-ground">
+<h2>Build a Flat Ground<a class="headerlink" href="#build-a-flat-ground" title="Permalink to this headline">¶</a>
+</h2>
+<p>If no mesh can be provided one could also build a flat terrain where to move the
+tire.</p>
+<p>C++</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>enve::ground::flat planeGround(
+flat(
+  acme::real origin_x, // X-axis value of ground plane origin point
+  acme::real origin_y, // Y-axis value of ground plane origin point
+  acme::real origin_z, // Z-axis value of ground plane origin point
+  acme::real normal_x, // X-axis value of ground plane normal vector
+  acme::real normal_y, // Y-axis value of ground plane normal vector
+  acme::real normal_z, // Z-axis value of ground plane normal vector
+  acme::real friction  // Friction coefficient scaling factor
+);
+</pre></div>
+</div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>enve::ground::flat planeGround(
+  acme::point origin,  // Plane origin point
+  acme::vec3  normal,  // Plane normal vector
+  acme::real  friction // Friction coefficient scaling factor
+);
+</pre></div>
+</div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>enve::ground::flat planeGround(
+  acme::plane plane_in, // ACME plane object
+  acme::real  friction  // Friction coefficient scaling factor
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>MATLAB</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>planeGround = enve_flat( ...
+  acme::real origin_x, ... % X-axis value of ground plane origin point
+  acme::real origin_y, ... % Y-axis value of ground plane origin point
+  acme::real origin_z, ... % Z-axis value of ground plane origin point
+  acme::real normal_x, ... % X-axis value of ground plane normal vector
+  acme::real normal_y, ... % Y-axis value of ground plane normal vector
+  acme::real normal_z, ... % Z-axis value of ground plane normal vector
+  acme::real friction  ... % Friction coefficient scaling factor
+);
+</pre></div>
+</div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>planeGround = enve_flat( ...
+  origin,  ... % Plane origin point
+  normal,  ... % Plane normal vector
+  friction ... % Friction coefficient scaling factor
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+</div>
+<div class="section" id="build-the-tire-shell">
+<h2>Build the Tire Shell<a class="headerlink" href="#build-the-tire-shell" title="Permalink to this headline">¶</a>
+</h2>
+<p>The undeformable shell is described as a hyperelliptical section surface of
+revolution. It can be initialized in these ways:</p>
+<blockquote>
+<div>
+<p>C++</p>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>enve::shell(
+  size_t     size, // Ribs number
+  acme::real r_x,  // Shell radius on x axis (m)
+  acme::real m_x,  // Shell curve degree for x axis
+  acme::real r_y,  // Shell radius on y axis (m)
+  acme::real m_y,  // Shell curve degree for y axis
+  acme::real l_y   // Shell half width on y axis (m)
+);
+
+MATLAB
+</pre></div>
+</div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>shell = enve_shell( ...
+  size, ... % Ribs number
+  r_x,  ... % Shell radius on x axis (m)
+  m_x,  ... % Shell curve degree for x axis
+  r_y,  ... % Shell radius on y axis (m)
+  m_y,  ... % Shell curve degree for y axis
+  l_y   ... % Shell half width on y axis (m)
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+</div>
+<div class="section" id="contact-evaluation">
+<h2>Contact evaluation<a class="headerlink" href="#contact-evaluation" title="Permalink to this headline">¶</a>
+</h2>
+<p>Once both the ground mesh and the shell are build we can move to the contact
+evaluation:</p>
+<p>C++</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>bool out = shell.setup(
+  enve::ground::mesh ground, // ENVE mesh object (ground)
+  acme::affine       matrix, // 4x4 affine transformation matrix
+  std::string const  method  // Method name (choose from: "geometric" or "sampling")
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>MATLAB</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>out = shell.setup( ...
+  ground,    ... % ENVE mesh object (ground)
+  matrix,    ... % 4x4 affine transformation matrix
+  method     ... % Method name (choose from: "geometric" or "sampling")
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>Otherwise one can also perform the contact evaluation with a flat ground:</p>
+<p>C++</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>bool out = shell.setup(
+  enve::ground::flat ground, // ENVE flat object (ground)
+  acme::affine       affine, // Shell 4x4 total transformation matrix
+  std::string const  method  // Method name (choose from: "geometric" or "sampling")
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>MATLAB</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>out = shell.setup( ...
+  ground, ... % ENVE flat object (ground)
+  affine, ... % Shell 4x4 total transformation matrix
+  method  ... % Method name (choose from: "geometric" or "sampling")
+);
+</pre></div>
+</div>
+</div>
+</blockquote>
+</div>
+<div class="section" id="data-extraction">
+<h2>Data Extraction<a class="headerlink" href="#data-extraction" title="Permalink to this headline">¶</a>
+</h2>
+<p>Once the contact has been evaluated one can retrive the (average) contact
+parameters as follows:</p>
+<p>C++</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>// Variables initialization
+acme::point contact_point_avg;    // (m)
+acme::real  contact_depth_avg;    // (m)
+acme::vec3  contact_normal_avg;   // (-)
+acme::real  contact_friction_avg; // (-)
+acme::real  contact_area_avg;     // (m^2)
+acme::real  contact_volume_avg;   // (m^3)
+acme::vec3  relative_angles_avg;  // (rad)
+
+// Data extraction
+shell.contactPoint(contact_point_avg);
+shell.contactDepth(contact_depth_avg);
+shell.contactNormal(contact_normal_avg);
+shell.contactFriction(contact_friction_avg);
+shell.contactArea(contact_area_avg);
+shell.contactVolume(contact_volume_avg);
+shell.relativeAngles(relative_angles_avg);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>MATLAB</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>% Data extraction
+contact_point_avg    = shell.contactPointAvg();
+contact_depth_avg    = shell.contactDepthAvg();
+contact_normal_avg   = shell.contactNormalAvg();
+contact_friction_avg = shell.contactFrictionAvg();
+contact_area_avg     = shell.contactAreaAvg();
+contact_volume_avg   = shell.contactVolumeAvg();
+relative_angles_avg  = shell.relativeAnglesAvg();
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>Or one can retrive the contact parameters for a specific rib as:</p>
+<p>C++</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>// Variables initialization
+acme::point contact_point_rib(i);    // (m)
+acme::real  contact_depth_rib(i);    // (m)
+acme::vec3  contact_normal_rib(i);   // (-)
+acme::real  contact_friction_rib(i); // (-)
+acme::real  contact_area_rib(i);     // (m^2)
+acme::real  contact_volume_rib(i);   // (m^3)
+acme::vec3  relative_angles_rib(i);  // (rad)
+
+// Data extraction
+shell.contactPointRib(contact_point_rib);
+shell.contactDepth(contact_depth_rib);
+shell.contactNormal(contact_normal_rib);
+shell.contactFriction(contact_friction_rib);
+shell.contactArea(contact_area_rib);
+shell.contactVolume(contact_volume_rib);
+shell.relativeAngles(relative_angles_rib);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>MATLAB</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>% Data extraction
+contact_point_rib    = shell.contactPointRib(i);
+contact_normal_rib   = shell.contactNormalRib(i);
+contact_friction_rib = shell.contactFrictionRib(i);
+contact_depth_rib    = shell.contactDepthRib(i);
+contact_area_rib     = shell.contactAreaRib(i);
+contact_volume_rib   = shell.contactVolumeRib(i);
+relative_angles_rib  = shell.relativeAnglesRib(i);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the i-th rib index.</p>
+<p>Or one can also retrive the contact parameters rib by rib as:</p>
+<p>C++</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>// Variables initialization
+acme::size_t                    size = tire_shell.size();   // (-)
+acme::std::vector&lt;acme::point&gt;  contact_point_vec(size);    // (m)
+acme::std::vector&lt;acme::real&gt;   contact_depth_vec(size);    // (m)
+acme::std::vector&lt;acme::vec3&gt;   contact_normal_vec(size);   // (-)
+acme::std::vector&lt;acme::real&gt;   contact_friction_vec(size); // (-)
+acme::std::vector&lt;acme::real&gt;   contact_area_vec(size);     // (m^2)
+acme::std::vector&lt;acme::real&gt;   contact_volume_vec(size);   // (m^3)
+acme::std::vector&lt;acme::vec3&gt;   relative_angles_vec(size);  // (rad)
+
+// Data extraction
+shell.contactPointRib(contact_point_vec);
+shell.contactDepth(contact_depth_vec);
+shell.contactNormal(contact_normal_vec);
+shell.contactFriction(contact_friction_vec);
+shell.contactArea(contact_area_vec);
+shell.contactVolume(contact_volume_vec);
+shell.relativeAngles(relative_angles_vec);
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>MATLAB</p>
+<blockquote>
+<div>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>% Data extraction
+contact_point_vec    = shell.contactPointVec();
+contact_normal_vec   = shell.contactNormalVec();
+contact_friction_vec = shell.contactFrictionVec();
+contact_depth_vec    = shell.contactDepthVec();
+contact_area_vec     = shell.contactAreaVec();
+contact_volume_vec   = shell.contactVolumeVec();
+relative_angles_vec  = shell.relativeAnglesVec();
+</pre></div>
+</div>
+</div>
+</blockquote>
+<p>For more advanced functions please read the C++/MATLAB API documentation.</p>
+</div>
+</div>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Manual_Introduction.html">The Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#load-a-mesh">Load a Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-a-flat-ground">Build a Flat Ground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-the-tire-shell">Build the Tire Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contact-evaluation">Contact evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-extraction">Data Extraction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-cpp/root.html">C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Davide Stocco.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

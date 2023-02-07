@@ -12,16 +12,18 @@ Dir.glob("./_build/html/api-matlab/*.html").each do |f|
   out = "";
   File.open(f,"r") do |file|
     file.each_line do |line|
-      line.gsub!(/<span class="pre">in<\/span> *<em><span class="pre">(self|ignoredArg)<\/span><\/em>,*/,'');
-      line.gsub!(/ *<span class="pre">in<\/span> */,'');
-      line.gsub!(/<em><span class="pre">(self|ignoredArg)<\/span><\/em>,? */,'');
-      line.gsub!(/<span class="pre">(self|ignoredArg)\)<\/span>/,'<span class="sig-paren">)</span>');
+      line.gsub!(/<span class="pre">::<\/span>,*/,'.');
+      line.gsub!(/<span class="pre">in<\/span><\/span><span class="w"> <\/span><span class="n sig-param"><span class="pre">(this|ignoredArg)<\/span><\/span>, */,'');
+      line.gsub!(/<span class="n"><span class="pre">in<\/span><\/span><span class="w"> */,'');
+      line.gsub!(/<em><span class="pre">(this|ignoredArg)<\/span><\/em>,? */,'');
+      line.gsub!(/<span class="pre">(this|ignoredArg)\)<\/span>/,'<span class="sig-paren">)</span>');
+      line.gsub!(/<\/span><span class="n sig-param"><span class="pre">(this|ignoredArg)<\/span><\/span>/,'');
       line.gsub!(
         /<span class="pre">(in<\/span> *)/,
         '<span class="sig-paren">()</span>'
       )
       line.gsub!(
-        /<span class="pre">\(in<\/span> *<span class="pre">(self|ignoredArg)\)<\/span>/,
+        /<span class="pre">\(in<\/span> *<span class="pre">(this|ignoredArg)\)<\/span>/,
         '<span class="sig-paren">()</span>'
       )
       out += line;

@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -20,7 +29,7 @@
 /// file: mex_mesh.cc
 ///
 
-#include "Utils_mex.hh"
+#include "mex_utils.hh"
 #include "acme.hh"
 #include "enve.hh"
 
@@ -55,15 +64,23 @@
   "%                                                                     %\n" \
   "% This file is part of the ENVE project.                              %\n" \
   "%                                                                     %\n" \
-  "% Copyright (c) 2022, Davide Stocco. All rights reserved.             %\n" \
+  "% Copyright (c) 2020, Davide Stocco, Matteo Larcher and Enrico        %\n" \
+  "% Bertolazzi.                                                         %\n" \
   "%                                                                     %\n" \
-  "% The ENVE project can not be copied and/or distributed without       %\n" \
-  "% the express permission of Davide Stocco.                            %\n" \
+  "% The ENVE project and its components are supplied under the terms of %\n" \
+  "% the open source BSD 3-Clause License. The contents of the ENVE      %\n" \
+  "% project and its components may not be copied or disclosed except in %\n" \
+  "% accordance with the terms of the BSD 3-Clause License.              %\n" \
   "%                                                                     %\n" \
   "%    Davide Stocco                                                    %\n" \
   "%    Department of Industrial Engineering                             %\n" \
   "%    University of Trento                                             %\n" \
   "%    e-mail: davide.stocco@unitn.it                                   %\n" \
+  "%                                                                     %\n" \
+  "%    Enrico Bertolazzi                                                %\n" \
+  "%    Department of Industrial Engineering                             %\n" \
+  "%    University of Trento                                             %\n" \
+  "%    e-mail: enrico.bertolazzi@unitn.it                               %\n" \
   "%                                                                     %\n" \
   "%=====================================================================%\n"
 
@@ -76,21 +93,21 @@ DATA_NEW(
     mxArray *&mx_id,
     enve::ground::mesh *ptr)
 {
-  mx_id = Utils::mex_convert_ptr_to_mx<enve::ground::mesh>(ptr);
+  mx_id = utils::mex_convert_ptr_to_mx<enve::ground::mesh>(ptr);
 }
 
 static inline enve::ground::mesh *
 DATA_GET(
     mxArray const *&mx_id)
 {
-  return Utils::mex_convert_mx_to_ptr<enve::ground::mesh>(mx_id);
+  return utils::mex_convert_mx_to_ptr<enve::ground::mesh>(mx_id);
 }
 
 static void
 DATA_DELETE(
     mxArray const *&mx_id)
 {
-  Utils::mex_destroy_object<enve::ground::mesh>(mx_id);
+  utils::mex_destroy_object<enve::ground::mesh>(mx_id);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -100,12 +117,12 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'new', [, args] ): "
-  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 2 || nrhs == 3, CMD "expected 1, 2 or 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 2 || nrhs == 3, CMD "expected 1, 2 or 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   UTILS_MEX_ASSERT(
       mxIsChar(arg_in_0),
-      CMD "first argument must be a string, found ``{}''\n", mxGetClassName(arg_in_0));
+      CMD "first argument must be a string, found " << mxGetClassName(arg_in_0) << "\n");
 
   enve::ground::mesh *self = new enve::ground::mesh();
 
@@ -126,7 +143,7 @@ do_new(int nlhs, mxArray *plhs[],
     }
     else
     {
-      real_type friction = Utils::mex_get_scalar_value(arg_in_2, CMD "error in reading input value");
+      real_type friction = utils::mex_get_scalar_value(arg_in_2, CMD "error in reading input value");
       self->load(path, friction);
     }
   }
@@ -142,8 +159,8 @@ do_delete(int nlhs, mxArray *plhs[],
           int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'delete', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   DATA_DELETE(arg_in_1);
 #undef CMD
@@ -156,14 +173,14 @@ do_getTriangleground(int nlhs, mxArray *plhs[],
                    int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'getTriangleground', OBJ, I ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::mesh *self = DATA_GET(arg_in_1);
-  int i = Utils::mex_get_int64(arg_in_2, CMD "error in reading input value");
+  int i = utils::mex_get_int64(arg_in_2, CMD "error in reading input value");
   enve::triangleground *out = new enve::triangleground();
   out->copy(*self->ptrTriangleground(i - 1));
-  arg_out_0 = Utils::mex_convert_ptr_to_mx<enve::triangleground>(out);
+  arg_out_0 = utils::mex_convert_ptr_to_mx<enve::triangleground>(out);
 #undef CMD
 }
 
@@ -174,11 +191,11 @@ do_size(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'size', OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 2, CMD "expected 2 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::mesh *self = DATA_GET(arg_in_1);
-  Utils::mex_set_scalar_int64(arg_out_0, self->size());
+  utils::mex_set_scalar_int64(arg_out_0, self->size());
 #undef CMD
 }
 
@@ -189,8 +206,8 @@ do_copy(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'copy', OBJ, OTHER_OBJ ): "
-  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 0, CMD "expected 0 output, nlhs = " << nlhs << "\n");
 
   enve::ground::mesh *self = DATA_GET(arg_in_1);
   enve::ground::mesh *other = DATA_GET(arg_in_2);
@@ -205,8 +222,8 @@ do_load(int nlhs, mxArray *plhs[],
         int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'load', OBJ, PATH, [, FRICTION] ): "
-  UTILS_MEX_ASSERT(nrhs == 3 || nrhs == 4, CMD "expected 3 or 4 inputs, nrhs = {}\n", nrhs);
-  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = {}\n", nlhs);
+  UTILS_MEX_ASSERT(nrhs == 3 || nrhs == 4, CMD "expected 3 or 4 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   enve::ground::mesh *self = DATA_GET(arg_in_1);
   string path = mxArrayToString(arg_in_2);
@@ -226,7 +243,7 @@ do_load(int nlhs, mxArray *plhs[],
     }
     else
     {
-      real_type friction = Utils::mex_get_scalar_value(arg_in_3, CMD "error in reading input value");
+      real_type friction = utils::mex_get_scalar_value(arg_in_3, CMD "error in reading input value");
       self->load(path, friction);
     }
   }
@@ -261,7 +278,7 @@ mexFunction(int nlhs, mxArray *plhs[],
 
   try
   {
-    UTILS_MEX_ASSERT0(mxIsChar(arg_in_0), "first argument must be a string\n");
+    UTILS_MEX_ASSERT(mxIsChar(arg_in_0), "first argument must be a string\n");
     string cmd = mxArrayToString(arg_in_0);
     DO_CMD pfun = cmd_to_fun.at(cmd);
     pfun(nlhs, plhs, nrhs, prhs);

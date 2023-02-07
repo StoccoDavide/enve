@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -19,6 +28,8 @@
 ///
 /// file: rib.cc
 ///
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include "enve.hh"
 
@@ -296,11 +307,6 @@ namespace enve
     // Store output
     if (int_bool && (segment_area_tot > EPSILON_MEDIUM || segment_volume_tot > EPSILON_MEDIUM))
     {
-      #ifdef ENVE_DEBUG
-        inter += 1;
-        std::cout << "inter: " << inter << std::endl;
-      #endif
-
       out.point    = contact_point_tot    / segment_volume_tot;
       out.normal   = (contact_normal_tot  / segment_volume_tot).normalized();
       out.friction = contact_friction_tot / segment_volume_tot;
@@ -347,11 +353,6 @@ namespace enve
     // Compute remaining contact parameters
     if (int_bool && segment_tmp.length() > EPSILON_LOW)
     {
-      #ifdef ENVE_DEBUG
-        inter += 1;
-        std::cout << "inter: " << inter << std::endl;
-      #endif
-
       out.point    = segment_tmp.centroid();
       normal_tmp   = (normal_grd.cross(center_grd - out.point)).normalized();
       out.normal   = (ground.normal() - normal_tmp * ground.normal().dot(normal_tmp)).normalized();
@@ -426,11 +427,6 @@ namespace enve
     // Compute remaining contact parameters
     if (sampling && out.depth > real(0.0))
     {
-      #ifdef ENVE_DEBUG
-        inter += 1;
-        std::cout << "inter: " << inter << std::endl;
-      #endif
-
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / real(4.0);
       out.area     = real(2.0) * std::sqrt(out.depth * (real(2.0) * radius - out.depth)) * width;
       out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) -
@@ -501,11 +497,6 @@ namespace enve
     // Compute remaining contact parameters
     if (sampling && out.depth > real(0.0))
     {
-      #ifdef ENVE_DEBUG
-        inter += 1;
-        std::cout << "inter: " << inter << std::endl;
-      #endif
-
       out.friction = (friction_vec[0] + friction_vec[1] + friction_vec[2] + friction_vec[3]) / real(4.0);
       out.area     = real(2.0) * std::sqrt(out.depth * (real(2.0) * radius - out.depth)) * width;
       out.volume   = (radius * radius * std::acos((radius - out.depth) / radius) -
@@ -614,6 +605,8 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace enve
+
+#endif
 
 ///
 /// eof: rib.cc

@@ -2,38 +2,45 @@
 
 .. rst-class:: html-toggle
 
-..
-  ****
-  ENVE
-  ****
+==============================================
+Real-Time Tire/Road Contact Evaluation Library
+==============================================
 
-====================================================
-A library for real-time tire/road contact evaluation
-====================================================
 
-`Github repository <https://github.com/StoccoDavide/enve>`__
+.. image:: https://img.shields.io/badge/Github-enve-D95319.svg
+  :target: https://github.com/stoccodavide/enve
+
+.. image:: https://img.shields.io/badge/Version-4.0.0-D95319.svg
+  :target: https://github.com/stoccodavide/enve
+
+.. image:: https://img.shields.io/badge/Release-4.0.0-D95319.svg
+  :target: https://github.com/stoccodavide/enve
+
+.. image:: https://img.shields.io/badge/License-BSD3-D95319.svg
+  :target: https://opensource.org/licenses/BSD-3-Clause
+
+
+ENVE is a library for real-time tire/road contact evaluation. It is written in
+C++11 with a MATLAB MEX interface and a SIMULINK S-Function interface. The
+library is designed to be used in real-time applications, such as vehicle
+dynamics simulation and control. The library is based on the ACME library, which
+is a C++11 library for simple 3D geometry processing.
 
 Installation
 ------------
 
-MATLAB
-~~~~~~
-
-Download the toolbox and install as usual. Run ``CompileENVElib`` on MATLAB Command Window to
-compile the ``MEX`` of the library.
-
 C++
 ~~~
 
-Download the library
+Download the library using git:
 
 .. code:: sh
 
    git clone git@github.com:StoccoDavide/enve.git —recurse-submodules
 
-if you forget ``—recurse-submodules`` you must load the submdules `ACME <https://github.com/StoccoDavide/acme>`__
-and `Utils <https://github.com/ebertolazzi/Utils>`__ next.
-To compile the library you can use ``cmake``
+Notice that if you forget ``—recurse-submodules`` you must download the submdule
+`ACME <https://github.com/StoccoDavide/acme>`__ next. To compile the library you
+can use ``cmake``:
 
 .. code:: sh
 
@@ -42,34 +49,49 @@ To compile the library you can use ``cmake``
    cmake ..
    make
 
-or ``rake``
+or ``rake``:
 
 .. code:: sh
 
-   rake build       # on MacOS/Linux/Windows
-   rake build_osx   # on Mac
-   rake build_linux # on Linux
-   rake build_win   # on Windows
+   rake build_submodules
+   rake build # or simply 'rake'
 
-using ``rake`` you have the library and headers in the following tree
+The compiled library and headers are stores as follows:
 
 .. code:: text
 
    `-- lib
        |-- include
-       |   |-- enve_flat.hh
-       |   |-- enve_mesh.hh
-       |   |-- enve_rib.hh
-       |   |-- enve_shape.hh
-       |   |-- enve_shell.hh
-       |   |-- enve_triangleground.hh
-       |   `-- enve.hh
+       |   |-- enve.hh
+       |   |-- enve_sfun_interface.hh
+       |   |-- enve_sfun_types.hh
+       |   `-- enve
+       |       |-- flat.hxx
+       |       |-- mesh.hxx
+       |       |-- output.hxx
+       |       |-- rib.hxx
+       |       |-- shape.hxx
+       |       |-- shell.hxx
+       |       `-- triangleground.hxx
        |-- lib
        |   `-- libenve_OSTYPE_static.a
        `-- dll
            `-- libenve_OSTYPE.dylib
 
-where OSTYPE can be ``linux``, ``osx``, ``mingw_x64``, ``win_x64``
+where OSTYPE can be ``linux``, ``osx``, ``mingw_x64``, ``win_x64`` depending
+on your OS.
+
+MATLAB MEX
+~~~~~~~~~~
+
+Download the toolbox and install the toobox as usual. Run ``CompileENVElib_CMake``
+on MATLAB Command Window to compile the MATLAB MEX library with ``cmake``.
+
+SIMULINK S-Function
+~~~~~~~~~~~~~~~~~~~
+
+Compile the C++ library as explained above. Then, run ``CompileENVEsfun`` on
+MATLAB Command Window to compile the SIMULINK S-Function.
 
 Index
 -----
@@ -77,8 +99,8 @@ Index
 .. toctree::
    :maxdepth: 2
 
-   intro.rst   
-   examples.rst   
+   Manual_Introduction.rst
+   Manual_Usage.rst
    api-cpp/root.rst
    api-matlab/root.rst
 
@@ -86,31 +108,31 @@ Index
 Authors C++/MATLAB MEX
 ----------------------
 
-- | **Davide Stocco**
-  | Department of Industrial Engineering
-  | University of Trento
-  | davide.stocco@unitn.it
+| **Davide Stocco**
+| Department of Industrial Engineering
+| University of Trento
+| davide.stocco@unitn.it
 
-- | **Enrico Bertolazzi**
-  | Department of Industrial Engineering
-  | University of Trento
-  | enrico.bertolazzi@unitn.it
+| **Enrico Bertolazzi**
+| Department of Industrial Engineering
+| University of Trento
+| enrico.bertolazzi@unitn.it
 
 Authors SIMULINK S-Function
 ---------------------------
 
-- | **Matteo Larcher**
-  | Department of Industrial Engineering
-  | University of Trento
-  | matteo.larcher@unitn.it
+| **Matteo Larcher**
+| Department of Industrial Engineering
+| University of Trento
+| matteo.larcher@unitn.it
 
-- | **Davide Stocco**
-  | Department of Industrial Engineering
-  | University of Trento
-  | davide.stocco@unitn.it
+| **Davide Stocco**
+| Department of Industrial Engineering
+| University of Trento
+| davide.stocco@unitn.it
 
 License
 -------
 
-.. literalinclude:: ../../LICENSE.txt
+.. literalinclude:: ../LICENSE.txt
    :language: none

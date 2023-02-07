@@ -249,7 +249,7 @@ namespace acme
       point const & vector_in //!< Input translation vector
     );
 
-    // Check whether the point is inside the aabb
+    //! Check whether the point is inside the aabb
     bool
     isInside(
       point const & point_in,           //!< Query point

@@ -115,14 +115,20 @@ primary_domain = 'cpp'
 highlight_language = 'cpp'
 
 html_theme = 'alabaster'
-html_logo  = 'logo.png'
+html_logo  = '../logo.png'
 
 email_automode       = True
 autodoc_member_order = 'bysource'
 
 html_theme_options = {
-  "lighter_header_decor" : False,
-  "borderless_decor"     : False,
+  "page_width"       : "65em",
+  "body_text"        : "#000000",
+  "link_hover"       : "#D95319",
+  "link"             : "#000000",
+  "anchor_hover_fg"  : "#D95319",
+  "gray_1"           : "#000000",
+  "code_font_family" : "Menlo",
+  "code_highlight"   : "#D95319",
 }
 
 # If true, SmartyPants will be used to convert quotes and dashes to

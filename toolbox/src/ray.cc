@@ -29,6 +29,8 @@
 /// file: ray.ccc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -186,7 +188,8 @@ namespace acme
   )
     const
   {
-    return IsApprox((point_in - this->m_origin).normalized().cross(this->m_direction).norm(), real(0.0), tolerance);
+    vec3 p = (point_in - this->m_origin).normalized();
+    return IsApprox(p.cross(this->m_direction).norm(), real(0.0), tolerance) and p.dot(this->m_direction) >= 0;
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -231,6 +234,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: ray.cc

@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -19,6 +28,8 @@
 ///
 /// file: shape.cc
 ///
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include "enve.hh"
 
@@ -81,7 +92,7 @@ namespace enve
   bool
   shape::isApprox(
     shape const & shape_obj,
-    real          tolerance 
+    real          tolerance
   )
     const
   {
@@ -257,7 +268,7 @@ namespace enve
       real sign  = real(real(0.0) < y) - real(y < real(0.0));
       real y_val = sign * y;
       real y_pre = std::pow(y_val/this->m_r_y, this->m_m_y);
-      return -sign * std::pow(real(1.0)-y_pre, (real(1.0)-this->m_m_x)/this->m_m_x) * 
+      return -sign * std::pow(real(1.0)-y_pre, (real(1.0)-this->m_m_x)/this->m_m_x) *
              y_pre * this->m_r_x * this->m_m_y / (this->m_m_x * y_val);
     }
     else
@@ -300,6 +311,8 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace enve
+
+#endif
 
 ///
 /// eof: shape.cc

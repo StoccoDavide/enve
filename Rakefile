@@ -72,18 +72,7 @@ task :build_mingw => :build_osx_linux_mingw do end
 
 desc "Build submodules for library compilation OSX/LINUX/MINGW"
 task :build_submodules do
-  FileUtils.cd 'submodules/acme/submodules'
-  case OS
-  when :mac
-    sh 'rake build_osx'
-  when :linux
-    sh 'rake build_linux'
-  when :mingw
-    sh 'rake build_mingw'
-  when :win
-    sh 'rake build_win'
-  end
-  FileUtils.cd '../..'
+  FileUtils.cd 'submodules/acme'
   case OS
   when :mac
     sh 'rake build_osx'

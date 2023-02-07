@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -19,6 +28,8 @@
 ///
 /// file: triangleground.cc
 ///
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include "enve.hh"
 
@@ -72,10 +83,10 @@ namespace enve
 
     ENVE_ASSERT(this->m_friction >= real(0.0),
       CMD "negative friction coefficient scaling factor detected.");
-    
+
     this->updateNormal();
     this->updateBBox();
-    
+
     #undef CMD
   }
 
@@ -101,7 +112,7 @@ namespace enve
 
     this->updateNormal();
     this->updateBBox();
-    
+
     #undef CMD
   }
 
@@ -122,10 +133,10 @@ namespace enve
 
     ENVE_ASSERT(this->m_friction >= real(0.0),
       CMD "negative friction coefficient scaling factor detected.");
-    
+
     this->updateNormal();
     this->updateBBox();
-  
+
     #undef CMD
   }
 
@@ -283,6 +294,8 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace enve
+
+#endif
 
 ///
 /// eof: triangleground.cc

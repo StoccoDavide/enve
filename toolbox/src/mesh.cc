@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -19,6 +28,8 @@
 ///
 /// file: mesh.cc
 ///
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include "enve.hh"
 
@@ -39,6 +50,7 @@ namespace enve
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     mesh::mesh(void)
+      : m_AABBtree(std::make_shared<AABBtree>())
     {
       this->m_triangles.reserve(100000);
     }
@@ -127,7 +139,7 @@ namespace enve
     {
       return this->m_triangles[i];
     }
-    
+
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     triangleground::ptr
@@ -455,27 +467,25 @@ namespace enve
 
     bool
     mesh::intersection(
-      aabb     const & box,
-      AABB_SET       & triangles
+      aabb::ptr              const   box,
+      triangleground::vecptr       & triangles
     )
       const
     {
       #define CMD "enve::mesh::intersection(...): "
 
-      ENVE_DEBUG_TICTOC;
-      ENVE_DEBUG_TIC;
-
-      real bbox[6]{
-        box.min(0), box.min(1), box.min(2),
-        box.max(0), box.max(1), box.max(2)
-      };
-      this->m_AABBtree.intersect_with_one_bbox_and_refine( bbox, triangles );
-
-      ENVE_DEBUG_TOC;
-      ENVE_DEBUG_MESSAGE(
-        CMD "intersection task\n" "  #elapsed time {}ms\n" "  #triangles {}\n",
-        tictoc.elapsed_ms(), triangles.size()
-      );
+      aabb::vecptr ptrVecbox{box};
+      AABBtree::ptr ptrAABBtree = std::make_shared<AABBtree>();
+      ptrAABBtree->build(ptrVecbox);
+      triangles.clear();
+      aabb::vecpairptr intersection_list;
+      this->m_AABBtree->intersection(*ptrAABBtree, intersection_list);
+      for (size_t i = 0; i < intersection_list.size(); ++i)
+      {
+        triangles.emplace_back(
+          this->ptrTriangleground((intersection_list[i].first)->id())
+          );
+      }
 
       return triangles.size() > integer(0);
 
@@ -488,29 +498,25 @@ namespace enve
     mesh::buildAABBtree(void)
     {
       #define CMD "enve::mesh::buildAABBtree(...): "
-      ENVE_DEBUG_TICTOC;
-      ENVE_DEBUG_TIC;
 
-      this->m_AABBtree.set_max_num_objects_per_node( ENVE_AABBTREE_NODE_SIZE );
-      this->m_AABBtree.allocate( this->m_triangles.size(), integer(3) );
-      integer AABBpos = 0;
-      for ( triangleground::ptr itriangle : this->m_triangles ) {
-        this->m_AABBtree.replace_bbox(
-          itriangle->bbox().min().data(),
-          itriangle->bbox().max().data(),
-          AABBpos
-        );
-        ++AABBpos;
-      }
-      this->m_AABBtree.build();
-
-      ENVE_DEBUG_TOC;
-      ENVE_DEBUG_MESSAGE(
-        CMD "build task\n" "  #elapsed time {}ms\n",
-        tictoc.elapsed_ms()
-      );
+      this->updateBBoxes();
+      this->m_AABBtree->build(this->m_bboxes);
 
       #undef CMD
+    }
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    void
+    mesh::updateBBoxes(void)
+    {
+      this->m_bboxes.clear();
+      for (size_t i = 0; i < this->m_triangles.size(); ++i)
+      {
+        this->m_bboxes.push_back(
+          std::make_shared<aabb const>(this->m_triangles[i]->bbox())
+        );
+      }
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -597,6 +603,8 @@ namespace enve
   } // namespace rdf
 
 } // namespace enve
+
+#endif
 
 ///
 /// eof: mesh.cc

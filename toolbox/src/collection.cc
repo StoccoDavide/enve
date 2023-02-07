@@ -29,6 +29,8 @@
 /// file: collection.cc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -58,7 +60,7 @@ namespace acme
     : collection()
   {
     this->m_entities = entities;
-  };
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -96,7 +98,7 @@ namespace acme
   )
   {
     return this->m_entities[i];
-  };
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -107,7 +109,7 @@ namespace acme
     const
   {
     return this->m_entities[i];
-  };
+  }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -989,7 +991,7 @@ namespace acme
     const
   {
     #define CMD "acme::collection::clamp(): "
-    
+
     boxes.clear();
     vec3 min, max;
     for (size_t i = 0; i < this->m_entities.size(); ++i)
@@ -1000,7 +1002,7 @@ namespace acme
       }
       else
       {
-        ACME_ERROR(CMD "non-clampable object detected.");
+        ACME_ERROR(CMD "non-clampable object detected.")
       }
     }
 
@@ -1115,6 +1117,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: collection.cc

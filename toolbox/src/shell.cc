@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -19,6 +28,8 @@
 ///
 /// file: shell.cc
 ///
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include "enve.hh"
 
@@ -46,10 +57,12 @@ namespace enve
     real   My,
     real   Ly
   )
-    : m_shape(Rx, Mx, Ry, My, Ly)
+    : m_shape(std::make_shared<shape>(Rx, Mx, Ry, My, Ly)),
+      m_bbox(std::make_shared<aabb>())
   {
     this->m_affine.matrix() = IDENTITY_MAT4;
     this->resize(size);
+    this->updateBBox();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -76,15 +89,15 @@ namespace enve
       {this->m_candidates[i].reserve(200);}
 
     // Locate the disks
-    real shellWidth = this->m_shape.surfaceWidth();
+    real shellWidth = this->m_shape->surfaceWidth();
     real ribW = real(2.0) * shellWidth / size;
     real ribR, ribA;
     real ribY = -shellWidth - ribW / real(2.0);
     for (size_t i = 0; i < size; ++i)
     {
       ribY += ribW;
-      ribR  = this->m_shape.surfaceRadius(ribY);
-      ribA  = this->m_shape.surfaceAngle(ribY);
+      ribR  = this->m_shape->surfaceRadius(ribY);
+      ribA  = this->m_shape->surfaceAngle(ribY);
       ENVE_ASSERT(ribR > size_t(0),
         CMD "negative rib radius detected.");
       ENVE_ASSERT(ribR == ribR,
@@ -123,7 +136,7 @@ namespace enve
   shell::surfaceMaxRadius(void)
     const
   {
-    return this->m_shape.surfaceMaxRadius();
+    return this->m_shape->surfaceMaxRadius();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -132,7 +145,7 @@ namespace enve
   shell::surfaceMaxWidth(void)
     const
   {
-    return this->m_shape.surfaceMaxWidth();
+    return this->m_shape->surfaceMaxWidth();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -141,7 +154,7 @@ namespace enve
   shell::surfaceWidth(void)
     const
   {
-    return this->m_shape.surfaceWidth();
+    return this->m_shape->surfaceWidth();
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -152,7 +165,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape.checkWidthBound(y);
+    return this->m_shape->checkWidthBound(y);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -163,7 +176,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape.surfaceRadius(y);
+    return this->m_shape->surfaceRadius(y);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -175,7 +188,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape.surfaceDerivative(y, tolerance);
+    return this->m_shape->surfaceDerivative(y, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -187,7 +200,7 @@ namespace enve
   )
     const
   {
-    return this->m_shape.surfaceAngle(y, tolerance);
+    return this->m_shape->surfaceAngle(y, tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -237,12 +250,12 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   /*\
-   |         __  __ _            
-   |   __ _ / _|/ _(_)_ __   ___ 
+   |         __  __ _
+   |   __ _ / _|/ _(_)_ __   ___
    |  / _` | |_| |_| | '_ \ / _ \
    | | (_| |  _|  _| | | | |  __/
    |  \__,_|_| |_| |_|_| |_|\___|
-   |                             
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -381,17 +394,17 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   /*\
-   |               _     _     
-   |    __ _  __ _| |__ | |__  
-   |   / _` |/ _` | '_ \| '_ \ 
+   |               _     _
+   |    __ _  __ _| |__ | |__
+   |   / _` |/ _` | '_ \| '_ \
    |  | (_| | (_| | |_) | |_) |
-   |   \__,_|\__,_|_.__/|_.__/ 
-   |                           
+   |   \__,_|\__,_|_.__/|_.__/
+   |
   \*/
-  
+
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  
-  aabb const &
+
+  std::shared_ptr<aabb>
   shell::bbox(void)
     const
   {
@@ -403,23 +416,23 @@ namespace enve
   void
   shell::updateBBox(void)
   {
-    real  radius = this->m_shape.surfaceMaxRadius();
+    real  radius = this->m_shape->surfaceMaxRadius();
     point origin(this->m_affine.translation());
     point extrema(radius, radius, radius);
-    this->m_bbox.min() = origin - extrema;
-    this->m_bbox.max() = origin + extrema;
-    this->m_bbox.updateMaxMin();
+    this->m_bbox->min() = origin - extrema;
+    this->m_bbox->max() = origin + extrema;
+    this->m_bbox->updateMaxMin();
   }
-  
+
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   /*\
-   |            _               
-   |   ___  ___| |_ _   _ _ __  
-   |  / __|/ _ \ __| | | | '_ \ 
+   |            _
+   |   ___  ___| |_ _   _ _ __
+   |  / __|/ _ \ __| | | | '_ \
    |  \__ \  __/ |_| |_| | |_) |
-   |  |___/\___|\__|\__,_| .__/ 
-   |                     |_|    
+   |  |___/\___|\__|\__,_| .__/
+   |                     |_|
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -438,7 +451,8 @@ namespace enve
     this->updateBBox();
 
     // Local intersected triangles vector
-    AABB_SET local_ground;
+    triangleground::vecptr local_ground;
+    local_ground.reserve(200);
     ground.intersection(this->m_bbox, local_ground);
 
     // End setup if there are no intersections
@@ -497,12 +511,12 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   /*\
-   |                   _             _   
-   |    ___ ___  _ __ | |_ __ _  ___| |_ 
+   |                   _             _
+   |    ___ ___  _ __ | |_ __ _  ___| |_
    |   / __/ _ \| '_ \| __/ _` |/ __| __|
-   |  | (_| (_) | | | | || (_| | (__| |_ 
+   |  | (_| (_) | | | | || (_| | (__| |_
    |   \___\___/|_| |_|\__\__,_|\___|\__|
-   |                                     
+   |
   \*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -514,7 +528,7 @@ namespace enve
     const
   {
     point           = (ZEROS_VEC3);
-    size_t size     = this->size(); 
+    size_t size     = this->size();
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
     if (volume_sum < EPSILON_HIGH)
@@ -551,7 +565,7 @@ namespace enve
   )
     const
   {
-    size_t size = this->size(); 
+    size_t size = this->size();
     point.resize(size);
     for (size_t i = 0; i < size; ++i)
       {point[i] = this->m_out[i].point;  }
@@ -566,7 +580,7 @@ namespace enve
     const
   {
     normal = ZEROS_VEC3;
-    size_t size = this->size(); 
+    size_t size = this->size();
     real volume;
     this->contactVolume(volume);
     if (volume < EPSILON_HIGH)
@@ -605,7 +619,7 @@ namespace enve
   )
     const
   {
-    size_t size = this->size(); 
+    size_t size = this->size();
     normal.resize(size);
     for (size_t i = 0; i < size; ++i)
       {normal[i] = this->m_out[i].normal;}
@@ -620,7 +634,7 @@ namespace enve
     const
   {
     friction        = 0.0;
-    size_t size     = this->size(); 
+    size_t size     = this->size();
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
     if (volume_sum < EPSILON_HIGH)
@@ -657,7 +671,7 @@ namespace enve
   )
     const
   {
-    size_t size = this->size(); 
+    size_t size = this->size();
     friction.resize(size);
     for (size_t i = 0; i < size; ++i)
       {friction[i] = this->m_out[i].friction;}
@@ -672,7 +686,7 @@ namespace enve
     const
   {
     depth           = 0.0;
-    size_t size     = this->size(); 
+    size_t size     = this->size();
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
     if (volume_sum < EPSILON_HIGH)
@@ -707,7 +721,7 @@ namespace enve
   )
     const
   {
-    size_t size = this->size(); 
+    size_t size = this->size();
     depth.resize(size);
     for (size_t i = 0; i < size; ++i)
       {depth[i] = this->m_out[i].depth;}
@@ -746,7 +760,7 @@ namespace enve
   )
     const
   {
-    size_t size = this->size(); 
+    size_t size = this->size();
     area.resize(size);
     for (size_t i = 0; i < size; ++i)
       {area[i] = this->m_out[i].area;}
@@ -785,7 +799,7 @@ namespace enve
   )
     const
   {
-    size_t size = this->size(); 
+    size_t size = this->size();
     volume.resize(size);
     for (size_t i = 0; i < size; ++i)
       {volume[i] = this->m_out[i].volume;}
@@ -927,7 +941,7 @@ namespace enve
 
     os << " ------------ SHELL PRINT ------------" << std::endl
     << std::endl;
-    this->m_shape.print(os);
+    this->m_shape->print(os);
 
     os << "Ribs info:" << std::endl;
     for (size_t i = 0; i < relative_angles_vec.size(); ++i)
@@ -937,10 +951,10 @@ namespace enve
                    << "        W = " << this->m_ribs[i].width()  << " m" << std::endl
                    << "        A = " << this->m_ribs[i].angle()  << " rad" << std::endl;
     }
-                   
+
     os << "Contact parameters:" << std::endl
        << "Shell maximum radius" << std::endl
-       << "R = " << this->m_shape.surfaceMaxRadius() << " m" << std::endl
+       << "R = " << this->m_shape->surfaceMaxRadius() << " m" << std::endl
        << "Camber angle" << std::endl
        << "Γ = " << euler_angles.y() / PI << "pi rad" << std::endl
        << "Rotation angle" << std::endl
@@ -987,7 +1001,7 @@ namespace enve
     for (size_t i = 0; i < relative_angles_vec.size(); ++i)
       {os << "Rib " << i << " - [Γ ß α]' = " << relative_angles_vec[i].transpose() / PI << "pi rad" << std::endl;}
     os << std::endl;
-    
+
     os << " ------------     END     ------------" << std::endl
        << std::endl;
   }
@@ -996,9 +1010,9 @@ namespace enve
 
   void
   shell::refineIntersection(
-    ground::mesh const & ground,
-    AABB_SET     const & local_ground,
-    bool                 refine
+    ground::mesh           const & ground,
+    triangleground::vecptr const & local_ground,
+    bool                           refine
   )
   {
     size_t size = this->size();
@@ -1016,7 +1030,7 @@ namespace enve
 
     // Iterate on triangles
     real d0, d1, d2, sum;
-    for (integer i : local_ground)
+    for (size_t i = 0; i < local_ground.size(); ++i)
     {
       // Calculate distance of i-th triangle
       d0 = mid_plane.signedDistance(ground[i]->vertex(0));
@@ -1048,6 +1062,8 @@ namespace enve
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace enve
+
+#endif
 
 ///
 /// eof: shell.cc

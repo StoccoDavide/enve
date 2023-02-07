@@ -2,15 +2,23 @@
 %                                                                     %
 % This file is part of the ENVE project.                              %
 %                                                                     %
-% Copyright (c) 2022, Davide Stocco. All rights reserved.             %
+% Copyright (c) 2020, Davide Stocco, Matteo Larcher and Enrico        %
+% Bertolazzi.                                                         %
 %                                                                     %
-% The ENVE project can not be copied and/or distributed without       %
-% the express permission of Davide Stocco.                            %
+% The ENVE project and its components are supplied under the terms of %
+% the open source BSD 3-Clause License. The contents of the ENVE      %
+% project and its components may not be copied or disclosed except in %
+% accordance with the terms of the BSD 3-Clause License.              %
 %                                                                     %
 %    Davide Stocco                                                    %
 %    Department of Industrial Engineering                             %
 %    University of Trento                                             %
 %    e-mail: davide.stocco@unitn.it                                   %
+%                                                                     %
+%    Enrico Bertolazzi                                                %
+%    Department of Industrial Engineering                             %
+%    University of Trento                                             %
+%    e-mail: enrico.bertolazzi@unitn.it                               %
 %                                                                     %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
@@ -234,7 +242,7 @@ classdef enve_shell < handle
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Get shell contact normal 
+    %> Get shell contact normal
     function out = contactNormalAvg( this, ~ )
       out = mex_shell( 'contactNormalAvg', this.objectHandle );
     end
@@ -258,21 +266,21 @@ classdef enve_shell < handle
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Get shell contact depth (m) 
+    %> Get shell contact depth (m)
     function out = contactDepthAvg( this, ~ )
       out = mex_shell( 'contactDepthAvg', this.objectHandle );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Get shell contact depth for the i-th rib (m) 
+    %> Get shell contact depth for the i-th rib (m)
     function out = contactDepthRib( this, i, ~ )
       out = mex_shell( 'contactDepthRib', this.objectHandle, i );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %> Get shell contact depth vector (m) 
+    %> Get shell contact depth vector (m)
     function out = contactDepthVec( this, ~ )
       out = zeros(1, this.size());
       for i = 1:this.size()
@@ -438,7 +446,7 @@ classdef enve_shell < handle
                  0.9290, 0.6940, 0.1250; ...
                  0.4940, 0.1840, 0.5560 ];
       R = this.surfaceMaxRadius();
-      for i = 1:3 
+      for i = 1:3
         q = quiver3(T(1,4), T(2,4), T(3,4), T(1,i), T(2,i), T(3,i), scale);
         q.Marker          = '.';
         q.MarkerSize      = 20;
@@ -515,7 +523,7 @@ classdef enve_shell < handle
                  0.9290, 0.6940, 0.1250; ...
                  0.4940, 0.1840, 0.5560 ];
       R = this.surfaceMaxRadius();
-      for i = 1:3 
+      for i = 1:3
         q = quiver3(T(1,4), T(2,4), T(3,4), T(1,i), T(2,i), T(3,i), scale);
         q.Marker          = '.';
         q.MarkerSize      = 20;
@@ -592,7 +600,7 @@ classdef enve_shell < handle
                  0.9290, 0.6940, 0.1250; ...
                  0.4940, 0.1840, 0.5560 ];
       R = this.surfaceMaxRadius();
-      for i = 1:3 
+      for i = 1:3
         q = quiver3(T(1,4), T(2,4), T(3,4), T(1,i), T(2,i), T(3,i), scale);
         q.Marker          = '.';
         q.MarkerSize      = 20;
@@ -657,7 +665,7 @@ classdef enve_shell < handle
                  0.9290, 0.6940, 0.1250; ...
                  0.4940, 0.1840, 0.5560 ];
       T = this.contactPointAffineAvg();
-      for i = 1:3 
+      for i = 1:3
         q = quiver3(T(1,4), T(2,4), T(3,4), T(1,i), T(2,i), T(3,i), scale);
         q.Marker          = '.';
         q.MarkerSize      = 20;
@@ -686,7 +694,7 @@ classdef enve_shell < handle
                  0.9290, 0.6940, 0.1250; ...
                  0.4940, 0.1840, 0.5560 ];
       T = this.contactPointAffineRib(i);
-      for j = 1:3 
+      for j = 1:3
         q = quiver3(T(1,4), T(2,4), T(3,4), T(1,j), T(2,j), T(3,j), scale);
         q.Marker          = '.';
         q.MarkerSize      = 20;

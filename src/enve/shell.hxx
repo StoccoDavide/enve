@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -46,8 +55,8 @@ namespace enve
   {
   private:
     affine                              m_affine;     //!< Shell reference frame (ISO)
-    shape                               m_shape;      //!< Shell shape
-    aabb                                m_bbox;       //!< Shell bounding box (must be transformed in the mesh reference frame before intersection!)
+    std::shared_ptr<shape>              m_shape;      //!< Shell shape
+    std::shared_ptr<aabb>               m_bbox;       //!< Shell bounding box (must be transformed in the mesh reference frame before intersection!)
     std::vector<rib>                    m_ribs;       //!< Shell ribs vector
     std::vector<output>                 m_out;        //!< Contact parameters output vector
     std::vector<triangleground::vecptr> m_candidates; //!< Candidates triangle vector
@@ -59,12 +68,12 @@ namespace enve
     //! Shell move constructor
     shell(shell &&) = delete;
 
-    //! Shell assignment operator    
+    //! Shell assignment operator
     shell & operator=(const shell &) = delete;
 
-    //! Shell move assignment operator    
+    //! Shell move assignment operator
     shell & operator=(shell &&) = delete;
-    
+
     //! Shell class destructor
     ~shell(void) = default;
 
@@ -169,12 +178,12 @@ namespace enve
     ) const;
 
     /*\
-     |         __  __ _            
-     |   __ _ / _|/ _(_)_ __   ___ 
+     |         __  __ _
+     |   __ _ / _|/ _(_)_ __   ___
      |  / _` | |_| |_| | '_ \ / _ \
      | | (_| |  _|  _| | | | |  __/
      |  \__,_|_| |_| |_|_| |_|\___|
-     |                             
+     |
     \*/
 
     //! Translate shell by vector
@@ -268,16 +277,16 @@ namespace enve
     ) const;
 
     /*\
-     |               _     _     
-     |    __ _  __ _| |__ | |__  
-     |   / _` |/ _` | '_ \| '_ \ 
+     |               _     _
+     |    __ _  __ _| |__ | |__
+     |   / _` |/ _` | '_ \| '_ \
      |  | (_| | (_| | |_) | |_) |
-     |   \__,_|\__,_|_.__/|_.__/ 
-     |                           
+     |   \__,_|\__,_|_.__/|_.__/
+     |
     \*/
 
     //! Get shell bonding aabb as object pointer vector
-    aabb const &
+    std::shared_ptr<aabb>
     bbox(void) const;
 
     //! Update shell bonding aabb
@@ -285,12 +294,12 @@ namespace enve
     updateBBox(void);
 
     /*\
-     |            _               
-     |   ___  ___| |_ _   _ _ __  
-     |  / __|/ _ \ __| | | | '_ \ 
+     |            _
+     |   ___  ___| |_ _   _ _ __
+     |  / __|/ _ \ __| | | | '_ \
      |  \__ \  __/ |_| |_| | |_) |
-     |  |___/\___|\__|\__,_| .__/ 
-     |                     |_|    
+     |  |___/\___|\__|\__,_| .__/
+     |                     |_|
     \*/
 
     //! Update current shell position and find contact parameters (intersection with mesh)
@@ -310,12 +319,12 @@ namespace enve
     );
 
     /*\
-     |                   _             _   
-     |    ___ ___  _ __ | |_ __ _  ___| |_ 
+     |                   _             _
+     |    ___ ___  _ __ | |_ __ _  ___| |_
      |   / __/ _ \| '_ \| __/ _` |/ __| __|
-     |  | (_| (_) | | | | || (_| | (__| |_ 
+     |  | (_| (_) | | | | || (_| | (__| |_
      |   \___\___/|_| |_|\__\__,_|\___|\__|
-     |                                     
+     |
     \*/
 
     //! Get contact point
@@ -483,9 +492,9 @@ namespace enve
     //! Update the list of ribs candidates
     void
     refineIntersection(
-      ground::mesh const & ground,       //!< Mesh ground object
-      AABB_SET     const & local_ground, //!< Local triangles candidate list
-      bool                 refine        //!< Enable advanced ribs refinement
+      ground::mesh           const & ground,       //!< Mesh ground object
+      triangleground::vecptr const & local_ground, //!< Local triangles candidate list
+      bool                           refine        //!< Enable advanced ribs refinement
     );
 
   }; // class shell

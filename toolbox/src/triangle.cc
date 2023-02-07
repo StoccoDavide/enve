@@ -29,6 +29,8 @@
 /// file: triangle.cc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -113,7 +115,7 @@ namespace acme
     #define CMD "acme::triangle::vertex(): "
 
     ACME_ASSERT(i < 3,
-      CMD "index out of bounds [0,2].");
+      CMD "index out of bounds [0,2].")
     return this->m_vertex[i];
 
     #undef CMD
@@ -129,7 +131,7 @@ namespace acme
     #define CMD "acme::triangle::vertex(): "
 
     ACME_ASSERT(i < 3,
-      CMD "index out of bounds [0,2].");
+      CMD "index out of bounds [0,2].")
     return this->m_vertex[i];
 
     #undef CMD
@@ -146,7 +148,7 @@ namespace acme
     #define CMD "acme::triangle::operator[]: "
 
     ACME_ASSERT(i < 3,
-      CMD "index out of bounds [0,2].");
+      CMD "index out of bounds [0,2].")
     return this->m_vertex[i];
 
     #undef CMD
@@ -162,7 +164,7 @@ namespace acme
     #define CMD "acme::triangle::operator[]: "
 
     ACME_ASSERT(i < 3,
-      CMD "index out of bounds [0,2].");
+      CMD "index out of bounds [0,2].")
     return this->m_vertex[i];
 
     #undef CMD
@@ -188,7 +190,7 @@ namespace acme
     #define CMD "acme::triangle::edge(): "
 
     ACME_ASSERT(i < 3,
-      CMD "index out of bounds [0,2].");
+      CMD "index out of bounds [0,2].")
     if (i == 0)
       {return segment(this->m_vertex[0], this->m_vertex[1]);}
     else if (i == 1)
@@ -305,17 +307,17 @@ namespace acme
   bool
   triangle::isInside(
     point const & point_in,
-    real          /*tolerance*/
+    real          tolerance
   )
     const
   {
     real u, v, w;
     this->barycentric(point_in, u, v, w);
-    if (u >= real(0.0) && u <= real(1.0) &&
-        v >= real(0.0) && v <= real(1.0) &&
-        w >= real(0.0) && w <= real(1.0))
+    if (u >= real(0.0) - tolerance && u <= real(1.0) + tolerance &&
+        v >= real(0.0) - tolerance && v <= real(1.0) + tolerance &&
+        w >= real(0.0) - tolerance && w <= real(1.0) + tolerance)
     {
-      return true;
+      return this->layingPlane().isInside(point_in, tolerance);
     }
     else
     {
@@ -379,6 +381,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: triangle.cc

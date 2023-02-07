@@ -60,9 +60,10 @@
 #include <limits>
 #include <memory>
 #include <vector>
+#include <map>
 
 // Eigen libraries
-#include "Utils_eigen.hh"
+#include <Eigen/Dense>
 
 //!  Namespace containing all acme typedefs, classes and routines
 namespace acme

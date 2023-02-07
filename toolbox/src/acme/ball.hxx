@@ -138,7 +138,7 @@ namespace acme
       affine const & affine_in //!< 4x4 affine transformation matrix
     ) override;
 
-    // Check whether the point is inside the ball
+    //! Check whether the point is inside the ball
     bool
     isInside(
       point const & point_in,           //!< Query point

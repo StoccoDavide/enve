@@ -1,17 +1,26 @@
 /*
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                     *
- * This file is part of the ENVE project.                              *
+ * The ENVE project                                                    *
  *                                                                     *
- * Copyright (c) 2022, Davide Stocco. All rights reserved.             *
+ * Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            *
  *                                                                     *
- * The ENVE project can not be copied and/or distributed without       *
- * the express permission of Davide Stocco.                            *
+ * The ENVE project and its components are supplied under the terms of *
+ * the open source BSD 3-Clause License. The contents of the ENVE      *
+ * project and its components may not be copied or disclosed except in *
+ * accordance with the terms of the BSD 3-Clause License.              *
+ *                                                                     *
+ * URL: https://opensource.org/licenses/BSD-3-Clause                   *
  *                                                                     *
  *    Davide Stocco                                                    *
  *    Department of Industrial Engineering                             *
  *    University of Trento                                             *
  *    e-mail: davide.stocco@unitn.it                                   *
+ *                                                                     *
+ *    Enrico Bertolazzi                                                *
+ *    Department of Industrial Engineering                             *
+ *    University of Trento                                             *
+ *    e-mail: enrico.bertolazzi@unitn.it                               *
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
@@ -40,30 +49,9 @@
   ENVE_ERROR(MSG)
 #endif
 
-// Switch from Utils to acme AABB tree
-#ifndef ENVE_AABBTREE_NODE_SIZE
-#define ENVE_AABBTREE_NODE_SIZE 1
-#endif
-
-// Define enve debug timing and messaging
-//#define ENVE_DEBUG
-#ifdef ENVE_DEBUG
-  static int inter = 0;
-  #define ENVE_DEBUG_TICTOC      Utils::TicToc tictoc
-  #define ENVE_DEBUG_TIC         tictoc.tic()
-  #define ENVE_DEBUG_TOC         tictoc.toc()
-  #define ENVE_DEBUG_MESSAGE(...) std::cout << fmt::format(__VA_ARGS__) << std::flush
-#else
-  #define ENVE_DEBUG_TICTOC
-  #define ENVE_DEBUG_TIC
-  #define ENVE_DEBUG_TOC
-  #define ENVE_DEBUG_MESSAGE(...)
-#endif
-
 #include <fstream>
 
 #include "acme.hh"
-#include "Utils_AABB_tree.hh"
 
 using acme::real;
 using acme::integer;
@@ -94,10 +82,6 @@ using acme::NAN_DISK;
 using acme::NAN_AABB;
 
 using acme::IsApprox;
-
-using AABB_TREE = Utils::AABBtree<real>;
-using AABB_SET  = Utils::AABBtree<real>::AABB_SET;
-using AABB_MAP  = Utils::AABBtree<real>::AABB_MAP;
 
 #include "enve/flat.hxx"
 #include "enve/mesh.hxx"

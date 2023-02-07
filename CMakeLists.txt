@@ -1,16 +1,25 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                     #
-# This file is part of the ENVE project.                              #
+# The ENVE project                                                    #
 #                                                                     #
-# Copyright (c) 2022, Davide Stocco. All rights reserved.             #
+# Copyright (c) 2020, Davide Stocco and Enrico Bertolazzi.            #
 #                                                                     #
-# The ENVE project can not be copied and/or distributed without       #
-# the express permission of Davide Stocco.                            #
+# The ENVE project and its components are supplied under the terms of #
+# the open source BSD 3-Clause License. The contents of the ENVE      #
+# project and its components may not be copied or disclosed except in #
+# accordance with the terms of the BSD 3-Clause License.              #
+#                                                                     #
+# URL: https://opensource.org/licenses/BSD-3-Clause                   #
 #                                                                     #
 #    Davide Stocco                                                    #
 #    Department of Industrial Engineering                             #
 #    University of Trento                                             #
 #    e-mail: davide.stocco@unitn.it                                   #
+#                                                                     #
+#    Enrico Bertolazzi                                                #
+#    Department of Industrial Engineering                             #
+#    University of Trento                                             #
+#    e-mail: enrico.bertolazzi@unitn.it                               #
 #                                                                     #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -25,7 +34,7 @@ project(
   HOMEPAGE_URL "https://StoccoDavide.github.io/enve/"
 )
 
-include(./cmake_utils/CMakeLists-cflags.txt)
+include(./CMakeLists-cflags.txt)
 include(./cmake_utils/CMakeLists-utilities.txt)
 
 # Evaluating the suffix to append to target built by this CMake file
@@ -109,6 +118,18 @@ if( ENVE_BUILD_SFUN )
   install( FILES ${SFUN_HEADERS} DESTINATION ${PROJECT_PUBLIC_HEADER_DESTINATION} )
 endif()
 
+#   _____ _
+#  | ____(_) __ _  ___ _ __
+#  |  _| | |/ _` |/ _ \ '_ \
+#  | |___| | (_| |  __/ | | |
+#  |_____|_|\__, |\___|_| |_|
+#           |___/
+
+find_package(Eigen3 REQUIRED)
+include_directories( ${EIGEN3_INCLUDE_DIR} )
+message("Eigen include directories: ${EIGEN3_INCLUDE_DIR}")
+message("Eigen include directories: ${EIGEN3_FOUND}")
+
 #   ____                            _                 _
 #  |  _ \  ___ _ __   ___ _ __   __| | ___ _ __   ___(_) ___  ___
 #  | | | |/ _ \ '_ \ / _ \ '_ \ / _` |/ _ \ '_ \ / __| |/ _ \/ __|
@@ -122,26 +143,6 @@ set( DEPEND_TARGETS )
 set(
   UPDIR ${CMAKE_CURRENT_SOURCE_DIR}/..
 )
-
-# Utils library
-find_library(
-  UTILS Utils${ARTIFACTS_STATIC_SUFFIX}
-  HINTS ${UPDIR}/Utils/lib/lib
-  NO_DEFAULT_PATH
-)
-if( UTILS )
-  message( STATUS "Found Utils${ARTIFACTS_STATIC_SUFFIX}" )
-  utils_copy_directory(
-    "${UPDIR}/Utils/lib"
-    "${CMAKE_CURRENT_SOURCE_DIR}/lib3rd"
-  )
-else()
-  message( STATUS "NOT Found Utils${ARTIFACTS_STATIC_SUFFIX} use submodule" )
-  add_subdirectory( ./submodules/acme/submodules/Utils )
-  include_directories( ./submodules/acme/submodules/Utils/src )
-  set( UTILS ${UTILS_NAMESPACE}_Utils_Static )
-  set( DEPEND_TARGETS ${DEPEND_TARGETS} ${UTILS} )
-endif()
 
 # Acme library
 find_library(

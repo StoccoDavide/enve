@@ -165,7 +165,7 @@ namespace acme
       affine const & affine_in //!< 4x4 affine transformation matrix
     ) override;
 
-    // Check whether a point lays on the plane
+    //! Check whether a point lays on the plane
     bool
     isInside(
       point const & point_in,           //!< Query point

@@ -1,13 +1,13 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
   <configuration build-checksum="1238641934" file="/Users/davide/Documents/Git/enve/ENVE.prj" location="/Users/davide/Documents/Git/enve" name="ENVE" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>ENVE</param.appname>
-    <param.authnamewatermark>D. Stocco, M. Larcher, E. Bertolazzi</param.authnamewatermark>
+    <param.authnamewatermark>D. Stocco, M. Larcher and E. Bertolazzi</param.authnamewatermark>
     <param.email>davide.stocco@unitn.it</param.email>
     <param.company>UNITN</param.company>
     <param.summary>A library for real-time tire/road contact evaluation</param.summary>
     <param.description />
-    <param.screenshot>${PROJECT_ROOT}/docs_build/sphinx/logo.png</param.screenshot>
-    <param.version>3.0</param.version>
+    <param.screenshot>${PROJECT_ROOT}/docs_build/logo.png</param.screenshot>
+    <param.version>4.0.0</param.version>
     <param.output>${PROJECT_ROOT}/ENVE.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -107,7 +107,6 @@ populate_toolbox.rb</param.exclude.filters>
       <file>${PROJECT_ROOT}/toolbox/cmake_utils</file>
       <file>${PROJECT_ROOT}/toolbox/doc</file>
       <file>${PROJECT_ROOT}/toolbox/lib</file>
-      <file>${PROJECT_ROOT}/toolbox/license.txt</file>
       <file>${PROJECT_ROOT}/toolbox/src</file>
       <file>${PROJECT_ROOT}/toolbox/src_mex</file>
       <file>${PROJECT_ROOT}/toolbox/tests</file>
@@ -146,7 +145,7 @@ populate_toolbox.rb</param.exclude.filters>
       <vista>false</vista>
       <linux>false</linux>
       <solaris>false</solaris>
-      <osver>12.6</osver>
+      <osver>13.1</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>maci64</arch>

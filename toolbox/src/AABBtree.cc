@@ -29,6 +29,8 @@
 /// file: AABBtree.cc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -223,7 +225,7 @@ namespace acme
     switch (icase)
     {
     case 0: // Both are leafs
-      if (swap_tree) 
+      if (swap_tree)
            {intersection_list.push_back(aabb::pairptr(tree.m_ptrbox, this->m_ptrbox));}
       else {intersection_list.push_back(aabb::pairptr(this->m_ptrbox, tree.m_ptrbox));}
       break;
@@ -330,6 +332,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: AABBtree.cc

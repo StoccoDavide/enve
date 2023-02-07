@@ -29,6 +29,8 @@
 /// file: intersection.cc
 ///
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "acme.hh"
 
 namespace acme
@@ -64,7 +66,7 @@ namespace acme
 
         // - - - - - - - - - - - - - - POINT - - - - - - - - - - - - - -
 
-      case 202:
+      case 101:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -73,7 +75,7 @@ namespace acme
           tolerance);
         break;
 
-      case 203:
+      case 103:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -82,7 +84,7 @@ namespace acme
           tolerance);
         break;
 
-      case 204:
+      case 104:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -91,7 +93,7 @@ namespace acme
           tolerance);
         break;
 
-      case 205:
+      case 105:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -100,7 +102,7 @@ namespace acme
           tolerance);
         break;
 
-      case 206:
+      case 106:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -109,7 +111,7 @@ namespace acme
           tolerance);
         break;
 
-      case 207:
+      case 107:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -118,7 +120,7 @@ namespace acme
           tolerance);
         break;
 
-      case 208:
+      case 108:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity0_in),
@@ -127,7 +129,7 @@ namespace acme
           tolerance);
         break;
 
-      case 302:
+      case 301:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -136,7 +138,7 @@ namespace acme
           tolerance);
         break;
 
-      case 402:
+      case 401:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -145,7 +147,7 @@ namespace acme
           tolerance);
         break;
 
-      case 502:
+      case 501:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -154,7 +156,7 @@ namespace acme
           tolerance);
         break;
 
-      case 602:
+      case 601:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -163,7 +165,7 @@ namespace acme
           tolerance);
         break;
 
-      case 702:
+      case 701:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -172,7 +174,7 @@ namespace acme
           tolerance);
         break;
 
-      case 802:
+      case 801:
         entity_out = new point();
         collide    = Intersection(
           *dynamic_cast<point const *>(entity1_in),
@@ -256,7 +258,7 @@ namespace acme
         else
           {break;}
 
-        ACME_ERROR(CMD "exception not handled (ray/ray intersection).");
+        ACME_ERROR(CMD "exception not handled (ray/ray intersection).")
         break;
 
       case 406:
@@ -1657,7 +1659,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t0 < real(0.0) || t1 < real(0.0))
+      if (t0 < real(0.0) - tolerance || t1 < real(0.0) - tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1693,7 +1695,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t0 < real(0.0) || t1 < real(0.0) || t0 > real(1.0) || t1 > real(1.0))
+      if (t0 < real(0.0) - tolerance || t1 < real(0.0) - tolerance || t0 > real(1.0) + tolerance || t1 > real(1.0) + tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1729,7 +1731,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t1 < real(0.0))
+      if (t1 < real(0.0) - tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1765,7 +1767,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t1 < real(0.0) || t1 > real(1.0))
+      if (t1 < real(0.0) - tolerance || t1 > real(1.0) + tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1801,7 +1803,7 @@ namespace acme
       vec3 b_1((origin_0 - origin_1).cross(direction_0));
       real t1 = b_1.dot(a_1) / a_1.dot(a_1);
 
-      if (t0 < real(0.0) || t1 < real(0.0) || t1 > real(1.0))
+      if (t0 < real(0.0) - tolerance || t1 < real(0.0) - tolerance || t1 > real(1.0) + tolerance)
         {return false;}
       point_out = origin_0 + (t0 * direction_0);
       return true;
@@ -1848,17 +1850,21 @@ namespace acme
 
   bool
   Intersection(
-    triangle const & /*triangle0_in*/,
-    triangle const & /*triangle1_in*/,
+    triangle const & triangle0_in,
+    triangle const & triangle1_in,
     none           & /*none_out*/,
-    real             /*tolerance*/
+    real             tolerance
   )
   {
-    #define CMD "acme::Intersection(triangle, triangle): "
-
-    ACME_ERROR(CMD "function not supported.")
-
-    #undef CMD
+    if (!IsCoplanar(triangle0_in, triangle1_in, tolerance)) {
+      return Intersection(triangle0_in, triangle1_in, DUMMY_SEGMENT, tolerance);
+    }
+    return triangle0_in.isInside(triangle1_in.vertex(0), tolerance) ||
+           triangle0_in.isInside(triangle1_in.vertex(1), tolerance) ||
+           triangle0_in.isInside(triangle1_in.vertex(2), tolerance) ||
+           triangle1_in.isInside(triangle0_in.vertex(0), tolerance) ||
+           triangle1_in.isInside(triangle0_in.vertex(1), tolerance) ||
+           triangle1_in.isInside(triangle0_in.vertex(2), tolerance);
   }
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2431,11 +2437,11 @@ namespace acme
     f = real(1.0) / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < real(0.0) || u > real(1.0))
+    if (u < real(0.0) - tolerance || u > real(1.0) + tolerance)
       {return false;}
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < real(0.0) || u + v > real(1.0))
+    if (v < real(0.0) - tolerance || u + v > real(1.0) + tolerance)
       {return false;}
     real t    = f * edge2.dot(q);
     point_out = origin + t * direction;
@@ -2546,14 +2552,14 @@ namespace acme
     f = real(1.0) / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < real(0.0) || u > real(1.0))
+    if (u < real(0.0) - tolerance || u > real(1.0) + tolerance)
       {return false;}
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < real(0.0) || u + v > real(1.0))
+    if (v < real(0.0) - tolerance || u + v > real(1.0) + tolerance)
       {return false;}
     real t = f * edge2.dot(q);
-    if (t >= real(0.0))
+    if (t >= real(0.0) - tolerance)
     {
       point_out = origin + t * direction;
       return true;
@@ -2631,7 +2637,7 @@ namespace acme
     if (std::abs(det) > tolerance)
     {
       real t = -(origin - plane_in.origin()).dot(plane_in.normal()) / det;
-      if (t >= real(0.0) && t <= real(1.0))
+      if (t >= real(0.0) - tolerance && t <= real(1.0) + tolerance)
       {
         point_out = origin + t * direction;
         return true;
@@ -2734,14 +2740,14 @@ namespace acme
     f = real(1.0) / a;
     s = origin - vertex0;
     u = f * s.dot(h);
-    if (u < real(0.0) || u > real(1.0))
+    if (u < real(0.0) - tolerance || u > real(1.0) + tolerance)
       {return false;}
     q = s.cross(edge1);
     v = f * direction.dot(q);
-    if (v < real(0.0) || u + v > real(1.0))
+    if (v < real(0.0) - tolerance || u + v > real(1.0) + tolerance)
       {return false;}
     real t = f * edge2.dot(q);
-    if (t >= real(0.0) && t <= real(1.0))
+    if (t >= real(0.0) - tolerance && t <= real(1.0) + tolerance)
     {
       point_out = origin + direction * t;
       return true;
@@ -2882,7 +2888,7 @@ namespace acme
 
     for (integer i = 0; i < 3; ++i)
     {
-      if (aabb0_in.max(i) <= aabb1_in.max(i)) 
+      if (aabb0_in.max(i) <= aabb1_in.max(i))
         {aabb_out.max(i) = aabb0_in.max(i);}
       else
         {aabb_out.max(i) = aabb1_in.max(i);}
@@ -2898,6 +2904,8 @@ namespace acme
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 } // namespace acme
+
+#endif
 
 ///
 /// eof: intersection.cc

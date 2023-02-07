@@ -17,6 +17,6 @@ else
   #-------------------------
   COMPILE_DEBUG      = false
   COMPILE_DYNAMIC    = true
-  COMPILE_EXECUTABLE = false
+  COMPILE_EXECUTABLE = true
   #-------------------------
 end
