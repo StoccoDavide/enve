@@ -151,7 +151,7 @@ do_new(int nlhs, mxArray *plhs[], int nrhs, mxArray const *prhs[])
   string tname = mxArrayToString(arg_in_0);
 
   real_type id = acme::integer(0);
-  real_type mu = acme::QUIET_NAN;
+  real_type mu = acme::real(0.0);
   real_type x1 = acme::QUIET_NAN;
   real_type y1 = acme::QUIET_NAN;
   real_type z1 = acme::QUIET_NAN;

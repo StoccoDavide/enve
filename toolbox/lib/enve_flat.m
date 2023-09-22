@@ -30,7 +30,7 @@ classdef enve_flat < handle
     objectHandle; %> Handle to the underlying C++ class instance
   end
   %
-  % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   %
   %> Create a new C++ pointer to ENVE flat object instance
   methods
@@ -38,85 +38,85 @@ classdef enve_flat < handle
       this.objectHandle = mex_flat( 'new', varargin{:} );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Create C++ pointer to ENVE meh object instance
-    function delete( this, ~ )
+    function delete( this )
       mex_flat( 'delete', this.objectHandle );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get plane origin as ACME point object
-    function out = getOrigin( this, ~ )
+    function out = getOrigin( this )
       out = acme_point();
       out.copyByHandle( mex_flat( 'getOrigin', this.objectHandle ) );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set plane origin
-    function setOrigin( this, other_obj, ~ )
+    function setOrigin( this, other_obj )
       mex_flat( 'setOrigin', this.objectHandle, other_obj );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get plane normal
-    function out = getNormal( this, ~ )
+    function out = getNormal( this )
       out = mex_flat( 'getNormal', this.objectHandle );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set plane normal
-    function setNormal( this, other_obj, ~ )
+    function setNormal( this, other_obj )
       mex_flat( 'setNormal', this.objectHandle, other_obj );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get plane
-    function out = getPlane( this, ~ )
+    function out = getPlane( this )
       out = acme_plane();
       out.copyByHandle( mex_flat( 'getPlane', this.objectHandle ) );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set plane
-    function setPlane( this, other_obj, ~ )
+    function setPlane( this, other_obj )
       this.setOrigin( other_obj.getOrigin().get() )
       this.setNormal( other_obj.getNormal() )
       % NOT WORKING ON MEX:
       % mex_flat( 'setPlane', this.objectHandle, other_obj.objectHandle );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get plane friction
-    function out = getFriction( this, ~ )
+    function out = getFriction( this )
       out = mex_flat( 'getFriction', this.objectHandle );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Set plane friction
-    function setFriction( this, friction, ~ )
+    function setFriction( this, friction )
       mex_flat( 'setFriction', this.objectHandle, friction );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if plane is degenerated
-    function out = isDegenerated( this, ~ )
+    function out = isDegenerated( this )
       out = mex_flat( 'isDegenerated', this.objectHandle );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Check if planes are approximatively equal
-    function out = isApprox( this, other_obj, ~ )
+    function out = isApprox( this, other_obj )
       if (other_obj.type() == "flat")
         out = mex_flat( 'isApprox', this.objectHandle, other_obj.objectHandle );
       else
@@ -124,10 +124,10 @@ classdef enve_flat < handle
       end
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Copy mesh object from another mesh
-    function copy( this, other_obj, ~ )
+    function copy( this, other_obj )
       if (other_obj.type() == "mesh")
         mex_flat( 'copy', this.objectHandle, other_obj.objectHandle );
       else
@@ -135,36 +135,36 @@ classdef enve_flat < handle
       end
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Copy mesh object from another mesh shape
-    function copyByHandle( this, handle, ~ )
+    function copyByHandle( this, handle )
       mex_flat( 'copy', this.objectHandle, handle );
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Diplay object data
-    function disp( this, ~ )
+    function disp( this )
       disp( [[this.getFriction(), NaN, NaN]', ...
              this.getOrigin().get(), ...
              this.getNormal()] )
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Plot ENVE shape object
-    function plot( this, figure_name, color, ~ )
-      figure_name;
+    function plot( this, figure_name, color )
+      figure_name; %#ok<VUNUS>
       hold on;
       this.getPlane().plot( figure_name, color );
       hold off;
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
     %> Get object type as string
-    function out = type( this, ~ )
+    function out = type( ~ )
       out = 'flat';
     end
   end

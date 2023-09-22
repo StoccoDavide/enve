@@ -249,7 +249,7 @@ namespace enve
     for (size_t i = 0; i < ground.size(); ++i)
     {
       // Perform rib/triangleground intersection
-      if (Intersection(*ground[i], rib_grd, segment_tmp, real(1e-5)))
+      if (Intersection(*ground[i], rib_grd, segment_tmp))
       {
         // Find intersection points
         p_a = rotation_inv * (segment_tmp.vertex(0) - center_grd);
@@ -283,11 +283,11 @@ namespace enve
               ));
 
         // Find area
-        cos_t_c = std::cos(t_c);
-        sin_t_c = std::sin(t_c);
         section_area = radius * radius * t_d - r_a * r_b * std::sin(t_b - t_a) / real(2.0);
 
         // Store temporary results
+        cos_t_c = std::cos(t_c);
+        sin_t_c = std::sin(t_c);
         segment_area_tmp     = segment_length_tmp * width;
         segment_volume_tmp   = section_area * width;
         contact_point_tmp    = origin + rotation * (center + r_c * point(cos_t_c, real(0.0), sin_t_c));

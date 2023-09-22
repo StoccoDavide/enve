@@ -83,6 +83,9 @@ using acme::NAN_AABB;
 
 using acme::IsApprox;
 
+// Static constants for convenience
+static affine const IDENTITY_AFFINE = affine(acme::IDENTITY_MAT4); //!< Identity affine constant object
+
 #include "enve/flat.hxx"
 #include "enve/mesh.hxx"
 #include "enve/output.hxx"

@@ -60,6 +60,12 @@ task :build_osx_linux_mingw do
   FileUtils.cd '..'
 end
 
+task :ninja do
+  FileUtils.cd 'build'
+  sh "ninja"
+  FileUtils.cd '..'
+end
+
 task :clean_osx_linux_mingw do
   FileUtils.rm_rf 'build'
   FileUtils.rm_rf 'lib'

@@ -60,7 +60,7 @@ main(void)
 
     // Initialize the tire shell
     shell tire_shell(
-      6,  // n_r
+      5,   // n_r
       0.3, // r_x
       6.0, // m_x
       0.3, // r_y

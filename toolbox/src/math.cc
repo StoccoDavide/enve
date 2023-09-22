@@ -51,7 +51,8 @@ namespace acme
   IsApprox(
     real value0_in,
     real value1_in,
-    real tolerance)
+    real tolerance
+  )
   {
     return std::abs(value0_in-value1_in) < tolerance;
   }
@@ -61,7 +62,8 @@ namespace acme
   void
   Transform(
     vec3         & vector,
-    affine const & matrix)
+    affine const & matrix
+  )
   {
     vector = matrix.linear() * vector;
   }

@@ -56,11 +56,11 @@ main(void)
     ground::mesh road("./files_obj/sample.obj", 1.0);
 
     // Print OutMesh.txt file
-    //road.print("bin/OutMesh.txt");
+    //road.print("./bin/OutMesh.txt");
 
     // Initialize the tire shell
     shell tire_shell(
-      11,     // n_r
+      3,      // n_r
       0.3130, // r_x
       9.0,    // m_x
       0.11,   // r_y
@@ -75,9 +75,9 @@ main(void)
 
     // Create frame object
     affine pose;
-    pose = translate(0.2, 0.0, 0.32) * angleaxis(yaw_angle,    UNITZ_VEC3)
-                                     * angleaxis(camber_angle, UNITX_VEC3)
-                                     * angleaxis(pitch_angle,  UNITY_VEC3);
+    pose = translate(0.25, 0.25, 0.28) * angleaxis(yaw_angle,    UNITZ_VEC3)
+                                       * angleaxis(camber_angle, UNITX_VEC3)
+                                       * angleaxis(pitch_angle,  UNITY_VEC3);
 
     // Start chronometer
     tictoc.tic();

@@ -25,20 +25,29 @@
 % Clear workspace
 clc;
 clear all;
-close all;
+%close all;
+
+pose = [ ...
+  1, 0, 0, 0; ...  
+  0, 1, 0, 0; ...  
+  0, 0, 1, 0; ...  
+  0, 0, 0, 1; ...  
+];
 
 % Create mesh from *.rdf
-m1 = enve_mesh('../../files_rdf/LakeTown.rdf');
+m1 = enve_mesh('../../files_rdf/sample.rdf');
 m1.getTriangleground(1);
 
 % Plot output
-out1 = figure;
+out1 = figure; hold on;
+xlabel('x'); ylabel('y'); zlabel('z');
 m1.plot(out1, [0.863 0.863 0.863])
 
 % Create mesh from *.obj
-m2 = enve_mesh('../../files_obj/sample.obj', 1.0);
+m2 = enve_mesh('../../files_obj/cobblestone.obj', 1.0, pose);
 m2.getTriangleground(1);
 
 % Plot output
-out2 = figure;
+out2 = figure; hold on;
+xlabel('x'); ylabel('y'); zlabel('z');
 m2.plot(out2, [0.863 0.863 0.863])

@@ -28,15 +28,8 @@ clear all;
 close all;
 
 % Create shape and shell variables
-Nr = 5;
-Rx = 0.327;
-Mx = 4.000;
-Ry = 0.195;
-My = 4.000;
-Ly = 0.188*0.9;
-
-Nr = 11;
-Rx = 0.327;
+Nr = 10;
+Rx = 0.3130;
 Mx = 9.000;
 Ry = 0.11;
 My = 6.000;
@@ -55,15 +48,15 @@ obj.size()
 %obj
 
 % Test transform
-T = [ 1, 0, 0, 1.0;  ...
-      0, 1, 0, 1.0;  ...
-      0, 0, 1, 0.3; ...
+T = [ 1, 0, 0, 0.2;  ...
+      0, 1, 0, 0.2;  ...
+      0, 0, 1, 0.25; ...
       0, 0, 0, 1 ];
 
 obj.transform(T);
-obj.rotate(150*pi/180, [0 0 1]'); % Yaw angle (rad)
-obj.rotate(150*pi/180, [1 0 0]'); % Camber angle (rad)
-obj.rotate(150*pi/180, [0 1 0]'); % Pitch angle (rad)
+obj.rotate(0*pi/180, [0 0 1]'); % Yaw angle (rad)
+obj.rotate(0*pi/180, [1 0 0]'); % Camber angle (rad)
+obj.rotate(0*pi/180, [0 1 0]'); % Pitch angle (rad)
 
 T = obj.transformation();
 obj.transform(T);
@@ -120,10 +113,10 @@ ylabel('y');
 zlabel('z');
 
 % Test setup
-mesh = enve_mesh('../../files_rdf/sample.rdf');
+mesh = enve_mesh('../../files_obj/cobblestone.obj', 1.0);
 
 tic
-boolean = obj.setupMesh(mesh, T, 'geometric');
+boolean = obj.setupMesh(mesh, T, 'geometric')
 toc
 
 out5 = figure; hold on;

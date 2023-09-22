@@ -69,13 +69,14 @@ namespace enve
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     mesh::mesh(
-      std::string const & path
+      std::string const & path,
+      affine      const & pose
     )
       : mesh()
     {
       #define CMD "enve::mesh::mesh(...): "
 
-      ENVE_ASSERT(this->load(path),
+      ENVE_ASSERT(this->load(path, pose),
         CMD "error while reading file.");
 
       #undef CMD
@@ -85,13 +86,14 @@ namespace enve
 
     mesh::mesh(
       std::string const & path,
-      real                friction
+      real                friction,
+      affine      const & pose
     )
       : mesh()
     {
       #define CMD "enve::mesh::mesh(...): "
 
-      ENVE_ASSERT(this->load(path, friction),
+      ENVE_ASSERT(this->load(path, friction, pose),
         CMD "error while reading file.");
 
       #undef CMD
@@ -208,7 +210,8 @@ namespace enve
 
     bool
     mesh::load(
-      std::string const & path
+      std::string const & path,
+      affine      const & pose
     )
     {
       #define CMD "enve::ground::load(...): "
@@ -285,7 +288,7 @@ namespace enve
           p_node[0] = real(std::stod(s_node[0]));
           p_node[1] = real(std::stod(s_node[1]));
           p_node[2] = real(std::stod(s_node[2]));
-          nodes.push_back(p_node);
+          nodes.push_back(pose * p_node);
           ++nodes_count;
         }
         // Generate a face (vertices & indices)
@@ -351,7 +354,8 @@ namespace enve
     bool
     mesh::load(
       std::string const & path,
-      real                friction
+      real                friction,
+      affine      const & pose
     )
     {
       #define CMD "enve::ground::load(...): "
@@ -401,7 +405,7 @@ namespace enve
           p_node[0] = std::stod(s_node[0]);
           p_node[1] = std::stod(s_node[1]);
           p_node[2] = std::stod(s_node[2]);
-          nodes.push_back(p_node);
+          nodes.push_back(pose * p_node);
           ++nodes_count;
           continue;
         }

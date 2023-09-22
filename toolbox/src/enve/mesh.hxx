@@ -83,13 +83,15 @@ namespace enve
 
       //! Mesh class constructor
       mesh(
-        std::string const & path //!< Path to the RDF file
+        std::string const & path,                  //!< Path to the RDF file
+        affine      const & pose = IDENTITY_AFFINE //!< Scaling factor for the mesh
       );
 
       //! Mesh class constructor
       mesh(
-        std::string const & path,    //!< Path to the OBJ file
-        real                friction //!< Friction scaling coefficient
+        std::string const & path,                  //!< Path to the OBJ file
+        real                friction,              //!< Friction scaling coefficient
+        affine      const & pose = IDENTITY_AFFINE //!< Scaling factor for the mesh
       );
 
       //! Copy mesh object
@@ -133,14 +135,16 @@ namespace enve
       //! Load ground data as a *.rdf file
       bool
       load(
-        std::string const & path //!< Path to the file
+        std::string const & path,                  //!< Path to the file
+        affine      const & pose = IDENTITY_AFFINE //!< Scaling factor for the mesh
       );
 
       //! Load ground data as a *.obj file
       bool
       load(
-        std::string const & path,    //!< Path to the file
-        real                friction //!< Friction coefficient scaling factor
+        std::string const & path,                  //!< Path to the file
+        real                friction,              //!< Friction coefficient scaling factor
+        affine      const & pose = IDENTITY_AFFINE //!< Scaling factor for the mesh
       );
 
       //! Intersect the mesh AABBtree with an external aabb object pointer

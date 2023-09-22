@@ -492,7 +492,6 @@ namespace enve
     //! Update the list of ribs candidates
     void
     refineIntersection(
-      ground::mesh           const & ground,       //!< Mesh ground object
       triangleground::vecptr const & local_ground, //!< Local triangles candidate list
       bool                           refine        //!< Enable advanced ribs refinement
     );

@@ -47,7 +47,8 @@
   "%                                                                     %\n" \
   "% CONSTRUCTORS:                                                       %\n" \
   "%   OUT = mex_mesh( 'new',                                            %\n" \
-  "%                   ground_FILE : Path to ground file as string       %\n" \
+  "%                   path : Path to ground file as string,             %\n" \
+  "%                   pose : Pose of the mesh as 4x4 matrix             %\n" \
   "%                 );                                                  %\n" \
   "%                                                                     %\n" \
   "% DESTRUCTOR:                                                         %\n" \
@@ -117,7 +118,7 @@ do_new(int nlhs, mxArray *plhs[],
        int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'new', [, args] ): "
-  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 2 || nrhs == 3, CMD "expected 1, 2 or 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nrhs == 1 || nrhs == 2 || nrhs == 3 || nrhs == 4, CMD "expected 1, 2, 3 or 4 inputs, nrhs = " << nrhs << "\n");
   UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
 
   UTILS_MEX_ASSERT(
@@ -137,14 +138,48 @@ do_new(int nlhs, mxArray *plhs[],
   else if (nrhs == 3)
   {
     string path = mxArrayToString(arg_in_1);
-    if (path.substr(path.size() - 4, 4) != ".obj")
+    if (path.substr(path.size() - 4, 4) == ".obj" && mxIsScalar(arg_in_2))
     {
-      std::cout << "Cannot load: not a *.rdf or *.obj file!" << std::endl;
+      real_type friction = utils::mex_get_scalar_value(arg_in_2, CMD "error in reading friction coefficient value");
+      self->load(path, friction);
+    }
+    else if (path.substr(path.size() - 4, 4) == ".rdf")
+    {
+      mwSize rows, cols;
+      real_type const *matrix_ptr;
+      matrix_ptr = utils::mex_matrix_pointer(arg_in_2, rows, cols, CMD "error in reading affine transformation matrix");
+      UTILS_MEX_ASSERT(rows == 4 || cols == 4, CMD "expected rows = 4 and cols = 4 found, rows = " << rows << ", cols = " << cols << "\n");
+      acme::affine pose;
+      pose.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
+                       matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
+                       matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
+                       matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
+      self->load(path, pose);
     }
     else
     {
-      real_type friction = utils::mex_get_scalar_value(arg_in_2, CMD "error in reading input value");
-      self->load(path, friction);
+      std::cout << "Wrong input arguments!" << std::endl;
+    }
+  }
+  else if (nrhs == 4)
+  {
+    string path = mxArrayToString(arg_in_1);
+    real_type friction = utils::mex_get_scalar_value(arg_in_2, CMD "error in reading friction coefficient value");
+    mwSize rows, cols;
+    real_type const *matrix_ptr;
+    matrix_ptr = utils::mex_matrix_pointer(arg_in_3, rows, cols, CMD "error in second input matrix");
+    if (path.substr(path.size() - 4, 4) == ".obj" && rows == 4 && cols == 4)
+    {
+      acme::affine pose;
+      pose.matrix() << matrix_ptr[0], matrix_ptr[4], matrix_ptr[8],  matrix_ptr[12],
+                       matrix_ptr[1], matrix_ptr[5], matrix_ptr[9],  matrix_ptr[13],
+                       matrix_ptr[2], matrix_ptr[6], matrix_ptr[10], matrix_ptr[14],
+                       matrix_ptr[3], matrix_ptr[7], matrix_ptr[11], matrix_ptr[15];
+      self->load(path, friction, pose);
+    }
+    else
+    {
+      std::cout << "Wrong input arguments!" << std::endl;
     }
   }
 
@@ -170,7 +205,7 @@ do_delete(int nlhs, mxArray *plhs[],
 
 static void
 do_getTriangleground(int nlhs, mxArray *plhs[],
-                   int nrhs, mxArray const *prhs[])
+                     int nrhs, mxArray const *prhs[])
 {
 #define CMD "mex_mesh( 'getTriangleground', OBJ, I ): "
   UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
@@ -181,6 +216,33 @@ do_getTriangleground(int nlhs, mxArray *plhs[],
   enve::triangleground *out = new enve::triangleground();
   out->copy(*self->ptrTriangleground(i - 1));
   arg_out_0 = utils::mex_convert_ptr_to_mx<enve::triangleground>(out);
+#undef CMD
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static void
+do_getTrianglegroundVertices(int nlhs, mxArray *plhs[],
+                             int nrhs, mxArray const *prhs[])
+{
+#define CMD "mex_mesh( 'do_getTrianglegroundVertices', OBJ, I ): "
+  UTILS_MEX_ASSERT(nrhs == 3, CMD "expected 3 inputs, nrhs = " << nrhs << "\n");
+  UTILS_MEX_ASSERT(nlhs == 1, CMD "expected 1 output, nlhs = " << nlhs << "\n");
+
+  enve::ground::mesh *self = DATA_GET(arg_in_1);
+  int i = utils::mex_get_int64(arg_in_2, CMD "error in reading input value");
+  enve::triangleground *tmp = new enve::triangleground();
+  tmp->copy(*self->ptrTriangleground(i - 1));
+  real_type *output = utils::mex_create_matrix_value(arg_out_0, 3, 3);
+  output[0] = tmp->triangle::vertex(0).x();
+  output[1] = tmp->triangle::vertex(0).y();
+  output[2] = tmp->triangle::vertex(0).z();
+  output[3] = tmp->triangle::vertex(1).x();
+  output[4] = tmp->triangle::vertex(1).y();
+  output[5] = tmp->triangle::vertex(1).z();
+  output[6] = tmp->triangle::vertex(2).x();
+  output[7] = tmp->triangle::vertex(2).y();
+  output[8] = tmp->triangle::vertex(2).z();
 #undef CMD
 }
 
@@ -256,12 +318,13 @@ typedef void (*DO_CMD)(int nlhs, mxArray *plhs[],
                        int nrhs, mxArray const *prhs[]);
 
 static map<string, DO_CMD> cmd_to_fun = {
-    {"new",               do_new},
-    {"delete",            do_delete},
+    {"new", do_new},
+    {"delete", do_delete},
     {"getTriangleground", do_getTriangleground},
-    {"size",              do_size},
-    {"copy",              do_copy},
-    {"load",              do_load}};
+    {"getTrianglegroundVertices", do_getTrianglegroundVertices},
+    {"size", do_size},
+    {"copy", do_copy},
+    {"load", do_load}};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

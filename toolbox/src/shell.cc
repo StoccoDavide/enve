@@ -465,14 +465,7 @@ namespace enve
     else
     {
       // Calculate ribs candidates to speed up calculations
-      if (method == "geometric")
-      {
-        this->refineIntersection(
-          ground,
-          local_ground,
-          local_ground.size() > integer(3)
-        );
-      }
+      this->refineIntersection(local_ground, method == "geometric" && local_ground.size() > integer(3));
 
       // Perform intersection on all ribs
       bool out = false;
@@ -1010,7 +1003,6 @@ namespace enve
 
   void
   shell::refineIntersection(
-    ground::mesh           const & ground,
     triangleground::vecptr const & local_ground,
     bool                           refine
   )
@@ -1033,9 +1025,9 @@ namespace enve
     for (size_t i = 0; i < local_ground.size(); ++i)
     {
       // Calculate distance of i-th triangle
-      d0 = mid_plane.signedDistance(ground[i]->vertex(0));
-      d1 = mid_plane.signedDistance(ground[i]->vertex(1));
-      d2 = mid_plane.signedDistance(ground[i]->vertex(2));
+      d0 = mid_plane.signedDistance(local_ground[i]->vertex(0));
+      d1 = mid_plane.signedDistance(local_ground[i]->vertex(1));
+      d2 = mid_plane.signedDistance(local_ground[i]->vertex(2));
 
       // Iterate on ribs
       for (size_t j = 0; j < size; ++j)
@@ -1043,7 +1035,7 @@ namespace enve
         // Workaround for skip advanced ribs refinement
         if (!refine)
         {
-          this->m_candidates[j].push_back(ground[i]);
+          this->m_candidates[j].push_back(local_ground[i]);
           continue;
         }
 
@@ -1054,7 +1046,7 @@ namespace enve
 
         // Fill candidates list
         if (real(-3.0) < sum && sum < real(3.0))
-          {this->m_candidates[j].push_back(ground[i]);}
+          {this->m_candidates[j].push_back(local_ground[i]);}
       }
     }
   }

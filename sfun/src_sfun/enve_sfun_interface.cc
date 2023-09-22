@@ -61,20 +61,23 @@ extern "C"
   {
     #define CMD "enve_sfun_init(...): "
 
-    // Get environment variable
+    // Get environment variables
     char *mesh_path_env = getenv("ENVE_GROUND_PATH");
     if (mesh_path_env == NULL)
       {ENVE_ERROR(CMD "environment variable ENVE_GROUND_PATH does not exist.");}
     std::string mesh_path(mesh_path_env);
     std::cout << "ENVE_GROUND_PATH: " << mesh_path << std::endl;
 
+    // TODO: add affine transformation
+    affine pose;
+
     // Build mesh
     std::string extension = mesh_path.substr(mesh_path.size() - 4, 4);
     enve::ground::mesh *mesh = nullptr;
     if (extension == ".rdf")
-      {mesh = new enve::ground::mesh(mesh_path);}
+      {mesh = new enve::ground::mesh(mesh_path, pose);}
     else if (extension == ".obj")
-      {mesh = new enve::ground::mesh(mesh_path, 1.0);}
+      {mesh = new enve::ground::mesh(mesh_path, 1.0, pose);}
     else
       {ENVE_ERROR(CMD "not a *.rdf or *.obj file.");}
 

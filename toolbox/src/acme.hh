@@ -125,35 +125,35 @@ namespace acme
   static mat2 const ONES_MAT2     = mat2::Constant(real(1.0));       //!< Ones mat2 static constant object
   static mat2 const IDENTITY_MAT2 = mat2::Identity();          //!< Identity mat2 static constant object
 
-  static vec3 const UNITX_VEC3    = vec3::UnitX();             //!< X axis unit vec3 type
-  static vec3 const UNITY_VEC3    = vec3::UnitY();             //!< Y axis unit vec3 type
-  static vec3 const UNITZ_VEC3    = vec3::UnitZ();             //!< Z axis unit vec3 type
-  static vec3 const NAN_VEC3      = vec3::Constant(QUIET_NAN); //!< Not-a-Number vec3 type
-  static mat3 const NAN_MAT3      = mat3::Constant(QUIET_NAN); //!< Not-a-Number mat3 type
-  static vec3 const ZEROS_VEC3    = vec3::Constant(real(0.0));       //!< Zeros vec3 type
-  static mat3 const ZEROS_MAT3    = mat3::Constant(real(0.0));       //!< Zeros mat3 type
-  static vec3 const ONES_VEC3     = vec3::Constant(real(1.0));       //!< Ones vec3 type
-  static mat3 const ONES_MAT3     = mat3::Constant(real(1.0));       //!< Ones mat3 type
-  static mat3 const IDENTITY_MAT3 = mat3::Identity();          //!< Identity mat3 type
+  static vec3 const UNITX_VEC3    = vec3::UnitX();             //!< X axis unit vec3 constant object
+  static vec3 const UNITY_VEC3    = vec3::UnitY();             //!< Y axis unit vec3 constant object
+  static vec3 const UNITZ_VEC3    = vec3::UnitZ();             //!< Z axis unit vec3 constant object
+  static vec3 const NAN_VEC3      = vec3::Constant(QUIET_NAN); //!< Not-a-Number vec3 constant object
+  static mat3 const NAN_MAT3      = mat3::Constant(QUIET_NAN); //!< Not-a-Number mat3 constant object
+  static vec3 const ZEROS_VEC3    = vec3::Constant(real(0.0)); //!< Zeros vec3 constant object
+  static mat3 const ZEROS_MAT3    = mat3::Constant(real(0.0)); //!< Zeros mat3 constant object
+  static vec3 const ONES_VEC3     = vec3::Constant(real(1.0)); //!< Ones vec3 constant object
+  static mat3 const ONES_MAT3     = mat3::Constant(real(1.0)); //!< Ones mat3 constant object
+  static mat3 const IDENTITY_MAT3 = mat3::Identity();          //!< Identity mat3 constant object
 
-  static vec4 const UNITX_VEC4    = vec4::UnitX();             //!< X axis unit vec4 type
-  static vec4 const UNITY_VEC4    = vec4::UnitY();             //!< Y axis unit vec4 type
-  static vec4 const UNITZ_VEC4    = vec4::UnitZ();             //!< Z axis unit vec4 type
-  static vec4 const UNITW_VEC4    = vec4::UnitW();             //!< W axis unit vec4 type
-  static vec4 const NAN_VEC4      = vec4::Constant(QUIET_NAN); //!< Not-a-Number vec4 type
-  static mat4 const NAN_MAT4      = mat4::Constant(QUIET_NAN); //!< Not-a-Number mat4 type
-  static vec4 const ZEROS_VEC4    = vec4::Constant(real(0.0));       //!< Zeros vec4 type
-  static mat4 const ZEROS_MAT4    = mat4::Constant(real(0.0));       //!< Zeros mat4 type
-  static vec4 const ONES_VEC4     = vec4::Constant(real(1.0));       //!< Ones vec4 type
-  static mat4 const ONES_MAT4     = mat4::Constant(real(1.0));       //!< Ones mat4 type
-  static mat4 const IDENTITY_MAT4 = mat4::Identity();          //!< Identity mat4 type
+  static vec4 const UNITX_VEC4    = vec4::UnitX();             //!< X axis unit vec4 constant object
+  static vec4 const UNITY_VEC4    = vec4::UnitY();             //!< Y axis unit vec4 constant object
+  static vec4 const UNITZ_VEC4    = vec4::UnitZ();             //!< Z axis unit vec4 constant object
+  static vec4 const UNITW_VEC4    = vec4::UnitW();             //!< W axis unit vec4 constant object
+  static vec4 const NAN_VEC4      = vec4::Constant(QUIET_NAN); //!< Not-a-Number vec4 constant object
+  static mat4 const NAN_MAT4      = mat4::Constant(QUIET_NAN); //!< Not-a-Number mat4 constant object
+  static vec4 const ZEROS_VEC4    = vec4::Constant(real(0.0)); //!< Zeros vec4 constant object
+  static mat4 const ZEROS_MAT4    = mat4::Constant(real(0.0)); //!< Zeros mat4 constant object
+  static vec4 const ONES_VEC4     = vec4::Constant(real(1.0)); //!< Ones vec4 constant object
+  static mat4 const ONES_MAT4     = mat4::Constant(real(1.0)); //!< Ones mat4 constant object
+  static mat4 const IDENTITY_MAT4 = mat4::Identity();          //!< Identity mat4 constant object
 
-  static vec2 DUMMY_VEC2(NAN_VEC2); //!< Dummy vec2 type static non-const object
-  static vec3 DUMMY_VEC3(NAN_VEC3); //!< Dummy vec3 type static non-const object
-  static vec4 DUMMY_VEC4(NAN_VEC4); //!< Dummy vec4 type static non-const object
-  static mat2 DUMMY_MAT2(NAN_MAT2); //!< Dummy mat2 type static non-const object
-  static mat3 DUMMY_MAT3(NAN_MAT3); //!< Dummy mat3 type static non-const object
-  static mat4 DUMMY_MAT4(NAN_MAT4); //!< Dummy mat4 type static non-const object
+  static vec2 DUMMY_VEC2(NAN_VEC2); //!< Dummy vec2 static non-const object
+  static vec3 DUMMY_VEC3(NAN_VEC3); //!< Dummy vec3 static non-const object
+  static vec4 DUMMY_VEC4(NAN_VEC4); //!< Dummy vec4 static non-const object
+  static mat2 DUMMY_MAT2(NAN_MAT2); //!< Dummy mat2 static non-const object
+  static mat3 DUMMY_MAT3(NAN_MAT3); //!< Dummy mat3 static non-const object
+  static mat4 DUMMY_MAT4(NAN_MAT4); //!< Dummy mat4 static non-const object
 
 } // namespace acme
 
