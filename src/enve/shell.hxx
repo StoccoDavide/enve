@@ -142,15 +142,15 @@ namespace enve
     //! Get shell surface of revolution rib first derivative with respect to y coordinate
     real
     surfaceDerivative(
-      real y,                         //!< Coordinate of y axis
-      real tolerance = EPSILON_MEDIUM //!< Tolerance
+      real y,                       //!< Coordinate of y axis
+      real tolerance = EPSILON_ENVE //!< Tolerance
     ) const;
 
     //! Get shell surface of revolution rib angle with respect to y axis (rad)
     real
     surfaceAngle(
-      real y,                         //!< Coordinate of y axis
-      real tolerance = EPSILON_MEDIUM //!< Tolerance
+      real y,                       //!< Coordinate of y axis
+      real tolerance = EPSILON_ENVE //!< Tolerance
     ) const;
 
     //! Get i-th rib unloaded radius (m)
@@ -243,15 +243,15 @@ namespace enve
     //! Check if 4x4 affine transformation matrix is othornormal and right-handed
     bool
     checkTransformation(
-      mat4 const & pose,                   //!< Input 4x4 affine transformation matrix
-      real         tolerance = EPSILON_LOW //!< Affine trasformation othonomality check tolerance
+      mat4 const & pose,                    //!< Input 4x4 affine transformation matrix
+      real         tolerance = EPSILON_ENVE //!< Affine trasformation othonomality check tolerance
     ) const;
 
     //! Check if 4x4 affine transformation matrix is othornormal and right-handed
     bool
     checkTransformation(
-      affine const & pose,                   //!< Input 4x4 affine transformation matrix
-      real           tolerance = EPSILON_LOW //!< Affine trasformation othonomality check tolerance
+      affine const & pose,                    //!< Input 4x4 affine transformation matrix
+      real           tolerance = EPSILON_ENVE //!< Affine trasformation othonomality check tolerance
     ) const;
 
     //! Get x vector

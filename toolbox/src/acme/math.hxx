@@ -50,9 +50,9 @@ namespace acme
   //! Checks if elements are almost equal
   bool
   IsApprox(
-    real value0_in,          //!< Input value 0
-    real value1_in,          //!< Input value 1
-    real tolerance = EPSILON //!< Tolerance
+    real value0_in,               //!< Input value 0
+    real value1_in,               //!< Input value 1
+    real tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Transform ve3 with affine transformation matrix

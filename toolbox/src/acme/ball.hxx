@@ -94,8 +94,8 @@ namespace acme
     //! Check if disks are (almost) equal
     bool
     isApprox(
-      ball const & ball_in,            //!< Input ball object
-      real         tolerance = EPSILON //!< Tolerance
+      ball const & ball_in,                 //!< Input ball object
+      real         tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Get ball radius const reference
@@ -141,14 +141,14 @@ namespace acme
     //! Check whether the point is inside the ball
     bool
     isInside(
-      point const & point_in,           //!< Query point
-      real          tolerance = EPSILON //!< Tolerance
+      point const & point_in,                //!< Query point
+      real          tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check if ball is degenerated
     bool
     isDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const override;
 
     //! Return object hierarchical level

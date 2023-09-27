@@ -98,7 +98,7 @@ namespace acme
     //! Check if entity is degenerated
     bool
     isDegenerated(
-      acme::real tolerance = EPSILON //!< Tolerance
+      acme::real tolerance = EPSILON_ACME //!< Tolerance
     ) const override;
 
     //! Return object hierarchical level

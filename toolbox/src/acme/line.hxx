@@ -96,8 +96,8 @@ namespace acme
     //! Check if objects are (almost) equal
     bool
     isApprox(
-      line const & line_in,            //!< Input line object
-      real         tolerance = EPSILON //!< Tolerance
+      line const & line_in,                 //!< Input line object
+      real         tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Return line origin point const reference
@@ -151,14 +151,14 @@ namespace acme
     //! Check whether the point is inside the line
     bool
     isInside(
-      point const & point_in,           //!< Query point
-      real          tolerance = EPSILON //!< Tolerance
+      point const & point_in,                //!< Query point
+      real          tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check if line is degenerated (direction vector has zero norm)
     bool
     isDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const override;
 
     //! Return object hierarchical level

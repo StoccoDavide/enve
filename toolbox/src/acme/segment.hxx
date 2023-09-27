@@ -100,8 +100,8 @@ namespace acme
     //! Check if segments are (almost) equal
     bool
     isApprox(
-      segment const & segment_in,         //!< Input segment object
-      real            tolerance = EPSILON //!< Tolerance
+      segment const & segment_in,              //!< Input segment object
+      real            tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Get segment centroid
@@ -167,14 +167,14 @@ namespace acme
     //! Check whether the point is inside the segment
     bool
     isInside(
-      point const & point_in,           //!< Query point
-      real          tolerance = EPSILON //!< Tolerance
+      point const & point_in,                //!< Query point
+      real          tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check if segment is degenerated to point
     bool
     isDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const override;
 
     //! Return object hierarchical level

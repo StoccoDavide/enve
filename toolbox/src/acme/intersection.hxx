@@ -60,9 +60,9 @@ namespace acme
   //! Intersection between two geometrical entities
   entity *
   Intersection(
-    entity const * entity0_in,         //!< Input entity 0
-    entity const * entity1_in,         //!< Input entity 1
-    real           tolerance = EPSILON //!< Tolerance
+    entity const * entity0_in,              //!< Input entity 0
+    entity const * entity1_in,              //!< Input entity 1
+    real           tolerance = EPSILON_ACME //!< Tolerance
   );
 
   /*\
@@ -80,7 +80,7 @@ namespace acme
     point const & point0_in,               //!< Input point 0
     point const & point1_in,               //!< Input point 1
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between point and line
@@ -89,7 +89,7 @@ namespace acme
     point const & point_in,                //!< Input point
     line  const & line_in,                 //!< Input line
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between point and ray
@@ -98,7 +98,7 @@ namespace acme
     point const & point_in,                //!< Input point
     ray   const & ray_in,                  //!< Input ray
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between point and plane
@@ -107,7 +107,7 @@ namespace acme
     point const & point_in,                //!< Input point
     plane const & plane_in,                //!< Input plane
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between point and segment
@@ -116,7 +116,7 @@ namespace acme
     point   const & point_in,                //!< Input point
     segment const & segment_in,              //!< Input segment
     point         & point_out = DUMMY_POINT, //!< Output point
-    real            tolerance = EPSILON      //!< Tolerance
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between point and triangle
@@ -125,7 +125,7 @@ namespace acme
     point    const & point_in,                //!< Input point
     triangle const & triangle_in,             //!< Input triangle
     point          & point_out = DUMMY_POINT, //!< Output point
-    real             tolerance = EPSILON      //!< Tolerance
+    real             tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between point and disk
@@ -134,7 +134,7 @@ namespace acme
     point const & point_in,                //!< Input point
     disk  const & disk_in,                 //!< Input disk
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   /*\
@@ -150,20 +150,20 @@ namespace acme
   //! WARNING: This function only support collinear objects!
   bool
   Intersection(
-    line const & line0_in,               //!< Input line 0
-    line const & line1_in,               //!< Input line 1
-    line       & line_out  = DUMMY_LINE, //!< Output line
-    real         tolerance = EPSILON     //!< Tolerance
+    line const & line0_in,                //!< Input line 0
+    line const & line1_in,                //!< Input line 1
+    line       & line_out  = DUMMY_LINE,  //!< Output line
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between two rays \n
   //! WARNING: This function only support collinear objects!
   bool
   Intersection(
-    ray  const & ray0_in,               //!< Input ray 0
-    ray  const & ray1_in,               //!< Input ray 1
-    ray        & ray_out   = DUMMY_RAY, //!< Output ray
-    real         tolerance = EPSILON    //!< Tolerance
+    ray  const & ray0_in,                 //!< Input ray 0
+    ray  const & ray1_in,                 //!< Input ray 1
+    ray        & ray_out   = DUMMY_RAY,   //!< Output ray
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between two opposite rays \n
@@ -173,7 +173,7 @@ namespace acme
     ray     const & ray0_in,                     //!< Input ray 0
     ray     const & ray1_in,                     //!< Input ray 1
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection between two segments \n
@@ -183,17 +183,17 @@ namespace acme
     segment const & segment0_in,                 //!< Input segment 0
     segment const & segment1_in,                 //!< Input segment 1
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection between line and ray \n
   //! WARNING: This function only support collinear objects!
   bool
   Intersection(
-    line const & line_in,               //!< Input line
-    ray  const & ray_in,                //!< Input ray
-    ray        & ray_out   = DUMMY_RAY, //!< Output ray
-    real         tolerance = EPSILON    //!< Tolerance
+    line const & line_in,                 //!< Input line
+    ray  const & ray_in,                  //!< Input ray
+    ray        & ray_out   = DUMMY_RAY,   //!< Output ray
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between line and segment \n
@@ -203,7 +203,7 @@ namespace acme
     line    const & line_in,                     //!< Input line
     segment const & segment_in,                  //!< Input segment
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection between ray and segment \n
@@ -213,7 +213,7 @@ namespace acme
     ray     const & ray_in,                      //!< Input ray
     segment const & segment_in,                  //!< Input segment
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   /*\
@@ -232,7 +232,7 @@ namespace acme
     line  const & line0_in,                //!< Input line 0
     line  const & line1_in,                //!< Input line 1
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between two rays \n
@@ -242,7 +242,7 @@ namespace acme
     ray   const & ray0_in,                 //!< Input ray 0
     ray   const & ray1_in,                 //!< Input ray 1
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between two segments \n
@@ -252,7 +252,7 @@ namespace acme
     segment const & segment0_in,             //!< Input segment 0
     segment const & segment1_in,             //!< Input segment 1
     point         & point_out = DUMMY_POINT, //!< Output point
-    real            tolerance = EPSILON      //!< Tolerance
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection line with ray \n
@@ -262,7 +262,7 @@ namespace acme
     line  const & line_in,                 //!< Input line
     ray   const & ray_in,                  //!< Input ray
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection line with segment  \n
@@ -272,7 +272,7 @@ namespace acme
     line    const & line_in,                 //!< Input line
     segment const & segment,                 //!< Input segment
     point         & point_out = DUMMY_POINT, //!< Output point
-    real            tolerance = EPSILON      //!< Tolerance
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection ray with segment \n
@@ -282,7 +282,7 @@ namespace acme
     ray     const & ray_in,                  //!< Input ray
     segment const & segment,                 //!< Input segment
     point         & point_out = DUMMY_POINT, //!< Output point
-    real            tolerance = EPSILON      //!< Tolerance
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
   /*\
@@ -301,37 +301,37 @@ namespace acme
     plane const & plane0_in,               //!< Input plane 0
     plane const & plane1_in,               //!< Input plane 1
     plane       & plane_out = DUMMY_PLANE, //!< Output plane
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between triangles \n
   //! WARNING: This function not supported!
   bool
   Intersection(
-    triangle const & triangle0_in,           //!< Input triangle
-    triangle const & triangle1_in,           //!< Input triangle
-    none           & none_out  = DUMMY_NONE, //!< Output none
-    real             tolerance = EPSILON     //!< Tolerance
+    triangle const & triangle0_in,            //!< Input triangle
+    triangle const & triangle1_in,            //!< Input triangle
+    none           & none_out  = DUMMY_NONE,  //!< Output none
+    real             tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between disks \n
   //! WARNING: This function not supported!
   bool
   Intersection(
-    disk const & disk0_in,               //!< Input disk
-    disk const & disk1_in,               //!< Input disk
-    none       & none_out  = DUMMY_NONE, //!< Output none
-    real         tolerance = EPSILON     //!< Tolerance
+    disk const & disk0_in,                //!< Input disk
+    disk const & disk1_in,                //!< Input disk
+    none       & none_out  = DUMMY_NONE,  //!< Output none
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection line with plane \n
   //! WARNING: This function does only support coplanar objects!
   bool
   Intersection(
-    line  const & line_in,                //!< Input line
-    plane const & plane_in,               //!< Input plane
-    line        & line_out  = DUMMY_LINE, //!< Output line
-    real          tolerance = EPSILON     //!< Tolerance
+    line  const & line_in,                 //!< Input line
+    plane const & plane_in,                //!< Input plane
+    line        & line_out  = DUMMY_LINE,  //!< Output line
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection line with triangle \n
@@ -341,7 +341,7 @@ namespace acme
     line     const & line_in,                     //!< Input line
     triangle const & triangle_in,                 //!< Input triangle
     segment        & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real             tolerance   = EPSILON        //!< Tolerance
+    real             tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection line with disk \n
@@ -351,17 +351,17 @@ namespace acme
     line    const & line_in,                     //!< Input line
     disk    const & disk_in,                     //!< Input disk
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection ray with plane \n
   //! WARNING: This function does only support coplanar objects!
   bool
   Intersection(
-    ray   const & ray_in,                //!< Input ray
-    plane const & plane_in,              //!< Input plane
-    ray         & ray_out   = DUMMY_RAY, //!< Output ray
-    real          tolerance = EPSILON    //!< Tolerance
+    ray   const & ray_in,                  //!< Input ray
+    plane const & plane_in,                //!< Input plane
+    ray         & ray_out   = DUMMY_RAY,   //!< Output ray
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection ray with triangle \n
@@ -371,7 +371,7 @@ namespace acme
     ray      const & ray_in,                      //!< Input ray
     triangle const & triangle_in,                 //!< Input triangle
     segment        & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real             tolerance   = EPSILON        //!< Tolerance
+    real             tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection ray with disk \n
@@ -381,7 +381,7 @@ namespace acme
     ray     const & ray_in,                      //!< Input ray
     disk    const & disk_in,                     //!< Input disk
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection ray with plane \n
@@ -391,7 +391,7 @@ namespace acme
     plane   const & plane_in,                    //!< Input plane
     segment const & segment_in,                  //!< Input segment
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection plane with triangle \n
@@ -401,17 +401,17 @@ namespace acme
     plane    const & plane_in,                      //!< Input plane
     triangle const & triangle_in,                   //!< Input triangle
     triangle       & triangle_out = DUMMY_TRIANGLE, //!< Output triangle
-    real             tolerance    = EPSILON         //!< Tolerance
+    real             tolerance    = EPSILON_ACME    //!< Tolerance
   );
 
   //! Intersection plane with disk \n
   //! WARNING: This function does only support coplanar objects!
   bool
   Intersection(
-    plane const & plane_in,               //!< Input plane
-    disk  const & disk_in,                //!< Input disk
-    disk        & disk_out  = DUMMY_DISK, //!< Output disk
-    real          tolerance = EPSILON     //!< Tolerance
+    plane const & plane_in,                //!< Input plane
+    disk  const & disk_in,                 //!< Input disk
+    disk        & disk_out  = DUMMY_DISK,  //!< Output disk
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection segment with triangle \n
@@ -421,7 +421,7 @@ namespace acme
     segment  const & segment_in,                  //!< Input segment
     triangle const & triangle_in,                 //!< Input triangle
     segment        & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real             tolerance   = EPSILON        //!< Tolerance
+    real             tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection segment with disk \n
@@ -431,17 +431,17 @@ namespace acme
     segment const & segment_in,                  //!< Input segment
     disk    const & disk_in,                     //!< Input disk
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection triangle with disk \n
   //! WARNING: This function not supported!
   bool
   Intersection(
-    triangle const & triangle_in,            //!< Input triangle
-    disk     const & disk_in,                //!< Input disk
-    none           & none_out  = DUMMY_NONE, //!< Output none
-    real             tolerance = EPSILON     //!< Tolerance
+    triangle const & triangle_in,             //!< Input triangle
+    disk     const & disk_in,                 //!< Input disk
+    none           & none_out  = DUMMY_NONE,  //!< Output none
+    real             tolerance = EPSILON_ACME //!< Tolerance
   );
 
   /*\
@@ -457,10 +457,10 @@ namespace acme
   //! WARNING: This function does not support coplanarity!
   bool
   Intersection(
-    plane const & plane0_in,              //!< Input plane 0
-    plane const & plane1_in,              //!< Input plane 1
-    line        & line_out  = DUMMY_LINE, //!< Output line
-    real          tolerance = EPSILON     //!< Tolerance
+    plane const & plane0_in,               //!< Input plane 0
+    plane const & plane1_in,               //!< Input plane 1
+    line        & line_out  = DUMMY_LINE,  //!< Output line
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between three planes \n
@@ -471,7 +471,7 @@ namespace acme
     plane const & plane1_in,               //!< Input plane 1
     plane const & plane2_in,               //!< Input plane 1
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection between triangles \n
@@ -481,7 +481,7 @@ namespace acme
     triangle const & triangle0_in,                //!< Input triangle 0
     triangle const & triangle1_in,                //!< Input triangle 1
     segment        & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real             tolerance   = EPSILON        //!< Tolerance
+    real             tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection between disks \n
@@ -491,17 +491,17 @@ namespace acme
     disk    const & disk0_in,                    //!< Input disk 0
     disk    const & disk1_in,                    //!< Input disk 1
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection between balls \n
   //! WARNING: This function not supported!
   bool
   Intersection(
-    ball const & ball0_in,               //!< Input ball 0
-    ball const & ball1_in,               //!< Input ball 1
-    none       & none_out  = DUMMY_NONE, //!< Output none
-    real         tolerance = EPSILON     //!< Tolerance
+    ball const & ball0_in,                //!< Input ball 0
+    ball const & ball1_in,                //!< Input ball 1
+    none       & none_out  = DUMMY_NONE,  //!< Output none
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection line with plane \n
@@ -511,7 +511,7 @@ namespace acme
     line  const & line_in,                 //!< Input line
     plane const & plane_in,                //!< Input plane
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection line with triangle \n
@@ -521,7 +521,7 @@ namespace acme
     line     const & line_in,                 //!< Input line
     triangle const & triangle_in,             //!< Input triangle
     point          & point_out = DUMMY_POINT, //!< Output point
-    real             tolerance = EPSILON      //!< Tolerance
+    real             tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection line and disk \n
@@ -531,7 +531,7 @@ namespace acme
     line  const & line_in,                 //!< Input line
     disk  const & disk_in,                 //!< Input disk
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection line and ball \n
@@ -541,7 +541,7 @@ namespace acme
     line    const & line_in,                     //!< Input line
     ball    const & ball_in,                     //!< Input ball
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection ray with plane \n
@@ -551,7 +551,7 @@ namespace acme
     ray   const & ray_in,                  //!< Input ray
     plane const & plane_in,                //!< Input plane
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection ray with triangle \n
@@ -561,7 +561,7 @@ namespace acme
     ray      const & ray_in,                  //!< Input ray
     triangle const & triangle_in,             //!< Input triangle
     point          & point_out = DUMMY_POINT, //!< Output point
-    real             tolerance = EPSILON      //!< Tolerance
+    real             tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection ray with disk \n
@@ -571,7 +571,7 @@ namespace acme
     ray   const & ray_in,                  //!< Input ray
     disk  const & disk_in,                 //!< Input disk
     point       & point_out = DUMMY_POINT, //!< Output point
-    real          tolerance = EPSILON      //!< Tolerance
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection ray and ball \n
@@ -581,7 +581,7 @@ namespace acme
     ray     const & ray_in,                      //!< Input ray
     ball    const & ball_in,                     //!< Input ball
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection plane with segment \n
@@ -591,7 +591,7 @@ namespace acme
     plane   const & plane_in,                //!< Input plane
     segment const & segment,                 //!< Input segment
     point         & point_out = DUMMY_POINT, //!< Output point
-    real            tolerance = EPSILON      //!< Tolerance
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection plane with triangle \n
@@ -601,7 +601,7 @@ namespace acme
     plane    const & plane_in,                    //!< Input plane
     triangle const & triangle_in,                 //!< Input triangle
     segment        & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real             tolerance   = EPSILON        //!< Tolerance
+    real             tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection plane with disk \n
@@ -611,17 +611,17 @@ namespace acme
     plane   const & plane_in,                    //!< Input plane
     disk    const & disk_in,                     //!< Input disk
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection plane and ball \n
   //! WARNING: This function does not support coplanarity!
   bool
   Intersection(
-    plane const & plane_in,               //!< Input plane
-    ball  const & ball_in,                //!< Input ball
-    disk        & disk_out  = DUMMY_DISK, //!< Output disk
-    real          tolerance = EPSILON     //!< Tolerance
+    plane const & plane_in,                //!< Input plane
+    ball  const & ball_in,                 //!< Input ball
+    disk        & disk_out  = DUMMY_DISK,  //!< Output disk
+    real          tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection segment with triangle \n
@@ -631,7 +631,7 @@ namespace acme
     segment  const & segment_in,              //!< Input segment
     triangle const & triangle_in,             //!< Input triangle
     point          & point_out = DUMMY_POINT, //!< Output point
-    real             tolerance = EPSILON      //!< Tolerance
+    real             tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection segment with disk \n
@@ -641,7 +641,7 @@ namespace acme
     segment const & segment_in,              //!< Input segment
     disk    const & disk_in,                 //!< Input disk
     point         & point_out = DUMMY_POINT, //!< Output point
-    real            tolerance = EPSILON      //!< Tolerance
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection segment and ball \n
@@ -651,7 +651,7 @@ namespace acme
     segment const & segment_in,                  //!< Input segment
     ball    const & ball_in,                     //!< Input ball
     segment       & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real            tolerance   = EPSILON        //!< Tolerance
+    real            tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection triangle with disk \n
@@ -661,27 +661,27 @@ namespace acme
     triangle const & triangle_in,                 //!< Input triangle
     disk     const & disk_in,                     //!< Input disk
     segment        & segment_out = DUMMY_SEGMENT, //!< Output segment
-    real             tolerance   = EPSILON        //!< Tolerance
+    real             tolerance   = EPSILON_ACME   //!< Tolerance
   );
 
   //! Intersection triangle and ball \n
   //! WARNING: Function not supported!
   bool
   Intersection(
-    triangle const & triangle_in,            //!< Input triangle
-    ball     const & ball_in,                //!< Input ball
-    none           & none_out  = DUMMY_NONE, //!< Output none
-    real             tolerance = EPSILON     //!< Tolerance
+    triangle const & triangle_in,             //!< Input triangle
+    ball     const & ball_in,                 //!< Input ball
+    none           & none_out  = DUMMY_NONE,  //!< Output none
+    real             tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Intersection disk and ball \n
   //! WARNING: Function not supported!
   bool
   Intersection(
-    disk const & disk_in,                //!< Input disk
-    ball const & ball_in,                //!< Input ball
-    none       & none_out  = DUMMY_NONE, //!< Output none
-    real         tolerance = EPSILON     //!< Tolerance
+    disk const & disk_in,                 //!< Input disk
+    ball const & ball_in,                 //!< Input ball
+    none       & none_out  = DUMMY_NONE,  //!< Output none
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
   /*\
@@ -696,10 +696,10 @@ namespace acme
   //! Intersection between two axis aligned boxes
   bool
   Intersection(
-    aabb const & aabb0_in,               //!< Input aabb 0
-    aabb const & aabb1_in,               //!< Input aabb 1
-    aabb       & aabb_out  = DUMMY_AABB, //!< Output aabb
-    real         tolerance = EPSILON     //!< Tolerance
+    aabb const & aabb0_in,                //!< Input aabb 0
+    aabb const & aabb1_in,                //!< Input aabb 1
+    aabb       & aabb_out  = DUMMY_AABB,  //!< Output aabb
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
 } // namespace acme

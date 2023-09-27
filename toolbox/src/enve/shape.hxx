@@ -92,7 +92,7 @@ namespace enve
     bool
     isApprox(
       shape const & shape_obj,               //!< Input object
-      real          tolerance = EPSILON_LOW //!< Tolerance
+      real          tolerance = EPSILON_ENVE //!< Tolerance
     ) const;
 
     //! Get shape radius on x axis const reference (m)
@@ -169,15 +169,15 @@ namespace enve
     //! Get surface of revolution rib first derivative with respect to y coordinate
     real
     surfaceDerivative(
-      real y,                         //!< Coordinate of y axis
-      real tolerance = EPSILON_MEDIUM //!< Tolerance
+      real y,                       //!< Coordinate of y axis
+      real tolerance = EPSILON_ENVE //!< Tolerance
     ) const;
 
     //! Get surface of revolution rib angle with respect to y axis (rad)
     real
     surfaceAngle(
-      real y,                         //!< Coordinate of y axis
-      real tolerance = EPSILON_MEDIUM //!< Tolerance
+      real y,                       //!< Coordinate of y axis
+      real tolerance = EPSILON_ENVE //!< Tolerance
     ) const;
 
     //! Print shape data

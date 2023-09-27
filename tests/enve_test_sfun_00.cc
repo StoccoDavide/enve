@@ -46,7 +46,7 @@ main(void)
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
-      << "TEST 00 - ENVE SFUN TEST 0" << std::endl
+      << "TEST SFUN 00 - ENVE SFUN TEST 0" << std::endl
       << std::endl;
 
     // Set environment variable
@@ -164,7 +164,7 @@ main(void)
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST SFUN 00: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

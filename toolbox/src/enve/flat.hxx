@@ -105,8 +105,8 @@ namespace enve
       //! Check if objects are (almost) equal
       bool
       isApprox(
-        flat const & flat_obj,               //!< Input flat object
-        real         tolerance = EPSILON_LOW //!< Tolerance
+        flat const & flat_obj,                //!< Input flat object
+        real         tolerance = EPSILON_ENVE //!< Tolerance
       ) const;
 
       //! Get friction coefficent scaling factor const reference

@@ -103,7 +103,7 @@ main(void)
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 00: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

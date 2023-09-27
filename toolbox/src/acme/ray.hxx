@@ -96,8 +96,8 @@ namespace acme
     //! Check if ray objects are (almost) equal
     bool
     isApprox(
-      ray const & ray_in,             //!< Input ray object
-      real        tolerance = EPSILON //!< Tolerance
+      ray const & ray_in,                  //!< Input ray object
+      real        tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Return ray origin point const reference
@@ -151,14 +151,14 @@ namespace acme
     //! Check whether the point is inside the ray
     bool
     isInside(
-      point const & point_in,           //!< Query point
-      real          tolerance = EPSILON //!< Tolerance
+      point const & point_in,                //!< Query point
+      real          tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check if ray is degenerated (null vector)
     bool
     isDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const override;
 
     //! Return object hierarchical level

@@ -106,8 +106,8 @@ namespace acme
     //! Check if objects are (almost) equal
     bool
     isApprox(
-      triangle const & triangle_in,        //!< Input triangle object
-      real             tolerance = EPSILON //!< Tolerance
+      triangle const & triangle_in,             //!< Input triangle object
+      real             tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Get i-th triangle vertex const reference
@@ -196,14 +196,14 @@ namespace acme
     //! Check if a point lays inside the triangle
     bool
     isInside(
-      point const & point_in,           //!< Query point
-      real          tolerance = EPSILON //!< Tolerance
+      point const & point_in,                //!< Query point
+      real          tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check if triangle is degenerated to point or segment
     bool
     isDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const override;
 
     //! Return object hierarchical level

@@ -524,7 +524,7 @@ namespace enve
     size_t size     = this->size();
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
-    if (volume_sum < EPSILON_HIGH)
+    if (volume_sum < EPSILON_ENVE)
     {
       for (size_t i = 0; i < size; ++i)
         {point += this->m_out[i].point;}
@@ -576,7 +576,7 @@ namespace enve
     size_t size = this->size();
     real volume;
     this->contactVolume(volume);
-    if (volume < EPSILON_HIGH)
+    if (volume < EPSILON_ENVE)
     {
       for (size_t i = 0; i < size; ++i)
         {normal += this->m_out[i].normal;}
@@ -630,7 +630,7 @@ namespace enve
     size_t size     = this->size();
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
-    if (volume_sum < EPSILON_HIGH)
+    if (volume_sum < EPSILON_ENVE)
     {
       for (size_t i = 0; i < size; ++i)
         {friction += this->m_out[i].friction;}
@@ -682,7 +682,7 @@ namespace enve
     size_t size     = this->size();
     real volume_sum = 0.0;
     this->contactVolume(volume_sum);
-    if (volume_sum < EPSILON_HIGH)
+    if (volume_sum < EPSILON_ENVE)
     {
       depth = volume_sum / size;
     }

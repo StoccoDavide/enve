@@ -53,57 +53,57 @@ namespace acme
   //! Check if entitys are collinear
   bool
   IsCollinear(
-    entity const * entity0_in,         //!< Input entity 0
-    entity const * entity1_in,         //!< Input entity 1
-    real           tolerance = EPSILON //!< Tolerance
+    entity const * entity0_in,              //!< Input entity 0
+    entity const * entity1_in,              //!< Input entity 1
+    real           tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Check if lines are collinear
   bool
   IsCollinear(
-    line const & line0_in,           //!< Input line 0
-    line const & line1_in,           //!< Input line 1
-    real         tolerance = EPSILON //!< Tolerance
+    line const & line0_in,                //!< Input line 0
+    line const & line1_in,                //!< Input line 1
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Check if rays are collinear
   bool
   IsCollinear(
-    ray const & ray0_in,            //!< Input ray 0
-    ray const & ray1_in,            //!< Input ray 1
-    real        tolerance = EPSILON //!< Tolerance
+    ray const & ray0_in,                 //!< Input ray 0
+    ray const & ray1_in,                 //!< Input ray 1
+    real        tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Check if segments are collinear
   bool
   IsCollinear(
-    segment const & segment0_in,        //!< Input segment 0
-    segment const & segment1_in,        //!< Input segment 1
-    real            tolerance = EPSILON //!< Tolerance
+    segment const & segment0_in,             //!< Input segment 0
+    segment const & segment1_in,             //!< Input segment 1
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Check if line and ray are collinear
   bool
   IsCollinear(
-    line const & line_in,            //!< Input line
-    ray  const & ray_in,             //!< Input ray
-    real         tolerance = EPSILON //!< Tolerance
+    line const & line_in,                 //!< Input line
+    ray  const & ray_in,                  //!< Input ray
+    real         tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Check if line and segment are collinear
   bool
   IsCollinear(
-    line    const & line_in,            //!< Input line
-    segment const & segment_in,         //!< Input segment
-    real            tolerance = EPSILON //!< Tolerance
+    line    const & line_in,                 //!< Input line
+    segment const & segment_in,              //!< Input segment
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
   //! Check if ray and segment are collinear
   bool
   IsCollinear(
-    ray     const & ray_in,             //!< Input ray
-    segment const & segment_in,         //!< Input segment
-    real            tolerance = EPSILON //!< Tolerance
+    ray     const & ray_in,                  //!< Input ray
+    segment const & segment_in,              //!< Input segment
+    real            tolerance = EPSILON_ACME //!< Tolerance
   );
 
 } // namespace acme

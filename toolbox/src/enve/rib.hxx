@@ -96,7 +96,7 @@ namespace enve
     bool
     isApprox(
       rib  const & rib_obj,                 //!< Input object
-      real         tolerance = EPSILON_LOW //!< Tolerance
+      real         tolerance = EPSILON_ENVE //!< Tolerance
     ) const;
 
     //! Get ID reference (-)

@@ -95,8 +95,8 @@ namespace acme
     //! Check if objects are (almost) equal
     bool
     isApprox(
-      plane const & plane_in,           //!< Input plane object
-      real          tolerance = EPSILON //!< Tolerance
+      plane const & plane_in,                //!< Input plane object
+      real          tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Return plane origin point const reference
@@ -168,14 +168,14 @@ namespace acme
     //! Check whether a point lays on the plane
     bool
     isInside(
-      point const & point_in,           //!< Query point
-      real          tolerance = EPSILON //!< Tolerance
+      point const & point_in,                //!< Query point
+      real          tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check if plane is degenerated (normal has zero norm)
     bool
     isDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const override;
 
     //! Return object hierarchical level

@@ -99,7 +99,7 @@ namespace acme
     inline
     bool
     isDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const = 0;
 
     //! Return object hierarchical level

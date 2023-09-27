@@ -55,7 +55,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "[ " << obj(0) << ", " << obj(1) << ", " << obj(2) << " ]'" << std::endl;
+       << "[ " << obj(0) << ", " << obj(1) << ", " << obj(2) << " ]'";
     return os;
   }
 
@@ -70,7 +70,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "[ " << obj(0) << ", " << obj(1) << ", " << obj(2) << " ]'" << std::endl;
+       << "[ " << obj(0) << ", " << obj(1) << ", " << obj(2) << " ]'";
     return os;
   }
 
@@ -85,7 +85,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Line origin    = " << obj.origin()
+       << "Line origin    = " << obj.origin() << std::endl
        << "Line direction = " << obj.direction();
     return os;
   }
@@ -101,7 +101,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Ray origin    = " << obj.origin()
+       << "Ray origin    = " << obj.origin() << std::endl
        << "Ray direction = " << obj.direction();
     return os;
   }
@@ -117,7 +117,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Plane origin = " << obj.origin()
+       << "Plane origin = " << obj.origin() << std::endl
        << "Plane normal = " << obj.normal();
     return os;
   }
@@ -133,7 +133,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Segment vertex 0 = " << obj.vertex(0)
+       << "Segment vertex 0 = " << obj.vertex(0) << std::endl
        << "Segment vertex 1 = " << obj.vertex(1);
     return os;
   }
@@ -149,7 +149,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Aabb minimum point = " << obj.min()
+       << "Aabb minimum point = " << obj.min() << std::endl
        << "Aabb maximum point = " << obj.max();
     return os;
   }
@@ -165,8 +165,8 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Triangle vertex 0 = " << obj.vertex(0)
-       << "Triangle vertex 1 = " << obj.vertex(1)
+       << "Triangle vertex 0 = " << obj.vertex(0) << std::endl
+       << "Triangle vertex 1 = " << obj.vertex(1) << std::endl
        << "Triangle vertex 2 = " << obj.vertex(2);
     return os;
   }
@@ -182,8 +182,8 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Disk radius = " << obj.radius()
-       << "Disk center = " << obj.center()
+       << "Disk radius = " << obj.radius() << std::endl
+       << "Disk center = " << obj.center() << std::endl
        << "Disk normal = " << obj.normal();
     return os;
   }
@@ -199,7 +199,7 @@ namespace acme
     os << std::scientific
        << std::showpoint
        << std::setprecision(6)
-       << "Ball radius = " << obj.radius()
+       << "Ball radius = " << obj.radius() << std::endl
        << "Ball center = " << obj.center();
     return os;
   }
@@ -218,7 +218,7 @@ namespace acme
        << "Affine = [ " << obj(0,0) << ", " << obj(0,1) << ", " << obj(0,2) << ", " << obj(0,3) << " ]" << std::endl
        << "         [ " << obj(1,0) << ", " << obj(1,1) << ", " << obj(1,2) << ", " << obj(1,3) << " ]" << std::endl
        << "         [ " << obj(2,0) << ", " << obj(2,1) << ", " << obj(2,2) << ", " << obj(2,3) << " ]" << std::endl
-       << "         [ " << obj(3,0) << ", " << obj(3,1) << ", " << obj(3,2) << ", " << obj(3,3) << " ]" << std::endl;
+       << "         [ " << obj(3,0) << ", " << obj(3,1) << ", " << obj(3,2) << ", " << obj(3,3) << " ]";
     return os;
   }
 

@@ -58,9 +58,8 @@ using acme::integer;
 using acme::out_stream;
 
 using acme::QUIET_NAN;
-using acme::EPSILON_LOW;
-using acme::EPSILON_MEDIUM;
-using acme::EPSILON_HIGH;
+using acme::EPSILON_SQRT;
+using acme::EPSILON_CBRT;
 
 using acme::vec3;
 using acme::mat3;
@@ -81,10 +80,14 @@ using acme::NAN_TRIANGLE;
 using acme::NAN_DISK;
 using acme::NAN_AABB;
 
+using acme::IDENTITY_MAT4;
+
 using acme::IsApprox;
 
 // Static constants for convenience
-static affine const IDENTITY_AFFINE = affine(acme::IDENTITY_MAT4); //!< Identity affine constant object
+static real   const EPSILON_ENVE    = EPSILON_SQRT;          //!< Standard precision epsilon static constant value for enve
+static affine const IDENTITY_AFFINE = affine(IDENTITY_MAT4); //!< Identity affine constant object
+
 
 #include "enve/flat.hxx"
 #include "enve/mesh.hxx"

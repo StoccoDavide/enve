@@ -116,8 +116,8 @@ namespace acme
     //! Check if aabb objects are (almost) equal
     bool
     isApprox(
-      aabb const & aabb_in,            //!< Input
-      real         tolerance = EPSILON //!< Tolerance
+      aabb const & aabb_in,                 //!< Input
+      real         tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check aabb max and min points
@@ -252,14 +252,14 @@ namespace acme
     //! Check whether the point is inside the aabb
     bool
     isInside(
-      point const & point_in,           //!< Query point
-      real          tolerance = EPSILON //!< Tolerance
+      point const & point_in,                //!< Query point
+      real          tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check if aabb is degenerated
     bool
     isDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
   }; // class aabb

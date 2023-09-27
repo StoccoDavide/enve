@@ -116,8 +116,8 @@ namespace enve
     //! Check if objects are (almost) equal
     bool
     isApprox(
-      triangleground const & triangleground_obj,     //!< Input object
-      real                   tolerance = EPSILON_LOW //!< Tolerance
+      triangleground const & triangleground_obj,      //!< Input object
+      real                   tolerance = EPSILON_ENVE //!< Tolerance
     ) const;
 
     //! Get ID const reference (-)

@@ -46,7 +46,7 @@ main(void)
     // Print test main information
     std::cout
       << "---------------------------" << std::endl
-      << "TEST 04 - ENVE FLAT INTERSECTION" << std::endl
+      << "TEST 03 - ENVE FLAT INTERSECTION" << std::endl
       << std::endl;
 
 
@@ -113,7 +113,7 @@ main(void)
     // End of test
     std::cout
       << std::endl
-      << "That's all Folks!" << std::endl
+      << "TEST 03: Completed" << std::endl
       << "---------------------------" << std::endl;
 
     // Exit the program

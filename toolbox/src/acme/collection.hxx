@@ -356,32 +356,32 @@ namespace acme
     //! Check if one of the objects in the collection is degenerated
     bool
     containDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check whether the collection is composed only by degenerated entity objects
     bool
     areDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check whether in the collection the i-th element is a degenerated entity object
     bool
     isDegenerated(
-      integer i,                  //!< Input i-th value
-      real    tolerance = EPSILON //!< Tolerance
+      integer i,                       //!< Input i-th value
+      real    tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Remove all degenerated entity objects from collection
     void
     removeDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     );
 
     //! Count all degenerated entity objects in collection
     integer
     countDegenerated(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Check whether in the collection there are any clampable entity objects
@@ -442,7 +442,7 @@ namespace acme
     //! Count all entity types objects in collection
     std::map<std::string, integer>
     count(
-      real tolerance = EPSILON //!< Tolerance
+      real tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
     //! Get vector of shered pointer to collection objects aabbs
@@ -490,8 +490,8 @@ namespace acme
     //! Intersect all entities of the two collections
     void
     intersection(
-      collection & entities,           //!< Intersection candidates
-      real         tolerance = EPSILON //!< Tolerance
+      collection & entities,                //!< Intersection candidates
+      real         tolerance = EPSILON_ACME //!< Tolerance
     ) const;
 
   }; // class collection

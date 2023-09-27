@@ -249,7 +249,7 @@ namespace enve
     for (size_t i = 0; i < ground.size(); ++i)
     {
       // Perform rib/triangleground intersection
-      if (Intersection(*ground[i], rib_grd, segment_tmp))
+      if (Intersection(*ground[i], rib_grd, segment_tmp, EPSILON_ENVE)) // FIXME: tolerance should be scaled
       {
         // Find intersection points
         p_a = rotation_inv * (segment_tmp.vertex(0) - center_grd);
@@ -270,7 +270,7 @@ namespace enve
 
         // Check intersection
         segment_length_tmp = segment_tmp.length();
-        if (t_b - t_a < EPSILON_LOW && segment_length_tmp < EPSILON_LOW)
+        if (t_b - t_a < EPSILON_ENVE && segment_length_tmp < EPSILON_ENVE)
           {break;}
         else
           {int_bool = true;}
@@ -279,7 +279,7 @@ namespace enve
         r_a = std::min(radius, p_a.norm());
         r_b = std::min(radius, p_b.norm());
         r_c = std::min(radius, std::max(real(0.0),
-                real(2.0) * r_a * r_b / std::max(EPSILON_MEDIUM, r_a + r_b) * std::cos(t_d)
+                real(2.0) * r_a * r_b / std::max(EPSILON_ENVE, r_a + r_b) * std::cos(t_d)
               ));
 
         // Find area
@@ -305,7 +305,7 @@ namespace enve
     }
 
     // Store output
-    if (int_bool && (segment_area_tot > EPSILON_MEDIUM || segment_volume_tot > EPSILON_MEDIUM))
+    if (int_bool && (segment_area_tot > EPSILON_ENVE || segment_volume_tot > EPSILON_ENVE))
     {
       out.point    = contact_point_tot    / segment_volume_tot;
       out.normal   = (contact_normal_tot  / segment_volume_tot).normalized();
@@ -348,10 +348,10 @@ namespace enve
     vec3 normal_tmp;
     segment segment_tmp;
     disk rib_grd(radius, center_grd, normal_grd);
-    bool int_bool = Intersection(ground, rib_grd, segment_tmp, EPSILON_HIGH);
+    bool int_bool = Intersection(ground, rib_grd, segment_tmp, EPSILON_ENVE);
 
     // Compute remaining contact parameters
-    if (int_bool && segment_tmp.length() > EPSILON_LOW)
+    if (int_bool && segment_tmp.length() > EPSILON_ENVE)
     {
       out.point    = segment_tmp.centroid();
       normal_tmp   = (normal_grd.cross(center_grd - out.point)).normalized();
@@ -533,7 +533,7 @@ namespace enve
     bool int_bool = false;
     for (size_t i = 0; i < ground_size; ++i)
     {
-      if (Intersection(sampling_line, *ground[i], point_tmp, EPSILON_HIGH)) // FIXME! line to instatiated once
+      if (Intersection(sampling_line, *ground[i], point_tmp, EPSILON_ENVE))
       {
         point_vec.push_back(point_tmp);
         friction_vec.push_back(ground[i]->friction());
@@ -591,7 +591,7 @@ namespace enve
   )
     const
   {
-    if (Intersection(sampling_line, ground, contact_point, EPSILON_HIGH))
+    if (Intersection(sampling_line, ground, contact_point, EPSILON_ENVE))
     {
       contact_friction = ground.friction();
       return true;

@@ -106,10 +106,9 @@ namespace acme
   \*/
 
   static real const EPSILON_MACHINE = std::numeric_limits<real>::epsilon();      //!< Machine epsilon epsilon static constant value
-  static real const EPSILON_HIGH    = real(1.0e-16);                             //!< High precision epsilon static constant value
-  static real const EPSILON_MEDIUM  = real(1.0e-10);                             //!< Medium precision epsilon static constant value
-  static real const EPSILON_LOW     = real(1.0e-07);                             //!< Low precision epsilon static constant value
-  static real const EPSILON         = EPSILON_MEDIUM;                            //!< Standard precision epsilon static constant value
+  static real const EPSILON_SQRT    = std::sqrt(EPSILON_MACHINE);                //!< High precision epsilon static constant value
+  static real const EPSILON_CBRT    = std::cbrt(EPSILON_MACHINE);                //!< Medium precision epsilon static constant value
+  static real const EPSILON_ACME    = EPSILON_SQRT;                              //!< Standard precision epsilon static constant value for acme
   static real const INFTY           = std::numeric_limits<real>::infinity();     //!< Infinity static constant value
   static real const QUIET_NAN       = std::numeric_limits<real>::quiet_NaN();    //!< Not-a-Number static constant value
   static real const PI              = real(3.141592653589793238462643383279500); //!< Pi static constant value
