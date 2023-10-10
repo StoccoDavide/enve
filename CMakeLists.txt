@@ -247,6 +247,7 @@ if( UTILS_ENABLE_TESTS )
   set(
     # List of tests to be executed
     EXELISTCPP
+    enve_rtf_00
     enve_test_00
     enve_test_01
     enve_test_02
