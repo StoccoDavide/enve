@@ -69,7 +69,7 @@ extern "C"
     std::cout << "ENVE_GROUND_PATH: " << mesh_path << std::endl;
 
     // TODO: add affine transformation
-    affine pose;
+    affine pose(IDENTITY_AFFINE);
 
     // Build mesh
     std::string extension = mesh_path.substr(mesh_path.size() - 4, 4);
