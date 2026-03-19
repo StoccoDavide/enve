@@ -318,6 +318,14 @@ namespace enve
       std::string  const   method  //!< Method name (choose from: "geometric" or "sampling")
     );
 
+    //! Sample the mesh surface along a line and find the closest point to the ground mesh
+    bool
+    sample(
+      ground::mesh const & ground, //!< Flat ground object
+      point        const & line,   //!< Line along which sample the shell surface
+      point              & point   //!< Sampled point on the shell surface
+    );
+
     /*\
      |                   _             _
      |    ___ ___  _ __ | |_ __ _  ___| |_

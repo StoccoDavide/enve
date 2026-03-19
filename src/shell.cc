@@ -503,6 +503,96 @@ namespace enve
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  bool
+  shell::sample(
+    ground::mesh const & ground,
+    point        const & line_center,
+    point              & contact_point
+  )
+  {
+    #define CMD "enve::shell::setup(...): "
+
+    // Set the new reference frame
+    this->m_bbox->max(0) = contact_point.x() + 0.005;
+    this->m_bbox->max(1) = contact_point.y() + 0.005;
+    this->m_bbox->max(2) = contact_point.z() + 1000.0;
+    this->m_bbox->min(0) = contact_point.x() - 0.005;
+    this->m_bbox->min(1) = contact_point.y() - 0.005;
+    this->m_bbox->min(2) = contact_point.z() - 1000.0;
+
+    // Local intersected triangles vector
+    triangleground::vecptr local_ground;
+    local_ground.reserve(200);
+    ground.intersection(this->m_bbox, local_ground);
+
+    // End setup if there are no intersections
+    if (local_ground.size() < size_t(1))
+    {
+      return false;
+    }
+    else
+    {
+      size_t             local_ground_size = local_ground.size();
+      point              point_tmp;
+      std::vector<point> point_vec;
+      // std::vector<real>  friction_vec;
+      point_vec.reserve(local_ground_size);
+      // friction_vec.reserve(local_ground_size);
+      line line_tmp(line_center, vec3(0.0, 0.0, -1.0));
+      bool int_bool = false;
+      for (size_t i = 0; i < local_ground_size; ++i)
+      {
+        if (Intersection(line_tmp, *local_ground[i], point_tmp, EPSILON_ENVE))
+        {
+          point_vec.push_back(point_tmp);
+          // friction_vec.push_back(local_ground[i]->friction());
+          int_bool = true;
+        }
+      }
+      // Select the highest intersection point
+      if (point_vec.size() == 1 && int_bool)
+      {
+        contact_point    = point_vec[0];
+        // contact_friction = friction_vec[0];
+        return true;
+      }
+      else if (point_vec.size() > 1 && int_bool)
+      {
+        contact_point    = point_vec[0];
+        // contact_friction = friction_vec[0];
+        for (size_t j = 1; j < point_vec.size(); ++j)
+        {
+          if (point_vec[j].z() > contact_point.z())
+          {
+            contact_point    = point_vec[j];
+            // contact_friction = friction_vec[j];
+          }
+        }
+        return true;
+      }
+      else if (local_ground_size > 0 && !int_bool)
+      {
+        // Flying over the mesh
+        return false;
+      }
+      else if (local_ground_size == 0)
+      {
+        // Out of mesh
+        return false;
+      }
+      else
+      {
+        ENVE_ERROR(CMD "condition not handled.");
+        //return false;
+      }
+    }
+
+
+    #undef CMD
+  }
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   /*\
    |                   _             _
    |    ___ ___  _ __ | |_ __ _  ___| |_
