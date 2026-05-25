@@ -513,12 +513,16 @@ namespace enve
     #define CMD "enve::shell::setup(...): "
 
     // Set the new reference frame
-    this->m_bbox->max(0) = contact_point.x() + 0.005;
-    this->m_bbox->max(1) = contact_point.y() + 0.005;
-    this->m_bbox->max(2) = contact_point.z() + 1000.0;
-    this->m_bbox->min(0) = contact_point.x() - 0.005;
-    this->m_bbox->min(1) = contact_point.y() - 0.005;
-    this->m_bbox->min(2) = contact_point.z() - 1000.0;
+    std::cout << "Line center: " << line_center.transpose() << std::endl;
+    this->m_bbox->max(0) = line_center.x() + 0.5;
+    this->m_bbox->max(1) = line_center.y() + 0.5;
+    this->m_bbox->max(2) = line_center.z() + 10000.0;
+    this->m_bbox->min(0) = line_center.x() - 0.5;
+    this->m_bbox->min(1) = line_center.y() - 0.5;
+    this->m_bbox->min(2) = line_center.z() - 10000.0;
+    this->m_bbox->updateMaxMin();
+    std::cout << "BBox min: " << this->m_bbox->min().transpose() << std::endl;
+    std::cout << "BBox max: " << this->m_bbox->max().transpose() << std::endl;
 
     // Local intersected triangles vector
     triangleground::vecptr local_ground;
@@ -536,14 +540,17 @@ namespace enve
       point              point_tmp;
       std::vector<point> point_vec;
       // std::vector<real>  friction_vec;
+      std::cout << "Local ground size: " << local_ground.size() << std::endl;
       point_vec.reserve(local_ground_size);
       // friction_vec.reserve(local_ground_size);
       line line_tmp(line_center, vec3(0.0, 0.0, -1.0));
       bool int_bool = false;
       for (size_t i = 0; i < local_ground_size; ++i)
       {
-        if (Intersection(line_tmp, *local_ground[i], point_tmp, EPSILON_ENVE))
+        if (Intersection(line_tmp, *local_ground[i], point_tmp, 10e-6))
         {
+      std::cout << "Local ground size: " << point_tmp.transpose() << std::endl;
+
           point_vec.push_back(point_tmp);
           // friction_vec.push_back(local_ground[i]->friction());
           int_bool = true;
