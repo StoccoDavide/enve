@@ -390,7 +390,7 @@ bool shell::sample(ground::mesh const &ground, point const &line_center,
       return true;
     } else if (point_vec.size() > 1 && int_bool) {
       contact_point = point_vec[0];
-      Real dist_tmp = (line_center - contact_point).norm();
+      real dist_tmp = (line_center - contact_point).norm();
       // contact_friction = friction_vec[0];
       for (size_t j = 1; j < point_vec.size(); ++j) {
         if ((line_center - point_vec[j]).norm() < dist_tmp) {
